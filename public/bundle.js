@@ -1053,7 +1053,7 @@
             var dispatcher = resolveDispatcher();
             return dispatcher.useReducer(reducer, initialArg, init);
           }
-          function useRef6(initialValue) {
+          function useRef5(initialValue) {
             var dispatcher = resolveDispatcher();
             return dispatcher.useRef(initialValue);
           }
@@ -1844,7 +1844,7 @@
           exports.useLayoutEffect = useLayoutEffect3;
           exports.useMemo = useMemo4;
           exports.useReducer = useReducer2;
-          exports.useRef = useRef6;
+          exports.useRef = useRef5;
           exports.useState = useState5;
           exports.useSyncExternalStore = useSyncExternalStore;
           exports.useTransition = useTransition;
@@ -37154,7 +37154,7 @@
   var import_react5 = __toESM(require_react(), 1);
   var import_client = __toESM(require_client(), 1);
 
-  // client/ThreeFiberExample.jsx
+  // client/VirtualTour.jsx
   var import_react4 = __toESM(require_react(), 1);
 
   // node_modules/three/build/three.module.js
@@ -68436,39 +68436,75 @@
     }, fallback));
   });
 
-  // client/components/Box.jsx
+  // client/components/PanoImage.jsx
   var import_react3 = __toESM(require_react(), 1);
-  function Box(props) {
-    const ref = (0, import_react3.useRef)();
-    const [hovered, hover] = (0, import_react3.useState)(false);
-    const [clicked, click] = (0, import_react3.useState)(false);
-    useFrame((state, delta) => ref.current.rotation.x += 0.01);
+  function PanoImage(props) {
+    const [interact, setInteract] = (0, import_react3.useState)({
+      isUserInteracting: false,
+      onPointerDownMouseX: 0,
+      onPointerDownMouseY: 0,
+      onPointerDownLon: 0,
+      onPointerDownLat: 0,
+      lon: 0,
+      lat: 0
+    });
+    const onPointerDown = (event) => {
+      if (event.isPrimary === false)
+        return;
+      setInteract(__spreadProps(__spreadValues({}, interact), {
+        isUserInteracting: true,
+        onPointerDownMouseX: event.clientX,
+        onPointerDownMouseY: event.clientY,
+        onPointerDownLon: interact.lon,
+        onPointerDownLat: interact.lat
+      }));
+    };
+    const onPointerMove = (event) => {
+      if (event.isPrimary === false)
+        return;
+      setInteract(__spreadProps(__spreadValues({}, interact), {
+        lon: (interact.onPointerDownMouseX - event.clientX) * 0.1 + interact.onPointerDownLon,
+        lat: (event.clientY - interact.onPointerDownMouseY) * 0.1 + interact.onPointerDownLat
+      }));
+    };
+    const onPointerUp = (event) => {
+      if (event.isPrimary === false)
+        return;
+      setInteract(__spreadProps(__spreadValues({}, interact), {
+        isUserInteracting: false
+      }));
+    };
+    const panoImageTexture = useLoader(TextureLoader, "media/panoImg/IMG_20220401_091556_00_merged.jpg");
+    useFrame((state, delta) => {
+      const clampedLat = Math.max(-85, Math.min(85, interact.lat));
+      const phi = MathUtils.degToRad(90 - clampedLat);
+      const theta = MathUtils.degToRad(interact.lon);
+      const x = 500 * Math.sin(phi) * Math.cos(theta);
+      const y = 500 * Math.cos(phi);
+      const z = 500 * Math.sin(phi) * Math.sin(theta);
+      state.camera.lookAt(x, y, z);
+    });
     return /* @__PURE__ */ import_react3.default.createElement("mesh", __spreadProps(__spreadValues({}, props), {
-      ref,
-      scale: clicked ? 1.5 : 1,
-      onClick: (event) => click(!clicked),
-      onPointerOver: (event) => hover(true),
-      onPointerOut: (event) => hover(false)
-    }), /* @__PURE__ */ import_react3.default.createElement("boxGeometry", {
-      args: [1, 1, 1]
+      scale: [-1, 1, 1],
+      onPointerMove: interact.isUserInteracting ? onPointerMove : null,
+      onPointerDown,
+      onPointerUp: interact.isUserInteracting ? onPointerUp : null
+    }), /* @__PURE__ */ import_react3.default.createElement("sphereGeometry", {
+      args: [500, 60, 40]
     }), /* @__PURE__ */ import_react3.default.createElement("meshStandardMaterial", {
-      color: hovered ? "hotpink" : "orange"
+      map: panoImageTexture
     }));
   }
 
-  // client/ThreeFiberExample.jsx
-  function ThreeFiberExample(props) {
-    return /* @__PURE__ */ import_react4.default.createElement(import_react4.default.StrictMode, null, /* @__PURE__ */ import_react4.default.createElement(Canvas, null, /* @__PURE__ */ import_react4.default.createElement("ambientLight", null), /* @__PURE__ */ import_react4.default.createElement("pointLight", {
-      position: [10, 10, 10]
-    }), /* @__PURE__ */ import_react4.default.createElement(Box, {
-      position: [-1.2, 0, 0]
-    }), /* @__PURE__ */ import_react4.default.createElement(Box, {
-      position: [1.2, 0, 0]
-    })));
+  // client/VirtualTour.jsx
+  function VirtualTour(props) {
+    return /* @__PURE__ */ import_react4.default.createElement(import_react4.default.StrictMode, null, /* @__PURE__ */ import_react4.default.createElement(Canvas, null, /* @__PURE__ */ import_react4.default.createElement(import_react4.Suspense, {
+      fallback: null
+    }, /* @__PURE__ */ import_react4.default.createElement(PanoImage, null))));
   }
 
   // client/app.jsx
-  (0, import_client.createRoot)(document.getElementById("root")).render(/* @__PURE__ */ import_react5.default.createElement(ThreeFiberExample, null));
+  (0, import_client.createRoot)(document.getElementById("root")).render(/* @__PURE__ */ import_react5.default.createElement(VirtualTour, null));
 })();
 /**
  * @license
