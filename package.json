@@ -1,0 +1,30 @@
+{
+  "name": "virtual-tour-simple",
+  "version": "0.1.0",
+  "description": "A simple test of showing 360 images for a virtual tour.",
+  "main": "public/index.html",
+  "scripts": {
+    "server": "node server/main.js",
+    "devServer": "nodemon --watch server server/main.js",
+    "client": "esbuild --bundle --minify --target=es6 --outfile=public/bundle.js client/app.jsx",
+    "devClient": "esbuild --bundle --watch --sourcemap --target=es6 --outfile=public/bundle.js client/app.jsx",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Seth Berrier",
+  "license": "MIT",
+  "devDependencies": {
+    "esbuild": "^0.14.36",
+    "eslint": "^8.13.0",
+    "eslint-config-standard": "^17.0.0-1",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-react": "^7.29.4",
+    "eslint-plugin-react-hooks": "^4.4.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}
