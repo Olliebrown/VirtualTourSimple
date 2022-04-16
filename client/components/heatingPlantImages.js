@@ -1,7 +1,7 @@
 const PATH = 'media/panoImg'
 
 export default {
-  image01: `${PATH}/IMG_20220401_091556_00_merged.jpg`,
+  image01: { filename: `${PATH}/IMG_20220401_091556_00_merged.jpg`, zRotate: -3.5, yRotate: 5.5 }
   // image02: `${PATH}/IMG_20220401_091619_00_merged.jpg`,
   // image03: `${PATH}/IMG_20220401_091928_00_merged.jpg`,
   // image04: `${PATH}/IMG_20220401_092009_00_merged.jpg`,

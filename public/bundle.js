@@ -1045,7 +1045,7 @@
             }
             return dispatcher.useContext(Context);
           }
-          function useState5(initialState) {
+          function useState6(initialState) {
             var dispatcher = resolveDispatcher();
             return dispatcher.useState(initialState);
           }
@@ -1053,11 +1053,11 @@
             var dispatcher = resolveDispatcher();
             return dispatcher.useReducer(reducer, initialArg, init);
           }
-          function useRef5(initialValue) {
+          function useRef6(initialValue) {
             var dispatcher = resolveDispatcher();
             return dispatcher.useRef(initialValue);
           }
-          function useEffect8(create2, deps) {
+          function useEffect9(create2, deps) {
             var dispatcher = resolveDispatcher();
             return dispatcher.useEffect(create2, deps);
           }
@@ -1069,7 +1069,7 @@
             var dispatcher = resolveDispatcher();
             return dispatcher.useLayoutEffect(create2, deps);
           }
-          function useCallback2(callback, deps) {
+          function useCallback3(callback, deps) {
             var dispatcher = resolveDispatcher();
             return dispatcher.useCallback(callback, deps);
           }
@@ -1833,19 +1833,19 @@
           exports.memo = memo;
           exports.startTransition = startTransition;
           exports.unstable_act = act2;
-          exports.useCallback = useCallback2;
+          exports.useCallback = useCallback3;
           exports.useContext = useContext2;
           exports.useDebugValue = useDebugValue2;
           exports.useDeferredValue = useDeferredValue;
-          exports.useEffect = useEffect8;
+          exports.useEffect = useEffect9;
           exports.useId = useId;
           exports.useImperativeHandle = useImperativeHandle;
           exports.useInsertionEffect = useInsertionEffect;
           exports.useLayoutEffect = useLayoutEffect4;
           exports.useMemo = useMemo6;
           exports.useReducer = useReducer2;
-          exports.useRef = useRef5;
-          exports.useState = useState5;
+          exports.useRef = useRef6;
+          exports.useState = useState6;
           exports.useSyncExternalStore = useSyncExternalStore;
           exports.useTransition = useTransition;
           exports.version = ReactVersion;
@@ -2083,7 +2083,7 @@
               return false;
             }
           }
-          function unstable_runWithPriority(priorityLevel, eventHandler) {
+          function unstable_runWithPriority(priorityLevel, eventHandler2) {
             switch (priorityLevel) {
               case ImmediatePriority:
               case UserBlockingPriority:
@@ -2097,12 +2097,12 @@
             var previousPriorityLevel = currentPriorityLevel;
             currentPriorityLevel = priorityLevel;
             try {
-              return eventHandler();
+              return eventHandler2();
             } finally {
               currentPriorityLevel = previousPriorityLevel;
             }
           }
-          function unstable_next(eventHandler) {
+          function unstable_next(eventHandler2) {
             var priorityLevel;
             switch (currentPriorityLevel) {
               case ImmediatePriority:
@@ -2117,7 +2117,7 @@
             var previousPriorityLevel = currentPriorityLevel;
             currentPriorityLevel = priorityLevel;
             try {
-              return eventHandler();
+              return eventHandler2();
             } finally {
               currentPriorityLevel = previousPriorityLevel;
             }
@@ -13526,8 +13526,8 @@
               lastRenderedState: initialState
             };
             hook.queue = queue;
-            var dispatch = queue.dispatch = dispatchReducerAction.bind(null, currentlyRenderingFiber$1, queue);
-            return [hook.memoizedState, dispatch];
+            var dispatch2 = queue.dispatch = dispatchReducerAction.bind(null, currentlyRenderingFiber$1, queue);
+            return [hook.memoizedState, dispatch2];
           }
           function updateReducer(reducer, initialArg, init) {
             var hook = updateWorkInProgressHook();
@@ -13624,8 +13624,8 @@
             } else if (baseQueue === null) {
               queue.lanes = NoLanes;
             }
-            var dispatch = queue.dispatch;
-            return [hook.memoizedState, dispatch];
+            var dispatch2 = queue.dispatch;
+            return [hook.memoizedState, dispatch2];
           }
           function rerenderReducer(reducer, initialArg, init) {
             var hook = updateWorkInProgressHook();
@@ -13634,7 +13634,7 @@
               throw new Error("Should have a queue. This is likely a bug in React. Please file an issue.");
             }
             queue.lastRenderedReducer = reducer;
-            var dispatch = queue.dispatch;
+            var dispatch2 = queue.dispatch;
             var lastRenderPhaseUpdate = queue.pending;
             var newState = hook.memoizedState;
             if (lastRenderPhaseUpdate !== null) {
@@ -13655,7 +13655,7 @@
               }
               queue.lastRenderedState = newState;
             }
-            return [newState, dispatch];
+            return [newState, dispatch2];
           }
           function mountMutableSource(source, getSnapshot, subscribe) {
             {
@@ -13812,8 +13812,8 @@
               lastRenderedState: initialState
             };
             hook.queue = queue;
-            var dispatch = queue.dispatch = dispatchSetState.bind(null, currentlyRenderingFiber$1, queue);
-            return [hook.memoizedState, dispatch];
+            var dispatch2 = queue.dispatch = dispatchSetState.bind(null, currentlyRenderingFiber$1, queue);
+            return [hook.memoizedState, dispatch2];
           }
           function updateState(initialState) {
             return updateReducer(basicStateReducer);
@@ -27791,8 +27791,8 @@
               lastRenderedState: initialState
             };
             hook.queue = queue;
-            var dispatch = queue.dispatch = dispatchReducerAction.bind(null, currentlyRenderingFiber$1, queue);
-            return [hook.memoizedState, dispatch];
+            var dispatch2 = queue.dispatch = dispatchReducerAction.bind(null, currentlyRenderingFiber$1, queue);
+            return [hook.memoizedState, dispatch2];
           }
           function updateReducer(reducer, initialArg, init) {
             var hook = updateWorkInProgressHook();
@@ -27889,8 +27889,8 @@
             } else if (baseQueue === null) {
               queue.lanes = NoLanes;
             }
-            var dispatch = queue.dispatch;
-            return [hook.memoizedState, dispatch];
+            var dispatch2 = queue.dispatch;
+            return [hook.memoizedState, dispatch2];
           }
           function rerenderReducer(reducer, initialArg, init) {
             var hook = updateWorkInProgressHook();
@@ -27899,7 +27899,7 @@
               throw new Error("Should have a queue. This is likely a bug in React. Please file an issue.");
             }
             queue.lastRenderedReducer = reducer;
-            var dispatch = queue.dispatch;
+            var dispatch2 = queue.dispatch;
             var lastRenderPhaseUpdate = queue.pending;
             var newState = hook.memoizedState;
             if (lastRenderPhaseUpdate !== null) {
@@ -27920,7 +27920,7 @@
               }
               queue.lastRenderedState = newState;
             }
-            return [newState, dispatch];
+            return [newState, dispatch2];
           }
           function mountMutableSource(source, getSnapshot, subscribe) {
             {
@@ -28077,8 +28077,8 @@
               lastRenderedState: initialState
             };
             hook.queue = queue;
-            var dispatch = queue.dispatch = dispatchSetState.bind(null, currentlyRenderingFiber$1, queue);
-            return [hook.memoizedState, dispatch];
+            var dispatch2 = queue.dispatch = dispatchSetState.bind(null, currentlyRenderingFiber$1, queue);
+            return [hook.memoizedState, dispatch2];
           }
           function updateState(initialState) {
             return updateReducer(basicStateReducer);
@@ -37905,11 +37905,11 @@
   });
 
   // client/app.jsx
-  var import_react8 = __toESM(require_react(), 1);
+  var import_react9 = __toESM(require_react(), 1);
   var import_client = __toESM(require_client(), 1);
 
   // client/VirtualTour.jsx
-  var import_react7 = __toESM(require_react(), 1);
+  var import_react8 = __toESM(require_react(), 1);
 
   // node_modules/three/build/three.module.js
   var three_module_exports = {};
@@ -49647,19 +49647,19 @@
       }
       return cache.get(material);
     }
-    _getShaderStage(code) {
+    _getShaderStage(code3) {
       const cache = this.shaderCache;
-      if (cache.has(code) === false) {
-        const stage = new WebGLShaderStage(code);
-        cache.set(code, stage);
+      if (cache.has(code3) === false) {
+        const stage = new WebGLShaderStage(code3);
+        cache.set(code3, stage);
       }
-      return cache.get(code);
+      return cache.get(code3);
     }
   };
   var WebGLShaderStage = class {
-    constructor(code) {
+    constructor(code3) {
       this.id = _id++;
-      this.code = code;
+      this.code = code3;
       this.usedTimes = 0;
     }
   };
@@ -63211,8 +63211,8 @@
     getFilter() {
       return this.getFilters()[0];
     }
-    setFilter(filter) {
-      return this.setFilters(filter ? [filter] : []);
+    setFilter(filter2) {
+      return this.setFilters(filter2 ? [filter2] : []);
     }
     setPlaybackRate(value) {
       if (this.hasPlaybackControl === false) {
@@ -67714,11 +67714,11 @@
         return (_r3f = obj.__r3f) == null ? void 0 : _r3f.handlers["onPointer" + name];
       }));
     }
-    function intersect(event, filter) {
+    function intersect(event, filter2) {
       const state = store.getState();
       const duplicates = /* @__PURE__ */ new Set();
       const intersections = [];
-      const eventsObjects = filter ? filter(state.internal.interaction) : state.internal.interaction;
+      const eventsObjects = filter2 ? filter2(state.internal.interaction) : state.internal.interaction;
       eventsObjects.forEach((obj) => {
         const state2 = getRootState(obj);
         if (state2) {
@@ -67894,8 +67894,8 @@
         internal.lastEvent.current = event;
         const isPointerMove = name === "onPointerMove";
         const isClickEvent = name === "onClick" || name === "onContextMenu" || name === "onDoubleClick";
-        const filter = isPointerMove ? filterPointerEvents : void 0;
-        const hits = intersect(event, filter);
+        const filter2 = isPointerMove ? filterPointerEvents : void 0;
+        const hits = intersect(event, filter2);
         const delta = isClickEvent ? calculateDistance(event) : 0;
         if (name === "onPointerDown") {
           internal.initialClick = [event.offsetX, event.offsetY];
@@ -72040,11 +72040,11 @@ ${postChunks.join("\n")}
 ${fragmentMainOutro}`;
     }
     if (timeUniform) {
-      const code = `
+      const code3 = `
 uniform float ${timeUniform};
 `;
-      vertexDefs = code + vertexDefs;
-      fragmentDefs = code + fragmentDefs;
+      vertexDefs = code3 + vertexDefs;
+      fragmentDefs = code3 + fragmentDefs;
     }
     if (vertexTransform) {
       vertexShader = `vec3 troika_position_${key};
@@ -74032,8 +74032,8 @@ void main() {
       let prevForm = ISOL;
       let prevIndex = -1;
       for (let i2 = 0; i2 < str.length; i2++) {
-        const code = str.codePointAt(i2);
-        let joiningType = getCharJoiningType(code) | 0;
+        const code3 = str.codePointAt(i2);
+        let joiningType = getCharJoiningType(code3) | 0;
         let form = ISOL;
         if (joiningType & JT_TRANSPARENT) {
           continue;
@@ -74057,7 +74057,7 @@ void main() {
         prevForm = joiningForms[i2] = form;
         prevJoiningType = joiningType;
         prevIndex = i2;
-        if (code > 65535)
+        if (code3 > 65535)
           i2++;
       }
       return joiningForms;
@@ -75360,8 +75360,494 @@ if (edgeAlpha == 0.0) {
     }, restProps));
   });
 
+  // node_modules/hotkeys-js/dist/hotkeys.esm.js
+  var isff = typeof navigator !== "undefined" ? navigator.userAgent.toLowerCase().indexOf("firefox") > 0 : false;
+  function addEvent(object, event, method) {
+    if (object.addEventListener) {
+      object.addEventListener(event, method, false);
+    } else if (object.attachEvent) {
+      object.attachEvent("on".concat(event), function() {
+        method(window.event);
+      });
+    }
+  }
+  function getMods(modifier, key) {
+    var mods = key.slice(0, key.length - 1);
+    for (var i2 = 0; i2 < mods.length; i2++) {
+      mods[i2] = modifier[mods[i2].toLowerCase()];
+    }
+    return mods;
+  }
+  function getKeys(key) {
+    if (typeof key !== "string")
+      key = "";
+    key = key.replace(/\s/g, "");
+    var keys2 = key.split(",");
+    var index = keys2.lastIndexOf("");
+    for (; index >= 0; ) {
+      keys2[index - 1] += ",";
+      keys2.splice(index, 1);
+      index = keys2.lastIndexOf("");
+    }
+    return keys2;
+  }
+  function compareArray(a1, a2) {
+    var arr1 = a1.length >= a2.length ? a1 : a2;
+    var arr2 = a1.length >= a2.length ? a2 : a1;
+    var isIndex = true;
+    for (var i2 = 0; i2 < arr1.length; i2++) {
+      if (arr2.indexOf(arr1[i2]) === -1)
+        isIndex = false;
+    }
+    return isIndex;
+  }
+  var _keyMap = {
+    backspace: 8,
+    tab: 9,
+    clear: 12,
+    enter: 13,
+    return: 13,
+    esc: 27,
+    escape: 27,
+    space: 32,
+    left: 37,
+    up: 38,
+    right: 39,
+    down: 40,
+    del: 46,
+    delete: 46,
+    ins: 45,
+    insert: 45,
+    home: 36,
+    end: 35,
+    pageup: 33,
+    pagedown: 34,
+    capslock: 20,
+    num_0: 96,
+    num_1: 97,
+    num_2: 98,
+    num_3: 99,
+    num_4: 100,
+    num_5: 101,
+    num_6: 102,
+    num_7: 103,
+    num_8: 104,
+    num_9: 105,
+    num_multiply: 106,
+    num_add: 107,
+    num_enter: 108,
+    num_subtract: 109,
+    num_decimal: 110,
+    num_divide: 111,
+    "\u21EA": 20,
+    ",": 188,
+    ".": 190,
+    "/": 191,
+    "`": 192,
+    "-": isff ? 173 : 189,
+    "=": isff ? 61 : 187,
+    ";": isff ? 59 : 186,
+    "'": 222,
+    "[": 219,
+    "]": 221,
+    "\\": 220
+  };
+  var _modifier = {
+    "\u21E7": 16,
+    shift: 16,
+    "\u2325": 18,
+    alt: 18,
+    option: 18,
+    "\u2303": 17,
+    ctrl: 17,
+    control: 17,
+    "\u2318": 91,
+    cmd: 91,
+    command: 91
+  };
+  var modifierMap = {
+    16: "shiftKey",
+    18: "altKey",
+    17: "ctrlKey",
+    91: "metaKey",
+    shiftKey: 16,
+    ctrlKey: 17,
+    altKey: 18,
+    metaKey: 91
+  };
+  var _mods = {
+    16: false,
+    18: false,
+    17: false,
+    91: false
+  };
+  var _handlers = {};
+  for (k = 1; k < 20; k++) {
+    _keyMap["f".concat(k)] = 111 + k;
+  }
+  var k;
+  var _downKeys = [];
+  var _scope = "all";
+  var elementHasBindEvent = [];
+  var code = function code2(x) {
+    return _keyMap[x.toLowerCase()] || _modifier[x.toLowerCase()] || x.toUpperCase().charCodeAt(0);
+  };
+  function setScope(scope) {
+    _scope = scope || "all";
+  }
+  function getScope() {
+    return _scope || "all";
+  }
+  function getPressedKeyCodes() {
+    return _downKeys.slice(0);
+  }
+  function filter(event) {
+    var target = event.target || event.srcElement;
+    var tagName = target.tagName;
+    var flag = true;
+    if (target.isContentEditable || (tagName === "INPUT" || tagName === "TEXTAREA" || tagName === "SELECT") && !target.readOnly) {
+      flag = false;
+    }
+    return flag;
+  }
+  function isPressed(keyCode) {
+    if (typeof keyCode === "string") {
+      keyCode = code(keyCode);
+    }
+    return _downKeys.indexOf(keyCode) !== -1;
+  }
+  function deleteScope(scope, newScope) {
+    var handlers;
+    var i2;
+    if (!scope)
+      scope = getScope();
+    for (var key in _handlers) {
+      if (Object.prototype.hasOwnProperty.call(_handlers, key)) {
+        handlers = _handlers[key];
+        for (i2 = 0; i2 < handlers.length; ) {
+          if (handlers[i2].scope === scope)
+            handlers.splice(i2, 1);
+          else
+            i2++;
+        }
+      }
+    }
+    if (getScope() === scope)
+      setScope(newScope || "all");
+  }
+  function clearModifier(event) {
+    var key = event.keyCode || event.which || event.charCode;
+    var i2 = _downKeys.indexOf(key);
+    if (i2 >= 0) {
+      _downKeys.splice(i2, 1);
+    }
+    if (event.key && event.key.toLowerCase() === "meta") {
+      _downKeys.splice(0, _downKeys.length);
+    }
+    if (key === 93 || key === 224)
+      key = 91;
+    if (key in _mods) {
+      _mods[key] = false;
+      for (var k in _modifier) {
+        if (_modifier[k] === key)
+          hotkeys[k] = false;
+      }
+    }
+  }
+  function unbind(keysInfo) {
+    if (!keysInfo) {
+      Object.keys(_handlers).forEach(function(key) {
+        return delete _handlers[key];
+      });
+    } else if (Array.isArray(keysInfo)) {
+      keysInfo.forEach(function(info) {
+        if (info.key)
+          eachUnbind(info);
+      });
+    } else if (typeof keysInfo === "object") {
+      if (keysInfo.key)
+        eachUnbind(keysInfo);
+    } else if (typeof keysInfo === "string") {
+      for (var _len = arguments.length, args = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+        args[_key - 1] = arguments[_key];
+      }
+      var scope = args[0], method = args[1];
+      if (typeof scope === "function") {
+        method = scope;
+        scope = "";
+      }
+      eachUnbind({
+        key: keysInfo,
+        scope,
+        method,
+        splitKey: "+"
+      });
+    }
+  }
+  var eachUnbind = function eachUnbind2(_ref) {
+    var key = _ref.key, scope = _ref.scope, method = _ref.method, _ref$splitKey = _ref.splitKey, splitKey = _ref$splitKey === void 0 ? "+" : _ref$splitKey;
+    var multipleKeys = getKeys(key);
+    multipleKeys.forEach(function(originKey) {
+      var unbindKeys = originKey.split(splitKey);
+      var len = unbindKeys.length;
+      var lastKey = unbindKeys[len - 1];
+      var keyCode = lastKey === "*" ? "*" : code(lastKey);
+      if (!_handlers[keyCode])
+        return;
+      if (!scope)
+        scope = getScope();
+      var mods = len > 1 ? getMods(_modifier, unbindKeys) : [];
+      _handlers[keyCode] = _handlers[keyCode].map(function(record) {
+        var isMatchingMethod = method ? record.method === method : true;
+        if (isMatchingMethod && record.scope === scope && compareArray(record.mods, mods)) {
+          return {};
+        }
+        return record;
+      });
+    });
+  };
+  function eventHandler(event, handler, scope) {
+    var modifiersMatch;
+    if (handler.scope === scope || handler.scope === "all") {
+      modifiersMatch = handler.mods.length > 0;
+      for (var y in _mods) {
+        if (Object.prototype.hasOwnProperty.call(_mods, y)) {
+          if (!_mods[y] && handler.mods.indexOf(+y) > -1 || _mods[y] && handler.mods.indexOf(+y) === -1) {
+            modifiersMatch = false;
+          }
+        }
+      }
+      if (handler.mods.length === 0 && !_mods[16] && !_mods[18] && !_mods[17] && !_mods[91] || modifiersMatch || handler.shortcut === "*") {
+        if (handler.method(event, handler) === false) {
+          if (event.preventDefault)
+            event.preventDefault();
+          else
+            event.returnValue = false;
+          if (event.stopPropagation)
+            event.stopPropagation();
+          if (event.cancelBubble)
+            event.cancelBubble = true;
+        }
+      }
+    }
+  }
+  function dispatch(event) {
+    var asterisk = _handlers["*"];
+    var key = event.keyCode || event.which || event.charCode;
+    if (!hotkeys.filter.call(this, event))
+      return;
+    if (key === 93 || key === 224)
+      key = 91;
+    if (_downKeys.indexOf(key) === -1 && key !== 229)
+      _downKeys.push(key);
+    ["ctrlKey", "altKey", "shiftKey", "metaKey"].forEach(function(keyName) {
+      var keyNum = modifierMap[keyName];
+      if (event[keyName] && _downKeys.indexOf(keyNum) === -1) {
+        _downKeys.push(keyNum);
+      } else if (!event[keyName] && _downKeys.indexOf(keyNum) > -1) {
+        _downKeys.splice(_downKeys.indexOf(keyNum), 1);
+      } else if (keyName === "metaKey" && event[keyName] && _downKeys.length === 3) {
+        if (!(event.ctrlKey || event.shiftKey || event.altKey)) {
+          _downKeys = _downKeys.slice(_downKeys.indexOf(keyNum));
+        }
+      }
+    });
+    if (key in _mods) {
+      _mods[key] = true;
+      for (var k in _modifier) {
+        if (_modifier[k] === key)
+          hotkeys[k] = true;
+      }
+      if (!asterisk)
+        return;
+    }
+    for (var e in _mods) {
+      if (Object.prototype.hasOwnProperty.call(_mods, e)) {
+        _mods[e] = event[modifierMap[e]];
+      }
+    }
+    if (event.getModifierState && !(event.altKey && !event.ctrlKey) && event.getModifierState("AltGraph")) {
+      if (_downKeys.indexOf(17) === -1) {
+        _downKeys.push(17);
+      }
+      if (_downKeys.indexOf(18) === -1) {
+        _downKeys.push(18);
+      }
+      _mods[17] = true;
+      _mods[18] = true;
+    }
+    var scope = getScope();
+    if (asterisk) {
+      for (var i2 = 0; i2 < asterisk.length; i2++) {
+        if (asterisk[i2].scope === scope && (event.type === "keydown" && asterisk[i2].keydown || event.type === "keyup" && asterisk[i2].keyup)) {
+          eventHandler(event, asterisk[i2], scope);
+        }
+      }
+    }
+    if (!(key in _handlers))
+      return;
+    for (var _i = 0; _i < _handlers[key].length; _i++) {
+      if (event.type === "keydown" && _handlers[key][_i].keydown || event.type === "keyup" && _handlers[key][_i].keyup) {
+        if (_handlers[key][_i].key) {
+          var record = _handlers[key][_i];
+          var splitKey = record.splitKey;
+          var keyShortcut = record.key.split(splitKey);
+          var _downKeysCurrent = [];
+          for (var a = 0; a < keyShortcut.length; a++) {
+            _downKeysCurrent.push(code(keyShortcut[a]));
+          }
+          if (_downKeysCurrent.sort().join("") === _downKeys.sort().join("")) {
+            eventHandler(event, record, scope);
+          }
+        }
+      }
+    }
+  }
+  function isElementBind(element) {
+    return elementHasBindEvent.indexOf(element) > -1;
+  }
+  function hotkeys(key, option, method) {
+    _downKeys = [];
+    var keys2 = getKeys(key);
+    var mods = [];
+    var scope = "all";
+    var element = document;
+    var i2 = 0;
+    var keyup = false;
+    var keydown = true;
+    var splitKey = "+";
+    if (method === void 0 && typeof option === "function") {
+      method = option;
+    }
+    if (Object.prototype.toString.call(option) === "[object Object]") {
+      if (option.scope)
+        scope = option.scope;
+      if (option.element)
+        element = option.element;
+      if (option.keyup)
+        keyup = option.keyup;
+      if (option.keydown !== void 0)
+        keydown = option.keydown;
+      if (typeof option.splitKey === "string")
+        splitKey = option.splitKey;
+    }
+    if (typeof option === "string")
+      scope = option;
+    for (; i2 < keys2.length; i2++) {
+      key = keys2[i2].split(splitKey);
+      mods = [];
+      if (key.length > 1)
+        mods = getMods(_modifier, key);
+      key = key[key.length - 1];
+      key = key === "*" ? "*" : code(key);
+      if (!(key in _handlers))
+        _handlers[key] = [];
+      _handlers[key].push({
+        keyup,
+        keydown,
+        scope,
+        mods,
+        shortcut: keys2[i2],
+        method,
+        key: keys2[i2],
+        splitKey
+      });
+    }
+    if (typeof element !== "undefined" && !isElementBind(element) && window) {
+      elementHasBindEvent.push(element);
+      addEvent(element, "keydown", function(e) {
+        dispatch(e);
+      });
+      addEvent(window, "focus", function() {
+        _downKeys = [];
+      });
+      addEvent(element, "keyup", function(e) {
+        dispatch(e);
+        clearModifier(e);
+      });
+    }
+  }
+  var _api = {
+    setScope,
+    getScope,
+    deleteScope,
+    getPressedKeyCodes,
+    isPressed,
+    filter,
+    unbind
+  };
+  for (a in _api) {
+    if (Object.prototype.hasOwnProperty.call(_api, a)) {
+      hotkeys[a] = _api[a];
+    }
+  }
+  var a;
+  if (typeof window !== "undefined") {
+    _hotkeys = window.hotkeys;
+    hotkeys.noConflict = function(deep) {
+      if (deep && window.hotkeys === hotkeys) {
+        window.hotkeys = _hotkeys;
+      }
+      return hotkeys;
+    };
+    window.hotkeys = hotkeys;
+  }
+  var _hotkeys;
+  var hotkeys_esm_default = hotkeys;
+
+  // node_modules/react-hotkeys-hook/dist/react-hotkeys-hook.esm.js
+  var import_react4 = __toESM(require_react());
+  hotkeys_esm_default.filter = function() {
+    return true;
+  };
+  var tagFilter = function tagFilter2(_ref, enableOnTags) {
+    var target = _ref.target;
+    var targetTagName = target && target.tagName;
+    return Boolean(targetTagName && enableOnTags && enableOnTags.includes(targetTagName));
+  };
+  var isKeyboardEventTriggeredByInput = function isKeyboardEventTriggeredByInput2(ev) {
+    return tagFilter(ev, ["INPUT", "TEXTAREA", "SELECT"]);
+  };
+  function useHotkeys(keys2, callback, options, deps) {
+    if (options instanceof Array) {
+      deps = options;
+      options = void 0;
+    }
+    var _ref2 = options || {}, enableOnTags = _ref2.enableOnTags, filter2 = _ref2.filter, keyup = _ref2.keyup, keydown = _ref2.keydown, _ref2$filterPreventDe = _ref2.filterPreventDefault, filterPreventDefault = _ref2$filterPreventDe === void 0 ? true : _ref2$filterPreventDe, _ref2$enabled = _ref2.enabled, enabled = _ref2$enabled === void 0 ? true : _ref2$enabled, _ref2$enableOnContent = _ref2.enableOnContentEditable, enableOnContentEditable = _ref2$enableOnContent === void 0 ? false : _ref2$enableOnContent;
+    var ref = (0, import_react4.useRef)(null);
+    var memoisedCallback = (0, import_react4.useCallback)(function(keyboardEvent, hotkeysEvent) {
+      var _keyboardEvent$target;
+      if (filter2 && !filter2(keyboardEvent)) {
+        return !filterPreventDefault;
+      }
+      if (isKeyboardEventTriggeredByInput(keyboardEvent) && !tagFilter(keyboardEvent, enableOnTags) || (_keyboardEvent$target = keyboardEvent.target) != null && _keyboardEvent$target.isContentEditable && !enableOnContentEditable) {
+        return true;
+      }
+      if (ref.current === null || document.activeElement === ref.current) {
+        callback(keyboardEvent, hotkeysEvent);
+        return true;
+      }
+      return false;
+    }, deps ? [ref, enableOnTags, filter2].concat(deps) : [ref, enableOnTags, filter2]);
+    (0, import_react4.useEffect)(function() {
+      if (!enabled) {
+        hotkeys_esm_default.unbind(keys2, memoisedCallback);
+        return;
+      }
+      if (keyup && keydown !== true) {
+        options.keydown = false;
+      }
+      hotkeys_esm_default(keys2, options || {}, memoisedCallback);
+      return function() {
+        return hotkeys_esm_default.unbind(keys2, memoisedCallback);
+      };
+    }, [memoisedCallback, keys2, enabled]);
+    return ref;
+  }
+  var isHotkeyPressed = hotkeys_esm_default.isPressed;
+
   // client/components/Arrow.jsx
-  var import_react4 = __toESM(require_react(), 1);
+  var import_react5 = __toESM(require_react(), 1);
   var import_prop_types = __toESM(require_prop_types(), 1);
 
   // node_modules/three/examples/jsm/loaders/OBJLoader.js
@@ -75849,17 +76335,17 @@ if (edgeAlpha == 0.0) {
     const _a = props, { height, distance, direction } = _a, rest = __objRest(_a, ["height", "distance", "direction"]);
     const loadedObj = useLoader(OBJLoader, "geom/arrow.obj");
     const { nodes } = useGraph(loadedObj.clone());
-    const meshes = Object.keys(nodes).map((meshName) => /* @__PURE__ */ import_react4.default.createElement("mesh", {
+    const meshes = Object.keys(nodes).map((meshName) => /* @__PURE__ */ import_react5.default.createElement("mesh", {
       key: `${meshName}-mesh`,
       geometry: nodes[meshName].geometry
-    }, /* @__PURE__ */ import_react4.default.createElement("meshPhongMaterial", {
+    }, /* @__PURE__ */ import_react5.default.createElement("meshPhongMaterial", {
       color: 1401481,
       emissive: 468276,
       flatShading: true
     })));
-    return /* @__PURE__ */ import_react4.default.createElement("group", __spreadValues({
+    return /* @__PURE__ */ import_react5.default.createElement("group", __spreadValues({
       rotation: new Euler(0, MathUtils.degToRad(direction), 0)
-    }, rest), /* @__PURE__ */ import_react4.default.createElement("group", {
+    }, rest), /* @__PURE__ */ import_react5.default.createElement("group", {
       position: [0, height, distance],
       "rotation-x": Math.PI / 2,
       "rotation-z": Math.PI
@@ -75877,33 +76363,36 @@ if (edgeAlpha == 0.0) {
   };
 
   // client/components/PanoImage.jsx
-  var import_react5 = __toESM(require_react(), 1);
+  var import_react6 = __toESM(require_react(), 1);
 
   // client/components/heatingPlantImages.js
   var PATH = "media/panoImg";
   var heatingPlantImages_default = {
-    image01: `${PATH}/IMG_20220401_091556_00_merged.jpg`
+    image01: { filename: `${PATH}/IMG_20220401_091556_00_merged.jpg`, zRotate: -3.5, yRotate: 5.5 }
   };
 
   // client/components/PanoImage.jsx
   function PanoImage(props) {
-    const panoImageTextures = useTexture(heatingPlantImages_default);
-    return /* @__PURE__ */ import_react5.default.createElement("mesh", __spreadProps(__spreadValues({}, props), {
-      scale: [-1, 1, 1]
-    }), /* @__PURE__ */ import_react5.default.createElement("icosahedronGeometry", {
+    const { zRotate, yRotate } = props;
+    const panoImageTextures = useTexture(heatingPlantImages_default.image01.filename);
+    return /* @__PURE__ */ import_react6.default.createElement("mesh", __spreadProps(__spreadValues({}, props), {
+      scale: [-1, 1, 1],
+      "rotation-y": MathUtils.degToRad(yRotate),
+      "rotation-z": MathUtils.degToRad(zRotate)
+    }), /* @__PURE__ */ import_react6.default.createElement("icosahedronGeometry", {
       args: [500, 50]
-    }), /* @__PURE__ */ import_react5.default.createElement("meshBasicMaterial", {
+    }), /* @__PURE__ */ import_react6.default.createElement("meshBasicMaterial", {
       color: 16777215,
-      map: panoImageTextures.image01,
+      map: panoImageTextures,
       side: BackSide
     }));
   }
 
   // client/components/Progress.jsx
-  var import_react6 = __toESM(require_react(), 1);
+  var import_react7 = __toESM(require_react(), 1);
   function Progress() {
     const { progress, loaded, total } = useProgress();
-    return /* @__PURE__ */ import_react6.default.createElement(Text2, {
+    return /* @__PURE__ */ import_react7.default.createElement(Text2, {
       color: "#000000",
       fontSize: 12,
       maxWidth: 200,
@@ -75921,30 +76410,56 @@ if (edgeAlpha == 0.0) {
 
   // client/VirtualTour.jsx
   function VirtualTour(props) {
-    return /* @__PURE__ */ import_react7.default.createElement(import_react7.default.StrictMode, null, /* @__PURE__ */ import_react7.default.createElement(Canvas, {
+    const [zRotate, setZRotate] = (0, import_react8.useState)(-3.5);
+    const [yRotate, setYRotate] = (0, import_react8.useState)(15.5);
+    useHotkeys("ctrl+shift+]", () => {
+      setZRotate(zRotate - 0.5);
+    }, {}, [zRotate]);
+    useHotkeys("ctrl+shift+[", () => {
+      setZRotate(zRotate + 0.5);
+    }, {}, [zRotate]);
+    useHotkeys("ctrl+]", () => {
+      setYRotate(yRotate - 0.5);
+    }, {}, [yRotate]);
+    useHotkeys("ctrl+[", () => {
+      setYRotate(yRotate + 0.5);
+    }, {}, [yRotate]);
+    return /* @__PURE__ */ import_react8.default.createElement(import_react8.default.StrictMode, null, /* @__PURE__ */ import_react8.default.createElement(Canvas, {
       camera: { position: [0, 0, 0.1] }
-    }, /* @__PURE__ */ import_react7.default.createElement(OrbitControls2, {
+    }, /* @__PURE__ */ import_react8.default.createElement(OrbitControls2, {
       enablePan: false,
       enableZoom: false
-    }), /* @__PURE__ */ import_react7.default.createElement("ambientLight", null), /* @__PURE__ */ import_react7.default.createElement("pointLight", {
+    }), /* @__PURE__ */ import_react8.default.createElement("ambientLight", null), /* @__PURE__ */ import_react8.default.createElement("pointLight", {
       position: [10, 10, 10]
-    }), /* @__PURE__ */ import_react7.default.createElement(import_react7.Suspense, {
-      fallback: /* @__PURE__ */ import_react7.default.createElement(Progress, null)
-    }, /* @__PURE__ */ import_react7.default.createElement(Arrow, {
+    }), /* @__PURE__ */ import_react8.default.createElement(import_react8.Suspense, {
+      fallback: /* @__PURE__ */ import_react8.default.createElement(Progress, null)
+    }, /* @__PURE__ */ import_react8.default.createElement(Arrow, {
       direction: 45
-    }), /* @__PURE__ */ import_react7.default.createElement(Arrow, {
+    }), /* @__PURE__ */ import_react8.default.createElement(Arrow, {
       direction: 270
-    }), /* @__PURE__ */ import_react7.default.createElement(PanoImage, null))));
+    }), /* @__PURE__ */ import_react8.default.createElement(PanoImage, {
+      zRotate,
+      yRotate
+    }))));
   }
 
   // client/app.jsx
-  (0, import_client.createRoot)(document.getElementById("root")).render(/* @__PURE__ */ import_react8.default.createElement(VirtualTour, null));
+  (0, import_client.createRoot)(document.getElementById("root")).render(/* @__PURE__ */ import_react9.default.createElement(VirtualTour, null));
 })();
 /*
 object-assign
 (c) Sindre Sorhus
 @license MIT
 */
+/*!
+ * hotkeys-js v3.8.7
+ * A simple micro-library for defining and dispatching keyboard shortcuts. It has no dependencies.
+ * 
+ * Copyright (c) 2021 kenny wong <wowohoo@qq.com>
+ * http://jaywcjlove.github.io/hotkeys
+ * 
+ * Licensed under the MIT license.
+ */
 /*!
 Custom build of Typr.ts (https://github.com/fredli74/Typr.ts) for use in Troika text rendering.
 Original MIT license applies: https://github.com/fredli74/Typr.ts/blob/master/LICENSE
