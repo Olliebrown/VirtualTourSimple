@@ -498,7 +498,7 @@
             }
             return element;
           };
-          function createElement4(type, config, children) {
+          function createElement5(type, config, children) {
             var propName;
             var props = {};
             var key = null;
@@ -939,7 +939,7 @@
             }
             return lazyType;
           }
-          function forwardRef3(render2) {
+          function forwardRef4(render2) {
             {
               if (render2 != null && render2.$$typeof === REACT_MEMO_TYPE) {
                 error("forwardRef requires a render function but received a `memo` component. Instead of forwardRef(memo(...)), use memo(forwardRef(...)).");
@@ -1045,7 +1045,7 @@
             }
             return dispatcher.useContext(Context);
           }
-          function useState6(initialState) {
+          function useState5(initialState) {
             var dispatcher = resolveDispatcher();
             return dispatcher.useState(initialState);
           }
@@ -1073,7 +1073,7 @@
             var dispatcher = resolveDispatcher();
             return dispatcher.useCallback(callback, deps);
           }
-          function useMemo5(create2, deps) {
+          function useMemo6(create2, deps) {
             var dispatcher = resolveDispatcher();
             return dispatcher.useMemo(create2, deps);
           }
@@ -1568,7 +1568,7 @@
                 error("React.createElement: type is invalid -- expected a string (for built-in components) or a class/function (for composite components) but got: %s.%s", typeString, info);
               }
             }
-            var element = createElement4.apply(this, arguments);
+            var element = createElement5.apply(this, arguments);
             if (element == null) {
               return element;
             }
@@ -1827,7 +1827,7 @@
           exports.createElement = createElement$1;
           exports.createFactory = createFactory;
           exports.createRef = createRef2;
-          exports.forwardRef = forwardRef3;
+          exports.forwardRef = forwardRef4;
           exports.isValidElement = isValidElement;
           exports.lazy = lazy;
           exports.memo = memo;
@@ -1842,10 +1842,10 @@
           exports.useImperativeHandle = useImperativeHandle;
           exports.useInsertionEffect = useInsertionEffect;
           exports.useLayoutEffect = useLayoutEffect4;
-          exports.useMemo = useMemo5;
+          exports.useMemo = useMemo6;
           exports.useReducer = useReducer2;
           exports.useRef = useRef5;
-          exports.useState = useState6;
+          exports.useState = useState5;
           exports.useSyncExternalStore = useSyncExternalStore;
           exports.useTransition = useTransition;
           exports.version = ReactVersion;
@@ -2341,9 +2341,9 @@
           if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== "undefined" && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart === "function") {
             __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(new Error());
           }
-          var React8 = require_react();
+          var React10 = require_react();
           var Scheduler = require_scheduler();
-          var ReactSharedInternals = React8.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+          var ReactSharedInternals = React10.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
           var suppressWarning = false;
           function setSuppressWarning(newSuppressWarning) {
             {
@@ -3739,7 +3739,7 @@
             {
               if (props.value == null) {
                 if (typeof props.children === "object" && props.children !== null) {
-                  React8.Children.forEach(props.children, function(child) {
+                  React10.Children.forEach(props.children, function(child) {
                     if (child == null) {
                       return;
                     }
@@ -8847,7 +8847,7 @@
               }
             }
           }
-          function createElement4(type, props, rootContainerElement, parentNamespace) {
+          function createElement5(type, props, rootContainerElement, parentNamespace) {
             var isCustomComponentTag;
             var ownerDocument = getOwnerDocumentFromRootContainer(rootContainerElement);
             var domElement;
@@ -9698,7 +9698,7 @@
               }
               parentNamespace = hostContextDev.namespace;
             }
-            var domElement = createElement4(type, props, rootContainerInstance, parentNamespace);
+            var domElement = createElement5(type, props, rootContainerInstance, parentNamespace);
             precacheFiberNode(internalInstanceHandle, domElement);
             updateFiberProps(domElement, props);
             return domElement;
@@ -11286,7 +11286,7 @@
             }
           }
           var fakeInternalInstance = {};
-          var emptyRefsObject = new React8.Component().refs;
+          var emptyRefsObject = new React10.Component().refs;
           var didWarnAboutStateAssignmentForComponent;
           var didWarnAboutUninitializedState;
           var didWarnAboutGetSnapshotBeforeUpdateWithoutDidUpdate;
@@ -22559,9 +22559,9 @@
         module.exports = function $$$reconciler($$$hostConfig) {
           var exports2 = {};
           "use strict";
-          var React8 = require_react();
+          var React10 = require_react();
           var Scheduler = require_scheduler();
-          var ReactSharedInternals = React8.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+          var ReactSharedInternals = React10.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
           var suppressWarning = false;
           function setSuppressWarning(newSuppressWarning) {
             {
@@ -25518,7 +25518,7 @@
             }
           }
           var fakeInternalInstance = {};
-          var emptyRefsObject = new React8.Component().refs;
+          var emptyRefsObject = new React10.Component().refs;
           var didWarnAboutStateAssignmentForComponent;
           var didWarnAboutUninitializedState;
           var didWarnAboutGetSnapshotBeforeUpdateWithoutDidUpdate;
@@ -37150,12 +37150,766 @@
     }
   });
 
+  // node_modules/react-is/cjs/react-is.development.js
+  var require_react_is_development = __commonJS({
+    "node_modules/react-is/cjs/react-is.development.js"(exports) {
+      "use strict";
+      if (true) {
+        (function() {
+          "use strict";
+          var hasSymbol = typeof Symbol === "function" && Symbol.for;
+          var REACT_ELEMENT_TYPE = hasSymbol ? Symbol.for("react.element") : 60103;
+          var REACT_PORTAL_TYPE = hasSymbol ? Symbol.for("react.portal") : 60106;
+          var REACT_FRAGMENT_TYPE = hasSymbol ? Symbol.for("react.fragment") : 60107;
+          var REACT_STRICT_MODE_TYPE = hasSymbol ? Symbol.for("react.strict_mode") : 60108;
+          var REACT_PROFILER_TYPE = hasSymbol ? Symbol.for("react.profiler") : 60114;
+          var REACT_PROVIDER_TYPE = hasSymbol ? Symbol.for("react.provider") : 60109;
+          var REACT_CONTEXT_TYPE = hasSymbol ? Symbol.for("react.context") : 60110;
+          var REACT_ASYNC_MODE_TYPE = hasSymbol ? Symbol.for("react.async_mode") : 60111;
+          var REACT_CONCURRENT_MODE_TYPE = hasSymbol ? Symbol.for("react.concurrent_mode") : 60111;
+          var REACT_FORWARD_REF_TYPE = hasSymbol ? Symbol.for("react.forward_ref") : 60112;
+          var REACT_SUSPENSE_TYPE = hasSymbol ? Symbol.for("react.suspense") : 60113;
+          var REACT_SUSPENSE_LIST_TYPE = hasSymbol ? Symbol.for("react.suspense_list") : 60120;
+          var REACT_MEMO_TYPE = hasSymbol ? Symbol.for("react.memo") : 60115;
+          var REACT_LAZY_TYPE = hasSymbol ? Symbol.for("react.lazy") : 60116;
+          var REACT_BLOCK_TYPE = hasSymbol ? Symbol.for("react.block") : 60121;
+          var REACT_FUNDAMENTAL_TYPE = hasSymbol ? Symbol.for("react.fundamental") : 60117;
+          var REACT_RESPONDER_TYPE = hasSymbol ? Symbol.for("react.responder") : 60118;
+          var REACT_SCOPE_TYPE = hasSymbol ? Symbol.for("react.scope") : 60119;
+          function isValidElementType(type) {
+            return typeof type === "string" || typeof type === "function" || type === REACT_FRAGMENT_TYPE || type === REACT_CONCURRENT_MODE_TYPE || type === REACT_PROFILER_TYPE || type === REACT_STRICT_MODE_TYPE || type === REACT_SUSPENSE_TYPE || type === REACT_SUSPENSE_LIST_TYPE || typeof type === "object" && type !== null && (type.$$typeof === REACT_LAZY_TYPE || type.$$typeof === REACT_MEMO_TYPE || type.$$typeof === REACT_PROVIDER_TYPE || type.$$typeof === REACT_CONTEXT_TYPE || type.$$typeof === REACT_FORWARD_REF_TYPE || type.$$typeof === REACT_FUNDAMENTAL_TYPE || type.$$typeof === REACT_RESPONDER_TYPE || type.$$typeof === REACT_SCOPE_TYPE || type.$$typeof === REACT_BLOCK_TYPE);
+          }
+          function typeOf(object) {
+            if (typeof object === "object" && object !== null) {
+              var $$typeof = object.$$typeof;
+              switch ($$typeof) {
+                case REACT_ELEMENT_TYPE:
+                  var type = object.type;
+                  switch (type) {
+                    case REACT_ASYNC_MODE_TYPE:
+                    case REACT_CONCURRENT_MODE_TYPE:
+                    case REACT_FRAGMENT_TYPE:
+                    case REACT_PROFILER_TYPE:
+                    case REACT_STRICT_MODE_TYPE:
+                    case REACT_SUSPENSE_TYPE:
+                      return type;
+                    default:
+                      var $$typeofType = type && type.$$typeof;
+                      switch ($$typeofType) {
+                        case REACT_CONTEXT_TYPE:
+                        case REACT_FORWARD_REF_TYPE:
+                        case REACT_LAZY_TYPE:
+                        case REACT_MEMO_TYPE:
+                        case REACT_PROVIDER_TYPE:
+                          return $$typeofType;
+                        default:
+                          return $$typeof;
+                      }
+                  }
+                case REACT_PORTAL_TYPE:
+                  return $$typeof;
+              }
+            }
+            return void 0;
+          }
+          var AsyncMode = REACT_ASYNC_MODE_TYPE;
+          var ConcurrentMode = REACT_CONCURRENT_MODE_TYPE;
+          var ContextConsumer = REACT_CONTEXT_TYPE;
+          var ContextProvider = REACT_PROVIDER_TYPE;
+          var Element = REACT_ELEMENT_TYPE;
+          var ForwardRef = REACT_FORWARD_REF_TYPE;
+          var Fragment2 = REACT_FRAGMENT_TYPE;
+          var Lazy = REACT_LAZY_TYPE;
+          var Memo = REACT_MEMO_TYPE;
+          var Portal = REACT_PORTAL_TYPE;
+          var Profiler = REACT_PROFILER_TYPE;
+          var StrictMode = REACT_STRICT_MODE_TYPE;
+          var Suspense3 = REACT_SUSPENSE_TYPE;
+          var hasWarnedAboutDeprecatedIsAsyncMode = false;
+          function isAsyncMode(object) {
+            {
+              if (!hasWarnedAboutDeprecatedIsAsyncMode) {
+                hasWarnedAboutDeprecatedIsAsyncMode = true;
+                console["warn"]("The ReactIs.isAsyncMode() alias has been deprecated, and will be removed in React 17+. Update your code to use ReactIs.isConcurrentMode() instead. It has the exact same API.");
+              }
+            }
+            return isConcurrentMode(object) || typeOf(object) === REACT_ASYNC_MODE_TYPE;
+          }
+          function isConcurrentMode(object) {
+            return typeOf(object) === REACT_CONCURRENT_MODE_TYPE;
+          }
+          function isContextConsumer(object) {
+            return typeOf(object) === REACT_CONTEXT_TYPE;
+          }
+          function isContextProvider(object) {
+            return typeOf(object) === REACT_PROVIDER_TYPE;
+          }
+          function isElement(object) {
+            return typeof object === "object" && object !== null && object.$$typeof === REACT_ELEMENT_TYPE;
+          }
+          function isForwardRef(object) {
+            return typeOf(object) === REACT_FORWARD_REF_TYPE;
+          }
+          function isFragment(object) {
+            return typeOf(object) === REACT_FRAGMENT_TYPE;
+          }
+          function isLazy(object) {
+            return typeOf(object) === REACT_LAZY_TYPE;
+          }
+          function isMemo(object) {
+            return typeOf(object) === REACT_MEMO_TYPE;
+          }
+          function isPortal(object) {
+            return typeOf(object) === REACT_PORTAL_TYPE;
+          }
+          function isProfiler(object) {
+            return typeOf(object) === REACT_PROFILER_TYPE;
+          }
+          function isStrictMode(object) {
+            return typeOf(object) === REACT_STRICT_MODE_TYPE;
+          }
+          function isSuspense(object) {
+            return typeOf(object) === REACT_SUSPENSE_TYPE;
+          }
+          exports.AsyncMode = AsyncMode;
+          exports.ConcurrentMode = ConcurrentMode;
+          exports.ContextConsumer = ContextConsumer;
+          exports.ContextProvider = ContextProvider;
+          exports.Element = Element;
+          exports.ForwardRef = ForwardRef;
+          exports.Fragment = Fragment2;
+          exports.Lazy = Lazy;
+          exports.Memo = Memo;
+          exports.Portal = Portal;
+          exports.Profiler = Profiler;
+          exports.StrictMode = StrictMode;
+          exports.Suspense = Suspense3;
+          exports.isAsyncMode = isAsyncMode;
+          exports.isConcurrentMode = isConcurrentMode;
+          exports.isContextConsumer = isContextConsumer;
+          exports.isContextProvider = isContextProvider;
+          exports.isElement = isElement;
+          exports.isForwardRef = isForwardRef;
+          exports.isFragment = isFragment;
+          exports.isLazy = isLazy;
+          exports.isMemo = isMemo;
+          exports.isPortal = isPortal;
+          exports.isProfiler = isProfiler;
+          exports.isStrictMode = isStrictMode;
+          exports.isSuspense = isSuspense;
+          exports.isValidElementType = isValidElementType;
+          exports.typeOf = typeOf;
+        })();
+      }
+    }
+  });
+
+  // node_modules/react-is/index.js
+  var require_react_is = __commonJS({
+    "node_modules/react-is/index.js"(exports, module) {
+      "use strict";
+      if (false) {
+        module.exports = null;
+      } else {
+        module.exports = require_react_is_development();
+      }
+    }
+  });
+
+  // node_modules/object-assign/index.js
+  var require_object_assign = __commonJS({
+    "node_modules/object-assign/index.js"(exports, module) {
+      "use strict";
+      var getOwnPropertySymbols = Object.getOwnPropertySymbols;
+      var hasOwnProperty = Object.prototype.hasOwnProperty;
+      var propIsEnumerable = Object.prototype.propertyIsEnumerable;
+      function toObject(val) {
+        if (val === null || val === void 0) {
+          throw new TypeError("Object.assign cannot be called with null or undefined");
+        }
+        return Object(val);
+      }
+      function shouldUseNative() {
+        try {
+          if (!Object.assign) {
+            return false;
+          }
+          var test1 = new String("abc");
+          test1[5] = "de";
+          if (Object.getOwnPropertyNames(test1)[0] === "5") {
+            return false;
+          }
+          var test2 = {};
+          for (var i2 = 0; i2 < 10; i2++) {
+            test2["_" + String.fromCharCode(i2)] = i2;
+          }
+          var order2 = Object.getOwnPropertyNames(test2).map(function(n) {
+            return test2[n];
+          });
+          if (order2.join("") !== "0123456789") {
+            return false;
+          }
+          var test3 = {};
+          "abcdefghijklmnopqrst".split("").forEach(function(letter) {
+            test3[letter] = letter;
+          });
+          if (Object.keys(Object.assign({}, test3)).join("") !== "abcdefghijklmnopqrst") {
+            return false;
+          }
+          return true;
+        } catch (err) {
+          return false;
+        }
+      }
+      module.exports = shouldUseNative() ? Object.assign : function(target, source) {
+        var from;
+        var to = toObject(target);
+        var symbols;
+        for (var s = 1; s < arguments.length; s++) {
+          from = Object(arguments[s]);
+          for (var key in from) {
+            if (hasOwnProperty.call(from, key)) {
+              to[key] = from[key];
+            }
+          }
+          if (getOwnPropertySymbols) {
+            symbols = getOwnPropertySymbols(from);
+            for (var i2 = 0; i2 < symbols.length; i2++) {
+              if (propIsEnumerable.call(from, symbols[i2])) {
+                to[symbols[i2]] = from[symbols[i2]];
+              }
+            }
+          }
+        }
+        return to;
+      };
+    }
+  });
+
+  // node_modules/prop-types/lib/ReactPropTypesSecret.js
+  var require_ReactPropTypesSecret = __commonJS({
+    "node_modules/prop-types/lib/ReactPropTypesSecret.js"(exports, module) {
+      "use strict";
+      var ReactPropTypesSecret = "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED";
+      module.exports = ReactPropTypesSecret;
+    }
+  });
+
+  // node_modules/prop-types/lib/has.js
+  var require_has = __commonJS({
+    "node_modules/prop-types/lib/has.js"(exports, module) {
+      module.exports = Function.call.bind(Object.prototype.hasOwnProperty);
+    }
+  });
+
+  // node_modules/prop-types/checkPropTypes.js
+  var require_checkPropTypes = __commonJS({
+    "node_modules/prop-types/checkPropTypes.js"(exports, module) {
+      "use strict";
+      var printWarning = function() {
+      };
+      if (true) {
+        ReactPropTypesSecret = require_ReactPropTypesSecret();
+        loggedTypeFailures = {};
+        has = require_has();
+        printWarning = function(text) {
+          var message = "Warning: " + text;
+          if (typeof console !== "undefined") {
+            console.error(message);
+          }
+          try {
+            throw new Error(message);
+          } catch (x) {
+          }
+        };
+      }
+      var ReactPropTypesSecret;
+      var loggedTypeFailures;
+      var has;
+      function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
+        if (true) {
+          for (var typeSpecName in typeSpecs) {
+            if (has(typeSpecs, typeSpecName)) {
+              var error;
+              try {
+                if (typeof typeSpecs[typeSpecName] !== "function") {
+                  var err = Error((componentName || "React class") + ": " + location + " type `" + typeSpecName + "` is invalid; it must be a function, usually from the `prop-types` package, but received `" + typeof typeSpecs[typeSpecName] + "`.This often happens because of typos such as `PropTypes.function` instead of `PropTypes.func`.");
+                  err.name = "Invariant Violation";
+                  throw err;
+                }
+                error = typeSpecs[typeSpecName](values, typeSpecName, componentName, location, null, ReactPropTypesSecret);
+              } catch (ex) {
+                error = ex;
+              }
+              if (error && !(error instanceof Error)) {
+                printWarning((componentName || "React class") + ": type specification of " + location + " `" + typeSpecName + "` is invalid; the type checker function must return `null` or an `Error` but returned a " + typeof error + ". You may have forgotten to pass an argument to the type checker creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and shape all require an argument).");
+              }
+              if (error instanceof Error && !(error.message in loggedTypeFailures)) {
+                loggedTypeFailures[error.message] = true;
+                var stack = getStack ? getStack() : "";
+                printWarning("Failed " + location + " type: " + error.message + (stack != null ? stack : ""));
+              }
+            }
+          }
+        }
+      }
+      checkPropTypes.resetWarningCache = function() {
+        if (true) {
+          loggedTypeFailures = {};
+        }
+      };
+      module.exports = checkPropTypes;
+    }
+  });
+
+  // node_modules/prop-types/factoryWithTypeCheckers.js
+  var require_factoryWithTypeCheckers = __commonJS({
+    "node_modules/prop-types/factoryWithTypeCheckers.js"(exports, module) {
+      "use strict";
+      var ReactIs = require_react_is();
+      var assign3 = require_object_assign();
+      var ReactPropTypesSecret = require_ReactPropTypesSecret();
+      var has = require_has();
+      var checkPropTypes = require_checkPropTypes();
+      var printWarning = function() {
+      };
+      if (true) {
+        printWarning = function(text) {
+          var message = "Warning: " + text;
+          if (typeof console !== "undefined") {
+            console.error(message);
+          }
+          try {
+            throw new Error(message);
+          } catch (x) {
+          }
+        };
+      }
+      function emptyFunctionThatReturnsNull() {
+        return null;
+      }
+      module.exports = function(isValidElement, throwOnDirectAccess) {
+        var ITERATOR_SYMBOL = typeof Symbol === "function" && Symbol.iterator;
+        var FAUX_ITERATOR_SYMBOL = "@@iterator";
+        function getIteratorFn(maybeIterable) {
+          var iteratorFn = maybeIterable && (ITERATOR_SYMBOL && maybeIterable[ITERATOR_SYMBOL] || maybeIterable[FAUX_ITERATOR_SYMBOL]);
+          if (typeof iteratorFn === "function") {
+            return iteratorFn;
+          }
+        }
+        var ANONYMOUS = "<<anonymous>>";
+        var ReactPropTypes = {
+          array: createPrimitiveTypeChecker("array"),
+          bigint: createPrimitiveTypeChecker("bigint"),
+          bool: createPrimitiveTypeChecker("boolean"),
+          func: createPrimitiveTypeChecker("function"),
+          number: createPrimitiveTypeChecker("number"),
+          object: createPrimitiveTypeChecker("object"),
+          string: createPrimitiveTypeChecker("string"),
+          symbol: createPrimitiveTypeChecker("symbol"),
+          any: createAnyTypeChecker(),
+          arrayOf: createArrayOfTypeChecker,
+          element: createElementTypeChecker(),
+          elementType: createElementTypeTypeChecker(),
+          instanceOf: createInstanceTypeChecker,
+          node: createNodeChecker(),
+          objectOf: createObjectOfTypeChecker,
+          oneOf: createEnumTypeChecker,
+          oneOfType: createUnionTypeChecker,
+          shape: createShapeTypeChecker,
+          exact: createStrictShapeTypeChecker
+        };
+        function is2(x, y) {
+          if (x === y) {
+            return x !== 0 || 1 / x === 1 / y;
+          } else {
+            return x !== x && y !== y;
+          }
+        }
+        function PropTypeError(message, data) {
+          this.message = message;
+          this.data = data && typeof data === "object" ? data : {};
+          this.stack = "";
+        }
+        PropTypeError.prototype = Error.prototype;
+        function createChainableTypeChecker(validate) {
+          if (true) {
+            var manualPropTypeCallCache = {};
+            var manualPropTypeWarningCount = 0;
+          }
+          function checkType(isRequired, props, propName, componentName, location, propFullName, secret) {
+            componentName = componentName || ANONYMOUS;
+            propFullName = propFullName || propName;
+            if (secret !== ReactPropTypesSecret) {
+              if (throwOnDirectAccess) {
+                var err = new Error("Calling PropTypes validators directly is not supported by the `prop-types` package. Use `PropTypes.checkPropTypes()` to call them. Read more at http://fb.me/use-check-prop-types");
+                err.name = "Invariant Violation";
+                throw err;
+              } else if (typeof console !== "undefined") {
+                var cacheKey = componentName + ":" + propName;
+                if (!manualPropTypeCallCache[cacheKey] && manualPropTypeWarningCount < 3) {
+                  printWarning("You are manually calling a React.PropTypes validation function for the `" + propFullName + "` prop on `" + componentName + "`. This is deprecated and will throw in the standalone `prop-types` package. You may be seeing this warning due to a third-party PropTypes library. See https://fb.me/react-warning-dont-call-proptypes for details.");
+                  manualPropTypeCallCache[cacheKey] = true;
+                  manualPropTypeWarningCount++;
+                }
+              }
+            }
+            if (props[propName] == null) {
+              if (isRequired) {
+                if (props[propName] === null) {
+                  return new PropTypeError("The " + location + " `" + propFullName + "` is marked as required " + ("in `" + componentName + "`, but its value is `null`."));
+                }
+                return new PropTypeError("The " + location + " `" + propFullName + "` is marked as required in " + ("`" + componentName + "`, but its value is `undefined`."));
+              }
+              return null;
+            } else {
+              return validate(props, propName, componentName, location, propFullName);
+            }
+          }
+          var chainedCheckType = checkType.bind(null, false);
+          chainedCheckType.isRequired = checkType.bind(null, true);
+          return chainedCheckType;
+        }
+        function createPrimitiveTypeChecker(expectedType) {
+          function validate(props, propName, componentName, location, propFullName, secret) {
+            var propValue = props[propName];
+            var propType = getPropType(propValue);
+            if (propType !== expectedType) {
+              var preciseType = getPreciseType(propValue);
+              return new PropTypeError("Invalid " + location + " `" + propFullName + "` of type " + ("`" + preciseType + "` supplied to `" + componentName + "`, expected ") + ("`" + expectedType + "`."), { expectedType });
+            }
+            return null;
+          }
+          return createChainableTypeChecker(validate);
+        }
+        function createAnyTypeChecker() {
+          return createChainableTypeChecker(emptyFunctionThatReturnsNull);
+        }
+        function createArrayOfTypeChecker(typeChecker) {
+          function validate(props, propName, componentName, location, propFullName) {
+            if (typeof typeChecker !== "function") {
+              return new PropTypeError("Property `" + propFullName + "` of component `" + componentName + "` has invalid PropType notation inside arrayOf.");
+            }
+            var propValue = props[propName];
+            if (!Array.isArray(propValue)) {
+              var propType = getPropType(propValue);
+              return new PropTypeError("Invalid " + location + " `" + propFullName + "` of type " + ("`" + propType + "` supplied to `" + componentName + "`, expected an array."));
+            }
+            for (var i2 = 0; i2 < propValue.length; i2++) {
+              var error = typeChecker(propValue, i2, componentName, location, propFullName + "[" + i2 + "]", ReactPropTypesSecret);
+              if (error instanceof Error) {
+                return error;
+              }
+            }
+            return null;
+          }
+          return createChainableTypeChecker(validate);
+        }
+        function createElementTypeChecker() {
+          function validate(props, propName, componentName, location, propFullName) {
+            var propValue = props[propName];
+            if (!isValidElement(propValue)) {
+              var propType = getPropType(propValue);
+              return new PropTypeError("Invalid " + location + " `" + propFullName + "` of type " + ("`" + propType + "` supplied to `" + componentName + "`, expected a single ReactElement."));
+            }
+            return null;
+          }
+          return createChainableTypeChecker(validate);
+        }
+        function createElementTypeTypeChecker() {
+          function validate(props, propName, componentName, location, propFullName) {
+            var propValue = props[propName];
+            if (!ReactIs.isValidElementType(propValue)) {
+              var propType = getPropType(propValue);
+              return new PropTypeError("Invalid " + location + " `" + propFullName + "` of type " + ("`" + propType + "` supplied to `" + componentName + "`, expected a single ReactElement type."));
+            }
+            return null;
+          }
+          return createChainableTypeChecker(validate);
+        }
+        function createInstanceTypeChecker(expectedClass) {
+          function validate(props, propName, componentName, location, propFullName) {
+            if (!(props[propName] instanceof expectedClass)) {
+              var expectedClassName = expectedClass.name || ANONYMOUS;
+              var actualClassName = getClassName(props[propName]);
+              return new PropTypeError("Invalid " + location + " `" + propFullName + "` of type " + ("`" + actualClassName + "` supplied to `" + componentName + "`, expected ") + ("instance of `" + expectedClassName + "`."));
+            }
+            return null;
+          }
+          return createChainableTypeChecker(validate);
+        }
+        function createEnumTypeChecker(expectedValues) {
+          if (!Array.isArray(expectedValues)) {
+            if (true) {
+              if (arguments.length > 1) {
+                printWarning("Invalid arguments supplied to oneOf, expected an array, got " + arguments.length + " arguments. A common mistake is to write oneOf(x, y, z) instead of oneOf([x, y, z]).");
+              } else {
+                printWarning("Invalid argument supplied to oneOf, expected an array.");
+              }
+            }
+            return emptyFunctionThatReturnsNull;
+          }
+          function validate(props, propName, componentName, location, propFullName) {
+            var propValue = props[propName];
+            for (var i2 = 0; i2 < expectedValues.length; i2++) {
+              if (is2(propValue, expectedValues[i2])) {
+                return null;
+              }
+            }
+            var valuesString = JSON.stringify(expectedValues, function replacer(key, value) {
+              var type = getPreciseType(value);
+              if (type === "symbol") {
+                return String(value);
+              }
+              return value;
+            });
+            return new PropTypeError("Invalid " + location + " `" + propFullName + "` of value `" + String(propValue) + "` " + ("supplied to `" + componentName + "`, expected one of " + valuesString + "."));
+          }
+          return createChainableTypeChecker(validate);
+        }
+        function createObjectOfTypeChecker(typeChecker) {
+          function validate(props, propName, componentName, location, propFullName) {
+            if (typeof typeChecker !== "function") {
+              return new PropTypeError("Property `" + propFullName + "` of component `" + componentName + "` has invalid PropType notation inside objectOf.");
+            }
+            var propValue = props[propName];
+            var propType = getPropType(propValue);
+            if (propType !== "object") {
+              return new PropTypeError("Invalid " + location + " `" + propFullName + "` of type " + ("`" + propType + "` supplied to `" + componentName + "`, expected an object."));
+            }
+            for (var key in propValue) {
+              if (has(propValue, key)) {
+                var error = typeChecker(propValue, key, componentName, location, propFullName + "." + key, ReactPropTypesSecret);
+                if (error instanceof Error) {
+                  return error;
+                }
+              }
+            }
+            return null;
+          }
+          return createChainableTypeChecker(validate);
+        }
+        function createUnionTypeChecker(arrayOfTypeCheckers) {
+          if (!Array.isArray(arrayOfTypeCheckers)) {
+            true ? printWarning("Invalid argument supplied to oneOfType, expected an instance of array.") : void 0;
+            return emptyFunctionThatReturnsNull;
+          }
+          for (var i2 = 0; i2 < arrayOfTypeCheckers.length; i2++) {
+            var checker = arrayOfTypeCheckers[i2];
+            if (typeof checker !== "function") {
+              printWarning("Invalid argument supplied to oneOfType. Expected an array of check functions, but received " + getPostfixForTypeWarning(checker) + " at index " + i2 + ".");
+              return emptyFunctionThatReturnsNull;
+            }
+          }
+          function validate(props, propName, componentName, location, propFullName) {
+            var expectedTypes = [];
+            for (var i3 = 0; i3 < arrayOfTypeCheckers.length; i3++) {
+              var checker2 = arrayOfTypeCheckers[i3];
+              var checkerResult = checker2(props, propName, componentName, location, propFullName, ReactPropTypesSecret);
+              if (checkerResult == null) {
+                return null;
+              }
+              if (checkerResult.data && has(checkerResult.data, "expectedType")) {
+                expectedTypes.push(checkerResult.data.expectedType);
+              }
+            }
+            var expectedTypesMessage = expectedTypes.length > 0 ? ", expected one of type [" + expectedTypes.join(", ") + "]" : "";
+            return new PropTypeError("Invalid " + location + " `" + propFullName + "` supplied to " + ("`" + componentName + "`" + expectedTypesMessage + "."));
+          }
+          return createChainableTypeChecker(validate);
+        }
+        function createNodeChecker() {
+          function validate(props, propName, componentName, location, propFullName) {
+            if (!isNode(props[propName])) {
+              return new PropTypeError("Invalid " + location + " `" + propFullName + "` supplied to " + ("`" + componentName + "`, expected a ReactNode."));
+            }
+            return null;
+          }
+          return createChainableTypeChecker(validate);
+        }
+        function invalidValidatorError(componentName, location, propFullName, key, type) {
+          return new PropTypeError((componentName || "React class") + ": " + location + " type `" + propFullName + "." + key + "` is invalid; it must be a function, usually from the `prop-types` package, but received `" + type + "`.");
+        }
+        function createShapeTypeChecker(shapeTypes) {
+          function validate(props, propName, componentName, location, propFullName) {
+            var propValue = props[propName];
+            var propType = getPropType(propValue);
+            if (propType !== "object") {
+              return new PropTypeError("Invalid " + location + " `" + propFullName + "` of type `" + propType + "` " + ("supplied to `" + componentName + "`, expected `object`."));
+            }
+            for (var key in shapeTypes) {
+              var checker = shapeTypes[key];
+              if (typeof checker !== "function") {
+                return invalidValidatorError(componentName, location, propFullName, key, getPreciseType(checker));
+              }
+              var error = checker(propValue, key, componentName, location, propFullName + "." + key, ReactPropTypesSecret);
+              if (error) {
+                return error;
+              }
+            }
+            return null;
+          }
+          return createChainableTypeChecker(validate);
+        }
+        function createStrictShapeTypeChecker(shapeTypes) {
+          function validate(props, propName, componentName, location, propFullName) {
+            var propValue = props[propName];
+            var propType = getPropType(propValue);
+            if (propType !== "object") {
+              return new PropTypeError("Invalid " + location + " `" + propFullName + "` of type `" + propType + "` " + ("supplied to `" + componentName + "`, expected `object`."));
+            }
+            var allKeys = assign3({}, props[propName], shapeTypes);
+            for (var key in allKeys) {
+              var checker = shapeTypes[key];
+              if (has(shapeTypes, key) && typeof checker !== "function") {
+                return invalidValidatorError(componentName, location, propFullName, key, getPreciseType(checker));
+              }
+              if (!checker) {
+                return new PropTypeError("Invalid " + location + " `" + propFullName + "` key `" + key + "` supplied to `" + componentName + "`.\nBad object: " + JSON.stringify(props[propName], null, "  ") + "\nValid keys: " + JSON.stringify(Object.keys(shapeTypes), null, "  "));
+              }
+              var error = checker(propValue, key, componentName, location, propFullName + "." + key, ReactPropTypesSecret);
+              if (error) {
+                return error;
+              }
+            }
+            return null;
+          }
+          return createChainableTypeChecker(validate);
+        }
+        function isNode(propValue) {
+          switch (typeof propValue) {
+            case "number":
+            case "string":
+            case "undefined":
+              return true;
+            case "boolean":
+              return !propValue;
+            case "object":
+              if (Array.isArray(propValue)) {
+                return propValue.every(isNode);
+              }
+              if (propValue === null || isValidElement(propValue)) {
+                return true;
+              }
+              var iteratorFn = getIteratorFn(propValue);
+              if (iteratorFn) {
+                var iterator = iteratorFn.call(propValue);
+                var step;
+                if (iteratorFn !== propValue.entries) {
+                  while (!(step = iterator.next()).done) {
+                    if (!isNode(step.value)) {
+                      return false;
+                    }
+                  }
+                } else {
+                  while (!(step = iterator.next()).done) {
+                    var entry = step.value;
+                    if (entry) {
+                      if (!isNode(entry[1])) {
+                        return false;
+                      }
+                    }
+                  }
+                }
+              } else {
+                return false;
+              }
+              return true;
+            default:
+              return false;
+          }
+        }
+        function isSymbol(propType, propValue) {
+          if (propType === "symbol") {
+            return true;
+          }
+          if (!propValue) {
+            return false;
+          }
+          if (propValue["@@toStringTag"] === "Symbol") {
+            return true;
+          }
+          if (typeof Symbol === "function" && propValue instanceof Symbol) {
+            return true;
+          }
+          return false;
+        }
+        function getPropType(propValue) {
+          var propType = typeof propValue;
+          if (Array.isArray(propValue)) {
+            return "array";
+          }
+          if (propValue instanceof RegExp) {
+            return "object";
+          }
+          if (isSymbol(propType, propValue)) {
+            return "symbol";
+          }
+          return propType;
+        }
+        function getPreciseType(propValue) {
+          if (typeof propValue === "undefined" || propValue === null) {
+            return "" + propValue;
+          }
+          var propType = getPropType(propValue);
+          if (propType === "object") {
+            if (propValue instanceof Date) {
+              return "date";
+            } else if (propValue instanceof RegExp) {
+              return "regexp";
+            }
+          }
+          return propType;
+        }
+        function getPostfixForTypeWarning(value) {
+          var type = getPreciseType(value);
+          switch (type) {
+            case "array":
+            case "object":
+              return "an " + type;
+            case "boolean":
+            case "date":
+            case "regexp":
+              return "a " + type;
+            default:
+              return type;
+          }
+        }
+        function getClassName(propValue) {
+          if (!propValue.constructor || !propValue.constructor.name) {
+            return ANONYMOUS;
+          }
+          return propValue.constructor.name;
+        }
+        ReactPropTypes.checkPropTypes = checkPropTypes;
+        ReactPropTypes.resetWarningCache = checkPropTypes.resetWarningCache;
+        ReactPropTypes.PropTypes = ReactPropTypes;
+        return ReactPropTypes;
+      };
+    }
+  });
+
+  // node_modules/prop-types/index.js
+  var require_prop_types = __commonJS({
+    "node_modules/prop-types/index.js"(exports, module) {
+      if (true) {
+        ReactIs = require_react_is();
+        throwOnDirectAccess = true;
+        module.exports = require_factoryWithTypeCheckers()(ReactIs.isElement, throwOnDirectAccess);
+      } else {
+        module.exports = null();
+      }
+      var ReactIs;
+      var throwOnDirectAccess;
+    }
+  });
+
   // client/app.jsx
-  var import_react7 = __toESM(require_react(), 1);
+  var import_react8 = __toESM(require_react(), 1);
   var import_client = __toESM(require_client(), 1);
 
   // client/VirtualTour.jsx
-  var import_react6 = __toESM(require_react(), 1);
+  var import_react7 = __toESM(require_react(), 1);
 
   // node_modules/three/build/three.module.js
   var three_module_exports = {};
@@ -67771,6 +68525,16 @@
   function useThree(selector = (state) => state, equalityFn) {
     return useStore()(selector, equalityFn);
   }
+  function useFrame(callback, renderPriority = 0) {
+    const store = useStore();
+    const subscribe = store.getState().internal.subscribe;
+    const ref = useMutableCallback(callback);
+    useIsomorphicLayoutEffect2(() => subscribe(ref, renderPriority, store), [renderPriority, subscribe, store]);
+    return null;
+  }
+  function useGraph(object) {
+    return React.useMemo(() => buildGraph(object), [object]);
+  }
   function loadingFn(extensions, onProgress) {
     return function(Proto, ...input) {
       const loader = new Proto();
@@ -68432,9 +69196,6 @@
     }, fallback));
   });
 
-  // client/components/PanoImage.jsx
-  var import_react4 = __toESM(require_react(), 1);
-
   // node_modules/@react-three/drei/core/useProgress.js
   var saveLastTotalLoaded = 0;
   var useProgress = create((set) => {
@@ -68476,6 +69237,761 @@
       total: 0
     };
   });
+
+  // node_modules/@babel/runtime/helpers/esm/defineProperty.js
+  function _defineProperty(obj, key, value) {
+    if (key in obj) {
+      Object.defineProperty(obj, key, {
+        value,
+        enumerable: true,
+        configurable: true,
+        writable: true
+      });
+    } else {
+      obj[key] = value;
+    }
+    return obj;
+  }
+
+  // node_modules/three-stdlib/controls/OrbitControls.js
+  var moduloWrapAround = (offset, capacity) => (offset % capacity + capacity) % capacity;
+  var OrbitControls = class extends EventDispatcher {
+    constructor(object, domElement) {
+      super();
+      _defineProperty(this, "object", void 0);
+      _defineProperty(this, "domElement", void 0);
+      _defineProperty(this, "enabled", true);
+      _defineProperty(this, "target", new Vector3());
+      _defineProperty(this, "minDistance", 0);
+      _defineProperty(this, "maxDistance", Infinity);
+      _defineProperty(this, "minZoom", 0);
+      _defineProperty(this, "maxZoom", Infinity);
+      _defineProperty(this, "minPolarAngle", 0);
+      _defineProperty(this, "maxPolarAngle", Math.PI);
+      _defineProperty(this, "minAzimuthAngle", -Infinity);
+      _defineProperty(this, "maxAzimuthAngle", Infinity);
+      _defineProperty(this, "enableDamping", false);
+      _defineProperty(this, "dampingFactor", 0.05);
+      _defineProperty(this, "enableZoom", true);
+      _defineProperty(this, "zoomSpeed", 1);
+      _defineProperty(this, "enableRotate", true);
+      _defineProperty(this, "rotateSpeed", 1);
+      _defineProperty(this, "enablePan", true);
+      _defineProperty(this, "panSpeed", 1);
+      _defineProperty(this, "screenSpacePanning", true);
+      _defineProperty(this, "keyPanSpeed", 7);
+      _defineProperty(this, "autoRotate", false);
+      _defineProperty(this, "autoRotateSpeed", 2);
+      _defineProperty(this, "reverseOrbit", false);
+      _defineProperty(this, "keys", {
+        LEFT: "ArrowLeft",
+        UP: "ArrowUp",
+        RIGHT: "ArrowRight",
+        BOTTOM: "ArrowDown"
+      });
+      _defineProperty(this, "mouseButtons", {
+        LEFT: MOUSE.ROTATE,
+        MIDDLE: MOUSE.DOLLY,
+        RIGHT: MOUSE.PAN
+      });
+      _defineProperty(this, "touches", {
+        ONE: TOUCH.ROTATE,
+        TWO: TOUCH.DOLLY_PAN
+      });
+      _defineProperty(this, "target0", void 0);
+      _defineProperty(this, "position0", void 0);
+      _defineProperty(this, "zoom0", void 0);
+      _defineProperty(this, "_domElementKeyEvents", null);
+      _defineProperty(this, "getPolarAngle", void 0);
+      _defineProperty(this, "getAzimuthalAngle", void 0);
+      _defineProperty(this, "setPolarAngle", void 0);
+      _defineProperty(this, "setAzimuthalAngle", void 0);
+      _defineProperty(this, "getDistance", void 0);
+      _defineProperty(this, "listenToKeyEvents", void 0);
+      _defineProperty(this, "saveState", void 0);
+      _defineProperty(this, "reset", void 0);
+      _defineProperty(this, "update", void 0);
+      _defineProperty(this, "connect", void 0);
+      _defineProperty(this, "dispose", void 0);
+      this.object = object;
+      this.domElement = domElement;
+      this.target0 = this.target.clone();
+      this.position0 = this.object.position.clone();
+      this.zoom0 = this.object instanceof PerspectiveCamera ? this.object.zoom : 1;
+      this.getPolarAngle = () => spherical.phi;
+      this.getAzimuthalAngle = () => spherical.theta;
+      this.setPolarAngle = (value) => {
+        let phi = moduloWrapAround(value, 2 * Math.PI);
+        let currentPhi = spherical.phi;
+        if (currentPhi < 0)
+          currentPhi += 2 * Math.PI;
+        if (phi < 0)
+          phi += 2 * Math.PI;
+        let phiDist = Math.abs(phi - currentPhi);
+        if (2 * Math.PI - phiDist < phiDist) {
+          if (phi < currentPhi) {
+            phi += 2 * Math.PI;
+          } else {
+            currentPhi += 2 * Math.PI;
+          }
+        }
+        sphericalDelta.phi = phi - currentPhi;
+        scope.update();
+      };
+      this.setAzimuthalAngle = (value) => {
+        let theta = moduloWrapAround(value, 2 * Math.PI);
+        let currentTheta = spherical.theta;
+        if (currentTheta < 0)
+          currentTheta += 2 * Math.PI;
+        if (theta < 0)
+          theta += 2 * Math.PI;
+        let thetaDist = Math.abs(theta - currentTheta);
+        if (2 * Math.PI - thetaDist < thetaDist) {
+          if (theta < currentTheta) {
+            theta += 2 * Math.PI;
+          } else {
+            currentTheta += 2 * Math.PI;
+          }
+        }
+        sphericalDelta.theta = theta - currentTheta;
+        scope.update();
+      };
+      this.getDistance = () => scope.object.position.distanceTo(scope.target);
+      this.listenToKeyEvents = (domElement2) => {
+        domElement2.addEventListener("keydown", onKeyDown);
+        this._domElementKeyEvents = domElement2;
+      };
+      this.saveState = () => {
+        scope.target0.copy(scope.target);
+        scope.position0.copy(scope.object.position);
+        scope.zoom0 = scope.object instanceof PerspectiveCamera ? scope.object.zoom : 1;
+      };
+      this.reset = () => {
+        scope.target.copy(scope.target0);
+        scope.object.position.copy(scope.position0);
+        if (scope.object instanceof PerspectiveCamera) {
+          scope.object.zoom = scope.zoom0;
+          scope.object.updateProjectionMatrix();
+        }
+        scope.dispatchEvent(changeEvent);
+        scope.update();
+        state = STATE.NONE;
+      };
+      this.update = (() => {
+        const offset = new Vector3();
+        const quat = new Quaternion().setFromUnitVectors(object.up, new Vector3(0, 1, 0));
+        const quatInverse = quat.clone().invert();
+        const lastPosition = new Vector3();
+        const lastQuaternion = new Quaternion();
+        const twoPI = 2 * Math.PI;
+        return function update() {
+          const position = scope.object.position;
+          offset.copy(position).sub(scope.target);
+          offset.applyQuaternion(quat);
+          spherical.setFromVector3(offset);
+          if (scope.autoRotate && state === STATE.NONE) {
+            rotateLeft(getAutoRotationAngle());
+          }
+          if (scope.enableDamping) {
+            spherical.theta += sphericalDelta.theta * scope.dampingFactor;
+            spherical.phi += sphericalDelta.phi * scope.dampingFactor;
+          } else {
+            spherical.theta += sphericalDelta.theta;
+            spherical.phi += sphericalDelta.phi;
+          }
+          let min = scope.minAzimuthAngle;
+          let max = scope.maxAzimuthAngle;
+          if (isFinite(min) && isFinite(max)) {
+            if (min < -Math.PI)
+              min += twoPI;
+            else if (min > Math.PI)
+              min -= twoPI;
+            if (max < -Math.PI)
+              max += twoPI;
+            else if (max > Math.PI)
+              max -= twoPI;
+            if (min <= max) {
+              spherical.theta = Math.max(min, Math.min(max, spherical.theta));
+            } else {
+              spherical.theta = spherical.theta > (min + max) / 2 ? Math.max(min, spherical.theta) : Math.min(max, spherical.theta);
+            }
+          }
+          spherical.phi = Math.max(scope.minPolarAngle, Math.min(scope.maxPolarAngle, spherical.phi));
+          spherical.makeSafe();
+          spherical.radius *= scale;
+          spherical.radius = Math.max(scope.minDistance, Math.min(scope.maxDistance, spherical.radius));
+          if (scope.enableDamping === true) {
+            scope.target.addScaledVector(panOffset, scope.dampingFactor);
+          } else {
+            scope.target.add(panOffset);
+          }
+          offset.setFromSpherical(spherical);
+          offset.applyQuaternion(quatInverse);
+          position.copy(scope.target).add(offset);
+          scope.object.lookAt(scope.target);
+          if (scope.enableDamping === true) {
+            sphericalDelta.theta *= 1 - scope.dampingFactor;
+            sphericalDelta.phi *= 1 - scope.dampingFactor;
+            panOffset.multiplyScalar(1 - scope.dampingFactor);
+          } else {
+            sphericalDelta.set(0, 0, 0);
+            panOffset.set(0, 0, 0);
+          }
+          scale = 1;
+          if (zoomChanged || lastPosition.distanceToSquared(scope.object.position) > EPS || 8 * (1 - lastQuaternion.dot(scope.object.quaternion)) > EPS) {
+            scope.dispatchEvent(changeEvent);
+            lastPosition.copy(scope.object.position);
+            lastQuaternion.copy(scope.object.quaternion);
+            zoomChanged = false;
+            return true;
+          }
+          return false;
+        };
+      })();
+      this.connect = (domElement2) => {
+        if (domElement2 === document) {
+          console.error('THREE.OrbitControls: "document" should not be used as the target "domElement". Please use "renderer.domElement" instead.');
+        }
+        scope.domElement = domElement2;
+        scope.domElement.style.touchAction = "none";
+        scope.domElement.addEventListener("contextmenu", onContextMenu);
+        scope.domElement.addEventListener("pointerdown", onPointerDown);
+        scope.domElement.addEventListener("pointercancel", onPointerCancel);
+        scope.domElement.addEventListener("wheel", onMouseWheel);
+      };
+      this.dispose = () => {
+        var _scope$domElement, _scope$domElement2, _scope$domElement3, _scope$domElement4, _scope$domElement5, _scope$domElement6;
+        (_scope$domElement = scope.domElement) === null || _scope$domElement === void 0 ? void 0 : _scope$domElement.removeEventListener("contextmenu", onContextMenu);
+        (_scope$domElement2 = scope.domElement) === null || _scope$domElement2 === void 0 ? void 0 : _scope$domElement2.removeEventListener("pointerdown", onPointerDown);
+        (_scope$domElement3 = scope.domElement) === null || _scope$domElement3 === void 0 ? void 0 : _scope$domElement3.removeEventListener("pointercancel", onPointerCancel);
+        (_scope$domElement4 = scope.domElement) === null || _scope$domElement4 === void 0 ? void 0 : _scope$domElement4.removeEventListener("wheel", onMouseWheel);
+        (_scope$domElement5 = scope.domElement) === null || _scope$domElement5 === void 0 ? void 0 : _scope$domElement5.ownerDocument.removeEventListener("pointermove", onPointerMove);
+        (_scope$domElement6 = scope.domElement) === null || _scope$domElement6 === void 0 ? void 0 : _scope$domElement6.ownerDocument.removeEventListener("pointerup", onPointerUp);
+        if (scope._domElementKeyEvents !== null) {
+          scope._domElementKeyEvents.removeEventListener("keydown", onKeyDown);
+        }
+      };
+      const scope = this;
+      const changeEvent = {
+        type: "change"
+      };
+      const startEvent = {
+        type: "start"
+      };
+      const endEvent = {
+        type: "end"
+      };
+      const STATE = {
+        NONE: -1,
+        ROTATE: 0,
+        DOLLY: 1,
+        PAN: 2,
+        TOUCH_ROTATE: 3,
+        TOUCH_PAN: 4,
+        TOUCH_DOLLY_PAN: 5,
+        TOUCH_DOLLY_ROTATE: 6
+      };
+      let state = STATE.NONE;
+      const EPS = 1e-6;
+      const spherical = new Spherical();
+      const sphericalDelta = new Spherical();
+      let scale = 1;
+      const panOffset = new Vector3();
+      let zoomChanged = false;
+      const rotateStart = new Vector2();
+      const rotateEnd = new Vector2();
+      const rotateDelta = new Vector2();
+      const panStart = new Vector2();
+      const panEnd = new Vector2();
+      const panDelta = new Vector2();
+      const dollyStart = new Vector2();
+      const dollyEnd = new Vector2();
+      const dollyDelta = new Vector2();
+      const pointers = [];
+      const pointerPositions = {};
+      function getAutoRotationAngle() {
+        return 2 * Math.PI / 60 / 60 * scope.autoRotateSpeed;
+      }
+      function getZoomScale() {
+        return Math.pow(0.95, scope.zoomSpeed);
+      }
+      function rotateLeft(angle) {
+        if (scope.reverseOrbit) {
+          sphericalDelta.theta += angle;
+        } else {
+          sphericalDelta.theta -= angle;
+        }
+      }
+      function rotateUp(angle) {
+        if (scope.reverseOrbit) {
+          sphericalDelta.phi += angle;
+        } else {
+          sphericalDelta.phi -= angle;
+        }
+      }
+      const panLeft = (() => {
+        const v = new Vector3();
+        return function panLeft2(distance, objectMatrix) {
+          v.setFromMatrixColumn(objectMatrix, 0);
+          v.multiplyScalar(-distance);
+          panOffset.add(v);
+        };
+      })();
+      const panUp = (() => {
+        const v = new Vector3();
+        return function panUp2(distance, objectMatrix) {
+          if (scope.screenSpacePanning === true) {
+            v.setFromMatrixColumn(objectMatrix, 1);
+          } else {
+            v.setFromMatrixColumn(objectMatrix, 0);
+            v.crossVectors(scope.object.up, v);
+          }
+          v.multiplyScalar(distance);
+          panOffset.add(v);
+        };
+      })();
+      const pan = (() => {
+        const offset = new Vector3();
+        return function pan2(deltaX, deltaY) {
+          const element = scope.domElement;
+          if (element && scope.object instanceof PerspectiveCamera && scope.object.isPerspectiveCamera) {
+            const position = scope.object.position;
+            offset.copy(position).sub(scope.target);
+            let targetDistance = offset.length();
+            targetDistance *= Math.tan(scope.object.fov / 2 * Math.PI / 180);
+            panLeft(2 * deltaX * targetDistance / element.clientHeight, scope.object.matrix);
+            panUp(2 * deltaY * targetDistance / element.clientHeight, scope.object.matrix);
+          } else if (element && scope.object instanceof OrthographicCamera && scope.object.isOrthographicCamera) {
+            panLeft(deltaX * (scope.object.right - scope.object.left) / scope.object.zoom / element.clientWidth, scope.object.matrix);
+            panUp(deltaY * (scope.object.top - scope.object.bottom) / scope.object.zoom / element.clientHeight, scope.object.matrix);
+          } else {
+            console.warn("WARNING: OrbitControls.js encountered an unknown camera type - pan disabled.");
+            scope.enablePan = false;
+          }
+        };
+      })();
+      function dollyOut(dollyScale) {
+        if (scope.object instanceof PerspectiveCamera && scope.object.isPerspectiveCamera) {
+          scale /= dollyScale;
+        } else if (scope.object instanceof OrthographicCamera && scope.object.isOrthographicCamera) {
+          scope.object.zoom = Math.max(scope.minZoom, Math.min(scope.maxZoom, scope.object.zoom * dollyScale));
+          scope.object.updateProjectionMatrix();
+          zoomChanged = true;
+        } else {
+          console.warn("WARNING: OrbitControls.js encountered an unknown camera type - dolly/zoom disabled.");
+          scope.enableZoom = false;
+        }
+      }
+      function dollyIn(dollyScale) {
+        if (scope.object instanceof PerspectiveCamera && scope.object.isPerspectiveCamera) {
+          scale *= dollyScale;
+        } else if (scope.object instanceof OrthographicCamera && scope.object.isOrthographicCamera) {
+          scope.object.zoom = Math.max(scope.minZoom, Math.min(scope.maxZoom, scope.object.zoom / dollyScale));
+          scope.object.updateProjectionMatrix();
+          zoomChanged = true;
+        } else {
+          console.warn("WARNING: OrbitControls.js encountered an unknown camera type - dolly/zoom disabled.");
+          scope.enableZoom = false;
+        }
+      }
+      function handleMouseDownRotate(event) {
+        rotateStart.set(event.clientX, event.clientY);
+      }
+      function handleMouseDownDolly(event) {
+        dollyStart.set(event.clientX, event.clientY);
+      }
+      function handleMouseDownPan(event) {
+        panStart.set(event.clientX, event.clientY);
+      }
+      function handleMouseMoveRotate(event) {
+        rotateEnd.set(event.clientX, event.clientY);
+        rotateDelta.subVectors(rotateEnd, rotateStart).multiplyScalar(scope.rotateSpeed);
+        const element = scope.domElement;
+        if (element) {
+          rotateLeft(2 * Math.PI * rotateDelta.x / element.clientHeight);
+          rotateUp(2 * Math.PI * rotateDelta.y / element.clientHeight);
+        }
+        rotateStart.copy(rotateEnd);
+        scope.update();
+      }
+      function handleMouseMoveDolly(event) {
+        dollyEnd.set(event.clientX, event.clientY);
+        dollyDelta.subVectors(dollyEnd, dollyStart);
+        if (dollyDelta.y > 0) {
+          dollyOut(getZoomScale());
+        } else if (dollyDelta.y < 0) {
+          dollyIn(getZoomScale());
+        }
+        dollyStart.copy(dollyEnd);
+        scope.update();
+      }
+      function handleMouseMovePan(event) {
+        panEnd.set(event.clientX, event.clientY);
+        panDelta.subVectors(panEnd, panStart).multiplyScalar(scope.panSpeed);
+        pan(panDelta.x, panDelta.y);
+        panStart.copy(panEnd);
+        scope.update();
+      }
+      function handleMouseWheel(event) {
+        if (event.deltaY < 0) {
+          dollyIn(getZoomScale());
+        } else if (event.deltaY > 0) {
+          dollyOut(getZoomScale());
+        }
+        scope.update();
+      }
+      function handleKeyDown(event) {
+        let needsUpdate = false;
+        switch (event.code) {
+          case scope.keys.UP:
+            pan(0, scope.keyPanSpeed);
+            needsUpdate = true;
+            break;
+          case scope.keys.BOTTOM:
+            pan(0, -scope.keyPanSpeed);
+            needsUpdate = true;
+            break;
+          case scope.keys.LEFT:
+            pan(scope.keyPanSpeed, 0);
+            needsUpdate = true;
+            break;
+          case scope.keys.RIGHT:
+            pan(-scope.keyPanSpeed, 0);
+            needsUpdate = true;
+            break;
+        }
+        if (needsUpdate) {
+          event.preventDefault();
+          scope.update();
+        }
+      }
+      function handleTouchStartRotate() {
+        if (pointers.length == 1) {
+          rotateStart.set(pointers[0].pageX, pointers[0].pageY);
+        } else {
+          const x = 0.5 * (pointers[0].pageX + pointers[1].pageX);
+          const y = 0.5 * (pointers[0].pageY + pointers[1].pageY);
+          rotateStart.set(x, y);
+        }
+      }
+      function handleTouchStartPan() {
+        if (pointers.length == 1) {
+          panStart.set(pointers[0].pageX, pointers[0].pageY);
+        } else {
+          const x = 0.5 * (pointers[0].pageX + pointers[1].pageX);
+          const y = 0.5 * (pointers[0].pageY + pointers[1].pageY);
+          panStart.set(x, y);
+        }
+      }
+      function handleTouchStartDolly() {
+        const dx = pointers[0].pageX - pointers[1].pageX;
+        const dy = pointers[0].pageY - pointers[1].pageY;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+        dollyStart.set(0, distance);
+      }
+      function handleTouchStartDollyPan() {
+        if (scope.enableZoom)
+          handleTouchStartDolly();
+        if (scope.enablePan)
+          handleTouchStartPan();
+      }
+      function handleTouchStartDollyRotate() {
+        if (scope.enableZoom)
+          handleTouchStartDolly();
+        if (scope.enableRotate)
+          handleTouchStartRotate();
+      }
+      function handleTouchMoveRotate(event) {
+        if (pointers.length == 1) {
+          rotateEnd.set(event.pageX, event.pageY);
+        } else {
+          const position = getSecondPointerPosition(event);
+          const x = 0.5 * (event.pageX + position.x);
+          const y = 0.5 * (event.pageY + position.y);
+          rotateEnd.set(x, y);
+        }
+        rotateDelta.subVectors(rotateEnd, rotateStart).multiplyScalar(scope.rotateSpeed);
+        const element = scope.domElement;
+        if (element) {
+          rotateLeft(2 * Math.PI * rotateDelta.x / element.clientHeight);
+          rotateUp(2 * Math.PI * rotateDelta.y / element.clientHeight);
+        }
+        rotateStart.copy(rotateEnd);
+      }
+      function handleTouchMovePan(event) {
+        if (pointers.length == 1) {
+          panEnd.set(event.pageX, event.pageY);
+        } else {
+          const position = getSecondPointerPosition(event);
+          const x = 0.5 * (event.pageX + position.x);
+          const y = 0.5 * (event.pageY + position.y);
+          panEnd.set(x, y);
+        }
+        panDelta.subVectors(panEnd, panStart).multiplyScalar(scope.panSpeed);
+        pan(panDelta.x, panDelta.y);
+        panStart.copy(panEnd);
+      }
+      function handleTouchMoveDolly(event) {
+        const position = getSecondPointerPosition(event);
+        const dx = event.pageX - position.x;
+        const dy = event.pageY - position.y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+        dollyEnd.set(0, distance);
+        dollyDelta.set(0, Math.pow(dollyEnd.y / dollyStart.y, scope.zoomSpeed));
+        dollyOut(dollyDelta.y);
+        dollyStart.copy(dollyEnd);
+      }
+      function handleTouchMoveDollyPan(event) {
+        if (scope.enableZoom)
+          handleTouchMoveDolly(event);
+        if (scope.enablePan)
+          handleTouchMovePan(event);
+      }
+      function handleTouchMoveDollyRotate(event) {
+        if (scope.enableZoom)
+          handleTouchMoveDolly(event);
+        if (scope.enableRotate)
+          handleTouchMoveRotate(event);
+      }
+      function onPointerDown(event) {
+        if (scope.enabled === false)
+          return;
+        if (pointers.length === 0) {
+          var _scope$domElement7, _scope$domElement8;
+          (_scope$domElement7 = scope.domElement) === null || _scope$domElement7 === void 0 ? void 0 : _scope$domElement7.ownerDocument.addEventListener("pointermove", onPointerMove);
+          (_scope$domElement8 = scope.domElement) === null || _scope$domElement8 === void 0 ? void 0 : _scope$domElement8.ownerDocument.addEventListener("pointerup", onPointerUp);
+        }
+        addPointer(event);
+        if (event.pointerType === "touch") {
+          onTouchStart(event);
+        } else {
+          onMouseDown(event);
+        }
+      }
+      function onPointerMove(event) {
+        if (scope.enabled === false)
+          return;
+        if (event.pointerType === "touch") {
+          onTouchMove(event);
+        } else {
+          onMouseMove(event);
+        }
+      }
+      function onPointerUp(event) {
+        removePointer(event);
+        if (pointers.length === 0) {
+          var _scope$domElement9, _scope$domElement10, _scope$domElement11;
+          (_scope$domElement9 = scope.domElement) === null || _scope$domElement9 === void 0 ? void 0 : _scope$domElement9.releasePointerCapture(event.pointerId);
+          (_scope$domElement10 = scope.domElement) === null || _scope$domElement10 === void 0 ? void 0 : _scope$domElement10.ownerDocument.removeEventListener("pointermove", onPointerMove);
+          (_scope$domElement11 = scope.domElement) === null || _scope$domElement11 === void 0 ? void 0 : _scope$domElement11.ownerDocument.removeEventListener("pointerup", onPointerUp);
+        }
+        scope.dispatchEvent(endEvent);
+        state = STATE.NONE;
+      }
+      function onPointerCancel(event) {
+        removePointer(event);
+      }
+      function onMouseDown(event) {
+        let mouseAction;
+        switch (event.button) {
+          case 0:
+            mouseAction = scope.mouseButtons.LEFT;
+            break;
+          case 1:
+            mouseAction = scope.mouseButtons.MIDDLE;
+            break;
+          case 2:
+            mouseAction = scope.mouseButtons.RIGHT;
+            break;
+          default:
+            mouseAction = -1;
+        }
+        switch (mouseAction) {
+          case MOUSE.DOLLY:
+            if (scope.enableZoom === false)
+              return;
+            handleMouseDownDolly(event);
+            state = STATE.DOLLY;
+            break;
+          case MOUSE.ROTATE:
+            if (event.ctrlKey || event.metaKey || event.shiftKey) {
+              if (scope.enablePan === false)
+                return;
+              handleMouseDownPan(event);
+              state = STATE.PAN;
+            } else {
+              if (scope.enableRotate === false)
+                return;
+              handleMouseDownRotate(event);
+              state = STATE.ROTATE;
+            }
+            break;
+          case MOUSE.PAN:
+            if (event.ctrlKey || event.metaKey || event.shiftKey) {
+              if (scope.enableRotate === false)
+                return;
+              handleMouseDownRotate(event);
+              state = STATE.ROTATE;
+            } else {
+              if (scope.enablePan === false)
+                return;
+              handleMouseDownPan(event);
+              state = STATE.PAN;
+            }
+            break;
+          default:
+            state = STATE.NONE;
+        }
+        if (state !== STATE.NONE) {
+          scope.dispatchEvent(startEvent);
+        }
+      }
+      function onMouseMove(event) {
+        if (scope.enabled === false)
+          return;
+        switch (state) {
+          case STATE.ROTATE:
+            if (scope.enableRotate === false)
+              return;
+            handleMouseMoveRotate(event);
+            break;
+          case STATE.DOLLY:
+            if (scope.enableZoom === false)
+              return;
+            handleMouseMoveDolly(event);
+            break;
+          case STATE.PAN:
+            if (scope.enablePan === false)
+              return;
+            handleMouseMovePan(event);
+            break;
+        }
+      }
+      function onMouseWheel(event) {
+        if (scope.enabled === false || scope.enableZoom === false || state !== STATE.NONE && state !== STATE.ROTATE) {
+          return;
+        }
+        event.preventDefault();
+        scope.dispatchEvent(startEvent);
+        handleMouseWheel(event);
+        scope.dispatchEvent(endEvent);
+      }
+      function onKeyDown(event) {
+        if (scope.enabled === false || scope.enablePan === false)
+          return;
+        handleKeyDown(event);
+      }
+      function onTouchStart(event) {
+        trackPointer(event);
+        switch (pointers.length) {
+          case 1:
+            switch (scope.touches.ONE) {
+              case TOUCH.ROTATE:
+                if (scope.enableRotate === false)
+                  return;
+                handleTouchStartRotate();
+                state = STATE.TOUCH_ROTATE;
+                break;
+              case TOUCH.PAN:
+                if (scope.enablePan === false)
+                  return;
+                handleTouchStartPan();
+                state = STATE.TOUCH_PAN;
+                break;
+              default:
+                state = STATE.NONE;
+            }
+            break;
+          case 2:
+            switch (scope.touches.TWO) {
+              case TOUCH.DOLLY_PAN:
+                if (scope.enableZoom === false && scope.enablePan === false)
+                  return;
+                handleTouchStartDollyPan();
+                state = STATE.TOUCH_DOLLY_PAN;
+                break;
+              case TOUCH.DOLLY_ROTATE:
+                if (scope.enableZoom === false && scope.enableRotate === false)
+                  return;
+                handleTouchStartDollyRotate();
+                state = STATE.TOUCH_DOLLY_ROTATE;
+                break;
+              default:
+                state = STATE.NONE;
+            }
+            break;
+          default:
+            state = STATE.NONE;
+        }
+        if (state !== STATE.NONE) {
+          scope.dispatchEvent(startEvent);
+        }
+      }
+      function onTouchMove(event) {
+        trackPointer(event);
+        switch (state) {
+          case STATE.TOUCH_ROTATE:
+            if (scope.enableRotate === false)
+              return;
+            handleTouchMoveRotate(event);
+            scope.update();
+            break;
+          case STATE.TOUCH_PAN:
+            if (scope.enablePan === false)
+              return;
+            handleTouchMovePan(event);
+            scope.update();
+            break;
+          case STATE.TOUCH_DOLLY_PAN:
+            if (scope.enableZoom === false && scope.enablePan === false)
+              return;
+            handleTouchMoveDollyPan(event);
+            scope.update();
+            break;
+          case STATE.TOUCH_DOLLY_ROTATE:
+            if (scope.enableZoom === false && scope.enableRotate === false)
+              return;
+            handleTouchMoveDollyRotate(event);
+            scope.update();
+            break;
+          default:
+            state = STATE.NONE;
+        }
+      }
+      function onContextMenu(event) {
+        if (scope.enabled === false)
+          return;
+        event.preventDefault();
+      }
+      function addPointer(event) {
+        pointers.push(event);
+      }
+      function removePointer(event) {
+        delete pointerPositions[event.pointerId];
+        for (let i2 = 0; i2 < pointers.length; i2++) {
+          if (pointers[i2].pointerId == event.pointerId) {
+            pointers.splice(i2, 1);
+            return;
+          }
+        }
+      }
+      function trackPointer(event) {
+        let position = pointerPositions[event.pointerId];
+        if (position === void 0) {
+          position = new Vector2();
+          pointerPositions[event.pointerId] = position;
+        }
+        position.set(event.pageX, event.pageY);
+      }
+      function getSecondPointerPosition(event) {
+        const pointer = event.pointerId === pointers[0].pointerId ? pointers[1] : pointers[0];
+        return pointerPositions[pointer.pointerId];
+      }
+      if (domElement !== void 0)
+        this.connect(domElement);
+      this.update();
+    }
+  };
 
   // node_modules/@react-three/drei/core/Text.js
   var React3 = __toESM(require_react());
@@ -73765,127 +75281,629 @@ if (edgeAlpha == 0.0) {
   useTexture.preload = (url) => useLoader.preload(TextureLoader, url);
   useTexture.clear = (input) => useLoader.clear(TextureLoader, input);
 
+  // node_modules/@react-three/drei/core/OrbitControls.js
+  var React4 = __toESM(require_react());
+  var OrbitControls2 = /* @__PURE__ */ React4.forwardRef((_a, ref) => {
+    var _b = _a, {
+      makeDefault,
+      camera,
+      regress,
+      domElement,
+      enableDamping = true,
+      onChange,
+      onStart,
+      onEnd
+    } = _b, restProps = __objRest(_b, [
+      "makeDefault",
+      "camera",
+      "regress",
+      "domElement",
+      "enableDamping",
+      "onChange",
+      "onStart",
+      "onEnd"
+    ]);
+    const invalidate2 = useThree((state) => state.invalidate);
+    const defaultCamera = useThree((state) => state.camera);
+    const gl = useThree((state) => state.gl);
+    const events = useThree((state) => state.events);
+    const set = useThree((state) => state.set);
+    const get = useThree((state) => state.get);
+    const performance2 = useThree((state) => state.performance);
+    const explCamera = camera || defaultCamera;
+    const explDomElement = domElement || events.connected || gl.domElement;
+    const controls = React4.useMemo(() => new OrbitControls(explCamera), [explCamera]);
+    useFrame(() => {
+      if (controls.enabled)
+        controls.update();
+    }, -1);
+    React4.useEffect(() => {
+      controls.connect(explDomElement);
+      return () => void controls.dispose();
+    }, [explDomElement, regress, controls, invalidate2]);
+    React4.useEffect(() => {
+      const callback = (e) => {
+        invalidate2();
+        if (regress)
+          performance2.regress();
+        if (onChange)
+          onChange(e);
+      };
+      controls.addEventListener("change", callback);
+      if (onStart)
+        controls.addEventListener("start", onStart);
+      if (onEnd)
+        controls.addEventListener("end", onEnd);
+      return () => {
+        if (onStart)
+          controls.removeEventListener("start", onStart);
+        if (onEnd)
+          controls.removeEventListener("end", onEnd);
+        controls.removeEventListener("change", callback);
+      };
+    }, [onChange, onStart, onEnd]);
+    React4.useEffect(() => {
+      if (makeDefault) {
+        const old = get().controls;
+        set({
+          controls
+        });
+        return () => set({
+          controls: old
+        });
+      }
+    }, [makeDefault, controls]);
+    return /* @__PURE__ */ React4.createElement("primitive", _extends({
+      ref,
+      object: controls,
+      enableDamping
+    }, restProps));
+  });
+
+  // client/components/Arrow.jsx
+  var import_react4 = __toESM(require_react(), 1);
+  var import_prop_types = __toESM(require_prop_types(), 1);
+
+  // node_modules/three/examples/jsm/loaders/OBJLoader.js
+  var _object_pattern = /^[og]\s*(.+)?/;
+  var _material_library_pattern = /^mtllib /;
+  var _material_use_pattern = /^usemtl /;
+  var _map_use_pattern = /^usemap /;
+  var _vA2 = new Vector3();
+  var _vB2 = new Vector3();
+  var _vC2 = new Vector3();
+  var _ab = new Vector3();
+  var _cb = new Vector3();
+  var _color = new Color();
+  function ParserState() {
+    const state = {
+      objects: [],
+      object: {},
+      vertices: [],
+      normals: [],
+      colors: [],
+      uvs: [],
+      materials: {},
+      materialLibraries: [],
+      startObject: function(name, fromDeclaration) {
+        if (this.object && this.object.fromDeclaration === false) {
+          this.object.name = name;
+          this.object.fromDeclaration = fromDeclaration !== false;
+          return;
+        }
+        const previousMaterial = this.object && typeof this.object.currentMaterial === "function" ? this.object.currentMaterial() : void 0;
+        if (this.object && typeof this.object._finalize === "function") {
+          this.object._finalize(true);
+        }
+        this.object = {
+          name: name || "",
+          fromDeclaration: fromDeclaration !== false,
+          geometry: {
+            vertices: [],
+            normals: [],
+            colors: [],
+            uvs: [],
+            hasUVIndices: false
+          },
+          materials: [],
+          smooth: true,
+          startMaterial: function(name2, libraries) {
+            const previous = this._finalize(false);
+            if (previous && (previous.inherited || previous.groupCount <= 0)) {
+              this.materials.splice(previous.index, 1);
+            }
+            const material = {
+              index: this.materials.length,
+              name: name2 || "",
+              mtllib: Array.isArray(libraries) && libraries.length > 0 ? libraries[libraries.length - 1] : "",
+              smooth: previous !== void 0 ? previous.smooth : this.smooth,
+              groupStart: previous !== void 0 ? previous.groupEnd : 0,
+              groupEnd: -1,
+              groupCount: -1,
+              inherited: false,
+              clone: function(index) {
+                const cloned = {
+                  index: typeof index === "number" ? index : this.index,
+                  name: this.name,
+                  mtllib: this.mtllib,
+                  smooth: this.smooth,
+                  groupStart: 0,
+                  groupEnd: -1,
+                  groupCount: -1,
+                  inherited: false
+                };
+                cloned.clone = this.clone.bind(cloned);
+                return cloned;
+              }
+            };
+            this.materials.push(material);
+            return material;
+          },
+          currentMaterial: function() {
+            if (this.materials.length > 0) {
+              return this.materials[this.materials.length - 1];
+            }
+            return void 0;
+          },
+          _finalize: function(end) {
+            const lastMultiMaterial = this.currentMaterial();
+            if (lastMultiMaterial && lastMultiMaterial.groupEnd === -1) {
+              lastMultiMaterial.groupEnd = this.geometry.vertices.length / 3;
+              lastMultiMaterial.groupCount = lastMultiMaterial.groupEnd - lastMultiMaterial.groupStart;
+              lastMultiMaterial.inherited = false;
+            }
+            if (end && this.materials.length > 1) {
+              for (let mi = this.materials.length - 1; mi >= 0; mi--) {
+                if (this.materials[mi].groupCount <= 0) {
+                  this.materials.splice(mi, 1);
+                }
+              }
+            }
+            if (end && this.materials.length === 0) {
+              this.materials.push({
+                name: "",
+                smooth: this.smooth
+              });
+            }
+            return lastMultiMaterial;
+          }
+        };
+        if (previousMaterial && previousMaterial.name && typeof previousMaterial.clone === "function") {
+          const declared = previousMaterial.clone(0);
+          declared.inherited = true;
+          this.object.materials.push(declared);
+        }
+        this.objects.push(this.object);
+      },
+      finalize: function() {
+        if (this.object && typeof this.object._finalize === "function") {
+          this.object._finalize(true);
+        }
+      },
+      parseVertexIndex: function(value, len) {
+        const index = parseInt(value, 10);
+        return (index >= 0 ? index - 1 : index + len / 3) * 3;
+      },
+      parseNormalIndex: function(value, len) {
+        const index = parseInt(value, 10);
+        return (index >= 0 ? index - 1 : index + len / 3) * 3;
+      },
+      parseUVIndex: function(value, len) {
+        const index = parseInt(value, 10);
+        return (index >= 0 ? index - 1 : index + len / 2) * 2;
+      },
+      addVertex: function(a, b, c) {
+        const src = this.vertices;
+        const dst = this.object.geometry.vertices;
+        dst.push(src[a + 0], src[a + 1], src[a + 2]);
+        dst.push(src[b + 0], src[b + 1], src[b + 2]);
+        dst.push(src[c + 0], src[c + 1], src[c + 2]);
+      },
+      addVertexPoint: function(a) {
+        const src = this.vertices;
+        const dst = this.object.geometry.vertices;
+        dst.push(src[a + 0], src[a + 1], src[a + 2]);
+      },
+      addVertexLine: function(a) {
+        const src = this.vertices;
+        const dst = this.object.geometry.vertices;
+        dst.push(src[a + 0], src[a + 1], src[a + 2]);
+      },
+      addNormal: function(a, b, c) {
+        const src = this.normals;
+        const dst = this.object.geometry.normals;
+        dst.push(src[a + 0], src[a + 1], src[a + 2]);
+        dst.push(src[b + 0], src[b + 1], src[b + 2]);
+        dst.push(src[c + 0], src[c + 1], src[c + 2]);
+      },
+      addFaceNormal: function(a, b, c) {
+        const src = this.vertices;
+        const dst = this.object.geometry.normals;
+        _vA2.fromArray(src, a);
+        _vB2.fromArray(src, b);
+        _vC2.fromArray(src, c);
+        _cb.subVectors(_vC2, _vB2);
+        _ab.subVectors(_vA2, _vB2);
+        _cb.cross(_ab);
+        _cb.normalize();
+        dst.push(_cb.x, _cb.y, _cb.z);
+        dst.push(_cb.x, _cb.y, _cb.z);
+        dst.push(_cb.x, _cb.y, _cb.z);
+      },
+      addColor: function(a, b, c) {
+        const src = this.colors;
+        const dst = this.object.geometry.colors;
+        if (src[a] !== void 0)
+          dst.push(src[a + 0], src[a + 1], src[a + 2]);
+        if (src[b] !== void 0)
+          dst.push(src[b + 0], src[b + 1], src[b + 2]);
+        if (src[c] !== void 0)
+          dst.push(src[c + 0], src[c + 1], src[c + 2]);
+      },
+      addUV: function(a, b, c) {
+        const src = this.uvs;
+        const dst = this.object.geometry.uvs;
+        dst.push(src[a + 0], src[a + 1]);
+        dst.push(src[b + 0], src[b + 1]);
+        dst.push(src[c + 0], src[c + 1]);
+      },
+      addDefaultUV: function() {
+        const dst = this.object.geometry.uvs;
+        dst.push(0, 0);
+        dst.push(0, 0);
+        dst.push(0, 0);
+      },
+      addUVLine: function(a) {
+        const src = this.uvs;
+        const dst = this.object.geometry.uvs;
+        dst.push(src[a + 0], src[a + 1]);
+      },
+      addFace: function(a, b, c, ua, ub, uc, na, nb, nc) {
+        const vLen = this.vertices.length;
+        let ia = this.parseVertexIndex(a, vLen);
+        let ib = this.parseVertexIndex(b, vLen);
+        let ic = this.parseVertexIndex(c, vLen);
+        this.addVertex(ia, ib, ic);
+        this.addColor(ia, ib, ic);
+        if (na !== void 0 && na !== "") {
+          const nLen = this.normals.length;
+          ia = this.parseNormalIndex(na, nLen);
+          ib = this.parseNormalIndex(nb, nLen);
+          ic = this.parseNormalIndex(nc, nLen);
+          this.addNormal(ia, ib, ic);
+        } else {
+          this.addFaceNormal(ia, ib, ic);
+        }
+        if (ua !== void 0 && ua !== "") {
+          const uvLen = this.uvs.length;
+          ia = this.parseUVIndex(ua, uvLen);
+          ib = this.parseUVIndex(ub, uvLen);
+          ic = this.parseUVIndex(uc, uvLen);
+          this.addUV(ia, ib, ic);
+          this.object.geometry.hasUVIndices = true;
+        } else {
+          this.addDefaultUV();
+        }
+      },
+      addPointGeometry: function(vertices) {
+        this.object.geometry.type = "Points";
+        const vLen = this.vertices.length;
+        for (let vi = 0, l = vertices.length; vi < l; vi++) {
+          const index = this.parseVertexIndex(vertices[vi], vLen);
+          this.addVertexPoint(index);
+          this.addColor(index);
+        }
+      },
+      addLineGeometry: function(vertices, uvs) {
+        this.object.geometry.type = "Line";
+        const vLen = this.vertices.length;
+        const uvLen = this.uvs.length;
+        for (let vi = 0, l = vertices.length; vi < l; vi++) {
+          this.addVertexLine(this.parseVertexIndex(vertices[vi], vLen));
+        }
+        for (let uvi = 0, l = uvs.length; uvi < l; uvi++) {
+          this.addUVLine(this.parseUVIndex(uvs[uvi], uvLen));
+        }
+      }
+    };
+    state.startObject("", false);
+    return state;
+  }
+  var OBJLoader = class extends Loader {
+    constructor(manager) {
+      super(manager);
+      this.materials = null;
+    }
+    load(url, onLoad, onProgress, onError) {
+      const scope = this;
+      const loader = new FileLoader(this.manager);
+      loader.setPath(this.path);
+      loader.setRequestHeader(this.requestHeader);
+      loader.setWithCredentials(this.withCredentials);
+      loader.load(url, function(text) {
+        try {
+          onLoad(scope.parse(text));
+        } catch (e) {
+          if (onError) {
+            onError(e);
+          } else {
+            console.error(e);
+          }
+          scope.manager.itemError(url);
+        }
+      }, onProgress, onError);
+    }
+    setMaterials(materials) {
+      this.materials = materials;
+      return this;
+    }
+    parse(text) {
+      const state = new ParserState();
+      if (text.indexOf("\r\n") !== -1) {
+        text = text.replace(/\r\n/g, "\n");
+      }
+      if (text.indexOf("\\\n") !== -1) {
+        text = text.replace(/\\\n/g, "");
+      }
+      const lines = text.split("\n");
+      let line = "", lineFirstChar = "";
+      let lineLength = 0;
+      let result = [];
+      const trimLeft = typeof "".trimLeft === "function";
+      for (let i2 = 0, l = lines.length; i2 < l; i2++) {
+        line = lines[i2];
+        line = trimLeft ? line.trimLeft() : line.trim();
+        lineLength = line.length;
+        if (lineLength === 0)
+          continue;
+        lineFirstChar = line.charAt(0);
+        if (lineFirstChar === "#")
+          continue;
+        if (lineFirstChar === "v") {
+          const data = line.split(/\s+/);
+          switch (data[0]) {
+            case "v":
+              state.vertices.push(parseFloat(data[1]), parseFloat(data[2]), parseFloat(data[3]));
+              if (data.length >= 7) {
+                _color.setRGB(parseFloat(data[4]), parseFloat(data[5]), parseFloat(data[6])).convertSRGBToLinear();
+                state.colors.push(_color.r, _color.g, _color.b);
+              } else {
+                state.colors.push(void 0, void 0, void 0);
+              }
+              break;
+            case "vn":
+              state.normals.push(parseFloat(data[1]), parseFloat(data[2]), parseFloat(data[3]));
+              break;
+            case "vt":
+              state.uvs.push(parseFloat(data[1]), parseFloat(data[2]));
+              break;
+          }
+        } else if (lineFirstChar === "f") {
+          const lineData = line.slice(1).trim();
+          const vertexData = lineData.split(/\s+/);
+          const faceVertices = [];
+          for (let j = 0, jl = vertexData.length; j < jl; j++) {
+            const vertex2 = vertexData[j];
+            if (vertex2.length > 0) {
+              const vertexParts = vertex2.split("/");
+              faceVertices.push(vertexParts);
+            }
+          }
+          const v1 = faceVertices[0];
+          for (let j = 1, jl = faceVertices.length - 1; j < jl; j++) {
+            const v2 = faceVertices[j];
+            const v3 = faceVertices[j + 1];
+            state.addFace(v1[0], v2[0], v3[0], v1[1], v2[1], v3[1], v1[2], v2[2], v3[2]);
+          }
+        } else if (lineFirstChar === "l") {
+          const lineParts = line.substring(1).trim().split(" ");
+          let lineVertices = [];
+          const lineUVs = [];
+          if (line.indexOf("/") === -1) {
+            lineVertices = lineParts;
+          } else {
+            for (let li = 0, llen = lineParts.length; li < llen; li++) {
+              const parts = lineParts[li].split("/");
+              if (parts[0] !== "")
+                lineVertices.push(parts[0]);
+              if (parts[1] !== "")
+                lineUVs.push(parts[1]);
+            }
+          }
+          state.addLineGeometry(lineVertices, lineUVs);
+        } else if (lineFirstChar === "p") {
+          const lineData = line.slice(1).trim();
+          const pointData = lineData.split(" ");
+          state.addPointGeometry(pointData);
+        } else if ((result = _object_pattern.exec(line)) !== null) {
+          const name = (" " + result[0].slice(1).trim()).slice(1);
+          state.startObject(name);
+        } else if (_material_use_pattern.test(line)) {
+          state.object.startMaterial(line.substring(7).trim(), state.materialLibraries);
+        } else if (_material_library_pattern.test(line)) {
+          state.materialLibraries.push(line.substring(7).trim());
+        } else if (_map_use_pattern.test(line)) {
+          console.warn('THREE.OBJLoader: Rendering identifier "usemap" not supported. Textures must be defined in MTL files.');
+        } else if (lineFirstChar === "s") {
+          result = line.split(" ");
+          if (result.length > 1) {
+            const value = result[1].trim().toLowerCase();
+            state.object.smooth = value !== "0" && value !== "off";
+          } else {
+            state.object.smooth = true;
+          }
+          const material = state.object.currentMaterial();
+          if (material)
+            material.smooth = state.object.smooth;
+        } else {
+          if (line === "\0")
+            continue;
+          console.warn('THREE.OBJLoader: Unexpected line: "' + line + '"');
+        }
+      }
+      state.finalize();
+      const container = new Group();
+      container.materialLibraries = [].concat(state.materialLibraries);
+      const hasPrimitives = !(state.objects.length === 1 && state.objects[0].geometry.vertices.length === 0);
+      if (hasPrimitives === true) {
+        for (let i2 = 0, l = state.objects.length; i2 < l; i2++) {
+          const object = state.objects[i2];
+          const geometry = object.geometry;
+          const materials = object.materials;
+          const isLine = geometry.type === "Line";
+          const isPoints = geometry.type === "Points";
+          let hasVertexColors = false;
+          if (geometry.vertices.length === 0)
+            continue;
+          const buffergeometry = new BufferGeometry();
+          buffergeometry.setAttribute("position", new Float32BufferAttribute(geometry.vertices, 3));
+          if (geometry.normals.length > 0) {
+            buffergeometry.setAttribute("normal", new Float32BufferAttribute(geometry.normals, 3));
+          }
+          if (geometry.colors.length > 0) {
+            hasVertexColors = true;
+            buffergeometry.setAttribute("color", new Float32BufferAttribute(geometry.colors, 3));
+          }
+          if (geometry.hasUVIndices === true) {
+            buffergeometry.setAttribute("uv", new Float32BufferAttribute(geometry.uvs, 2));
+          }
+          const createdMaterials = [];
+          for (let mi = 0, miLen = materials.length; mi < miLen; mi++) {
+            const sourceMaterial = materials[mi];
+            const materialHash = sourceMaterial.name + "_" + sourceMaterial.smooth + "_" + hasVertexColors;
+            let material = state.materials[materialHash];
+            if (this.materials !== null) {
+              material = this.materials.create(sourceMaterial.name);
+              if (isLine && material && !(material instanceof LineBasicMaterial)) {
+                const materialLine = new LineBasicMaterial();
+                Material.prototype.copy.call(materialLine, material);
+                materialLine.color.copy(material.color);
+                material = materialLine;
+              } else if (isPoints && material && !(material instanceof PointsMaterial)) {
+                const materialPoints = new PointsMaterial({ size: 10, sizeAttenuation: false });
+                Material.prototype.copy.call(materialPoints, material);
+                materialPoints.color.copy(material.color);
+                materialPoints.map = material.map;
+                material = materialPoints;
+              }
+            }
+            if (material === void 0) {
+              if (isLine) {
+                material = new LineBasicMaterial();
+              } else if (isPoints) {
+                material = new PointsMaterial({ size: 1, sizeAttenuation: false });
+              } else {
+                material = new MeshPhongMaterial();
+              }
+              material.name = sourceMaterial.name;
+              material.flatShading = sourceMaterial.smooth ? false : true;
+              material.vertexColors = hasVertexColors;
+              state.materials[materialHash] = material;
+            }
+            createdMaterials.push(material);
+          }
+          let mesh;
+          if (createdMaterials.length > 1) {
+            for (let mi = 0, miLen = materials.length; mi < miLen; mi++) {
+              const sourceMaterial = materials[mi];
+              buffergeometry.addGroup(sourceMaterial.groupStart, sourceMaterial.groupCount, mi);
+            }
+            if (isLine) {
+              mesh = new LineSegments(buffergeometry, createdMaterials);
+            } else if (isPoints) {
+              mesh = new Points(buffergeometry, createdMaterials);
+            } else {
+              mesh = new Mesh(buffergeometry, createdMaterials);
+            }
+          } else {
+            if (isLine) {
+              mesh = new LineSegments(buffergeometry, createdMaterials[0]);
+            } else if (isPoints) {
+              mesh = new Points(buffergeometry, createdMaterials[0]);
+            } else {
+              mesh = new Mesh(buffergeometry, createdMaterials[0]);
+            }
+          }
+          mesh.name = object.name;
+          container.add(mesh);
+        }
+      } else {
+        if (state.vertices.length > 0) {
+          const material = new PointsMaterial({ size: 1, sizeAttenuation: false });
+          const buffergeometry = new BufferGeometry();
+          buffergeometry.setAttribute("position", new Float32BufferAttribute(state.vertices, 3));
+          if (state.colors.length > 0 && state.colors[0] !== void 0) {
+            buffergeometry.setAttribute("color", new Float32BufferAttribute(state.colors, 3));
+            material.vertexColors = true;
+          }
+          const points = new Points(buffergeometry, material);
+          container.add(points);
+        }
+      }
+      return container;
+    }
+  };
+
+  // client/components/Arrow.jsx
+  function Arrow(props) {
+    const _a = props, { height, distance, direction } = _a, rest = __objRest(_a, ["height", "distance", "direction"]);
+    const loadedObj = useLoader(OBJLoader, "geom/arrow.obj");
+    const { nodes } = useGraph(loadedObj.clone());
+    const meshes = Object.keys(nodes).map((meshName) => /* @__PURE__ */ import_react4.default.createElement("mesh", {
+      key: `${meshName}-mesh`,
+      geometry: nodes[meshName].geometry
+    }, /* @__PURE__ */ import_react4.default.createElement("meshPhongMaterial", {
+      color: 1401481,
+      emissive: 468276,
+      flatShading: true
+    })));
+    return /* @__PURE__ */ import_react4.default.createElement("group", __spreadValues({
+      rotation: new Euler(0, MathUtils.degToRad(direction), 0)
+    }, rest), /* @__PURE__ */ import_react4.default.createElement("group", {
+      position: [0, height, distance],
+      "rotation-x": Math.PI / 2,
+      "rotation-z": Math.PI
+    }, meshes));
+  }
+  Arrow.propTypes = {
+    height: import_prop_types.default.number,
+    distance: import_prop_types.default.number,
+    direction: import_prop_types.default.number
+  };
+  Arrow.defaultProps = {
+    height: -2.5,
+    distance: 5,
+    direction: 0
+  };
+
+  // client/components/PanoImage.jsx
+  var import_react5 = __toESM(require_react(), 1);
+
   // client/components/heatingPlantImages.js
   var PATH = "media/panoImg";
   var heatingPlantImages_default = {
-    image01: `${PATH}/IMG_20220401_091556_00_merged.jpg`,
-    image02: `${PATH}/IMG_20220401_091619_00_merged.jpg`,
-    image03: `${PATH}/IMG_20220401_091928_00_merged.jpg`,
-    image04: `${PATH}/IMG_20220401_092009_00_merged.jpg`,
-    image05: `${PATH}/IMG_20220401_092051_00_merged.jpg`,
-    image06: `${PATH}/IMG_20220401_092237_00_merged.jpg`,
-    image07: `${PATH}/IMG_20220401_092310_00_merged.jpg`,
-    image08: `${PATH}/IMG_20220401_092354_00_merged.jpg`,
-    image09: `${PATH}/IMG_20220401_092452_00_merged.jpg`,
-    image10: `${PATH}/IMG_20220401_092558_00_037.jpg`,
-    image11: `${PATH}/IMG_20220401_092641_00_merged.jpg`,
-    image12: `${PATH}/IMG_20220401_092750_00_merged.jpg`,
-    image13: `${PATH}/IMG_20220401_092831_00_merged.jpg`,
-    image14: `${PATH}/IMG_20220401_092916_00_merged.jpg`,
-    image15: `${PATH}/IMG_20220401_093008_00_merged.jpg`,
-    image16: `${PATH}/IMG_20220401_093326_00_merged.jpg`,
-    image17: `${PATH}/IMG_20220401_093420_00_merged.jpg`,
-    image18: `${PATH}/IMG_20220401_094153_00_merged.jpg`,
-    image19: `${PATH}/IMG_20220401_094225_00_merged.jpg`,
-    image20: `${PATH}/IMG_20220401_094254_00_merged.jpg`,
-    image21: `${PATH}/IMG_20220401_094324_00_merged.jpg`,
-    image22: `${PATH}/IMG_20220401_094406_00_merged.jpg`,
-    image23: `${PATH}/IMG_20220401_094535_00_merged.jpg`,
-    image24: `${PATH}/IMG_20220401_094621_00_merged.jpg`,
-    image25: `${PATH}/IMG_20220401_094656_00_merged.jpg`,
-    image26: `${PATH}/IMG_20220401_094746_00_merged.jpg`,
-    image27: `${PATH}/IMG_20220401_094821_00_merged.jpg`,
-    image28: `${PATH}/IMG_20220401_094903_00_merged.jpg`,
-    image29: `${PATH}/IMG_20220401_094951_00_merged.jpg`,
-    image30: `${PATH}/IMG_20220401_095047_00_merged.jpg`,
-    image31: `${PATH}/IMG_20220401_095124_00_merged.jpg`,
-    image32: `${PATH}/IMG_20220401_095156_00_merged.jpg`,
-    image33: `${PATH}/IMG_20220401_095258_00_merged.jpg`,
-    image34: `${PATH}/IMG_20220401_095337_00_merged.jpg`,
-    image35: `${PATH}/IMG_20220401_095421_00_merged.jpg`,
-    image36: `${PATH}/IMG_20220401_095501_00_merged.jpg`,
-    image37: `${PATH}/IMG_20220401_095618_00_merged.jpg`,
-    image38: `${PATH}/IMG_20220401_095653_00_merged.jpg`
+    image01: `${PATH}/IMG_20220401_091556_00_merged.jpg`
   };
 
   // client/components/PanoImage.jsx
   function PanoImage(props) {
-    const [interact, setInteract] = (0, import_react4.useState)({
-      isUserInteracting: false,
-      onPointerDownMouseX: 0,
-      onPointerDownMouseY: 0,
-      onPointerDownLon: 0,
-      onPointerDownLat: 0
-    });
-    const [viewing, setViewing] = (0, import_react4.useState)({ lon: 0, lat: 0, fov: 75 });
-    const onPointerDown = (event) => {
-      if (event.isPrimary === false)
-        return;
-      setInteract(__spreadProps(__spreadValues({}, interact), {
-        isUserInteracting: true,
-        onPointerDownMouseX: event.clientX,
-        onPointerDownMouseY: event.clientY,
-        onPointerDownLon: viewing.lon,
-        onPointerDownLat: viewing.lat
-      }));
-    };
-    const onPointerMove = (event) => {
-      if (event.isPrimary === false)
-        return;
-      setViewing(__spreadProps(__spreadValues({}, viewing), {
-        lon: (interact.onPointerDownMouseX - event.clientX) * 0.1 + interact.onPointerDownLon,
-        lat: (event.clientY - interact.onPointerDownMouseY) * 0.1 + interact.onPointerDownLat
-      }));
-    };
-    const onPointerUp = (event) => {
-      if (event.isPrimary === false)
-        return;
-      setInteract(__spreadProps(__spreadValues({}, interact), {
-        isUserInteracting: false
-      }));
-    };
-    const onMouseWheel = (event) => {
-      if (event.isPrimary === false)
-        return;
-      const fov2 = viewing.fov + event.deltaY * 0.05;
-      setViewing(__spreadProps(__spreadValues({}, viewing), {
-        fov: MathUtils.clamp(fov2, 10, 90)
-      }));
-    };
-    const getThree = useThree((state) => state.get);
-    (0, import_react4.useEffect)(() => {
-      const clampedLat = Math.max(-85, Math.min(85, viewing.lat));
-      const phi = MathUtils.degToRad(90 - clampedLat);
-      const theta = MathUtils.degToRad(viewing.lon);
-      const x = 500 * Math.sin(phi) * Math.cos(theta);
-      const y = 500 * Math.cos(phi);
-      const z = 500 * Math.sin(phi) * Math.sin(theta);
-      const camera = getThree().camera;
-      camera.lookAt(x, y, z);
-      camera.fov = viewing.fov;
-      camera.updateProjectionMatrix();
-    }, [getThree, viewing.lon, viewing.lat, viewing.fov]);
     const panoImageTextures = useTexture(heatingPlantImages_default);
-    return /* @__PURE__ */ import_react4.default.createElement("mesh", __spreadProps(__spreadValues({}, props), {
-      scale: [-1, 1, 1],
-      onPointerMove: interact.isUserInteracting ? onPointerMove : null,
-      onPointerDown,
-      onPointerUp: interact.isUserInteracting ? onPointerUp : null,
-      onWheel: onMouseWheel
-    }), /* @__PURE__ */ import_react4.default.createElement("sphereGeometry", {
-      args: [500, 60, 40]
-    }), /* @__PURE__ */ import_react4.default.createElement("meshBasicMaterial", {
+    return /* @__PURE__ */ import_react5.default.createElement("mesh", __spreadProps(__spreadValues({}, props), {
+      scale: [-1, 1, 1]
+    }), /* @__PURE__ */ import_react5.default.createElement("icosahedronGeometry", {
+      args: [500, 50]
+    }), /* @__PURE__ */ import_react5.default.createElement("meshBasicMaterial", {
       color: 16777215,
       map: panoImageTextures.image01,
-      side: DoubleSide
+      side: BackSide
     }));
   }
 
   // client/components/Progress.jsx
-  var import_react5 = __toESM(require_react(), 1);
+  var import_react6 = __toESM(require_react(), 1);
   function Progress() {
     const { progress, loaded, total } = useProgress();
-    return /* @__PURE__ */ import_react5.default.createElement(Text2, {
+    return /* @__PURE__ */ import_react6.default.createElement(Text2, {
       color: "#000000",
       fontSize: 12,
       maxWidth: 200,
@@ -73903,18 +75921,30 @@ if (edgeAlpha == 0.0) {
 
   // client/VirtualTour.jsx
   function VirtualTour(props) {
-    return /* @__PURE__ */ import_react6.default.createElement(import_react6.default.StrictMode, null, /* @__PURE__ */ import_react6.default.createElement(Canvas, {
-      camera: { position: [0, 0, 0] }
-    }, /* @__PURE__ */ import_react6.default.createElement("ambientLight", null), /* @__PURE__ */ import_react6.default.createElement("pointLight", {
+    return /* @__PURE__ */ import_react7.default.createElement(import_react7.default.StrictMode, null, /* @__PURE__ */ import_react7.default.createElement(Canvas, {
+      camera: { position: [0, 0, 0.1] }
+    }, /* @__PURE__ */ import_react7.default.createElement(OrbitControls2, {
+      enablePan: false,
+      enableZoom: false
+    }), /* @__PURE__ */ import_react7.default.createElement("ambientLight", null), /* @__PURE__ */ import_react7.default.createElement("pointLight", {
       position: [10, 10, 10]
-    }), /* @__PURE__ */ import_react6.default.createElement(import_react6.Suspense, {
-      fallback: /* @__PURE__ */ import_react6.default.createElement(Progress, null)
-    }, /* @__PURE__ */ import_react6.default.createElement(PanoImage, null))));
+    }), /* @__PURE__ */ import_react7.default.createElement(import_react7.Suspense, {
+      fallback: /* @__PURE__ */ import_react7.default.createElement(Progress, null)
+    }, /* @__PURE__ */ import_react7.default.createElement(Arrow, {
+      direction: 45
+    }), /* @__PURE__ */ import_react7.default.createElement(Arrow, {
+      direction: 270
+    }), /* @__PURE__ */ import_react7.default.createElement(PanoImage, null))));
   }
 
   // client/app.jsx
-  (0, import_client.createRoot)(document.getElementById("root")).render(/* @__PURE__ */ import_react7.default.createElement(VirtualTour, null));
+  (0, import_client.createRoot)(document.getElementById("root")).render(/* @__PURE__ */ import_react8.default.createElement(VirtualTour, null));
 })();
+/*
+object-assign
+(c) Sindre Sorhus
+@license MIT
+*/
 /*!
 Custom build of Typr.ts (https://github.com/fredli74/Typr.ts) for use in Troika text rendering.
 Original MIT license applies: https://github.com/fredli74/Typr.ts/blob/master/LICENSE
@@ -73988,5 +76018,13 @@ Original licenses apply:
  * @return {boolean} True if the event is supported.
  * @internal
  * @license Modernizr 3.0.0pre (Custom Build) | MIT
+ */
+/** @license React v16.13.1
+ * react-is.development.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  */
 //# sourceMappingURL=bundle.js.map
