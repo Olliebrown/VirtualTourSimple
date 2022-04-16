@@ -14,6 +14,7 @@
   "author": "Seth Berrier",
   "license": "MIT",
   "devDependencies": {
+    "@react-three/drei": "^9.4.2",
     "@react-three/fiber": "^8.0.11",
     "@react-three/xr": "^3.5.0",
     "esbuild": "^0.14.36",
