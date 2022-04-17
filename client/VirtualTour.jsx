@@ -10,6 +10,7 @@ import PanoImage from './components/PanoImage.jsx'
 import Progress from './components/Progress.jsx'
 
 import HEATING_PLANT_IMAGE_LIST from './components/heatingPlantImages.js'
+import PanoGrid from './components/PanoGrid.jsx'
 
 export default function VirtualTour (props) {
   // Current pano state
@@ -19,20 +20,38 @@ export default function VirtualTour (props) {
   const currentPanoData = HEATING_PLANT_IMAGE_LIST[currentPano]
 
   // Sphere rotation state
-  const [zRotate, setZRotate] = useState(currentPanoData.zRotate)
+  const [xRotate, setXRotate] = useState(currentPanoData.xRotate)
   const [yRotate, setYRotate] = useState(currentPanoData.yRotate)
+  const [zRotate, setZRotate] = useState(currentPanoData.zRotate)
 
   // Ensure rotate values are synced with the loaded pano data
   useEffect(() => {
-    setZRotate(currentPanoData.zRotate)
+    setXRotate(currentPanoData.xRotate)
     setYRotate(currentPanoData.yRotate)
+    setZRotate(currentPanoData.zRotate)
   }, [currentPanoData])
 
-  // Setup some hotkeys to adjust the sphere
-  useHotkeys('ctrl+shift+]', () => { setZRotate(zRotate - 0.5) }, {}, [zRotate])
-  useHotkeys('ctrl+shift+[', () => { setZRotate(zRotate + 0.5) }, {}, [zRotate])
+  // Setup some hotkeys to adjust the sphere offset rotation
+  useHotkeys('ctrl+num_divide', () => { setXRotate(xRotate - 0.5) }, {}, [xRotate])
+  useHotkeys('ctrl+num_multiply', () => { setXRotate(xRotate + 0.5) }, {}, [xRotate])
+  useHotkeys('ctrl+shift+num_divide', () => { setXRotate(xRotate - 0.1) }, {}, [xRotate])
+  useHotkeys('ctrl+shift+num_multiply', () => { setXRotate(xRotate + 0.1) }, {}, [xRotate])
+  useHotkeys('ctrl+shift+alt+num_divide', () => { setXRotate(xRotate - 0.02) }, {}, [xRotate])
+  useHotkeys('ctrl+shift+alt+num_multiply', () => { setXRotate(xRotate + 0.02) }, {}, [xRotate])
+
   useHotkeys('ctrl+]', () => { setYRotate(yRotate - 0.5) }, {}, [yRotate])
   useHotkeys('ctrl+[', () => { setYRotate(yRotate + 0.5) }, {}, [yRotate])
+  useHotkeys('ctrl+shift+]', () => { setYRotate(yRotate - 0.1) }, {}, [yRotate])
+  useHotkeys('ctrl+shift+[', () => { setYRotate(yRotate + 0.1) }, {}, [yRotate])
+  useHotkeys('ctrl+shift+alt+]', () => { setYRotate(yRotate - 0.02) }, {}, [yRotate])
+  useHotkeys('ctrl+shift+alt+[', () => { setYRotate(yRotate + 0.02) }, {}, [yRotate])
+
+  useHotkeys('ctrl+;', () => { setZRotate(zRotate - 0.5) }, {}, [zRotate])
+  useHotkeys('ctrl+\'', () => { setZRotate(zRotate + 0.5) }, {}, [zRotate])
+  useHotkeys('ctrl+shift+;', () => { setZRotate(zRotate - 0.1) }, {}, [zRotate])
+  useHotkeys('ctrl+shift+\'', () => { setZRotate(zRotate + 0.1) }, {}, [zRotate])
+  useHotkeys('ctrl+shift+alt+;', () => { setZRotate(zRotate - 0.02) }, {}, [zRotate])
+  useHotkeys('ctrl+shift+alt+\'', () => { setZRotate(zRotate + 0.02) }, {}, [zRotate])
 
   // Hotkeys to change current pano image
   useHotkeys('ctrl+.', () => { increasePanoIndex() }, {}, [increasePanoIndex])
@@ -47,7 +66,8 @@ export default function VirtualTour (props) {
         <Suspense fallback={<Progress />}>
           <Arrow direction={45} />
           <Arrow direction={270} />
-          <PanoImage zRotate={zRotate} yRotate={yRotate} />
+          <PanoImage xRotate={xRotate} zRotate={zRotate} yRotate={yRotate} />
+          <PanoGrid />
         </Suspense>
       </Canvas>
     </React.StrictMode>

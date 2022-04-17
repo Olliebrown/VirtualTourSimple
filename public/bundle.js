@@ -2341,9 +2341,9 @@
           if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== "undefined" && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart === "function") {
             __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(new Error());
           }
-          var React11 = require_react();
+          var React13 = require_react();
           var Scheduler = require_scheduler();
-          var ReactSharedInternals = React11.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+          var ReactSharedInternals = React13.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
           var suppressWarning = false;
           function setSuppressWarning(newSuppressWarning) {
             {
@@ -3739,7 +3739,7 @@
             {
               if (props.value == null) {
                 if (typeof props.children === "object" && props.children !== null) {
-                  React11.Children.forEach(props.children, function(child) {
+                  React13.Children.forEach(props.children, function(child) {
                     if (child == null) {
                       return;
                     }
@@ -11286,7 +11286,7 @@
             }
           }
           var fakeInternalInstance = {};
-          var emptyRefsObject = new React11.Component().refs;
+          var emptyRefsObject = new React13.Component().refs;
           var didWarnAboutStateAssignmentForComponent;
           var didWarnAboutUninitializedState;
           var didWarnAboutGetSnapshotBeforeUpdateWithoutDidUpdate;
@@ -22516,7 +22516,7 @@
     "node_modules/react-error-boundary/dist/react-error-boundary.umd.js"(exports, module) {
       (function(global, factory) {
         typeof exports === "object" && typeof module !== "undefined" ? factory(exports, require_react()) : typeof define === "function" && define.amd ? define(["exports", "react"], factory) : (global = typeof globalThis !== "undefined" ? globalThis : global || self, factory(global.ReactErrorBoundary = {}, global.React));
-      })(exports, function(exports2, React11) {
+      })(exports, function(exports2, React13) {
         "use strict";
         function _interopNamespace(e) {
           if (e && e.__esModule)
@@ -22538,7 +22538,7 @@
           n["default"] = e;
           return Object.freeze(n);
         }
-        var React__namespace = /* @__PURE__ */ _interopNamespace(React11);
+        var React__namespace = /* @__PURE__ */ _interopNamespace(React13);
         function _setPrototypeOf(o, p) {
           _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf2(o2, p2) {
             o2.__proto__ = p2;
@@ -23454,9 +23454,9 @@
         module.exports = function $$$reconciler($$$hostConfig) {
           var exports2 = {};
           "use strict";
-          var React11 = require_react();
+          var React13 = require_react();
           var Scheduler = require_scheduler();
-          var ReactSharedInternals = React11.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+          var ReactSharedInternals = React13.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
           var suppressWarning = false;
           function setSuppressWarning(newSuppressWarning) {
             {
@@ -26413,7 +26413,7 @@
             }
           }
           var fakeInternalInstance = {};
-          var emptyRefsObject = new React11.Component().refs;
+          var emptyRefsObject = new React13.Component().refs;
           var didWarnAboutStateAssignmentForComponent;
           var didWarnAboutUninitializedState;
           var didWarnAboutGetSnapshotBeforeUpdateWithoutDidUpdate;
@@ -38046,7 +38046,7 @@
   });
 
   // client/app.jsx
-  var import_react10 = __toESM(require_react(), 1);
+  var import_react12 = __toESM(require_react(), 1);
   var import_client = __toESM(require_client(), 1);
   var import_react_error_boundary = __toESM(require_react_error_boundary_umd(), 1);
 
@@ -38167,12 +38167,53 @@
   var PATH = "media/panoImg";
   var heatingPlantImages_default = {
     indexMin: 2,
-    indexMax: 6,
-    image02: { filename: `${PATH}/IMG_20220401_091619_00_merged.jpg`, zRotate: -3.5, yRotate: 15.5 },
-    image03: { filename: `${PATH}/IMG_20220401_091928_00_merged.jpg`, zRotate: -3.5, yRotate: 160 },
-    image04: { filename: `${PATH}/IMG_20220401_092009_00_merged.jpg`, zRotate: -3.5, yRotate: 15.5 },
-    image05: { filename: `${PATH}/IMG_20220401_092051_00_merged.jpg`, zRotate: -4, yRotate: 260.5 },
-    image06: { filename: `${PATH}/IMG_20220401_092237_00_merged.jpg`, zRotate: -3.5, yRotate: -1 }
+    indexMax: 38,
+    image02: {
+      filename: `${PATH}/IMG_20220401_091619_00_merged.jpg`,
+      xRotate: 0,
+      zRotate: -3.5,
+      yRotate: 15.5,
+      exits: [
+        { direction: 45, index: 3 },
+        { direction: -45, index: 38 }
+      ]
+    },
+    image03: { filename: `${PATH}/IMG_20220401_091928_00_merged.jpg`, xRotate: 0, zRotate: -3.5, yRotate: 160 },
+    image04: { filename: `${PATH}/IMG_20220401_092009_00_merged.jpg`, xRotate: 0, zRotate: -3.5, yRotate: 15.5 },
+    image05: { filename: `${PATH}/IMG_20220401_092051_00_merged.jpg`, xRotate: 0, zRotate: -4, yRotate: 260.5 },
+    image06: { filename: `${PATH}/IMG_20220401_092237_00_merged.jpg`, xRotate: 0, zRotate: -3.5, yRotate: -1 },
+    image07: { filename: `${PATH}/IMG_20220401_092310_00_merged.jpg`, xRotate: 0, zRotate: -3.5, yRotate: 246.5 },
+    image08: { filename: `${PATH}/IMG_20220401_092354_00_merged.jpg`, xRotate: 0, zRotate: -3.5, yRotate: 15 },
+    image09: { filename: `${PATH}/IMG_20220401_092452_00_merged.jpg`, xRotate: 0, zRotate: -3.5, yRotate: 108.5 },
+    image10: { filename: `${PATH}/IMG_20220401_092558_00_037.jpg`, xRotate: 0, zRotate: -3.5, yRotate: -100.5 },
+    image11: { filename: `${PATH}/IMG_20220401_092641_00_merged.jpg`, xRotate: 0, zRotate: -3, yRotate: -13 },
+    image12: { filename: `${PATH}/IMG_20220401_092750_00_merged.jpg`, xRotate: 0, zRotate: -3.5, yRotate: 23 },
+    image13: { filename: `${PATH}/IMG_20220401_092831_00_merged.jpg`, xRotate: 0, zRotate: -3.5, yRotate: 5.5 },
+    image14: { filename: `${PATH}/IMG_20220401_092916_00_merged.jpg`, xRotate: 0, zRotate: -3.5, yRotate: 5.5 },
+    image15: { filename: `${PATH}/IMG_20220401_093008_00_merged.jpg`, xRotate: 0, zRotate: -3.5, yRotate: 5.5 },
+    image16: { filename: `${PATH}/IMG_20220401_093326_00_merged.jpg`, xRotate: 0, zRotate: -3.5, yRotate: 5.5 },
+    image17: { filename: `${PATH}/IMG_20220401_093420_00_merged.jpg`, xRotate: 0, zRotate: -3.5, yRotate: 5.5 },
+    image18: { filename: `${PATH}/IMG_20220401_094153_00_merged.jpg`, xRotate: 0, zRotate: -3.5, yRotate: 5.5 },
+    image19: { filename: `${PATH}/IMG_20220401_094225_00_merged.jpg`, xRotate: 0, zRotate: -3.5, yRotate: 5.5 },
+    image20: { filename: `${PATH}/IMG_20220401_094254_00_merged.jpg`, xRotate: 0, zRotate: -3.5, yRotate: 5.5 },
+    image21: { filename: `${PATH}/IMG_20220401_094324_00_merged.jpg`, xRotate: 0, zRotate: -3.5, yRotate: 5.5 },
+    image22: { filename: `${PATH}/IMG_20220401_094406_00_merged.jpg`, xRotate: 0, zRotate: -3.5, yRotate: 5.5 },
+    image23: { filename: `${PATH}/IMG_20220401_094535_00_merged.jpg`, xRotate: 0, zRotate: -3.5, yRotate: 5.5 },
+    image24: { filename: `${PATH}/IMG_20220401_094621_00_merged.jpg`, xRotate: 0, zRotate: -3.5, yRotate: 5.5 },
+    image25: { filename: `${PATH}/IMG_20220401_094656_00_merged.jpg`, xRotate: 0, zRotate: -3.5, yRotate: 5.5 },
+    image26: { filename: `${PATH}/IMG_20220401_094746_00_merged.jpg`, xRotate: 0, zRotate: -3.5, yRotate: 5.5 },
+    image27: { filename: `${PATH}/IMG_20220401_094821_00_merged.jpg`, xRotate: 0, zRotate: -3.5, yRotate: 5.5 },
+    image28: { filename: `${PATH}/IMG_20220401_094903_00_merged.jpg`, xRotate: 0, zRotate: -3.5, yRotate: 5.5 },
+    image29: { filename: `${PATH}/IMG_20220401_094951_00_merged.jpg`, xRotate: 0, zRotate: -3.5, yRotate: 5.5 },
+    image30: { filename: `${PATH}/IMG_20220401_095047_00_merged.jpg`, xRotate: 0, zRotate: -3.5, yRotate: 5.5 },
+    image31: { filename: `${PATH}/IMG_20220401_095124_00_merged.jpg`, xRotate: 0, zRotate: -3.5, yRotate: 5.5 },
+    image32: { filename: `${PATH}/IMG_20220401_095156_00_merged.jpg`, xRotate: 0, zRotate: -3.5, yRotate: 5.5 },
+    image33: { filename: `${PATH}/IMG_20220401_095258_00_merged.jpg`, xRotate: 0, zRotate: -3.5, yRotate: 5.5 },
+    image34: { filename: `${PATH}/IMG_20220401_095337_00_merged.jpg`, xRotate: 0, zRotate: -3.5, yRotate: 5.5 },
+    image35: { filename: `${PATH}/IMG_20220401_095421_00_merged.jpg`, xRotate: 0, zRotate: -3.5, yRotate: 5.5 },
+    image36: { filename: `${PATH}/IMG_20220401_095501_00_merged.jpg`, xRotate: 0, zRotate: -3.5, yRotate: 5.5 },
+    image37: { filename: `${PATH}/IMG_20220401_095618_00_merged.jpg`, xRotate: 0, zRotate: -3.5, yRotate: 5.5 },
+    image38: { filename: `${PATH}/IMG_20220401_095653_00_merged.jpg`, xRotate: 0, zRotate: -3.5, yRotate: 5.5 }
   };
 
   // client/state/useStore.js
@@ -38224,7 +38265,7 @@
   };
 
   // client/VirtualTour.jsx
-  var import_react9 = __toESM(require_react(), 1);
+  var import_react11 = __toESM(require_react(), 1);
 
   // node_modules/three/build/three.module.js
   var three_module_exports = {};
@@ -76570,15 +76611,16 @@ if (edgeAlpha == 0.0) {
   var import_react7 = __toESM(require_react(), 1);
   var import_prop_types3 = __toESM(require_prop_types(), 1);
   function PanoImage(props) {
-    const { zRotate, yRotate } = props;
+    const { xRotate, zRotate, yRotate } = props;
     const currentPano = useStore_default((state) => state.currentPano);
     const currentPanoData = heatingPlantImages_default[currentPano];
     const panoImageTextures = useTexture(currentPanoData.filename);
-    return /* @__PURE__ */ import_react7.default.createElement("mesh", __spreadProps(__spreadValues({}, props), {
+    return /* @__PURE__ */ import_react7.default.createElement("mesh", __spreadValues({
       scale: [-1, 1, 1],
+      "rotation-x": MathUtils.degToRad(xRotate),
       "rotation-y": MathUtils.degToRad(yRotate),
       "rotation-z": MathUtils.degToRad(zRotate)
-    }), /* @__PURE__ */ import_react7.default.createElement("icosahedronGeometry", {
+    }, props), /* @__PURE__ */ import_react7.default.createElement("icosahedronGeometry", {
       args: [500, 50]
     }), /* @__PURE__ */ import_react7.default.createElement("meshBasicMaterial", {
       color: 16777215,
@@ -76587,19 +76629,25 @@ if (edgeAlpha == 0.0) {
     }));
   }
   PanoImage.propTypes = {
+    xRotate: import_prop_types3.default.number,
     zRotate: import_prop_types3.default.number,
     yRotate: import_prop_types3.default.number
   };
   PanoImage.defaultProps = {
+    xRotate: 0,
     zRotate: 0,
     yRotate: 0
   };
 
   // client/components/Progress.jsx
+  var import_react9 = __toESM(require_react(), 1);
+
+  // client/components/StyledText.jsx
   var import_react8 = __toESM(require_react(), 1);
-  function Progress() {
-    const { progress, loaded, total } = useProgress();
-    return /* @__PURE__ */ import_react8.default.createElement(Text2, {
+  var import_prop_types4 = __toESM(require_prop_types(), 1);
+  function StyledText(props) {
+    const _a = props, { children } = _a, rest = __objRest(_a, ["children"]);
+    return /* @__PURE__ */ import_react8.default.createElement(Text2, __spreadValues({
       color: "#000000",
       fontSize: 12,
       maxWidth: 200,
@@ -76609,63 +76657,147 @@ if (edgeAlpha == 0.0) {
       anchorX: "center",
       anchorY: "middle",
       outlineWidth: 1,
-      outlineColor: "#ffffff",
+      outlineColor: "#ffffff"
+    }, rest), children);
+  }
+  StyledText.propTypes = {
+    children: import_prop_types4.default.node.isRequired
+  };
+
+  // client/components/Progress.jsx
+  function Progress() {
+    const { progress, loaded, total } = useProgress();
+    return /* @__PURE__ */ import_react9.default.createElement(StyledText, {
       position: [0, 0, -100],
       characters: " loaded()/.0123456789%"
     }, `${progress.toFixed(0)}% Loaded (${loaded}/${total})`);
+  }
+
+  // client/components/PanoGrid.jsx
+  var import_react10 = __toESM(require_react(), 1);
+  function PanoGrid(props) {
+    return /* @__PURE__ */ import_react10.default.createElement(import_react10.default.Fragment, null, /* @__PURE__ */ import_react10.default.createElement("mesh", __spreadProps(__spreadValues({}, props), {
+      scale: [-1, 1, 1]
+    }), /* @__PURE__ */ import_react10.default.createElement("boxGeometry", {
+      args: [400, 400, 400, 9, 9, 9]
+    }), /* @__PURE__ */ import_react10.default.createElement("meshBasicMaterial", {
+      color: 0,
+      side: BackSide,
+      wireframe: true
+    })), /* @__PURE__ */ import_react10.default.createElement(StyledText, {
+      position: [0, 0, -100],
+      characters: "NSEW"
+    }, "N"), /* @__PURE__ */ import_react10.default.createElement(StyledText, {
+      position: [0, 0, 100],
+      "rotation-y": 180,
+      characters: "NSEW"
+    }, "S"), /* @__PURE__ */ import_react10.default.createElement(StyledText, {
+      position: [100, 0, 0],
+      "rotation-y": -90,
+      characters: "NSEW"
+    }, "E"), /* @__PURE__ */ import_react10.default.createElement(StyledText, {
+      position: [-100, 0, 0],
+      "rotation-y": 90,
+      characters: "NSEW"
+    }, "W"));
   }
 
   // client/VirtualTour.jsx
   function VirtualTour(props) {
     const { currentPano, increasePanoIndex, decreasePanoIndex } = useStore_default((state) => state);
     const currentPanoData = heatingPlantImages_default[currentPano];
-    const [zRotate, setZRotate] = (0, import_react9.useState)(currentPanoData.zRotate);
-    const [yRotate, setYRotate] = (0, import_react9.useState)(currentPanoData.yRotate);
-    (0, import_react9.useEffect)(() => {
-      setZRotate(currentPanoData.zRotate);
+    const [xRotate, setXRotate] = (0, import_react11.useState)(currentPanoData.xRotate);
+    const [yRotate, setYRotate] = (0, import_react11.useState)(currentPanoData.yRotate);
+    const [zRotate, setZRotate] = (0, import_react11.useState)(currentPanoData.zRotate);
+    (0, import_react11.useEffect)(() => {
+      setXRotate(currentPanoData.xRotate);
       setYRotate(currentPanoData.yRotate);
+      setZRotate(currentPanoData.zRotate);
     }, [currentPanoData]);
-    useHotkeys("ctrl+shift+]", () => {
-      setZRotate(zRotate - 0.5);
-    }, {}, [zRotate]);
-    useHotkeys("ctrl+shift+[", () => {
-      setZRotate(zRotate + 0.5);
-    }, {}, [zRotate]);
+    useHotkeys("ctrl+num_divide", () => {
+      setXRotate(xRotate - 0.5);
+    }, {}, [xRotate]);
+    useHotkeys("ctrl+num_multiply", () => {
+      setXRotate(xRotate + 0.5);
+    }, {}, [xRotate]);
+    useHotkeys("ctrl+shift+num_divide", () => {
+      setXRotate(xRotate - 0.1);
+    }, {}, [xRotate]);
+    useHotkeys("ctrl+shift+num_multiply", () => {
+      setXRotate(xRotate + 0.1);
+    }, {}, [xRotate]);
+    useHotkeys("ctrl+shift+alt+num_divide", () => {
+      setXRotate(xRotate - 0.02);
+    }, {}, [xRotate]);
+    useHotkeys("ctrl+shift+alt+num_multiply", () => {
+      setXRotate(xRotate + 0.02);
+    }, {}, [xRotate]);
     useHotkeys("ctrl+]", () => {
       setYRotate(yRotate - 0.5);
     }, {}, [yRotate]);
     useHotkeys("ctrl+[", () => {
       setYRotate(yRotate + 0.5);
     }, {}, [yRotate]);
+    useHotkeys("ctrl+shift+]", () => {
+      setYRotate(yRotate - 0.1);
+    }, {}, [yRotate]);
+    useHotkeys("ctrl+shift+[", () => {
+      setYRotate(yRotate + 0.1);
+    }, {}, [yRotate]);
+    useHotkeys("ctrl+shift+alt+]", () => {
+      setYRotate(yRotate - 0.02);
+    }, {}, [yRotate]);
+    useHotkeys("ctrl+shift+alt+[", () => {
+      setYRotate(yRotate + 0.02);
+    }, {}, [yRotate]);
+    useHotkeys("ctrl+;", () => {
+      setZRotate(zRotate - 0.5);
+    }, {}, [zRotate]);
+    useHotkeys("ctrl+'", () => {
+      setZRotate(zRotate + 0.5);
+    }, {}, [zRotate]);
+    useHotkeys("ctrl+shift+;", () => {
+      setZRotate(zRotate - 0.1);
+    }, {}, [zRotate]);
+    useHotkeys("ctrl+shift+'", () => {
+      setZRotate(zRotate + 0.1);
+    }, {}, [zRotate]);
+    useHotkeys("ctrl+shift+alt+;", () => {
+      setZRotate(zRotate - 0.02);
+    }, {}, [zRotate]);
+    useHotkeys("ctrl+shift+alt+'", () => {
+      setZRotate(zRotate + 0.02);
+    }, {}, [zRotate]);
     useHotkeys("ctrl+.", () => {
       increasePanoIndex();
     }, {}, [increasePanoIndex]);
     useHotkeys("ctrl+,", () => {
       decreasePanoIndex();
     }, {}, [decreasePanoIndex]);
-    return /* @__PURE__ */ import_react9.default.createElement(import_react9.default.StrictMode, null, /* @__PURE__ */ import_react9.default.createElement(Canvas, {
+    return /* @__PURE__ */ import_react11.default.createElement(import_react11.default.StrictMode, null, /* @__PURE__ */ import_react11.default.createElement(Canvas, {
       camera: { position: [0, 0, 0.1] }
-    }, /* @__PURE__ */ import_react9.default.createElement(OrbitControls2, {
+    }, /* @__PURE__ */ import_react11.default.createElement(OrbitControls2, {
       enablePan: false,
       enableZoom: false
-    }), /* @__PURE__ */ import_react9.default.createElement("ambientLight", null), /* @__PURE__ */ import_react9.default.createElement("pointLight", {
+    }), /* @__PURE__ */ import_react11.default.createElement("ambientLight", null), /* @__PURE__ */ import_react11.default.createElement("pointLight", {
       position: [10, 10, 10]
-    }), /* @__PURE__ */ import_react9.default.createElement(import_react9.Suspense, {
-      fallback: /* @__PURE__ */ import_react9.default.createElement(Progress, null)
-    }, /* @__PURE__ */ import_react9.default.createElement(Arrow, {
+    }), /* @__PURE__ */ import_react11.default.createElement(import_react11.Suspense, {
+      fallback: /* @__PURE__ */ import_react11.default.createElement(Progress, null)
+    }, /* @__PURE__ */ import_react11.default.createElement(Arrow, {
       direction: 45
-    }), /* @__PURE__ */ import_react9.default.createElement(Arrow, {
+    }), /* @__PURE__ */ import_react11.default.createElement(Arrow, {
       direction: 270
-    }), /* @__PURE__ */ import_react9.default.createElement(PanoImage, {
+    }), /* @__PURE__ */ import_react11.default.createElement(PanoImage, {
+      xRotate,
       zRotate,
       yRotate
-    }))));
+    }), /* @__PURE__ */ import_react11.default.createElement(PanoGrid, null))));
   }
 
   // client/app.jsx
-  (0, import_client.createRoot)(document.getElementById("root")).render(/* @__PURE__ */ import_react10.default.createElement(import_react_error_boundary.ErrorBoundary, {
+  (0, import_client.createRoot)(document.getElementById("root")).render(/* @__PURE__ */ import_react12.default.createElement(import_react_error_boundary.ErrorBoundary, {
     FallbackComponent: ErrorFallback
-  }, /* @__PURE__ */ import_react10.default.createElement(VirtualTour, null)));
+  }, /* @__PURE__ */ import_react12.default.createElement(VirtualTour, null)));
 })();
 /*
 object-assign
