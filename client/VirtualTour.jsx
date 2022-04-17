@@ -1,3 +1,5 @@
+import CONFIG from './config.js'
+
 import React, { Suspense, useEffect, useState } from 'react'
 import { Canvas } from '@react-three/fiber'
 
@@ -5,7 +7,6 @@ import { OrbitControls } from '@react-three/drei'
 import { useHotkeys } from 'react-hotkeys-hook'
 import useStore from './state/useStore.js'
 
-import Arrow from './components/Arrow.jsx'
 import PanoImage from './components/PanoImage.jsx'
 import Progress from './components/Progress.jsx'
 
@@ -32,32 +33,38 @@ export default function VirtualTour (props) {
   }, [currentPanoData])
 
   // Setup some hotkeys to adjust the sphere offset rotation
-  useHotkeys('ctrl+num_divide', () => { setXRotate(xRotate - 0.5) }, {}, [xRotate])
-  useHotkeys('ctrl+num_multiply', () => { setXRotate(xRotate + 0.5) }, {}, [xRotate])
-  useHotkeys('ctrl+shift+num_divide', () => { setXRotate(xRotate - 0.1) }, {}, [xRotate])
-  useHotkeys('ctrl+shift+num_multiply', () => { setXRotate(xRotate + 0.1) }, {}, [xRotate])
-  useHotkeys('ctrl+shift+alt+num_divide', () => { setXRotate(xRotate - 0.02) }, {}, [xRotate])
-  useHotkeys('ctrl+shift+alt+num_multiply', () => { setXRotate(xRotate + 0.02) }, {}, [xRotate])
+  /* eslint-disable react-hooks/rules-of-hooks */
+  if (CONFIG.ENABLE_ROTATE_HOTKEYS) {
+    useHotkeys('ctrl+num_divide', () => { setXRotate(xRotate - 0.5) }, {}, [xRotate])
+    useHotkeys('ctrl+num_multiply', () => { setXRotate(xRotate + 0.5) }, {}, [xRotate])
+    useHotkeys('ctrl+shift+num_divide', () => { setXRotate(xRotate - 0.1) }, {}, [xRotate])
+    useHotkeys('ctrl+shift+num_multiply', () => { setXRotate(xRotate + 0.1) }, {}, [xRotate])
+    useHotkeys('ctrl+shift+alt+num_divide', () => { setXRotate(xRotate - 0.02) }, {}, [xRotate])
+    useHotkeys('ctrl+shift+alt+num_multiply', () => { setXRotate(xRotate + 0.02) }, {}, [xRotate])
 
-  useHotkeys('ctrl+]', () => { setYRotate(yRotate - 0.5) }, {}, [yRotate])
-  useHotkeys('ctrl+[', () => { setYRotate(yRotate + 0.5) }, {}, [yRotate])
-  useHotkeys('ctrl+shift+]', () => { setYRotate(yRotate - 0.1) }, {}, [yRotate])
-  useHotkeys('ctrl+shift+[', () => { setYRotate(yRotate + 0.1) }, {}, [yRotate])
-  useHotkeys('ctrl+shift+alt+]', () => { setYRotate(yRotate - 0.02) }, {}, [yRotate])
-  useHotkeys('ctrl+shift+alt+[', () => { setYRotate(yRotate + 0.02) }, {}, [yRotate])
+    useHotkeys('ctrl+]', () => { setYRotate(yRotate - 0.5) }, {}, [yRotate])
+    useHotkeys('ctrl+[', () => { setYRotate(yRotate + 0.5) }, {}, [yRotate])
+    useHotkeys('ctrl+shift+]', () => { setYRotate(yRotate - 0.1) }, {}, [yRotate])
+    useHotkeys('ctrl+shift+[', () => { setYRotate(yRotate + 0.1) }, {}, [yRotate])
+    useHotkeys('ctrl+shift+alt+]', () => { setYRotate(yRotate - 0.02) }, {}, [yRotate])
+    useHotkeys('ctrl+shift+alt+[', () => { setYRotate(yRotate + 0.02) }, {}, [yRotate])
 
-  useHotkeys('ctrl+;', () => { setZRotate(zRotate - 0.5) }, {}, [zRotate])
-  useHotkeys('ctrl+\'', () => { setZRotate(zRotate + 0.5) }, {}, [zRotate])
-  useHotkeys('ctrl+shift+;', () => { setZRotate(zRotate - 0.1) }, {}, [zRotate])
-  useHotkeys('ctrl+shift+\'', () => { setZRotate(zRotate + 0.1) }, {}, [zRotate])
-  useHotkeys('ctrl+shift+alt+;', () => { setZRotate(zRotate - 0.02) }, {}, [zRotate])
-  useHotkeys('ctrl+shift+alt+\'', () => { setZRotate(zRotate + 0.02) }, {}, [zRotate])
+    useHotkeys('ctrl+;', () => { setZRotate(zRotate - 0.5) }, {}, [zRotate])
+    useHotkeys('ctrl+\'', () => { setZRotate(zRotate + 0.5) }, {}, [zRotate])
+    useHotkeys('ctrl+shift+;', () => { setZRotate(zRotate - 0.1) }, {}, [zRotate])
+    useHotkeys('ctrl+shift+\'', () => { setZRotate(zRotate + 0.1) }, {}, [zRotate])
+    useHotkeys('ctrl+shift+alt+;', () => { setZRotate(zRotate - 0.02) }, {}, [zRotate])
+    useHotkeys('ctrl+shift+alt+\'', () => { setZRotate(zRotate + 0.02) }, {}, [zRotate])
 
-  useHotkeys('ctrl+/', () => { console.log(`Settings: ${currentPano}, <${xRotate}, ${yRotate}, ${zRotate}>`) }, {}, [xRotate, yRotate, zRotate])
+    useHotkeys('ctrl+/', () => { console.log(`Settings: ${currentPano}, <${xRotate}, ${yRotate}, ${zRotate}>`) }, {}, [xRotate, yRotate, zRotate])
+  }
 
   // Hotkeys to change current pano image
-  useHotkeys('ctrl+.', () => { increasePanoIndex() }, {}, [increasePanoIndex])
-  useHotkeys('ctrl+,', () => { decreasePanoIndex() }, {}, [decreasePanoIndex])
+  if (CONFIG.ENABLE_INDEX_ADVANCING_HOTKEYS) {
+    useHotkeys('ctrl+.', () => { increasePanoIndex() }, {}, [increasePanoIndex])
+    useHotkeys('ctrl+,', () => { decreasePanoIndex() }, {}, [decreasePanoIndex])
+  }
+  /* eslint-enable react-hooks/rules-of-hooks */
 
   return (
     <React.StrictMode>
@@ -66,10 +73,9 @@ export default function VirtualTour (props) {
         <ambientLight />
         <pointLight position={[10, 10, 10]} />
         <Suspense fallback={<Progress />}>
-          <Arrow direction={45} />
-          <Arrow direction={270} />
           <PanoImage xRotate={xRotate} yRotate={yRotate} zRotate={zRotate} />
-          <PanoGrid />
+          {CONFIG.ENABLE_ALIGNMENT_GRID &&
+            <PanoGrid />}
         </Suspense>
       </Canvas>
     </React.StrictMode>

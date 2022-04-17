@@ -13,6 +13,9 @@
     "plugin:react/recommended",
     "plugin:react-hooks/recommended"
   ],
+  "globals": {
+    "_DEV_": false
+  },
   "settings": {
     "react": { "version": "detect" }
   },
