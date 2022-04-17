@@ -2,13 +2,13 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { useTexture } from '@react-three/drei'
-import { BackSide, MathUtils } from 'three'
+import { BackSide, Euler, MathUtils } from 'three'
 import useStore from '../state/useStore.js'
 
 import HEATING_PLANT_IMAGE_LIST from './heatingPlantImages.js'
 
 export default function PanoImage (props) {
-  const { xRotate, zRotate, yRotate } = props
+  const { xRotate, yRotate, zRotate } = props
 
   // Get the global state of the pano image
   const currentPano = useStore(state => state.currentPano)
@@ -20,9 +20,11 @@ export default function PanoImage (props) {
   return (
     <mesh
       scale={[-1, 1, 1]}
-      rotation-x={MathUtils.degToRad(xRotate)}
-      rotation-y={MathUtils.degToRad(yRotate)}
-      rotation-z={MathUtils.degToRad(zRotate)}
+      rotation={new Euler(
+        MathUtils.degToRad(xRotate),
+        MathUtils.degToRad(yRotate),
+        MathUtils.degToRad(zRotate)
+      )}
       {...props}
     >
       <icosahedronGeometry args={[500, 50]} />
@@ -33,12 +35,12 @@ export default function PanoImage (props) {
 
 PanoImage.propTypes = {
   xRotate: PropTypes.number,
-  zRotate: PropTypes.number,
-  yRotate: PropTypes.number
+  yRotate: PropTypes.number,
+  zRotate: PropTypes.number
 }
 
 PanoImage.defaultProps = {
   xRotate: 0,
-  zRotate: 0,
-  yRotate: 0
+  yRotate: 0,
+  zRotate: 0
 }

@@ -53,6 +53,8 @@ export default function VirtualTour (props) {
   useHotkeys('ctrl+shift+alt+;', () => { setZRotate(zRotate - 0.02) }, {}, [zRotate])
   useHotkeys('ctrl+shift+alt+\'', () => { setZRotate(zRotate + 0.02) }, {}, [zRotate])
 
+  useHotkeys('ctrl+/', () => { console.log(`Settings: ${currentPano}, <${xRotate}, ${yRotate}, ${zRotate}>`) }, {}, [xRotate, yRotate, zRotate])
+
   // Hotkeys to change current pano image
   useHotkeys('ctrl+.', () => { increasePanoIndex() }, {}, [increasePanoIndex])
   useHotkeys('ctrl+,', () => { decreasePanoIndex() }, {}, [decreasePanoIndex])
@@ -66,7 +68,7 @@ export default function VirtualTour (props) {
         <Suspense fallback={<Progress />}>
           <Arrow direction={45} />
           <Arrow direction={270} />
-          <PanoImage xRotate={xRotate} zRotate={zRotate} yRotate={yRotate} />
+          <PanoImage xRotate={xRotate} yRotate={yRotate} zRotate={zRotate} />
           <PanoGrid />
         </Suspense>
       </Canvas>
