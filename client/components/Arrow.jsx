@@ -1,22 +1,36 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 
 import { useLoader, useGraph } from '@react-three/fiber'
-import { MathUtils } from 'three'
+import { MathUtils, TextureLoader } from 'three'
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader.js'
 
+import HEATING_PLANT_IMAGES from './heatingPlantImages.js'
 import useStore from '../state/useStore.js'
+
+// Various colors for the texture loading state
+const LOADING_COLOR = 0x777777
+const LOADED_COLOR = 0x156289
+const FAILED_COLOR = 0x883333
 
 export default function Arrow (props) {
   // Destructure props
   const { height, distance, direction, destination, ...rest } = props
 
-  // Global pano image state
-  const { setPano } = useStore(state => state)
+  // Global texture loader status and pano image state
+  const { setPano, loadingStatus } = useStore(state => state)
+
+  // Extract status for this specific image
+  const imageURL = HEATING_PLANT_IMAGES[destination]?.filename
+  const imageLoadingStatus = loadingStatus[imageURL || 'unknown']
+
+  // Lookup the texture needed for the destination and get it pre-loading
+  useEffect(() => {
+    useLoader.preload(TextureLoader, HEATING_PLANT_IMAGES[destination]?.filename)
+  }, [destination])
 
   // Click callback function
   const onClick = () => {
-    console.log('Clicked on arrow for "' + destination + '"')
     if (destination) { setPano(destination) }
   }
 
@@ -24,10 +38,20 @@ export default function Arrow (props) {
   const loadedObj = useLoader(OBJLoader, 'geom/arrow.obj')
   const { nodes } = useGraph(loadedObj.clone())
 
+  let color = LOADING_COLOR
+  switch (imageLoadingStatus) {
+    case 'DONE':
+      color = LOADED_COLOR
+      break
+    case 'FAILED':
+      color = FAILED_COLOR
+      break
+  }
+
   // Build unique sub-meshes for all the loaded objects
   const meshes = Object.keys(nodes).map((meshName) => (
     <mesh key={`${meshName}-mesh`} geometry={nodes[meshName].geometry}>
-      <meshPhongMaterial color={0x156289} emissive={0x072534} flatShading />
+      <meshPhongMaterial color={color} flatShading />
     </mesh>
   ))
 

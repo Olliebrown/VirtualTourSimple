@@ -2,6 +2,7 @@ import CONFIG from './config.js'
 
 import React, { Suspense, useEffect, useState } from 'react'
 import { Canvas } from '@react-three/fiber'
+import { DefaultLoadingManager } from 'three'
 
 import { OrbitControls } from '@react-three/drei'
 import { useHotkeys } from 'react-hotkeys-hook'
@@ -14,8 +15,22 @@ import HEATING_PLANT_IMAGE_LIST from './components/heatingPlantImages.js'
 import PanoGrid from './components/PanoGrid.jsx'
 
 export default function VirtualTour (props) {
-  // Current pano state
-  const { currentPano, increasePanoIndex, decreasePanoIndex } = useStore(state => state)
+  // Current pano state and texture loading state
+  const { currentPano, increasePanoIndex, decreasePanoIndex, loadingBusy, loadingCompleted, loadingFailed } = useStore(state => state)
+
+  // Setup monitoring of texture loading state
+  useEffect(() => {
+    DefaultLoadingManager.onStart = loadingBusy
+    DefaultLoadingManager.onError = loadingFailed
+    DefaultLoadingManager.onLoad = () => { loadingCompleted('*') }
+    DefaultLoadingManager.onProgress = (url, number, total) => {
+      if (number === total) {
+        loadingCompleted(url)
+      } else {
+        loadingBusy(url)
+      }
+    }
+  }, [loadingBusy, loadingCompleted, loadingFailed])
 
   // Load the pano image data
   const currentPanoData = HEATING_PLANT_IMAGE_LIST[currentPano]

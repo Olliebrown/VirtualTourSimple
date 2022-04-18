@@ -18,11 +18,49 @@ function nameToIndex (name) {
 
 // Create the state management store
 const useStore = create(set => ({
-  // State
+  // Texture Loading State
+  loadingStatus: {},
+
+  // Texture Loading State Mutators
+  loadingBusy: (url) => set(state => {
+    return {
+      loadingStatus: {
+        ...state.loadingStatus,
+        [url]: 'BUSY'
+      }
+    }
+  }),
+  loadingCompleted: (url) => set(state => {
+    if (url === '*') {
+      // Set all to done
+      const newLoadingStatus = {}
+      Object.keys(state.loadingStatus).forEach((key) => {
+        newLoadingStatus[key] = 'DONE'
+      })
+      return { loadingStatus: newLoadingStatus }
+    } else {
+      return {
+        loadingStatus: {
+          ...state.loadingStatus,
+          [url]: 'DONE'
+        }
+      }
+    }
+  }),
+  loadingFailed: (url) => set(state => {
+    return {
+      loadingStatus: {
+        ...state.loadingStatus,
+        [url]: 'FAILED'
+      }
+    }
+  }),
+
+  // Pano Image State
   currentPanoIndex: CONFIG.START_INDEX,
   currentPano: indexToName(CONFIG.START_INDEX),
 
-  // State mutators
+  // Pano Image State mutators
   setPano: (newPano) => set(state => ({
     currentPanoIndex: nameToIndex(newPano),
     currentPano: newPano

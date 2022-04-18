@@ -94,8 +94,7 @@ export default {
     yRotate: 160,
     zRotate: -3.6,
     exits: [
-      { direction: -90, name: 'image04' },
-      { direction: 90, name: 'image02' }
+      { direction: 90, name: 'image04' }
     ]
   },
   image04: {
