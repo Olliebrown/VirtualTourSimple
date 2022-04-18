@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "server": "node server/server.js",
-    "devServer": "nodemon --watch server server/server.js",
+    "devServer": "nodemon --watch server server/server.js dev",
     "client": "esbuild --bundle --minify --target=es6  --define:_DEV_=false --define:process.env.NODE_ENV='production' --outfile=public/bundle.js client/app.jsx",
     "devClient": "esbuild --bundle --watch --sourcemap --target=es6 --define:_DEV_=true --define:process.env.NODE_ENV='development' --outfile=public/bundle.js client/app.jsx",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -14,6 +14,10 @@
   "author": "Seth Berrier",
   "license": "MIT",
   "devDependencies": {
+    "@emotion/react": "^11.9.0",
+    "@emotion/styled": "^11.8.1",
+    "@mui/icons-material": "^5.6.2",
+    "@mui/material": "^5.6.2",
     "@react-three/drei": "^9.4.2",
     "@react-three/fiber": "^8.0.11",
     "@react-three/xr": "^3.5.0",

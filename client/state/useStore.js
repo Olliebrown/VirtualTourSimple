@@ -18,6 +18,19 @@ function nameToIndex (name) {
 
 // Create the state management store
 const useStore = create(set => ({
+  // Game Settings
+  enableMotionControls: false,
+  invertOrbitControls: false,
+
+  // Game settings mutators
+  toggleMotionControls: (enable) => set(state => ({
+    enableMotionControls: !state.enableMotionControls
+  })),
+  toggleInvertOrbitControls: (enable) => set(state => {
+    console.log('Toggling orbit controls', state.invertOrbitControls)
+    return { invertOrbitControls: !state.invertOrbitControls }
+  }),
+
   // Texture Loading State
   loadingStatus: {},
 

@@ -1,98 +1,31 @@
-import CONFIG from './config.js'
+import React, { useEffect } from 'react'
 
-import React, { Suspense, useEffect, useState } from 'react'
-import { Canvas } from '@react-three/fiber'
-import { DefaultLoadingManager } from 'three'
+import { Container, CssBaseline } from '@mui/material'
 
-import { OrbitControls } from '@react-three/drei'
-import { useHotkeys } from 'react-hotkeys-hook'
-import useStore from './state/useStore.js'
-
-import PanoImage from './components/PanoImage.jsx'
-import Progress from './components/Progress.jsx'
-
-import HEATING_PLANT_IMAGE_LIST from './components/heatingPlantImages.js'
-import PanoGrid from './components/PanoGrid.jsx'
+import PanoViewer from './components/PanoViewer.jsx'
+import SettingsDial from './components/SettingsDial.jsx'
 
 export default function VirtualTour (props) {
-  // Current pano state and texture loading state
-  const { currentPano, increasePanoIndex, decreasePanoIndex, loadingBusy, loadingCompleted, loadingFailed } = useStore(state => state)
+  const { isMobile, allowMotion } = props
 
-  // Setup monitoring of texture loading state
   useEffect(() => {
-    DefaultLoadingManager.onStart = loadingBusy
-    DefaultLoadingManager.onError = loadingFailed
-    DefaultLoadingManager.onLoad = () => { loadingCompleted('*') }
-    DefaultLoadingManager.onProgress = (url, number, total) => {
-      if (number === total) {
-        loadingCompleted(url)
-      } else {
-        loadingBusy(url)
-      }
+    if (_DEV_) {
+      // if (isMobile) {
+      //   alert('Detected mobile device')
+      // } else {
+      //   alert('Not a mobile device')
+      // }
     }
-  }, [loadingBusy, loadingCompleted, loadingFailed])
-
-  // Load the pano image data
-  const currentPanoData = HEATING_PLANT_IMAGE_LIST[currentPano]
-
-  // Sphere rotation state
-  const [xRotate, setXRotate] = useState(currentPanoData.xRotate)
-  const [yRotate, setYRotate] = useState(currentPanoData.yRotate)
-  const [zRotate, setZRotate] = useState(currentPanoData.zRotate)
-
-  // Ensure rotate values are synced with the loaded pano data
-  useEffect(() => {
-    setXRotate(currentPanoData.xRotate)
-    setYRotate(currentPanoData.yRotate)
-    setZRotate(currentPanoData.zRotate)
-  }, [currentPanoData])
-
-  // Setup some hotkeys to adjust the sphere offset rotation
-  /* eslint-disable react-hooks/rules-of-hooks */
-  if (CONFIG.ENABLE_ROTATE_HOTKEYS) {
-    useHotkeys('ctrl+num_divide', () => { setXRotate(xRotate - 0.5) }, {}, [xRotate])
-    useHotkeys('ctrl+num_multiply', () => { setXRotate(xRotate + 0.5) }, {}, [xRotate])
-    useHotkeys('ctrl+shift+num_divide', () => { setXRotate(xRotate - 0.1) }, {}, [xRotate])
-    useHotkeys('ctrl+shift+num_multiply', () => { setXRotate(xRotate + 0.1) }, {}, [xRotate])
-    useHotkeys('ctrl+shift+alt+num_divide', () => { setXRotate(xRotate - 0.02) }, {}, [xRotate])
-    useHotkeys('ctrl+shift+alt+num_multiply', () => { setXRotate(xRotate + 0.02) }, {}, [xRotate])
-
-    useHotkeys('ctrl+]', () => { setYRotate(yRotate - 0.5) }, {}, [yRotate])
-    useHotkeys('ctrl+[', () => { setYRotate(yRotate + 0.5) }, {}, [yRotate])
-    useHotkeys('ctrl+shift+]', () => { setYRotate(yRotate - 0.1) }, {}, [yRotate])
-    useHotkeys('ctrl+shift+[', () => { setYRotate(yRotate + 0.1) }, {}, [yRotate])
-    useHotkeys('ctrl+shift+alt+]', () => { setYRotate(yRotate - 0.02) }, {}, [yRotate])
-    useHotkeys('ctrl+shift+alt+[', () => { setYRotate(yRotate + 0.02) }, {}, [yRotate])
-
-    useHotkeys('ctrl+;', () => { setZRotate(zRotate - 0.5) }, {}, [zRotate])
-    useHotkeys('ctrl+\'', () => { setZRotate(zRotate + 0.5) }, {}, [zRotate])
-    useHotkeys('ctrl+shift+;', () => { setZRotate(zRotate - 0.1) }, {}, [zRotate])
-    useHotkeys('ctrl+shift+\'', () => { setZRotate(zRotate + 0.1) }, {}, [zRotate])
-    useHotkeys('ctrl+shift+alt+;', () => { setZRotate(zRotate - 0.02) }, {}, [zRotate])
-    useHotkeys('ctrl+shift+alt+\'', () => { setZRotate(zRotate + 0.02) }, {}, [zRotate])
-
-    useHotkeys('ctrl+/', () => { console.log(`Settings: ${currentPano}, <${xRotate}, ${yRotate}, ${zRotate}>`) }, {}, [xRotate, yRotate, zRotate])
-  }
-
-  // Hotkeys to change current pano image
-  if (CONFIG.ENABLE_INDEX_ADVANCING_HOTKEYS) {
-    useHotkeys('ctrl+.', () => { increasePanoIndex() }, {}, [increasePanoIndex])
-    useHotkeys('ctrl+,', () => { decreasePanoIndex() }, {}, [decreasePanoIndex])
-  }
-  /* eslint-enable react-hooks/rules-of-hooks */
+  }, [isMobile])
 
   return (
     <React.StrictMode>
-      <Canvas camera={{ position: [0, 0, 0.1] }}>
-        <OrbitControls enablePan={false} enableZoom={false} />
-        <ambientLight />
-        <pointLight position={[10, 10, 10]} />
-        <Suspense fallback={<Progress />}>
-          <PanoImage xRotate={xRotate} yRotate={yRotate} zRotate={zRotate} />
-          {CONFIG.ENABLE_ALIGNMENT_GRID &&
-            <PanoGrid />}
-        </Suspense>
-      </Canvas>
+      {/* Main three.js fiber canvas */}
+      <PanoViewer isMobile={isMobile} allowMotion={allowMotion} />
+
+      {/* MUI overlay */}
+      <CssBaseline />
+      <SettingsDial allowMotion={allowMotion} />
     </React.StrictMode>
   )
 }
