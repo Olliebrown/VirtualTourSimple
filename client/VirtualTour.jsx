@@ -1,3 +1,6 @@
+// Establish our custom cutout material
+import './shaders/CutoutShader.js'
+
 import React, { useEffect } from 'react'
 
 import { Container, CssBaseline } from '@mui/material'
