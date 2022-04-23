@@ -23,8 +23,8 @@ export default function PanoImage (props) {
     const currentPanoData = HEATING_PLANT_IMAGE_LIST[currentPano]
     if (currentPanoData.video) {
       const vid = document.createElement('video')
+      vid.crossOrigin = 'anonymous'
       vid.src = currentPanoData.video
-      vid.crossOrigin = 'Anonymous'
       vid.loop = true
       vid.play()
       setPanoVideo(vid)
