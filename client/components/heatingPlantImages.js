@@ -1,4 +1,5 @@
-const PATH = 'media/panoImg'
+const IMG_PATH = 'media/panoImg'
+const VID_PATH = 'media/panoVid'
 
 export default {
   indexMin: 2,
@@ -6,7 +7,7 @@ export default {
 
   // Water room
   image19: {
-    filename: `${PATH}/IMG_20220401_094225_00_merged.jpg`,
+    filename: `${IMG_PATH}/IMG_20220401_094225_00_merged.jpg`,
     xRotate: 0.2,
     zRotate: -3.9,
     yRotate: -41.4,
@@ -16,7 +17,7 @@ export default {
     ]
   },
   image18: {
-    filename: `${PATH}/IMG_20220401_094153_00_merged.jpg`,
+    filename: `${IMG_PATH}/IMG_20220401_094153_00_merged.jpg`,
     xRotate: 0.0,
     zRotate: -3.54,
     yRotate: 47,
@@ -27,7 +28,7 @@ export default {
 
   // Main Floor
   image20: {
-    filename: `${PATH}/IMG_20220401_094254_00_merged.jpg`,
+    filename: `${IMG_PATH}/IMG_20220401_094254_00_merged.jpg`,
     xRotate: -0.4,
     zRotate: -2.6,
     yRotate: 139,
@@ -38,7 +39,7 @@ export default {
     ]
   },
   image21: {
-    filename: `${PATH}/IMG_20220401_094324_00_merged.jpg`,
+    filename: `${IMG_PATH}/IMG_20220401_094324_00_merged.jpg`,
     xRotate: 0.1,
     zRotate: -3.9,
     yRotate: 116.7,
@@ -49,7 +50,7 @@ export default {
     ]
   },
   image30: {
-    filename: `${PATH}/IMG_20220401_095047_00_merged.jpg`,
+    filename: `${IMG_PATH}/IMG_20220401_095047_00_merged.jpg`,
     xRotate: 0.0,
     zRotate: -3.5,
     yRotate: -159.8,
@@ -59,7 +60,7 @@ export default {
     ]
   },
   image31: {
-    filename: `${PATH}/IMG_20220401_095124_00_merged.jpg`,
+    filename: `${IMG_PATH}/IMG_20220401_095124_00_merged.jpg`,
     xRotate: -0.4,
     zRotate: -3.2,
     yRotate: 82.6,
@@ -69,7 +70,7 @@ export default {
     ]
   },
   image32: {
-    filename: `${PATH}/IMG_20220401_095156_00_merged.jpg`,
+    filename: `${IMG_PATH}/IMG_20220401_095156_00_merged.jpg`,
     xRotate: 0.1,
     zRotate: -3.0,
     yRotate: 111.8,
@@ -79,7 +80,8 @@ export default {
     ]
   },
   image02: {
-    filename: `${PATH}/IMG_20220401_091619_00_merged.jpg`,
+    filename: `${IMG_PATH}/IMG_20220401_091619_00_merged.jpg`,
+    video: `${VID_PATH}/VID_20220401_091446_00_009.mp4`,
     xRotate: -0.1,
     yRotate: 15.5,
     zRotate: -3.9,
@@ -89,7 +91,7 @@ export default {
     ]
   },
   image03: {
-    filename: `${PATH}/IMG_20220401_091928_00_merged.jpg`,
+    filename: `${IMG_PATH}/IMG_20220401_091928_00_merged.jpg`,
     xRotate: 0.0,
     yRotate: 160,
     zRotate: -3.6,
@@ -98,7 +100,7 @@ export default {
     ]
   },
   image04: {
-    filename: `${PATH}/IMG_20220401_092009_00_merged.jpg`,
+    filename: `${IMG_PATH}/IMG_20220401_092009_00_merged.jpg`,
     xRotate: 0.0,
     zRotate: -3.5,
     yRotate: 12.6,
@@ -109,7 +111,7 @@ export default {
     ]
   },
   image05: {
-    filename: `${PATH}/IMG_20220401_092051_00_merged.jpg`,
+    filename: `${IMG_PATH}/IMG_20220401_092051_00_merged.jpg`,
     xRotate: 0.0,
     zRotate: -4,
     yRotate: 259.9,
@@ -119,7 +121,7 @@ export default {
     ]
   },
   image06: {
-    filename: `${PATH}/IMG_20220401_092237_00_merged.jpg`,
+    filename: `${IMG_PATH}/IMG_20220401_092237_00_merged.jpg`,
     xRotate: 0.2,
     zRotate: -3.5,
     yRotate: 1.1,
@@ -129,7 +131,7 @@ export default {
     ]
   },
   image07: {
-    filename: `${PATH}/IMG_20220401_092310_00_merged.jpg`,
+    filename: `${IMG_PATH}/IMG_20220401_092310_00_merged.jpg`,
     xRotate: -0.2,
     zRotate: -3.5,
     yRotate: 245.1,
@@ -141,7 +143,7 @@ export default {
 
   // Catwalk
   image08: {
-    filename: `${PATH}/IMG_20220401_092354_00_merged.jpg`,
+    filename: `${IMG_PATH}/IMG_20220401_092354_00_merged.jpg`,
     xRotate: 0.1,
     zRotate: -3.5,
     yRotate: 17.9,
@@ -151,7 +153,7 @@ export default {
     ]
   },
   image09: {
-    filename: `${PATH}/IMG_20220401_092452_00_merged.jpg`,
+    filename: `${IMG_PATH}/IMG_20220401_092452_00_merged.jpg`,
     xRotate: -0.3,
     zRotate: -3.5,
     yRotate: 108.9,
@@ -161,7 +163,7 @@ export default {
     ]
   },
   image10: {
-    filename: `${PATH}/IMG_20220401_092558_00_037.jpg`,
+    filename: `${IMG_PATH}/IMG_20220401_092558_00_037.jpg`,
     xRotate: 0.0,
     zRotate: -3.5,
     yRotate: -101.5,
@@ -171,7 +173,7 @@ export default {
     ]
   },
   image11: {
-    filename: `${PATH}/IMG_20220401_092641_00_merged.jpg`,
+    filename: `${IMG_PATH}/IMG_20220401_092641_00_merged.jpg`,
     xRotate: 0.6,
     zRotate: -3.2,
     yRotate: -12.5,
@@ -181,7 +183,7 @@ export default {
     ]
   },
   image12: {
-    filename: `${PATH}/IMG_20220401_092750_00_merged.jpg`,
+    filename: `${IMG_PATH}/IMG_20220401_092750_00_merged.jpg`,
     xRotate: 0.2,
     zRotate: -3.8,
     yRotate: 23.8,
@@ -191,7 +193,7 @@ export default {
     ]
   },
   image13: {
-    filename: `${PATH}/IMG_20220401_092831_00_merged.jpg`,
+    filename: `${IMG_PATH}/IMG_20220401_092831_00_merged.jpg`,
     xRotate: 0.0,
     zRotate: -3.4,
     yRotate: -129.9,
@@ -201,7 +203,7 @@ export default {
     ]
   },
   image14: {
-    filename: `${PATH}/IMG_20220401_092916_00_merged.jpg`,
+    filename: `${IMG_PATH}/IMG_20220401_092916_00_merged.jpg`,
     xRotate: -0.5,
     zRotate: -3.5,
     yRotate: -162.2,
@@ -213,7 +215,7 @@ export default {
   },
 
   image37: {
-    filename: `${PATH}/IMG_20220401_095618_00_merged.jpg`,
+    filename: `${IMG_PATH}/IMG_20220401_095618_00_merged.jpg`,
     xRotate: -0.1,
     zRotate: -3.5,
     yRotate: 168.8,
@@ -223,7 +225,7 @@ export default {
     ]
   },
   image38: {
-    filename: `${PATH}/IMG_20220401_095653_00_merged.jpg`,
+    filename: `${IMG_PATH}/IMG_20220401_095653_00_merged.jpg`,
     xRotate: 0.4,
     zRotate: -3.6,
     yRotate: 163.5,
@@ -233,7 +235,7 @@ export default {
   },
 
   image15: {
-    filename: `${PATH}/IMG_20220401_093008_00_merged.jpg`,
+    filename: `${IMG_PATH}/IMG_20220401_093008_00_merged.jpg`,
     xRotate: 0.0,
     zRotate: -3.7,
     yRotate: -161.2,
@@ -243,7 +245,7 @@ export default {
     ]
   },
   image16: {
-    filename: `${PATH}/IMG_20220401_093326_00_merged.jpg`,
+    filename: `${IMG_PATH}/IMG_20220401_093326_00_merged.jpg`,
     xRotate: 0.0,
     zRotate: -4.0,
     yRotate: -161.8,
@@ -253,7 +255,7 @@ export default {
     ]
   },
   image17: {
-    filename: `${PATH}/IMG_20220401_093420_00_merged.jpg`,
+    filename: `${IMG_PATH}/IMG_20220401_093420_00_merged.jpg`,
     xRotate: 0.3,
     zRotate: -3.4,
     yRotate: -4.1,
@@ -264,7 +266,7 @@ export default {
   },
 
   image36: {
-    filename: `${PATH}/IMG_20220401_095501_00_merged.jpg`,
+    filename: `${IMG_PATH}/IMG_20220401_095501_00_merged.jpg`,
     xRotate: 0.3,
     zRotate: -3.5,
     yRotate: -99.4,
@@ -274,7 +276,7 @@ export default {
     ]
   },
   image35: {
-    filename: `${PATH}/IMG_20220401_095421_00_merged.jpg`,
+    filename: `${IMG_PATH}/IMG_20220401_095421_00_merged.jpg`,
     xRotate: 0.3,
     zRotate: -3.3,
     yRotate: -69.3,
@@ -284,7 +286,7 @@ export default {
     ]
   },
   image34: {
-    filename: `${PATH}/IMG_20220401_095337_00_merged.jpg`,
+    filename: `${IMG_PATH}/IMG_20220401_095337_00_merged.jpg`,
     xRotate: -0.4,
     zRotate: -3.5,
     yRotate: 168.4,
@@ -294,7 +296,7 @@ export default {
     ]
   },
   image33: {
-    filename: `${PATH}/IMG_20220401_095258_00_merged.jpg`,
+    filename: `${IMG_PATH}/IMG_20220401_095258_00_merged.jpg`,
     xRotate: -0.2,
     zRotate: -3.4,
     yRotate: 111.4,
@@ -306,7 +308,7 @@ export default {
 
   // Basement
   image22: {
-    filename: `${PATH}/IMG_20220401_094406_00_merged.jpg`,
+    filename: `${IMG_PATH}/IMG_20220401_094406_00_merged.jpg`,
     xRotate: -0.3,
     zRotate: -3.5,
     yRotate: 46.9,
@@ -316,7 +318,7 @@ export default {
     ]
   },
   image23: {
-    filename: `${PATH}/IMG_20220401_094535_00_merged.jpg`,
+    filename: `${IMG_PATH}/IMG_20220401_094535_00_merged.jpg`,
     xRotate: -0.5,
     zRotate: -3.5,
     yRotate: 143.3,
@@ -327,7 +329,7 @@ export default {
     ]
   },
   image24: {
-    filename: `${PATH}/IMG_20220401_094621_00_merged.jpg`,
+    filename: `${IMG_PATH}/IMG_20220401_094621_00_merged.jpg`,
     xRotate: 0.0,
     zRotate: -3.8,
     yRotate: 91.1,
@@ -338,7 +340,7 @@ export default {
     ]
   },
   image25: {
-    filename: `${PATH}/IMG_20220401_094656_00_merged.jpg`,
+    filename: `${IMG_PATH}/IMG_20220401_094656_00_merged.jpg`,
     xRotate: 0.5,
     zRotate: -3.5,
     yRotate: 107.8,
@@ -348,7 +350,7 @@ export default {
     ]
   },
   image26: {
-    filename: `${PATH}/IMG_20220401_094746_00_merged.jpg`,
+    filename: `${IMG_PATH}/IMG_20220401_094746_00_merged.jpg`,
     xRotate: 0.0,
     zRotate: -3.8,
     yRotate: 173.0,
@@ -359,7 +361,7 @@ export default {
     ]
   },
   image27: {
-    filename: `${PATH}/IMG_20220401_094821_00_merged.jpg`,
+    filename: `${IMG_PATH}/IMG_20220401_094821_00_merged.jpg`,
     xRotate: -0.5,
     zRotate: -4.1,
     yRotate: -84.3,
@@ -369,7 +371,7 @@ export default {
     ]
   },
   image28: {
-    filename: `${PATH}/IMG_20220401_094903_00_merged.jpg`,
+    filename: `${IMG_PATH}/IMG_20220401_094903_00_merged.jpg`,
     xRotate: 0.4,
     zRotate: -3.4,
     yRotate: -9.7,
@@ -379,7 +381,7 @@ export default {
     ]
   },
   image29: {
-    filename: `${PATH}/IMG_20220401_094951_00_merged.jpg`,
+    filename: `${IMG_PATH}/IMG_20220401_094951_00_merged.jpg`,
     xRotate: 0.0,
     zRotate: -3.5,
     yRotate: 12.5,
