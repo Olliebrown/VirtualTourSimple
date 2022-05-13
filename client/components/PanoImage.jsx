@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 
 import { useTexture } from '@react-three/drei'
-import { Euler, MathUtils } from 'three'
+import { Euler, MathUtils, BackSide } from 'three'
 
 import useStore from '../state/useStore.js'
 
@@ -65,10 +65,11 @@ export default function PanoImage (props) {
         {...props}
       >
         <icosahedronGeometry args={[500, 50]} />
-        <cutoutMaterial vCropBox={[0.0, 0.0, 1.0, 1.0]}>
-          {panoVideo && <videoTexture attach="tPanoVideo" args={[panoVideo]}/>}
-          {panoImage && <primitive attach="tPanoImage" object={panoImage}/>}
-        </cutoutMaterial>
+        <meshBasicMaterial color={0xffffff} map={panoImage} side={BackSide} />
+        {/* <meshBasicMaterial color={[1.0, 1.0, 1.0]}>
+          {panoVideo
+            ? <videoTexture attach="map" args={[panoVideo]}/>
+            : <primitive attach="map" object={panoImage || null}/>} */}
       </mesh>
       {exitArrows}
     </>

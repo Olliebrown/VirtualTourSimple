@@ -97,7 +97,7 @@ export default function PanoViewer (props) {
   return (
     <React.StrictMode>
       {/* Main three.js fiber canvas */}
-      <Canvas camera={{ position: [0, 0, 0.1] }}>
+      <Canvas linear camera={{ position: [0, 0, 0.1] }}>
         <DeviceOrientationControls enabled={allowMotion && enableMotionControls} enablePan={false} enableZoom={false} />
         <OrbitControls enabled={!allowMotion || !enableMotionControls} enablePan={false} enableZoom={false} reverseOrbit={invertOrbitControls} />
         <ambientLight />

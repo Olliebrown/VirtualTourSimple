@@ -39547,6 +39547,7 @@
 
   // client/components/heatingPlantImages.js
   var IMG_PATH = "media/panoImg";
+  var VID_PATH = "media/panoVid";
   var heatingPlantImages_default = {
     indexMin: 2,
     indexMax: 38,
@@ -39623,6 +39624,7 @@
     },
     image02: {
       filename: `${IMG_PATH}/IMG_20220401_091619_00_merged.jpg`,
+      video: `${VID_PATH}/VID_20220401_091446_00_009.mp4`,
       xRotate: -0.1,
       yRotate: 15.5,
       zRotate: -3.9,
@@ -77513,7 +77515,6 @@ if (edgeAlpha == 0.0) {
 
     void main() {
       vUv = uv;
-
       gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
     }
   `,
@@ -77526,9 +77527,9 @@ if (edgeAlpha == 0.0) {
 
     void main() {
       vec2 uv = vUv;
-      gl_FragColor = vec4(1.0, 0.0, 0.0, 0.0, 1.0);
+      // gl_FragColor = vec4(1.0, 0.0, 0.0, 0.0, 1.0);
       // if (uv.x < vCropBox.x || uv.y < vCropBox.y || uv.x > vCropBox.z || uv.y > vCropBox.w) {
-      //   gl_FragColor = texture2D(tPanoImage, uv);;
+      gl_FragColor = vec4(texture2D(tPanoImage, uv).rgb, 1.0);
       // } else {
       //   gl_FragColor = texture2D(tPanoVideo, uv);;
       // }
@@ -88140,15 +88141,11 @@ const theme2 = createTheme({ palette: {
       rotation: new Euler(MathUtils.degToRad(xRotate), MathUtils.degToRad(yRotate), MathUtils.degToRad(zRotate))
     }, props), /* @__PURE__ */ import_react18.default.createElement("icosahedronGeometry", {
       args: [500, 50]
-    }), /* @__PURE__ */ import_react18.default.createElement("cutoutMaterial", {
-      vCropBox: [0, 0, 1, 1]
-    }, panoVideo && /* @__PURE__ */ import_react18.default.createElement("videoTexture", {
-      attach: "tPanoVideo",
-      args: [panoVideo]
-    }), panoImage && /* @__PURE__ */ import_react18.default.createElement("primitive", {
-      attach: "tPanoImage",
-      object: panoImage
-    }))), exitArrows);
+    }), /* @__PURE__ */ import_react18.default.createElement("meshBasicMaterial", {
+      color: 16777215,
+      map: panoImage,
+      side: BackSide
+    })), exitArrows);
   }
   PanoImage.propTypes = {
     xRotate: import_prop_types28.default.number,
@@ -88348,6 +88345,7 @@ const theme2 = createTheme({ palette: {
       }, {}, [decreasePanoIndex]);
     }
     return /* @__PURE__ */ import_react22.default.createElement(import_react22.default.StrictMode, null, /* @__PURE__ */ import_react22.default.createElement(Canvas, {
+      linear: true,
       camera: { position: [0, 0, 0.1] }
     }, /* @__PURE__ */ import_react22.default.createElement(DeviceOrientationControls2, {
       enabled: allowMotion2 && enableMotionControls,

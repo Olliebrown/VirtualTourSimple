@@ -10,7 +10,6 @@ const CutoutShaderInfo = {
 
     void main() {
       vUv = uv;
-
       gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
     }
   `,
@@ -24,9 +23,9 @@ const CutoutShaderInfo = {
 
     void main() {
       vec2 uv = vUv;
-      gl_FragColor = vec4(1.0, 0.0, 0.0, 0.0, 1.0);
+      // gl_FragColor = vec4(1.0, 0.0, 0.0, 0.0, 1.0);
       // if (uv.x < vCropBox.x || uv.y < vCropBox.y || uv.x > vCropBox.z || uv.y > vCropBox.w) {
-      //   gl_FragColor = texture2D(tPanoImage, uv);;
+      gl_FragColor = vec4(texture2D(tPanoImage, uv).rgb, 1.0);
       // } else {
       //   gl_FragColor = texture2D(tPanoVideo, uv);;
       // }
