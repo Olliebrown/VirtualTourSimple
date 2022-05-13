@@ -77526,7 +77526,7 @@ if (edgeAlpha == 0.0) {
 
     void main() {
       vec2 uv = vUv;
-      gl_FragColor = vec4(uv.xy, 0.0, 1.0);
+      gl_FragColor = vec4(1.0, 0.0, 0.0, 0.0, 1.0);
       // if (uv.x < vCropBox.x || uv.y < vCropBox.y || uv.x > vCropBox.z || uv.y > vCropBox.w) {
       //   gl_FragColor = texture2D(tPanoImage, uv);;
       // } else {
