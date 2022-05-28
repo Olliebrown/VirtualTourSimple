@@ -81,7 +81,10 @@ export default {
   },
   image02: {
     filename: `${IMG_PATH}/IMG_20220401_091619_00_merged.jpg`,
-    video: `${VID_PATH}/VID_20220401_091446_00_009.mp4`,
+    video: `${VID_PATH}/VID_20220401_091446_00_009-cropped.mp4`,
+    videoCrop: {
+      x: 0.236632, y: 0.283681, width: 0.419965, height: 0.650694
+    },
     xRotate: -0.1,
     yRotate: 15.5,
     zRotate: -3.9,

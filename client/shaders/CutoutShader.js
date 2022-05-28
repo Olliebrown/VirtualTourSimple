@@ -1,11 +1,14 @@
-import { Texture } from 'three'
 import { extend } from '@react-three/fiber'
 import { shaderMaterial } from '@react-three/drei'
 
-import { frag, vert } from './glslLiterals.js'
-
 const CutoutShaderInfo = {
-  vertexShader: vert`
+  uniforms: {
+    panoImage: undefined,
+    panoVideo: undefined,
+    cropBox: [0.0, 0.0, 1.0, 1.0]
+  },
+
+  vertexShader: /* glsl */`
     varying vec2 vUv;
 
     void main() {
@@ -14,29 +17,37 @@ const CutoutShaderInfo = {
     }
   `,
 
-  fragmentShader: frag`
+  fragmentShader: /* glsl */`
     varying vec2 vUv;
 
-    uniform vec4 vCropBox;
-    uniform sampler2D tPanoVideo;
-    uniform sampler2D tPanoImage;
+    uniform vec4 cropBox;
+    uniform sampler2D panoImage;
+    uniform sampler2D panoVideo;
+
+    // Test if a point is within the given bounding box
+    // p: The point to test
+    // BBox: the bounding box as [xMin, yMin, xMax, yMax]
+    bool pointInBBox (vec2 p, vec4 BBox) {
+      return (p.x >= BBox.x && p.x <= BBox.z && p.y >= BBox.y && p.y <= BBox.w);
+    }
 
     void main() {
-      vec2 uv = vUv;
-      // gl_FragColor = vec4(1.0, 0.0, 0.0, 0.0, 1.0);
-      // if (uv.x < vCropBox.x || uv.y < vCropBox.y || uv.x > vCropBox.z || uv.y > vCropBox.w) {
-      gl_FragColor = vec4(texture2D(tPanoImage, uv).rgb, 1.0);
-      // } else {
-      //   gl_FragColor = texture2D(tPanoVideo, uv);;
-      // }
+      if (pointInBBox(vec2(vUv.x, 1.0 - vUv.y), cropBox)) {
+        // Show video inside the box
+        vec2 vidUV = vec2(
+          (vUv.x - cropBox.x) / (cropBox.z - cropBox.x),
+          1.0 - ((1.0 - vUv.y) - cropBox.y) / (cropBox.w - cropBox.y)
+        );
+        gl_FragColor = vec4(texture2D(panoVideo, vidUV).rgb, 1.0);
+        // gl_FragColor = vec4(vidUV, 0.0, 1.0);
+      } else {
+        // Show image outside the box
+        gl_FragColor = vec4(texture2D(panoImage, vUv).rgb, 1.0);
+      }
+      #include <tonemapping_fragment>
+      #include <encodings_fragment>
     }
-  `,
-
-  uniforms: {
-    tPanoImage: { value: new Texture() },
-    tPanoVideo: { value: new Texture() },
-    vCropBox: { value: [0.0, 0.0, 1.0, 1.0] }
-  }
+  `
 }
 
 const CutoutMaterial = shaderMaterial(
@@ -46,5 +57,4 @@ const CutoutMaterial = shaderMaterial(
 )
 
 extend({ CutoutMaterial })
-
-export { CutoutMaterial }
+export default CutoutMaterial

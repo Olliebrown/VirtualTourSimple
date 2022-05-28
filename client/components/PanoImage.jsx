@@ -6,8 +6,13 @@ import { Euler, MathUtils, BackSide } from 'three'
 
 import useStore from '../state/useStore.js'
 
+import CutoutMaterial from '../shaders/CutoutShader.js'
 import Arrow from './Arrow.jsx'
 import HEATING_PLANT_IMAGE_LIST from './heatingPlantImages.js'
+
+const NO_CROP = {
+  x: 0.0, y: 0.0, width: 0.0, height: 0.0
+}
 
 export default function PanoImage (props) {
   const { xRotate, yRotate, zRotate } = props
@@ -17,6 +22,7 @@ export default function PanoImage (props) {
 
   // Load the pano image or video
   const [panoVideo, setPanoVideo] = React.useState(null)
+  const [videoCrop, setVideoCrop] = React.useState(NO_CROP)
   let panoImage = null
 
   // Possibly load a video
@@ -28,7 +34,17 @@ export default function PanoImage (props) {
       vid.src = currentPanoData.video
       vid.loop = true
       vid.play()
+
       setPanoVideo(vid)
+      if (currentPanoData.videoCrop) {
+        setVideoCrop([
+          currentPanoData.videoCrop.x,
+          currentPanoData.videoCrop.y,
+          currentPanoData.videoCrop.x + currentPanoData.videoCrop.width,
+          currentPanoData.videoCrop.y + currentPanoData.videoCrop.height
+        ])
+      }
+
       return () => {
         vid.pause()
         vid.remove()
@@ -65,11 +81,23 @@ export default function PanoImage (props) {
         {...props}
       >
         <icosahedronGeometry args={[500, 50]} />
-        <meshBasicMaterial color={0xffffff} map={panoImage} side={BackSide} />
-        {/* <meshBasicMaterial color={[1.0, 1.0, 1.0]}>
+
+        {/* Custom Shader with Pinned Video */}
+        <cutoutMaterial
+          key={CutoutMaterial.key}
+          side={BackSide}
+          cropBox={videoCrop}
+        >
+          {panoVideo && <videoTexture attach="panoVideo" args={[panoVideo]}/>}
+          <primitive attach="panoImage" object={panoImage || null}/>
+        </cutoutMaterial>
+
+        {/* Standard Material with video or texture */}
+        {/* <meshBasicMaterial color={0xffffff} side={BackSide}>
           {panoVideo
             ? <videoTexture attach="map" args={[panoVideo]}/>
-            : <primitive attach="map" object={panoImage || null}/>} */}
+            : <primitive attach="map" object={panoImage || null}/>}
+        </meshBasicMaterial> */}
       </mesh>
       {exitArrows}
     </>
