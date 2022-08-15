@@ -11,6 +11,7 @@ export default {
     xRotate: 0.2,
     zRotate: -3.9,
     yRotate: -41.4,
+    hotSpots: [],
     exits: [
       { direction: -90, name: 'image18' },
       { direction: 0, name: 'image20' } // Out to main floor
@@ -21,6 +22,7 @@ export default {
     xRotate: 0.0,
     zRotate: -3.54,
     yRotate: 47,
+    hotSpots: [],
     exits: [
       { direction: 90, name: 'image19' }
     ]
@@ -32,6 +34,7 @@ export default {
     xRotate: -0.4,
     zRotate: -2.6,
     yRotate: 139,
+    hotSpots: [],
     exits: [
       { direction: -135, name: 'image33' }, // In to water room
       { direction: 180, name: 'image19' }, // Up to catwalk
@@ -43,6 +46,7 @@ export default {
     xRotate: 0.1,
     zRotate: -3.9,
     yRotate: 116.7,
+    hotSpots: [],
     exits: [
       { direction: 110, name: 'image22' }, // Down to basement
       { direction: 70, name: 'image20' },
@@ -54,6 +58,7 @@ export default {
     xRotate: 0.0,
     zRotate: -3.5,
     yRotate: -159.8,
+    hotSpots: [],
     exits: [
       { direction: 0, name: 'image31' },
       { direction: 180, name: 'image21' }
@@ -64,6 +69,7 @@ export default {
     xRotate: -0.4,
     zRotate: -3.2,
     yRotate: 82.6,
+    hotSpots: [],
     exits: [
       { direction: -90, name: 'image32' },
       { direction: 180, name: 'image30' }
@@ -74,6 +80,12 @@ export default {
     xRotate: 0.1,
     zRotate: -3.0,
     yRotate: 111.8,
+    hotSpots: [
+      { longitude: 0, latitude: 0, radius: 6, name: 'Google', href: 'http://google.com' },
+      { longitude: 90, latitude: 45, radius: 10, name: 'UWStout', href: 'http://uwstout.edu' },
+      { longitude: 180, latitude: -45, radius: 15, name: 'Facebook', href: 'http://facebok.com' },
+      { longitude: -90, latitude: -90, name: 'Twitter', href: 'http://twitter.com' }
+    ],
     exits: [
       { direction: -90, name: 'image02' },
       { direction: 90, name: 'image31' }
@@ -88,6 +100,7 @@ export default {
     xRotate: -0.1,
     yRotate: 15.5,
     zRotate: -3.9,
+    hotSpots: [],
     exits: [
       { direction: -90, name: 'image04' },
       { direction: 90, name: 'image32' }
@@ -98,6 +111,7 @@ export default {
     xRotate: 0.0,
     yRotate: 160,
     zRotate: -3.6,
+    hotSpots: [],
     exits: [
       { direction: 90, name: 'image04' }
     ]
@@ -107,6 +121,7 @@ export default {
     xRotate: 0.0,
     zRotate: -3.5,
     yRotate: 12.6,
+    hotSpots: [],
     exits: [
       { direction: -90, name: 'image03' },
       { direction: 180, name: 'image05' },
@@ -118,6 +133,7 @@ export default {
     xRotate: 0.0,
     zRotate: -4,
     yRotate: 259.9,
+    hotSpots: [],
     exits: [
       { direction: 180, name: 'image06' },
       { direction: 0, name: 'image04' }
@@ -128,6 +144,7 @@ export default {
     xRotate: 0.2,
     zRotate: -3.5,
     yRotate: 1.1,
+    hotSpots: [],
     exits: [
       { direction: -90, name: 'image07' },
       { direction: 0, name: 'image05' }
@@ -138,6 +155,7 @@ export default {
     xRotate: -0.2,
     zRotate: -3.5,
     yRotate: 245.1,
+    hotSpots: [],
     exits: [
       { direction: 0, name: 'image08' }, // Up to catwalk
       { direction: 90, name: 'image06' }
@@ -150,6 +168,7 @@ export default {
     xRotate: 0.1,
     zRotate: -3.5,
     yRotate: 17.9,
+    hotSpots: [],
     exits: [
       { direction: 0, name: 'image09' },
       { direction: 180, name: 'image07' }
@@ -160,6 +179,7 @@ export default {
     xRotate: -0.3,
     zRotate: -3.5,
     yRotate: 108.9,
+    hotSpots: [],
     exits: [
       { direction: 90, name: 'image10' },
       { direction: 180, name: 'image08' }
@@ -170,6 +190,7 @@ export default {
     xRotate: 0.0,
     zRotate: -3.5,
     yRotate: -101.5,
+    hotSpots: [],
     exits: [
       { direction: 180, name: 'image11' },
       { direction: -90, name: 'image09' }
@@ -180,6 +201,7 @@ export default {
     xRotate: 0.6,
     zRotate: -3.2,
     yRotate: -12.5,
+    hotSpots: [],
     exits: [
       { direction: 90, name: 'image12' },
       { direction: 0, name: 'image10' }
@@ -190,6 +212,7 @@ export default {
     xRotate: 0.2,
     zRotate: -3.8,
     yRotate: 23.8,
+    hotSpots: [],
     exits: [
       { direction: 0, name: 'image13' },
       { direction: -90, name: 'image11' }
@@ -200,6 +223,7 @@ export default {
     xRotate: 0.0,
     zRotate: -3.4,
     yRotate: -129.9,
+    hotSpots: [],
     exits: [
       { direction: 90, name: 'image14' },
       { direction: 180, name: 'image12' }
@@ -210,6 +234,7 @@ export default {
     xRotate: -0.5,
     zRotate: -3.5,
     yRotate: -162.2,
+    hotSpots: [],
     exits: [
       { direction: 90, name: 'image15' },
       { direction: 170, name: 'image37' },
@@ -222,6 +247,7 @@ export default {
     xRotate: -0.1,
     zRotate: -3.5,
     yRotate: 168.8,
+    hotSpots: [],
     exits: [
       { direction: 180, name: 'image38' },
       { direction: -10, name: 'image14' }
@@ -232,6 +258,7 @@ export default {
     xRotate: 0.4,
     zRotate: -3.6,
     yRotate: 163.5,
+    hotSpots: [],
     exits: [
       { direction: 0, name: 'image37' }
     ]
@@ -242,6 +269,7 @@ export default {
     xRotate: 0.0,
     zRotate: -3.7,
     yRotate: -161.2,
+    hotSpots: [],
     exits: [
       { direction: 90, name: 'image16' },
       { direction: -90, name: 'image14' }
@@ -252,6 +280,7 @@ export default {
     xRotate: 0.0,
     zRotate: -4.0,
     yRotate: -161.8,
+    hotSpots: [],
     exits: [
       { direction: 180, name: 'image17' },
       { direction: -90, name: 'image15' }
@@ -262,6 +291,7 @@ export default {
     xRotate: 0.3,
     zRotate: -3.4,
     yRotate: -4.1,
+    hotSpots: [],
     exits: [
       { direction: 180, name: 'image36' },
       { direction: 0, name: 'image16' }
@@ -273,6 +303,7 @@ export default {
     xRotate: 0.3,
     zRotate: -3.5,
     yRotate: -99.4,
+    hotSpots: [],
     exits: [
       { direction: -90, name: 'image35' },
       { direction: 0, name: 'image17' }
@@ -283,6 +314,7 @@ export default {
     xRotate: 0.3,
     zRotate: -3.3,
     yRotate: -69.3,
+    hotSpots: [],
     exits: [
       { direction: -70, name: 'image34' },
       { direction: 0, name: 'image36' }
@@ -293,6 +325,7 @@ export default {
     xRotate: -0.4,
     zRotate: -3.5,
     yRotate: 168.4,
+    hotSpots: [],
     exits: [
       { direction: 70, name: 'image35' },
       { direction: 110, name: 'image33' }
@@ -303,6 +336,7 @@ export default {
     xRotate: -0.2,
     zRotate: -3.4,
     yRotate: 111.4,
+    hotSpots: [],
     exits: [
       { direction: 90, name: 'image20' },
       { direction: -90, name: 'image34' }
@@ -315,6 +349,7 @@ export default {
     xRotate: -0.3,
     zRotate: -3.5,
     yRotate: 46.9,
+    hotSpots: [],
     exits: [
       { direction: 90, name: 'image23' },
       { direction: -90, name: 'image21' } // Up to main floor
@@ -325,6 +360,7 @@ export default {
     xRotate: -0.5,
     zRotate: -3.5,
     yRotate: 143.3,
+    hotSpots: [],
     exits: [
       { direction: -90, name: 'image22' },
       { direction: -55, name: 'image24' },
@@ -336,6 +372,7 @@ export default {
     xRotate: 0.0,
     zRotate: -3.8,
     yRotate: 91.1,
+    hotSpots: [],
     exits: [
       { direction: -90, name: 'image25' },
       { direction: -45, name: 'image26' },
@@ -347,6 +384,7 @@ export default {
     xRotate: 0.5,
     zRotate: -3.5,
     yRotate: 107.8,
+    hotSpots: [],
     exits: [
       { direction: 35, name: 'image26' },
       { direction: 90, name: 'image24' }
@@ -357,6 +395,7 @@ export default {
     xRotate: 0.0,
     zRotate: -3.8,
     yRotate: 173.0,
+    hotSpots: [],
     exits: [
       { direction: 0, name: 'image27' },
       { direction: -160, name: 'image25' },
@@ -368,6 +407,7 @@ export default {
     xRotate: -0.5,
     zRotate: -4.1,
     yRotate: -84.3,
+    hotSpots: [],
     exits: [
       { direction: 90, name: 'image28' },
       { direction: 170, name: 'image26' }
@@ -378,6 +418,7 @@ export default {
     xRotate: 0.4,
     zRotate: -3.4,
     yRotate: -9.7,
+    hotSpots: [],
     exits: [
       { direction: 170, name: 'image29' },
       { direction: -90, name: 'image27' }
@@ -388,6 +429,7 @@ export default {
     xRotate: 0.0,
     zRotate: -3.5,
     yRotate: 12.5,
+    hotSpots: [],
     exits: [
       { direction: -172, name: 'image23' },
       { direction: -20, name: 'image28' }

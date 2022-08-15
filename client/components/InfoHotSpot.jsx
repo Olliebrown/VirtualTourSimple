@@ -1,54 +1,28 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 
 import { useLoader, useGraph } from '@react-three/fiber'
-import { MathUtils, TextureLoader } from 'three'
+import { MathUtils } from 'three'
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader.js'
 
-import HEATING_PLANT_IMAGES from './heatingPlantImages.js'
-import useStore from '../state/useStore.js'
-
 // Various colors for the texture loading state
-const LOADING_COLOR = 0x777777
-const LOADED_COLOR = 0x156289
-const FAILED_COLOR = 0x883333
+const LOADED_COLOR = 0xFF0000
 
-export default function Arrow (props) {
+export default function InfoHotSpot (props) {
   // Destructure props
-  const { height, distance, direction, destination, ...rest } = props
-
-  // Global texture loader status and pano image state
-  const { setPano, loadingStatus } = useStore(state => state)
-
-  // Extract status for this specific image
-  const imageURL = HEATING_PLANT_IMAGES[destination]?.filename
-  const imageLoadingStatus = loadingStatus[imageURL || 'unknown']
-
-  // Lookup the texture needed for the destination and get it pre-loading
-  useEffect(() => {
-    useLoader.preload(TextureLoader, HEATING_PLANT_IMAGES[destination]?.filename)
-  }, [destination])
+  const { name, href, longitude, latitude, radius, scale, ...rest } = props
 
   // Click callback function
   const onClick = () => {
-    if (destination) { setPano(destination) }
+    console.log(`Hot-spot "${name}" clicked`)
   }
 
   // Load the arrow geometry and clone our own instance
-  const loadedObj = useLoader(OBJLoader, 'geom/arrow.obj')
+  const loadedObj = useLoader(OBJLoader, 'geom/icoSphere.obj')
   const { nodes } = useGraph(loadedObj.clone())
 
-  let color = LOADING_COLOR
-  switch (imageLoadingStatus) {
-    case 'DONE':
-      color = LOADED_COLOR
-      break
-    case 'FAILED':
-      color = FAILED_COLOR
-      break
-  }
-
   // Build unique sub-meshes for all the loaded objects
+  const color = LOADED_COLOR
   const meshes = Object.keys(nodes).map((meshName) => (
     <mesh key={`${meshName}-mesh`} geometry={nodes[meshName].geometry}>
       <meshPhongMaterial color={color} flatShading />
@@ -57,24 +31,39 @@ export default function Arrow (props) {
 
   // Pack in groups to position in the scene
   return (
-    <group rotation-y={MathUtils.degToRad(direction)} {...rest} onClick={onClick}>
-      <group position={[0, height, distance]} rotation-x={Math.PI / 2.0} rotation-z={Math.PI}>
-        {meshes}
+    <group
+      rotation-y={MathUtils.degToRad(longitude)}
+      {...rest}
+      onClick={onClick}
+    >
+      <group rotation-x={MathUtils.degToRad(latitude)}>
+        <group
+          position={[0, 0, -radius]}
+          scale={[scale, scale, scale]}
+        >
+          {meshes}
+        </group>
       </group>
     </group>
   )
 }
 
-Arrow.propTypes = {
-  height: PropTypes.number,
-  distance: PropTypes.number,
-  direction: PropTypes.number,
-  destination: PropTypes.string
+InfoHotSpot.propTypes = {
+  name: PropTypes.string,
+  href: PropTypes.string,
+
+  longitude: PropTypes.number,
+  latitude: PropTypes.number,
+  radius: PropTypes.number,
+  scale: PropTypes.number
 }
 
-Arrow.defaultProps = {
-  height: -2.5,
-  distance: 5,
-  direction: 0,
-  destination: ''
+InfoHotSpot.defaultProps = {
+  href: '',
+  name: 'N/A',
+
+  longitude: 0,
+  latitude: 0,
+  radius: 5,
+  scale: 0.5
 }

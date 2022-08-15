@@ -5,6 +5,7 @@ const CutoutShaderInfo = {
   uniforms: {
     panoImage: undefined,
     panoVideo: undefined,
+    enableVideo: false,
     cropBox: [0.0, 0.0, 1.0, 1.0]
   },
 
@@ -23,6 +24,7 @@ const CutoutShaderInfo = {
     uniform vec4 cropBox;
     uniform sampler2D panoImage;
     uniform sampler2D panoVideo;
+    uniform bool enableVideo;
 
     // Test if a point is within the given bounding box
     // p: The point to test
@@ -32,14 +34,13 @@ const CutoutShaderInfo = {
     }
 
     void main() {
-      if (pointInBBox(vec2(vUv.x, 1.0 - vUv.y), cropBox)) {
+      if (enableVideo && pointInBBox(vec2(vUv.x, 1.0 - vUv.y), cropBox)) {
         // Show video inside the box
         vec2 vidUV = vec2(
           (vUv.x - cropBox.x) / (cropBox.z - cropBox.x),
           1.0 - ((1.0 - vUv.y) - cropBox.y) / (cropBox.w - cropBox.y)
         );
         gl_FragColor = vec4(texture2D(panoVideo, vidUV).rgb, 1.0);
-        // gl_FragColor = vec4(vidUV, 0.0, 1.0);
       } else {
         // Show image outside the box
         gl_FragColor = vec4(texture2D(panoImage, vUv).rgb, 1.0);

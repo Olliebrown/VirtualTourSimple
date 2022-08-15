@@ -9,6 +9,7 @@ import useStore from '../state/useStore.js'
 import CutoutMaterial from '../shaders/CutoutShader.js'
 import Arrow from './Arrow.jsx'
 import HEATING_PLANT_IMAGE_LIST from './heatingPlantImages.js'
+import InfoHotSpot from './InfoHotSpot.jsx'
 
 const NO_CROP = {
   x: 0.0, y: 0.0, width: 0.0, height: 0.0
@@ -46,8 +47,10 @@ export default function PanoImage (props) {
       }
 
       return () => {
+        console.log('Removing video')
         vid.pause()
         vid.remove()
+        setPanoVideo(null)
       }
     } else {
       setPanoVideo(null)
@@ -69,10 +72,19 @@ export default function PanoImage (props) {
     )
   })
 
+  // Build the info hot spots
+  const hotSpots = currentPanoData?.hotSpots?.map((info) => (
+    <InfoHotSpot
+      key={currentPano + '-' + info.name}
+      {...info}
+    />
+  ))
+
   return (
     <>
+      {/* The main pano image sphere geometry and shader */}
       <mesh
-        scale={[-1, 1, 1]}
+        scale={[-1, 1, 1]} // Deliberately turning this inside-out
         rotation={new Euler(
           MathUtils.degToRad(xRotate),
           MathUtils.degToRad(yRotate),
@@ -80,26 +92,25 @@ export default function PanoImage (props) {
         )}
         {...props}
       >
+        {/* Spherical geometry for the pano */}
         <icosahedronGeometry args={[500, 50]} />
 
-        {/* Custom Shader with Pinned Video */}
+        {/* Custom shader with pano texture and optional pinned video */}
         <cutoutMaterial
           key={CutoutMaterial.key}
           side={BackSide}
           cropBox={videoCrop}
+          enableVideo={panoVideo !== null}
         >
           {panoVideo && <videoTexture attach="panoVideo" args={[panoVideo]}/>}
           <primitive attach="panoImage" object={panoImage || null}/>
         </cutoutMaterial>
 
-        {/* Standard Material with video or texture */}
-        {/* <meshBasicMaterial color={0xffffff} side={BackSide}>
-          {panoVideo
-            ? <videoTexture attach="map" args={[panoVideo]}/>
-            : <primitive attach="map" object={panoImage || null}/>}
-        </meshBasicMaterial> */}
       </mesh>
+
+      {/* Add extra geometry objects */}
       {exitArrows}
+      {hotSpots}
     </>
   )
 }
