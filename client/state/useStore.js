@@ -18,17 +18,29 @@ function nameToIndex (name) {
 
 // Create the state management store
 const useStore = create(set => ({
-  // Game Settings
+  // Motion control Settings
   enableMotionControls: false,
   invertOrbitControls: false,
 
-  // Game settings mutators
-  toggleMotionControls: (enable) => set(state => ({
+  // Control setting mutators
+  toggleMotionControls: () => set(state => ({
     enableMotionControls: !state.enableMotionControls
   })),
-  toggleInvertOrbitControls: (enable) => set(state => {
+  toggleInvertOrbitControls: () => set(state => {
     console.log('Toggling orbit controls', state.invertOrbitControls)
     return { invertOrbitControls: !state.invertOrbitControls }
+  }),
+
+  // Hot spot info state
+  lastHotSpotHref: '',
+  hotSpotModalOpen: false,
+
+  // Hot spot state mutators
+  setLastHotSpotHref: (href) => set(state => {
+    return { lastHotSpotHref: href }
+  }),
+  setHotSpotModalOpen: (isOpen) => set(state => {
+    return { hotSpotModalOpen: !!isOpen }
   }),
 
   // Texture Loading State
@@ -72,6 +84,7 @@ const useStore = create(set => ({
   // Pano Image State
   currentPanoIndex: CONFIG.START_INDEX,
   currentPano: indexToName(CONFIG.START_INDEX),
+  videoPlaying: false,
 
   // Pano Image State mutators
   setPano: (newPano) => set(state => ({
@@ -97,6 +110,9 @@ const useStore = create(set => ({
     } else {
       console.error('Already at min index')
     }
+  }),
+  setVideoPlaying: (isPlaying) => set(state => {
+    return { videoPlaying: isPlaying }
   })
 }))
 

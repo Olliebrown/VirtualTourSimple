@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 
 import { useTexture } from '@react-three/drei'
@@ -19,24 +19,34 @@ export default function PanoImage (props) {
   const { xRotate, yRotate, zRotate } = props
 
   // Get the global state of the pano image
-  const currentPano = useStore(state => state.currentPano)
+  const { currentPano, videoPlaying, setVideoPlaying } = useStore(state => ({
+    currentPano: state.currentPano,
+    videoPlaying: state.videoPlaying,
+    setVideoPlaying: state.setVideoPlaying
+  }))
 
   // Load the pano image or video
   const [panoVideo, setPanoVideo] = React.useState(null)
   const [videoCrop, setVideoCrop] = React.useState(NO_CROP)
-  let panoImage = null
 
   // Possibly load a video
-  useEffect(() => {
+  React.useEffect(() => {
     const currentPanoData = HEATING_PLANT_IMAGE_LIST[currentPano]
     if (currentPanoData.video) {
-      const vid = document.createElement('video')
-      vid.crossOrigin = 'anonymous'
-      vid.src = currentPanoData.video
-      vid.loop = true
-      vid.play()
+      // Make a video HTML tag if we don't have one
+      if (panoVideo === null) {
+        // Create video HTML tag to stream media
+        const vid = document.createElement('video')
+        vid.crossOrigin = 'anonymous'
+        vid.src = currentPanoData.video.href
+        vid.loop = !!currentPanoData.video.loop
+        setPanoVideo(vid)
 
-      setPanoVideo(vid)
+        // Setup to stop showing video once its done
+        vid.onended = () => setVideoPlaying(false)
+      }
+
+      // Update video state and crop box
       if (currentPanoData.videoCrop) {
         setVideoCrop([
           currentPanoData.videoCrop.x,
@@ -46,20 +56,33 @@ export default function PanoImage (props) {
         ])
       }
 
+      // Clean up when the user leaves this pano
       return () => {
-        console.log('Removing video')
-        vid.pause()
-        vid.remove()
-        setPanoVideo(null)
+        // Stop streaming media
+        if (panoVideo !== null) {
+          panoVideo.pause()
+          panoVideo.remove()
+        }
+
+        // Reset video state
+        setVideoPlaying(false)
+        setVideoCrop(NO_CROP)
       }
     } else {
-      setPanoVideo(null)
+      // No video to load so ensure video state is back to default
+      setVideoPlaying(false)
+      setVideoCrop(NO_CROP)
     }
-  }, [currentPano])
+  }, [currentPano, panoVideo, setVideoPlaying])
+
+  // Respond to a change in the video playing state
+  React.useEffect(() => {
+    if (videoPlaying) { panoVideo?.play() }
+  }, [panoVideo, videoPlaying])
 
   // Load the base image texture
   const currentPanoData = HEATING_PLANT_IMAGE_LIST[currentPano]
-  panoImage = useTexture(currentPanoData.filename)
+  const panoImage = useTexture(currentPanoData.filename)
 
   // Build the exit arrows
   const exitArrows = currentPanoData?.exits.map((exit) => {
@@ -80,8 +103,15 @@ export default function PanoImage (props) {
     />
   ))
 
+  // Is there a video to show and is it playing
+  const showVideo = !!panoVideo && videoPlaying
+
   return (
     <>
+      {/* Add extra geometry objects */}
+      {exitArrows}
+      {hotSpots}
+
       {/* The main pano image sphere geometry and shader */}
       <mesh
         scale={[-1, 1, 1]} // Deliberately turning this inside-out
@@ -100,17 +130,13 @@ export default function PanoImage (props) {
           key={CutoutMaterial.key}
           side={BackSide}
           cropBox={videoCrop}
-          enableVideo={panoVideo !== null}
+          enableVideo={showVideo}
         >
-          {panoVideo && <videoTexture attach="panoVideo" args={[panoVideo]}/>}
+          {showVideo && <videoTexture attach="panoVideo" args={[panoVideo]}/>}
           <primitive attach="panoImage" object={panoImage || null}/>
         </cutoutMaterial>
 
       </mesh>
-
-      {/* Add extra geometry objects */}
-      {exitArrows}
-      {hotSpots}
     </>
   )
 }

@@ -2,32 +2,65 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { useLoader, useGraph } from '@react-three/fiber'
+
 import { MathUtils } from 'three'
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader.js'
 
-// Various colors for the texture loading state
-const LOADED_COLOR = 0xFF0000
+import { useSpring, animated } from '@react-spring/three'
+
+import useStore from '../state/useStore.js'
+
+// Various colors for the different types of hot spots
+const INFO_COLOR = 0xCC7178
+const VIDEO_COLOR = 0x648646
 
 export default function InfoHotSpot (props) {
   // Destructure props
-  const { name, href, longitude, latitude, radius, scale, ...rest } = props
+  const { name, href, playButton, longitude, latitude, radius, scale, ...rest } = props
+
+  // Track hovering state
+  const [hovering, setHovering] = React.useState(false)
+
+  // Subscribe to pieces of global state
+  const { setLastHotSpotHref, setHotSpotModalOpen, setVideoPlaying, videoPlaying } = useStore(state => ({
+    setLastHotSpotHref: state.setLastHotSpotHref,
+    setHotSpotModalOpen: state.setHotSpotModalOpen,
+    setVideoPlaying: state.setVideoPlaying,
+    videoPlaying: state.videoPlaying
+  }))
 
   // Click callback function
   const onClick = () => {
     console.log(`Hot-spot "${name}" clicked`)
+    if (playButton) {
+      setVideoPlaying(true)
+    } else {
+      setLastHotSpotHref(href)
+      setHotSpotModalOpen(true)
+    }
   }
 
-  // Load the arrow geometry and clone our own instance
+  // Load the hot spot geometry and clone our own instance
   const loadedObj = useLoader(OBJLoader, 'geom/icoSphere.obj')
   const { nodes } = useGraph(loadedObj.clone())
 
+  // Animated values
+  const springs = useSpring({
+    scale: hovering ? 1 : 0.5,
+    opacity: hovering ? 1.0 : 0.333
+  })
+
   // Build unique sub-meshes for all the loaded objects
-  const color = LOADED_COLOR
   const meshes = Object.keys(nodes).map((meshName) => (
-    <mesh key={`${meshName}-mesh`} geometry={nodes[meshName].geometry}>
-      <meshPhongMaterial color={color} flatShading />
-    </mesh>
+    <animated.mesh scale={springs.scale} key={`${meshName}-mesh`} geometry={nodes[meshName].geometry}>
+      <meshPhongMaterial color={playButton ? VIDEO_COLOR : INFO_COLOR} opacity={springs.opacity} />
+    </animated.mesh>
   ))
+
+  // Don't render while the video is playing
+  if (playButton && videoPlaying) {
+    return null
+  }
 
   // Pack in groups to position in the scene
   return (
@@ -35,6 +68,8 @@ export default function InfoHotSpot (props) {
       rotation-y={MathUtils.degToRad(longitude)}
       {...rest}
       onClick={onClick}
+      onPointerEnter={() => setHovering(true)}
+      onPointerLeave={() => setHovering(false)}
     >
       <group rotation-x={MathUtils.degToRad(latitude)}>
         <group
@@ -51,6 +86,7 @@ export default function InfoHotSpot (props) {
 InfoHotSpot.propTypes = {
   name: PropTypes.string,
   href: PropTypes.string,
+  playButton: PropTypes.bool,
 
   longitude: PropTypes.number,
   latitude: PropTypes.number,
@@ -61,6 +97,7 @@ InfoHotSpot.propTypes = {
 InfoHotSpot.defaultProps = {
   href: '',
   name: 'N/A',
+  playButton: false,
 
   longitude: 0,
   latitude: 0,

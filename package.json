@@ -38,6 +38,7 @@
     "zustand": "^3.7.2"
   },
   "dependencies": {
+    "@react-spring/three": "^9.5.2",
     "express": "^4.17.3"
   }
 }

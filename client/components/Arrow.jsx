@@ -5,6 +5,8 @@ import { useLoader, useGraph } from '@react-three/fiber'
 import { MathUtils, TextureLoader } from 'three'
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader.js'
 
+import { useSpring, animated } from '@react-spring/three'
+
 import HEATING_PLANT_IMAGES from './heatingPlantImages.js'
 import useStore from '../state/useStore.js'
 
@@ -20,6 +22,9 @@ export default function Arrow (props) {
   // Global texture loader status and pano image state
   const { setPano, loadingStatus } = useStore(state => state)
 
+  // Track hovering state
+  const [hovering, setHovering] = React.useState(false)
+
   // Extract status for this specific image
   const imageURL = HEATING_PLANT_IMAGES[destination]?.filename
   const imageLoadingStatus = loadingStatus[imageURL || 'unknown']
@@ -33,6 +38,12 @@ export default function Arrow (props) {
   const onClick = () => {
     if (destination) { setPano(destination) }
   }
+
+  // Animated values
+  const springs = useSpring({
+    scale: hovering ? 1 : 0.75,
+    opacity: hovering ? 1.0 : 0.333
+  })
 
   // Load the arrow geometry and clone our own instance
   const loadedObj = useLoader(OBJLoader, 'geom/arrow.obj')
@@ -50,14 +61,20 @@ export default function Arrow (props) {
 
   // Build unique sub-meshes for all the loaded objects
   const meshes = Object.keys(nodes).map((meshName) => (
-    <mesh key={`${meshName}-mesh`} geometry={nodes[meshName].geometry}>
+    <animated.mesh scale={springs.scale} key={`${meshName}-mesh`} geometry={nodes[meshName].geometry}>
       <meshPhongMaterial color={color} flatShading />
-    </mesh>
+    </animated.mesh>
   ))
 
   // Pack in groups to position in the scene
   return (
-    <group rotation-y={MathUtils.degToRad(direction)} {...rest} onClick={onClick}>
+    <group
+      rotation-y={MathUtils.degToRad(direction)}
+      {...rest}
+      onClick={onClick}
+      onPointerEnter={() => setHovering(true)}
+      onPointerLeave={() => setHovering(false)}
+    >
       <group position={[0, height, distance]} rotation-x={Math.PI / 2.0} rotation-z={Math.PI}>
         {meshes}
       </group>

@@ -81,10 +81,10 @@ export default {
     zRotate: -3.0,
     yRotate: 111.8,
     hotSpots: [
-      { longitude: 0, latitude: 0, radius: 6, name: 'Google', href: 'http://google.com' },
-      { longitude: 90, latitude: 45, radius: 10, name: 'UWStout', href: 'http://uwstout.edu' },
-      { longitude: 180, latitude: -45, radius: 15, name: 'Facebook', href: 'http://facebok.com' },
-      { longitude: -90, latitude: -90, name: 'Twitter', href: 'http://twitter.com' }
+      { longitude: 0, latitude: 0, radius: 6, name: 'Google', href: '/test1.html' },
+      { longitude: 90, latitude: 45, radius: 10, name: 'UWStout', href: '/test2.html' },
+      { longitude: 180, latitude: -45, radius: 15, name: 'Facebook', href: '/test3.html' },
+      { longitude: -90, latitude: -90, name: 'Twitter', href: '/test4.html' }
     ],
     exits: [
       { direction: -90, name: 'image02' },
@@ -93,14 +93,16 @@ export default {
   },
   image02: {
     filename: `${IMG_PATH}/IMG_20220401_091619_00_merged.jpg`,
-    video: `${VID_PATH}/VID_20220401_091446_00_009-cropped.mp4`,
+    video: { href: `${VID_PATH}/VID_20220401_091446_00_009-cropped.mp4`, loop: false },
     videoCrop: {
       x: 0.236632, y: 0.283681, width: 0.419965, height: 0.650694
     },
     xRotate: -0.1,
     yRotate: 15.5,
     zRotate: -3.9,
-    hotSpots: [],
+    hotSpots: [
+      { longitude: -90, latitude: 0, name: 'Play Video', playButton: true }
+    ],
     exits: [
       { direction: -90, name: 'image04' },
       { direction: 90, name: 'image32' }
