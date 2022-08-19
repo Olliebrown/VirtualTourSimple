@@ -8,6 +8,8 @@ export default {
   // Water room
   image19: {
     filename: `${IMG_PATH}/HeatingPlant/IMG_20220401_094225_00_merged.jpg`,
+    label: 'Water Treatment Room Door',
+    floor: 'Main',
     xRotate: 0.2,
     zRotate: -3.9,
     yRotate: -41.4,
@@ -19,6 +21,8 @@ export default {
   },
   image18: {
     filename: `${IMG_PATH}/HeatingPlant/IMG_20220401_094153_00_merged.jpg`,
+    label: 'Water Treatment Room Tanks',
+    floor: 'Main',
     xRotate: 0.0,
     zRotate: -3.54,
     yRotate: 47,
@@ -31,6 +35,8 @@ export default {
   // Main Floor
   image20: {
     filename: `${IMG_PATH}/HeatingPlant/IMG_20220401_094254_00_merged.jpg`,
+    label: 'Boiler 1, North End',
+    floor: 'Main',
     xRotate: -0.4,
     zRotate: -2.6,
     yRotate: 139,
@@ -38,11 +44,15 @@ export default {
     exits: [
       { direction: -135, name: 'image33' }, // In to water room
       { direction: 180, name: 'image19' }, // Up to catwalk
-      { direction: -90, name: 'image21' }
+      { direction: -90, name: 'image21' },
+      { direction: 0, name: 'image31' }, // South End of Boiler 1
+      { direction: 20, name: 'image50' } // Control Room
     ]
   },
   image21: {
     filename: `${IMG_PATH}/HeatingPlant/IMG_20220401_094324_00_merged.jpg`,
+    label: 'Boiler 2, North End',
+    floor: 'Main',
     xRotate: 0.1,
     zRotate: -3.9,
     yRotate: 116.7,
@@ -55,6 +65,8 @@ export default {
   },
   image30: {
     filename: `${IMG_PATH}/HeatingPlant/IMG_20220401_095047_00_merged.jpg`,
+    label: 'Between Boiler 1 & 2',
+    floor: 'Main',
     xRotate: 0.0,
     zRotate: -3.5,
     yRotate: -159.8,
@@ -66,17 +78,23 @@ export default {
   },
   image31: {
     filename: `${IMG_PATH}/HeatingPlant/IMG_20220401_095124_00_merged.jpg`,
+    label: 'Boiler 1 & 2, South End',
+    floor: 'Main',
     xRotate: -0.4,
     zRotate: -3.2,
     yRotate: 82.6,
     hotSpots: [],
     exits: [
       { direction: -90, name: 'image32' },
-      { direction: 180, name: 'image30' }
+      { direction: 180, name: 'image30' },
+      { direction: 120, name: 'image20' },
+      { direction: 95, name: 'image50' }
     ]
   },
   image32: {
     filename: `${IMG_PATH}/HeatingPlant/IMG_20220401_095156_00_merged.jpg`,
+    label: 'Boiler 2 & 3, South End',
+    floor: 'Main',
     xRotate: 0.1,
     zRotate: -3.0,
     yRotate: 111.8,
@@ -89,7 +107,8 @@ export default {
     exits: [
       { direction: -90, name: 'image02' },
       { direction: 90, name: 'image31' },
-      { direction: 180, name: 'image39' }
+      { direction: 45, name: 'image52' }
+      // { direction: 180, name: 'image27' } // DEBUG SHORTCUT
     ]
   },
   image02: {
@@ -98,6 +117,8 @@ export default {
     videoCrop: {
       x: 0.236632, y: 0.283681, width: 0.419965, height: 0.650694
     },
+    label: 'Boiler 3, South End',
+    floor: 'Main',
     xRotate: -0.1,
     yRotate: 15.5,
     zRotate: -3.9,
@@ -111,6 +132,8 @@ export default {
   },
   image03: {
     filename: `${IMG_PATH}/HeatingPlant/IMG_20220401_091928_00_merged.jpg`,
+    label: 'Boiler 1 & 2, South End',
+    floor: 'Main',
     xRotate: 0.0,
     yRotate: 160,
     zRotate: -3.6,
@@ -121,18 +144,23 @@ export default {
   },
   image04: {
     filename: `${IMG_PATH}/HeatingPlant/IMG_20220401_092009_00_merged.jpg`,
+    label: 'Boiler 1, South End',
+    floor: 'Main',
     xRotate: 0.0,
     zRotate: -3.5,
     yRotate: 12.6,
     hotSpots: [],
     exits: [
       { direction: -90, name: 'image03' },
+      { direction: -75, name: 'image40' },
       { direction: 180, name: 'image05' },
       { direction: 90, name: 'image02' }
     ]
   },
   image05: {
     filename: `${IMG_PATH}/HeatingPlant/IMG_20220401_092051_00_merged.jpg`,
+    label: 'Between Boiler 1 & 2',
+    floor: 'Main',
     xRotate: 0.0,
     zRotate: -4,
     yRotate: 259.9,
@@ -144,6 +172,8 @@ export default {
   },
   image06: {
     filename: `${IMG_PATH}/HeatingPlant/IMG_20220401_092237_00_merged.jpg`,
+    label: 'Boiler 1',
+    floor: 'Main',
     xRotate: 0.2,
     zRotate: -3.5,
     yRotate: 1.1,
@@ -185,7 +215,8 @@ export default {
     hotSpots: [],
     exits: [
       { direction: 90, name: 'image10' },
-      { direction: 180, name: 'image08' }
+      { direction: 180, name: 'image08' },
+      { direction: 0, name: 'image41' }
     ]
   },
   image10: {
@@ -217,6 +248,7 @@ export default {
     yRotate: 23.8,
     hotSpots: [],
     exits: [
+      { direction: 130, name: 'image45' },
       { direction: 0, name: 'image13' },
       { direction: -90, name: 'image11' }
     ]
@@ -412,6 +444,7 @@ export default {
     yRotate: -84.3,
     hotSpots: [],
     exits: [
+      { direction: -90, name: 'image47' },
       { direction: 90, name: 'image28' },
       { direction: 170, name: 'image26' }
     ]
@@ -439,94 +472,195 @@ export default {
     ]
   },
 
-  // Chiller Rooms
+  // Extra Rooms
+  // Basement West Side
+  image47: {
+    filename: `${IMG_PATH}/HeatingPlant/LS04_ExitToChillerPumpingArea.jpg`,
+    xRotate: 0.0,
+    zRotate: -0.1,
+    yRotate: 62.2,
+    hotSpots: [],
+    exits: [
+      { direction: -90, name: 'image43' },
+      { direction: -135, name: 'image48' },
+      { direction: 90, name: 'image27' }
+    ]
+  },
+  image48: {
+    filename: `${IMG_PATH}/ChillerPlant/LN04_StorageArea.jpg`,
+    xRotate: 0.0,
+    zRotate: -0.1,
+    yRotate: -25.0,
+    hotSpots: [],
+    exits: [
+      { direction: -30, name: 'image43' },
+      { direction: 45, name: 'image47' }
+    ]
+  },
+
+  image49: {
+    filename: `${IMG_PATH}/HeatingPlant/1N04_Boiler3SouthEnd.jpg`,
+    xRotate: 0.0,
+    zRotate: -0.1,
+    yRotate: 62.2,
+    hotSpots: [],
+    exits: [
+      { direction: -90, name: 'image43' },
+      { direction: -135, name: 'image48' },
+      { direction: 90, name: 'image27' }
+    ]
+  },
+  image50: {
+    filename: `${IMG_PATH}/HeatingPlant/1S01_ControlRoom.jpg`,
+    xRotate: 0.0,
+    zRotate: -0.6,
+    yRotate: 32.7,
+    hotSpots: [],
+    exits: [
+      { direction: 180, name: 'image20' },
+      { direction: -120, name: 'image31' }
+    ]
+  },
+
+  image51: {
+    filename: `${IMG_PATH}/LibraryCondenser/LIB_NW-Intake.jpg`,
+    xRotate: 0.0,
+    zRotate: -0.1,
+    yRotate: 239.7,
+    hotSpots: [],
+    exits: [
+      { direction: 65, name: 'image52' }
+    ]
+  },
+  image52: {
+    filename: `${IMG_PATH}/LibraryCondenser/LIB_NE-Distribution.jpg`,
+    xRotate: 0.0,
+    zRotate: -0.6,
+    yRotate: -121.5,
+    hotSpots: [],
+    exits: [
+      { direction: 75, name: 'image32' },
+      { direction: -125, name: 'image51' },
+      { direction: -15, name: 'image53' },
+      { direction: 15, name: 'image54' }
+    ]
+  },
+
+  image53: {
+    filename: `${IMG_PATH}/LibraryCondenser/LIB_SE.jpg`,
+    xRotate: 0.0,
+    zRotate: -0.1,
+    yRotate: -1.8,
+    hotSpots: [],
+    exits: [
+      { direction: 160, name: 'image52' },
+      { direction: 80, name: 'image54' }
+    ]
+  },
+  image54: {
+    filename: `${IMG_PATH}/LibraryCondenser/LIB_SW.jpg`,
+    xRotate: 0.0,
+    zRotate: -1.1,
+    yRotate: 108.7,
+    hotSpots: [],
+    exits: [
+      { direction: 200, name: 'image52' },
+      { direction: -105, name: 'image53' }
+    ]
+  },
+
+  // Chiller Rooms, First Floor
   image39: {
     filename: `${IMG_PATH}/ChillerPlant/1S05_ChillerAndEvaporator_C_Left.jpg`,
     xRotate: 0.0,
     zRotate: 0.0,
-    yRotate: 0.0,
+    yRotate: 166.9,
     hotSpots: [],
     exits: [
-      { direction: -172, name: 'image40' },
-      { direction: -20, name: 'image28' },
-      { direction: 0, name: 'image32' }
+      { direction: 0, name: 'image40' }
     ]
   },
   image40: {
     filename: `${IMG_PATH}/ChillerPlant/1S05_Evaporator_A_Left.jpg`,
     xRotate: 0.0,
-    zRotate: 0.0,
-    yRotate: 0.0,
+    zRotate: 0.5,
+    yRotate: 174.4,
     hotSpots: [],
     exits: [
-      { direction: -172, name: 'image41' },
-      { direction: -20, name: 'image39' }
+      { direction: 90, name: 'image04' },
+      { direction: -75, name: 'image44' },
+      { direction: 180, name: 'image39' }
     ]
   },
+
+  // Chiller Rooms, Second Floor
   image41: {
     filename: `${IMG_PATH}/ChillerPlant/2S05_ChemicalTreatment_A_Left.jpg`,
     xRotate: 0.0,
-    zRotate: 0.0,
-    yRotate: 0.0,
+    zRotate: 1.0,
+    yRotate: -107.0,
     hotSpots: [],
     exits: [
-      { direction: -172, name: 'image42' },
-      { direction: -20, name: 'image40' }
+      { direction: 45, name: 'image09' },
+      { direction: 180, name: 'image42' }
     ]
   },
   image42: {
     filename: `${IMG_PATH}/ChillerPlant/2N05_BromineAndCutoffs_C_Left.jpg`,
     xRotate: 0.0,
-    zRotate: 0.0,
-    yRotate: 0.0,
+    zRotate: 1.2,
+    yRotate: 75.0,
     hotSpots: [],
     exits: [
-      { direction: -172, name: 'image43' },
-      { direction: -20, name: 'image41' }
+      { direction: 0, name: 'image41' }
     ]
   },
+
+  // Chiller Rooms, Basement
   image43: {
     filename: `${IMG_PATH}/ChillerPlant/LS05_DistributionHeader_A_Left.jpg`,
     xRotate: 0.0,
-    zRotate: 0.0,
-    yRotate: 0.0,
+    zRotate: 0.1,
+    yRotate: 127.0,
     hotSpots: [],
     exits: [
-      { direction: -172, name: 'image44' },
-      { direction: -20, name: 'image42' }
+      { direction: -90, name: 'image44' },
+      { direction: 155, name: 'image48' },
+      { direction: 90, name: 'image47' }
     ]
   },
   image44: {
     filename: `${IMG_PATH}/ChillerPlant/LN05_DistributionPumps_A_Left.jpg`,
     xRotate: 0.0,
-    zRotate: 0.0,
-    yRotate: 0.0,
+    zRotate: -0.3,
+    yRotate: -140.5,
     hotSpots: [],
     exits: [
-      { direction: -172, name: 'image45' },
-      { direction: -20, name: 'image43' }
+      { direction: 90, name: 'image43' },
+      { direction: -75, name: 'image40' }
     ]
   },
+
+  // Chiller Rooms, Roof
   image45: {
     filename: `${IMG_PATH}/ChillerPlant/RS05_CoolingTowerExterior_A_Left.jpg`,
     xRotate: 0.0,
-    zRotate: 0.0,
-    yRotate: 0.0,
+    zRotate: -3.8,
+    yRotate: 81.0,
     hotSpots: [],
     exits: [
-      { direction: -172, name: 'image46' },
-      { direction: -20, name: 'image44' }
+      { direction: -90, name: 'image46' },
+      { direction: 90, name: 'image12' }
     ]
   },
   image46: {
     filename: `${IMG_PATH}/ChillerPlant/RS05_CoolingTowerInterior_A_Left.jpg`,
     xRotate: 0.0,
-    zRotate: 0.0,
-    yRotate: 0.0,
+    zRotate: -0.5,
+    yRotate: 170.52,
     hotSpots: [],
     exits: [
-      { direction: -172, name: 'image39' },
-      { direction: -20, name: 'image45' }
+      { direction: 180, name: 'image45' }
     ]
   }
 }
