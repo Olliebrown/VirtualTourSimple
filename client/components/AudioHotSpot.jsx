@@ -17,7 +17,7 @@ const ICON_URL = 'icons/volumeUpIcon.png'
 
 export default function AudioHotSpot (props) {
   // Destructure props
-  const { label, href, longitude, latitude, ...rest } = props
+  const { label, href, lon, lat, ...rest } = props
 
   // Track state
   const [hovering, setHovering] = React.useState(false)
@@ -33,8 +33,12 @@ export default function AudioHotSpot (props) {
   const onClick = () => {
     console.log(`Audio Hot-Spot "${label}" Clicked`)
     if (!mediaPlaying) {
+      console.log('Playing')
       setMediaPlaying(true)
-      audioObj.play()
+      audioObj?.play()
+    } else {
+      audioObj?.pause()
+      setMediaPlaying(false)
     }
   }
 
@@ -49,9 +53,10 @@ export default function AudioHotSpot (props) {
     if (href) {
       if (audioObj === null) {
         // Create audio sound using howler
+        console.log(`Loading audio "${href}"`)
         const newSound = new Howl({
           html5: true,
-          src: [`${href}.ogg`, `${href}.mp3`, `${href}.wav`],
+          src: [`${href}.webm`, `${href}.mp3`, `${href}.ac3`, `${href}.m4a`, `${href}.wav`],
           onend: () => setMediaPlaying(false)
         })
         setAudioObj(newSound)
@@ -72,22 +77,20 @@ export default function AudioHotSpot (props) {
     }
   }, [audioObj, href, setMediaPlaying])
 
-  // Don't render while the audio is playing
-  if (mediaPlaying) { return null }
-
   // Pack in groups to position in the scene
   return (
     <group
-      rotation-y={MathUtils.degToRad(longitude)}
+      rotation-y={MathUtils.degToRad(lon)}
       {...rest}
       onClick={onClick}
       onPointerEnter={() => setHovering(true)}
       onPointerLeave={() => setHovering(false)}
     >
-      <group rotation-x={MathUtils.degToRad(latitude)}>
-        <animated.sprite scale={springs.scale}>
-          <spriteMaterial map={audioIconTexture} />
-        </animated.sprite>
+      <group rotation-x={MathUtils.degToRad(lat)}>
+        <animated.mesh scale={springs.scale} position={[0, 0, -5]}>
+          <planeBufferGeometry />
+          <meshPhongMaterial color={0xFFFFFF} map={audioIconTexture} flatShading transparent />
+        </animated.mesh>
       </group>
     </group>
   )
@@ -96,13 +99,13 @@ export default function AudioHotSpot (props) {
 AudioHotSpot.propTypes = {
   label: PropTypes.string,
   href: PropTypes.string,
-  longitude: PropTypes.number,
-  latitude: PropTypes.number
+  lon: PropTypes.number,
+  lat: PropTypes.number
 }
 
 AudioHotSpot.defaultProps = {
   label: 'N/A',
   href: '',
-  longitude: 0,
-  latitude: 0
+  lon: 0,
+  lat: 0
 }

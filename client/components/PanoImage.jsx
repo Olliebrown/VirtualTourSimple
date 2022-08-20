@@ -10,6 +10,7 @@ import CutoutMaterial from '../shaders/CutoutShader.js'
 import Arrow from './Arrow.jsx'
 import HEATING_PLANT_IMAGE_LIST from './heatingPlantImages.js'
 import InfoHotSpot from './InfoHotSpot.jsx'
+import AudioHotSpot from './AudioHotSpot.jsx'
 
 const NO_CROP = {
   x: 0.0, y: 0.0, width: 0.0, height: 0.0
@@ -19,10 +20,10 @@ export default function PanoImage (props) {
   const { xRotate, yRotate, zRotate } = props
 
   // Get the global state of the pano image
-  const { currentPano, videoPlaying, setVideoPlaying } = useStore(state => ({
+  const { currentPano, videoPlaying, setMediaPlaying } = useStore(state => ({
     currentPano: state.currentPano,
     videoPlaying: state.videoPlaying,
-    setVideoPlaying: state.setVideoPlaying
+    setMediaPlaying: state.setMediaPlaying
   }))
 
   // Load the pano image or video
@@ -43,7 +44,7 @@ export default function PanoImage (props) {
         setPanoVideo(vid)
 
         // Setup to stop showing video once its done
-        vid.onended = () => setVideoPlaying(false)
+        vid.onended = () => setMediaPlaying(false)
       }
 
       // Update video state and crop box
@@ -65,15 +66,15 @@ export default function PanoImage (props) {
         }
 
         // Reset video state
-        setVideoPlaying(false)
+        setMediaPlaying(false)
         setVideoCrop(NO_CROP)
       }
     } else {
       // No video to load so ensure video state is back to default
-      setVideoPlaying(false)
+      setMediaPlaying(false)
       setVideoCrop(NO_CROP)
     }
-  }, [currentPano, panoVideo, setVideoPlaying])
+  }, [currentPano, panoVideo, setMediaPlaying])
 
   // Respond to a change in the video playing state
   React.useEffect(() => {
@@ -96,12 +97,15 @@ export default function PanoImage (props) {
   })
 
   // Build the info hot spots
-  const hotSpots = currentPanoData?.hotSpots?.map((info) => (
-    <InfoHotSpot
-      key={currentPano + '-' + info.name}
-      {...info}
-    />
-  ))
+  const hotSpots = currentPanoData?.hotSpots?.map((info) => {
+    const key = `${currentPano}-${info.id}`
+    switch (info.type) {
+      case 'audio': return (<AudioHotSpot key={key} {...info} />)
+      case 'video': return (<AudioHotSpot key={key} {...info} />)
+      case 'info': return (<InfoHotSpot key={key} {...info} />)
+    }
+    return null
+  })
 
   // Is there a video to show and is it playing
   const showVideo = !!panoVideo && videoPlaying

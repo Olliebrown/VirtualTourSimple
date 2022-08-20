@@ -99,7 +99,7 @@ export default {
     zRotate: -3.0,
     yRotate: 111.8,
     hotSpots: [
-      { type: 'audio', label: 'Chiller Plant Intro', href: 'media/audio/chiller1.mp3', lon: 0, lat: 0 }
+      { type: 'audio', id: 'chillerIntro', label: 'Chiller Plant Intro', href: 'media/audio/chiller/intro', lon: 0, lat: 0 }
       // { longitude: 0, latitude: 0, radius: 6, name: 'Google', href: '/test1.html' },
       // { longitude: 90, latitude: 45, radius: 10, name: 'UWStout', href: '/test2.html' },
       // { longitude: 180, latitude: -45, radius: 15, name: 'Facebook', href: '/test3.html' },

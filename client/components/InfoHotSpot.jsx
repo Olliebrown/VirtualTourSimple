@@ -22,10 +22,10 @@ export default function InfoHotSpot (props) {
   const [hovering, setHovering] = React.useState(false)
 
   // Subscribe to pieces of global state
-  const { setLastHotSpotHref, setHotSpotModalOpen, setVideoPlaying, videoPlaying } = useStore(state => ({
+  const { setLastHotSpotHref, setHotSpotModalOpen, setMediaPlaying, videoPlaying } = useStore(state => ({
     setLastHotSpotHref: state.setLastHotSpotHref,
     setHotSpotModalOpen: state.setHotSpotModalOpen,
-    setVideoPlaying: state.setVideoPlaying,
+    setMediaPlaying: state.setMediaPlaying,
     videoPlaying: state.videoPlaying
   }))
 
@@ -33,7 +33,7 @@ export default function InfoHotSpot (props) {
   const onClick = () => {
     console.log(`Hot-spot "${name}" clicked`)
     if (playButton) {
-      setVideoPlaying(true)
+      setMediaPlaying(true)
     } else {
       setLastHotSpotHref(href)
       setHotSpotModalOpen(true)
