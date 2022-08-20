@@ -84,7 +84,7 @@ const useStore = create(set => ({
   // Pano Image State
   currentPanoIndex: CONFIG.START_INDEX,
   currentPano: indexToName(CONFIG.START_INDEX),
-  videoPlaying: false,
+  mediaPlaying: false,
 
   // Pano Image State mutators
   setPano: (newPano) => set(state => ({
@@ -111,8 +111,8 @@ const useStore = create(set => ({
       console.error('Already at min index')
     }
   }),
-  setVideoPlaying: (isPlaying) => set(state => {
-    return { videoPlaying: isPlaying }
+  setMediaPlaying: (isPlaying) => set(state => {
+    return { mediaPlaying: isPlaying }
   })
 }))
 
