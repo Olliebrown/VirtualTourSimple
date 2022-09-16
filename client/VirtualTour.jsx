@@ -9,6 +9,7 @@ import { CssBaseline } from '@mui/material'
 import PanoViewer from './components/PanoViewer.jsx'
 import SettingsDial from './components/SettingsDial.jsx'
 import InfoModal from './components/InfoModal.jsx'
+import MiniMap from './components/MiniMap.jsx'
 
 export default function VirtualTour (props) {
   const { isMobile, allowMotion } = props
@@ -31,6 +32,8 @@ export default function VirtualTour (props) {
       {/* MUI overlay */}
       <CssBaseline />
       <SettingsDial allowMotion={allowMotion} />
+      <MiniMap />
+
       <InfoModal />
     </React.StrictMode>
   )

@@ -14,6 +14,7 @@ export default {
     zRotate: -3.9,
     yRotate: -41.4,
     hotSpots: [],
+    mapInfo: { floor: 'GroundFloor', x: 0, y: 0 },
     exits: [
       { direction: -90, name: 'image18' },
       { direction: 0, name: 'image20' } // Out to main floor
@@ -27,6 +28,7 @@ export default {
     zRotate: -3.54,
     yRotate: 47,
     hotSpots: [],
+    mapInfo: { floor: 'GroundFloor', x: 0, y: 0 },
     exits: [
       { direction: 90, name: 'image19' }
     ]
@@ -41,6 +43,7 @@ export default {
     zRotate: -2.6,
     yRotate: 139,
     hotSpots: [],
+    mapInfo: { floor: 'GroundFloor', x: 0, y: 0 },
     exits: [
       { direction: -135, name: 'image33' }, // In to water room
       { direction: 180, name: 'image19' }, // Up to catwalk
@@ -57,6 +60,7 @@ export default {
     zRotate: -3.9,
     yRotate: 116.7,
     hotSpots: [],
+    mapInfo: { floor: 'GroundFloor', x: 195, y: 115 },
     exits: [
       { direction: 110, name: 'image22' }, // Down to basement
       { direction: 70, name: 'image20' },
@@ -71,6 +75,7 @@ export default {
     zRotate: -3.5,
     yRotate: -159.8,
     hotSpots: [],
+    mapInfo: { floor: 'GroundFloor', x: 190, y: 75 },
     exits: [
       { direction: 0, name: 'image31' },
       { direction: 180, name: 'image21' }
@@ -84,6 +89,7 @@ export default {
     zRotate: -3.2,
     yRotate: 82.6,
     hotSpots: [],
+    mapInfo: { floor: 'GroundFloor', x: 190, y: 45 },
     exits: [
       { direction: -90, name: 'image32' },
       { direction: 180, name: 'image30' },
@@ -105,6 +111,7 @@ export default {
       // { longitude: 180, latitude: -45, radius: 15, name: 'Facebook', href: '/test3.html' },
       // { longitude: -90, latitude: -90, name: 'Twitter', href: '/test4.html' }
     ],
+    mapInfo: { floor: 'GroundFloor', x: 155, y: 45 },
     exits: [
       { direction: -90, name: 'image02' },
       { direction: 90, name: 'image31' },
@@ -126,6 +133,7 @@ export default {
     hotSpots: [
       { type: 'video', longitude: -90, latitude: 0, name: 'Play Video', playButton: true }
     ],
+    mapInfo: { floor: 'GroundFloor', x: 135, y: 45 },
     exits: [
       { direction: -90, name: 'image04' },
       { direction: 90, name: 'image32' }
@@ -139,6 +147,7 @@ export default {
     yRotate: 160,
     zRotate: -3.6,
     hotSpots: [],
+    mapInfo: { floor: 'GroundFloor', x: 0, y: 0 },
     exits: [
       { direction: 90, name: 'image04' }
     ]
@@ -151,6 +160,7 @@ export default {
     zRotate: -3.5,
     yRotate: 12.6,
     hotSpots: [],
+    mapInfo: { floor: 'GroundFloor', x: 0, y: 0 },
     exits: [
       { direction: -90, name: 'image03' },
       { direction: -75, name: 'image40' },
@@ -166,6 +176,7 @@ export default {
     zRotate: -4,
     yRotate: 259.9,
     hotSpots: [],
+    mapInfo: { floor: 'GroundFloor', x: 0, y: 0 },
     exits: [
       { direction: 180, name: 'image06' },
       { direction: 0, name: 'image04' }
@@ -179,6 +190,7 @@ export default {
     zRotate: -3.5,
     yRotate: 1.1,
     hotSpots: [],
+    mapInfo: { floor: 'GroundFloor', x: 0, y: 0 },
     exits: [
       { direction: -90, name: 'image07' },
       { direction: 0, name: 'image05' }
@@ -190,6 +202,7 @@ export default {
     zRotate: -3.5,
     yRotate: 245.1,
     hotSpots: [],
+    mapInfo: { floor: 'GroundFloor', x: 0, y: 0 },
     exits: [
       { direction: 0, name: 'image08' }, // Up to catwalk
       { direction: 90, name: 'image06' }
@@ -203,6 +216,7 @@ export default {
     zRotate: -3.5,
     yRotate: 17.9,
     hotSpots: [],
+    mapInfo: { floor: 'SecondFloor', x: 0, y: 0 },
     exits: [
       { direction: 0, name: 'image09' },
       { direction: 180, name: 'image07' }
@@ -214,6 +228,7 @@ export default {
     zRotate: -3.5,
     yRotate: 108.9,
     hotSpots: [],
+    mapInfo: { floor: 'SecondFloor', x: 0, y: 0 },
     exits: [
       { direction: 90, name: 'image10' },
       { direction: 180, name: 'image08' },
@@ -226,6 +241,7 @@ export default {
     zRotate: -3.5,
     yRotate: -101.5,
     hotSpots: [],
+    mapInfo: { floor: 'SecondFloor', x: 0, y: 0 },
     exits: [
       { direction: 180, name: 'image11' },
       { direction: -90, name: 'image09' }
@@ -237,6 +253,7 @@ export default {
     zRotate: -3.2,
     yRotate: -12.5,
     hotSpots: [],
+    mapInfo: { floor: 'SecondFloor', x: 0, y: 0 },
     exits: [
       { direction: 90, name: 'image12' },
       { direction: 0, name: 'image10' }
@@ -248,6 +265,7 @@ export default {
     zRotate: -3.8,
     yRotate: 23.8,
     hotSpots: [],
+    mapInfo: { floor: 'SecondFloor', x: 0, y: 0 },
     exits: [
       { direction: 130, name: 'image45' },
       { direction: 0, name: 'image13' },
@@ -260,6 +278,7 @@ export default {
     zRotate: -3.4,
     yRotate: -129.9,
     hotSpots: [],
+    mapInfo: { floor: 'SecondFloor', x: 0, y: 0 },
     exits: [
       { direction: 90, name: 'image14' },
       { direction: 180, name: 'image12' }
@@ -271,6 +290,7 @@ export default {
     zRotate: -3.5,
     yRotate: -162.2,
     hotSpots: [],
+    mapInfo: { floor: 'SecondFloor', x: 0, y: 0 },
     exits: [
       { direction: 90, name: 'image15' },
       { direction: 170, name: 'image37' },
@@ -284,6 +304,7 @@ export default {
     zRotate: -3.5,
     yRotate: 168.8,
     hotSpots: [],
+    mapInfo: { floor: 'SecondFloor', x: 0, y: 0 },
     exits: [
       { direction: 180, name: 'image38' },
       { direction: -10, name: 'image14' }
@@ -295,6 +316,7 @@ export default {
     zRotate: -3.6,
     yRotate: 163.5,
     hotSpots: [],
+    mapInfo: { floor: 'SecondFloor', x: 0, y: 0 },
     exits: [
       { direction: 0, name: 'image37' }
     ]
@@ -306,6 +328,7 @@ export default {
     zRotate: -3.7,
     yRotate: -161.2,
     hotSpots: [],
+    mapInfo: { floor: 'SecondFloor', x: 0, y: 0 },
     exits: [
       { direction: 90, name: 'image16' },
       { direction: -90, name: 'image14' }
@@ -317,6 +340,7 @@ export default {
     zRotate: -4.0,
     yRotate: -161.8,
     hotSpots: [],
+    mapInfo: { floor: 'SecondFloor', x: 0, y: 0 },
     exits: [
       { direction: 180, name: 'image17' },
       { direction: -90, name: 'image15' }
@@ -328,6 +352,7 @@ export default {
     zRotate: -3.4,
     yRotate: -4.1,
     hotSpots: [],
+    mapInfo: { floor: 'SecondFloor', x: 0, y: 0 },
     exits: [
       { direction: 180, name: 'image36' },
       { direction: 0, name: 'image16' }
@@ -340,6 +365,7 @@ export default {
     zRotate: -3.5,
     yRotate: -99.4,
     hotSpots: [],
+    mapInfo: { floor: 'SecondFloor', x: 0, y: 0 },
     exits: [
       { direction: -90, name: 'image35' },
       { direction: 0, name: 'image17' }
@@ -351,6 +377,7 @@ export default {
     zRotate: -3.3,
     yRotate: -69.3,
     hotSpots: [],
+    mapInfo: { floor: 'SecondFloor', x: 0, y: 0 },
     exits: [
       { direction: -70, name: 'image34' },
       { direction: 0, name: 'image36' }
@@ -362,6 +389,7 @@ export default {
     zRotate: -3.5,
     yRotate: 168.4,
     hotSpots: [],
+    mapInfo: { floor: 'SecondFloor', x: 0, y: 0 },
     exits: [
       { direction: 70, name: 'image35' },
       { direction: 110, name: 'image33' }
@@ -373,6 +401,7 @@ export default {
     zRotate: -3.4,
     yRotate: 111.4,
     hotSpots: [],
+    mapInfo: { floor: 'SecondFloor', x: 0, y: 0 },
     exits: [
       { direction: 90, name: 'image20' },
       { direction: -90, name: 'image34' }
@@ -386,6 +415,7 @@ export default {
     zRotate: -3.5,
     yRotate: 46.9,
     hotSpots: [],
+    mapInfo: { floor: 'Basement', x: 218, y: 120 },
     exits: [
       { direction: 90, name: 'image23' },
       { direction: -90, name: 'image21' } // Up to main floor
@@ -397,6 +427,7 @@ export default {
     zRotate: -3.5,
     yRotate: 143.3,
     hotSpots: [],
+    mapInfo: { floor: 'Basement', x: 238, y: 118 },
     exits: [
       { direction: -90, name: 'image22' },
       { direction: -55, name: 'image24' },
@@ -409,6 +440,7 @@ export default {
     zRotate: -3.8,
     yRotate: 91.1,
     hotSpots: [],
+    mapInfo: { floor: 'Basement', x: 0, y: 0 },
     exits: [
       { direction: -90, name: 'image25' },
       { direction: -45, name: 'image26' },
@@ -421,6 +453,7 @@ export default {
     zRotate: -3.5,
     yRotate: 107.8,
     hotSpots: [],
+    mapInfo: { floor: 'Basement', x: 0, y: 0 },
     exits: [
       { direction: 35, name: 'image26' },
       { direction: 90, name: 'image24' }
@@ -432,6 +465,7 @@ export default {
     zRotate: -3.8,
     yRotate: 173.0,
     hotSpots: [],
+    mapInfo: { floor: 'Basement', x: 0, y: 0 },
     exits: [
       { direction: 0, name: 'image27' },
       { direction: -160, name: 'image25' },
@@ -444,6 +478,7 @@ export default {
     zRotate: -4.1,
     yRotate: -84.3,
     hotSpots: [],
+    mapInfo: { floor: 'Basement', x: 0, y: 0 },
     exits: [
       { direction: -90, name: 'image47' },
       { direction: 90, name: 'image28' },
@@ -456,6 +491,7 @@ export default {
     zRotate: -3.4,
     yRotate: -9.7,
     hotSpots: [],
+    mapInfo: { floor: 'Basement', x: 0, y: 0 },
     exits: [
       { direction: 170, name: 'image29' },
       { direction: -90, name: 'image27' }
@@ -467,6 +503,7 @@ export default {
     zRotate: -3.5,
     yRotate: 12.5,
     hotSpots: [],
+    mapInfo: { floor: 'Basement', x: 0, y: 0 },
     exits: [
       { direction: -172, name: 'image23' },
       { direction: -20, name: 'image28' }
@@ -481,6 +518,7 @@ export default {
     zRotate: -0.1,
     yRotate: 62.2,
     hotSpots: [],
+    mapInfo: { floor: 'Basement', x: 0, y: 0 },
     exits: [
       { direction: -90, name: 'image43' },
       { direction: -135, name: 'image48' },
@@ -493,6 +531,7 @@ export default {
     zRotate: -0.1,
     yRotate: -25.0,
     hotSpots: [],
+    mapInfo: { floor: 'Basement', x: 0, y: 0 },
     exits: [
       { direction: -30, name: 'image43' },
       { direction: 45, name: 'image47' }
@@ -505,6 +544,7 @@ export default {
     zRotate: -0.1,
     yRotate: 62.2,
     hotSpots: [],
+    mapInfo: { floor: 'Basement', x: 0, y: 0 },
     exits: [
       { direction: -90, name: 'image43' },
       { direction: -135, name: 'image48' },
@@ -517,6 +557,7 @@ export default {
     zRotate: -0.6,
     yRotate: 32.7,
     hotSpots: [],
+    mapInfo: { floor: 'Basement', x: 0, y: 0 },
     exits: [
       { direction: 180, name: 'image20' },
       { direction: -120, name: 'image31' }
@@ -529,6 +570,7 @@ export default {
     zRotate: -0.1,
     yRotate: 239.7,
     hotSpots: [],
+    mapInfo: { floor: 'LibraryCondenser', x: 0, y: 0 },
     exits: [
       { direction: 65, name: 'image52' }
     ]
@@ -539,6 +581,7 @@ export default {
     zRotate: -0.6,
     yRotate: -121.5,
     hotSpots: [],
+    mapInfo: { floor: 'LibraryCondenser', x: 0, y: 0 },
     exits: [
       { direction: 75, name: 'image32' },
       { direction: -125, name: 'image51' },
@@ -553,6 +596,7 @@ export default {
     zRotate: -0.1,
     yRotate: -1.8,
     hotSpots: [],
+    mapInfo: { floor: 'LibraryCondenser', x: 0, y: 0 },
     exits: [
       { direction: 160, name: 'image52' },
       { direction: 80, name: 'image54' }
@@ -564,6 +608,7 @@ export default {
     zRotate: -1.1,
     yRotate: 108.7,
     hotSpots: [],
+    mapInfo: { floor: 'LibraryCondenser', x: 0, y: 0 },
     exits: [
       { direction: 200, name: 'image52' },
       { direction: -105, name: 'image53' }
@@ -577,6 +622,7 @@ export default {
     zRotate: 0.0,
     yRotate: 166.9,
     hotSpots: [],
+    mapInfo: { floor: 'GroundFloor', x: 0, y: 0 },
     exits: [
       { direction: 0, name: 'image40' }
     ]
@@ -587,6 +633,7 @@ export default {
     zRotate: 0.5,
     yRotate: 174.4,
     hotSpots: [],
+    mapInfo: { floor: 'GroundFloor', x: 0, y: 0 },
     exits: [
       { direction: 90, name: 'image04' },
       { direction: -75, name: 'image44' },
@@ -601,6 +648,7 @@ export default {
     zRotate: 1.0,
     yRotate: -107.0,
     hotSpots: [],
+    mapInfo: { floor: 'SecondFloor', x: 0, y: 0 },
     exits: [
       { direction: 45, name: 'image09' },
       { direction: 180, name: 'image42' }
@@ -612,6 +660,7 @@ export default {
     zRotate: 1.2,
     yRotate: 75.0,
     hotSpots: [],
+    mapInfo: { floor: 'SecondFloor', x: 0, y: 0 },
     exits: [
       { direction: 0, name: 'image41' }
     ]
@@ -624,6 +673,7 @@ export default {
     zRotate: 0.1,
     yRotate: 127.0,
     hotSpots: [],
+    mapInfo: { floor: 'Basement', x: 0, y: 0 },
     exits: [
       { direction: -90, name: 'image44' },
       { direction: 155, name: 'image48' },
@@ -636,6 +686,7 @@ export default {
     zRotate: -0.3,
     yRotate: -140.5,
     hotSpots: [],
+    mapInfo: { floor: 'Basement', x: 0, y: 0 },
     exits: [
       { direction: 90, name: 'image43' },
       { direction: -75, name: 'image40' }
@@ -649,6 +700,7 @@ export default {
     zRotate: -3.8,
     yRotate: 81.0,
     hotSpots: [],
+    mapInfo: { floor: 'Roof', x: 0, y: 0 },
     exits: [
       { direction: -90, name: 'image46' },
       { direction: 90, name: 'image12' }
@@ -660,6 +712,7 @@ export default {
     zRotate: -0.5,
     yRotate: 170.52,
     hotSpots: [],
+    mapInfo: { floor: 'Roof', x: 0, y: 0 },
     exits: [
       { direction: 180, name: 'image45' }
     ]
