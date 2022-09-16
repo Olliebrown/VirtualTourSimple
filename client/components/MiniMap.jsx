@@ -23,6 +23,26 @@ export default function MiniMap (props) {
     }
   }, [currentPano])
 
+  // Compute all pins
+  const allPins = React.useMemo(() => {
+    if (mapInfo) {
+      const currentPanoData = HEATING_PLANT_IMAGE_LIST[currentPano]
+      return Object.keys(HEATING_PLANT_IMAGE_LIST)
+        .filter(key => key !== currentPano)
+        .map(key => ({ ...HEATING_PLANT_IMAGE_LIST[key].mapInfo, key }))
+        .filter(curInfo => curInfo && curInfo.floor === mapInfo.floor && (curInfo.x !== 0 || curInfo.y !== 0))
+        .map(curInfo => (
+          <MiniMapPin
+            key={curInfo.key}
+            {...curInfo}
+            adjacent={currentPanoData.exits.some(exit => curInfo.key === exit.name)}
+          />
+        ))
+    } else {
+      return []
+    }
+  }, [currentPano, mapInfo])
+
   return (
     <Paper
       elevation={3}
@@ -38,6 +58,7 @@ export default function MiniMap (props) {
             src={`media/${mapInfo.floor}.png`}
           />
           <MiniMapPin active {...mapInfo} />
+          {allPins}
         </React.Fragment>}
     </Paper>
   )
