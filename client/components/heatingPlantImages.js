@@ -1,5 +1,5 @@
 const IMG_PATH = 'media/panoImg'
-// const VID_PATH = 'media/panoVid'
+const VID_PATH = 'media/panoVid'
 
 export default {
   indexMin: 2,
@@ -114,17 +114,17 @@ export default {
   },
   image02: {
     filename: `${IMG_PATH}/HeatingPlant/IMG_20220401_091619_00_merged.jpg`,
-    // video: { href: `${VID_PATH}/HeatingPlant/VID_20220401_091446_00_009-cropped.mp4`, loop: false },
-    // videoCrop: {
-    //   x: 0.236632, y: 0.283681, width: 0.419965, height: 0.650694
-    // },
+    video: { href: `${VID_PATH}/HeatingPlant/VID_20220401_091446_00_009-cropped.mp4`, loop: false },
+    videoCrop: {
+      x: 0.236632, y: 0.283681, width: 0.419965, height: 0.650694
+    },
     label: 'Boiler 3, South End',
     floor: 'Main',
     xRotate: -0.1,
     yRotate: 15.5,
     zRotate: -3.9,
     hotSpots: [
-      // { longitude: -90, latitude: 0, name: 'Play Video', playButton: true }
+      { type: 'video', longitude: -90, latitude: 0, name: 'Play Video', playButton: true }
     ],
     exits: [
       { direction: -90, name: 'image04' },

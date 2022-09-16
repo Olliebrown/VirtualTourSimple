@@ -22,7 +22,7 @@ export default function PanoImage (props) {
   // Get the global state of the pano image
   const { currentPano, videoPlaying, setMediaPlaying } = useStore(state => ({
     currentPano: state.currentPano,
-    videoPlaying: state.videoPlaying,
+    videoPlaying: state.mediaPlaying,
     setMediaPlaying: state.setMediaPlaying
   }))
 
@@ -101,7 +101,7 @@ export default function PanoImage (props) {
     const key = `${currentPano}-${info.id}`
     switch (info.type) {
       case 'audio': return (<AudioHotSpot key={key} {...info} />)
-      case 'video': return (<AudioHotSpot key={key} {...info} />)
+      case 'video': return (<InfoHotSpot key={key} {...info} />)
       case 'info': return (<InfoHotSpot key={key} {...info} />)
     }
     return null
