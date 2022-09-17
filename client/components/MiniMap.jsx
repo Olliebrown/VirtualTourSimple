@@ -1,11 +1,15 @@
 import React from 'react'
 // import PropTypes from 'prop-types'
 
+import { useHotkeys } from 'react-hotkeys-hook'
 import useStore from '../state/useStore.js'
 import { Box, Paper } from '@mui/material'
 
 import HEATING_PLANT_IMAGE_LIST from './heatingPlantImages.js'
 import MiniMapPin from './MiniMapPin.jsx'
+import MiniMapArrow from './MiniMapArrow.jsx'
+
+import config from '../config.js'
 
 export default function MiniMap (props) {
   // Get the global state of the pano image
@@ -13,6 +17,15 @@ export default function MiniMap (props) {
 
   // Mini map local state
   const [mapInfo, setMapInfo] = React.useState(null)
+
+  /* eslint-disable react-hooks/rules-of-hooks */
+  if (config.ENABLE_MINIMAP_HOTKEYS) {
+    useHotkeys('shift+left', () => { setMapInfo({ ...mapInfo, x: mapInfo.x - 1 }) }, {}, [mapInfo])
+    useHotkeys('shift+right', () => { setMapInfo({ ...mapInfo, x: mapInfo.x + 1 }) }, {}, [mapInfo])
+    useHotkeys('shift+up', () => { setMapInfo({ ...mapInfo, y: mapInfo.y - 1 }) }, {}, [mapInfo])
+    useHotkeys('shift+down', () => { setMapInfo({ ...mapInfo, y: mapInfo.y + 1 }) }, {}, [mapInfo])
+  }
+  /* eslint-enable react-hooks/rules-of-hooks */
 
   React.useEffect(() => {
     const currentPanoData = HEATING_PLANT_IMAGE_LIST[currentPano]
@@ -43,6 +56,7 @@ export default function MiniMap (props) {
     }
   }, [currentPano, mapInfo])
 
+  console.log({ ...mapInfo, currentPano })
   return (
     <Paper
       elevation={3}
@@ -57,7 +71,7 @@ export default function MiniMap (props) {
             alt="Blueprint image of the current floor of the building"
             src={`media/${mapInfo.floor}.png`}
           />
-          <MiniMapPin active {...mapInfo} />
+          <MiniMapArrow {...mapInfo} />
           {allPins}
         </React.Fragment>}
     </Paper>

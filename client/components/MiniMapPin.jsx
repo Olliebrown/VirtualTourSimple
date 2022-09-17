@@ -10,13 +10,14 @@ export default function MiniMapPin (props) {
     <Box
       component="div"
       sx={{
-        height: 15,
-        width: 15,
+        height: 8,
+        width: 8,
         backgroundColor: active ? '#CC0000' : adjacent ? '#00CCCC' : '#777777',
         borderRadius: '50%',
         position: 'absolute',
-        left: x + 15,
-        bottom: y
+        left: x,
+        top: y,
+        transform: 'translate(-50%, -50%)'
       }}
     />
   )
