@@ -88,7 +88,10 @@ export default {
     xRotate: -0.4,
     zRotate: -3.2,
     yRotate: 82.6,
-    hotSpots: [],
+    hotSpots: [
+      { type: 'info', json: 'hotSpotInfo/1S01_Boiler.json', id: '1S01_Boiler', title: 'D-Type Boilers', longitude: -29, latitude: 26, radius: 10 },
+      { type: 'info', json: 'hotSpotInfo/1S01_Burner.json', id: '1S01_Burner', title: 'About Boiler #1', longitude: -40, latitude: 15, radius: 10 }
+    ],
     mapInfo: { floor: 'GroundFloor', x: 218, y: 134 },
     exits: [
       { direction: -90, name: 'image32' },
@@ -105,7 +108,7 @@ export default {
     zRotate: -3.0,
     yRotate: 111.8,
     hotSpots: [
-      { type: 'audio', id: 'chillerIntro', label: 'Chiller Plant Intro', href: 'media/audio/chiller/intro', lon: 0, lat: 0 }
+      // { type: 'audio', id: 'chillerIntro', label: 'Chiller Plant Intro', href: 'media/audio/chiller/intro', lon: 0, lat: 0 }
       // { longitude: 0, latitude: 0, radius: 6, name: 'Google', href: '/test1.html' },
       // { longitude: 90, latitude: 45, radius: 10, name: 'UWStout', href: '/test2.html' },
       // { longitude: 180, latitude: -45, radius: 15, name: 'Facebook', href: '/test3.html' },

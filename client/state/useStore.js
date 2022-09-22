@@ -33,11 +33,15 @@ const useStore = create(set => ({
 
   // Hot spot info state
   lastHotSpotHref: '',
+  lastHotSpotTitle: '',
   hotSpotModalOpen: false,
 
   // Hot spot state mutators
   setLastHotSpotHref: (href) => set(state => {
     return { lastHotSpotHref: href }
+  }),
+  setLastHotSpotTitle: (title) => set(state => {
+    return { lastHotSpotTitle: title }
   }),
   setHotSpotModalOpen: (isOpen) => set(state => {
     return { hotSpotModalOpen: !!isOpen }

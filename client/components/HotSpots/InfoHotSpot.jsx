@@ -16,14 +16,15 @@ const VIDEO_COLOR = 0x648646
 
 export default function InfoHotSpot (props) {
   // Destructure props
-  const { name, href, playButton, longitude, latitude, radius, scale, ...rest } = props
+  const { title, json, playButton, longitude, latitude, radius, scale, ...rest } = props
 
   // Track hovering state
   const [hovering, setHovering] = React.useState(false)
 
   // Subscribe to pieces of global state
-  const { setLastHotSpotHref, setHotSpotModalOpen, setMediaPlaying, videoPlaying } = useStore(state => ({
+  const { setLastHotSpotHref, setLastHotSpotTitle, setHotSpotModalOpen, setMediaPlaying, videoPlaying } = useStore(state => ({
     setLastHotSpotHref: state.setLastHotSpotHref,
+    setLastHotSpotTitle: state.setLastHotSpotTitle,
     setHotSpotModalOpen: state.setHotSpotModalOpen,
     setMediaPlaying: state.setMediaPlaying,
     videoPlaying: state.videoPlaying
@@ -31,11 +32,12 @@ export default function InfoHotSpot (props) {
 
   // Click callback function
   const onClick = () => {
-    console.log(`Hot-spot "${name}" clicked`)
+    console.log(`Hot-spot "${title}" clicked`)
     if (playButton) {
       setMediaPlaying(true)
     } else {
-      setLastHotSpotHref(href)
+      setLastHotSpotHref(json)
+      setLastHotSpotTitle(title)
       setHotSpotModalOpen(true)
     }
   }
@@ -84,8 +86,8 @@ export default function InfoHotSpot (props) {
 }
 
 InfoHotSpot.propTypes = {
-  name: PropTypes.string,
-  href: PropTypes.string,
+  title: PropTypes.string,
+  json: PropTypes.string,
   playButton: PropTypes.bool,
 
   longitude: PropTypes.number,
@@ -95,8 +97,8 @@ InfoHotSpot.propTypes = {
 }
 
 InfoHotSpot.defaultProps = {
-  href: '',
-  name: 'N/A',
+  json: '',
+  title: 'N/A',
   playButton: false,
 
   longitude: 0,
