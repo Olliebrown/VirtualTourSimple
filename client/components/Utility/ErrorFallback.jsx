@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import useStore from '../state/useStore.js'
+import useStore from '../../state/useStore.js'
 
 export default function ErrorFallback ({ error }) {
   const state = useStore(state => state)

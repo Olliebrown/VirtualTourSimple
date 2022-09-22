@@ -6,10 +6,10 @@ import PropTypes from 'prop-types'
 
 import { CssBaseline } from '@mui/material'
 
-import PanoViewer from './components/PanoViewer.jsx'
-import SettingsDial from './components/SettingsDial.jsx'
-import InfoModal from './components/InfoModal.jsx'
-import MiniMap from './components/MiniMap.jsx'
+import PanoViewer from './components/CorePano/PanoViewer.jsx'
+import SettingsDial from './components/Utility/SettingsDial.jsx'
+import InfoModal from './components/HotSpots/InfoModal.jsx'
+import MiniMap from './components/MiniMap/MiniMap.jsx'
 import { Canvas } from '@react-three/fiber'
 
 export default function VirtualTour (props) {

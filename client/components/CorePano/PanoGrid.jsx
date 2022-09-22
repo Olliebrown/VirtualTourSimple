@@ -1,7 +1,7 @@
 import React from 'react'
 import { BackSide } from 'three'
 
-import StyledText from './StyledText.jsx'
+import StyledText from '../Utility/StyledText.jsx'
 
 export default function PanoGrid (props) {
   return (

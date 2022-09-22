@@ -1,4 +1,4 @@
-import CONFIG from '../config.js'
+import CONFIG from '../../config.js'
 
 import React, { Suspense, useEffect, useState } from 'react'
 import { DefaultLoadingManager, Vector3 } from 'three'
@@ -6,12 +6,12 @@ import { DefaultLoadingManager, Vector3 } from 'three'
 import { OrbitControls, DeviceOrientationControls } from '@react-three/drei'
 import { useHotkeys } from 'react-hotkeys-hook'
 
-import useStore from '../state/useStore.js'
+import useStore from '../../state/useStore.js'
 
 import PanoImage from './PanoImage.jsx'
-import Progress from './Progress.jsx'
+import Progress from '../Utility/Progress.jsx'
 
-import HEATING_PLANT_IMAGE_LIST from './heatingPlantImages.js'
+import HEATING_PLANT_IMAGE_LIST from '../heatingPlantImages.js'
 import PanoGrid from './PanoGrid.jsx'
 import { useThree } from '@react-three/fiber'
 

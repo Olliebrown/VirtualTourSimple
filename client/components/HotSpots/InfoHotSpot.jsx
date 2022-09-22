@@ -8,7 +8,7 @@ import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader.js'
 
 import { useSpring, animated } from '@react-spring/three'
 
-import useStore from '../state/useStore.js'
+import useStore from '../../state/useStore.js'
 
 // Various colors for the different types of hot spots
 const INFO_COLOR = 0xCC7178

@@ -5,7 +5,7 @@ import SpeedDialIcon from '@mui/material/SpeedDialIcon'
 import SpeedDialAction from '@mui/material/SpeedDialAction'
 import Icon from '@mui/material/Icon'
 
-import useStore from '../state/useStore.js'
+import useStore from '../../state/useStore.js'
 
 export default function SettingsDial (props) {
   const { allowMotion } = props

@@ -7,8 +7,8 @@ import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader.js'
 
 import { useSpring, animated } from '@react-spring/three'
 
-import HEATING_PLANT_IMAGES from './heatingPlantImages.js'
-import useStore from '../state/useStore.js'
+import HEATING_PLANT_IMAGES from '../heatingPlantImages.js'
+import useStore from '../../state/useStore.js'
 
 // Various colors for the texture loading state
 const LOADING_COLOR = 0x777777

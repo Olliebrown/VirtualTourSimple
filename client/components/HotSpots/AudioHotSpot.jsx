@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 // Declarative State
-import useStore from '../state/useStore.js'
+import useStore from '../../state/useStore.js'
 
 // Graphics
 import { MathUtils } from 'three'

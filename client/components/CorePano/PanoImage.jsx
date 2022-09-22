@@ -4,13 +4,13 @@ import PropTypes from 'prop-types'
 import { useTexture } from '@react-three/drei'
 import { Euler, MathUtils, BackSide } from 'three'
 
-import useStore from '../state/useStore.js'
+import useStore from '../../state/useStore.js'
 
-import CutoutMaterial from '../shaders/CutoutShader.js'
+import CutoutMaterial from '../../shaders/CutoutShader.js'
 import Arrow from './Arrow.jsx'
-import HEATING_PLANT_IMAGE_LIST from './heatingPlantImages.js'
-import InfoHotSpot from './InfoHotSpot.jsx'
-import AudioHotSpot from './AudioHotSpot.jsx'
+import HEATING_PLANT_IMAGE_LIST from '../heatingPlantImages.js'
+import InfoHotSpot from '../HotSpots/InfoHotSpot.jsx'
+import AudioHotSpot from '../HotSpots/AudioHotSpot.jsx'
 
 const NO_CROP = {
   x: 0.0, y: 0.0, width: 0.0, height: 0.0

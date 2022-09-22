@@ -2,14 +2,14 @@ import React from 'react'
 // import PropTypes from 'prop-types'
 
 import { useHotkeys } from 'react-hotkeys-hook'
-import useStore from '../state/useStore.js'
+import useStore from '../../state/useStore.js'
 import { Box, Paper } from '@mui/material'
 
-import HEATING_PLANT_IMAGE_LIST from './heatingPlantImages.js'
+import HEATING_PLANT_IMAGE_LIST from '../heatingPlantImages.js'
 import MiniMapPin from './MiniMapPin.jsx'
 import MiniMapArrow from './MiniMapArrow.jsx'
 
-import config from '../config.js'
+import config from '../../config.js'
 
 export default function MiniMap (props) {
   // Get the global state of the pano image
