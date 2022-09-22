@@ -10,6 +10,7 @@ import PanoViewer from './components/PanoViewer.jsx'
 import SettingsDial from './components/SettingsDial.jsx'
 import InfoModal from './components/InfoModal.jsx'
 import MiniMap from './components/MiniMap.jsx'
+import { Canvas } from '@react-three/fiber'
 
 export default function VirtualTour (props) {
   const { isMobile, allowMotion } = props
@@ -27,7 +28,9 @@ export default function VirtualTour (props) {
   return (
     <React.StrictMode>
       {/* Main three.js fiber canvas */}
-      <PanoViewer isMobile={isMobile} allowMotion={allowMotion} />
+      <Canvas linear camera={{ position: [0, 0, 0.1] }}>
+        <PanoViewer isMobile={isMobile} allowMotion={allowMotion} />
+      </Canvas>
 
       {/* MUI overlay */}
       <CssBaseline />

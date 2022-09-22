@@ -1,8 +1,7 @@
 import CONFIG from '../config.js'
 
 import React, { Suspense, useEffect, useState } from 'react'
-import { Canvas } from '@react-three/fiber'
-import { DefaultLoadingManager } from 'three'
+import { DefaultLoadingManager, Vector3 } from 'three'
 
 import { OrbitControls, DeviceOrientationControls } from '@react-three/drei'
 import { useHotkeys } from 'react-hotkeys-hook'
@@ -14,6 +13,7 @@ import Progress from './Progress.jsx'
 
 import HEATING_PLANT_IMAGE_LIST from './heatingPlantImages.js'
 import PanoGrid from './PanoGrid.jsx'
+import { useThree } from '@react-three/fiber'
 
 export default function PanoViewer (props) {
   const { isMobile, allowMotion } = props
@@ -21,7 +21,7 @@ export default function PanoViewer (props) {
   // Access to the global state store
   const {
     currentPano, increasePanoIndex, decreasePanoIndex,
-    loadingBusy, loadingCompleted, loadingFailed,
+    loadingBusy, loadingCompleted, loadingFailed, setCurrentCameraYaw,
     enableMotionControls, invertOrbitControls, toggleInvertOrbitControls
   } = useStore(state => state)
 
@@ -94,21 +94,36 @@ export default function PanoViewer (props) {
   }
   /* eslint-enable react-hooks/rules-of-hooks */
 
+  const getThreeJS = useThree(state => state.get)
+  const orbitChangeEvent = () => {
+    const camera = getThreeJS().camera
+    const camAngles = camera.getWorldDirection(new Vector3())
+    setCurrentCameraYaw(Math.atan2(camAngles.z, camAngles.x) + Math.PI)
+  }
+
   return (
     <React.StrictMode>
-      {/* Main three.js fiber canvas */}
-      <Canvas linear camera={{ position: [0, 0, 0.1] }}>
-        <color attach="background" args={['red']} />
-        <DeviceOrientationControls enabled={allowMotion && enableMotionControls} enablePan={false} enableZoom={false} />
-        <OrbitControls enabled={!allowMotion || !enableMotionControls} enablePan={false} enableZoom={false} reverseOrbit={invertOrbitControls} />
-        <ambientLight />
-        <pointLight position={[10, 10, 10]} />
-        <Suspense fallback={<Progress />}>
-          <PanoImage xRotate={xRotate} yRotate={yRotate} zRotate={zRotate} />
-          {CONFIG.ENABLE_ALIGNMENT_GRID &&
-            <PanoGrid />}
-        </Suspense>
-      </Canvas>
+      <color attach="background" args={['red']} />
+      <DeviceOrientationControls
+        enabled={allowMotion && enableMotionControls}
+        enablePan={false}
+        enableZoom={false}
+        onChange={orbitChangeEvent}
+      />
+      <OrbitControls
+        enabled={!allowMotion || !enableMotionControls}
+        enablePan={false}
+        enableZoom={false}
+        reverseOrbit={invertOrbitControls}
+        onChange={orbitChangeEvent}
+      />
+      <ambientLight />
+      <pointLight position={[10, 10, 10]} />
+      <Suspense fallback={<Progress />}>
+        <PanoImage xRotate={xRotate} yRotate={yRotate} zRotate={zRotate} />
+        {CONFIG.ENABLE_ALIGNMENT_GRID &&
+          <PanoGrid />}
+      </Suspense>
     </React.StrictMode>
   )
 }

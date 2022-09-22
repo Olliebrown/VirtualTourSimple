@@ -113,6 +113,12 @@ const useStore = create(set => ({
   }),
   setMediaPlaying: (isPlaying) => set(state => {
     return { mediaPlaying: isPlaying }
+  }),
+
+  // General Camera State
+  currentCameraYaw: -Math.PI / 2,
+  setCurrentCameraYaw: (cameraYaw) => set(state => {
+    return { currentCameraYaw: cameraYaw }
   })
 }))
 

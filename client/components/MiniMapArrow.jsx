@@ -15,7 +15,7 @@ export default function MiniMapArrow (props) {
         position: 'absolute',
         left: x,
         top: y,
-        transform: `translate(-50%, -50%) rotate(${angle})`
+        transform: `translate(-50%, -50%) rotate(${angle - Math.PI / 2}rad)`
       }}
     />
   )

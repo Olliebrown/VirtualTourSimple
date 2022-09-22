@@ -13,7 +13,10 @@ import config from '../config.js'
 
 export default function MiniMap (props) {
   // Get the global state of the pano image
-  const currentPano = useStore(state => state.currentPano)
+  const { currentPano, currentCameraYaw } = useStore(state => ({
+    currentPano: state.currentPano,
+    currentCameraYaw: state.currentCameraYaw
+  }))
 
   // Mini map local state
   const [mapInfo, setMapInfo] = React.useState(null)
@@ -56,7 +59,7 @@ export default function MiniMap (props) {
     }
   }, [currentPano, mapInfo])
 
-  console.log({ ...mapInfo, currentPano })
+  // console.log({ ...mapInfo, currentPano })
   return (
     <Paper
       elevation={3}
@@ -71,7 +74,7 @@ export default function MiniMap (props) {
             alt="Blueprint image of the current floor of the building"
             src={`media/${mapInfo.floor}.png`}
           />
-          <MiniMapArrow {...mapInfo} />
+          <MiniMapArrow {...mapInfo} angle={currentCameraYaw} />
           {allPins}
         </React.Fragment>}
     </Paper>
