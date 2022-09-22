@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import SpeedDial from '@mui/material/SpeedDial'
 import SpeedDialIcon from '@mui/material/SpeedDialIcon'
@@ -32,4 +33,12 @@ export default function SettingsDial (props) {
         />}
     </SpeedDial>
   )
+}
+
+SettingsDial.propTypes = {
+  allowMotion: PropTypes.bool
+}
+
+SettingsDial.defaultProps = {
+  allowMotion: false
 }

@@ -1,6 +1,8 @@
 import CONFIG from '../../config.js'
 
 import React, { Suspense, useEffect, useState } from 'react'
+import PropTypes from 'prop-types'
+
 import { DefaultLoadingManager, Vector3 } from 'three'
 
 import { OrbitControls, DeviceOrientationControls } from '@react-three/drei'
@@ -25,11 +27,13 @@ export default function PanoViewer (props) {
     enableMotionControls, invertOrbitControls, toggleInvertOrbitControls
   } = useStore(state => state)
 
+  /* eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => {
     if (isMobile) {
       toggleInvertOrbitControls()
     }
   }, [])
+  /* eslint-enable react-hooks/rules-of-hooks */
 
   // Setup monitoring of texture loading state
   useEffect(() => {
@@ -126,4 +130,14 @@ export default function PanoViewer (props) {
       </Suspense>
     </React.StrictMode>
   )
+}
+
+PanoViewer.propTypes = {
+  isMobile: PropTypes.bool,
+  allowMotion: PropTypes.bool
+}
+
+PanoViewer.defaultProps = {
+  isMobile: false,
+  allowMotion: false
 }
