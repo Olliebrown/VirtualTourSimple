@@ -1,22 +1,32 @@
 import React from 'react'
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 
 import { useHotkeys } from 'react-hotkeys-hook'
 import useStore from '../../state/useStore.js'
-import { Box, Paper } from '@mui/material'
+
+import { Box, Card, CardHeader, CardContent, Button, IconButton, Slide, Fade } from '@mui/material'
+import { Close as CloseIcon, Map as MapIcon, ExpandLess as ExpandIcon } from '@mui/icons-material'
 
 import HEATING_PLANT_IMAGE_LIST from '../heatingPlantImages.js'
+import config from '../../config.js'
+
 import MiniMapPin from './MiniMapPin.jsx'
 import MiniMapArrow from './MiniMapArrow.jsx'
 
-import config from '../../config.js'
+// Header offsets the point by 90 (without padding which adds 16px)
+const ARROW_PIN_Y_OFFSET = 90 - 16
 
 export default function MiniMap (props) {
+  const { startVisible } = props
+
   // Get the global state of the pano image
   const { currentPano, currentCameraYaw } = useStore(state => ({
     currentPano: state.currentPano,
     currentCameraYaw: state.currentCameraYaw
   }))
+
+  // Controlling visibility of the minimap
+  const [showMap, setShowMap] = React.useState(startVisible)
 
   // Mini map local state
   const [mapInfo, setMapInfo] = React.useState(null)
@@ -52,6 +62,7 @@ export default function MiniMap (props) {
             key={curInfo.key}
             {...curInfo}
             adjacent={currentPanoData.exits.some(exit => curInfo.key === exit.name)}
+            offset={{ x: 0, y: ARROW_PIN_Y_OFFSET }}
           />
         ))
     } else {
@@ -61,22 +72,58 @@ export default function MiniMap (props) {
 
   // console.log({ ...mapInfo, currentPano })
   return (
-    <Paper
-      elevation={3}
-      aria-label="Virtual Tour Map"
-      sx={{ position: 'absolute', bottom: 16, left: 16, padding: 2, maxWidth: 300, maxHeight: 200 }}
-    >
-      {mapInfo &&
-        <React.Fragment>
-          <Box
-            component="img"
-            sx={{ maxWidth: '100%' }}
-            alt="Blueprint image of the current floor of the building"
-            src={`media/${mapInfo.floor}.png`}
-          />
-          <MiniMapArrow {...mapInfo} angle={currentCameraYaw} />
-          {allPins}
-        </React.Fragment>}
-    </Paper>
+    <React.Fragment>
+      <Fade in={!showMap}>
+        <Button
+          variant="contained"
+          endIcon={<ExpandIcon />}
+          sx={{ position: 'absolute', bottom: -5, left: 16, minWidth: 300 }}
+          onClick={() => setShowMap(true)}
+        >
+          {'Show Map '}
+          <MapIcon />
+        </Button>
+      </Fade>
+
+      <Slide direction="up" in={showMap} mountOnEnter unmountOnExit>
+        <Card sx={{ position: 'absolute', bottom: 16, left: 16, maxWidth: 300, maxHeight: 290 }}>
+          {mapInfo &&
+            <React.Fragment>
+              <CardHeader
+                action={
+                  <IconButton aria-label="close minimap" onClick={() => setShowMap(false)}>
+                    <CloseIcon />
+                  </IconButton>
+                }
+                title={mapInfo.building}
+                subheader={mapInfo.floor}
+                sx={{ borderBottom: '1px solid grey', p: 1 }}
+              />
+
+              <CardContent aria-label="Virtual Tour Map">
+                {mapInfo &&
+                  <React.Fragment>
+                    <Box
+                      component="img"
+                      sx={{ maxWidth: '100%', marginTop: 'auto' }}
+                      alt="Blueprint image of the current floor of the building"
+                      src={`media/${mapInfo.image}`}
+                    />
+                    <MiniMapArrow {...mapInfo} angle={currentCameraYaw} offset={{ x: 0, y: ARROW_PIN_Y_OFFSET }} />
+                    {allPins}
+                  </React.Fragment>}
+              </CardContent>
+            </React.Fragment>}
+        </Card>
+      </Slide>
+    </React.Fragment>
   )
+}
+
+MiniMap.propTypes = {
+  startVisible: PropTypes.bool
+}
+
+MiniMap.defaultProps = {
+  startVisible: false
 }
