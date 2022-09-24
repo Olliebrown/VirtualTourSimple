@@ -1,5 +1,5 @@
 const IMG_PATH = 'media/panoImg'
-const VID_PATH = 'media/panoVid'
+// const VID_PATH = 'media/panoVid'
 
 export default {
   indexMin: 2,
@@ -9,7 +9,6 @@ export default {
   image19: {
     filename: `${IMG_PATH}/HeatingPlant/IMG_20220401_094225_00_merged.jpg`,
     label: 'Water Treatment Room Door',
-    floor: 'Main',
     xRotate: 0.2,
     zRotate: -3.9,
     yRotate: -41.4,
@@ -23,7 +22,6 @@ export default {
   image18: {
     filename: `${IMG_PATH}/HeatingPlant/IMG_20220401_094153_00_merged.jpg`,
     label: 'Water Treatment Room Tanks',
-    floor: 'Main',
     xRotate: 0.0,
     zRotate: -3.54,
     yRotate: 47,
@@ -38,7 +36,6 @@ export default {
   image20: {
     filename: `${IMG_PATH}/HeatingPlant/IMG_20220401_094254_00_merged.jpg`,
     label: 'Boiler 1, North End',
-    floor: 'Main',
     xRotate: -0.4,
     zRotate: -2.6,
     yRotate: 139,
@@ -55,7 +52,6 @@ export default {
   image21: {
     filename: `${IMG_PATH}/HeatingPlant/IMG_20220401_094324_00_merged.jpg`,
     label: 'Boiler 2, North End',
-    floor: 'Main',
     xRotate: 0.1,
     zRotate: -3.9,
     yRotate: 116.7,
@@ -70,7 +66,6 @@ export default {
   image30: {
     filename: `${IMG_PATH}/HeatingPlant/IMG_20220401_095047_00_merged.jpg`,
     label: 'Between Boiler 1 & 2',
-    floor: 'Main',
     xRotate: 0.0,
     zRotate: -3.5,
     yRotate: -159.8,
@@ -84,7 +79,6 @@ export default {
   image31: {
     filename: `${IMG_PATH}/HeatingPlant/IMG_20220401_095124_00_merged.jpg`,
     label: 'Boiler 1 & 2, South End',
-    floor: 'Main',
     xRotate: -0.4,
     zRotate: -3.2,
     yRotate: 82.6,
@@ -103,7 +97,6 @@ export default {
   image32: {
     filename: `${IMG_PATH}/HeatingPlant/IMG_20220401_095156_00_merged.jpg`,
     label: 'Boiler 2 & 3, South End',
-    floor: 'Main',
     xRotate: 0.1,
     zRotate: -3.0,
     yRotate: 111.8,
@@ -129,12 +122,11 @@ export default {
     //   x: 0.236632, y: 0.283681, width: 0.419965, height: 0.650694
     // },
     label: 'Boiler 3, South End',
-    floor: 'Main',
     xRotate: -0.1,
     yRotate: 15.5,
     zRotate: -3.9,
     hotSpots: [
-      { type: 'video', longitude: -90, latitude: 0, name: 'Play Video', playButton: true }
+      // { type: 'video', longitude: -90, latitude: 0, name: 'Play Video', playButton: true }
     ],
     mapInfo: { building: 'Heating Plant', floor: 'Ground Floor', image: 'GroundFloor.png', x: 161, y: 134 },
     exits: [
@@ -144,8 +136,7 @@ export default {
   },
   image03: {
     filename: `${IMG_PATH}/HeatingPlant/IMG_20220401_091928_00_merged.jpg`,
-    label: 'Boiler 1 & 2, South End',
-    floor: 'Main',
+    label: 'Boiler 3 & 4, South End',
     xRotate: 0.0,
     yRotate: 160,
     zRotate: -3.6,
@@ -157,8 +148,7 @@ export default {
   },
   image04: {
     filename: `${IMG_PATH}/HeatingPlant/IMG_20220401_092009_00_merged.jpg`,
-    label: 'Boiler 1, South End',
-    floor: 'Main',
+    label: 'Boiler 4, South End',
     xRotate: 0.0,
     zRotate: -3.5,
     yRotate: 12.6,
@@ -173,8 +163,7 @@ export default {
   },
   image05: {
     filename: `${IMG_PATH}/HeatingPlant/IMG_20220401_092051_00_merged.jpg`,
-    label: 'Between Boiler 1 & 2',
-    floor: 'Main',
+    label: 'Boiler 4, East Side',
     xRotate: 0.0,
     zRotate: -4,
     yRotate: 259.9,
@@ -187,8 +176,7 @@ export default {
   },
   image06: {
     filename: `${IMG_PATH}/HeatingPlant/IMG_20220401_092237_00_merged.jpg`,
-    label: 'Boiler 1',
-    floor: 'Main',
+    label: 'Boiler 4, North-East Corner',
     xRotate: 0.2,
     zRotate: -3.5,
     yRotate: 1.1,
@@ -201,6 +189,7 @@ export default {
   },
   image07: {
     filename: `${IMG_PATH}/HeatingPlant/IMG_20220401_092310_00_merged.jpg`,
+    label: 'Boiler 4, North-West Corner',
     xRotate: -0.2,
     zRotate: -3.5,
     yRotate: 245.1,
@@ -213,6 +202,7 @@ export default {
   },
   image08: {
     filename: `${IMG_PATH}/HeatingPlant/IMG_20220401_092354_00_merged.jpg`,
+    label: 'Stairs Between Catwalk & Ground Floor, West',
     xRotate: 0.1,
     zRotate: -3.5,
     yRotate: 17.9,
@@ -227,11 +217,12 @@ export default {
   // Catwalk
   image09: {
     filename: `${IMG_PATH}/HeatingPlant/IMG_20220401_092452_00_merged.jpg`,
+    label: 'Above Boiler 4 West Side, Catwalk',
     xRotate: -0.3,
     zRotate: -3.5,
     yRotate: 108.9,
     hotSpots: [],
-    mapInfo: { building: 'Heating Plant', floor: 'Upper Catwalk', image: 'SecondFloor.png', x: 90, y: 102 },
+    mapInfo: { building: 'Heating Plant', floor: 'Platforms & Catwalks', image: 'SecondFloor.png', x: 90, y: 102 },
     exits: [
       { direction: 90, name: 'image10' },
       { direction: 180, name: 'image08' },
@@ -240,11 +231,12 @@ export default {
   },
   image10: {
     filename: `${IMG_PATH}/HeatingPlant/IMG_20220401_092558_00_037.jpg`,
+    label: 'Above Boiler 4 Center-South, Catwalk',
     xRotate: 0.0,
     zRotate: -3.5,
     yRotate: -101.5,
     hotSpots: [],
-    mapInfo: { building: 'Heating Plant', floor: 'Upper Catwalk', image: 'SecondFloor.png', x: 103, y: 102 },
+    mapInfo: { building: 'Heating Plant', floor: 'Platforms & Catwalks', image: 'SecondFloor.png', x: 103, y: 102 },
     exits: [
       { direction: 180, name: 'image11' },
       { direction: -90, name: 'image09' }
@@ -252,11 +244,12 @@ export default {
   },
   image11: {
     filename: `${IMG_PATH}/HeatingPlant/IMG_20220401_092641_00_merged.jpg`,
+    label: 'Above Boiler 4 Center-North, Catwalk',
     xRotate: 0.6,
     zRotate: -3.2,
     yRotate: -12.5,
     hotSpots: [],
-    mapInfo: { building: 'Heating Plant', floor: 'Upper Catwalk', image: 'SecondFloor.png', x: 103, y: 81 },
+    mapInfo: { building: 'Heating Plant', floor: 'Platforms & Catwalks', image: 'SecondFloor.png', x: 103, y: 81 },
     exits: [
       { direction: 90, name: 'image12' },
       { direction: 0, name: 'image10' }
@@ -264,11 +257,12 @@ export default {
   },
   image12: {
     filename: `${IMG_PATH}/HeatingPlant/IMG_20220401_092750_00_merged.jpg`,
+    label: 'Ladder to Roof, Catwalk',
     xRotate: 0.2,
     zRotate: -3.8,
     yRotate: 23.8,
     hotSpots: [],
-    mapInfo: { building: 'Heating Plant', floor: 'Upper Catwalk', image: 'SecondFloor.png', x: 117, y: 81 },
+    mapInfo: { building: 'Heating Plant', floor: 'Platforms & Catwalks', image: 'SecondFloor.png', x: 117, y: 81 },
     exits: [
       { direction: 130, name: 'image45' },
       { direction: 0, name: 'image13' },
@@ -277,11 +271,12 @@ export default {
   },
   image13: {
     filename: `${IMG_PATH}/HeatingPlant/IMG_20220401_092831_00_merged.jpg`,
+    label: 'Upper Boiler Access West End',
     xRotate: 0.0,
     zRotate: -3.4,
     yRotate: -129.9,
     hotSpots: [],
-    mapInfo: { building: 'Heating Plant', floor: 'Upper Catwalk', image: 'SecondFloor.png', x: 124, y: 120 },
+    mapInfo: { building: 'Heating Plant', floor: 'Platforms & Catwalks', image: 'SecondFloor.png', x: 124, y: 120 },
     exits: [
       { direction: 90, name: 'image14' },
       { direction: 180, name: 'image12' }
@@ -289,11 +284,12 @@ export default {
   },
   image14: {
     filename: `${IMG_PATH}/HeatingPlant/IMG_20220401_092916_00_merged.jpg`,
+    label: 'Upper Boiler 3 Access South End',
     xRotate: -0.5,
     zRotate: -3.5,
     yRotate: -162.2,
     hotSpots: [],
-    mapInfo: { building: 'Heating Plant', floor: 'Upper Catwalk', image: 'SecondFloor.png', x: 171, y: 120 },
+    mapInfo: { building: 'Heating Plant', floor: 'Platforms & Catwalks', image: 'SecondFloor.png', x: 171, y: 120 },
     exits: [
       { direction: 90, name: 'image15' },
       { direction: 170, name: 'image37' },
@@ -303,11 +299,12 @@ export default {
 
   image37: {
     filename: `${IMG_PATH}/HeatingPlant/IMG_20220401_095618_00_merged.jpg`,
+    label: 'Upper Between Boilers 2 & 3 Access, Middle',
     xRotate: -0.1,
     zRotate: -3.5,
     yRotate: 168.8,
     hotSpots: [],
-    mapInfo: { building: 'Heating Plant', floor: 'Upper Catwalk', image: 'SecondFloor.png', x: 178, y: 98 },
+    mapInfo: { building: 'Heating Plant', floor: 'Platforms & Catwalks', image: 'SecondFloor.png', x: 178, y: 98 },
     exits: [
       { direction: 180, name: 'image38' },
       { direction: -10, name: 'image14' }
@@ -315,11 +312,12 @@ export default {
   },
   image38: {
     filename: `${IMG_PATH}/HeatingPlant/IMG_20220401_095653_00_merged.jpg`,
+    label: 'Upper Between Boilers 2 & 3 Access, North End',
     xRotate: 0.4,
     zRotate: -3.6,
     yRotate: 163.5,
     hotSpots: [],
-    mapInfo: { building: 'Heating Plant', floor: 'Upper Catwalk', image: 'SecondFloor.png', x: 178, y: 77 },
+    mapInfo: { building: 'Heating Plant', floor: 'Platforms & Catwalks', image: 'SecondFloor.png', x: 178, y: 77 },
     exits: [
       { direction: 0, name: 'image37' }
     ]
@@ -327,11 +325,12 @@ export default {
 
   image15: {
     filename: `${IMG_PATH}/HeatingPlant/IMG_20220401_093008_00_merged.jpg`,
+    label: 'Upper Boiler 2 Access',
     xRotate: 0.0,
     zRotate: -3.7,
     yRotate: -161.2,
     hotSpots: [],
-    mapInfo: { building: 'Heating Plant', floor: 'Upper Catwalk', image: 'SecondFloor.png', x: 221, y: 120 },
+    mapInfo: { building: 'Heating Plant', floor: 'Platforms & Catwalks', image: 'SecondFloor.png', x: 221, y: 120 },
     exits: [
       { direction: 90, name: 'image16' },
       { direction: -90, name: 'image14' }
@@ -339,11 +338,12 @@ export default {
   },
   image16: {
     filename: `${IMG_PATH}/HeatingPlant/IMG_20220401_093326_00_merged.jpg`,
+    label: 'Upper Between Boiler 1 & 2 Access, South End',
     xRotate: 0.0,
     zRotate: -4.0,
     yRotate: -161.8,
     hotSpots: [],
-    mapInfo: { building: 'Heating Plant', floor: 'Upper Catwalk', image: 'SecondFloor.png', x: 253, y: 120 },
+    mapInfo: { building: 'Heating Plant', floor: 'Platforms & Catwalks', image: 'SecondFloor.png', x: 253, y: 120 },
     exits: [
       { direction: 180, name: 'image17' },
       { direction: -90, name: 'image15' }
@@ -351,11 +351,12 @@ export default {
   },
   image17: {
     filename: `${IMG_PATH}/HeatingPlant/IMG_20220401_093420_00_merged.jpg`,
+    label: 'Upper Between Boiler 1 & 2 Access, Middle',
     xRotate: 0.3,
     zRotate: -3.4,
     yRotate: -4.1,
     hotSpots: [],
-    mapInfo: { building: 'Heating Plant', floor: 'Upper Catwalk', image: 'SecondFloor.png', x: 253, y: 88 },
+    mapInfo: { building: 'Heating Plant', floor: 'Platforms & Catwalks', image: 'SecondFloor.png', x: 253, y: 88 },
     exits: [
       { direction: 180, name: 'image36' },
       { direction: 0, name: 'image16' }
@@ -364,11 +365,12 @@ export default {
 
   image36: {
     filename: `${IMG_PATH}/HeatingPlant/IMG_20220401_095501_00_merged.jpg`,
+    label: 'Upper Between Boiler 1 & 2 Access, South End',
     xRotate: 0.3,
     zRotate: -3.5,
     yRotate: -99.4,
     hotSpots: [],
-    mapInfo: { building: 'Heating Plant', floor: 'Upper Catwalk', image: 'SecondFloor.png', x: 253, y: 75 },
+    mapInfo: { building: 'Heating Plant', floor: 'Platforms & Catwalks', image: 'SecondFloor.png', x: 253, y: 75 },
     exits: [
       { direction: -90, name: 'image35' },
       { direction: 0, name: 'image17' }
@@ -376,11 +378,12 @@ export default {
   },
   image35: {
     filename: `${IMG_PATH}/HeatingPlant/IMG_20220401_095421_00_merged.jpg`,
+    label: 'Upper Between Boiler 1 & 2 Access, North End',
     xRotate: 0.3,
     zRotate: -3.3,
     yRotate: -69.3,
     hotSpots: [],
-    mapInfo: { building: 'Heating Plant', floor: 'Upper Catwalk', image: 'SecondFloor.png', x: 241, y: 61 },
+    mapInfo: { building: 'Heating Plant', floor: 'Platforms & Catwalks', image: 'SecondFloor.png', x: 241, y: 61 },
     exits: [
       { direction: -70, name: 'image34' },
       { direction: 0, name: 'image36' }
@@ -388,11 +391,12 @@ export default {
   },
   image34: {
     filename: `${IMG_PATH}/HeatingPlant/IMG_20220401_095337_00_merged.jpg`,
+    label: 'Top of Stairs Between Catwalk & Ground Floor, East',
     xRotate: -0.4,
     zRotate: -3.5,
     yRotate: 168.4,
     hotSpots: [],
-    mapInfo: { building: 'Heating Plant', floor: 'Upper Catwalk', image: 'SecondFloor.png', x: 219, y: 61 },
+    mapInfo: { building: 'Heating Plant', floor: 'Platforms & Catwalks', image: 'SecondFloor.png', x: 219, y: 61 },
     exits: [
       { direction: 70, name: 'image35' },
       { direction: 110, name: 'image33' }
@@ -400,6 +404,7 @@ export default {
   },
   image33: {
     filename: `${IMG_PATH}/HeatingPlant/IMG_20220401_095258_00_merged.jpg`,
+    label: 'Middle of Stairs Between Catwalk & Ground Floor, East',
     xRotate: -0.2,
     zRotate: -3.4,
     yRotate: 111.4,
@@ -414,6 +419,7 @@ export default {
   // Basement
   image22: {
     filename: `${IMG_PATH}/HeatingPlant/IMG_20220401_094406_00_merged.jpg`,
+    label: 'Bottom of Stairs Between Basement & Ground Floor, East',
     xRotate: -0.3,
     zRotate: -3.5,
     yRotate: 46.9,
@@ -651,7 +657,7 @@ export default {
     zRotate: 1.0,
     yRotate: -107.0,
     hotSpots: [],
-    mapInfo: { building: 'Chiller Plant', floor: 'Upper Catwalk', image: 'SecondFloor.png', x: 67, y: 130 },
+    mapInfo: { building: 'Chiller Plant', floor: 'Platforms & Catwalks', image: 'SecondFloor.png', x: 67, y: 130 },
     exits: [
       { direction: 45, name: 'image09' },
       { direction: 180, name: 'image42' }
@@ -663,7 +669,7 @@ export default {
     zRotate: 1.2,
     yRotate: 75.0,
     hotSpots: [],
-    mapInfo: { building: 'Chiller Plant', floor: 'Upper Catwalk', image: 'SecondFloor.png', x: 51, y: 72 },
+    mapInfo: { building: 'Chiller Plant', floor: 'Platforms & Catwalks', image: 'SecondFloor.png', x: 51, y: 72 },
     exits: [
       { direction: 0, name: 'image41' }
     ]
@@ -699,11 +705,12 @@ export default {
   // Chiller Rooms, Roof
   image45: {
     filename: `${IMG_PATH}/ChillerPlant/RS05_CoolingTowerExterior_A_Left.jpg`,
+    label: 'At Stairs to Chilling Towers',
     xRotate: 0.0,
     zRotate: -3.8,
     yRotate: 81.0,
     hotSpots: [],
-    mapInfo: { building: 'Chiller Plant', floor: 'Roof', x: 0, y: 0 },
+    mapInfo: { building: 'Chiller Plant', floor: 'Roof', image: 'Roof.png', x: 88, y: 107 },
     exits: [
       { direction: -90, name: 'image46' },
       { direction: 90, name: 'image12' }
@@ -711,11 +718,12 @@ export default {
   },
   image46: {
     filename: `${IMG_PATH}/ChillerPlant/RS05_CoolingTowerInterior_A_Left.jpg`,
+    label: 'Inside Chilling Tower 3',
     xRotate: 0.0,
     zRotate: -0.5,
     yRotate: 170.52,
     hotSpots: [],
-    mapInfo: { building: 'Chiller Plant', floor: 'Roof', x: 0, y: 0 },
+    mapInfo: { building: 'Chiller Plant', floor: 'Roof', image: 'Roof.png', x: 54, y: 130 },
     exits: [
       { direction: 180, name: 'image45' }
     ]
