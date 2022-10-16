@@ -3,7 +3,7 @@
   "images": [
     { "src": "media/infoImages/DTube-Complete.png" }
   ],
-  "audio": [
-    { "src": "media/audio/boilers/1S01_Boiler1_Full_Script" }
-  ]
+  "audio": {
+    "src": "media/audio/boilers/1S01_Boiler1_Full_Script"
+  }
 }

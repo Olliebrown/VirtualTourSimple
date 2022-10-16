@@ -31,7 +31,7 @@ export default function InfoHotSpot (props) {
   }))
 
   // Click callback function
-  const onClick = () => {
+  const onClick = React.useCallback(() => {
     console.log(`Hot-spot "${title}" clicked`)
     if (playButton) {
       setMediaPlaying(true)
@@ -40,7 +40,7 @@ export default function InfoHotSpot (props) {
       setLastHotSpotTitle(title)
       setHotSpotModalOpen(true)
     }
-  }
+  }, [json, playButton, setHotSpotModalOpen, setLastHotSpotHref, setLastHotSpotTitle, setMediaPlaying, title])
 
   // Load the hot spot geometry and clone our own instance
   const loadedObj = useLoader(OBJLoader, 'geom/icoSphere.obj')

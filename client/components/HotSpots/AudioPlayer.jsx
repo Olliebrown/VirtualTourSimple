@@ -46,14 +46,11 @@ export default function AudioPlayer (props) {
   // Load audio using howler
   React.useEffect(() => {
     // Are there audio sounds to examine?
-    if (!curAudioObj && Array.isArray(hotSpotAudio) && hotSpotAudio.length > 0) {
-      // Focus on just first audio clip for now
-      const audioInfo = hotSpotAudio[0]
-
+    if (!curAudioObj && hotSpotAudio?.src) {
       // Try to read subtitle file
       const readSubtitles = async () => {
         try {
-          const response = await Axios.get(`${audioInfo.src}.srt`)
+          const response = await Axios.get(`${hotSpotAudio.src}.srt`)
           const newSubtitles = srtParser.fromVtt(response.data, 's')
           console.log(newSubtitles)
           setSubtitles(newSubtitles)
@@ -69,7 +66,7 @@ export default function AudioPlayer (props) {
       // Load the audio for playback using howler.js
       const newSound = new Howl({
         html5: true,
-        src: [`${audioInfo.src}.mp3`],
+        src: [`${hotSpotAudio.src}.mp3`],
 
         // Report any audio errors to the console
         onloaderror: (err) => console.error('Failed to load audio:', err),
@@ -96,7 +93,7 @@ export default function AudioPlayer (props) {
       curAudioObj?.unload()
       setMediaPlaying(false)
     }
-  }, [curAudioObj, hotSpotAudio, onPlayUpdate, setMediaPlaying])
+  }, [curAudioObj, hotSpotAudio?.src, onPlayUpdate, setMediaPlaying])
 
   // Play/pause management
   const onPlayPause = () => {
@@ -161,13 +158,11 @@ export default function AudioPlayer (props) {
 }
 
 AudioPlayer.propTypes = {
-  hotSpotAudio: PropTypes.arrayOf(
-    PropTypes.shape({
-      src: PropTypes.string.isRequired
-    })
-  )
+  hotSpotAudio: PropTypes.shape({
+    src: PropTypes.string.isRequired
+  })
 }
 
 AudioPlayer.defaultProps = {
-  hotSpotAudio: []
+  hotSpotAudio: null
 }
