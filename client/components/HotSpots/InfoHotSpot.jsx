@@ -1,14 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import { useRecoilState, useSetRecoilState } from 'recoil'
+import { mediaPlayingState, hotSpotModalOpenState, lastHotSpotTitleState, lastHotSpotHrefState } from '../../state/globalState.js'
+
 import { useLoader, useGraph } from '@react-three/fiber'
 
 import { MathUtils } from 'three'
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader.js'
 
 import { useSpring, animated } from '@react-spring/three'
-
-import useStore from '../../state/useStore.js'
 
 // Various colors for the different types of hot spots
 const INFO_COLOR = 0xCC7178
@@ -22,13 +23,10 @@ export default function InfoHotSpot (props) {
   const [hovering, setHovering] = React.useState(false)
 
   // Subscribe to pieces of global state
-  const { setLastHotSpotHref, setLastHotSpotTitle, setHotSpotModalOpen, setMediaPlaying, videoPlaying } = useStore(state => ({
-    setLastHotSpotHref: state.setLastHotSpotHref,
-    setLastHotSpotTitle: state.setLastHotSpotTitle,
-    setHotSpotModalOpen: state.setHotSpotModalOpen,
-    setMediaPlaying: state.setMediaPlaying,
-    videoPlaying: state.videoPlaying
-  }))
+  const [mediaPlaying, setMediaPlaying] = useRecoilState(mediaPlayingState)
+  const setLastHotSpotHref = useSetRecoilState(lastHotSpotHrefState)
+  const setLastHotSpotTitle = useSetRecoilState(lastHotSpotTitleState)
+  const setHotSpotModalOpen = useSetRecoilState(hotSpotModalOpenState)
 
   // Click callback function
   const onClick = React.useCallback(() => {
@@ -60,7 +58,7 @@ export default function InfoHotSpot (props) {
   ))
 
   // Don't render while the video is playing
-  if (playButton && videoPlaying) {
+  if (playButton && mediaPlaying) {
     return null
   }
 

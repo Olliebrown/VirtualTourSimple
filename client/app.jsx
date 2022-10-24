@@ -1,9 +1,10 @@
 import React from 'react'
 import { createRoot } from 'react-dom/client'
+
+import { RecoilRoot } from 'recoil'
 import { ErrorBoundary } from 'react-error-boundary'
 
 import ErrorFallback from './components/Utility/ErrorFallback.jsx'
-// import ThreeFiberExample from './ThreeFiberExample.jsx'
 import VirtualTour from './VirtualTour.jsx'
 
 // Detect if motion controls are available
@@ -15,9 +16,11 @@ const reactRoot = createRoot(document.getElementById('root'))
 function doRender () {
   console.log('Rendering the root react element ...')
   reactRoot.render(
-    <ErrorBoundary FallbackComponent={ErrorFallback}>
-      <VirtualTour isMobile={false} allowMotion={allowMotion} />
-    </ErrorBoundary>
+    <RecoilRoot>
+      <ErrorBoundary FallbackComponent={ErrorFallback}>
+        <VirtualTour isMobile={false} allowMotion={allowMotion} />
+      </ErrorBoundary>
+    </RecoilRoot>
   )
 }
 

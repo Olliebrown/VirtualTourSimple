@@ -1,10 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import useStore from '../../state/useStore.js'
+import { useRecoilValue } from 'recoil'
+import * as state from '../../state/globalState.js'
 
 export default function ErrorFallback ({ error }) {
-  const state = useStore(state => state)
+  const stateValues = []
+  for (const stateKey in state) {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    stateValues.push(`[${stateKey}] => ${useRecoilValue(state[stateKey])}\n`)
+  }
 
   return (
     <div role="alert">
@@ -15,7 +20,7 @@ export default function ErrorFallback ({ error }) {
       {state &&
         <>
           <h4>Global State:</h4>
-          <pre><code lang="json">{JSON.stringify(state, null, 2)}</code></pre>
+          <pre>{stateValues}</pre>
         </>}
     </div>
   )

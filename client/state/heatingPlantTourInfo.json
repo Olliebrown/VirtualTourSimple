@@ -1,0 +1,1543 @@
+{
+  "1S01_22": {
+    "label": "Control Room",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Ground Floor",
+      "image": "GroundFloor.png",
+      "x": 543,
+      "y": 277
+    },
+    "exits": [
+      {
+        "key": "1S01_10",
+        "direction": -90,
+        "type": "door"
+      },
+      {
+        "key": "1N01_11",
+        "direction": 180,
+        "type": "door"
+      }
+    ]
+  },
+  "1S01_10": {
+    "label": "Boiler 1 Front",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Ground Floor",
+      "image": "GroundFloor.png",
+      "x": 471,
+      "y": 239
+    },
+    "exits": [
+      {
+        "key": "1S02_12",
+        "direction": -90,
+        "type": "arrow"
+      },
+      {
+        "key": "1S01_22",
+        "direction": 90,
+        "type": "door"
+      }
+    ]
+  },
+  "1S02_12": {
+    "label": "Between Boilers 1 & 2",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Ground Floor",
+      "image": "GroundFloor.png",
+      "x": 438,
+      "y": 239
+    },
+    "exits": [
+      {
+        "key": "1S02_11",
+        "direction": -90,
+        "type": "arrow"
+      },
+      {
+        "key": "1S01_10",
+        "direction": 90,
+        "type": "arrow"
+      }
+    ]
+  },
+  "1S02_11": {
+    "label": "Boiler 2 Front",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Ground Floor",
+      "image": "GroundFloor.png",
+      "x": 402,
+      "y": 239
+    },
+    "exits": [
+      {
+        "key": "1S03_12",
+        "direction": -90,
+        "type": "arrow"
+      },
+      {
+        "key": "1S02_12",
+        "direction": 90,
+        "type": "arrow"
+      }
+    ]
+  },
+  "1S03_12": {
+    "label": "Between Boilers 2 & 3",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Ground Floor",
+      "image": "GroundFloor.png",
+      "x": 336,
+      "y": 239
+    },
+    "exits": [
+      {
+        "key": "1S04_20",
+        "direction": -90,
+        "type": "arrow"
+      },
+      {
+        "key": "1S02_11",
+        "direction": 90,
+        "type": "arrow"
+      }
+    ]
+  },
+  "1S03_11": {
+    "label": "Boiler 3 Front",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Ground Floor",
+      "image": "GroundFloor.png",
+      "x": 300,
+      "y": 239
+    },
+    "exits": [
+      {
+        "key": "1S04_12",
+        "direction": -90,
+        "type": "arrow"
+      },
+      {
+        "key": "1S03_12",
+        "direction": 90,
+        "type": "arrow"
+      }
+    ]
+  },
+  "1S04_12": {
+    "label": "Between Boilers 3 & 4",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Ground Floor",
+      "image": "GroundFloor.png",
+      "x": 234,
+      "y": 239
+    },
+    "exits": [
+      {
+        "key": "10S4_20",
+        "direction": -75,
+        "type": "arrow"
+      },
+      {
+        "key": "1N04_20",
+        "direction": 105,
+        "type": "arrow"
+      },
+      {
+        "key": "1S04_20",
+        "direction": 90,
+        "type": "arrow"
+      }
+    ]
+  },
+  "1S04_20": {
+    "label": "Door to Chiller Plant",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Ground Floor",
+      "image": "GroundFloor.png",
+      "x": 162,
+      "y": 277
+    },
+    "exits": [
+      {
+        "key": "1N04_20",
+        "direction": 180,
+        "type": "arrow"
+      },
+      {
+        "key": "1S04_12",
+        "direction": 105,
+        "type": "arrow"
+      }
+    ]
+  },
+  "1N04_20": {
+    "label": "Boiler 4 West Side",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Ground Floor",
+      "image": "GroundFloor.png",
+      "x": 162,
+      "y": 167
+    },
+    "exits": [
+      {
+        "key": "1N04_00",
+        "direction": 180,
+        "type": "arrow"
+      },
+      {
+        "key": "1S04_12",
+        "direction": 75,
+        "type": "arrow"
+      },
+      {
+        "key": "10S4_20",
+        "direction": 0,
+        "type": "arrow"
+      }
+    ]
+  },
+  "1N04_00": {
+    "label": "Boiler 4 Northwest Corner",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Ground Floor",
+      "image": "GroundFloor.png",
+      "x": 162,
+      "y": 91
+    },
+    "exits": [
+      {
+        "key": "1N04_01",
+        "direction": 90,
+        "type": "arrow"
+      },
+      {
+        "key": "1N04_20",
+        "direction": 0,
+        "type": "arrow"
+      }
+    ]
+  },
+  "1N04_01": {
+    "label": "Boiler 4 Back",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Ground Floor",
+      "image": "GroundFloor.png",
+      "x": 198,
+      "y": 91
+    },
+    "exits": [
+      {
+        "key": "1N04_02",
+        "direction": 90,
+        "type": "arrow"
+      },
+      {
+        "key": "1S04_00",
+        "direction": -90,
+        "type": "arrow"
+      }
+    ]
+  },
+  "1N04_02": {
+    "label": "Boiler 4 Northeast Corner",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Ground Floor",
+      "image": "GroundFloor.png",
+      "x": 234,
+      "y": 91
+    },
+    "exits": [
+      {
+        "key": "1N04_22",
+        "direction": 0,
+        "type": "arrow"
+      },
+      {
+        "key": "1N04_01",
+        "direction": -90,
+        "type": "arrow"
+      },
+      {
+        "key": "1N03_10",
+        "direction": 45,
+        "type": "arrow"
+      }
+    ]
+  },
+  "1N04_22": {
+    "label": "Boiler 4 East Side",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Ground Floor",
+      "image": "GroundFloor.png",
+      "x": 234,
+      "y": 167
+    },
+    "exits": []
+  },
+  "1N03_10": {
+    "label": "Boiler 3 Northwest Corner",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Ground Floor",
+      "image": "GroundFloor.png",
+      "x": 264,
+      "y": 129
+    },
+    "exits": []
+  },
+  "1N03_20": {
+    "label": "Boiler 3 West Side",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Ground Floor",
+      "image": "GroundFloor.png",
+      "x": 264,
+      "y": 167
+    },
+    "exits": []
+  },
+  "1N03_11": {
+    "label": "Boiler 3 Back",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Ground Floor",
+      "image": "GroundFloor.png",
+      "x": 300,
+      "y": 129
+    },
+    "exits": []
+  },
+  "1N03_12": {
+    "label": "Boiler 3 NE Corner / Boiler 2 NW Corner",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Ground Floor",
+      "image": "GroundFloor.png",
+      "x": 336,
+      "y": 129
+    },
+    "exits": []
+  },
+  "1S03_02": {
+    "label": "Boiler 3 East Side / Boiler 2 West Side",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Ground Floor",
+      "image": "GroundFloor.png",
+      "x": 336,
+      "y": 201
+    },
+    "exits": []
+  },
+  "1N02_11": {
+    "label": "Boiler 2 Back",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Ground Floor",
+      "image": "GroundFloor.png",
+      "x": 402,
+      "y": 129
+    },
+    "exits": []
+  },
+  "1N02_12": {
+    "label": "Boiler 2 East Side / Boiler 1 West Side",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Ground Floor",
+      "image": "GroundFloor.png",
+      "x": 438,
+      "y": 129
+    },
+    "exits": []
+  },
+  "1S02_02": {
+    "label": "Boiler 2 East Side / Boiler 1 West Side",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Ground Floor",
+      "image": "GroundFloor.png",
+      "x": 438,
+      "y": 201
+    },
+    "exits": []
+  },
+  "1W02_11": {
+    "label": "Water Room West",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Ground Floor",
+      "image": "GroundFloor.png",
+      "x": 526,
+      "y": 42
+    },
+    "exits": []
+  },
+  "1W01_11": {
+    "label": "Water Room East",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Ground Floor",
+      "image": "GroundFloor.png",
+      "x": 460,
+      "y": 42
+    },
+    "exits": []
+  },
+  "LN01_01": {
+    "label": "",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Basement",
+      "image": "Basement.png",
+      "x": 507,
+      "y": 91
+    },
+    "exits": []
+  },
+  "LN01_02": {
+    "label": "",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Basement",
+      "image": "Basement.png",
+      "x": 543,
+      "y": 91
+    },
+    "exits": []
+  },
+  "LN01_22": {
+    "label": "",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Basement",
+      "image": "Basement.png",
+      "x": 543,
+      "y": 167
+    },
+    "exits": []
+  },
+  "LS01_11": {
+    "label": "",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Basement",
+      "image": "Basement.png",
+      "x": 507,
+      "y": 239
+    },
+    "exits": []
+  },
+  "LS02_12": {
+    "label": "",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Basement",
+      "image": "Basement.png",
+      "x": 438,
+      "y": 239
+    },
+    "exits": []
+  },
+  "LS02_10": {
+    "label": "",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Basement",
+      "image": "Basement.png",
+      "x": 366,
+      "y": 239
+    },
+    "exits": []
+  },
+  "LS03_11": {
+    "label": "",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Basement",
+      "image": "Basement.png",
+      "x": 300,
+      "y": 239
+    },
+    "exits": []
+  },
+  "LS04_12": {
+    "label": "",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Basement",
+      "image": "Basement.png",
+      "x": 234,
+      "y": 239
+    },
+    "exits": []
+  },
+  "LS04_10": {
+    "label": "",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Basement",
+      "image": "Basement.png",
+      "x": 162,
+      "y": 239
+    },
+    "exits": []
+  },
+  "LN04_10": {
+    "label": "",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Basement",
+      "image": "Basement.png",
+      "x": 162,
+      "y": 129
+    },
+    "exits": []
+  },
+  "LN04_12": {
+    "label": "",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Basement",
+      "image": "Basement.png",
+      "x": 234,
+      "y": 129
+    },
+    "exits": []
+  },
+  "LN05_11": {
+    "label": "",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Cooling Plant",
+      "floor": "Basement",
+      "image": "Basement.png",
+      "x": 91,
+      "y": 129
+    },
+    "exits": []
+  },
+  "LS05_11": {
+    "label": "",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Cooling Plant",
+      "floor": "Basement",
+      "image": "Basement.png",
+      "x": 91,
+      "y": 239
+    },
+    "exits": []
+  },
+  "LS05_10a": {
+    "label": "",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Cooling Plant",
+      "floor": "Basement",
+      "image": "Basement.png",
+      "x": 55,
+      "y": 239
+    },
+    "exits": []
+  },
+  "LS05_10b": {
+    "label": "",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Cooling Plant",
+      "floor": "Basement",
+      "image": "Basement.png",
+      "x": 55,
+      "y": 239
+    },
+    "exits": []
+  },
+  "LS05_20": {
+    "label": "",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Cooling Plant",
+      "floor": "Basement",
+      "image": "Basement.png",
+      "x": 55,
+      "y": 277
+    },
+    "exits": []
+  },
+  "1S05_21": {
+    "label": "",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Cooling Plant",
+      "floor": "Ground Floor",
+      "image": "GroundFloor.png",
+      "x": 91,
+      "y": 277
+    },
+    "exits": []
+  },
+  "1S05_10": {
+    "label": "",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Cooling Plant",
+      "floor": "Ground Floor",
+      "image": "GroundFloor.png",
+      "x": 55,
+      "y": 239
+    },
+    "exits": []
+  },
+  "1S05_00": {
+    "label": "",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Cooling Plant",
+      "floor": "Ground Floor",
+      "image": "GroundFloor.png",
+      "x": 55,
+      "y": 201
+    },
+    "exits": []
+  },
+  "1S05_11": {
+    "label": "",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Cooling Plant",
+      "floor": "Ground Floor",
+      "image": "GroundFloor.png",
+      "x": 91,
+      "y": 239
+    },
+    "exits": []
+  },
+  "1N05_21": {
+    "label": "",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Cooling Plant",
+      "floor": "Ground Floor",
+      "image": "GroundFloor.png",
+      "x": 91,
+      "y": 167
+    },
+    "exits": []
+  },
+  "1N05_10": {
+    "label": "",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Cooling Plant",
+      "floor": "Ground Floor",
+      "image": "GroundFloor.png",
+      "x": 55,
+      "y": 129
+    },
+    "exits": []
+  },
+  "1N05_11": {
+    "label": "",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Cooling Plant",
+      "floor": "Ground Floor",
+      "image": "GroundFloor.png",
+      "x": 91,
+      "y": 129
+    },
+    "exits": []
+  },
+  "1N05_01": {
+    "label": "",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Cooling Plant",
+      "floor": "Ground Floor",
+      "image": "GroundFloor.png",
+      "x": 91,
+      "y": 91
+    },
+    "exits": []
+  },
+  "1S05_22": {
+    "label": "",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Cooling Plant",
+      "floor": "Ground Floor",
+      "image": "GroundFloor.png",
+      "x": 127,
+      "y": 277
+    },
+    "exits": []
+  },
+  "1S04_11": {
+    "label": "",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Ground Floor",
+      "image": "GroundFloor.png",
+      "x": 198,
+      "y": 239
+    },
+    "exits": []
+  },
+  "1S01_01": {
+    "label": "Boiler 1 East Side",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Ground Floor",
+      "image": "GroundFloor.png",
+      "x": 507,
+      "y": 201
+    },
+    "exits": []
+  },
+  "1N01_11": {
+    "label": "Boiler 1 NE Corner",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Ground Floor",
+      "image": "GroundFloor.png",
+      "x": 507,
+      "y": 129
+    },
+    "exits": []
+  },
+  "1N01_00": {
+    "label": "",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Ground Floor",
+      "image": "GroundFloor.png",
+      "x": 471,
+      "y": 91
+    },
+    "exits": []
+  },
+  "2N02_02": {
+    "label": "",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Platforms & Catwalks",
+      "image": "PlatformsCatwalks.png",
+      "x": 438,
+      "y": 91
+    },
+    "exits": []
+  },
+  "2N01_00": {
+    "label": "",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Platforms & Catwalks",
+      "image": "PlatformsCatwalks.png",
+      "x": 471,
+      "y": 91
+    },
+    "exits": []
+  },
+  "2N01_11": {
+    "label": "",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Platforms & Catwalks",
+      "image": "PlatformsCatwalks.png",
+      "x": 507,
+      "y": 129
+    },
+    "exits": []
+  },
+  "2N01_21": {
+    "label": "",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Platforms & Catwalks",
+      "image": "PlatformsCatwalks.png",
+      "x": 507,
+      "y": 167
+    },
+    "exits": []
+  },
+  "2S01_11": {
+    "label": "",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Platforms & Catwalks",
+      "image": "PlatformsCatwalks.png",
+      "x": 507,
+      "y": 239
+    },
+    "exits": []
+  },
+  "2S02_12": {
+    "label": "",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Platforms & Catwalks",
+      "image": "PlatformsCatwalks.png",
+      "x": 438,
+      "y": 239
+    },
+    "exits": []
+  },
+  "2S02_10": {
+    "label": "",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Platforms & Catwalks",
+      "image": "PlatformsCatwalks.png",
+      "x": 366,
+      "y": 239
+    },
+    "exits": []
+  },
+  "2S03_02": {
+    "label": "",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Platforms & Catwalks",
+      "image": "PlatformsCatwalks.png",
+      "x": 336,
+      "y": 201
+    },
+    "exits": []
+  },
+  "2N03_22": {
+    "label": "",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Platforms & Catwalks",
+      "image": "PlatformsCatwalks.png",
+      "x": 336,
+      "y": 167
+    },
+    "exits": []
+  },
+  "2N03_21": {
+    "label": "",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Platforms & Catwalks",
+      "image": "PlatformsCatwalks.png",
+      "x": 300,
+      "y": 167
+    },
+    "exits": []
+  },
+  "2N02_21": {
+    "label": "",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Platforms & Catwalks",
+      "image": "PlatformsCatwalks.png",
+      "x": 402,
+      "y": 167
+    },
+    "exits": []
+  },
+  "2N02_12": {
+    "label": "",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Platforms & Catwalks",
+      "image": "PlatformsCatwalks.png",
+      "x": 438,
+      "y": 129
+    },
+    "exits": []
+  },
+  "2N03_10": {
+    "label": "",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Platforms & Catwalks",
+      "image": "PlatformsCatwalks.png",
+      "x": 264,
+      "y": 129
+    },
+    "exits": []
+  },
+  "2S03_10": {
+    "label": "",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Platforms & Catwalks",
+      "image": "PlatformsCatwalks.png",
+      "x": 264,
+      "y": 239
+    },
+    "exits": []
+  },
+  "2S04_12": {
+    "label": "",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Platforms & Catwalks",
+      "image": "PlatformsCatwalks.png",
+      "x": 234,
+      "y": 239
+    },
+    "exits": []
+  },
+  "2N04_22": {
+    "label": "",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Platforms & Catwalks",
+      "image": "PlatformsCatwalks.png",
+      "x": 234,
+      "y": 167
+    },
+    "exits": []
+  },
+  "2N04_21": {
+    "label": "",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Platforms & Catwalks",
+      "image": "PlatformsCatwalks.png",
+      "x": 198,
+      "y": 167
+    },
+    "exits": []
+  },
+  "2S04_00": {
+    "label": "",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Platforms & Catwalks",
+      "image": "PlatformsCatwalks.png",
+      "x": 162,
+      "y": 201
+    },
+    "exits": []
+  },
+  "2S04_10": {
+    "label": "",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Platforms & Catwalks",
+      "image": "PlatformsCatwalks.png",
+      "x": 162,
+      "y": 239
+    },
+    "exits": []
+  },
+  "2S04_20": {
+    "label": "",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Platforms & Catwalks",
+      "image": "PlatformsCatwalks.png",
+      "x": 162,
+      "y": 277
+    },
+    "exits": []
+  },
+  "2S03_12": {
+    "label": "",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Platforms & Catwalks",
+      "image": "PlatformsCatwalks.png",
+      "x": 336,
+      "y": 239
+    },
+    "exits": []
+  },
+  "LN03_01": {
+    "label": "",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Basement",
+      "image": "Basement.png",
+      "x": 300,
+      "y": 91
+    },
+    "exits": []
+  },
+  "1N04_10": {
+    "label": "",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Ground Floor",
+      "image": "GroundFloor.png",
+      "x": 162,
+      "y": 129
+    },
+    "exits": []
+  },
+  "LN03_12": {
+    "label": "",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Basement",
+      "image": "Basement.png",
+      "x": 336,
+      "y": 129
+    },
+    "exits": []
+  },
+  "LN02_11": {
+    "label": "",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Basement",
+      "image": "Basement.png",
+      "x": 402,
+      "y": 129
+    },
+    "exits": []
+  },
+  "LS02_01": {
+    "label": "",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Basement",
+      "image": "Basement.png",
+      "x": 402,
+      "y": 201
+    },
+    "exits": []
+  },
+  "LS03_02": {
+    "label": "",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Basement",
+      "image": "Basement.png",
+      "x": 336,
+      "y": 201
+    },
+    "exits": []
+  },
+  "LN01_10": {
+    "label": "",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Basement",
+      "image": "Basement.png",
+      "x": 471,
+      "y": 129
+    },
+    "exits": []
+  },
+  "RS03_01a": {
+    "label": "",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Roof",
+      "image": "Roof.png",
+      "x": 300,
+      "y": 201
+    },
+    "exits": []
+  },
+  "RS03_01b": {
+    "label": "",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Roof",
+      "image": "Roof.png",
+      "x": 300,
+      "y": 201
+    },
+    "exits": []
+  }
+}

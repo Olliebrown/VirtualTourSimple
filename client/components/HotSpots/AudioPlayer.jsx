@@ -3,7 +3,8 @@ import PropTypes from 'prop-types'
 
 import Axios from 'axios'
 
-import useStore from '../../state/useStore.js'
+import { useRecoilState } from 'recoil'
+import { mediaPlayingState } from '../../state/globalState.js'
 
 import { Box, IconButton, Typography } from '@mui/material'
 import {
@@ -19,12 +20,7 @@ import { Howl } from 'howler'
 export default function AudioPlayer (props) {
   const { hotSpotAudio } = props
 
-  // Subscribe to pieces of global state
-  const { setMediaPlaying, mediaPlaying } = useStore(state => ({
-    lastHotSpotHref: state.lastHotSpotHref,
-    setMediaPlaying: state.setMediaPlaying,
-    mediaPlaying: state.mediaPlaying
-  }))
+  const [mediaPlaying, setMediaPlaying] = useRecoilState(mediaPlayingState)
 
   // Track the loaded audio and its playback in local state
   const [curAudioObj, setCurAudioObj] = React.useState(null)

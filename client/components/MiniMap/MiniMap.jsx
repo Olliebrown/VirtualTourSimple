@@ -1,13 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import { currentCameraYawState } from '../../state/globalState.js'
+import { fullTourDataState, currentPanoKeyState, currentPanoDataState } from '../../state/globalTourInfo.js'
+import { useRecoilValue } from 'recoil'
+
 import { useHotkeys } from 'react-hotkeys-hook'
-import useStore from '../../state/useStore.js'
 
 import { Box, Card, CardHeader, CardContent, Button, IconButton, Slide, Fade } from '@mui/material'
 import { Close as CloseIcon, Map as MapIcon, ExpandLess as ExpandIcon } from '@mui/icons-material'
 
-import HEATING_PLANT_IMAGE_LIST from '../heatingPlantImages.js'
 import config from '../../config.js'
 
 import MiniMapPin from './MiniMapPin.jsx'
@@ -19,11 +21,11 @@ const ARROW_PIN_Y_OFFSET = 90 - 16
 export default function MiniMap (props) {
   const { startVisible } = props
 
-  // Get the global state of the pano image
-  const { currentPano, currentCameraYaw } = useStore(state => ({
-    currentPano: state.currentPano,
-    currentCameraYaw: state.currentCameraYaw
-  }))
+  // Subscribe to changes in global state
+  const currentCameraYaw = useRecoilValue(currentCameraYawState)
+  const fullTourData = useRecoilValue(fullTourDataState)
+  const currentPanoKey = useRecoilValue(currentPanoKeyState)
+  const currentPanoData = useRecoilValue(currentPanoDataState)
 
   // Controlling visibility of the minimap
   const [showMap, setShowMap] = React.useState(startVisible)
@@ -41,34 +43,32 @@ export default function MiniMap (props) {
   /* eslint-enable react-hooks/rules-of-hooks */
 
   React.useEffect(() => {
-    const currentPanoData = HEATING_PLANT_IMAGE_LIST[currentPano]
     if (currentPanoData.mapInfo) {
       setMapInfo(currentPanoData.mapInfo)
     } else {
       setMapInfo(null)
     }
-  }, [currentPano])
+  }, [currentPanoData?.mapInfo])
 
   // Compute all pins
   const allPins = React.useMemo(() => {
     if (mapInfo) {
-      const currentPanoData = HEATING_PLANT_IMAGE_LIST[currentPano]
-      return Object.keys(HEATING_PLANT_IMAGE_LIST)
-        .filter(key => key !== currentPano)
-        .map(key => ({ ...HEATING_PLANT_IMAGE_LIST[key].mapInfo, key }))
+      return Object.keys(fullTourData)
+        .filter(key => key !== currentPanoKey)
+        .map(key => ({ ...fullTourData[key].mapInfo, key }))
         .filter(curInfo => curInfo && curInfo.floor === mapInfo.floor && (curInfo.x !== 0 || curInfo.y !== 0))
         .map(curInfo => (
           <MiniMapPin
             key={curInfo.key}
             {...curInfo}
-            adjacent={currentPanoData.exits.some(exit => curInfo.key === exit.name)}
+            adjacent={currentPanoData.exits.some(exit => curInfo.key === exit.key)}
             offset={{ x: 0, y: ARROW_PIN_Y_OFFSET }}
           />
         ))
     } else {
       return []
     }
-  }, [currentPano, mapInfo])
+  }, [currentPanoData?.exits, currentPanoKey, fullTourData, mapInfo])
 
   // console.log({ ...mapInfo, currentPano })
   return (

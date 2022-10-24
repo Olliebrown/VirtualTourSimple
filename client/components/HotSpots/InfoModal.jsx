@@ -1,21 +1,18 @@
 import React from 'react'
 import Axios from 'axios'
 
-import { Button, Dialog, DialogTitle, DialogContent, DialogActions } from '@mui/material'
+import { useRecoilState, useRecoilValue } from 'recoil'
+import { hotSpotModalOpenState, lastHotSpotTitleState, lastHotSpotHrefState } from '../../state/globalState.js'
 
-import useStore from '../../state/useStore.js'
+import { Button, Dialog, DialogTitle, DialogContent, DialogActions } from '@mui/material'
 
 import HotSpotContent from './HotSpotContent.jsx'
 import AudioPlayer from './AudioPlayer.jsx'
 
 export default function InfoModal (props) {
-  // Subscribe to pieces of global state
-  const { lastHotSpotTitle, lastHotSpotHref, hotSpotModalOpen, setHotSpotModalOpen } = useStore(state => ({
-    lastHotSpotTitle: state.lastHotSpotTitle,
-    lastHotSpotHref: state.lastHotSpotHref,
-    hotSpotModalOpen: state.hotSpotModalOpen,
-    setHotSpotModalOpen: state.setHotSpotModalOpen
-  }))
+  const lastHotSpotHref = useRecoilValue(lastHotSpotHrefState)
+  const lastHotSpotTitle = useRecoilValue(lastHotSpotTitleState)
+  const [hotSpotModalOpen, setHotSpotModalOpen] = useRecoilState(hotSpotModalOpenState)
 
   const requestClose = () => { setHotSpotModalOpen(false) }
 

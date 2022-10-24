@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-// Declarative State
-import useStore from '../../state/useStore.js'
+import { useRecoilState } from 'recoil'
+import { mediaPlayingState } from '../../state/globalState.js'
 
 // Graphics
 import { MathUtils } from 'three'
@@ -19,15 +19,12 @@ export default function AudioHotSpot (props) {
   // Destructure props
   const { label, href, lon, lat, ...rest } = props
 
+  // Subscribe to changes and a mutator for global state
+  const [mediaPlaying, setMediaPlaying] = useRecoilState(mediaPlayingState)
+
   // Track state
   const [hovering, setHovering] = React.useState(false)
   const [audioObj, setAudioObj] = React.useState(null)
-
-  // Subscribe to pieces of global state
-  const { setMediaPlaying, mediaPlaying } = useStore(state => ({
-    setMediaPlaying: state.setMediaPlaying,
-    mediaPlaying: state.mediaPlaying
-  }))
 
   // Click callback function
   const onClick = () => {

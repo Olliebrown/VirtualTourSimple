@@ -1,7 +1,10 @@
 // Useful global settings
 export default {
-  // Index of first image to load
-  START_INDEX: 32,
+  // Key of first image to load
+  START_KEY: '1S01_22',
+
+  // Path to images on dev server
+  PANO_IMAGE_PATH: 'media/panoImgKtx2',
 
   // Enable these in dev mode
   ENABLE_ROTATE_HOTKEYS: _DEV_,
