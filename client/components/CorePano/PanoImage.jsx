@@ -136,7 +136,7 @@ export default function PanoImage (props) {
           cropBox={videoCrop}
           enableVideo={showVideo}
         >
-          {/* {showVideo && <videoTexture attach="panoVideo" args={[panoVideo]}/>} */}
+          {showVideo && <videoTexture attach="panoVideo" args={[panoVideo]}/>}
           <primitive attach="panoImage" object={panoImage || null}/>
         </cutoutMaterial>
 

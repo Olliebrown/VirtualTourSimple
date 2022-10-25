@@ -19,8 +19,13 @@ export const currentPanoKeyState = atom({
 export const currentPanoDataState = selector({
   key: 'currentPanoData',
   get: ({ get }) => {
-    const tourInfoState = get(fullTourDataState)
-    const panoKeyState = get(currentPanoKeyState)
-    return tourInfoState[panoKeyState]
+    const tourInfo = get(fullTourDataState)
+    const panoKey = get(currentPanoKeyState)
+    return tourInfo[panoKey]
+  },
+  set: ({ get, set }, newValue) => {
+    const tourInfo = get(fullTourDataState)
+    const panoKey = get(currentPanoKeyState)
+    set(fullTourDataState, { ...tourInfo, [panoKey]: newValue })
   }
 })

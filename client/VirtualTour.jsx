@@ -4,7 +4,8 @@ import './shaders/CutoutShader.js'
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { RecoilRoot } from 'recoil'
+// eslint-disable-next-line camelcase
+import { useRecoilBridgeAcrossReactRoots_UNSTABLE } from 'recoil'
 
 import { CssBaseline } from '@mui/material'
 
@@ -19,13 +20,15 @@ import { Canvas } from '@react-three/fiber'
 export default function VirtualTour (props) {
   const { isMobile, allowMotion } = props
 
+  const RecoilBridge = useRecoilBridgeAcrossReactRoots_UNSTABLE()
+
   return (
     <React.StrictMode>
       {/* Main three.js fiber canvas */}
       <Canvas linear camera={{ position: [0, 0, 0.1] }}>
-        <RecoilRoot override={false}>
+        <RecoilBridge>
           <PanoViewer isMobile={isMobile} allowMotion={allowMotion} />
-        </RecoilRoot>
+        </RecoilBridge>
       </Canvas>
 
       {/* MUI overlay */}

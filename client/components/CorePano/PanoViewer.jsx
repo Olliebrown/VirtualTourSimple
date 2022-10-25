@@ -20,6 +20,8 @@ import PanoGrid from './PanoGrid.jsx'
 import { useThree } from '@react-three/fiber'
 
 export default function PanoViewer (props) {
+  console.log('Re-rendering viewer')
+
   const { isMobile, allowMotion } = props
 
   // Subscribe to changes in global state
@@ -61,6 +63,7 @@ export default function PanoViewer (props) {
 
   // Ensure rotate values are synced with the loaded pano data
   useEffect(() => {
+    console.log('Syncing alignment')
     setXRotate(currentPanoData.alignment[0])
     setYRotate(currentPanoData.alignment[1])
     setZRotate(currentPanoData.alignment[2])
