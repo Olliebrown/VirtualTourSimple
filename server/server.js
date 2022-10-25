@@ -2,6 +2,8 @@ import fs from 'fs'
 import Express from 'express'
 import https from 'https'
 
+import DataRouter from './tourDataRouter.js'
+
 const app = new Express()
 
 // Create an SSL server if we are in dev mode
@@ -20,6 +22,7 @@ app.use((req, res, next) => {
   next()
 })
 
+app.use('/data', DataRouter)
 app.use(Express.static('./public'))
 
 if (server) {

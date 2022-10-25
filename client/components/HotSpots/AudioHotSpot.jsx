@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { useRecoilState } from 'recoil'
-import { mediaPlayingState } from '../../state/globalState.js'
+import localDB, { updateSetting } from '../../state/localDB.js'
+import { useLiveQuery } from 'dexie-react-hooks'
 
 // Graphics
 import { MathUtils } from 'three'
@@ -19,8 +19,8 @@ export default function AudioHotSpot (props) {
   // Destructure props
   const { label, href, lon, lat, ...rest } = props
 
-  // Subscribe to changes and a mutator for global state
-  const [mediaPlaying, setMediaPlaying] = useRecoilState(mediaPlayingState)
+  // Subscribe to pieces of global state
+  const mediaPlaying = useLiveQuery(() => localDB.settings.get('mediaPlaying'))?.value || false
 
   // Track state
   const [hovering, setHovering] = React.useState(false)
@@ -31,11 +31,11 @@ export default function AudioHotSpot (props) {
     console.log(`Audio Hot-Spot "${label}" Clicked`)
     if (!mediaPlaying) {
       console.log('Playing')
-      setMediaPlaying(true)
+      updateSetting('mediaPlaying', true)
       audioObj?.play()
     } else {
       audioObj?.pause()
-      setMediaPlaying(false)
+      updateSetting('mediaPlaying', false)
     }
   }
 
@@ -54,7 +54,7 @@ export default function AudioHotSpot (props) {
         const newSound = new Howl({
           html5: true,
           src: [`${href}.webm`, `${href}.mp3`, `${href}.ac3`, `${href}.m4a`, `${href}.wav`],
-          onend: () => setMediaPlaying(false)
+          onend: () => updateSetting('mediaPlaying', false)
         })
         setAudioObj(newSound)
       }
@@ -67,12 +67,12 @@ export default function AudioHotSpot (props) {
         }
 
         // Reset video state
-        setMediaPlaying(false)
+        updateSetting('mediaPlaying', false)
       }
     } else {
-      setMediaPlaying(false)
+      updateSetting('mediaPlaying', false)
     }
-  }, [audioObj, href, setMediaPlaying])
+  }, [audioObj, href])
 
   // Pack in groups to position in the scene
   return (

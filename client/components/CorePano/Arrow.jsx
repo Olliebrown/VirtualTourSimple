@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 
-import { currentPanoKeyState } from '../../state/globalTourInfo.js'
-import { textureStatusState } from '../../state/globalLoadingState.js'
+import { currentPanoKeyState, textureStatusState } from '../../state/globalState.js'
 import { useRecoilValue, useSetRecoilState } from 'recoil'
 
 import { useLoader, useGraph } from '@react-three/fiber'
@@ -21,8 +20,9 @@ export default function Arrow (props) {
   // Destructure props
   const { height, distance, direction, destination, ...rest } = props
 
-  // Global texture loader status and pano image state
   const setCurrentPanoKey = useSetRecoilState(currentPanoKeyState)
+
+  // Global texture loader status and pano image state
   const loadingStatus = useRecoilValue(textureStatusState)
 
   // Track hovering state
@@ -38,7 +38,9 @@ export default function Arrow (props) {
 
   // Click callback function
   const onClick = () => {
-    if (destination) { setCurrentPanoKey(destination) }
+    if (destination) {
+      setCurrentPanoKey(destination)
+    }
   }
 
   // Animated values

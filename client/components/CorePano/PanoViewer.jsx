@@ -3,10 +3,11 @@ import CONFIG from '../../config.js'
 import React, { Suspense, useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 
-import { currentCameraYawState, enableMotionControlsState, invertOrbitControlsState } from '../../state/globalState.js'
-import { setTextureLoadingState, setTextureFailedState, setTextureAllDoneState } from '../../state/globalLoadingState.js'
-import { currentPanoKeyState, currentPanoDataState } from '../../state/globalTourInfo.js'
-import { useRecoilValue, useRecoilState, useSetRecoilState } from 'recoil'
+import localDB, { updateSetting } from '../../state/localDB.js'
+import { useLiveQuery } from 'dexie-react-hooks'
+
+import { setTextureLoadingState, setTextureFailedState, setTextureAllDoneState, currentPanoKeyState, currentCameraYawState } from '../../state/globalState.js'
+import { useRecoilValue, useSetRecoilState } from 'recoil'
 
 import { DefaultLoadingManager, Vector3 } from 'three'
 
@@ -20,26 +21,26 @@ import PanoGrid from './PanoGrid.jsx'
 import { useThree } from '@react-three/fiber'
 
 export default function PanoViewer (props) {
-  console.log('Re-rendering viewer')
-
   const { isMobile, allowMotion } = props
 
   // Subscribe to changes in global state
-  const currentPanoKey = useRecoilValue(currentPanoKeyState)
-  const currentPanoData = useRecoilValue(currentPanoDataState)
-  const enableMotionControls = useRecoilValue(enableMotionControlsState)
+  const enableMotionControls = useLiveQuery(() => localDB.settings.get('enableMotionControls'))?.value || false
+  const invertOrbitControls = useLiveQuery(() => localDB.settings.get('invertOrbitControls'))?.value || false
 
-  // Subscribe to global state mutator only
-  const setCurrentCameraYaw = useSetRecoilState(currentCameraYawState)
+  // Subscribe to pano DB changes
+  const currentPanoKey = useRecoilValue(currentPanoKeyState)
+  const currentPanoData = useLiveQuery(() => localDB.panoInfoState.get(currentPanoKey), [currentPanoKey], null)
 
   // Subscribe to global state changes and global state mutator
-  const [invertOrbitControls, setInvertOrbitControls] = useRecoilState(invertOrbitControlsState)
   const setTextureLoading = useSetRecoilState(setTextureLoadingState)
   const setTextureAllDone = useSetRecoilState(setTextureAllDoneState)
   const setTextureFailed = useSetRecoilState(setTextureFailedState)
 
+  // Update camera yaw in global state
+  const setCurrentCameraYaw = useSetRecoilState(currentCameraYawState)
+
   /* eslint-disable react-hooks/exhaustive-deps */
-  useEffect(() => { setInvertOrbitControls(isMobile) }, [])
+  useEffect(() => { updateSetting('invertOrbitControls', isMobile) }, [])
   /* eslint-enable react-hooks/exhaustive-deps */
 
   // Setup monitoring of texture loading state
@@ -57,16 +58,15 @@ export default function PanoViewer (props) {
   }, [setTextureAllDone, setTextureFailed, setTextureLoading])
 
   // Sphere rotation state
-  const [xRotate, setXRotate] = useState(currentPanoData.alignment[0])
-  const [yRotate, setYRotate] = useState(currentPanoData.alignment[1])
-  const [zRotate, setZRotate] = useState(currentPanoData.alignment[2])
+  const [xRotate, setXRotate] = useState(currentPanoData?.alignment[0])
+  const [yRotate, setYRotate] = useState(currentPanoData?.alignment[1])
+  const [zRotate, setZRotate] = useState(currentPanoData?.alignment[2])
 
   // Ensure rotate values are synced with the loaded pano data
   useEffect(() => {
-    console.log('Syncing alignment')
-    setXRotate(currentPanoData.alignment[0])
-    setYRotate(currentPanoData.alignment[1])
-    setZRotate(currentPanoData.alignment[2])
+    setXRotate(currentPanoData?.alignment[0])
+    setYRotate(currentPanoData?.alignment[1])
+    setZRotate(currentPanoData?.alignment[2])
   }, [currentPanoData?.alignment])
 
   // Setup some hotkeys to adjust the sphere offset rotation

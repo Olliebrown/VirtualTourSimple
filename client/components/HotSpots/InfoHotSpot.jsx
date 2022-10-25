@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { useRecoilState, useSetRecoilState } from 'recoil'
-import { mediaPlayingState, hotSpotModalOpenState, lastHotSpotTitleState, lastHotSpotHrefState } from '../../state/globalState.js'
+import localDB, { updateSetting } from '../../state/localDB.js'
+import { useLiveQuery } from 'dexie-react-hooks'
 
 import { useLoader, useGraph } from '@react-three/fiber'
 
@@ -23,22 +23,19 @@ export default function InfoHotSpot (props) {
   const [hovering, setHovering] = React.useState(false)
 
   // Subscribe to pieces of global state
-  const [mediaPlaying, setMediaPlaying] = useRecoilState(mediaPlayingState)
-  const setLastHotSpotHref = useSetRecoilState(lastHotSpotHrefState)
-  const setLastHotSpotTitle = useSetRecoilState(lastHotSpotTitleState)
-  const setHotSpotModalOpen = useSetRecoilState(hotSpotModalOpenState)
+  const mediaPlaying = useLiveQuery(() => localDB.settings.get('mediaPlaying'))?.value || false
 
   // Click callback function
   const onClick = React.useCallback(() => {
     console.log(`Hot-spot "${title}" clicked`)
     if (playButton) {
-      setMediaPlaying(true)
+      updateSetting('mediaPlaying', true)
     } else {
-      setLastHotSpotHref(json)
-      setLastHotSpotTitle(title)
-      setHotSpotModalOpen(true)
+      updateSetting('lastHotSpotHref', json)
+      updateSetting('lastHotSpotTitle', title)
+      updateSetting('hotSpotModalOpen', true)
     }
-  }, [json, playButton, setHotSpotModalOpen, setLastHotSpotHref, setLastHotSpotTitle, setMediaPlaying, title])
+  }, [json, playButton, title])
 
   // Load the hot spot geometry and clone our own instance
   const loadedObj = useLoader(OBJLoader, 'geom/icoSphere.obj')

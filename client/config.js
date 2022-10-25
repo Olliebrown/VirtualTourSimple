@@ -6,6 +6,9 @@ export default {
   // Path to images on dev server
   PANO_IMAGE_PATH: 'media/panoImgKtx2',
 
+  // Enable the dynamic backend database server
+  USE_DYNAMIC_DATABASE: true,
+
   // Enable these in dev mode
   ENABLE_ROTATE_HOTKEYS: _DEV_,
   ENABLE_INDEX_ADVANCING_HOTKEYS: _DEV_,

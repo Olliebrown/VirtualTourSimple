@@ -1,11 +1,16 @@
 import React from 'react'
 
-import { Paper, Button, IconButton, Slide, Fade } from '@mui/material'
+import { useRecoilValue } from 'recoil'
+import { currentPanoKeyState } from '../../state/globalState.js'
+
+import { Paper, Button, Typography, IconButton, Slide, Fade } from '@mui/material'
 import { Close as CloseIcon, ExpandLess as ExpandIcon } from '@mui/icons-material'
 
 import TourInfoForm from './TourInfoForm.jsx'
 
 export default function TourInfoEditor (props) {
+  const currentPanoKey = useRecoilValue(currentPanoKeyState)
+
   // Controlling visibility of the Editor Panel
   const [showEditor, setShowEditor] = React.useState(false)
 
@@ -30,9 +35,10 @@ export default function TourInfoEditor (props) {
           maxWidth: 400,
           maxHeight: 1000,
           p: 2,
-          pt: '40px'
+          pt: 1
         }}
         >
+          <Typography variant="h5" component="div" gutterBottom>{currentPanoKey}</Typography>
           <IconButton
             aria-label="close editor"
             onClick={() => setShowEditor(false)}

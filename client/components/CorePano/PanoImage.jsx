@@ -3,9 +3,11 @@ import PropTypes from 'prop-types'
 
 import CONFIG from '../../config.js'
 
-import { useRecoilValue, useRecoilState } from 'recoil'
-import { currentPanoKeyState, currentPanoDataState } from '../../state/globalTourInfo.js'
-import { mediaPlayingState } from '../../state/globalState.js'
+import localDB, { updateSetting } from '../../state/localDB.js'
+import { useLiveQuery } from 'dexie-react-hooks'
+
+import { useRecoilValue } from 'recoil'
+import { currentPanoKeyState } from '../../state/globalState.js'
 
 import { useKTX2 } from '@react-three/drei'
 import { Euler, MathUtils, BackSide } from 'three'
@@ -24,9 +26,11 @@ export default function PanoImage (props) {
   const { xRotate, yRotate, zRotate } = props
 
   // Subscribe to changes in needed global state
+  const mediaPlaying = useLiveQuery(() => localDB.settings.get('mediaPlaying'))?.value || false
+
+  // Subscribe to pano DB changes
   const currentPanoKey = useRecoilValue(currentPanoKeyState)
-  const currentPanoData = useRecoilValue(currentPanoDataState)
-  const [mediaPlaying, setMediaPlaying] = useRecoilState(mediaPlayingState)
+  const currentPanoData = useLiveQuery(() => localDB.panoInfoState.get(currentPanoKey), [currentPanoKey], null)
 
   // Load the pano image or video
   const [panoVideo, setPanoVideo] = React.useState(null)
@@ -34,27 +38,27 @@ export default function PanoImage (props) {
 
   // Possibly load a video
   React.useEffect(() => {
-    if (currentPanoData.video) {
+    if (currentPanoData?.video) {
       // Make a video HTML tag if we don't have one
       if (panoVideo === null) {
         // Create video HTML tag to stream media
         const vid = document.createElement('video')
         vid.crossOrigin = 'anonymous'
-        vid.src = currentPanoData.video.href
-        vid.loop = !!currentPanoData.video.loop
+        vid.src = currentPanoData?.video.href
+        vid.loop = !!currentPanoData?.video.loop
         setPanoVideo(vid)
 
         // Setup to stop showing video once its done
-        vid.onended = () => setMediaPlaying(false)
+        vid.onended = () => updateSetting('mediaPlaying', false)
       }
 
       // Update video state and crop box
-      if (currentPanoData.videoCrop) {
+      if (currentPanoData?.videoCrop) {
         setVideoCrop([
-          currentPanoData.videoCrop.x,
-          currentPanoData.videoCrop.y,
-          currentPanoData.videoCrop.x + currentPanoData.videoCrop.width,
-          currentPanoData.videoCrop.y + currentPanoData.videoCrop.height
+          currentPanoData?.videoCrop.x,
+          currentPanoData?.videoCrop.y,
+          currentPanoData?.videoCrop.x + currentPanoData?.videoCrop.width,
+          currentPanoData?.videoCrop.y + currentPanoData?.videoCrop.height
         ])
       }
 
@@ -67,15 +71,15 @@ export default function PanoImage (props) {
         }
 
         // Reset video state
-        setMediaPlaying(false)
+        updateSetting('mediaPlaying', false)
         setVideoCrop(NO_CROP)
       }
     } else {
       // No video to load so ensure video state is back to default
-      setMediaPlaying(false)
+      updateSetting('mediaPlaying', false)
       setVideoCrop(NO_CROP)
     }
-  }, [currentPanoData?.video, currentPanoData?.videoCrop, panoVideo, setMediaPlaying])
+  }, [currentPanoData?.video, currentPanoData?.videoCrop, panoVideo])
 
   // Respond to a change in the video playing state
   React.useEffect(() => {

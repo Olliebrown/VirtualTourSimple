@@ -7,16 +7,22 @@ export default function NumberField (props) {
   const { minValue, maxValue, value, precision, onChange, ...rest } = props
 
   // Track allowed characters that parseFloat would remove
-  const [hasLeadingPlus, setHasLeadingPlus] = React.useState(false)
+  const [isBlank, setIsBlank] = React.useState(false)
+  const [leadingChar, setLeadingChar] = React.useState('')
   const [hasTrailingDecimal, setHasTrailingDecimal] = React.useState(false)
 
   // Process an input value
   const parseValueChange = valueStr => {
-    // Allow clearing to nothing
-    if (valueStr === '') valueStr = '0'
+    // Account for blank field
+    setIsBlank(valueStr === '' || valueStr === '+' || valueStr === '-')
 
     // Check for leading and trailing characters
-    setHasLeadingPlus(valueStr[0] === '+')
+    if (valueStr[0] === '+' || valueStr[0] === '-') {
+      setLeadingChar(valueStr[0])
+    } else {
+      setLeadingChar('')
+    }
+
     setHasTrailingDecimal(valueStr[valueStr.length - 1] === '.')
 
     // Truncate to specified precision
@@ -38,19 +44,25 @@ export default function NumberField (props) {
     }
 
     // Pass value out to onChange callback
-    if (onChange) { onChange(parseFloat(valueStr)) }
+    if (onChange) {
+      if (isNaN(parseFloat(valueStr))) {
+        onChange(0)
+      } else {
+        onChange(parseFloat(valueStr))
+      }
+    }
   }
 
   // Build string value from state
-  const strValue = `${hasLeadingPlus ? '+' : ''}${value}${hasTrailingDecimal ? '.' : ''}`
+  const strValue = `${value >= 0 ? leadingChar : ''}${value}${hasTrailingDecimal ? '.' : ''}`
 
   return (
     <TextField
       inputProps={{
         inputMode: 'numeric',
-        pattern: '[+\\-]?[0-9]*(?:\\.[0-9]*)?'
+        pattern: '[+-]?[0-9]*(?:\\.[0-9]*)?'
       }}
-      value={strValue}
+      value={isBlank ? leadingChar : strValue}
       onChange={e => parseValueChange(e.target.value)}
       {...rest}
     />

@@ -1,8 +1,8 @@
 import React from 'react'
 import Axios from 'axios'
 
-import { useRecoilState, useRecoilValue } from 'recoil'
-import { hotSpotModalOpenState, lastHotSpotTitleState, lastHotSpotHrefState } from '../../state/globalState.js'
+import localDB, { updateSetting } from '../../state/localDB.js'
+import { useLiveQuery } from 'dexie-react-hooks'
 
 import { Button, Dialog, DialogTitle, DialogContent, DialogActions } from '@mui/material'
 
@@ -10,11 +10,13 @@ import HotSpotContent from './HotSpotContent.jsx'
 import AudioPlayer from './AudioPlayer.jsx'
 
 export default function InfoModal (props) {
-  const lastHotSpotHref = useRecoilValue(lastHotSpotHrefState)
-  const lastHotSpotTitle = useRecoilValue(lastHotSpotTitleState)
-  const [hotSpotModalOpen, setHotSpotModalOpen] = useRecoilState(hotSpotModalOpenState)
+  // Subscribe to changes in global state
+  const lastHotSpotHref = useLiveQuery(() => localDB.settings.get('lastHotSpotHref'))?.value || ''
+  const lastHotSpotTitle = useLiveQuery(() => localDB.settings.get('lastHotSpotTitle'))?.value || ''
+  const hotSpotModalOpen = useLiveQuery(() => localDB.settings.get('hotSpotModalOpen'))?.value || false
 
-  const requestClose = () => { setHotSpotModalOpen(false) }
+  // Close the modal
+  const requestClose = () => { updateSetting('hotSpotModalOpen', false) }
 
   const [hotSpotInfo, setHotSpotInfo] = React.useState(null)
   React.useEffect(() => {

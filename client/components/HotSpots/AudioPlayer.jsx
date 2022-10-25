@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 
 import Axios from 'axios'
 
-import { useRecoilState } from 'recoil'
-import { mediaPlayingState } from '../../state/globalState.js'
+import localDB, { updateSetting } from '../../state/localDB.js'
+import { useLiveQuery } from 'dexie-react-hooks'
 
 import { Box, IconButton, Typography } from '@mui/material'
 import {
@@ -20,7 +20,8 @@ import { Howl } from 'howler'
 export default function AudioPlayer (props) {
   const { hotSpotAudio } = props
 
-  const [mediaPlaying, setMediaPlaying] = useRecoilState(mediaPlayingState)
+  // Subscribe to pieces of global state
+  const mediaPlaying = useLiveQuery(() => localDB.settings.get('mediaPlaying'))?.value || false
 
   // Track the loaded audio and its playback in local state
   const [curAudioObj, setCurAudioObj] = React.useState(null)
@@ -73,11 +74,11 @@ export default function AudioPlayer (props) {
       newSound.on('play', () => {
         setSubtitleIndex(0)
         onPlayUpdate(newSound)
-        setMediaPlaying(true)
+        updateSetting('mediaPlaying', true)
       })
 
       newSound.on('end', () => {
-        setMediaPlaying(false)
+        updateSetting('mediaPlaying', false)
       })
 
       // Update state
@@ -87,18 +88,18 @@ export default function AudioPlayer (props) {
     return () => {
       // Be sure to unload the audio (so it stops playing) when this unmounts
       curAudioObj?.unload()
-      setMediaPlaying(false)
+      updateSetting('mediaPlaying', false)
     }
-  }, [curAudioObj, hotSpotAudio?.src, onPlayUpdate, setMediaPlaying])
+  }, [curAudioObj, hotSpotAudio?.src, onPlayUpdate])
 
   // Play/pause management
   const onPlayPause = () => {
     if (mediaPlaying) {
       curAudioObj.pause()
-      setMediaPlaying(false)
+      updateSetting('mediaPlaying', false)
     } else {
       curAudioObj.play()
-      setMediaPlaying(true)
+      updateSetting('mediaPlaying', true)
     }
   }
 

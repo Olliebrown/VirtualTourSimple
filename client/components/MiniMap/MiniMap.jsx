@@ -1,16 +1,19 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { currentCameraYawState } from '../../state/globalState.js'
-import { fullTourDataState, currentPanoKeyState, currentPanoDataState } from '../../state/globalTourInfo.js'
+import CONFIG from '../../config.js'
+
 import { useRecoilValue } from 'recoil'
+import { currentCameraYawState, currentPanoKeyState } from '../../state/globalState.js'
+import { getFullTourDataFromServer } from '../../state/asyncDataHelper.js'
+
+import localDB from '../../state/localDB.js'
+import { useLiveQuery } from 'dexie-react-hooks'
 
 import { useHotkeys } from 'react-hotkeys-hook'
 
 import { Box, Card, CardHeader, CardContent, Button, IconButton, Slide, Fade } from '@mui/material'
 import { Close as CloseIcon, Map as MapIcon, ExpandLess as ExpandIcon } from '@mui/icons-material'
-
-import config from '../../config.js'
 
 import MiniMapPin from './MiniMapPin.jsx'
 import MiniMapArrow from './MiniMapArrow.jsx'
@@ -23,9 +26,21 @@ export default function MiniMap (props) {
 
   // Subscribe to changes in global state
   const currentCameraYaw = useRecoilValue(currentCameraYawState)
-  const fullTourData = useRecoilValue(fullTourDataState)
+
+  // Subscribe to pano DB changes
   const currentPanoKey = useRecoilValue(currentPanoKeyState)
-  const currentPanoData = useRecoilValue(currentPanoDataState)
+  const currentPanoData = useLiveQuery(() => localDB.panoInfoState.get(currentPanoKey), [currentPanoKey], null)
+
+  // Retrieve global map data
+  const [fullTourData, setFullTourData] = React.useState({})
+  React.useEffect(() => {
+    const retrieveData = async () => {
+      const newData = await getFullTourDataFromServer()
+      setFullTourData(newData)
+    }
+
+    retrieveData()
+  }, [])
 
   // Controlling visibility of the minimap
   const [showMap, setShowMap] = React.useState(startVisible)
@@ -34,7 +49,7 @@ export default function MiniMap (props) {
   const [mapInfo, setMapInfo] = React.useState(null)
 
   /* eslint-disable react-hooks/rules-of-hooks */
-  if (config.ENABLE_MINIMAP_HOTKEYS) {
+  if (CONFIG.ENABLE_MINIMAP_HOTKEYS) {
     useHotkeys('shift+left', () => { setMapInfo({ ...mapInfo, x: mapInfo.x - 1 }) }, {}, [mapInfo])
     useHotkeys('shift+right', () => { setMapInfo({ ...mapInfo, x: mapInfo.x + 1 }) }, {}, [mapInfo])
     useHotkeys('shift+up', () => { setMapInfo({ ...mapInfo, y: mapInfo.y - 1 }) }, {}, [mapInfo])
@@ -43,8 +58,8 @@ export default function MiniMap (props) {
   /* eslint-enable react-hooks/rules-of-hooks */
 
   React.useEffect(() => {
-    if (currentPanoData.mapInfo) {
-      setMapInfo(currentPanoData.mapInfo)
+    if (currentPanoData?.mapInfo) {
+      setMapInfo(currentPanoData?.mapInfo)
     } else {
       setMapInfo(null)
     }
@@ -61,7 +76,7 @@ export default function MiniMap (props) {
           <MiniMapPin
             key={curInfo.key}
             {...curInfo}
-            adjacent={currentPanoData.exits.some(exit => curInfo.key === exit.key)}
+            adjacent={currentPanoData?.exits.some(exit => curInfo.key === exit.key)}
             offset={{ x: 0, y: ARROW_PIN_Y_OFFSET }}
           />
         ))
