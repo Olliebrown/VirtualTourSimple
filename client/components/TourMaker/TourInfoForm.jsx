@@ -7,7 +7,7 @@ import localDB, { setCurrentPanoData } from '../../state/localDB.js'
 import { useLiveQuery } from 'dexie-react-hooks'
 import { getDataSubRoute } from '../../state/asyncDataHelper.js'
 
-import { Box, Button, Divider, MenuItem, Stack, TextField, Typography } from '@mui/material'
+import { Box, Button, Divider, MenuItem, Slider, Stack, TextField, Typography } from '@mui/material'
 
 import NumberField from '../Utility/NumberField.jsx'
 import PanoExitEdit from './PanoExitEdit.jsx'
@@ -99,7 +99,7 @@ export default function TourInfoForm () {
   }
 
   return (
-    <Box sx={{ overflowX: 'auto', overflowY: 'auto', textAlign: 'left' }}>
+    <Box sx={{ overflowX: 'auto', overflowY: 'scroll', textAlign: 'left' }}>
       <Stack spacing={2}>
         <Typography variant="h6" component="div">Label and Orientation:</Typography>
         <TextField
@@ -109,26 +109,70 @@ export default function TourInfoForm () {
           onChange={e => updatePanoData({ label: e.target.value })}
         />
 
+        <Typography variant="body1">Orientation (X, Y, Z)</Typography>
         <Stack direction="row" spacing={2}>
+          <Slider
+            size="small"
+            min={-190}
+            max={190}
+            step={0.1}
+            value={currentPanoData?.alignment[0] || 0}
+            onChange={(e, newVal) => updateAlignment(newVal, null, null)}
+            aria-label="X Rotation"
+            valueLabelDisplay="auto"
+          />
           <NumberField
-            label='X Rot'
+            aria-label='X Rotation'
             value={currentPanoData?.alignment[0]}
             onChange={newVal => updateAlignment(newVal, null, null)}
             variant='standard'
+            size="small"
+            hiddenLabel
+            sx={{ width: '15%' }}
           />
+        </Stack>
 
+        <Stack direction="row" spacing={2}>
+          <Slider
+            size="small"
+            min={-190}
+            max={190}
+            step={0.1}
+            value={currentPanoData?.alignment[1] || 0}
+            onChange={(e, newVal) => updateAlignment(null, newVal, null)}
+            aria-label="Y Rotation"
+            valueLabelDisplay="auto"
+          />
           <NumberField
-            label='Y Rot'
+            aria-label='Y Rotation'
             value={currentPanoData?.alignment[1]}
             onChange={newVal => updateAlignment(null, newVal, null)}
             variant='standard'
+            size="small"
+            hiddenLabel
+            sx={{ width: '15%' }}
           />
+        </Stack>
 
+        <Stack direction="row" spacing={2}>
+          <Slider
+            size="small"
+            min={-190}
+            max={190}
+            step={0.1}
+            value={currentPanoData?.alignment[2] || 0}
+            onChange={(e, newVal) => updateAlignment(null, null, newVal)}
+            aria-label="Z Rotation"
+            valueLabelDisplay="auto"
+          />
           <NumberField
-            label='Z Rot'
+            aria-label='Z Rotation'
             value={currentPanoData?.alignment[2]}
             onChange={newVal => updateAlignment(null, null, newVal)}
             variant='standard'
+            size="small"
+            hiddenLabel
+            sx={{ width: '15%' }}
           />
         </Stack>
 

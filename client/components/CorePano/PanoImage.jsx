@@ -6,16 +6,16 @@ import CONFIG from '../../config.js'
 import localDB, { updateSetting } from '../../state/localDB.js'
 import { useLiveQuery } from 'dexie-react-hooks'
 
-import { useRecoilValue } from 'recoil'
-import { currentPanoKeyState } from '../../state/globalState.js'
+import { useRecoilValue, useSetRecoilState } from 'recoil'
+import { currentPanoKeyState, setTextureLoadingState } from '../../state/globalState.js'
 
 import { useKTX2 } from '@react-three/drei'
 import { Euler, MathUtils, BackSide } from 'three'
 
 import CutoutMaterial from '../../shaders/CutoutShader.js'
-import Arrow from './Arrow.jsx'
 import InfoHotSpot from '../HotSpots/InfoHotSpot.jsx'
 import AudioHotSpot from '../HotSpots/AudioHotSpot.jsx'
+import ExitIndicator from './ExitIndicator.jsx'
 
 // Path to universal basis transcoder WASM module
 const NO_CROP = {
@@ -87,15 +87,16 @@ export default function PanoImage (props) {
   }, [mediaPlaying, panoVideo])
 
   // Load the base image texture
+  const setTextureLoading = useSetRecoilState(setTextureLoadingState)
+  setTextureLoading(`${CONFIG.PANO_IMAGE_PATH}/${currentPanoKey}_Left.ktx2`)
   const panoImage = useKTX2(`${CONFIG.PANO_IMAGE_PATH}/${currentPanoKey}_Left.ktx2`)
 
   // Build the exit arrows
   const exitArrows = currentPanoData?.exits.map((exit) => {
     return (
-      <Arrow
+      <ExitIndicator
         key={currentPanoKey + '-' + exit.key}
-        direction={exit.direction}
-        destination={exit.key}
+        {...exit}
       />
     )
   })

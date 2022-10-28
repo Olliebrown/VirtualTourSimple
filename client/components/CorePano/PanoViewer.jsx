@@ -1,21 +1,21 @@
 import CONFIG from '../../config.js'
 
-import React, { Suspense, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 
 import localDB, { updateSetting } from '../../state/localDB.js'
 import { useLiveQuery } from 'dexie-react-hooks'
 
-import { setTextureLoadingState, setTextureFailedState, setTextureAllDoneState, currentPanoKeyState, currentCameraYawState } from '../../state/globalState.js'
+import { currentPanoKeyState, currentCameraYawState } from '../../state/globalState.js'
+
 import { useRecoilValue, useSetRecoilState } from 'recoil'
 
-import { DefaultLoadingManager, Vector3 } from 'three'
+import { Vector3 } from 'three'
 
 import { OrbitControls, DeviceOrientationControls } from '@react-three/drei'
 import { useHotkeys } from 'react-hotkeys-hook'
 
 import PanoImage from './PanoImage.jsx'
-import Progress from '../Utility/Progress.jsx'
 
 import PanoGrid from './PanoGrid.jsx'
 import { useThree } from '@react-three/fiber'
@@ -31,31 +31,12 @@ export default function PanoViewer (props) {
   const currentPanoKey = useRecoilValue(currentPanoKeyState)
   const currentPanoData = useLiveQuery(() => localDB.panoInfoState.get(currentPanoKey), [currentPanoKey], null)
 
-  // Subscribe to global state changes and global state mutator
-  const setTextureLoading = useSetRecoilState(setTextureLoadingState)
-  const setTextureAllDone = useSetRecoilState(setTextureAllDoneState)
-  const setTextureFailed = useSetRecoilState(setTextureFailedState)
-
   // Update camera yaw in global state
   const setCurrentCameraYaw = useSetRecoilState(currentCameraYawState)
 
   /* eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => { updateSetting('invertOrbitControls', isMobile) }, [])
   /* eslint-enable react-hooks/exhaustive-deps */
-
-  // Setup monitoring of texture loading state
-  useEffect(() => {
-    DefaultLoadingManager.onStart = setTextureLoading
-    DefaultLoadingManager.onError = setTextureFailed
-    DefaultLoadingManager.onLoad = setTextureAllDone
-    DefaultLoadingManager.onProgress = (url, loaded, total) => {
-      if (loaded === total) {
-        setTextureAllDone()
-      } else {
-        setTextureLoading(url)
-      }
-    }
-  }, [setTextureAllDone, setTextureFailed, setTextureLoading])
 
   // Sphere rotation state
   const [xRotate, setXRotate] = useState(currentPanoData?.alignment[0])
@@ -106,7 +87,7 @@ export default function PanoViewer (props) {
 
   return (
     <React.StrictMode>
-      <color attach="background" args={['red']} />
+      {/* <color attach="background" args={['red']} /> */}
       <DeviceOrientationControls
         enabled={allowMotion && enableMotionControls}
         enablePan={false}
@@ -122,11 +103,9 @@ export default function PanoViewer (props) {
       />
       <ambientLight />
       <pointLight position={[10, 10, 10]} />
-      <Suspense fallback={<Progress />}>
-        <PanoImage xRotate={xRotate} yRotate={yRotate} zRotate={zRotate} />
-        {CONFIG.ENABLE_ALIGNMENT_GRID &&
-          <PanoGrid />}
-      </Suspense>
+      <PanoImage xRotate={xRotate} yRotate={yRotate} zRotate={zRotate} />
+      {CONFIG.ENABLE_ALIGNMENT_GRID &&
+        <PanoGrid />}
     </React.StrictMode>
   )
 }

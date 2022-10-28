@@ -51,8 +51,18 @@
       },
       {
         "key": "1S01_22",
-        "direction": 90,
+        "direction": 120,
         "type": "door"
+      },
+      {
+        "key": "1S01_01",
+        "direction": 150,
+        "type": "arrow"
+      },
+      {
+        "key": "1S02_02",
+        "direction": -150,
+        "type": "arrow"
       }
     ],
     "key": "1S01_10"
@@ -82,6 +92,11 @@
         "key": "1S01_10",
         "direction": 90,
         "type": "arrow"
+      },
+      {
+        "key": "1S02_02",
+        "direction": 180,
+        "type": "arrow"
       }
     ],
     "key": "1S02_12"
@@ -110,6 +125,11 @@
       {
         "key": "1S02_12",
         "direction": 90,
+        "type": "arrow"
+      },
+      {
+        "key": "1S03_02",
+        "direction": -150,
         "type": "arrow"
       }
     ],
@@ -611,6 +631,11 @@
         "key": "1N03_12",
         "direction": -90,
         "type": "arrow"
+      },
+      {
+        "key": "1N02_12",
+        "direction": 90,
+        "type": "arrow"
       }
     ],
     "key": "1N02_11"
@@ -618,9 +643,9 @@
   "1N02_12": {
     "label": "Boiler 2 East Side / Boiler 1 West Side",
     "alignment": [
-      0.2,
-      -3.9,
-      -41.4
+      -1.7,
+      -119,
+      -182
     ],
     "hotspots": [],
     "mapInfo": {
@@ -630,14 +655,36 @@
       "x": 438,
       "y": 129
     },
-    "exits": []
+    "exits": [
+      {
+        "key": "1N01_11",
+        "direction": 90,
+        "type": "arrow"
+      },
+      {
+        "key": "1S02_02",
+        "direction": 0,
+        "type": "arrow"
+      },
+      {
+        "key": "1N02_11",
+        "direction": -90,
+        "type": "arrow"
+      },
+      {
+        "key": "LN01_01",
+        "direction": 145,
+        "type": "stairsDown"
+      }
+    ],
+    "key": "1N02_12"
   },
   "1S02_02": {
     "label": "Boiler 2 East Side / Boiler 1 West Side",
     "alignment": [
-      0.2,
-      -3.9,
-      -41.4
+      -1.6,
+      -126,
+      -182
     ],
     "hotspots": [],
     "mapInfo": {
@@ -647,14 +694,26 @@
       "x": 438,
       "y": 201
     },
-    "exits": []
+    "exits": [
+      {
+        "key": "1S02_12",
+        "direction": 0,
+        "type": "arrow"
+      },
+      {
+        "key": "1N02_12",
+        "direction": 180,
+        "type": "arrow"
+      }
+    ],
+    "key": "1S02_02"
   },
   "1W02_11": {
     "label": "Water Room West",
     "alignment": [
-      0.2,
-      -3.9,
-      -41.4
+      -1.7,
+      -121,
+      -182
     ],
     "hotspots": [],
     "mapInfo": {
@@ -664,14 +723,21 @@
       "x": 526,
       "y": 42
     },
-    "exits": []
+    "exits": [
+      {
+        "key": "1W01_11",
+        "direction": 90,
+        "type": "arrow"
+      }
+    ],
+    "key": "1W02_11"
   },
   "1W01_11": {
     "label": "Water Room East",
     "alignment": [
-      0.2,
-      -3.9,
-      -41.4
+      -2,
+      -129,
+      -182
     ],
     "hotspots": [],
     "mapInfo": {
@@ -681,14 +747,26 @@
       "x": 460,
       "y": 42
     },
-    "exits": []
+    "exits": [
+      {
+        "key": "1N01_11",
+        "direction": 0,
+        "type": "door"
+      },
+      {
+        "key": "1W02_11",
+        "direction": -90,
+        "type": "arrow"
+      }
+    ],
+    "key": "1W01_11"
   },
   "LN01_01": {
     "label": "",
     "alignment": [
-      0.2,
-      -3.9,
-      -41.4
+      -0.5,
+      -112,
+      -182
     ],
     "hotspots": [],
     "mapInfo": {
@@ -698,14 +776,26 @@
       "x": 507,
       "y": 91
     },
-    "exits": []
+    "exits": [
+      {
+        "key": "LN01_02",
+        "direction": 90,
+        "type": "stairsDown"
+      },
+      {
+        "key": "1N02_12",
+        "direction": -80,
+        "type": "stairsUp"
+      }
+    ],
+    "key": "LN01_01"
   },
   "LN01_02": {
     "label": "",
     "alignment": [
-      0.2,
-      -3.9,
-      -41.4
+      -5,
+      -133,
+      -185
     ],
     "hotspots": [],
     "mapInfo": {
@@ -715,14 +805,31 @@
       "x": 543,
       "y": 91
     },
-    "exits": []
+    "exits": [
+      {
+        "key": "LN01_22",
+        "direction": 0,
+        "type": "arrow"
+      },
+      {
+        "key": "LN01_01",
+        "direction": -110,
+        "type": "stairsUp"
+      },
+      {
+        "key": "LN01_10",
+        "direction": -80,
+        "type": "arrow"
+      }
+    ],
+    "key": "LN01_02"
   },
   "LN01_22": {
     "label": "",
     "alignment": [
-      0.2,
-      -3.9,
-      -41.4
+      -1.4,
+      -123.5,
+      -182
     ],
     "hotspots": [],
     "mapInfo": {
@@ -732,14 +839,26 @@
       "x": 543,
       "y": 167
     },
-    "exits": []
+    "exits": [
+      {
+        "key": "LN01_02",
+        "direction": 180,
+        "type": "arrow"
+      },
+      {
+        "key": "LS01_11",
+        "direction": -20,
+        "type": "arrow"
+      }
+    ],
+    "key": "LN01_22"
   },
   "LS01_11": {
     "label": "",
     "alignment": [
-      0.2,
-      -3.9,
-      -41.4
+      -4.1,
+      -123.4,
+      -185.5
     ],
     "hotspots": [],
     "mapInfo": {
@@ -749,14 +868,26 @@
       "x": 507,
       "y": 239
     },
-    "exits": []
+    "exits": [
+      {
+        "key": "LS02_12",
+        "direction": -90,
+        "type": "arrow"
+      },
+      {
+        "key": "LN01_22",
+        "direction": 140,
+        "type": "arrow"
+      }
+    ],
+    "key": "LS01_11"
   },
   "LS02_12": {
     "label": "",
     "alignment": [
-      0.2,
-      -3.9,
-      -41.4
+      -1.6,
+      -113.2,
+      -181.7
     ],
     "hotspots": [],
     "mapInfo": {
@@ -766,14 +897,31 @@
       "x": 438,
       "y": 239
     },
-    "exits": []
+    "exits": [
+      {
+        "key": "LS01_11",
+        "direction": 90,
+        "type": "arrow"
+      },
+      {
+        "key": "LS02_10",
+        "direction": -90,
+        "type": "arrow"
+      },
+      {
+        "key": "LS02_01",
+        "direction": -150,
+        "type": "arrow"
+      }
+    ],
+    "key": "LS02_12"
   },
   "LS02_10": {
     "label": "",
     "alignment": [
-      0.2,
-      -3.9,
-      -41.4
+      -3.5,
+      -119,
+      -184
     ],
     "hotspots": [],
     "mapInfo": {
@@ -783,7 +931,24 @@
       "x": 366,
       "y": 239
     },
-    "exits": []
+    "exits": [
+      {
+        "key": "LS02_01",
+        "direction": 165,
+        "type": "arrow"
+      },
+      {
+        "key": "LS02_12",
+        "direction": 90,
+        "type": "arrow"
+      },
+      {
+        "key": "LS03_11",
+        "direction": -90,
+        "type": "arrow"
+      }
+    ],
+    "key": "LS02_10"
   },
   "LS03_11": {
     "label": "",
@@ -822,9 +987,9 @@
   "LS04_12": {
     "label": "",
     "alignment": [
-      0.2,
-      -3.9,
-      -41.4
+      -1.6,
+      -119.5,
+      -183
     ],
     "hotspots": [],
     "mapInfo": {
@@ -834,14 +999,31 @@
       "x": 234,
       "y": 239
     },
-    "exits": []
+    "exits": [
+      {
+        "key": "LS03_11",
+        "direction": 105,
+        "type": "arrow"
+      },
+      {
+        "key": "LS04_10",
+        "direction": -90,
+        "type": "arrow"
+      },
+      {
+        "key": "LN04_12",
+        "direction": -170,
+        "type": "arrow"
+      }
+    ],
+    "key": "LS04_12"
   },
   "LS04_10": {
     "label": "",
     "alignment": [
-      0.2,
-      -3.9,
-      -41.4
+      -1.3,
+      -126.7,
+      -182
     ],
     "hotspots": [],
     "mapInfo": {
@@ -851,14 +1033,31 @@
       "x": 162,
       "y": 239
     },
-    "exits": []
+    "exits": [
+      {
+        "key": "LN04_10",
+        "direction": 180,
+        "type": "arrow"
+      },
+      {
+        "key": "LS04_12",
+        "direction": 90,
+        "type": "arrow"
+      },
+      {
+        "key": "LS05_20",
+        "direction": -90,
+        "type": "arrow"
+      }
+    ],
+    "key": "LS04_10"
   },
   "LN04_10": {
     "label": "",
     "alignment": [
-      0.2,
-      -3.9,
-      -41.4
+      -1,
+      -137.9,
+      -181
     ],
     "hotspots": [],
     "mapInfo": {
@@ -868,14 +1067,31 @@
       "x": 162,
       "y": 129
     },
-    "exits": []
+    "exits": [
+      {
+        "key": "LS04_10",
+        "direction": 0,
+        "type": "arrow"
+      },
+      {
+        "key": "LN04_12",
+        "direction": 90,
+        "type": "arrow"
+      },
+      {
+        "key": "LN05_11",
+        "direction": -90,
+        "type": "arrow"
+      }
+    ],
+    "key": "LN04_10"
   },
   "LN04_12": {
     "label": "",
     "alignment": [
-      0.2,
-      -3.9,
-      -41.4
+      -3.8,
+      -110.5,
+      -183.8
     ],
     "hotspots": [],
     "mapInfo": {
@@ -885,14 +1101,26 @@
       "x": 234,
       "y": 129
     },
-    "exits": []
+    "exits": [
+      {
+        "key": "LS04_12",
+        "direction": 0,
+        "type": "arrow"
+      },
+      {
+        "key": "LN04_10",
+        "direction": -90,
+        "type": "arrow"
+      }
+    ],
+    "key": "LN04_12"
   },
   "LN05_11": {
     "label": "",
     "alignment": [
-      0.2,
-      -3.9,
-      -41.4
+      -1.3,
+      -106.8,
+      -182.6
     ],
     "hotspots": [],
     "mapInfo": {
@@ -902,14 +1130,26 @@
       "x": 91,
       "y": 129
     },
-    "exits": []
+    "exits": [
+      {
+        "key": "LS05_11",
+        "direction": 0,
+        "type": "arrow"
+      },
+      {
+        "key": "LN04_10",
+        "direction": 90,
+        "type": "arrow"
+      }
+    ],
+    "key": "LN05_11"
   },
   "LS05_11": {
     "label": "",
     "alignment": [
-      0.2,
       -3.9,
-      -41.4
+      -100.5,
+      -185.5
     ],
     "hotspots": [],
     "mapInfo": {
@@ -919,7 +1159,24 @@
       "x": 91,
       "y": 239
     },
-    "exits": []
+    "exits": [
+      {
+        "key": "LS04_10",
+        "direction": 90,
+        "type": "arrow"
+      },
+      {
+        "key": "LN05_11",
+        "direction": 180,
+        "type": "arrow"
+      },
+      {
+        "key": "LS05_10b",
+        "direction": -90,
+        "type": "arrow"
+      }
+    ],
+    "key": "LS05_11"
   },
   "LS05_10a": {
     "label": "",
@@ -941,9 +1198,9 @@
   "LS05_10b": {
     "label": "",
     "alignment": [
-      0.2,
-      -3.9,
-      -41.4
+      -1.3,
+      -115.5,
+      -182.6
     ],
     "hotspots": [],
     "mapInfo": {
@@ -953,14 +1210,26 @@
       "x": 55,
       "y": 239
     },
-    "exits": []
+    "exits": [
+      {
+        "key": "LS05_20",
+        "direction": 0,
+        "type": "door"
+      },
+      {
+        "key": "LS05_11",
+        "direction": 90,
+        "type": "arrow"
+      }
+    ],
+    "key": "LS05_10b"
   },
   "LS05_20": {
     "label": "",
     "alignment": [
-      0.2,
-      -3.9,
-      -41.4
+      2.2,
+      59.3,
+      -183
     ],
     "hotspots": [],
     "mapInfo": {
@@ -970,14 +1239,26 @@
       "x": 55,
       "y": 277
     },
-    "exits": []
+    "exits": [
+      {
+        "key": "LS05_10b",
+        "direction": 180,
+        "type": "door"
+      },
+      {
+        "key": "1S05_21",
+        "direction": 90,
+        "type": "stairsUp"
+      }
+    ],
+    "key": "LS05_20"
   },
   "1S05_21": {
     "label": "",
     "alignment": [
-      0.2,
-      -3.9,
-      -41.4
+      -1.3,
+      -141.6,
+      -181.3
     ],
     "hotspots": [],
     "mapInfo": {
@@ -987,14 +1268,31 @@
       "x": 91,
       "y": 277
     },
-    "exits": []
+    "exits": [
+      {
+        "key": "1S05_10",
+        "direction": -140,
+        "type": "arrow"
+      },
+      {
+        "key": "1S05_22",
+        "direction": 90,
+        "type": "arrow"
+      },
+      {
+        "key": "LS05_20",
+        "direction": -40,
+        "type": "stairsDown"
+      }
+    ],
+    "key": "1S05_21"
   },
   "1S05_10": {
     "label": "",
     "alignment": [
       0.2,
-      -3.9,
-      -41.4
+      -125.9,
+      -180.4
     ],
     "hotspots": [],
     "mapInfo": {
@@ -1004,7 +1302,14 @@
       "x": 55,
       "y": 239
     },
-    "exits": []
+    "exits": [
+      {
+        "key": "1S05_21",
+        "direction": 40,
+        "type": "arrow"
+      }
+    ],
+    "key": "1S05_10"
   },
   "1S05_00": {
     "label": "",
@@ -1128,6 +1433,11 @@
         "key": "1S04_20",
         "direction": 90,
         "type": "arrow"
+      },
+      {
+        "key": "1S05_21",
+        "direction": -90,
+        "type": "arrow"
       }
     ],
     "key": "1S05_22"
@@ -1164,9 +1474,9 @@
   "1S01_01": {
     "label": "Boiler 1 East Side",
     "alignment": [
-      0.2,
-      -3.9,
-      -41.4
+      -0.4,
+      -119.5,
+      -180
     ],
     "hotspots": [],
     "mapInfo": {
@@ -1176,7 +1486,19 @@
       "x": 507,
       "y": 201
     },
-    "exits": []
+    "exits": [
+      {
+        "key": "1S01_10",
+        "direction": -15,
+        "type": "arrow"
+      },
+      {
+        "key": "1N01_11",
+        "direction": 175,
+        "type": "arrow"
+      }
+    ],
+    "key": "1S01_01"
   },
   "1N01_11": {
     "label": "Boiler 1 NE Corner",
@@ -1193,15 +1515,41 @@
       "x": 507,
       "y": 129
     },
-    "exits": [],
+    "exits": [
+      {
+        "key": "1S01_22",
+        "direction": 8,
+        "type": "door"
+      },
+      {
+        "key": "1S01_01",
+        "direction": -10,
+        "type": "arrow"
+      },
+      {
+        "key": "1W01_11",
+        "direction": 180,
+        "type": "door"
+      },
+      {
+        "key": "1N02_12",
+        "direction": -90,
+        "type": "arrow"
+      },
+      {
+        "key": "1N01_00",
+        "direction": -130,
+        "type": "stairsUp"
+      }
+    ],
     "key": "1N01_11"
   },
   "1N01_00": {
     "label": "",
     "alignment": [
       0.2,
-      -3.9,
-      -41.4
+      -79,
+      -177.9
     ],
     "hotspots": [],
     "mapInfo": {
@@ -1211,7 +1559,14 @@
       "x": 471,
       "y": 91
     },
-    "exits": []
+    "exits": [
+      {
+        "key": "1N01_11",
+        "direction": 0,
+        "type": "arrow"
+      }
+    ],
+    "key": "1N01_00"
   },
   "2N02_02": {
     "label": "",
@@ -1655,9 +2010,9 @@
   "LN02_11": {
     "label": "",
     "alignment": [
-      0.2,
-      -3.9,
-      -41.4
+      -1.5,
+      -131,
+      -182
     ],
     "hotspots": [],
     "mapInfo": {
@@ -1667,14 +2022,31 @@
       "x": 402,
       "y": 129
     },
-    "exits": []
+    "exits": [
+      {
+        "key": "LN03_12",
+        "direction": -90,
+        "type": "arrow"
+      },
+      {
+        "key": "LN01_10",
+        "direction": 90,
+        "type": "arrow"
+      },
+      {
+        "key": "LS02_01",
+        "direction": 0,
+        "type": "arrow"
+      }
+    ],
+    "key": "LN02_11"
   },
   "LS02_01": {
     "label": "",
     "alignment": [
-      0.2,
-      -3.9,
-      -41.4
+      -1.6,
+      -120.8,
+      -181.7
     ],
     "hotspots": [],
     "mapInfo": {
@@ -1684,7 +2056,19 @@
       "x": 402,
       "y": 201
     },
-    "exits": []
+    "exits": [
+      {
+        "key": "LS02_10",
+        "direction": -15,
+        "type": "arrow"
+      },
+      {
+        "key": "LN02_11",
+        "direction": 180,
+        "type": "arrow"
+      }
+    ],
+    "key": "LS02_01"
   },
   "LS03_02": {
     "label": "",
@@ -1718,9 +2102,9 @@
   "LN01_10": {
     "label": "",
     "alignment": [
-      0.2,
-      -3.9,
-      -41.4
+      -2,
+      -122,
+      -182
     ],
     "hotspots": [],
     "mapInfo": {
@@ -1730,7 +2114,19 @@
       "x": 471,
       "y": 129
     },
-    "exits": []
+    "exits": [
+      {
+        "key": "LN01_02",
+        "direction": 100,
+        "type": "arrow"
+      },
+      {
+        "key": "LN02_11",
+        "direction": -90,
+        "type": "arrow"
+      }
+    ],
+    "key": "LN01_10"
   },
   "RS03_01a": {
     "label": "",

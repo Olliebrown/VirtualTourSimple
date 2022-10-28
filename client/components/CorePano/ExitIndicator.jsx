@@ -14,14 +14,38 @@ import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader.js'
 
 import { useSpring, animated } from '@react-spring/three'
 
+// Different object parameters
+const OBJ_DATA = {
+  arrow: {
+    filename: 'geom/arrow.obj',
+    rotation: [Math.PI / 2.0, 0, Math.PI]
+  },
+  teleport: {
+    filename: 'geom/teleport.obj',
+    rotation: [0, 0, 0]
+  },
+  door: {
+    filename: 'geom/door.obj',
+    rotation: [0, 0, 0]
+  },
+  stairsUp: {
+    filename: 'geom/stairsUp.obj',
+    rotation: [0, 0, 0]
+  },
+  stairsDown: {
+    filename: 'geom/stairsDown.obj',
+    rotation: [0, 0, 0]
+  }
+}
+
 // Various colors for the texture loading state
 const LOADING_COLOR = 0x777777
 const LOADED_COLOR = 0x156289
 const FAILED_COLOR = 0x883333
 
-export default function Arrow (props) {
+export default function ExitIndicator (props) {
   // Destructure props
-  const { height, distance, direction, destination, ...rest } = props
+  const { type, shift, height, distance, direction, alignment, destination, ...rest } = props
 
   const setCurrentPanoKey = useSetRecoilState(currentPanoKeyState)
 
@@ -57,8 +81,11 @@ export default function Arrow (props) {
     opacity: hovering ? 1.0 : 0.333
   })
 
-  // Load the arrow geometry and clone our own instance
-  const loadedObj = useLoader(OBJLoader, 'geom/arrow.obj')
+  // Pick the geometry
+  const objInfo = OBJ_DATA[type]
+
+  // Load the geometry and clone our own instance
+  const loadedObj = useLoader(OBJLoader, objInfo.filename)
   const { nodes } = useGraph(loadedObj.clone())
 
   let color = LOADING_COLOR
@@ -87,23 +114,34 @@ export default function Arrow (props) {
       onPointerEnter={() => setHovering(true)}
       onPointerLeave={() => setHovering(false)}
     >
-      <group position={[0, height, distance]} rotation-x={Math.PI / 2.0} rotation-z={Math.PI}>
+      <group
+        position={[shift, height, distance]}
+        rotation-x={objInfo.rotation[0]}
+        rotation-y={objInfo.rotation[1]}
+        rotation-z={objInfo.rotation[1]}
+      >
         {meshes}
       </group>
     </group>
   )
 }
 
-Arrow.propTypes = {
+ExitIndicator.propTypes = {
+  type: PropTypes.oneOf(['arrow', 'teleport', 'door', 'stairsUp', 'stairsDown']),
+  shift: PropTypes.number,
   height: PropTypes.number,
   distance: PropTypes.number,
   direction: PropTypes.number,
+  alignment: PropTypes.arrayOf(PropTypes.number),
   destination: PropTypes.string
 }
 
-Arrow.defaultProps = {
+ExitIndicator.defaultProps = {
+  type: 'arrow',
+  shift: 0,
   height: -2.5,
   distance: 5,
   direction: 0,
+  alignment: [0, 0, 0],
   destination: ''
 }
