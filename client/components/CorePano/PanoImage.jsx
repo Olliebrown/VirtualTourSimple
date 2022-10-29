@@ -92,12 +92,9 @@ export default function PanoImage (props) {
   const panoImage = useKTX2(`${CONFIG.PANO_IMAGE_PATH}/${currentPanoKey}_Left.ktx2`)
 
   // Build the exit arrows
-  const exitArrows = currentPanoData?.exits.map((exit) => {
+  const exitArrows = currentPanoData?.exits.map((exit, i) => {
     return (
-      <ExitIndicator
-        key={currentPanoKey + '-' + exit.key}
-        {...exit}
-      />
+      <ExitIndicator {...exit} key={`${exit.key}-${i}`} destination={exit.key} />
     )
   })
 

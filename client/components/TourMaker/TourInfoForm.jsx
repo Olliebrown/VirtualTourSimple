@@ -7,10 +7,10 @@ import localDB, { setCurrentPanoData } from '../../state/localDB.js'
 import { useLiveQuery } from 'dexie-react-hooks'
 import { getDataSubRoute } from '../../state/asyncDataHelper.js'
 
-import { Box, Button, Divider, MenuItem, Slider, Stack, TextField, Typography } from '@mui/material'
+import { Box, Button, Divider, MenuItem, Stack, TextField, Typography } from '@mui/material'
 
-import NumberField from '../Utility/NumberField.jsx'
 import PanoExitEdit from './PanoExitEdit.jsx'
+import AlignmentEditor from './AlignmentEditor.jsx'
 
 export default function TourInfoForm () {
   // Subscribe to pano DB changes
@@ -21,6 +21,10 @@ export default function TourInfoForm () {
   const [buildingNameChoices, setBuildingNameChoices] = React.useState([])
   const [buildingFloorChoices, setBuildingFloorChoices] = React.useState([])
   const [mapImageChoices, setMapImageChoices] = React.useState([])
+
+  // Which exit is currently being edited
+  const [editExit, setEditExit] = React.useState(-1)
+  const [alignExit, setAlignExit] = React.useState(-1)
 
   // Populate dropdown choices
   React.useEffect(() => {
@@ -99,91 +103,29 @@ export default function TourInfoForm () {
   }
 
   return (
-    <Box sx={{ overflowX: 'auto', overflowY: 'scroll', textAlign: 'left' }}>
-      <Stack spacing={2}>
-        <Typography variant="h6" component="div">Label and Orientation:</Typography>
+    <Box sx={{ textAlign: 'left' }}>
+      <Stack>
+        <Typography variant="h6" component="div" gutterBottom>Label and Orientation:</Typography>
         <TextField
           label="Room Label"
           variant="standard"
           value={currentPanoData?.label}
           onChange={e => updatePanoData({ label: e.target.value })}
+          sx={{ mb: 2 }}
         />
 
-        <Typography variant="body1">Orientation (X, Y, Z)</Typography>
-        <Stack direction="row" spacing={2}>
-          <Slider
-            size="small"
-            min={-190}
-            max={190}
-            step={0.1}
-            value={currentPanoData?.alignment[0] || 0}
-            onChange={(e, newVal) => updateAlignment(newVal, null, null)}
-            aria-label="X Rotation"
-            valueLabelDisplay="auto"
-          />
-          <NumberField
-            aria-label='X Rotation'
-            value={currentPanoData?.alignment[0]}
-            onChange={newVal => updateAlignment(newVal, null, null)}
-            variant='standard'
-            size="small"
-            hiddenLabel
-            sx={{ width: '15%' }}
-          />
-        </Stack>
+        <Typography variant="body1" gutterBottom>Orientation (X, Y, Z)</Typography>
+        <AlignmentEditor alignment={currentPanoData?.alignment || [0, 0, 0]} updateAlignment={updateAlignment} />
 
-        <Stack direction="row" spacing={2}>
-          <Slider
-            size="small"
-            min={-190}
-            max={190}
-            step={0.1}
-            value={currentPanoData?.alignment[1] || 0}
-            onChange={(e, newVal) => updateAlignment(null, newVal, null)}
-            aria-label="Y Rotation"
-            valueLabelDisplay="auto"
-          />
-          <NumberField
-            aria-label='Y Rotation'
-            value={currentPanoData?.alignment[1]}
-            onChange={newVal => updateAlignment(null, newVal, null)}
-            variant='standard'
-            size="small"
-            hiddenLabel
-            sx={{ width: '15%' }}
-          />
-        </Stack>
-
-        <Stack direction="row" spacing={2}>
-          <Slider
-            size="small"
-            min={-190}
-            max={190}
-            step={0.1}
-            value={currentPanoData?.alignment[2] || 0}
-            onChange={(e, newVal) => updateAlignment(null, null, newVal)}
-            aria-label="Z Rotation"
-            valueLabelDisplay="auto"
-          />
-          <NumberField
-            aria-label='Z Rotation'
-            value={currentPanoData?.alignment[2]}
-            onChange={newVal => updateAlignment(null, null, newVal)}
-            variant='standard'
-            size="small"
-            hiddenLabel
-            sx={{ width: '15%' }}
-          />
-        </Stack>
-
-        <Divider orientation="horizontal" />
-        <Typography variant="h6" component="div">Mini-map Info:</Typography>
+        <Divider orientation="horizontal" sx={{ my: 2 }} />
+        <Typography variant="h6" component="div" gutterBottom>Mini-map Info:</Typography>
         <TextField
           label="Building Name"
           variant="standard"
           value={buildingNameChoices.length > 0 ? currentPanoData?.mapInfo.building || '' : ''}
           onChange={e => updateMapInfo({ building: e.target.value })}
           select
+          sx={{ mb: 2 }}
         >
           {buildingNameChoices.map(name => (<MenuItem key={name} value={name}>{name}</MenuItem>))}
         </TextField>
@@ -193,6 +135,7 @@ export default function TourInfoForm () {
           value={buildingFloorChoices.length > 0 ? currentPanoData?.mapInfo.floor || '' : ''}
           onChange={e => updateMapInfo({ floor: e.target.value })}
           select
+          sx={{ mb: 2 }}
         >
           {buildingFloorChoices.map(floor => (<MenuItem key={floor} value={floor}>{floor}</MenuItem>))}
         </TextField>
@@ -202,22 +145,29 @@ export default function TourInfoForm () {
           value={mapImageChoices.length > 0 ? currentPanoData?.mapInfo.image || '' : ''}
           onChange={e => updateMapInfo({ image: e.target.value })}
           select
+          sx={{ mb: 2 }}
         >
           {mapImageChoices.map(image => (<MenuItem key={image} value={image}>{image}</MenuItem>))}
         </TextField>
 
-        <Divider orientation="horizontal" />
-        <Typography variant="h6" component="div">Room Exits:</Typography>
-        {currentPanoData?.exits.map((exit, i) => (
-          <PanoExitEdit
-            key={exit.key}
-            exit={exit}
-            currentPanoKey={currentPanoKey}
-            onChange={newExit => updateExit(i, newExit) }
-            onDelete={() => deleteExit(i)}
-          />
-        ))}
-        <Button onClick={addExit} fullWidth>New Exit</Button>
+        <Divider orientation="horizontal" sx={{ mb: 2 }} />
+        <Typography variant="h6" component="div" gutterBottom>Room Exits:</Typography>
+        <Box sx={{ p: 1, overflowY: 'auto', maxHeight: '400px' }}>
+          {currentPanoData?.exits.map((exit, i) => (
+            <PanoExitEdit
+              key={exit.key}
+              exit={exit}
+              currentPanoKey={currentPanoKey}
+              enableEdit={editExit === i}
+              enableAlign={alignExit === i}
+              onChange={newExit => updateExit(i, newExit) }
+              onDelete={() => deleteExit(i)}
+              onEdit={() => { setAlignExit(-1); setEditExit(editExit === i ? -1 : i) }}
+              onAlign={() => { setEditExit(-1); setAlignExit(alignExit === i ? -1 : i) }}
+            />
+          ))}
+          <Button onClick={addExit} fullWidth sx={{ mb: 2 }}>New Exit</Button>
+        </Box>
       </Stack>
     </Box>
   )

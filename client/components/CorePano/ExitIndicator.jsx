@@ -116,9 +116,9 @@ export default function ExitIndicator (props) {
     >
       <group
         position={[shift, height, distance]}
-        rotation-x={objInfo.rotation[0]}
-        rotation-y={objInfo.rotation[1]}
-        rotation-z={objInfo.rotation[1]}
+        rotation-x={objInfo.rotation[0] + (alignment[0] / 180 * Math.PI)}
+        rotation-y={objInfo.rotation[1] + (alignment[1] / 180 * Math.PI)}
+        rotation-z={objInfo.rotation[2] + (alignment[2] / 180 * Math.PI)}
       >
         {meshes}
       </group>
