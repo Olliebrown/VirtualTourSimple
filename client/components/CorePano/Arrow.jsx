@@ -1,14 +1,18 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 
+import CONFIG from '../../config.js'
+
+import { currentPanoKeyState, setTextureLoadingState, textureStatusState } from '../../state/globalState.js'
+import { useRecoilValue, useSetRecoilState } from 'recoil'
+
 import { useLoader, useGraph } from '@react-three/fiber'
-import { MathUtils, TextureLoader } from 'three'
+import { useKTX2 } from '@react-three/drei'
+import { MathUtils } from 'three'
+
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader.js'
 
 import { useSpring, animated } from '@react-spring/three'
-
-import HEATING_PLANT_IMAGES from '../heatingPlantImages.js'
-import useStore from '../../state/useStore.js'
 
 // Various colors for the texture loading state
 const LOADING_COLOR = 0x777777
@@ -19,24 +23,32 @@ export default function Arrow (props) {
   // Destructure props
   const { height, distance, direction, destination, ...rest } = props
 
+  const setCurrentPanoKey = useSetRecoilState(currentPanoKeyState)
+
   // Global texture loader status and pano image state
-  const { setPano, loadingStatus } = useStore(state => state)
+  const loadingStatus = useRecoilValue(textureStatusState)
+  const setTextureLoading = useSetRecoilState(setTextureLoadingState)
+  const imageLoadingStatus = loadingStatus[`${CONFIG.PANO_IMAGE_PATH}/${destination}_Left.ktx2`]
+
+  // Create a valid texture filename
+  const textureFile = (
+    destination !== ''
+      ? `${CONFIG.PANO_IMAGE_PATH}/${destination}_Left.ktx2`
+      : `${CONFIG.PANO_IMAGE_PATH}/1S01_22_Left.ktx2`
+  )
+
+  // Start loading (harmless if already loaded)
+  setTextureLoading(textureFile)
+  useKTX2(textureFile)
 
   // Track hovering state
   const [hovering, setHovering] = React.useState(false)
 
-  // Extract status for this specific image
-  const imageURL = HEATING_PLANT_IMAGES[destination]?.filename
-  const imageLoadingStatus = loadingStatus[imageURL || 'unknown']
-
-  // Lookup the texture needed for the destination and get it pre-loading
-  useEffect(() => {
-    useLoader.preload(TextureLoader, HEATING_PLANT_IMAGES[destination]?.filename)
-  }, [destination])
-
   // Click callback function
   const onClick = () => {
-    if (destination) { setPano(destination) }
+    if (destination) {
+      setCurrentPanoKey(destination)
+    }
   }
 
   // Animated values

@@ -1,14 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import localDB, { updateSetting } from '../../state/localDB.js'
+import { useLiveQuery } from 'dexie-react-hooks'
+
 import { useLoader, useGraph } from '@react-three/fiber'
 
 import { MathUtils } from 'three'
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader.js'
 
 import { useSpring, animated } from '@react-spring/three'
-
-import useStore from '../../state/useStore.js'
 
 // Various colors for the different types of hot spots
 const INFO_COLOR = 0xCC7178
@@ -22,25 +23,19 @@ export default function InfoHotSpot (props) {
   const [hovering, setHovering] = React.useState(false)
 
   // Subscribe to pieces of global state
-  const { setLastHotSpotHref, setLastHotSpotTitle, setHotSpotModalOpen, setMediaPlaying, videoPlaying } = useStore(state => ({
-    setLastHotSpotHref: state.setLastHotSpotHref,
-    setLastHotSpotTitle: state.setLastHotSpotTitle,
-    setHotSpotModalOpen: state.setHotSpotModalOpen,
-    setMediaPlaying: state.setMediaPlaying,
-    videoPlaying: state.videoPlaying
-  }))
+  const mediaPlaying = useLiveQuery(() => localDB.settings.get('mediaPlaying'))?.value || false
 
   // Click callback function
-  const onClick = () => {
+  const onClick = React.useCallback(() => {
     console.log(`Hot-spot "${title}" clicked`)
     if (playButton) {
-      setMediaPlaying(true)
+      updateSetting('mediaPlaying', true)
     } else {
-      setLastHotSpotHref(json)
-      setLastHotSpotTitle(title)
-      setHotSpotModalOpen(true)
+      updateSetting('lastHotSpotHref', json)
+      updateSetting('lastHotSpotTitle', title)
+      updateSetting('hotSpotModalOpen', true)
     }
-  }
+  }, [json, playButton, title])
 
   // Load the hot spot geometry and clone our own instance
   const loadedObj = useLoader(OBJLoader, 'geom/icoSphere.obj')
@@ -60,7 +55,7 @@ export default function InfoHotSpot (props) {
   ))
 
   // Don't render while the video is playing
-  if (playButton && videoPlaying) {
+  if (playButton && mediaPlaying) {
     return null
   }
 

@@ -1,68 +1,54 @@
 import CONFIG from '../../config.js'
 
-import React, { Suspense, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 
-import { DefaultLoadingManager, Vector3 } from 'three'
+import localDB, { updateSetting } from '../../state/localDB.js'
+import { useLiveQuery } from 'dexie-react-hooks'
+
+import { currentPanoKeyState, currentCameraYawState } from '../../state/globalState.js'
+
+import { useRecoilValue, useSetRecoilState } from 'recoil'
+
+import { Vector3 } from 'three'
 
 import { OrbitControls, DeviceOrientationControls } from '@react-three/drei'
 import { useHotkeys } from 'react-hotkeys-hook'
 
-import useStore from '../../state/useStore.js'
-
 import PanoImage from './PanoImage.jsx'
-import Progress from '../Utility/Progress.jsx'
 
-import HEATING_PLANT_IMAGE_LIST from '../heatingPlantImages.js'
 import PanoGrid from './PanoGrid.jsx'
 import { useThree } from '@react-three/fiber'
 
 export default function PanoViewer (props) {
   const { isMobile, allowMotion } = props
 
-  // Access to the global state store
-  const {
-    currentPano, increasePanoIndex, decreasePanoIndex,
-    loadingBusy, loadingCompleted, loadingFailed, setCurrentCameraYaw,
-    enableMotionControls, invertOrbitControls, toggleInvertOrbitControls
-  } = useStore(state => state)
+  // Subscribe to changes in global state
+  const enableMotionControls = useLiveQuery(() => localDB.settings.get('enableMotionControls'))?.value || false
+  const invertOrbitControls = useLiveQuery(() => localDB.settings.get('invertOrbitControls'))?.value || false
+
+  // Subscribe to pano DB changes
+  const currentPanoKey = useRecoilValue(currentPanoKeyState)
+  const currentPanoData = useLiveQuery(() => localDB.panoInfoState.get(currentPanoKey), [currentPanoKey], null)
+
+  // Update camera yaw in global state
+  const setCurrentCameraYaw = useSetRecoilState(currentCameraYawState)
 
   /* eslint-disable react-hooks/exhaustive-deps */
-  useEffect(() => {
-    if (isMobile) {
-      toggleInvertOrbitControls()
-    }
-  }, [])
-  /* eslint-enable react-hooks/rules-of-hooks */
-
-  // Setup monitoring of texture loading state
-  useEffect(() => {
-    DefaultLoadingManager.onStart = loadingBusy
-    DefaultLoadingManager.onError = loadingFailed
-    DefaultLoadingManager.onLoad = () => { loadingCompleted('*') }
-    DefaultLoadingManager.onProgress = (url, number, total) => {
-      if (number === total) {
-        loadingCompleted(url)
-      } else {
-        loadingBusy(url)
-      }
-    }
-  }, [loadingBusy, loadingCompleted, loadingFailed])
-
-  // Load the pano image data
-  const currentPanoData = HEATING_PLANT_IMAGE_LIST[currentPano]
+  useEffect(() => { updateSetting('invertOrbitControls', isMobile) }, [])
+  /* eslint-enable react-hooks/exhaustive-deps */
 
   // Sphere rotation state
-  const [xRotate, setXRotate] = useState(currentPanoData.xRotate)
-  const [yRotate, setYRotate] = useState(currentPanoData.yRotate)
-  const [zRotate, setZRotate] = useState(currentPanoData.zRotate)
+  const [xRotate, setXRotate] = useState(currentPanoData?.alignment[0])
+  const [yRotate, setYRotate] = useState(currentPanoData?.alignment[1])
+  const [zRotate, setZRotate] = useState(currentPanoData?.alignment[2])
 
   // Ensure rotate values are synced with the loaded pano data
   useEffect(() => {
-    setXRotate(currentPanoData.xRotate)
-    setYRotate(currentPanoData.yRotate)
-    setZRotate(currentPanoData.zRotate)
-  }, [currentPanoData])
+    setXRotate(currentPanoData?.alignment[0])
+    setYRotate(currentPanoData?.alignment[1])
+    setZRotate(currentPanoData?.alignment[2])
+  }, [currentPanoData?.alignment])
 
   // Setup some hotkeys to adjust the sphere offset rotation
   /* eslint-disable react-hooks/rules-of-hooks */
@@ -88,13 +74,7 @@ export default function PanoViewer (props) {
     useHotkeys('ctrl+shift+alt+;', () => { setZRotate(zRotate - 0.02) }, {}, [zRotate])
     useHotkeys('ctrl+shift+alt+\'', () => { setZRotate(zRotate + 0.02) }, {}, [zRotate])
 
-    useHotkeys('ctrl+/', () => { console.log(`Settings: ${currentPano}, <${xRotate}, ${yRotate}, ${zRotate}>`) }, {}, [xRotate, yRotate, zRotate])
-  }
-
-  // Hotkeys to change current pano image
-  if (CONFIG.ENABLE_INDEX_ADVANCING_HOTKEYS) {
-    useHotkeys('ctrl+.', () => { increasePanoIndex() }, {}, [increasePanoIndex])
-    useHotkeys('ctrl+,', () => { decreasePanoIndex() }, {}, [decreasePanoIndex])
+    useHotkeys('ctrl+/', () => { console.log(`Settings: ${currentPanoKey}, <${xRotate}, ${yRotate}, ${zRotate}>`) }, {}, [xRotate, yRotate, zRotate])
   }
   /* eslint-enable react-hooks/rules-of-hooks */
 
@@ -107,7 +87,7 @@ export default function PanoViewer (props) {
 
   return (
     <React.StrictMode>
-      <color attach="background" args={['red']} />
+      {/* <color attach="background" args={['red']} /> */}
       <DeviceOrientationControls
         enabled={allowMotion && enableMotionControls}
         enablePan={false}
@@ -123,11 +103,9 @@ export default function PanoViewer (props) {
       />
       <ambientLight />
       <pointLight position={[10, 10, 10]} />
-      <Suspense fallback={<Progress />}>
-        <PanoImage xRotate={xRotate} yRotate={yRotate} zRotate={zRotate} />
-        {CONFIG.ENABLE_ALIGNMENT_GRID &&
-          <PanoGrid />}
-      </Suspense>
+      <PanoImage xRotate={xRotate} yRotate={yRotate} zRotate={zRotate} />
+      {CONFIG.ENABLE_ALIGNMENT_GRID &&
+        <PanoGrid />}
     </React.StrictMode>
   )
 }

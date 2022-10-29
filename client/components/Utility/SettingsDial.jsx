@@ -1,16 +1,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import SpeedDial from '@mui/material/SpeedDial'
-import SpeedDialIcon from '@mui/material/SpeedDialIcon'
-import SpeedDialAction from '@mui/material/SpeedDialAction'
-import Icon from '@mui/material/Icon'
+import localDB, { updateSetting } from '../../state/localDB.js'
+import { useLiveQuery } from 'dexie-react-hooks'
 
-import useStore from '../../state/useStore.js'
+import { SpeedDial, SpeedDialIcon, SpeedDialAction, Icon } from '@mui/material'
 
 export default function SettingsDial (props) {
   const { allowMotion } = props
-  const { toggleMotionControls, toggleInvertOrbitControls } = useStore(state => (state))
+
+  // Subscribe to changes in global state
+  const enableMotionControls = useLiveQuery(() => localDB.settings.get('enableMotionControls'))?.value || false
+  const invertOrbitControls = useLiveQuery(() => localDB.settings.get('invertOrbitControls'))?.value || false
 
   return (
     <SpeedDial
@@ -22,15 +23,15 @@ export default function SettingsDial (props) {
         tooltipOpen
         icon={<Icon>camera_flip</Icon>}
         tooltipTitle={'Invert'}
-        onClick={toggleInvertOrbitControls}
+        onClick={() => updateSetting('invertOrbitControls', !invertOrbitControls)}
       />
       {allowMotion &&
         <SpeedDialAction
           tooltipOpen
           icon={<Icon>explore</Icon>}
           tooltipTitle={'Gyro'}
-          onClick={toggleMotionControls}
-        />}
+          onClick={() => updateSetting('enableMotionControls', !enableMotionControls)}
+          />}
     </SpeedDial>
   )
 }

@@ -1,17 +1,23 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { useTexture } from '@react-three/drei'
+import CONFIG from '../../config.js'
+
+import localDB, { updateSetting } from '../../state/localDB.js'
+import { useLiveQuery } from 'dexie-react-hooks'
+
+import { useRecoilValue, useSetRecoilState } from 'recoil'
+import { currentPanoKeyState, setTextureLoadingState } from '../../state/globalState.js'
+
+import { useKTX2 } from '@react-three/drei'
 import { Euler, MathUtils, BackSide } from 'three'
 
-import useStore from '../../state/useStore.js'
-
 import CutoutMaterial from '../../shaders/CutoutShader.js'
-import Arrow from './Arrow.jsx'
-import HEATING_PLANT_IMAGE_LIST from '../heatingPlantImages.js'
 import InfoHotSpot from '../HotSpots/InfoHotSpot.jsx'
 import AudioHotSpot from '../HotSpots/AudioHotSpot.jsx'
+import ExitIndicator from './ExitIndicator.jsx'
 
+// Path to universal basis transcoder WASM module
 const NO_CROP = {
   x: 0.0, y: 0.0, width: 0.0, height: 0.0
 }
@@ -19,12 +25,12 @@ const NO_CROP = {
 export default function PanoImage (props) {
   const { xRotate, yRotate, zRotate } = props
 
-  // Get the global state of the pano image
-  const { currentPano, videoPlaying, setMediaPlaying } = useStore(state => ({
-    currentPano: state.currentPano,
-    videoPlaying: state.mediaPlaying,
-    setMediaPlaying: state.setMediaPlaying
-  }))
+  // Subscribe to changes in needed global state
+  const mediaPlaying = useLiveQuery(() => localDB.settings.get('mediaPlaying'))?.value || false
+
+  // Subscribe to pano DB changes
+  const currentPanoKey = useRecoilValue(currentPanoKeyState)
+  const currentPanoData = useLiveQuery(() => localDB.panoInfoState.get(currentPanoKey), [currentPanoKey], null)
 
   // Load the pano image or video
   const [panoVideo, setPanoVideo] = React.useState(null)
@@ -32,28 +38,27 @@ export default function PanoImage (props) {
 
   // Possibly load a video
   React.useEffect(() => {
-    const currentPanoData = HEATING_PLANT_IMAGE_LIST[currentPano]
-    if (currentPanoData.video) {
+    if (currentPanoData?.video) {
       // Make a video HTML tag if we don't have one
       if (panoVideo === null) {
         // Create video HTML tag to stream media
         const vid = document.createElement('video')
         vid.crossOrigin = 'anonymous'
-        vid.src = currentPanoData.video.href
-        vid.loop = !!currentPanoData.video.loop
+        vid.src = currentPanoData?.video.href
+        vid.loop = !!currentPanoData?.video.loop
         setPanoVideo(vid)
 
         // Setup to stop showing video once its done
-        vid.onended = () => setMediaPlaying(false)
+        vid.onended = () => updateSetting('mediaPlaying', false)
       }
 
       // Update video state and crop box
-      if (currentPanoData.videoCrop) {
+      if (currentPanoData?.videoCrop) {
         setVideoCrop([
-          currentPanoData.videoCrop.x,
-          currentPanoData.videoCrop.y,
-          currentPanoData.videoCrop.x + currentPanoData.videoCrop.width,
-          currentPanoData.videoCrop.y + currentPanoData.videoCrop.height
+          currentPanoData?.videoCrop.x,
+          currentPanoData?.videoCrop.y,
+          currentPanoData?.videoCrop.x + currentPanoData?.videoCrop.width,
+          currentPanoData?.videoCrop.y + currentPanoData?.videoCrop.height
         ])
       }
 
@@ -66,39 +71,39 @@ export default function PanoImage (props) {
         }
 
         // Reset video state
-        setMediaPlaying(false)
+        updateSetting('mediaPlaying', false)
         setVideoCrop(NO_CROP)
       }
     } else {
       // No video to load so ensure video state is back to default
-      setMediaPlaying(false)
+      updateSetting('mediaPlaying', false)
       setVideoCrop(NO_CROP)
     }
-  }, [currentPano, panoVideo, setMediaPlaying])
+  }, [currentPanoData?.video, currentPanoData?.videoCrop, panoVideo])
 
   // Respond to a change in the video playing state
   React.useEffect(() => {
-    if (videoPlaying) { panoVideo?.play() }
-  }, [panoVideo, videoPlaying])
+    if (mediaPlaying) { panoVideo?.play() }
+  }, [mediaPlaying, panoVideo])
 
   // Load the base image texture
-  const currentPanoData = HEATING_PLANT_IMAGE_LIST[currentPano]
-  const panoImage = useTexture(currentPanoData.filename)
+  const setTextureLoading = useSetRecoilState(setTextureLoadingState)
+  setTextureLoading(`${CONFIG.PANO_IMAGE_PATH}/${currentPanoKey}_Left.ktx2`)
+  const panoImage = useKTX2(`${CONFIG.PANO_IMAGE_PATH}/${currentPanoKey}_Left.ktx2`)
 
   // Build the exit arrows
   const exitArrows = currentPanoData?.exits.map((exit) => {
     return (
-      <Arrow
-        key={currentPano + '-' + exit.name}
-        direction={exit.direction}
-        destination={exit.name}
+      <ExitIndicator
+        key={currentPanoKey + '-' + exit.key}
+        {...exit}
       />
     )
   })
 
   // Build the info hot spots
   const hotSpots = currentPanoData?.hotSpots?.map((info) => {
-    const key = `${currentPano}-${info.id}`
+    const key = `${currentPanoKey}-${info.id}`
     switch (info.type) {
       case 'audio': return (<AudioHotSpot key={key} {...info} />)
       case 'video': return (<InfoHotSpot key={key} {...info} />)
@@ -108,7 +113,7 @@ export default function PanoImage (props) {
   })
 
   // Is there a video to show and is it playing
-  const showVideo = !!panoVideo && videoPlaying
+  const showVideo = !!panoVideo && mediaPlaying
 
   return (
     <>

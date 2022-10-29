@@ -6,6 +6,8 @@ const CutoutShaderInfo = {
     panoImage: undefined,
     panoVideo: undefined,
     enableVideo: false,
+    vidGamma: 1.0,
+    imgGamma: 1.8,
     cropBox: [0.0, 0.0, 1.0, 1.0]
   },
 
@@ -20,6 +22,9 @@ const CutoutShaderInfo = {
 
   fragmentShader: /* glsl */`
     varying vec2 vUv;
+
+    uniform float vidGamma;
+    uniform float imgGamma;
 
     uniform vec4 cropBox;
     uniform sampler2D panoImage;
@@ -40,10 +45,13 @@ const CutoutShaderInfo = {
           (vUv.x - cropBox.x) / (cropBox.z - cropBox.x),
           1.0 - ((1.0 - vUv.y) - cropBox.y) / (cropBox.w - cropBox.y)
         );
-        gl_FragColor = vec4(texture2D(panoVideo, vidUV).rgb, 1.0);
+
+        vec3 vidColor = texture2D(panoVideo, vidUV).rgb;
+        gl_FragColor = vec4(pow(vidColor, vec3(1.0/vidGamma)), 1.0);
       } else {
         // Show image outside the box
-        gl_FragColor = vec4(texture2D(panoImage, vUv).rgb, 1.0);
+        vec3 texColor = texture2D(panoImage, vec2(1.0 - vUv.x, vUv.y)).rgb;
+        gl_FragColor = vec4(pow(texColor, vec3(1.0/imgGamma)), 1.0);
       }
       #include <tonemapping_fragment>
       #include <encodings_fragment>

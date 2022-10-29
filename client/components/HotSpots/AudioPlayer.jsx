@@ -3,7 +3,8 @@ import PropTypes from 'prop-types'
 
 import Axios from 'axios'
 
-import useStore from '../../state/useStore.js'
+import localDB, { updateSetting } from '../../state/localDB.js'
+import { useLiveQuery } from 'dexie-react-hooks'
 
 import { Box, IconButton, Typography } from '@mui/material'
 import {
@@ -20,11 +21,7 @@ export default function AudioPlayer (props) {
   const { hotSpotAudio } = props
 
   // Subscribe to pieces of global state
-  const { setMediaPlaying, mediaPlaying } = useStore(state => ({
-    lastHotSpotHref: state.lastHotSpotHref,
-    setMediaPlaying: state.setMediaPlaying,
-    mediaPlaying: state.mediaPlaying
-  }))
+  const mediaPlaying = useLiveQuery(() => localDB.settings.get('mediaPlaying'))?.value || false
 
   // Track the loaded audio and its playback in local state
   const [curAudioObj, setCurAudioObj] = React.useState(null)
@@ -46,14 +43,11 @@ export default function AudioPlayer (props) {
   // Load audio using howler
   React.useEffect(() => {
     // Are there audio sounds to examine?
-    if (!curAudioObj && Array.isArray(hotSpotAudio) && hotSpotAudio.length > 0) {
-      // Focus on just first audio clip for now
-      const audioInfo = hotSpotAudio[0]
-
+    if (!curAudioObj && hotSpotAudio?.src) {
       // Try to read subtitle file
       const readSubtitles = async () => {
         try {
-          const response = await Axios.get(`${audioInfo.src}.srt`)
+          const response = await Axios.get(`${hotSpotAudio.src}.srt`)
           const newSubtitles = srtParser.fromVtt(response.data, 's')
           console.log(newSubtitles)
           setSubtitles(newSubtitles)
@@ -69,7 +63,7 @@ export default function AudioPlayer (props) {
       // Load the audio for playback using howler.js
       const newSound = new Howl({
         html5: true,
-        src: [`${audioInfo.src}.mp3`],
+        src: [`${hotSpotAudio.src}.mp3`],
 
         // Report any audio errors to the console
         onloaderror: (err) => console.error('Failed to load audio:', err),
@@ -80,11 +74,11 @@ export default function AudioPlayer (props) {
       newSound.on('play', () => {
         setSubtitleIndex(0)
         onPlayUpdate(newSound)
-        setMediaPlaying(true)
+        updateSetting('mediaPlaying', true)
       })
 
       newSound.on('end', () => {
-        setMediaPlaying(false)
+        updateSetting('mediaPlaying', false)
       })
 
       // Update state
@@ -94,18 +88,18 @@ export default function AudioPlayer (props) {
     return () => {
       // Be sure to unload the audio (so it stops playing) when this unmounts
       curAudioObj?.unload()
-      setMediaPlaying(false)
+      updateSetting('mediaPlaying', false)
     }
-  }, [curAudioObj, hotSpotAudio, onPlayUpdate, setMediaPlaying])
+  }, [curAudioObj, hotSpotAudio?.src, onPlayUpdate])
 
   // Play/pause management
   const onPlayPause = () => {
     if (mediaPlaying) {
       curAudioObj.pause()
-      setMediaPlaying(false)
+      updateSetting('mediaPlaying', false)
     } else {
       curAudioObj.play()
-      setMediaPlaying(true)
+      updateSetting('mediaPlaying', true)
     }
   }
 
@@ -161,13 +155,11 @@ export default function AudioPlayer (props) {
 }
 
 AudioPlayer.propTypes = {
-  hotSpotAudio: PropTypes.arrayOf(
-    PropTypes.shape({
-      src: PropTypes.string.isRequired
-    })
-  )
+  hotSpotAudio: PropTypes.shape({
+    src: PropTypes.string.isRequired
+  })
 }
 
 AudioPlayer.defaultProps = {
-  hotSpotAudio: []
+  hotSpotAudio: null
 }
