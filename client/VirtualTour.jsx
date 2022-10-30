@@ -6,7 +6,6 @@ import PropTypes from 'prop-types'
 
 // eslint-disable-next-line camelcase
 import { useRecoilBridgeAcrossReactRoots_UNSTABLE, useSetRecoilState } from 'recoil'
-
 import { CssBaseline } from '@mui/material'
 
 import PanoViewer from './components/CorePano/PanoViewer.jsx'
@@ -17,6 +16,7 @@ import TourInfoEditor from './components/TourMaker/TourInfoEditor.jsx'
 
 import { Canvas } from '@react-three/fiber'
 import { Loader, useProgress } from '@react-three/drei'
+
 import { setTextureAllDoneState, setTextureDoneState, setTextureFailedState } from './state/globalState.js'
 
 export default function VirtualTour (props) {
@@ -59,6 +59,7 @@ export default function VirtualTour (props) {
       {/* Main three.js fiber canvas */}
       <Canvas linear camera={{ position: [0, 0, 0.1] }}>
         <RecoilBridge>
+          {/* Panorama viewer/tour */}
           <PanoViewer isMobile={isMobile} allowMotion={allowMotion} />
         </RecoilBridge>
       </Canvas>

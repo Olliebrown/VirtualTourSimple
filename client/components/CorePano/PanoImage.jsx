@@ -141,7 +141,6 @@ export default function PanoImage (props) {
           {showVideo && <videoTexture attach="panoVideo" args={[panoVideo]}/>}
           <primitive attach="panoImage" object={panoImage || null}/>
         </cutoutMaterial>
-
       </mesh>
     </>
   )

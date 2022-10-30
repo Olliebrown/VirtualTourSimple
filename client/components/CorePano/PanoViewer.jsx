@@ -86,7 +86,7 @@ export default function PanoViewer (props) {
   }
 
   return (
-    <React.StrictMode>
+    <>
       {/* <color attach="background" args={['red']} /> */}
       <DeviceOrientationControls
         enabled={allowMotion && enableMotionControls}
@@ -104,9 +104,8 @@ export default function PanoViewer (props) {
       <ambientLight />
       <pointLight position={[10, 10, 10]} />
       <PanoImage xRotate={xRotate} yRotate={yRotate} zRotate={zRotate} />
-      {CONFIG.ENABLE_ALIGNMENT_GRID &&
-        <PanoGrid />}
-    </React.StrictMode>
+      {CONFIG.ENABLE_ALIGNMENT_GRID && <PanoGrid />}
+    </>
   )
 }
 
