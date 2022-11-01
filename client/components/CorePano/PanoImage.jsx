@@ -17,7 +17,6 @@ import InfoHotSpot from '../HotSpots/InfoHotSpot.jsx'
 import AudioHotSpot from '../HotSpots/AudioHotSpot.jsx'
 import ExitIndicator from './ExitIndicator.jsx'
 
-// Path to universal basis transcoder WASM module
 const NO_CROP = {
   x: 0.0, y: 0.0, width: 0.0, height: 0.0
 }
