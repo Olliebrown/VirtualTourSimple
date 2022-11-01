@@ -10,12 +10,9 @@ localDB.version(1).stores({
   settings: 'key'
 })
 
-// Ensure DB is initialized form JSON
+// Ensure DB is synchronized to the JSON every time
 Object.keys(heatingPlantTourInfo).forEach(async panoKey => {
-  const current = await localDB.panoInfoState.get(panoKey)
-  if (!current) {
-    localDB.panoInfoState.put({ key: panoKey, ...heatingPlantTourInfo[panoKey] })
-  }
+  localDB.panoInfoState.put({ key: panoKey, ...heatingPlantTourInfo[panoKey] })
 })
 
 // Synchronize local cached data and server data
