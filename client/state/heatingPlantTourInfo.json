@@ -24,7 +24,7 @@
         "height": -1,
         "alignment": [
           0,
-          140,
+          90,
           0
         ]
       },
@@ -36,7 +36,7 @@
         "height": -1,
         "alignment": [
           0,
-          181.8,
+          90,
           0
         ]
       }
@@ -1545,9 +1545,14 @@
         "key": "1S01_22",
         "direction": 8,
         "type": "door",
-        "distance": 8,
-        "height": -2,
-        "shift": 0.2
+        "distance": 10,
+        "height": -1,
+        "shift": 0.2,
+        "alignment": [
+          0,
+          105.9,
+          0
+        ]
       },
       {
         "key": "1S01_01",
@@ -1560,9 +1565,14 @@
         "key": "1W01_11",
         "direction": 180,
         "type": "door",
-        "distance": 5,
+        "distance": 8,
         "height": -1.5,
-        "shift": -0.75
+        "shift": -1,
+        "alignment": [
+          0,
+          107.3,
+          0
+        ]
       },
       {
         "key": "1N02_12",
@@ -1573,9 +1583,9 @@
         "key": "1N01_00",
         "direction": 180,
         "type": "stairsUp",
-        "distance": 10,
-        "shift": 19,
-        "height": 1
+        "distance": 9,
+        "shift": 15,
+        "height": 0
       }
     ],
     "key": "1N01_11"
