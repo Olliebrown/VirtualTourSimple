@@ -36,7 +36,7 @@
         "height": -1,
         "alignment": [
           0,
-          90,
+          120,
           0
         ]
       }
@@ -2273,6 +2273,13 @@
         "height": -5.5,
         "distance": 8,
         "shift": -0.5
+      },
+      {
+        "key": "2N04_22",
+        "direction": 180,
+        "type": "teleport",
+        "distance": 15,
+        "height": -4
       }
     ],
     "key": "2S04_12"
@@ -2280,9 +2287,9 @@
   "2N04_22": {
     "label": "",
     "alignment": [
-      0.2,
-      -3.9,
-      -41.4
+      -1.9,
+      -139.1,
+      -181.3
     ],
     "hotspots": [],
     "mapInfo": {
@@ -2292,14 +2299,46 @@
       "x": 234,
       "y": 167
     },
-    "exits": []
+    "exits": [
+      {
+        "key": "2S04_12",
+        "direction": 0,
+        "type": "teleport",
+        "height": -4,
+        "distance": 15
+      },
+      {
+        "key": "2N04_21",
+        "direction": -90,
+        "type": "stairsDown",
+        "height": -7,
+        "alignment": [
+          0,
+          -56,
+          0
+        ]
+      },
+      {
+        "key": "RS03_01b",
+        "direction": 101.3,
+        "type": "stairsUp",
+        "distance": 9,
+        "height": 0,
+        "alignment": [
+          0,
+          62.3,
+          0
+        ]
+      }
+    ],
+    "key": "2N04_22"
   },
   "2N04_21": {
     "label": "",
     "alignment": [
-      0.2,
-      -3.9,
-      -41.4
+      2.4,
+      -75.8,
+      -178
     ],
     "hotspots": [],
     "mapInfo": {
@@ -2309,14 +2348,40 @@
       "x": 198,
       "y": 167
     },
-    "exits": []
+    "exits": [
+      {
+        "key": "2S04_00",
+        "direction": -13.1,
+        "type": "stairsDown",
+        "distance": 8,
+        "height": -7,
+        "alignment": [
+          0,
+          -52.1,
+          0
+        ]
+      },
+      {
+        "key": "2N04_22",
+        "direction": 135.2,
+        "type": "stairsUp",
+        "distance": 10,
+        "height": 1,
+        "alignment": [
+          0,
+          -48.2,
+          0
+        ]
+      }
+    ],
+    "key": "2N04_21"
   },
   "2S04_00": {
     "label": "",
     "alignment": [
-      0.2,
-      -3.9,
-      -41.4
+      -2.5,
+      -115.5,
+      -182.6
     ],
     "hotspots": [],
     "mapInfo": {
@@ -2326,14 +2391,48 @@
       "x": 162,
       "y": 201
     },
-    "exits": []
+    "exits": [
+      {
+        "key": "2S04_10",
+        "direction": 0,
+        "type": "teleport",
+        "height": -4,
+        "distance": 13.5,
+        "shift": 2
+      },
+      {
+        "key": "2N04_21",
+        "direction": 90,
+        "type": "stairsUp",
+        "height": -1.5,
+        "distance": 9,
+        "alignment": [
+          0,
+          -39.1,
+          0
+        ]
+      },
+      {
+        "key": "1N04_10",
+        "direction": 180,
+        "type": "stairsDown",
+        "height": -6,
+        "distance": 10,
+        "alignment": [
+          0,
+          -48.2,
+          0
+        ]
+      }
+    ],
+    "key": "2S04_00"
   },
   "2S04_10": {
     "label": "",
     "alignment": [
-      0.2,
-      -3.9,
-      -41.4
+      -6.3,
+      -108.1,
+      -186
     ],
     "hotspots": [],
     "mapInfo": {
@@ -2343,14 +2442,35 @@
       "x": 162,
       "y": 239
     },
-    "exits": []
+    "exits": [
+      {
+        "key": "2S04_20",
+        "direction": 0,
+        "type": "stairsUp",
+        "distance": 8,
+        "height": 1,
+        "alignment": [
+          0,
+          -58.6,
+          0
+        ]
+      },
+      {
+        "key": "2S04_00",
+        "direction": -174.4,
+        "type": "teleport",
+        "height": -4,
+        "distance": 14
+      }
+    ],
+    "key": "2S04_10"
   },
   "2S04_20": {
     "label": "",
     "alignment": [
-      0.2,
-      -3.9,
-      -41.4
+      -1.3,
+      -149,
+      -181.3
     ],
     "hotspots": [],
     "mapInfo": {
@@ -2360,7 +2480,21 @@
       "x": 162,
       "y": 277
     },
-    "exits": []
+    "exits": [
+      {
+        "key": "2S04_10",
+        "direction": 143,
+        "type": "stairsDown",
+        "height": -7,
+        "distance": 8,
+        "alignment": [
+          0,
+          -37.8,
+          0
+        ]
+      }
+    ],
+    "key": "2S04_20"
   },
   "2S03_12": {
     "label": "",
@@ -2457,7 +2591,26 @@
       {
         "key": "1N04_00",
         "direction": 180,
-        "type": "stairsDown"
+        "type": "stairsDown",
+        "height": -7,
+        "distance": 7,
+        "alignment": [
+          0,
+          -46.9,
+          0
+        ]
+      },
+      {
+        "key": "2S04_00",
+        "direction": 0,
+        "type": "stairsUp",
+        "distance": 8,
+        "height": 2,
+        "alignment": [
+          0,
+          -50.8,
+          0
+        ]
       }
     ],
     "key": "1N04_10"
@@ -2637,9 +2790,9 @@
   "RS03_01b": {
     "label": "",
     "alignment": [
-      0.2,
-      -3.9,
-      -41.4
+      -0.7,
+      -22.4,
+      -182
     ],
     "hotspots": [],
     "mapInfo": {
@@ -2649,6 +2802,20 @@
       "x": 300,
       "y": 201
     },
-    "exits": []
+    "exits": [
+      {
+        "key": "2N04_22",
+        "direction": -139.3,
+        "type": "stairsDown",
+        "distance": 17,
+        "height": -2,
+        "alignment": [
+          0,
+          -45.6,
+          0
+        ]
+      }
+    ],
+    "key": "RS03_01b"
   }
 }
