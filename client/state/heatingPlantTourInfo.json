@@ -12,7 +12,7 @@
       "floor": "Ground Floor",
       "image": "GroundFloor.png",
       "x": 543,
-      "y": 277
+      "y": 276
     },
     "exits": [
       {
@@ -55,8 +55,8 @@
       "building": "Heating Plant",
       "floor": "Ground Floor",
       "image": "GroundFloor.png",
-      "x": 471,
-      "y": 239
+      "x": 480,
+      "y": 262
     },
     "exits": [
       {
@@ -116,8 +116,8 @@
       "building": "Heating Plant",
       "floor": "Ground Floor",
       "image": "GroundFloor.png",
-      "x": 438,
-      "y": 239
+      "x": 448,
+      "y": 262
     },
     "exits": [
       {
@@ -165,7 +165,7 @@
       "floor": "Ground Floor",
       "image": "GroundFloor.png",
       "x": 402,
-      "y": 239
+      "y": 262
     },
     "exits": [
       {
@@ -218,8 +218,8 @@
       "building": "Heating Plant",
       "floor": "Ground Floor",
       "image": "GroundFloor.png",
-      "x": 336,
-      "y": 239
+      "x": 351,
+      "y": 262
     },
     "exits": [
       {
@@ -264,7 +264,7 @@
       "floor": "Ground Floor",
       "image": "GroundFloor.png",
       "x": 300,
-      "y": 239
+      "y": 262
     },
     "exits": [
       {
@@ -312,7 +312,7 @@
       "floor": "Ground Floor",
       "image": "GroundFloor.png",
       "x": 234,
-      "y": 239
+      "y": 262
     },
     "exits": [
       {
@@ -426,7 +426,7 @@
       "floor": "Ground Floor",
       "image": "GroundFloor.png",
       "x": 162,
-      "y": 167
+      "y": 185
     },
     "exits": [
       {
@@ -456,8 +456,8 @@
       "building": "Heating Plant",
       "floor": "Ground Floor",
       "image": "GroundFloor.png",
-      "x": 162,
-      "y": 91
+      "x": 160,
+      "y": 90
     },
     "exits": [
       {
@@ -509,7 +509,7 @@
       "floor": "Ground Floor",
       "image": "GroundFloor.png",
       "x": 198,
-      "y": 91
+      "y": 88
     },
     "exits": [
       {
@@ -541,8 +541,8 @@
       "building": "Heating Plant",
       "floor": "Ground Floor",
       "image": "GroundFloor.png",
-      "x": 234,
-      "y": 91
+      "x": 229,
+      "y": 89
     },
     "exits": [
       {
@@ -581,8 +581,8 @@
       "building": "Heating Plant",
       "floor": "Ground Floor",
       "image": "GroundFloor.png",
-      "x": 234,
-      "y": 167
+      "x": 231,
+      "y": 170
     },
     "exits": [
       {
@@ -622,8 +622,8 @@
       "building": "Heating Plant",
       "floor": "Ground Floor",
       "image": "GroundFloor.png",
-      "x": 264,
-      "y": 129
+      "x": 263,
+      "y": 108
     },
     "exits": [
       {
@@ -701,7 +701,7 @@
       "floor": "Ground Floor",
       "image": "GroundFloor.png",
       "x": 264,
-      "y": 167
+      "y": 170
     },
     "exits": [
       {
@@ -732,7 +732,7 @@
       "floor": "Ground Floor",
       "image": "GroundFloor.png",
       "x": 300,
-      "y": 129
+      "y": 108
     },
     "exits": [
       {
@@ -772,8 +772,8 @@
       "building": "Heating Plant",
       "floor": "Ground Floor",
       "image": "GroundFloor.png",
-      "x": 336,
-      "y": 129
+      "x": 351,
+      "y": 103
     },
     "exits": [
       {
@@ -829,8 +829,8 @@
       "building": "Heating Plant",
       "floor": "Ground Floor",
       "image": "GroundFloor.png",
-      "x": 336,
-      "y": 201
+      "x": 351,
+      "y": 170
     },
     "exits": [
       {
@@ -862,7 +862,7 @@
       "floor": "Ground Floor",
       "image": "GroundFloor.png",
       "x": 402,
-      "y": 129
+      "y": 103
     },
     "exits": [
       {
@@ -916,8 +916,8 @@
       "building": "Heating Plant",
       "floor": "Ground Floor",
       "image": "GroundFloor.png",
-      "x": 438,
-      "y": 129
+      "x": 448,
+      "y": 107
     },
     "exits": [
       {
@@ -975,8 +975,8 @@
       "building": "Heating Plant",
       "floor": "Ground Floor",
       "image": "GroundFloor.png",
-      "x": 438,
-      "y": 201
+      "x": 448,
+      "y": 170
     },
     "exits": [
       {
@@ -1009,8 +1009,8 @@
       "building": "Heating Plant",
       "floor": "Ground Floor",
       "image": "GroundFloor.png",
-      "x": 526,
-      "y": 42
+      "x": 478,
+      "y": 37
     },
     "exits": [
       {
@@ -1035,8 +1035,8 @@
       "building": "Heating Plant",
       "floor": "Ground Floor",
       "image": "GroundFloor.png",
-      "x": 460,
-      "y": 42
+      "x": 528,
+      "y": 37
     },
     "exits": [
       {
@@ -1073,8 +1073,8 @@
       "building": "Heating Plant",
       "floor": "Basement",
       "image": "Basement.png",
-      "x": 507,
-      "y": 91
+      "x": 501,
+      "y": 86
     },
     "exits": [
       {
@@ -1160,8 +1160,8 @@
       "building": "Heating Plant",
       "floor": "Basement",
       "image": "Basement.png",
-      "x": 543,
-      "y": 167
+      "x": 536,
+      "y": 169
     },
     "exits": [
       {
@@ -1194,7 +1194,7 @@
       "floor": "Basement",
       "image": "Basement.png",
       "x": 507,
-      "y": 239
+      "y": 248
     },
     "exits": [
       {
@@ -1227,7 +1227,7 @@
       "floor": "Basement",
       "image": "Basement.png",
       "x": 438,
-      "y": 239
+      "y": 248
     },
     "exits": [
       {
@@ -1265,7 +1265,7 @@
       "floor": "Basement",
       "image": "Basement.png",
       "x": 366,
-      "y": 239
+      "y": 260
     },
     "exits": [
       {
@@ -1305,7 +1305,7 @@
       "floor": "Basement",
       "image": "Basement.png",
       "x": 300,
-      "y": 239
+      "y": 248
     },
     "exits": [
       {
@@ -1344,8 +1344,8 @@
       "building": "Heating Plant",
       "floor": "Basement",
       "image": "Basement.png",
-      "x": 234,
-      "y": 239
+      "x": 226,
+      "y": 255
     },
     "exits": [
       {
@@ -1383,7 +1383,7 @@
       "floor": "Basement",
       "image": "Basement.png",
       "x": 162,
-      "y": 239
+      "y": 252
     },
     "exits": [
       {
@@ -1423,7 +1423,7 @@
       "floor": "Basement",
       "image": "Basement.png",
       "x": 162,
-      "y": 129
+      "y": 162
     },
     "exits": [
       {
@@ -1462,8 +1462,8 @@
       "building": "Heating Plant",
       "floor": "Basement",
       "image": "Basement.png",
-      "x": 234,
-      "y": 129
+      "x": 226,
+      "y": 162
     },
     "exits": [
       {
@@ -1491,8 +1491,8 @@
       "building": "Cooling Plant",
       "floor": "Basement",
       "image": "Basement.png",
-      "x": 91,
-      "y": 129
+      "x": 95,
+      "y": 170
     },
     "exits": [
       {
@@ -1524,8 +1524,8 @@
       "building": "Cooling Plant",
       "floor": "Basement",
       "image": "Basement.png",
-      "x": 91,
-      "y": 239
+      "x": 95,
+      "y": 245
     },
     "exits": [
       {
@@ -1579,8 +1579,8 @@
       "building": "Cooling Plant",
       "floor": "Basement",
       "image": "Basement.png",
-      "x": 55,
-      "y": 239
+      "x": 46,
+      "y": 238
     },
     "exits": [
       {
@@ -1615,8 +1615,8 @@
       "building": "Cooling Plant",
       "floor": "Basement",
       "image": "Basement.png",
-      "x": 55,
-      "y": 277
+      "x": 44,
+      "y": 281
     },
     "exits": [
       {
@@ -1660,7 +1660,7 @@
       "floor": "Ground Floor",
       "image": "GroundFloor.png",
       "x": 91,
-      "y": 277
+      "y": 270
     },
     "exits": [
       {
@@ -1735,7 +1735,7 @@
       "floor": "Ground Floor",
       "image": "GroundFloor.png",
       "x": 55,
-      "y": 201
+      "y": 212
     },
     "exits": [
       {
@@ -1788,7 +1788,7 @@
       "floor": "Ground Floor",
       "image": "GroundFloor.png",
       "x": 91,
-      "y": 239
+      "y": 212
     },
     "exits": [
       {
@@ -1827,7 +1827,7 @@
       "floor": "Ground Floor",
       "image": "GroundFloor.png",
       "x": 91,
-      "y": 167
+      "y": 188
     },
     "exits": [
       {
@@ -1865,7 +1865,7 @@
       "floor": "Ground Floor",
       "image": "GroundFloor.png",
       "x": 55,
-      "y": 129
+      "y": 150
     },
     "exits": [
       {
@@ -1911,7 +1911,7 @@
       "floor": "Ground Floor",
       "image": "GroundFloor.png",
       "x": 91,
-      "y": 129
+      "y": 150
     },
     "exits": [
       {
@@ -1949,8 +1949,8 @@
       "building": "Cooling Plant",
       "floor": "Ground Floor",
       "image": "GroundFloor.png",
-      "x": 91,
-      "y": 91
+      "x": 90,
+      "y": 125
     },
     "exits": [
       {
@@ -1987,7 +1987,7 @@
       "building": "Cooling Plant",
       "floor": "Ground Floor",
       "image": "GroundFloor.png",
-      "x": 127,
+      "x": 122,
       "y": 277
     },
     "exits": [
@@ -2071,7 +2071,7 @@
       "floor": "Ground Floor",
       "image": "GroundFloor.png",
       "x": 507,
-      "y": 201
+      "y": 170
     },
     "exits": [
       {
@@ -2102,8 +2102,8 @@
       "building": "Heating Plant",
       "floor": "Ground Floor",
       "image": "GroundFloor.png",
-      "x": 507,
-      "y": 129
+      "x": 528,
+      "y": 112
     },
     "exits": [
       {
@@ -2169,8 +2169,8 @@
       "building": "Heating Plant",
       "floor": "Ground Floor",
       "image": "GroundFloor.png",
-      "x": 471,
-      "y": 91
+      "x": 485,
+      "y": 87
     },
     "exits": [
       {
@@ -2208,7 +2208,7 @@
       "building": "Heating Plant",
       "floor": "Platforms & Catwalks",
       "image": "PlatformsCatwalks.png",
-      "x": 438,
+      "x": 443,
       "y": 91
     },
     "exits": [
@@ -2251,8 +2251,8 @@
       "building": "Heating Plant",
       "floor": "Platforms & Catwalks",
       "image": "PlatformsCatwalks.png",
-      "x": 471,
-      "y": 91
+      "x": 495,
+      "y": 98
     },
     "exits": [
       {
@@ -2288,8 +2288,8 @@
       "building": "Heating Plant",
       "floor": "Platforms & Catwalks",
       "image": "PlatformsCatwalks.png",
-      "x": 507,
-      "y": 129
+      "x": 520,
+      "y": 127
     },
     "exits": [
       {
@@ -2321,8 +2321,8 @@
       "building": "Heating Plant",
       "floor": "Platforms & Catwalks",
       "image": "PlatformsCatwalks.png",
-      "x": 507,
-      "y": 167
+      "x": 520,
+      "y": 156
     },
     "exits": [
       {
@@ -2354,8 +2354,8 @@
       "building": "Heating Plant",
       "floor": "Platforms & Catwalks",
       "image": "PlatformsCatwalks.png",
-      "x": 507,
-      "y": 239
+      "x": 520,
+      "y": 219
     },
     "exits": [
       {
@@ -2392,8 +2392,8 @@
       "building": "Heating Plant",
       "floor": "Platforms & Catwalks",
       "image": "PlatformsCatwalks.png",
-      "x": 438,
-      "y": 239
+      "x": 443,
+      "y": 222
     },
     "exits": [
       {
@@ -2450,8 +2450,8 @@
       "building": "Heating Plant",
       "floor": "Platforms & Catwalks",
       "image": "PlatformsCatwalks.png",
-      "x": 366,
-      "y": 239
+      "x": 375,
+      "y": 222
     },
     "exits": [
       {
@@ -2492,8 +2492,8 @@
       "building": "Heating Plant",
       "floor": "Platforms & Catwalks",
       "image": "PlatformsCatwalks.png",
-      "x": 336,
-      "y": 201
+      "x": 353,
+      "y": 197
     },
     "exits": [
       {
@@ -2556,8 +2556,8 @@
       "building": "Heating Plant",
       "floor": "Platforms & Catwalks",
       "image": "PlatformsCatwalks.png",
-      "x": 336,
-      "y": 167
+      "x": 353,
+      "y": 144
     },
     "exits": [
       {
@@ -2620,8 +2620,8 @@
       "building": "Heating Plant",
       "floor": "Platforms & Catwalks",
       "image": "PlatformsCatwalks.png",
-      "x": 300,
-      "y": 167
+      "x": 298,
+      "y": 166
     },
     "exits": [
       {
@@ -2665,7 +2665,7 @@
       "building": "Heating Plant",
       "floor": "Platforms & Catwalks",
       "image": "PlatformsCatwalks.png",
-      "x": 402,
+      "x": 406,
       "y": 167
     },
     "exits": [
@@ -2708,8 +2708,8 @@
       "building": "Heating Plant",
       "floor": "Platforms & Catwalks",
       "image": "PlatformsCatwalks.png",
-      "x": 438,
-      "y": 129
+      "x": 448,
+      "y": 144
     },
     "exits": [
       {
@@ -2747,8 +2747,8 @@
       "building": "Heating Plant",
       "floor": "Platforms & Catwalks",
       "image": "PlatformsCatwalks.png",
-      "x": 264,
-      "y": 129
+      "x": 260,
+      "y": 144
     },
     "exits": [
       {
@@ -2786,8 +2786,8 @@
       "building": "Heating Plant",
       "floor": "Platforms & Catwalks",
       "image": "PlatformsCatwalks.png",
-      "x": 264,
-      "y": 239
+      "x": 267,
+      "y": 222
     },
     "exits": [
       {
@@ -2829,8 +2829,8 @@
       "building": "Heating Plant",
       "floor": "Platforms & Catwalks",
       "image": "PlatformsCatwalks.png",
-      "x": 234,
-      "y": 239
+      "x": 220,
+      "y": 215
     },
     "exits": [
       {
@@ -2863,8 +2863,8 @@
       "building": "Heating Plant",
       "floor": "Platforms & Catwalks",
       "image": "PlatformsCatwalks.png",
-      "x": 234,
-      "y": 167
+      "x": 220,
+      "y": 153
     },
     "exits": [
       {
@@ -2912,8 +2912,8 @@
       "building": "Heating Plant",
       "floor": "Platforms & Catwalks",
       "image": "PlatformsCatwalks.png",
-      "x": 198,
-      "y": 167
+      "x": 183,
+      "y": 175
     },
     "exits": [
       {
@@ -2955,8 +2955,8 @@
       "building": "Heating Plant",
       "floor": "Platforms & Catwalks",
       "image": "PlatformsCatwalks.png",
-      "x": 162,
-      "y": 201
+      "x": 157,
+      "y": 198
     },
     "exits": [
       {
@@ -3006,8 +3006,8 @@
       "building": "Heating Plant",
       "floor": "Platforms & Catwalks",
       "image": "PlatformsCatwalks.png",
-      "x": 162,
-      "y": 239
+      "x": 169,
+      "y": 244
     },
     "exits": [
       {
@@ -3044,8 +3044,8 @@
       "building": "Heating Plant",
       "floor": "Platforms & Catwalks",
       "image": "PlatformsCatwalks.png",
-      "x": 162,
-      "y": 277
+      "x": 159,
+      "y": 286
     },
     "exits": [
       {
@@ -3086,8 +3086,8 @@
       "building": "Cooling Plant",
       "floor": "Platforms & Catwalks",
       "image": "PlatformsCatwalks.png",
-      "x": 102,
-      "y": 239
+      "x": 107,
+      "y": 249
     },
     "exits": [
       {
@@ -3129,8 +3129,8 @@
       "building": "Cooling Plant",
       "floor": "Platforms & Catwalks",
       "image": "PlatformsCatwalks.png",
-      "x": 85,
-      "y": 129
+      "x": 93,
+      "y": 125
     },
     "exits": [
       {
@@ -3160,8 +3160,8 @@
       "building": "Heating Plant",
       "floor": "Platforms & Catwalks",
       "image": "PlatformsCatwalks.png",
-      "x": 336,
-      "y": 239
+      "x": 321,
+      "y": 222
     },
     "exits": [
       {
@@ -3207,8 +3207,8 @@
       "building": "Heating Plant",
       "floor": "Basement",
       "image": "Basement.png",
-      "x": 300,
-      "y": 91
+      "x": 308,
+      "y": 87
     },
     "exits": [
       {
@@ -3250,8 +3250,8 @@
       "building": "Heating Plant",
       "floor": "Ground Floor",
       "image": "GroundFloor.png",
-      "x": 162,
-      "y": 129
+      "x": 159,
+      "y": 135
     },
     "exits": [
       {
@@ -3293,8 +3293,8 @@
       "building": "Heating Plant",
       "floor": "Basement",
       "image": "Basement.png",
-      "x": 336,
-      "y": 129
+      "x": 341,
+      "y": 112
     },
     "exits": [
       {
@@ -3344,7 +3344,7 @@
       "floor": "Basement",
       "image": "Basement.png",
       "x": 402,
-      "y": 129
+      "y": 112
     },
     "exits": [
       {
@@ -3384,8 +3384,8 @@
       "building": "Heating Plant",
       "floor": "Basement",
       "image": "Basement.png",
-      "x": 402,
-      "y": 201
+      "x": 406,
+      "y": 189
     },
     "exits": [
       {
@@ -3424,8 +3424,8 @@
       "building": "Heating Plant",
       "floor": "Basement",
       "image": "Basement.png",
-      "x": 336,
-      "y": 201
+      "x": 292,
+      "y": 191
     },
     "exits": [
       {
@@ -3462,8 +3462,8 @@
       "building": "Heating Plant",
       "floor": "Basement",
       "image": "Basement.png",
-      "x": 471,
-      "y": 129
+      "x": 479,
+      "y": 112
     },
     "exits": [
       {
@@ -3555,8 +3555,8 @@
       "building": "Heating Plant",
       "floor": "Roof",
       "image": "Roof.png",
-      "x": 102,
-      "y": 239
+      "x": 80,
+      "y": 245
     },
     "exits": [
       {

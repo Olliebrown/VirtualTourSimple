@@ -4,6 +4,9 @@ import './shaders/CutoutShader.js'
 import React from 'react'
 import PropTypes from 'prop-types'
 
+// Global config variables
+import CONFIG from './config.js'
+
 // eslint-disable-next-line camelcase
 import { useRecoilBridgeAcrossReactRoots_UNSTABLE, useSetRecoilState } from 'recoil'
 import { CssBaseline } from '@mui/material'
@@ -12,7 +15,7 @@ import PanoViewer from './components/CorePano/PanoViewer.jsx'
 import SettingsDial from './components/Utility/SettingsDial.jsx'
 import InfoModal from './components/HotSpots/InfoModal.jsx'
 import MiniMap from './components/MiniMap/MiniMap.jsx'
-// import TourInfoEditor from './components/TourMaker/TourInfoEditor.jsx'
+import TourInfoEditor from './components/TourMaker/TourInfoEditor.jsx'
 
 import { Canvas } from '@react-three/fiber'
 import { useProgress } from '@react-three/drei'
@@ -67,8 +70,10 @@ export default function VirtualTour (props) {
       {/* MUI overlay */}
       <CssBaseline />
       <SettingsDial allowMotion={allowMotion} />
-      {/* <TourInfoEditor /> */}
       <MiniMap />
+
+      {/* Editing interface */}
+      {CONFIG.ENABLE_DATA_EDITING && <TourInfoEditor />}
 
       <InfoModal />
     </React.StrictMode>

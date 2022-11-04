@@ -5,9 +5,9 @@ import CONFIG from '../../config.js'
 
 import { useRecoilValue } from 'recoil'
 import { currentCameraYawState, currentPanoKeyState } from '../../state/globalState.js'
-// import { getFullTourDataFromServer } from '../../state/asyncDataHelper.js'
+import { getFullTourDataFromServer } from '../../state/asyncDataHelper.js'
 
-import localDB from '../../state/localDB.js'
+import localDB, { setCurrentPanoData } from '../../state/localDB.js'
 import { useLiveQuery } from 'dexie-react-hooks'
 
 import { useHotkeys } from 'react-hotkeys-hook'
@@ -17,6 +17,9 @@ import { Close as CloseIcon, Map as MapIcon, ExpandLess as ExpandIcon } from '@m
 
 import MiniMapPin from './MiniMapPin.jsx'
 import MiniMapArrow from './MiniMapArrow.jsx'
+
+// Read in raw full map data
+import JSONMapData from '../../state/heatingPlantTourInfo.json'
 
 // Header offsets the point by 90 (without padding which adds 16px)
 const ARROW_PIN_X_OFFSET = 42
@@ -33,20 +36,47 @@ export default function MiniMap (props) {
   // Subscribe to pano DB changes
   const currentPanoKey = useRecoilValue(currentPanoKeyState)
   const currentPanoData = useLiveQuery(() => localDB.panoInfoState.get(currentPanoKey), [currentPanoKey], null)
-  const fullTourData = useLiveQuery(() => localDB.panoInfoState.toArray(), null, [])
+
+  // Get latest map info data
+  const [fullTourData, setFullTourData] = React.useState({})
+  React.useEffect(() => {
+    const retrieveData = async () => {
+      const newData = await getFullTourDataFromServer()
+      setFullTourData(newData)
+    }
+
+    // Only need to use this if data editing is enabled
+    if (CONFIG.ENABLE_DATA_EDITING) {
+      retrieveData()
+    } else {
+      setFullTourData(JSONMapData)
+    }
+  }, [])
 
   // Controlling visibility of the minimap
   const [showMap, setShowMap] = React.useState(startVisible)
 
   // Mini map local state
   const [mapInfo, setMapInfo] = React.useState(null)
+  const updateMapInfo = (panoKey, newMapInfo) => {
+    console.log(`[${newMapInfo.x}, ${newMapInfo.y}]`)
+    if (CONFIG.ENABLE_DATA_EDITING) {
+      setCurrentPanoData(currentPanoKey, {
+        ...currentPanoData,
+        mapInfo: newMapInfo
+      })
+    }
+
+    fullTourData[panoKey].mapInfo = newMapInfo
+    setMapInfo(newMapInfo)
+  }
 
   /* eslint-disable react-hooks/rules-of-hooks */
   if (CONFIG.ENABLE_MINIMAP_HOTKEYS) {
-    useHotkeys('shift+left', () => { setMapInfo({ ...mapInfo, x: mapInfo.x - 1 }) }, {}, [mapInfo])
-    useHotkeys('shift+right', () => { setMapInfo({ ...mapInfo, x: mapInfo.x + 1 }) }, {}, [mapInfo])
-    useHotkeys('shift+up', () => { setMapInfo({ ...mapInfo, y: mapInfo.y - 1 }) }, {}, [mapInfo])
-    useHotkeys('shift+down', () => { setMapInfo({ ...mapInfo, y: mapInfo.y + 1 }) }, {}, [mapInfo])
+    useHotkeys('shift+left', () => { updateMapInfo(currentPanoKey, { ...mapInfo, x: mapInfo.x - 1 }) }, {}, [currentPanoKey, mapInfo])
+    useHotkeys('shift+right', () => { updateMapInfo(currentPanoKey, { ...mapInfo, x: mapInfo.x + 1 }) }, {}, [currentPanoKey, mapInfo])
+    useHotkeys('shift+up', () => { updateMapInfo(currentPanoKey, { ...mapInfo, y: mapInfo.y - 1 }) }, {}, [currentPanoKey, mapInfo])
+    useHotkeys('shift+down', () => { updateMapInfo(currentPanoKey, { ...mapInfo, y: mapInfo.y + 1 }) }, {}, [currentPanoKey, mapInfo])
   }
   /* eslint-enable react-hooks/rules-of-hooks */
 
@@ -61,8 +91,9 @@ export default function MiniMap (props) {
   // Compute all pins
   const allPins = React.useMemo(() => {
     if (mapInfo) {
-      return fullTourData.filter(data => data.key !== currentPanoKey)
-        .map(data => ({ ...data.mapInfo, key: data.key }))
+      return Object.keys(fullTourData)
+        .filter(key => key !== currentPanoKey)
+        .map(key => ({ ...fullTourData[key].mapInfo, key }))
         .filter(curInfo => curInfo && curInfo.floor === mapInfo.floor && (curInfo.x !== 0 || curInfo.y !== 0))
         .map(curInfo => (
           <MiniMapPin
