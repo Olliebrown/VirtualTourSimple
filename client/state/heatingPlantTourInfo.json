@@ -3086,8 +3086,8 @@
       "building": "Cooling Plant",
       "floor": "Platforms & Catwalks",
       "image": "PlatformsCatwalks.png",
-      "x": 162,
-      "y": 277
+      "x": 102,
+      "y": 239
     },
     "exits": [
       {
@@ -3129,8 +3129,8 @@
       "building": "Cooling Plant",
       "floor": "Platforms & Catwalks",
       "image": "PlatformsCatwalks.png",
-      "x": 162,
-      "y": 277
+      "x": 85,
+      "y": 129
     },
     "exits": [
       {
@@ -3555,8 +3555,8 @@
       "building": "Heating Plant",
       "floor": "Roof",
       "image": "Roof.png",
-      "x": 300,
-      "y": 201
+      "x": 102,
+      "y": 239
     },
     "exits": [
       {

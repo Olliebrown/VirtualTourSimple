@@ -22,7 +22,7 @@ app.use((req, res, next) => {
   next()
 })
 
-app.use('/data', DataRouter)
+// app.use('/data', DataRouter)
 app.use(Express.static('./public'))
 
 if (server) {

@@ -12,10 +12,10 @@ import PanoViewer from './components/CorePano/PanoViewer.jsx'
 import SettingsDial from './components/Utility/SettingsDial.jsx'
 import InfoModal from './components/HotSpots/InfoModal.jsx'
 import MiniMap from './components/MiniMap/MiniMap.jsx'
-import TourInfoEditor from './components/TourMaker/TourInfoEditor.jsx'
+// import TourInfoEditor from './components/TourMaker/TourInfoEditor.jsx'
 
 import { Canvas } from '@react-three/fiber'
-import { Loader, useProgress } from '@react-three/drei'
+import { useProgress } from '@react-three/drei'
 
 import { setTextureAllDoneState, setTextureDoneState, setTextureFailedState } from './state/globalState.js'
 
@@ -67,11 +67,10 @@ export default function VirtualTour (props) {
       {/* MUI overlay */}
       <CssBaseline />
       <SettingsDial allowMotion={allowMotion} />
-      <TourInfoEditor />
+      {/* <TourInfoEditor /> */}
       <MiniMap />
 
       <InfoModal />
-      <Loader />
     </React.StrictMode>
   )
 }

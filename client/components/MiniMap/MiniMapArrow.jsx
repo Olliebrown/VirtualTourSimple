@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { Navigation as ArrowIcon } from '@mui/icons-material'
 
 export default function MiniMapArrow (props) {
-  const { x, y, angle, offset } = props
+  const { x, y, angle, offset, scale } = props
 
   return (
     <ArrowIcon
@@ -13,8 +13,8 @@ export default function MiniMapArrow (props) {
         width: 15,
         color: '#CC0000',
         position: 'absolute',
-        left: x + (offset?.x || 0),
-        top: y + (offset?.y || 0),
+        left: (x + (offset?.x || 0)) * (scale?.x || 1),
+        top: (y + (offset?.y || 0)) * (scale?.y || 1),
         transform: `translate(-50%, -50%) rotate(${angle - Math.PI / 2}rad)`
       }}
     />
@@ -25,10 +25,12 @@ MiniMapArrow.propTypes = {
   x: PropTypes.number.isRequired,
   y: PropTypes.number.isRequired,
   angle: PropTypes.number,
-  offset: PropTypes.shape({ x: PropTypes.number, y: PropTypes.number })
+  offset: PropTypes.shape({ x: PropTypes.number, y: PropTypes.number }),
+  scale: PropTypes.shape({ x: PropTypes.number, y: PropTypes.number })
 }
 
 MiniMapArrow.defaultProps = {
   angle: 0,
-  offset: { x: 0, y: 0 }
+  offset: { x: 0, y: 0 },
+  scale: { x: 0, y: 0 }
 }
