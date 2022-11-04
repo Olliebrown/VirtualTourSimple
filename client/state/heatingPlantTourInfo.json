@@ -71,7 +71,13 @@
         "direction": 120,
         "type": "door",
         "height": -1.5,
-        "shift": 0.5
+        "shift": 0.5,
+        "alignment": [
+          0,
+          98.6,
+          0
+        ],
+        "distance": 6
       },
       {
         "key": "1S01_01",
@@ -82,9 +88,11 @@
       },
       {
         "key": "1S02_02",
-        "direction": -150,
+        "direction": -180,
         "type": "arrow",
-        "distance": 8
+        "distance": 5,
+        "height": -2,
+        "shift": 3.2
       },
       {
         "key": "1S02_11",
@@ -176,8 +184,10 @@
       },
       {
         "key": "1S03_02",
-        "direction": -150,
-        "type": "arrow"
+        "direction": -180,
+        "type": "arrow",
+        "shift": 5,
+        "distance": 4
       },
       {
         "key": "1S01_10",
@@ -273,8 +283,10 @@
       },
       {
         "key": "1N03_20",
-        "direction": 205,
-        "type": "arrow"
+        "direction": 180,
+        "type": "arrow",
+        "shift": 5,
+        "distance": 5
       },
       {
         "key": "1S02_11",
@@ -625,7 +637,9 @@
       {
         "key": "1N03_11",
         "direction": 90,
-        "type": "arrow"
+        "type": "teleport",
+        "height": -4,
+        "distance": 8
       },
       {
         "key": "1N04_22",
@@ -662,6 +676,14 @@
           -48.4,
           0
         ]
+      },
+      {
+        "key": "1N03_12",
+        "direction": 90,
+        "type": "teleport",
+        "height": -4,
+        "distance": 18,
+        "shift": 1
       }
     ],
     "key": "1N03_10"
@@ -716,12 +738,24 @@
       {
         "key": "1N03_10",
         "direction": -90,
-        "type": "arrow"
+        "type": "teleport",
+        "height": -4,
+        "distance": 9,
+        "shift": 1
       },
       {
         "key": "1N03_12",
         "direction": 90,
-        "type": "arrow"
+        "type": "teleport",
+        "height": -4,
+        "distance": 11
+      },
+      {
+        "key": "1N02_11",
+        "direction": 90,
+        "type": "teleport",
+        "height": -4,
+        "distance": 21
       }
     ],
     "key": "1N03_11"
@@ -745,17 +779,40 @@
       {
         "key": "1N03_11",
         "direction": -90,
-        "type": "arrow"
+        "type": "teleport",
+        "height": -4,
+        "distance": 10,
+        "shift": 1
       },
       {
         "key": "1N02_11",
         "direction": 90,
-        "type": "arrow"
+        "type": "teleport",
+        "height": -4,
+        "distance": 11
       },
       {
         "key": "1S03_02",
         "direction": 0,
-        "type": "arrow"
+        "type": "teleport",
+        "height": -4,
+        "distance": 12,
+        "shift": -0.3
+      },
+      {
+        "key": "1N02_12",
+        "direction": 90,
+        "type": "teleport",
+        "height": -4,
+        "distance": 18.5
+      },
+      {
+        "key": "1N03_10",
+        "direction": -90,
+        "type": "teleport",
+        "height": -4,
+        "shift": 1,
+        "distance": 19
       }
     ],
     "key": "1N03_12"
@@ -784,7 +841,10 @@
       {
         "key": "1N03_12",
         "direction": 180,
-        "type": "arrow"
+        "type": "teleport",
+        "height": -4,
+        "distance": 12,
+        "shift": 1.1
       }
     ],
     "key": "1S03_02"
@@ -808,12 +868,38 @@
       {
         "key": "1N03_12",
         "direction": -90,
-        "type": "arrow"
+        "type": "teleport",
+        "height": -4,
+        "distance": 10,
+        "shift": 1
       },
       {
         "key": "1N02_12",
         "direction": 90,
-        "type": "arrow"
+        "type": "teleport",
+        "height": -4,
+        "shift": -1,
+        "distance": 9
+      },
+      {
+        "key": "1N03_11",
+        "direction": -90,
+        "type": "teleport",
+        "height": -4,
+        "shift": 1,
+        "distance": 21
+      },
+      {
+        "key": "LN01_01",
+        "direction": 102,
+        "type": "stairsDown",
+        "height": -4.5,
+        "distance": 16,
+        "alignment": [
+          0,
+          -45.7,
+          0
+        ]
       }
     ],
     "key": "1N02_11"
@@ -837,22 +923,42 @@
       {
         "key": "1N01_11",
         "direction": 90,
-        "type": "arrow"
+        "type": "teleport",
+        "height": -4,
+        "distance": 16
       },
       {
         "key": "1S02_02",
         "direction": 0,
-        "type": "arrow"
+        "type": "teleport",
+        "height": -4,
+        "distance": 12
       },
       {
         "key": "1N02_11",
         "direction": -90,
-        "type": "arrow"
+        "type": "teleport",
+        "height": -4,
+        "distance": 9
       },
       {
         "key": "LN01_01",
         "direction": 145,
-        "type": "stairsDown"
+        "type": "stairsDown",
+        "height": -5,
+        "distance": 9,
+        "alignment": [
+          0,
+          -38.9,
+          0
+        ]
+      },
+      {
+        "key": "1N03_12",
+        "direction": -90,
+        "type": "teleport",
+        "height": -4,
+        "distance": 18
       }
     ],
     "key": "1N02_12"
@@ -910,7 +1016,9 @@
       {
         "key": "1W01_11",
         "direction": 90,
-        "type": "arrow"
+        "type": "teleport",
+        "height": -4,
+        "distance": 11.5
       }
     ],
     "key": "1W02_11"
@@ -934,12 +1042,21 @@
       {
         "key": "1N01_11",
         "direction": 0,
-        "type": "door"
+        "type": "door",
+        "alignment": [
+          0,
+          90,
+          0
+        ],
+        "distance": 6,
+        "height": -1
       },
       {
         "key": "1W02_11",
         "direction": -90,
-        "type": "arrow"
+        "type": "teleport",
+        "height": -4,
+        "distance": 11.5
       }
     ],
     "key": "1W01_11"
@@ -963,12 +1080,26 @@
       {
         "key": "LN01_02",
         "direction": 90,
-        "type": "stairsDown"
+        "type": "stairsDown",
+        "height": -7,
+        "distance": 7,
+        "alignment": [
+          0,
+          -54.7,
+          0
+        ]
       },
       {
         "key": "1N02_12",
-        "direction": -80,
-        "type": "stairsUp"
+        "direction": -90,
+        "type": "stairsUp",
+        "distance": 8,
+        "height": 2,
+        "alignment": [
+          0,
+          -23.5,
+          0
+        ]
       }
     ],
     "key": "LN01_01"
@@ -992,17 +1123,27 @@
       {
         "key": "LN01_22",
         "direction": 0,
-        "type": "arrow"
+        "type": "teleport",
+        "height": -4,
+        "distance": 17
       },
       {
         "key": "LN01_01",
         "direction": -110,
-        "type": "stairsUp"
+        "type": "stairsUp",
+        "distance": 10,
+        "alignment": [
+          0,
+          -59.9,
+          0
+        ]
       },
       {
         "key": "LN01_10",
         "direction": -80,
-        "type": "arrow"
+        "type": "teleport",
+        "height": -4,
+        "distance": 10.5
       }
     ],
     "key": "LN01_02"
@@ -1025,13 +1166,17 @@
     "exits": [
       {
         "key": "LN01_02",
-        "direction": 180,
-        "type": "arrow"
+        "direction": 182,
+        "type": "teleport",
+        "height": -4,
+        "distance": 15
       },
       {
         "key": "LS01_11",
-        "direction": -20,
-        "type": "arrow"
+        "direction": -27.4,
+        "type": "teleport",
+        "height": -4,
+        "distance": 15
       }
     ],
     "key": "LN01_22"
@@ -1054,13 +1199,17 @@
     "exits": [
       {
         "key": "LS02_12",
-        "direction": -90,
-        "type": "arrow"
+        "direction": -88,
+        "type": "teleport",
+        "height": -4,
+        "distance": 12.5
       },
       {
         "key": "LN01_22",
-        "direction": 140,
-        "type": "arrow"
+        "direction": 150.7,
+        "type": "teleport",
+        "height": -4,
+        "distance": 14
       }
     ],
     "key": "LS01_11"
@@ -1083,8 +1232,10 @@
     "exits": [
       {
         "key": "LS01_11",
-        "direction": 90,
-        "type": "arrow"
+        "direction": 93,
+        "type": "teleport",
+        "height": -4,
+        "distance": 13.5
       },
       {
         "key": "LS02_10",
@@ -1093,8 +1244,10 @@
       },
       {
         "key": "LS02_01",
-        "direction": -150,
-        "type": "arrow"
+        "direction": -153,
+        "type": "teleport",
+        "height": -4,
+        "distance": 17
       }
     ],
     "key": "LS02_12"
@@ -1118,17 +1271,23 @@
       {
         "key": "LS02_01",
         "direction": 165,
-        "type": "arrow"
+        "type": "teleport",
+        "height": -4,
+        "distance": 16
       },
       {
         "key": "LS02_12",
         "direction": 90,
-        "type": "arrow"
+        "type": "teleport",
+        "height": -4,
+        "distance": 12
       },
       {
         "key": "LS03_11",
-        "direction": -90,
-        "type": "arrow"
+        "direction": -95,
+        "type": "teleport",
+        "height": -4,
+        "distance": 14
       }
     ],
     "key": "LS02_10"
@@ -1151,18 +1310,24 @@
     "exits": [
       {
         "key": "LS03_02",
-        "direction": 180,
-        "type": "arrow"
+        "direction": -172,
+        "type": "teleport",
+        "height": -4,
+        "distance": 13
       },
       {
         "key": "LS04_12",
-        "direction": -83,
-        "type": "arrow"
+        "direction": -80,
+        "type": "teleport",
+        "height": -4,
+        "distance": 19
       },
       {
         "key": "LS02_10",
-        "direction": 90,
-        "type": "arrow"
+        "direction": 80,
+        "type": "teleport",
+        "height": -4,
+        "distance": 14
       }
     ],
     "key": "LS03_11"
@@ -1185,17 +1350,21 @@
     "exits": [
       {
         "key": "LS03_11",
-        "direction": 105,
-        "type": "arrow"
+        "direction": 100,
+        "type": "teleport",
+        "height": -4,
+        "distance": 19
       },
       {
         "key": "LS04_10",
-        "direction": -90,
-        "type": "arrow"
+        "direction": -94,
+        "type": "teleport",
+        "height": -4,
+        "distance": 14
       },
       {
         "key": "LN04_12",
-        "direction": -170,
+        "direction": -180,
         "type": "arrow"
       }
     ],
@@ -1220,17 +1389,23 @@
       {
         "key": "LN04_10",
         "direction": 180,
-        "type": "arrow"
+        "type": "teleport",
+        "height": -4,
+        "distance": 18
       },
       {
         "key": "LS04_12",
-        "direction": 90,
-        "type": "arrow"
+        "direction": 80,
+        "type": "teleport",
+        "height": -4,
+        "distance": 15
       },
       {
-        "key": "LS05_20",
-        "direction": -90,
-        "type": "arrow"
+        "key": "LS05_11",
+        "direction": -98,
+        "type": "teleport",
+        "height": -4,
+        "distance": 13
       }
     ],
     "key": "LS04_10"
@@ -1254,17 +1429,23 @@
       {
         "key": "LS04_10",
         "direction": 0,
-        "type": "arrow"
+        "type": "teleport",
+        "height": -4,
+        "distance": 17
       },
       {
         "key": "LN04_12",
-        "direction": 90,
-        "type": "arrow"
+        "direction": 95,
+        "type": "teleport",
+        "height": -4,
+        "distance": 12
       },
       {
         "key": "LN05_11",
-        "direction": -90,
-        "type": "arrow"
+        "direction": -81,
+        "type": "teleport",
+        "height": -4,
+        "distance": 12.5
       }
     ],
     "key": "LN04_10"
@@ -1316,13 +1497,17 @@
     "exits": [
       {
         "key": "LS05_11",
-        "direction": 0,
-        "type": "arrow"
+        "direction": -1,
+        "type": "teleport",
+        "height": -4,
+        "distance": 14
       },
       {
         "key": "LN04_10",
-        "direction": 90,
-        "type": "arrow"
+        "direction": 96,
+        "type": "teleport",
+        "height": -4,
+        "distance": 12
       }
     ],
     "key": "LN05_11"
@@ -1345,13 +1530,17 @@
     "exits": [
       {
         "key": "LS04_10",
-        "direction": 90,
-        "type": "arrow"
+        "direction": 80,
+        "type": "teleport",
+        "height": -4,
+        "distance": 13
       },
       {
         "key": "LN05_11",
-        "direction": 180,
-        "type": "arrow"
+        "direction": 181,
+        "type": "teleport",
+        "height": -4,
+        "distance": 13
       },
       {
         "key": "LS05_10b",
@@ -1397,7 +1586,14 @@
       {
         "key": "LS05_20",
         "direction": 0,
-        "type": "door"
+        "type": "door",
+        "alignment": [
+          0,
+          90,
+          0
+        ],
+        "shift": -3.5,
+        "distance": 7
       },
       {
         "key": "LS05_11",
@@ -1514,6 +1710,14 @@
         "key": "1S05_21",
         "direction": 40,
         "type": "arrow"
+      },
+      {
+        "key": "1S05_00",
+        "direction": 180,
+        "type": "teleport",
+        "height": -4,
+        "shift": -1,
+        "distance": 6
       }
     ],
     "key": "1S05_10"
@@ -1521,9 +1725,9 @@
   "1S05_00": {
     "label": "",
     "alignment": [
-      0.2,
-      -3.9,
-      -41.4
+      -0.6,
+      -116,
+      -181
     ],
     "hotspots": [],
     "mapInfo": {
@@ -1533,14 +1737,50 @@
       "x": 55,
       "y": 201
     },
-    "exits": []
+    "exits": [
+      {
+        "key": "1S05_10",
+        "direction": 0,
+        "type": "teleport",
+        "height": -4,
+        "distance": 6
+      },
+      {
+        "key": "1N05_21",
+        "direction": 90,
+        "type": "stairsUp",
+        "height": 2,
+        "distance": 12,
+        "shift": 5,
+        "alignment": [
+          0,
+          -26.8,
+          0
+        ]
+      },
+      {
+        "key": "1N05_10",
+        "direction": 180,
+        "type": "teleport",
+        "height": -4,
+        "distance": 15
+      },
+      {
+        "key": "1S05_11",
+        "direction": 90,
+        "type": "teleport",
+        "height": -4,
+        "distance": 7.5
+      }
+    ],
+    "key": "1S05_00"
   },
   "1S05_11": {
     "label": "",
     "alignment": [
-      0.2,
-      -3.9,
-      -41.4
+      -0.6,
+      153,
+      -180
     ],
     "hotspots": [],
     "mapInfo": {
@@ -1550,14 +1790,36 @@
       "x": 91,
       "y": 239
     },
-    "exits": []
+    "exits": [
+      {
+        "key": "1S05_00",
+        "direction": -88,
+        "type": "teleport",
+        "height": -4,
+        "distance": 7
+      },
+      {
+        "key": "1N05_21",
+        "direction": 180,
+        "type": "stairsUp",
+        "height": 5,
+        "distance": 8,
+        "alignment": [
+          0,
+          -23.5,
+          0
+        ],
+        "shift": -1.5
+      }
+    ],
+    "key": "1S05_11"
   },
   "1N05_21": {
     "label": "",
     "alignment": [
-      0.2,
-      -3.9,
-      -41.4
+      -0.6,
+      164,
+      -181
     ],
     "hotspots": [],
     "mapInfo": {
@@ -1567,14 +1829,35 @@
       "x": 91,
       "y": 167
     },
-    "exits": []
+    "exits": [
+      {
+        "key": "1S05_00",
+        "direction": -70,
+        "type": "teleport",
+        "height": -8,
+        "distance": 8
+      },
+      {
+        "key": "1S05_11",
+        "direction": 0,
+        "type": "stairsDown",
+        "height": -8,
+        "distance": 3,
+        "alignment": [
+          0,
+          -50.8,
+          0
+        ]
+      }
+    ],
+    "key": "1N05_21"
   },
   "1N05_10": {
     "label": "",
     "alignment": [
-      0.2,
-      -3.9,
-      -41.4
+      -1,
+      -121.1,
+      -182
     ],
     "hotspots": [],
     "mapInfo": {
@@ -1584,14 +1867,43 @@
       "x": 55,
       "y": 129
     },
-    "exits": []
+    "exits": [
+      {
+        "key": "1N05_11",
+        "direction": 90,
+        "type": "teleport",
+        "height": -4,
+        "distance": 6.5
+      },
+      {
+        "key": "1N05_01",
+        "direction": 117,
+        "type": "stairsUp",
+        "distance": 12,
+        "height": 3,
+        "alignment": [
+          0,
+          -38.5,
+          0
+        ]
+      },
+      {
+        "key": "1S05_00",
+        "direction": 0,
+        "type": "teleport",
+        "height": -4,
+        "distance": 13,
+        "shift": -0.5
+      }
+    ],
+    "key": "1N05_10"
   },
   "1N05_11": {
     "label": "",
     "alignment": [
-      0.2,
-      -3.9,
-      -41.4
+      -1,
+      -125,
+      -182
     ],
     "hotspots": [],
     "mapInfo": {
@@ -1601,14 +1913,36 @@
       "x": 91,
       "y": 129
     },
-    "exits": []
+    "exits": [
+      {
+        "key": "1N05_10",
+        "direction": -90,
+        "type": "teleport",
+        "height": -4,
+        "distance": 7,
+        "shift": 0.5
+      },
+      {
+        "key": "1N05_01",
+        "direction": 180,
+        "type": "stairsUp",
+        "height": 5,
+        "distance": 8,
+        "alignment": [
+          0,
+          -41.1,
+          0
+        ]
+      }
+    ],
+    "key": "1N05_11"
   },
   "1N05_01": {
     "label": "",
     "alignment": [
-      0.2,
-      -3.9,
-      -41.4
+      -2.5,
+      -128,
+      -180
     ],
     "hotspots": [],
     "mapInfo": {
@@ -1618,7 +1952,28 @@
       "x": 91,
       "y": 91
     },
-    "exits": []
+    "exits": [
+      {
+        "key": "1N05_10",
+        "direction": -63,
+        "type": "teleport",
+        "height": -8,
+        "distance": 7.5
+      },
+      {
+        "key": "1N05_11",
+        "direction": 0,
+        "type": "stairsDown",
+        "height": -8,
+        "distance": 4,
+        "alignment": [
+          0,
+          -52.8,
+          0
+        ]
+      }
+    ],
+    "key": "1N05_01"
   },
   "1S05_22": {
     "label": "",
@@ -1787,7 +2142,9 @@
       {
         "key": "1N02_12",
         "direction": -90,
-        "type": "arrow"
+        "type": "teleport",
+        "height": -4,
+        "distance": 18
       },
       {
         "key": "1N01_00",
@@ -2702,9 +3059,94 @@
           -37.8,
           0
         ]
+      },
+      {
+        "key": "2S05_12",
+        "direction": -90,
+        "type": "door",
+        "height": -1,
+        "alignment": [
+          0,
+          110.4,
+          0
+        ]
       }
     ],
     "key": "2S04_20"
+  },
+  "2S05_12": {
+    "label": "",
+    "alignment": [
+      0.6,
+      72.5,
+      -182
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Cooling Plant",
+      "floor": "Platforms & Catwalks",
+      "image": "PlatformsCatwalks.png",
+      "x": 162,
+      "y": 277
+    },
+    "exits": [
+      {
+        "key": "2N05_11",
+        "direction": 180,
+        "type": "arrow",
+        "shift": -1,
+        "distance": 7,
+        "alignment": [
+          0,
+          0,
+          -31.3
+        ]
+      },
+      {
+        "key": "2S04_20",
+        "direction": 39,
+        "type": "door",
+        "distance": 10,
+        "height": -1,
+        "alignment": [
+          0,
+          136.4,
+          0
+        ]
+      }
+    ],
+    "key": "2S05_12"
+  },
+  "2N05_11": {
+    "label": "",
+    "alignment": [
+      -0.6,
+      -104.3,
+      -182
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Cooling Plant",
+      "floor": "Platforms & Catwalks",
+      "image": "PlatformsCatwalks.png",
+      "x": 162,
+      "y": 277
+    },
+    "exits": [
+      {
+        "key": "2S05_12",
+        "direction": 0,
+        "type": "arrow",
+        "alignment": [
+          0,
+          0,
+          -36.5
+        ],
+        "distance": 6,
+        "shift": 0.5
+      }
+    ],
+    "key": "2N05_11"
   },
   "2S03_12": {
     "label": "",
@@ -2857,13 +3299,22 @@
     "exits": [
       {
         "key": "LN02_11",
-        "direction": 90,
-        "type": "arrow"
+        "direction": 88,
+        "type": "teleport",
+        "height": -4,
+        "distance": 16
       },
       {
         "key": "LS03_02",
-        "direction": -25,
-        "type": "arrow"
+        "direction": -90,
+        "type": "arrow",
+        "alignment": [
+          0,
+          0,
+          -90
+        ],
+        "shift": 3,
+        "distance": 4
       },
       {
         "key": "LN03_01",
@@ -2899,17 +3350,24 @@
       {
         "key": "LN03_12",
         "direction": -90,
-        "type": "arrow"
+        "type": "teleport",
+        "height": -4,
+        "distance": 14,
+        "shift": -1
       },
       {
         "key": "LN01_10",
-        "direction": 90,
-        "type": "arrow"
+        "direction": 96,
+        "type": "teleport",
+        "height": -4,
+        "distance": 14
       },
       {
         "key": "LS02_01",
-        "direction": 0,
-        "type": "arrow"
+        "direction": -7,
+        "type": "teleport",
+        "height": -4,
+        "distance": 14
       }
     ],
     "key": "LN02_11"
@@ -2932,13 +3390,24 @@
     "exits": [
       {
         "key": "LS02_10",
-        "direction": -15,
-        "type": "arrow"
+        "direction": -17,
+        "type": "teleport",
+        "height": -4,
+        "distance": 16
       },
       {
         "key": "LN02_11",
         "direction": 180,
-        "type": "arrow"
+        "type": "teleport",
+        "height": -4,
+        "distance": 13.5
+      },
+      {
+        "key": "LS02_12",
+        "direction": 20.5,
+        "type": "teleport",
+        "height": -4,
+        "distance": 16
       }
     ],
     "key": "LS02_01"
@@ -2961,13 +3430,22 @@
     "exits": [
       {
         "key": "LS03_11",
-        "direction": 0,
-        "type": "arrow"
+        "direction": 15,
+        "type": "teleport",
+        "height": -4,
+        "distance": 12.5
       },
       {
         "key": "LN03_12",
-        "direction": 165,
-        "type": "arrow"
+        "direction": 180,
+        "type": "arrow",
+        "distance": 7,
+        "alignment": [
+          0,
+          0,
+          40
+        ],
+        "shift": -1
       }
     ],
     "key": "LS03_02"
@@ -2991,12 +3469,16 @@
       {
         "key": "LN01_02",
         "direction": 100,
-        "type": "arrow"
+        "type": "teleport",
+        "height": -4,
+        "distance": 11
       },
       {
         "key": "LN02_11",
         "direction": -90,
-        "type": "arrow"
+        "type": "teleport",
+        "height": -4,
+        "distance": 14
       }
     ],
     "key": "LN01_10"
@@ -3045,8 +3527,49 @@
           -45.6,
           0
         ]
+      },
+      {
+        "key": "RS05_11",
+        "direction": -75,
+        "type": "door",
+        "distance": 20,
+        "alignment": [
+          0,
+          123.4,
+          0
+        ],
+        "height": 1
       }
     ],
     "key": "RS03_01b"
+  },
+  "RS05_11": {
+    "label": "Roof Cooling Tower 1",
+    "alignment": [
+      -0.7,
+      -8,
+      -180
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Roof",
+      "image": "Roof.png",
+      "x": 300,
+      "y": 201
+    },
+    "exits": [
+      {
+        "key": "RS03_01b",
+        "direction": 180,
+        "type": "door",
+        "alignment": [
+          0,
+          90,
+          0
+        ]
+      }
+    ],
+    "key": "RS05_11"
   }
 }
