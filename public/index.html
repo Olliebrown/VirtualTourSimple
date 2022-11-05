@@ -37,6 +37,21 @@
       body {
         background: #f0f0f0;
       }
+
+      .container_editor_line_number:before {
+        position: absolute;
+        right: 100%;
+        margin-right: 10px;
+        text-align: right;
+        color: lightgray;
+        user-select: none;
+        counter-increment: line;
+        content: counter(line);
+      }
+
+      .container_editor textarea {
+        outline: 0;
+      }
     </style>
   </head>
   <body>
