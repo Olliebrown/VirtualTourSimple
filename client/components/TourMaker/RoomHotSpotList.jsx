@@ -8,9 +8,9 @@ import { useLiveQuery } from 'dexie-react-hooks'
 
 import { Box, Button } from '@mui/material'
 
-import PanoHotSpotEdit from './PanoHotSpotEdit.jsx'
+import PanoHotspotEdit from './PanoHotspotEdit.jsx'
 
-export default function RoomHotSpotList (props) {
+export default function RoomHotspotList (props) {
   // Subscribe to pano DB changes
   const currentPanoKey = useRecoilValue(currentPanoKeyState)
   const currentPanoData = useLiveQuery(
@@ -62,7 +62,7 @@ export default function RoomHotSpotList (props) {
   return (
     <Box sx={{ p: 1, overflowY: 'auto', maxHeight: '400px' }}>
       {currentPanoData?.hotspots.map((hotspot, i) => (
-        <PanoHotSpotEdit
+        <PanoHotspotEdit
           key={i}
           hotspotInfo={hotspot}
           enableEdit={editHotspot === i}

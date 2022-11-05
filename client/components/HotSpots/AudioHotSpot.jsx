@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import localDB, { updateSetting } from '../../state/localDB.js'
-import { useLiveQuery } from 'dexie-react-hooks'
+import { mediaPlayingState } from '../../state/globalState.js'
+import { useRecoilState } from 'recoil'
 
 // Graphics
 import { MathUtils } from 'three'
@@ -15,12 +15,12 @@ import { Howl } from 'howler'
 // URL for the audio hot spot icon
 const ICON_URL = 'icons/volumeUpIcon.png'
 
-export default function AudioHotSpot (props) {
+export default function AudioHotspot (props) {
   // Destructure props
   const { label, href, lon, lat, ...rest } = props
 
-  // Subscribe to pieces of global state
-  const mediaPlaying = useLiveQuery(() => localDB.settings.get('mediaPlaying'))?.value || false
+  // Global state
+  const [mediaPlaying, setMediaPlaying] = useRecoilState(mediaPlayingState)
 
   // Track state
   const [hovering, setHovering] = React.useState(false)
@@ -31,11 +31,11 @@ export default function AudioHotSpot (props) {
     console.log(`Audio Hot-Spot "${label}" Clicked`)
     if (!mediaPlaying) {
       console.log('Playing')
-      updateSetting('mediaPlaying', true)
+      setMediaPlaying(true)
       audioObj?.play()
     } else {
       audioObj?.pause()
-      updateSetting('mediaPlaying', false)
+      setMediaPlaying(false)
     }
   }
 
@@ -54,7 +54,7 @@ export default function AudioHotSpot (props) {
         const newSound = new Howl({
           html5: true,
           src: [`${href}.webm`, `${href}.mp3`, `${href}.ac3`, `${href}.m4a`, `${href}.wav`],
-          onend: () => updateSetting('mediaPlaying', false)
+          onend: () => setMediaPlaying(false)
         })
         setAudioObj(newSound)
       }
@@ -67,12 +67,12 @@ export default function AudioHotSpot (props) {
         }
 
         // Reset video state
-        updateSetting('mediaPlaying', false)
+        setMediaPlaying(false)
       }
     } else {
-      updateSetting('mediaPlaying', false)
+      setMediaPlaying(false)
     }
-  }, [audioObj, href])
+  }, [audioObj, href, setMediaPlaying])
 
   // Pack in groups to position in the scene
   return (
@@ -93,14 +93,14 @@ export default function AudioHotSpot (props) {
   )
 }
 
-AudioHotSpot.propTypes = {
+AudioHotspot.propTypes = {
   label: PropTypes.string,
   href: PropTypes.string,
   lon: PropTypes.number,
   lat: PropTypes.number
 }
 
-AudioHotSpot.defaultProps = {
+AudioHotspot.defaultProps = {
   label: 'N/A',
   href: '',
   lon: 0,

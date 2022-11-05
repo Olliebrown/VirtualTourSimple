@@ -52,7 +52,11 @@
     ],
     "hotspots": [
       {
-        "type": "info"
+        "type": "info",
+        "longitude": 0,
+        "latitude": 11.6,
+        "scale": 0.4,
+        "json": "1S01_Boiler.json"
       }
     ],
     "mapInfo": {

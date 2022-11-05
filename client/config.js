@@ -6,6 +6,9 @@ export default {
   // Path to images on dev server
   PANO_IMAGE_PATH: 'media/panoImgKtx2',
 
+  // Path to hotspot info JSON files
+  HOTSPOT_INFO_PATH: 'hotspotInfo',
+
   // Enable the dynamic backend database server
   USE_DYNAMIC_DATABASE: true,
 

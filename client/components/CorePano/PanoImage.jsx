@@ -7,13 +7,14 @@ import localDB from '../../state/localDB.js'
 import { useLiveQuery } from 'dexie-react-hooks'
 
 import { useRecoilValue, useSetRecoilState } from 'recoil'
-import { currentPanoKeyState, setTextureLoadingState } from '../../state/globalState.js'
+import { currentPanoKeyState } from '../../state/globalState.js'
+import { setTextureLoadingState } from '../../state/textureLoadingState.js'
 
 import { useKTX2 } from '@react-three/drei'
 import { Euler, MathUtils, BackSide } from 'three'
 
 import CutoutMaterial from '../../shaders/CutoutShader.js'
-import InfoHotSpot from '../HotSpots/InfoHotSpot.jsx'
+import InfoHotspot from '../Hotspots/InfoHotspot.jsx'
 import ExitIndicator from './ExitIndicator.jsx'
 
 const NO_CROP = {
@@ -47,7 +48,7 @@ export default function PanoImage (props) {
   //       setPanoVideo(vid)
 
   //       // Setup to stop showing video once its done
-  //       vid.onended = () => updateSetting('mediaPlaying', false)
+  //       vid.onended = () => setMediaPlaying(false)
   //     }
 
   //     // Update video state and crop box
@@ -69,12 +70,12 @@ export default function PanoImage (props) {
   //       }
 
   //       // Reset video state
-  //       updateSetting('mediaPlaying', false)
+  //       setMediaPlaying(false)
   //       setVideoCrop(NO_CROP)
   //     }
   //   } else {
   //     // No video to load so ensure video state is back to default
-  //     updateSetting('mediaPlaying', false)
+  //     setMediaPlaying(false)
   //     setVideoCrop(NO_CROP)
   //   }
   // }, [currentPanoData?.video, currentPanoData?.videoCrop, panoVideo])
@@ -97,10 +98,10 @@ export default function PanoImage (props) {
   })
 
   // Build the info hot spots
-  const hotSpots = currentPanoData?.hotSpots?.map((info) => {
+  const hotspots = currentPanoData?.hotspots?.map((info) => {
     const key = `${currentPanoKey}-${info.id}`
     switch (info.type) {
-      case 'info': return (<InfoHotSpot key={key} {...info} />)
+      case 'info': return (<InfoHotspot key={key} {...info} />)
     }
     return null
   })
@@ -112,7 +113,7 @@ export default function PanoImage (props) {
     <>
       {/* Add extra geometry objects */}
       {exitArrows}
-      {hotSpots}
+      {hotspots}
 
       {/* The main pano image sphere geometry and shader */}
       <mesh

@@ -11,7 +11,7 @@ import { Box, Divider, MenuItem, Stack, TextField, Tabs, Tab, Button, Collapse }
 
 import AlignmentEditor from './AlignmentEditor.jsx'
 import RoomExitList from './RoomExitList.jsx'
-import RoomHotSpotList from './RoomHotSpotList.jsx'
+import RoomHotspotList from './RoomHotspotList.jsx'
 import TabPanel from '../TabPanel.jsx'
 
 function a11yProps (index) {
@@ -163,7 +163,7 @@ export default function TourInfoForm () {
           </TabPanel>
 
           <TabPanel currentTab={currentTab} index={1}>
-            <RoomHotSpotList />
+            <RoomHotspotList />
           </TabPanel>
         </Collapse>
 

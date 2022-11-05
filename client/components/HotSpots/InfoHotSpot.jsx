@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import localDB, { updateSetting } from '../../state/localDB.js'
-import { useLiveQuery } from 'dexie-react-hooks'
+import { mediaPlayingState, infoHotspotState } from '../../state/globalState.js'
+import { useRecoilState, useSetRecoilState } from 'recoil'
 
 import { useLoader, useGraph } from '@react-three/fiber'
 
@@ -15,7 +15,7 @@ import { useSpring, animated } from '@react-spring/three'
 const INFO_COLOR = 0xCC7178
 const VIDEO_COLOR = 0x648646
 
-export default function InfoHotSpot (props) {
+export default function InfoHotspot (props) {
   // Destructure props
   const { title, json, playButton, longitude, latitude, radius, scale, ...rest } = props
 
@@ -23,19 +23,22 @@ export default function InfoHotSpot (props) {
   const [hovering, setHovering] = React.useState(false)
 
   // Subscribe to pieces of global state
-  const mediaPlaying = useLiveQuery(() => localDB.settings.get('mediaPlaying'))?.value || false
+  const [mediaPlaying, setMediaPlaying] = useRecoilState(mediaPlayingState)
+  const setInfoHotspot = useSetRecoilState(infoHotspotState)
 
   // Click callback function
   const onClick = React.useCallback(() => {
     console.log(`Hot-spot "${title}" clicked`)
     if (playButton) {
-      updateSetting('mediaPlaying', true)
+      setMediaPlaying(true)
     } else {
-      updateSetting('lastHotSpotHref', json)
-      updateSetting('lastHotSpotTitle', title)
-      updateSetting('hotSpotModalOpen', true)
+      setInfoHotspot({
+        modalOpen: true,
+        jsonFilename: json,
+        title
+      })
     }
-  }, [json, playButton, title])
+  }, [json, playButton, setInfoHotspot, setMediaPlaying, title])
 
   // Load the hot spot geometry and clone our own instance
   const loadedObj = useLoader(OBJLoader, 'geom/icoSphere.obj')
@@ -80,7 +83,7 @@ export default function InfoHotSpot (props) {
   )
 }
 
-InfoHotSpot.propTypes = {
+InfoHotspot.propTypes = {
   title: PropTypes.string,
   json: PropTypes.string,
   playButton: PropTypes.bool,
@@ -91,7 +94,7 @@ InfoHotSpot.propTypes = {
   scale: PropTypes.number
 }
 
-InfoHotSpot.defaultProps = {
+InfoHotspot.defaultProps = {
   json: '',
   title: 'N/A',
   playButton: false,

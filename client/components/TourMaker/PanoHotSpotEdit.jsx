@@ -1,20 +1,37 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { MenuItem, Stack, TextField, IconButton, Collapse, Slider, Box } from '@mui/material'
-import { Delete as DeleteIcon, Edit as EditIcon } from '@mui/icons-material'
+import { hotspotContentEditJSONState } from '../../state/globalState.js'
+import { useSetRecoilState } from 'recoil'
+
+import { MenuItem, Stack, TextField, IconButton, Collapse, Slider, Box, Tooltip } from '@mui/material'
+import {
+  DataObject as JSONEditIcon,
+  Delete as DeleteIcon,
+  Edit as EditIcon
+} from '@mui/icons-material'
 
 import NumberField from '../Utility/NumberField.jsx'
 
-export default function PanoHotSpotEdit (params) {
-  const { hotSpotInfo, onChange, onDelete, enableEdit, onEdit } = params
+export default function PanoHotspotEdit (params) {
+  const { hotspotInfo, onChange, onDelete, enableEdit, onEdit } = params
 
-  const updateHotSpot = newData => {
+  const hotspotContentEditInfo = useSetRecoilState(hotspotContentEditJSONState)
+
+  const updateHotspot = newData => {
     if (onChange) {
-      console.log(`Old: ${JSON.stringify(hotSpotInfo)}`)
+      console.log(`Old: ${JSON.stringify(hotspotInfo)}`)
       console.log(`New: ${JSON.stringify(newData)}`)
-      onChange({ ...hotSpotInfo, ...newData })
+      onChange({ ...hotspotInfo, ...newData })
     }
+  }
+
+  // Show the JSON content in an editor
+  const onJSONEdit = () => {
+    hotspotContentEditInfo({
+      modalOpen: true,
+      jsonFilename: hotspotInfo?.json
+    })
   }
 
   return (
@@ -22,25 +39,37 @@ export default function PanoHotSpotEdit (params) {
       <Stack direction="row" spacing={2} sx={{ mb: 1 }}>
         <TextField
           label='Title'
-          value={hotSpotInfo?.title || ''}
-          onChange={e => updateHotSpot({ title: e.target.value })}
+          value={hotspotInfo?.title || ''}
+          onChange={e => updateHotspot({ title: e.target.value })}
           variant='standard'
         />
 
         <TextField
           label='JSON'
-          value={hotSpotInfo?.json || ''}
-          onChange={e => updateHotSpot({ json: e.target.value })}
+          value={hotspotInfo?.json || ''}
+          onChange={e => updateHotspot({ json: e.target.value })}
           variant='standard'
         />
 
-        <IconButton onClick={onEdit} size='small' sx={{ my: '10px !important' }}>
-          <EditIcon fontSize='inherit' />
-        </IconButton>
+        <Tooltip title='Edit Hotspot Content'>
+          <div>
+            <IconButton onClick={onJSONEdit} disabled={!hotspotInfo?.json} size='small' sx={{ my: '10px !important' }}>
+              <JSONEditIcon fontSize='inherit' />
+            </IconButton>
+          </div>
+        </Tooltip>
 
-        <IconButton onClick={onDelete} size='small' sx={{ my: '10px !important' }}>
-          <DeleteIcon fontSize='inherit' />
-        </IconButton>
+        <Tooltip title='Edit Hotspot Details'>
+          <IconButton onClick={onEdit} size='small' sx={{ my: '10px !important' }}>
+            <EditIcon fontSize='inherit' />
+          </IconButton>
+        </Tooltip>
+
+        <Tooltip title='Delete Hotspot'>
+          <IconButton onClick={onDelete} size='small' sx={{ my: '10px !important' }}>
+            <DeleteIcon fontSize='inherit' />
+          </IconButton>
+        </Tooltip>
       </Stack>
 
       <Collapse in={enableEdit} collapsedSize='0px'>
@@ -51,15 +80,15 @@ export default function PanoHotSpotEdit (params) {
               min={-190}
               max={190}
               step={0.1}
-              value={hotSpotInfo?.longitude || 0}
-              onChange={(e, newVal) => updateHotSpot({ longitude: newVal })}
+              value={hotspotInfo?.longitude || 0}
+              onChange={(e, newVal) => updateHotspot({ longitude: newVal })}
               aria-label="Longitude"
               valueLabelDisplay="auto"
             />
             <NumberField
               aria-label='Longitude'
-              value={hotSpotInfo?.longitude || 0}
-              onChange={newVal => updateHotSpot({ longitude: newVal })}
+              value={hotspotInfo?.longitude || 0}
+              onChange={newVal => updateHotspot({ longitude: newVal })}
               variant='standard'
               size="small"
               hiddenLabel
@@ -73,15 +102,15 @@ export default function PanoHotSpotEdit (params) {
               min={-190}
               max={190}
               step={0.1}
-              value={hotSpotInfo?.latitude || 0}
-              onChange={(e, newVal) => updateHotSpot({ latitude: newVal })}
+              value={hotspotInfo?.latitude || 0}
+              onChange={(e, newVal) => updateHotspot({ latitude: newVal })}
               aria-label="Latitude"
               valueLabelDisplay="auto"
             />
             <NumberField
               aria-label='Latitude'
-              value={hotSpotInfo?.latitude || 0}
-              onChange={newVal => updateHotSpot({ latitude: newVal })}
+              value={hotspotInfo?.latitude || 0}
+              onChange={newVal => updateHotspot({ latitude: newVal })}
               variant='standard'
               size="small"
               hiddenLabel
@@ -92,23 +121,23 @@ export default function PanoHotSpotEdit (params) {
           <Stack direction="row" spacing={2}>
             <NumberField
               label='Dist'
-              value={hotSpotInfo?.radius || 0}
-              onChange={newVal => updateHotSpot({ radius: newVal })}
+              value={hotspotInfo?.radius || 0}
+              onChange={newVal => updateHotspot({ radius: newVal })}
               variant='standard'
             />
 
             <NumberField
               label='Scale'
-              value={hotSpotInfo?.scale === undefined ? 1 : hotSpotInfo?.scale}
-              onChange={newVal => updateHotSpot({ scale: newVal })}
+              value={hotspotInfo?.scale === undefined ? 1 : hotspotInfo?.scale}
+              onChange={newVal => updateHotspot({ scale: newVal })}
               variant='standard'
             />
 
             <TextField
               sx={{ width: '35%' }}
               label='Type'
-              value={hotSpotInfo?.type || ''}
-              onChange={e => updateHotSpot({ type: e.target.value })}
+              value={hotspotInfo?.type || ''}
+              onChange={e => updateHotspot({ type: e.target.value })}
               variant='standard'
               select
             >
@@ -123,8 +152,8 @@ export default function PanoHotSpotEdit (params) {
   )
 }
 
-PanoHotSpotEdit.propTypes = {
-  hotSpotInfo: PropTypes.shape({
+PanoHotspotEdit.propTypes = {
+  hotspotInfo: PropTypes.shape({
     title: PropTypes.string.isRequired,
     json: PropTypes.string.isRequired,
 
@@ -139,13 +168,15 @@ PanoHotSpotEdit.propTypes = {
   onChange: PropTypes.func,
   onDelete: PropTypes.func,
   onEdit: PropTypes.func,
+  onJSONEdit: PropTypes.func,
   enableEdit: PropTypes.bool
 }
 
-PanoHotSpotEdit.defaultProps = {
-  hotSpotInfo: null,
+PanoHotspotEdit.defaultProps = {
+  hotspotInfo: null,
   onChange: null,
   onDelete: null,
   onEdit: null,
+  onJSONEdit: null,
   enableEdit: false
 }

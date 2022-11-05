@@ -3,14 +3,14 @@ import PropTypes from 'prop-types'
 
 import { Box } from '@mui/material'
 
-export default function HotSpotContent (props) {
-  const { hotSpotImages } = props
+export default function HotspotContent (props) {
+  const { hotspotImages } = props
 
   return (
     <Box sx={{ p: 2 }}>
-      {Array.isArray(hotSpotImages) &&
+      {Array.isArray(hotspotImages) &&
         <React.Fragment>
-          {hotSpotImages.map((imageInfo, i) => (
+          {hotspotImages.map((imageInfo, i) => (
             <Box component='img' key={i} {...imageInfo} width="100%" />
           ))}
         </React.Fragment>
@@ -19,14 +19,14 @@ export default function HotSpotContent (props) {
   )
 }
 
-HotSpotContent.propTypes = {
-  hotSpotImages: PropTypes.arrayOf(
+HotspotContent.propTypes = {
+  hotspotImages: PropTypes.arrayOf(
     PropTypes.shape({
       src: PropTypes.string.isRequired
     })
   )
 }
 
-HotSpotContent.defaultProps = {
-  hotSpotImages: []
+HotspotContent.defaultProps = {
+  hotspotImages: []
 }
