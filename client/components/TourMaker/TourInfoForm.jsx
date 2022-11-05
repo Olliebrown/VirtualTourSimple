@@ -7,10 +7,19 @@ import localDB, { setCurrentPanoData } from '../../state/localDB.js'
 import { useLiveQuery } from 'dexie-react-hooks'
 import { getDataSubRoute } from '../../state/asyncDataHelper.js'
 
-import { Box, Button, Divider, MenuItem, Stack, TextField, Typography } from '@mui/material'
+import { Box, Divider, MenuItem, Stack, TextField, Tabs, Tab, Button, Collapse } from '@mui/material'
 
-import PanoExitEdit from './PanoExitEdit.jsx'
 import AlignmentEditor from './AlignmentEditor.jsx'
+import RoomExitList from './RoomExitList.jsx'
+import RoomHotSpotList from './RoomHotSpotList.jsx'
+import TabPanel from '../TabPanel.jsx'
+
+function a11yProps (index) {
+  return {
+    id: `virtual-tour-tab-${index}`,
+    'aria-controls': `virtual-tour-tabpanel-${index}`
+  }
+}
 
 export default function TourInfoForm () {
   // Subscribe to pano DB changes
@@ -21,10 +30,6 @@ export default function TourInfoForm () {
   const [buildingNameChoices, setBuildingNameChoices] = React.useState([])
   const [buildingFloorChoices, setBuildingFloorChoices] = React.useState([])
   const [mapImageChoices, setMapImageChoices] = React.useState([])
-
-  // Which exit is currently being edited
-  const [editExit, setEditExit] = React.useState(-1)
-  const [alignExit, setAlignExit] = React.useState(-1)
 
   // Populate dropdown choices
   React.useEffect(() => {
@@ -73,101 +78,95 @@ export default function TourInfoForm () {
     })
   }
 
-  // Update one of the exits
-  const updateExit = (i, newExit) => {
-    const newExits = [...currentPanoData.exits]
-    newExits[i] = newExit
-    setCurrentPanoData(currentPanoKey, {
-      ...currentPanoData,
-      exits: newExits
-    })
-  }
-
-  // Add or delete an exit
-  const addExit = () => {
-    const newExits = [...currentPanoData.exits]
-    newExits.push({ key: '', direction: 0, type: 'arrow' })
-    setCurrentPanoData(currentPanoKey, {
-      ...currentPanoData,
-      exits: newExits
-    })
-  }
-
-  const deleteExit = i => {
-    const newExits = [...currentPanoData.exits]
-    newExits.splice(i, 1)
-    setCurrentPanoData(currentPanoKey, {
-      ...currentPanoData,
-      exits: newExits
-    })
+  const [collapse, setCollapse] = React.useState(0)
+  const [currentTab, setCurrentTab] = React.useState(0)
+  const changeTab = (event, newIndex) => {
+    setCurrentTab(newIndex)
+    setCollapse(2)
   }
 
   return (
-    <Box sx={{ textAlign: 'left' }}>
+    <Box sx={{ textAlign: 'left', width: '100%' }}>
       <Stack>
-        <Typography variant="h6" component="div" gutterBottom>Label and Orientation:</Typography>
-        <TextField
-          label="Room Label"
-          variant="standard"
-          value={currentPanoData?.label}
-          onChange={e => updatePanoData({ label: e.target.value })}
-          sx={{ mb: 2 }}
-        />
+        <Button
+          variant="text"
+          onClick={() => setCollapse(0)}
+          sx={{ mb: 1 }}
+        >
+          Label and Orientation
+        </Button>
+        <Collapse in={collapse === 0} collapsedSize='0px'>
+          <TextField
+            label="Room Label"
+            variant="standard"
+            value={currentPanoData?.label}
+            onChange={e => updatePanoData({ label: e.target.value })}
+            sx={{ mb: 2 }}
+          />
 
-        <Typography variant="body1" gutterBottom>Orientation (X, Y, Z)</Typography>
-        <AlignmentEditor alignment={currentPanoData?.alignment || [0, 0, 0]} updateAlignment={updateAlignment} />
+          <AlignmentEditor alignment={currentPanoData?.alignment || [0, 0, 0]} updateAlignment={updateAlignment} />
+        </Collapse>
 
         <Divider orientation="horizontal" sx={{ my: 2 }} />
-        <Typography variant="h6" component="div" gutterBottom>Mini-map Info:</Typography>
-        <TextField
-          label="Building Name"
-          variant="standard"
-          value={buildingNameChoices.length > 0 ? currentPanoData?.mapInfo.building || '' : ''}
-          onChange={e => updateMapInfo({ building: e.target.value })}
-          select
-          sx={{ mb: 2 }}
+        <Button
+          variant="text"
+          onClick={() => setCollapse(1)}
+          sx={{ mb: 1 }}
         >
-          {buildingNameChoices.map(name => (<MenuItem key={name} value={name}>{name}</MenuItem>))}
-        </TextField>
-        <TextField
-          label="Building Floor"
-          variant="standard"
-          value={buildingFloorChoices.length > 0 ? currentPanoData?.mapInfo.floor || '' : ''}
-          onChange={e => updateMapInfo({ floor: e.target.value })}
-          select
-          sx={{ mb: 2 }}
-        >
-          {buildingFloorChoices.map(floor => (<MenuItem key={floor} value={floor}>{floor}</MenuItem>))}
-        </TextField>
-        <TextField
-          label="Map Image"
-          variant="standard"
-          value={mapImageChoices.length > 0 ? currentPanoData?.mapInfo.image || '' : ''}
-          onChange={e => updateMapInfo({ image: e.target.value })}
-          select
-          sx={{ mb: 2 }}
-        >
-          {mapImageChoices.map(image => (<MenuItem key={image} value={image}>{image}</MenuItem>))}
-        </TextField>
+          Mini-map Info
+        </Button>
+        <Collapse in={collapse === 1} collapsedSize='0px'>
+          <Stack spacing={2}>
+            <TextField
+              label="Building Name"
+              variant="standard"
+              value={buildingNameChoices.length > 0 ? currentPanoData?.mapInfo.building || '' : ''}
+              onChange={e => updateMapInfo({ building: e.target.value })}
+              select
+              sx={{ mb: 2 }}
+            >
+              {buildingNameChoices.map(name => (<MenuItem key={name} value={name}>{name}</MenuItem>))}
+            </TextField>
+
+            <TextField
+              label="Building Floor"
+              variant="standard"
+              value={buildingFloorChoices.length > 0 ? currentPanoData?.mapInfo.floor || '' : ''}
+              onChange={e => updateMapInfo({ floor: e.target.value })}
+              select
+              sx={{ mb: 2 }}
+            >
+              {buildingFloorChoices.map(floor => (<MenuItem key={floor} value={floor}>{floor}</MenuItem>))}
+            </TextField>
+            <TextField
+              label="Map Image"
+              variant="standard"
+              value={mapImageChoices.length > 0 ? currentPanoData?.mapInfo.image || '' : ''}
+              onChange={e => updateMapInfo({ image: e.target.value })}
+              select
+              sx={{ mb: 2 }}
+            >
+              {mapImageChoices.map(image => (<MenuItem key={image} value={image}>{image}</MenuItem>))}
+            </TextField>
+          </Stack>
+        </Collapse>
 
         <Divider orientation="horizontal" sx={{ mb: 2 }} />
-        <Typography variant="h6" component="div" gutterBottom>Room Exits:</Typography>
-        <Box sx={{ p: 1, overflowY: 'auto', maxHeight: '400px' }}>
-          {currentPanoData?.exits.map((exit, i) => (
-            <PanoExitEdit
-              key={exit.key}
-              exit={exit}
-              currentPanoKey={currentPanoKey}
-              enableEdit={editExit === i}
-              enableAlign={alignExit === i}
-              onChange={newExit => updateExit(i, newExit) }
-              onDelete={() => deleteExit(i)}
-              onEdit={() => { setAlignExit(-1); setEditExit(editExit === i ? -1 : i) }}
-              onAlign={() => { setEditExit(-1); setAlignExit(alignExit === i ? -1 : i) }}
-            />
-          ))}
-          <Button onClick={addExit} fullWidth sx={{ mb: 2 }}>New Exit</Button>
-        </Box>
+        <Tabs value={currentTab} onChange={changeTab} onClick={() => setCollapse(2)}>
+          <Tab label="Exits" {...a11yProps(0)} />
+          <Tab label="Hotspots" {...a11yProps(1)} />
+        </Tabs>
+
+        <Collapse in={collapse === 2}>
+          <TabPanel currentTab={currentTab} index={0}>
+            <RoomExitList />
+          </TabPanel>
+
+          <TabPanel currentTab={currentTab} index={1}>
+            <RoomHotSpotList />
+          </TabPanel>
+        </Collapse>
+
       </Stack>
     </Box>
   )

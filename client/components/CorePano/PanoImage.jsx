@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import CONFIG from '../../config.js'
 
-import localDB, { updateSetting } from '../../state/localDB.js'
+import localDB from '../../state/localDB.js'
 import { useLiveQuery } from 'dexie-react-hooks'
 
 import { useRecoilValue, useSetRecoilState } from 'recoil'
@@ -14,7 +14,6 @@ import { Euler, MathUtils, BackSide } from 'three'
 
 import CutoutMaterial from '../../shaders/CutoutShader.js'
 import InfoHotSpot from '../HotSpots/InfoHotSpot.jsx'
-import AudioHotSpot from '../HotSpots/AudioHotSpot.jsx'
 import ExitIndicator from './ExitIndicator.jsx'
 
 const NO_CROP = {
@@ -25,65 +24,65 @@ export default function PanoImage (props) {
   const { xRotate, yRotate, zRotate } = props
 
   // Subscribe to changes in needed global state
-  const mediaPlaying = useLiveQuery(() => localDB.settings.get('mediaPlaying'))?.value || false
+  // const mediaPlaying = useLiveQuery(() => localDB.settings.get('mediaPlaying'))?.value || false
 
   // Subscribe to pano DB changes
   const currentPanoKey = useRecoilValue(currentPanoKeyState)
   const currentPanoData = useLiveQuery(() => localDB.panoInfoState.get(currentPanoKey), [currentPanoKey], null)
 
-  // Load the pano image or video
-  const [panoVideo, setPanoVideo] = React.useState(null)
-  const [videoCrop, setVideoCrop] = React.useState(NO_CROP)
+  // // Load the pano image or video
+  // const [panoVideo, setPanoVideo] = React.useState(null)
+  // const [videoCrop, setVideoCrop] = React.useState(NO_CROP)
 
-  // Possibly load a video
-  React.useEffect(() => {
-    if (currentPanoData?.video) {
-      // Make a video HTML tag if we don't have one
-      if (panoVideo === null) {
-        // Create video HTML tag to stream media
-        const vid = document.createElement('video')
-        vid.crossOrigin = 'anonymous'
-        vid.src = currentPanoData?.video.href
-        vid.loop = !!currentPanoData?.video.loop
-        setPanoVideo(vid)
+  // // Possibly load a video
+  // React.useEffect(() => {
+  //   if (currentPanoData?.video) {
+  //     // Make a video HTML tag if we don't have one
+  //     if (panoVideo === null) {
+  //       // Create video HTML tag to stream media
+  //       const vid = document.createElement('video')
+  //       vid.crossOrigin = 'anonymous'
+  //       vid.src = currentPanoData?.video.href
+  //       vid.loop = !!currentPanoData?.video.loop
+  //       setPanoVideo(vid)
 
-        // Setup to stop showing video once its done
-        vid.onended = () => updateSetting('mediaPlaying', false)
-      }
+  //       // Setup to stop showing video once its done
+  //       vid.onended = () => updateSetting('mediaPlaying', false)
+  //     }
 
-      // Update video state and crop box
-      if (currentPanoData?.videoCrop) {
-        setVideoCrop([
-          currentPanoData?.videoCrop.x,
-          currentPanoData?.videoCrop.y,
-          currentPanoData?.videoCrop.x + currentPanoData?.videoCrop.width,
-          currentPanoData?.videoCrop.y + currentPanoData?.videoCrop.height
-        ])
-      }
+  //     // Update video state and crop box
+  //     if (currentPanoData?.videoCrop) {
+  //       setVideoCrop([
+  //         currentPanoData?.videoCrop.x,
+  //         currentPanoData?.videoCrop.y,
+  //         currentPanoData?.videoCrop.x + currentPanoData?.videoCrop.width,
+  //         currentPanoData?.videoCrop.y + currentPanoData?.videoCrop.height
+  //       ])
+  //     }
 
-      // Clean up when the user leaves this pano
-      return () => {
-        // Stop streaming media
-        if (panoVideo !== null) {
-          panoVideo.pause()
-          panoVideo.remove()
-        }
+  //     // Clean up when the user leaves this pano
+  //     return () => {
+  //       // Stop streaming media
+  //       if (panoVideo !== null) {
+  //         panoVideo.pause()
+  //         panoVideo.remove()
+  //       }
 
-        // Reset video state
-        updateSetting('mediaPlaying', false)
-        setVideoCrop(NO_CROP)
-      }
-    } else {
-      // No video to load so ensure video state is back to default
-      updateSetting('mediaPlaying', false)
-      setVideoCrop(NO_CROP)
-    }
-  }, [currentPanoData?.video, currentPanoData?.videoCrop, panoVideo])
+  //       // Reset video state
+  //       updateSetting('mediaPlaying', false)
+  //       setVideoCrop(NO_CROP)
+  //     }
+  //   } else {
+  //     // No video to load so ensure video state is back to default
+  //     updateSetting('mediaPlaying', false)
+  //     setVideoCrop(NO_CROP)
+  //   }
+  // }, [currentPanoData?.video, currentPanoData?.videoCrop, panoVideo])
 
-  // Respond to a change in the video playing state
-  React.useEffect(() => {
-    if (mediaPlaying) { panoVideo?.play() }
-  }, [mediaPlaying, panoVideo])
+  // // Respond to a change in the video playing state
+  // React.useEffect(() => {
+  //   if (mediaPlaying) { panoVideo?.play() }
+  // }, [mediaPlaying, panoVideo])
 
   // Load the base image texture
   const setTextureLoading = useSetRecoilState(setTextureLoadingState)
@@ -101,15 +100,13 @@ export default function PanoImage (props) {
   const hotSpots = currentPanoData?.hotSpots?.map((info) => {
     const key = `${currentPanoKey}-${info.id}`
     switch (info.type) {
-      case 'audio': return (<AudioHotSpot key={key} {...info} />)
-      case 'video': return (<InfoHotSpot key={key} {...info} />)
       case 'info': return (<InfoHotSpot key={key} {...info} />)
     }
     return null
   })
 
   // Is there a video to show and is it playing
-  const showVideo = !!panoVideo && mediaPlaying
+  // const showVideo = !!panoVideo && mediaPlaying
 
   return (
     <>
@@ -134,10 +131,10 @@ export default function PanoImage (props) {
         <cutoutMaterial
           key={CutoutMaterial.key}
           side={BackSide}
-          cropBox={videoCrop}
-          enableVideo={showVideo}
+          cropBox={NO_CROP} // cropBox
+          // enableVideo={showVideo}
         >
-          {showVideo && <videoTexture attach="panoVideo" args={[panoVideo]}/>}
+          {/* {showVideo && <videoTexture attach="panoVideo" args={[panoVideo]}/>} */}
           <primitive attach="panoImage" object={panoImage || null}/>
         </cutoutMaterial>
       </mesh>

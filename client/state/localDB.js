@@ -17,6 +17,7 @@ Object.keys(heatingPlantTourInfo).forEach(async panoKey => {
 
 // Synchronize local cached data and server data
 export async function setCurrentPanoData (panoKey, newData) {
+  console.log(`${panoKey}: ${JSON.stringify(newData)}`)
   await localDB.panoInfoState.put({ ...newData, key: panoKey })
   await setPanoDataOnServer(panoKey, newData)
 }

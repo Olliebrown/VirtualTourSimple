@@ -50,7 +50,11 @@
       -120,
       -182
     ],
-    "hotspots": [],
+    "hotspots": [
+      {
+        "type": "info"
+      }
+    ],
     "mapInfo": {
       "building": "Heating Plant",
       "floor": "Ground Floor",

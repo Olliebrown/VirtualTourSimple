@@ -32,8 +32,8 @@ export default function TourInfoEditor (props) {
           position: 'absolute',
           top: 16,
           right: 16,
-          maxWidth: 400,
-          maxHeight: 1000,
+          width: '400px',
+          maxHeight: '88vh',
           p: 2,
           pt: 1
         }}
