@@ -12,7 +12,7 @@
       "floor": "Ground Floor",
       "image": "GroundFloor.png",
       "x": 543,
-      "y": 277
+      "y": 276
     },
     "exits": [
       {
@@ -36,7 +36,7 @@
         "height": -1,
         "alignment": [
           0,
-          90,
+          120,
           0
         ]
       }
@@ -55,15 +55,15 @@
       "building": "Heating Plant",
       "floor": "Ground Floor",
       "image": "GroundFloor.png",
-      "x": 471,
-      "y": 239
+      "x": 480,
+      "y": 262
     },
     "exits": [
       {
         "key": "1S02_12",
         "direction": -90,
         "type": "teleport",
-        "distance": 6,
+        "distance": 8,
         "height": -4
       },
       {
@@ -71,7 +71,13 @@
         "direction": 120,
         "type": "door",
         "height": -1.5,
-        "shift": 0.5
+        "shift": 0.5,
+        "alignment": [
+          0,
+          98.6,
+          0
+        ],
+        "distance": 6
       },
       {
         "key": "1S01_01",
@@ -82,9 +88,18 @@
       },
       {
         "key": "1S02_02",
-        "direction": -150,
+        "direction": -180,
         "type": "arrow",
-        "distance": 8
+        "distance": 5,
+        "height": -2,
+        "shift": 3.2
+      },
+      {
+        "key": "1S02_11",
+        "direction": -90,
+        "type": "teleport",
+        "height": -4,
+        "distance": 19
       }
     ],
     "key": "1S01_10"
@@ -101,24 +116,38 @@
       "building": "Heating Plant",
       "floor": "Ground Floor",
       "image": "GroundFloor.png",
-      "x": 438,
-      "y": 239
+      "x": 448,
+      "y": 262
     },
     "exits": [
       {
         "key": "1S02_11",
         "direction": -90,
-        "type": "arrow"
+        "type": "teleport",
+        "height": -4,
+        "distance": 12
       },
       {
         "key": "1S01_10",
         "direction": 90,
-        "type": "arrow"
+        "type": "teleport",
+        "height": -4,
+        "distance": 6.5
       },
       {
         "key": "1S02_02",
         "direction": 180,
-        "type": "arrow"
+        "type": "teleport",
+        "height": -4,
+        "distance": 20,
+        "shift": 0.2
+      },
+      {
+        "key": "1S03_12",
+        "direction": -90,
+        "type": "teleport",
+        "height": -4,
+        "distance": 20
       }
     ],
     "key": "1S02_12"
@@ -136,23 +165,43 @@
       "floor": "Ground Floor",
       "image": "GroundFloor.png",
       "x": 402,
-      "y": 239
+      "y": 262
     },
     "exits": [
       {
         "key": "1S03_12",
         "direction": -90,
-        "type": "arrow"
+        "type": "teleport",
+        "height": -4,
+        "distance": 8.5
       },
       {
         "key": "1S02_12",
         "direction": 90,
-        "type": "arrow"
+        "type": "teleport",
+        "height": -4,
+        "distance": 9
       },
       {
         "key": "1S03_02",
-        "direction": -150,
-        "type": "arrow"
+        "direction": -180,
+        "type": "arrow",
+        "shift": 5,
+        "distance": 4
+      },
+      {
+        "key": "1S01_10",
+        "direction": 90,
+        "type": "teleport",
+        "height": -4,
+        "distance": 18
+      },
+      {
+        "key": "1S03_11",
+        "direction": -90,
+        "type": "teleport",
+        "height": -4,
+        "distance": 19
       }
     ],
     "key": "1S02_11"
@@ -169,24 +218,35 @@
       "building": "Heating Plant",
       "floor": "Ground Floor",
       "image": "GroundFloor.png",
-      "x": 336,
-      "y": 239
+      "x": 351,
+      "y": 262
     },
     "exits": [
       {
         "key": "1S03_11",
         "direction": -90,
-        "type": "arrow"
+        "type": "teleport",
+        "height": -4,
+        "distance": 12
       },
       {
         "key": "1S02_11",
         "direction": 90,
-        "type": "arrow"
+        "type": "teleport",
+        "height": -4,
+        "distance": 6
       },
       {
         "key": "1S03_02",
         "direction": 180,
         "type": "arrow"
+      },
+      {
+        "key": "1S02_12",
+        "direction": 90,
+        "type": "teleport",
+        "height": -4,
+        "distance": 14
       }
     ],
     "key": "1S03_12"
@@ -204,23 +264,37 @@
       "floor": "Ground Floor",
       "image": "GroundFloor.png",
       "x": 300,
-      "y": 239
+      "y": 262
     },
     "exits": [
       {
         "key": "1S04_12",
         "direction": -90,
-        "type": "arrow"
+        "type": "teleport",
+        "height": -4,
+        "distance": 13
       },
       {
         "key": "1S03_12",
         "direction": 90,
-        "type": "arrow"
+        "type": "teleport",
+        "height": -4,
+        "distance": 9
       },
       {
         "key": "1N03_20",
-        "direction": 205,
-        "type": "arrow"
+        "direction": 180,
+        "type": "arrow",
+        "shift": 5,
+        "distance": 5
+      },
+      {
+        "key": "1S02_11",
+        "direction": 90,
+        "type": "teleport",
+        "shift": 0,
+        "height": -4,
+        "distance": 16
       }
     ],
     "key": "1S03_11"
@@ -238,33 +312,47 @@
       "floor": "Ground Floor",
       "image": "GroundFloor.png",
       "x": 234,
-      "y": 239
+      "y": 262
     },
     "exits": [
       {
         "key": "1S04_11",
-        "direction": -125,
-        "type": "arrow"
+        "direction": -130.1,
+        "type": "stairsUp",
+        "distance": 14,
+        "height": -4,
+        "alignment": [
+          0,
+          -34.8,
+          0
+        ]
       },
       {
         "key": "1S04_20",
-        "direction": -85,
-        "type": "arrow"
+        "direction": -82,
+        "type": "teleport",
+        "distance": 16,
+        "height": -4
       },
       {
         "key": "1N04_22",
         "direction": 180,
-        "type": "arrow"
+        "type": "teleport",
+        "distance": 18,
+        "height": -4
       },
       {
         "key": "1S03_11",
         "direction": 90,
-        "type": "arrow"
+        "type": "teleport",
+        "height": -4,
+        "distance": 11
       },
       {
         "key": "1N03_20",
-        "direction": 155,
-        "type": "arrow"
+        "direction": 153,
+        "type": "arrow",
+        "distance": 8
       }
     ],
     "key": "1S04_12"
@@ -288,22 +376,39 @@
       {
         "key": "1N04_20",
         "direction": 180,
-        "type": "arrow"
+        "type": "arrow",
+        "shift": 1,
+        "distance": 7
       },
       {
         "key": "1S04_12",
         "direction": 95,
-        "type": "arrow"
+        "type": "teleport",
+        "height": -4,
+        "distance": 16
       },
       {
         "key": "1S05_22",
         "direction": -90,
-        "type": "arrow"
+        "type": "door",
+        "distance": 6,
+        "alignment": [
+          0,
+          102.7,
+          0
+        ],
+        "shift": 2
       },
       {
         "key": "1S04_11",
-        "direction": 135,
-        "type": "arrow"
+        "direction": 154.4,
+        "type": "stairsUp",
+        "distance": 12,
+        "alignment": [
+          0,
+          -29.4,
+          0
+        ]
       }
     ],
     "key": "1S04_20"
@@ -321,13 +426,15 @@
       "floor": "Ground Floor",
       "image": "GroundFloor.png",
       "x": 162,
-      "y": 167
+      "y": 185
     },
     "exits": [
       {
         "key": "1N04_00",
         "direction": 180,
-        "type": "arrow"
+        "type": "arrow",
+        "shift": 1,
+        "distance": 7
       },
       {
         "key": "1S04_20",
@@ -349,24 +456,42 @@
       "building": "Heating Plant",
       "floor": "Ground Floor",
       "image": "GroundFloor.png",
-      "x": 162,
-      "y": 91
+      "x": 160,
+      "y": 90
     },
     "exits": [
       {
         "key": "1N04_01",
-        "direction": 90,
-        "type": "arrow"
+        "direction": 105,
+        "type": "teleport",
+        "height": -4,
+        "distance": 9
       },
       {
         "key": "1N04_20",
-        "direction": -10,
-        "type": "arrow"
+        "direction": 0,
+        "type": "arrow",
+        "shift": -1.5,
+        "height": -4
       },
       {
         "key": "1N04_10",
         "direction": 10,
-        "type": "stairsUp"
+        "type": "stairsUp",
+        "distance": 10,
+        "shift": -0.5,
+        "alignment": [
+          0,
+          -45.6,
+          0
+        ]
+      },
+      {
+        "key": "1N04_02",
+        "direction": 98,
+        "type": "teleport",
+        "distance": 15,
+        "height": -4
       }
     ],
     "key": "1N04_00"
@@ -384,18 +509,22 @@
       "floor": "Ground Floor",
       "image": "GroundFloor.png",
       "x": 198,
-      "y": 91
+      "y": 88
     },
     "exits": [
       {
         "key": "1N04_02",
-        "direction": 90,
-        "type": "arrow"
+        "direction": 97,
+        "type": "teleport",
+        "height": -4,
+        "distance": 8
       },
       {
         "key": "1N04_00",
-        "direction": -90,
-        "type": "arrow"
+        "direction": -97,
+        "type": "teleport",
+        "height": -4,
+        "distance": 8
       }
     ],
     "key": "1N04_01"
@@ -412,24 +541,30 @@
       "building": "Heating Plant",
       "floor": "Ground Floor",
       "image": "GroundFloor.png",
-      "x": 234,
-      "y": 91
+      "x": 229,
+      "y": 89
     },
     "exits": [
       {
         "key": "1N04_22",
         "direction": 0,
-        "type": "arrow"
+        "type": "teleport",
+        "height": -4,
+        "distance": 10
       },
       {
         "key": "1N04_01",
-        "direction": -90,
-        "type": "arrow"
+        "direction": -107,
+        "type": "teleport",
+        "height": -4,
+        "distance": 10
       },
       {
         "key": "1N03_10",
-        "direction": 70,
-        "type": "arrow"
+        "direction": 90,
+        "type": "arrow",
+        "shift": -1.5,
+        "distance": 2.5
       }
     ],
     "key": "1N04_02"
@@ -446,24 +581,31 @@
       "building": "Heating Plant",
       "floor": "Ground Floor",
       "image": "GroundFloor.png",
-      "x": 234,
-      "y": 167
+      "x": 231,
+      "y": 170
     },
     "exits": [
       {
         "key": "1S04_12",
         "direction": 0,
-        "type": "arrow"
+        "type": "teleport",
+        "distance": 20,
+        "height": -4,
+        "shift": 0.5
       },
       {
         "key": "1N04_02",
         "direction": 180,
-        "type": "arrow"
+        "type": "teleport",
+        "height": -4,
+        "distance": 14
       },
       {
         "key": "1N03_10",
-        "direction": 160,
-        "type": "arrow"
+        "direction": 90,
+        "type": "arrow",
+        "shift": 6,
+        "distance": 1.5
       }
     ],
     "key": "1N04_22"
@@ -480,34 +622,68 @@
       "building": "Heating Plant",
       "floor": "Ground Floor",
       "image": "GroundFloor.png",
-      "x": 264,
-      "y": 129
+      "x": 263,
+      "y": 108
     },
     "exits": [
       {
         "key": "1N03_20",
         "direction": 0,
-        "type": "arrow"
+        "type": "teleport",
+        "height": -4,
+        "distance": 13,
+        "shift": 0.3
       },
       {
         "key": "1N03_11",
         "direction": 90,
-        "type": "arrow"
+        "type": "teleport",
+        "height": -4,
+        "distance": 8
       },
       {
         "key": "1N04_22",
-        "direction": -60,
-        "type": "arrow"
+        "direction": -90,
+        "type": "arrow",
+        "alignment": [
+          0,
+          0,
+          -90
+        ],
+        "height": -3,
+        "shift": 1.75
       },
       {
         "key": "1N04_02",
-        "direction": -115,
-        "type": "arrow"
+        "direction": -90,
+        "type": "arrow",
+        "height": -3,
+        "alignment": [
+          0,
+          0,
+          90
+        ],
+        "shift": -2.25
       },
       {
         "key": "LN03_01",
         "direction": 160,
-        "type": "stairsDown"
+        "type": "stairsDown",
+        "height": -6,
+        "distance": 8,
+        "alignment": [
+          0,
+          -48.4,
+          0
+        ]
+      },
+      {
+        "key": "1N03_12",
+        "direction": 90,
+        "type": "teleport",
+        "height": -4,
+        "distance": 18,
+        "shift": 1
       }
     ],
     "key": "1N03_10"
@@ -525,13 +701,15 @@
       "floor": "Ground Floor",
       "image": "GroundFloor.png",
       "x": 264,
-      "y": 167
+      "y": 170
     },
     "exits": [
       {
         "key": "1N03_10",
-        "direction": 180,
-        "type": "arrow"
+        "direction": 185,
+        "type": "teleport",
+        "height": -4,
+        "distance": 13
       },
       {
         "key": "1S03_11",
@@ -554,18 +732,30 @@
       "floor": "Ground Floor",
       "image": "GroundFloor.png",
       "x": 300,
-      "y": 129
+      "y": 108
     },
     "exits": [
       {
         "key": "1N03_10",
         "direction": -90,
-        "type": "arrow"
+        "type": "teleport",
+        "height": -4,
+        "distance": 9,
+        "shift": 1
       },
       {
         "key": "1N03_12",
         "direction": 90,
-        "type": "arrow"
+        "type": "teleport",
+        "height": -4,
+        "distance": 11
+      },
+      {
+        "key": "1N02_11",
+        "direction": 90,
+        "type": "teleport",
+        "height": -4,
+        "distance": 21
       }
     ],
     "key": "1N03_11"
@@ -582,24 +772,47 @@
       "building": "Heating Plant",
       "floor": "Ground Floor",
       "image": "GroundFloor.png",
-      "x": 336,
-      "y": 129
+      "x": 351,
+      "y": 103
     },
     "exits": [
       {
         "key": "1N03_11",
         "direction": -90,
-        "type": "arrow"
+        "type": "teleport",
+        "height": -4,
+        "distance": 10,
+        "shift": 1
       },
       {
         "key": "1N02_11",
         "direction": 90,
-        "type": "arrow"
+        "type": "teleport",
+        "height": -4,
+        "distance": 11
       },
       {
         "key": "1S03_02",
         "direction": 0,
-        "type": "arrow"
+        "type": "teleport",
+        "height": -4,
+        "distance": 12,
+        "shift": -0.3
+      },
+      {
+        "key": "1N02_12",
+        "direction": 90,
+        "type": "teleport",
+        "height": -4,
+        "distance": 18.5
+      },
+      {
+        "key": "1N03_10",
+        "direction": -90,
+        "type": "teleport",
+        "height": -4,
+        "shift": 1,
+        "distance": 19
       }
     ],
     "key": "1N03_12"
@@ -616,8 +829,8 @@
       "building": "Heating Plant",
       "floor": "Ground Floor",
       "image": "GroundFloor.png",
-      "x": 336,
-      "y": 201
+      "x": 351,
+      "y": 170
     },
     "exits": [
       {
@@ -628,7 +841,10 @@
       {
         "key": "1N03_12",
         "direction": 180,
-        "type": "arrow"
+        "type": "teleport",
+        "height": -4,
+        "distance": 12,
+        "shift": 1.1
       }
     ],
     "key": "1S03_02"
@@ -646,18 +862,44 @@
       "floor": "Ground Floor",
       "image": "GroundFloor.png",
       "x": 402,
-      "y": 129
+      "y": 103
     },
     "exits": [
       {
         "key": "1N03_12",
         "direction": -90,
-        "type": "arrow"
+        "type": "teleport",
+        "height": -4,
+        "distance": 10,
+        "shift": 1
       },
       {
         "key": "1N02_12",
         "direction": 90,
-        "type": "arrow"
+        "type": "teleport",
+        "height": -4,
+        "shift": -1,
+        "distance": 9
+      },
+      {
+        "key": "1N03_11",
+        "direction": -90,
+        "type": "teleport",
+        "height": -4,
+        "shift": 1,
+        "distance": 21
+      },
+      {
+        "key": "LN01_01",
+        "direction": 102,
+        "type": "stairsDown",
+        "height": -4.5,
+        "distance": 16,
+        "alignment": [
+          0,
+          -45.7,
+          0
+        ]
       }
     ],
     "key": "1N02_11"
@@ -674,29 +916,49 @@
       "building": "Heating Plant",
       "floor": "Ground Floor",
       "image": "GroundFloor.png",
-      "x": 438,
-      "y": 129
+      "x": 448,
+      "y": 107
     },
     "exits": [
       {
         "key": "1N01_11",
         "direction": 90,
-        "type": "arrow"
+        "type": "teleport",
+        "height": -4,
+        "distance": 16
       },
       {
         "key": "1S02_02",
         "direction": 0,
-        "type": "arrow"
+        "type": "teleport",
+        "height": -4,
+        "distance": 12
       },
       {
         "key": "1N02_11",
         "direction": -90,
-        "type": "arrow"
+        "type": "teleport",
+        "height": -4,
+        "distance": 9
       },
       {
         "key": "LN01_01",
         "direction": 145,
-        "type": "stairsDown"
+        "type": "stairsDown",
+        "height": -5,
+        "distance": 9,
+        "alignment": [
+          0,
+          -38.9,
+          0
+        ]
+      },
+      {
+        "key": "1N03_12",
+        "direction": -90,
+        "type": "teleport",
+        "height": -4,
+        "distance": 18
       }
     ],
     "key": "1N02_12"
@@ -713,19 +975,24 @@
       "building": "Heating Plant",
       "floor": "Ground Floor",
       "image": "GroundFloor.png",
-      "x": 438,
-      "y": 201
+      "x": 448,
+      "y": 170
     },
     "exits": [
       {
         "key": "1S02_12",
         "direction": 0,
-        "type": "arrow"
+        "type": "teleport",
+        "height": -4,
+        "distance": 18,
+        "shift": 0.3
       },
       {
         "key": "1N02_12",
         "direction": 180,
-        "type": "arrow"
+        "type": "teleport",
+        "height": -4,
+        "distance": 12
       }
     ],
     "key": "1S02_02"
@@ -742,14 +1009,16 @@
       "building": "Heating Plant",
       "floor": "Ground Floor",
       "image": "GroundFloor.png",
-      "x": 526,
-      "y": 42
+      "x": 478,
+      "y": 37
     },
     "exits": [
       {
         "key": "1W01_11",
         "direction": 90,
-        "type": "arrow"
+        "type": "teleport",
+        "height": -4,
+        "distance": 11.5
       }
     ],
     "key": "1W02_11"
@@ -766,19 +1035,28 @@
       "building": "Heating Plant",
       "floor": "Ground Floor",
       "image": "GroundFloor.png",
-      "x": 460,
-      "y": 42
+      "x": 528,
+      "y": 37
     },
     "exits": [
       {
         "key": "1N01_11",
         "direction": 0,
-        "type": "door"
+        "type": "door",
+        "alignment": [
+          0,
+          90,
+          0
+        ],
+        "distance": 6,
+        "height": -1
       },
       {
         "key": "1W02_11",
         "direction": -90,
-        "type": "arrow"
+        "type": "teleport",
+        "height": -4,
+        "distance": 11.5
       }
     ],
     "key": "1W01_11"
@@ -795,19 +1073,33 @@
       "building": "Heating Plant",
       "floor": "Basement",
       "image": "Basement.png",
-      "x": 507,
-      "y": 91
+      "x": 501,
+      "y": 86
     },
     "exits": [
       {
         "key": "LN01_02",
         "direction": 90,
-        "type": "stairsDown"
+        "type": "stairsDown",
+        "height": -7,
+        "distance": 7,
+        "alignment": [
+          0,
+          -54.7,
+          0
+        ]
       },
       {
         "key": "1N02_12",
-        "direction": -80,
-        "type": "stairsUp"
+        "direction": -90,
+        "type": "stairsUp",
+        "distance": 8,
+        "height": 2,
+        "alignment": [
+          0,
+          -23.5,
+          0
+        ]
       }
     ],
     "key": "LN01_01"
@@ -831,17 +1123,27 @@
       {
         "key": "LN01_22",
         "direction": 0,
-        "type": "arrow"
+        "type": "teleport",
+        "height": -4,
+        "distance": 17
       },
       {
         "key": "LN01_01",
         "direction": -110,
-        "type": "stairsUp"
+        "type": "stairsUp",
+        "distance": 10,
+        "alignment": [
+          0,
+          -59.9,
+          0
+        ]
       },
       {
         "key": "LN01_10",
         "direction": -80,
-        "type": "arrow"
+        "type": "teleport",
+        "height": -4,
+        "distance": 10.5
       }
     ],
     "key": "LN01_02"
@@ -858,19 +1160,23 @@
       "building": "Heating Plant",
       "floor": "Basement",
       "image": "Basement.png",
-      "x": 543,
-      "y": 167
+      "x": 536,
+      "y": 169
     },
     "exits": [
       {
         "key": "LN01_02",
-        "direction": 180,
-        "type": "arrow"
+        "direction": 182,
+        "type": "teleport",
+        "height": -4,
+        "distance": 15
       },
       {
         "key": "LS01_11",
-        "direction": -20,
-        "type": "arrow"
+        "direction": -27.4,
+        "type": "teleport",
+        "height": -4,
+        "distance": 15
       }
     ],
     "key": "LN01_22"
@@ -888,18 +1194,22 @@
       "floor": "Basement",
       "image": "Basement.png",
       "x": 507,
-      "y": 239
+      "y": 248
     },
     "exits": [
       {
         "key": "LS02_12",
-        "direction": -90,
-        "type": "arrow"
+        "direction": -88,
+        "type": "teleport",
+        "height": -4,
+        "distance": 12.5
       },
       {
         "key": "LN01_22",
-        "direction": 140,
-        "type": "arrow"
+        "direction": 150.7,
+        "type": "teleport",
+        "height": -4,
+        "distance": 14
       }
     ],
     "key": "LS01_11"
@@ -917,13 +1227,15 @@
       "floor": "Basement",
       "image": "Basement.png",
       "x": 438,
-      "y": 239
+      "y": 248
     },
     "exits": [
       {
         "key": "LS01_11",
-        "direction": 90,
-        "type": "arrow"
+        "direction": 93,
+        "type": "teleport",
+        "height": -4,
+        "distance": 13.5
       },
       {
         "key": "LS02_10",
@@ -932,8 +1244,10 @@
       },
       {
         "key": "LS02_01",
-        "direction": -150,
-        "type": "arrow"
+        "direction": -153,
+        "type": "teleport",
+        "height": -4,
+        "distance": 17
       }
     ],
     "key": "LS02_12"
@@ -951,23 +1265,29 @@
       "floor": "Basement",
       "image": "Basement.png",
       "x": 366,
-      "y": 239
+      "y": 260
     },
     "exits": [
       {
         "key": "LS02_01",
         "direction": 165,
-        "type": "arrow"
+        "type": "teleport",
+        "height": -4,
+        "distance": 16
       },
       {
         "key": "LS02_12",
         "direction": 90,
-        "type": "arrow"
+        "type": "teleport",
+        "height": -4,
+        "distance": 12
       },
       {
         "key": "LS03_11",
-        "direction": -90,
-        "type": "arrow"
+        "direction": -95,
+        "type": "teleport",
+        "height": -4,
+        "distance": 14
       }
     ],
     "key": "LS02_10"
@@ -985,23 +1305,29 @@
       "floor": "Basement",
       "image": "Basement.png",
       "x": 300,
-      "y": 239
+      "y": 248
     },
     "exits": [
       {
         "key": "LS03_02",
-        "direction": 180,
-        "type": "arrow"
+        "direction": -172,
+        "type": "teleport",
+        "height": -4,
+        "distance": 13
       },
       {
         "key": "LS04_12",
-        "direction": -83,
-        "type": "arrow"
+        "direction": -80,
+        "type": "teleport",
+        "height": -4,
+        "distance": 19
       },
       {
         "key": "LS02_10",
-        "direction": 90,
-        "type": "arrow"
+        "direction": 80,
+        "type": "teleport",
+        "height": -4,
+        "distance": 14
       }
     ],
     "key": "LS03_11"
@@ -1018,23 +1344,27 @@
       "building": "Heating Plant",
       "floor": "Basement",
       "image": "Basement.png",
-      "x": 234,
-      "y": 239
+      "x": 226,
+      "y": 255
     },
     "exits": [
       {
         "key": "LS03_11",
-        "direction": 105,
-        "type": "arrow"
+        "direction": 100,
+        "type": "teleport",
+        "height": -4,
+        "distance": 19
       },
       {
         "key": "LS04_10",
-        "direction": -90,
-        "type": "arrow"
+        "direction": -94,
+        "type": "teleport",
+        "height": -4,
+        "distance": 14
       },
       {
         "key": "LN04_12",
-        "direction": -170,
+        "direction": -180,
         "type": "arrow"
       }
     ],
@@ -1053,23 +1383,29 @@
       "floor": "Basement",
       "image": "Basement.png",
       "x": 162,
-      "y": 239
+      "y": 252
     },
     "exits": [
       {
         "key": "LN04_10",
         "direction": 180,
-        "type": "arrow"
+        "type": "teleport",
+        "height": -4,
+        "distance": 18
       },
       {
         "key": "LS04_12",
-        "direction": 90,
-        "type": "arrow"
+        "direction": 80,
+        "type": "teleport",
+        "height": -4,
+        "distance": 15
       },
       {
-        "key": "LS05_20",
-        "direction": -90,
-        "type": "arrow"
+        "key": "LS05_11",
+        "direction": -98,
+        "type": "teleport",
+        "height": -4,
+        "distance": 13
       }
     ],
     "key": "LS04_10"
@@ -1087,23 +1423,29 @@
       "floor": "Basement",
       "image": "Basement.png",
       "x": 162,
-      "y": 129
+      "y": 162
     },
     "exits": [
       {
         "key": "LS04_10",
         "direction": 0,
-        "type": "arrow"
+        "type": "teleport",
+        "height": -4,
+        "distance": 17
       },
       {
         "key": "LN04_12",
-        "direction": 90,
-        "type": "arrow"
+        "direction": 95,
+        "type": "teleport",
+        "height": -4,
+        "distance": 12
       },
       {
         "key": "LN05_11",
-        "direction": -90,
-        "type": "arrow"
+        "direction": -81,
+        "type": "teleport",
+        "height": -4,
+        "distance": 12.5
       }
     ],
     "key": "LN04_10"
@@ -1120,8 +1462,8 @@
       "building": "Heating Plant",
       "floor": "Basement",
       "image": "Basement.png",
-      "x": 234,
-      "y": 129
+      "x": 226,
+      "y": 162
     },
     "exits": [
       {
@@ -1149,19 +1491,23 @@
       "building": "Cooling Plant",
       "floor": "Basement",
       "image": "Basement.png",
-      "x": 91,
-      "y": 129
+      "x": 95,
+      "y": 170
     },
     "exits": [
       {
         "key": "LS05_11",
-        "direction": 0,
-        "type": "arrow"
+        "direction": -1,
+        "type": "teleport",
+        "height": -4,
+        "distance": 14
       },
       {
         "key": "LN04_10",
-        "direction": 90,
-        "type": "arrow"
+        "direction": 96,
+        "type": "teleport",
+        "height": -4,
+        "distance": 12
       }
     ],
     "key": "LN05_11"
@@ -1178,19 +1524,23 @@
       "building": "Cooling Plant",
       "floor": "Basement",
       "image": "Basement.png",
-      "x": 91,
-      "y": 239
+      "x": 95,
+      "y": 245
     },
     "exits": [
       {
         "key": "LS04_10",
-        "direction": 90,
-        "type": "arrow"
+        "direction": 80,
+        "type": "teleport",
+        "height": -4,
+        "distance": 13
       },
       {
         "key": "LN05_11",
-        "direction": 180,
-        "type": "arrow"
+        "direction": 181,
+        "type": "teleport",
+        "height": -4,
+        "distance": 13
       },
       {
         "key": "LS05_10b",
@@ -1229,14 +1579,21 @@
       "building": "Cooling Plant",
       "floor": "Basement",
       "image": "Basement.png",
-      "x": 55,
-      "y": 239
+      "x": 46,
+      "y": 238
     },
     "exits": [
       {
         "key": "LS05_20",
         "direction": 0,
-        "type": "door"
+        "type": "door",
+        "alignment": [
+          0,
+          90,
+          0
+        ],
+        "shift": -3.5,
+        "distance": 7
       },
       {
         "key": "LS05_11",
@@ -1258,19 +1615,34 @@
       "building": "Cooling Plant",
       "floor": "Basement",
       "image": "Basement.png",
-      "x": 55,
-      "y": 277
+      "x": 44,
+      "y": 281
     },
     "exits": [
       {
         "key": "LS05_10b",
         "direction": 180,
-        "type": "door"
+        "type": "door",
+        "distance": 10,
+        "height": -6,
+        "alignment": [
+          0,
+          109.1,
+          0
+        ],
+        "shift": -0.5
       },
       {
         "key": "1S05_21",
         "direction": 90,
-        "type": "stairsUp"
+        "type": "stairsUp",
+        "distance": 8,
+        "height": 0,
+        "alignment": [
+          0,
+          -41.7,
+          0
+        ]
       }
     ],
     "key": "LS05_20"
@@ -1288,7 +1660,7 @@
       "floor": "Ground Floor",
       "image": "GroundFloor.png",
       "x": 91,
-      "y": 277
+      "y": 270
     },
     "exits": [
       {
@@ -1298,13 +1670,22 @@
       },
       {
         "key": "1S05_22",
-        "direction": 90,
-        "type": "arrow"
+        "direction": 84.4,
+        "type": "teleport",
+        "distance": 11,
+        "height": -4
       },
       {
         "key": "LS05_20",
         "direction": -40,
-        "type": "stairsDown"
+        "type": "stairsDown",
+        "height": -5,
+        "distance": 8,
+        "alignment": [
+          0,
+          -33.9,
+          0
+        ]
       }
     ],
     "key": "1S05_21"
@@ -1329,6 +1710,14 @@
         "key": "1S05_21",
         "direction": 40,
         "type": "arrow"
+      },
+      {
+        "key": "1S05_00",
+        "direction": 180,
+        "type": "teleport",
+        "height": -4,
+        "shift": -1,
+        "distance": 6
       }
     ],
     "key": "1S05_10"
@@ -1336,9 +1725,9 @@
   "1S05_00": {
     "label": "",
     "alignment": [
-      0.2,
-      -3.9,
-      -41.4
+      -0.6,
+      -116,
+      -181
     ],
     "hotspots": [],
     "mapInfo": {
@@ -1346,16 +1735,52 @@
       "floor": "Ground Floor",
       "image": "GroundFloor.png",
       "x": 55,
-      "y": 201
+      "y": 212
     },
-    "exits": []
+    "exits": [
+      {
+        "key": "1S05_10",
+        "direction": 0,
+        "type": "teleport",
+        "height": -4,
+        "distance": 6
+      },
+      {
+        "key": "1N05_21",
+        "direction": 90,
+        "type": "stairsUp",
+        "height": 2,
+        "distance": 12,
+        "shift": 5,
+        "alignment": [
+          0,
+          -26.8,
+          0
+        ]
+      },
+      {
+        "key": "1N05_10",
+        "direction": 180,
+        "type": "teleport",
+        "height": -4,
+        "distance": 15
+      },
+      {
+        "key": "1S05_11",
+        "direction": 90,
+        "type": "teleport",
+        "height": -4,
+        "distance": 7.5
+      }
+    ],
+    "key": "1S05_00"
   },
   "1S05_11": {
     "label": "",
     "alignment": [
-      0.2,
-      -3.9,
-      -41.4
+      -0.6,
+      153,
+      -180
     ],
     "hotspots": [],
     "mapInfo": {
@@ -1363,16 +1788,38 @@
       "floor": "Ground Floor",
       "image": "GroundFloor.png",
       "x": 91,
-      "y": 239
+      "y": 212
     },
-    "exits": []
+    "exits": [
+      {
+        "key": "1S05_00",
+        "direction": -88,
+        "type": "teleport",
+        "height": -4,
+        "distance": 7
+      },
+      {
+        "key": "1N05_21",
+        "direction": 180,
+        "type": "stairsUp",
+        "height": 5,
+        "distance": 8,
+        "alignment": [
+          0,
+          -23.5,
+          0
+        ],
+        "shift": -1.5
+      }
+    ],
+    "key": "1S05_11"
   },
   "1N05_21": {
     "label": "",
     "alignment": [
-      0.2,
-      -3.9,
-      -41.4
+      -0.6,
+      164,
+      -181
     ],
     "hotspots": [],
     "mapInfo": {
@@ -1380,16 +1827,37 @@
       "floor": "Ground Floor",
       "image": "GroundFloor.png",
       "x": 91,
-      "y": 167
+      "y": 188
     },
-    "exits": []
+    "exits": [
+      {
+        "key": "1S05_00",
+        "direction": -70,
+        "type": "teleport",
+        "height": -8,
+        "distance": 8
+      },
+      {
+        "key": "1S05_11",
+        "direction": 0,
+        "type": "stairsDown",
+        "height": -8,
+        "distance": 3,
+        "alignment": [
+          0,
+          -50.8,
+          0
+        ]
+      }
+    ],
+    "key": "1N05_21"
   },
   "1N05_10": {
     "label": "",
     "alignment": [
-      0.2,
-      -3.9,
-      -41.4
+      -1,
+      -121.1,
+      -182
     ],
     "hotspots": [],
     "mapInfo": {
@@ -1397,16 +1865,45 @@
       "floor": "Ground Floor",
       "image": "GroundFloor.png",
       "x": 55,
-      "y": 129
+      "y": 150
     },
-    "exits": []
+    "exits": [
+      {
+        "key": "1N05_11",
+        "direction": 90,
+        "type": "teleport",
+        "height": -4,
+        "distance": 6.5
+      },
+      {
+        "key": "1N05_01",
+        "direction": 117,
+        "type": "stairsUp",
+        "distance": 12,
+        "height": 3,
+        "alignment": [
+          0,
+          -38.5,
+          0
+        ]
+      },
+      {
+        "key": "1S05_00",
+        "direction": 0,
+        "type": "teleport",
+        "height": -4,
+        "distance": 13,
+        "shift": -0.5
+      }
+    ],
+    "key": "1N05_10"
   },
   "1N05_11": {
     "label": "",
     "alignment": [
-      0.2,
-      -3.9,
-      -41.4
+      -1,
+      -125,
+      -182
     ],
     "hotspots": [],
     "mapInfo": {
@@ -1414,26 +1911,69 @@
       "floor": "Ground Floor",
       "image": "GroundFloor.png",
       "x": 91,
-      "y": 129
+      "y": 150
     },
-    "exits": []
+    "exits": [
+      {
+        "key": "1N05_10",
+        "direction": -90,
+        "type": "teleport",
+        "height": -4,
+        "distance": 7,
+        "shift": 0.5
+      },
+      {
+        "key": "1N05_01",
+        "direction": 180,
+        "type": "stairsUp",
+        "height": 5,
+        "distance": 8,
+        "alignment": [
+          0,
+          -41.1,
+          0
+        ]
+      }
+    ],
+    "key": "1N05_11"
   },
   "1N05_01": {
     "label": "",
     "alignment": [
-      0.2,
-      -3.9,
-      -41.4
+      -2.5,
+      -128,
+      -180
     ],
     "hotspots": [],
     "mapInfo": {
       "building": "Cooling Plant",
       "floor": "Ground Floor",
       "image": "GroundFloor.png",
-      "x": 91,
-      "y": 91
+      "x": 90,
+      "y": 125
     },
-    "exits": []
+    "exits": [
+      {
+        "key": "1N05_10",
+        "direction": -63,
+        "type": "teleport",
+        "height": -8,
+        "distance": 7.5
+      },
+      {
+        "key": "1N05_11",
+        "direction": 0,
+        "type": "stairsDown",
+        "height": -8,
+        "distance": 4,
+        "alignment": [
+          0,
+          -52.8,
+          0
+        ]
+      }
+    ],
+    "key": "1N05_01"
   },
   "1S05_22": {
     "label": "",
@@ -1447,19 +1987,40 @@
       "building": "Cooling Plant",
       "floor": "Ground Floor",
       "image": "GroundFloor.png",
-      "x": 127,
+      "x": 122,
       "y": 277
     },
     "exits": [
       {
         "key": "1S04_20",
         "direction": 90,
-        "type": "arrow"
+        "type": "door",
+        "distance": 8,
+        "shift": -3,
+        "alignment": [
+          0,
+          92.2,
+          0
+        ]
       },
       {
         "key": "1S05_21",
-        "direction": -90,
-        "type": "arrow"
+        "direction": -100.3,
+        "type": "teleport",
+        "distance": 12,
+        "height": -4
+      },
+      {
+        "key": "LS05_20",
+        "direction": -84,
+        "type": "stairsDown",
+        "distance": 20,
+        "height": -4.5,
+        "alignment": [
+          0,
+          -63.8,
+          0
+        ]
       }
     ],
     "key": "1S05_22"
@@ -1482,13 +2043,17 @@
     "exits": [
       {
         "key": "1S04_12",
-        "direction": 60,
-        "type": "arrow"
+        "direction": 65,
+        "type": "teleport",
+        "height": -8,
+        "distance": 12
       },
       {
         "key": "1S04_20",
-        "direction": -60,
-        "type": "arrow"
+        "direction": -50.8,
+        "type": "teleport",
+        "height": -8,
+        "distance": 12
       }
     ],
     "key": "1S04_11"
@@ -1506,7 +2071,7 @@
       "floor": "Ground Floor",
       "image": "GroundFloor.png",
       "x": 507,
-      "y": 201
+      "y": 170
     },
     "exits": [
       {
@@ -1537,8 +2102,8 @@
       "building": "Heating Plant",
       "floor": "Ground Floor",
       "image": "GroundFloor.png",
-      "x": 507,
-      "y": 129
+      "x": 528,
+      "y": 112
     },
     "exits": [
       {
@@ -1577,7 +2142,9 @@
       {
         "key": "1N02_12",
         "direction": -90,
-        "type": "arrow"
+        "type": "teleport",
+        "height": -4,
+        "distance": 18
       },
       {
         "key": "1N01_00",
@@ -1602,8 +2169,8 @@
       "building": "Heating Plant",
       "floor": "Ground Floor",
       "image": "GroundFloor.png",
-      "x": 471,
-      "y": 91
+      "x": 485,
+      "y": 87
     },
     "exits": [
       {
@@ -1641,7 +2208,7 @@
       "building": "Heating Plant",
       "floor": "Platforms & Catwalks",
       "image": "PlatformsCatwalks.png",
-      "x": 438,
+      "x": 443,
       "y": 91
     },
     "exits": [
@@ -1684,8 +2251,8 @@
       "building": "Heating Plant",
       "floor": "Platforms & Catwalks",
       "image": "PlatformsCatwalks.png",
-      "x": 471,
-      "y": 91
+      "x": 495,
+      "y": 98
     },
     "exits": [
       {
@@ -1721,8 +2288,8 @@
       "building": "Heating Plant",
       "floor": "Platforms & Catwalks",
       "image": "PlatformsCatwalks.png",
-      "x": 507,
-      "y": 129
+      "x": 520,
+      "y": 127
     },
     "exits": [
       {
@@ -1754,8 +2321,8 @@
       "building": "Heating Plant",
       "floor": "Platforms & Catwalks",
       "image": "PlatformsCatwalks.png",
-      "x": 507,
-      "y": 167
+      "x": 520,
+      "y": 156
     },
     "exits": [
       {
@@ -1787,8 +2354,8 @@
       "building": "Heating Plant",
       "floor": "Platforms & Catwalks",
       "image": "PlatformsCatwalks.png",
-      "x": 507,
-      "y": 239
+      "x": 520,
+      "y": 219
     },
     "exits": [
       {
@@ -1825,8 +2392,8 @@
       "building": "Heating Plant",
       "floor": "Platforms & Catwalks",
       "image": "PlatformsCatwalks.png",
-      "x": 438,
-      "y": 239
+      "x": 443,
+      "y": 222
     },
     "exits": [
       {
@@ -1840,6 +2407,33 @@
         ],
         "distance": 10,
         "height": -7
+      },
+      {
+        "key": "2N02_12",
+        "direction": -180,
+        "type": "teleport",
+        "distance": 16,
+        "height": -4,
+        "shift": -1
+      },
+      {
+        "key": "2S02_10",
+        "direction": -90,
+        "type": "teleport",
+        "height": -4,
+        "distance": 15
+      },
+      {
+        "key": "2N02_21",
+        "direction": -170.9,
+        "type": "stairsUp",
+        "height": 0,
+        "distance": 20,
+        "alignment": [
+          0,
+          60.5,
+          0
+        ]
       }
     ],
     "key": "2S02_12"
@@ -1847,257 +2441,759 @@
   "2S02_10": {
     "label": "",
     "alignment": [
-      0.2,
-      -3.9,
-      -41.4
+      0,
+      -131.7,
+      -180.1
     ],
     "hotspots": [],
     "mapInfo": {
       "building": "Heating Plant",
       "floor": "Platforms & Catwalks",
       "image": "PlatformsCatwalks.png",
-      "x": 366,
-      "y": 239
+      "x": 375,
+      "y": 222
     },
-    "exits": []
+    "exits": [
+      {
+        "key": "2S02_12",
+        "direction": 90,
+        "type": "teleport",
+        "height": -4,
+        "distance": 14.5,
+        "shift": -0.5
+      },
+      {
+        "key": "2S03_12",
+        "direction": -90,
+        "type": "teleport",
+        "height": -4,
+        "distance": 10,
+        "shift": -0.5
+      },
+      {
+        "key": "2S03_02",
+        "direction": -150,
+        "type": "teleport",
+        "height": -4,
+        "distance": 9
+      }
+    ],
+    "key": "2S02_10"
   },
   "2S03_02": {
     "label": "",
     "alignment": [
-      0.2,
-      -3.9,
-      -41.4
+      -0.1,
+      -160.2,
+      -181
     ],
     "hotspots": [],
     "mapInfo": {
       "building": "Heating Plant",
       "floor": "Platforms & Catwalks",
       "image": "PlatformsCatwalks.png",
-      "x": 336,
-      "y": 201
+      "x": 353,
+      "y": 197
     },
-    "exits": []
+    "exits": [
+      {
+        "key": "2S03_12",
+        "direction": -32,
+        "type": "teleport",
+        "height": -4,
+        "distance": 10
+      },
+      {
+        "key": "2S02_10",
+        "direction": 33,
+        "type": "teleport",
+        "height": -4,
+        "distance": 10
+      },
+      {
+        "key": "2N03_22",
+        "direction": 180,
+        "type": "teleport",
+        "height": -4,
+        "distance": 9
+      },
+      {
+        "key": "2N03_21",
+        "direction": -127,
+        "type": "stairsUp",
+        "distance": 12,
+        "height": 2,
+        "alignment": [
+          0,
+          38.7,
+          0
+        ]
+      },
+      {
+        "key": "2N02_21",
+        "direction": 127,
+        "type": "stairsUp",
+        "distance": 12,
+        "height": 2,
+        "alignment": [
+          0,
+          -45.7,
+          0
+        ]
+      }
+    ],
+    "key": "2S03_02"
   },
   "2N03_22": {
     "label": "",
     "alignment": [
-      0.2,
-      -3.9,
-      -41.4
+      -1.5,
+      -111.8,
+      -182.6
     ],
     "hotspots": [],
     "mapInfo": {
       "building": "Heating Plant",
       "floor": "Platforms & Catwalks",
       "image": "PlatformsCatwalks.png",
-      "x": 336,
-      "y": 167
+      "x": 353,
+      "y": 144
     },
-    "exits": []
+    "exits": [
+      {
+        "key": "2N03_21",
+        "direction": -46.9,
+        "type": "stairsUp",
+        "height": 1.5,
+        "distance": 12,
+        "alignment": [
+          0,
+          -32.6,
+          0
+        ]
+      },
+      {
+        "key": "2N02_21",
+        "direction": 46,
+        "type": "stairsUp",
+        "distance": 12,
+        "height": 1,
+        "alignment": [
+          0,
+          61,
+          0
+        ]
+      },
+      {
+        "key": "2S03_02",
+        "direction": 0,
+        "type": "teleport",
+        "height": -4,
+        "distance": 11
+      },
+      {
+        "key": "2S03_12",
+        "direction": -16,
+        "type": "teleport",
+        "height": -4,
+        "distance": 18
+      },
+      {
+        "key": "2S02_10",
+        "direction": 17,
+        "type": "teleport",
+        "height": -4,
+        "distance": 18
+      }
+    ],
+    "key": "2N03_22"
   },
   "2N03_21": {
     "label": "",
     "alignment": [
-      0.2,
-      -3.9,
-      -41.4
+      0.6,
+      12.4,
+      -180.1
     ],
     "hotspots": [],
     "mapInfo": {
       "building": "Heating Plant",
       "floor": "Platforms & Catwalks",
       "image": "PlatformsCatwalks.png",
-      "x": 300,
-      "y": 167
+      "x": 298,
+      "y": 166
     },
-    "exits": []
+    "exits": [
+      {
+        "key": "2N03_22",
+        "direction": 90,
+        "type": "stairsDown",
+        "distance": 13,
+        "height": -7.5,
+        "shift": 0.5,
+        "alignment": [
+          0,
+          -62.5,
+          0
+        ]
+      },
+      {
+        "key": "2N03_10",
+        "direction": -90,
+        "type": "stairsDown",
+        "height": -8.5,
+        "distance": 13,
+        "alignment": [
+          0,
+          -45.6,
+          0
+        ],
+        "shift": 0.3
+      }
+    ],
+    "key": "2N03_21"
   },
   "2N02_21": {
     "label": "",
     "alignment": [
-      0.2,
-      -3.9,
-      -41.4
+      -5,
+      -106.8,
+      -186
     ],
     "hotspots": [],
     "mapInfo": {
       "building": "Heating Plant",
       "floor": "Platforms & Catwalks",
       "image": "PlatformsCatwalks.png",
-      "x": 402,
+      "x": 406,
       "y": 167
     },
-    "exits": []
+    "exits": [
+      {
+        "key": "2N03_22",
+        "direction": -90,
+        "type": "stairsDown",
+        "distance": 10,
+        "height": -7,
+        "alignment": [
+          0,
+          -63.8,
+          0
+        ]
+      },
+      {
+        "key": "2N02_12",
+        "direction": 90,
+        "type": "stairsDown",
+        "distance": 10,
+        "height": -6.5,
+        "alignment": [
+          0,
+          -54.7,
+          0
+        ]
+      }
+    ],
+    "key": "2N02_21"
   },
   "2N02_12": {
     "label": "",
     "alignment": [
-      0.2,
-      -3.9,
-      -41.4
+      -2.3,
+      110.4,
+      -178
     ],
     "hotspots": [],
     "mapInfo": {
       "building": "Heating Plant",
       "floor": "Platforms & Catwalks",
       "image": "PlatformsCatwalks.png",
-      "x": 438,
-      "y": 129
+      "x": 448,
+      "y": 144
     },
-    "exits": []
+    "exits": [
+      {
+        "key": "2S02_12",
+        "direction": 0,
+        "type": "teleport",
+        "height": -4,
+        "distance": 17,
+        "shift": -1
+      },
+      {
+        "key": "2N02_21",
+        "direction": -38,
+        "type": "stairsUp",
+        "distance": 12,
+        "height": 1.5,
+        "alignment": [
+          0,
+          -49.5,
+          0
+        ]
+      }
+    ],
+    "key": "2N02_12"
   },
   "2N03_10": {
     "label": "",
     "alignment": [
-      0.2,
-      -3.9,
-      -41.4
+      -1.3,
+      -123,
+      -182
     ],
     "hotspots": [],
     "mapInfo": {
       "building": "Heating Plant",
       "floor": "Platforms & Catwalks",
       "image": "PlatformsCatwalks.png",
-      "x": 264,
-      "y": 129
+      "x": 260,
+      "y": 144
     },
-    "exits": []
+    "exits": [
+      {
+        "key": "2S03_10",
+        "direction": 0,
+        "type": "arrow",
+        "height": -3,
+        "distance": 7,
+        "shift": 2.2
+      },
+      {
+        "key": "2N03_21",
+        "direction": 37.6,
+        "type": "stairsUp",
+        "distance": 13,
+        "height": 0.5,
+        "alignment": [
+          0,
+          -54.7,
+          0
+        ]
+      }
+    ],
+    "key": "2N03_10"
   },
   "2S03_10": {
     "label": "",
     "alignment": [
-      0.2,
-      -3.9,
-      -41.4
+      -1.5,
+      -121.7,
+      -182
     ],
     "hotspots": [],
     "mapInfo": {
       "building": "Heating Plant",
       "floor": "Platforms & Catwalks",
       "image": "PlatformsCatwalks.png",
-      "x": 264,
-      "y": 239
+      "x": 267,
+      "y": 222
     },
-    "exits": []
+    "exits": [
+      {
+        "key": "2S03_12",
+        "direction": 90,
+        "type": "teleport",
+        "height": -4,
+        "distance": 14,
+        "shift": 0.5
+      },
+      {
+        "key": "2S04_12",
+        "direction": -90,
+        "type": "teleport",
+        "height": -3,
+        "distance": 11,
+        "shift": -1
+      },
+      {
+        "key": "2N03_10",
+        "direction": -178,
+        "type": "arrow",
+        "height": -2.5,
+        "distance": 6,
+        "shift": 0
+      }
+    ],
+    "key": "2S03_10"
   },
   "2S04_12": {
     "label": "",
     "alignment": [
-      0.2,
-      -3.9,
-      -41.4
+      -2.2,
+      -125.4,
+      -182.5
     ],
     "hotspots": [],
     "mapInfo": {
       "building": "Heating Plant",
       "floor": "Platforms & Catwalks",
       "image": "PlatformsCatwalks.png",
-      "x": 234,
-      "y": 239
+      "x": 220,
+      "y": 215
     },
-    "exits": []
+    "exits": [
+      {
+        "key": "2S03_10",
+        "direction": 90,
+        "type": "teleport",
+        "height": -5.5,
+        "distance": 8,
+        "shift": -0.5
+      },
+      {
+        "key": "2N04_22",
+        "direction": 180,
+        "type": "teleport",
+        "distance": 15,
+        "height": -4
+      }
+    ],
+    "key": "2S04_12"
   },
   "2N04_22": {
     "label": "",
     "alignment": [
-      0.2,
-      -3.9,
-      -41.4
+      -1.9,
+      -139.1,
+      -181.3
     ],
     "hotspots": [],
     "mapInfo": {
       "building": "Heating Plant",
       "floor": "Platforms & Catwalks",
       "image": "PlatformsCatwalks.png",
-      "x": 234,
-      "y": 167
+      "x": 220,
+      "y": 153
     },
-    "exits": []
+    "exits": [
+      {
+        "key": "2S04_12",
+        "direction": 0,
+        "type": "teleport",
+        "height": -4,
+        "distance": 15
+      },
+      {
+        "key": "2N04_21",
+        "direction": -90,
+        "type": "stairsDown",
+        "height": -7,
+        "alignment": [
+          0,
+          -56,
+          0
+        ]
+      },
+      {
+        "key": "RS03_01b",
+        "direction": 101.3,
+        "type": "stairsUp",
+        "distance": 9,
+        "height": 0,
+        "alignment": [
+          0,
+          62.3,
+          0
+        ]
+      }
+    ],
+    "key": "2N04_22"
   },
   "2N04_21": {
     "label": "",
     "alignment": [
-      0.2,
-      -3.9,
-      -41.4
+      2.4,
+      -75.8,
+      -178
     ],
     "hotspots": [],
     "mapInfo": {
       "building": "Heating Plant",
       "floor": "Platforms & Catwalks",
       "image": "PlatformsCatwalks.png",
-      "x": 198,
-      "y": 167
+      "x": 183,
+      "y": 175
     },
-    "exits": []
+    "exits": [
+      {
+        "key": "2S04_00",
+        "direction": -13.1,
+        "type": "stairsDown",
+        "distance": 8,
+        "height": -7,
+        "alignment": [
+          0,
+          -52.1,
+          0
+        ]
+      },
+      {
+        "key": "2N04_22",
+        "direction": 135.2,
+        "type": "stairsUp",
+        "distance": 10,
+        "height": 1,
+        "alignment": [
+          0,
+          -48.2,
+          0
+        ]
+      }
+    ],
+    "key": "2N04_21"
   },
   "2S04_00": {
     "label": "",
     "alignment": [
-      0.2,
-      -3.9,
-      -41.4
+      -2.5,
+      -115.5,
+      -182.6
     ],
     "hotspots": [],
     "mapInfo": {
       "building": "Heating Plant",
       "floor": "Platforms & Catwalks",
       "image": "PlatformsCatwalks.png",
-      "x": 162,
-      "y": 201
+      "x": 157,
+      "y": 198
     },
-    "exits": []
+    "exits": [
+      {
+        "key": "2S04_10",
+        "direction": 0,
+        "type": "teleport",
+        "height": -4,
+        "distance": 13.5,
+        "shift": 2
+      },
+      {
+        "key": "2N04_21",
+        "direction": 90,
+        "type": "stairsUp",
+        "height": -1.5,
+        "distance": 9,
+        "alignment": [
+          0,
+          -39.1,
+          0
+        ]
+      },
+      {
+        "key": "1N04_10",
+        "direction": 180,
+        "type": "stairsDown",
+        "height": -6,
+        "distance": 10,
+        "alignment": [
+          0,
+          -48.2,
+          0
+        ]
+      }
+    ],
+    "key": "2S04_00"
   },
   "2S04_10": {
     "label": "",
     "alignment": [
-      0.2,
-      -3.9,
-      -41.4
+      -6.3,
+      -108.1,
+      -186
     ],
     "hotspots": [],
     "mapInfo": {
       "building": "Heating Plant",
       "floor": "Platforms & Catwalks",
       "image": "PlatformsCatwalks.png",
-      "x": 162,
-      "y": 239
+      "x": 169,
+      "y": 244
     },
-    "exits": []
+    "exits": [
+      {
+        "key": "2S04_20",
+        "direction": 0,
+        "type": "stairsUp",
+        "distance": 8,
+        "height": 1,
+        "alignment": [
+          0,
+          -58.6,
+          0
+        ]
+      },
+      {
+        "key": "2S04_00",
+        "direction": -174.4,
+        "type": "teleport",
+        "height": -4,
+        "distance": 14
+      }
+    ],
+    "key": "2S04_10"
   },
   "2S04_20": {
     "label": "",
     "alignment": [
-      0.2,
-      -3.9,
-      -41.4
+      -1.3,
+      -149,
+      -181.3
     ],
     "hotspots": [],
     "mapInfo": {
       "building": "Heating Plant",
       "floor": "Platforms & Catwalks",
       "image": "PlatformsCatwalks.png",
-      "x": 162,
-      "y": 277
+      "x": 159,
+      "y": 286
     },
-    "exits": []
+    "exits": [
+      {
+        "key": "2S04_10",
+        "direction": 143,
+        "type": "stairsDown",
+        "height": -7,
+        "distance": 8,
+        "alignment": [
+          0,
+          -37.8,
+          0
+        ]
+      },
+      {
+        "key": "2S05_12",
+        "direction": -90,
+        "type": "door",
+        "height": -1,
+        "alignment": [
+          0,
+          110.4,
+          0
+        ]
+      }
+    ],
+    "key": "2S04_20"
+  },
+  "2S05_12": {
+    "label": "",
+    "alignment": [
+      0.6,
+      72.5,
+      -182
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Cooling Plant",
+      "floor": "Platforms & Catwalks",
+      "image": "PlatformsCatwalks.png",
+      "x": 107,
+      "y": 249
+    },
+    "exits": [
+      {
+        "key": "2N05_11",
+        "direction": 180,
+        "type": "arrow",
+        "shift": -1,
+        "distance": 7,
+        "alignment": [
+          0,
+          0,
+          -31.3
+        ]
+      },
+      {
+        "key": "2S04_20",
+        "direction": 39,
+        "type": "door",
+        "distance": 10,
+        "height": -1,
+        "alignment": [
+          0,
+          136.4,
+          0
+        ]
+      }
+    ],
+    "key": "2S05_12"
+  },
+  "2N05_11": {
+    "label": "",
+    "alignment": [
+      -0.6,
+      -104.3,
+      -182
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Cooling Plant",
+      "floor": "Platforms & Catwalks",
+      "image": "PlatformsCatwalks.png",
+      "x": 93,
+      "y": 125
+    },
+    "exits": [
+      {
+        "key": "2S05_12",
+        "direction": 0,
+        "type": "arrow",
+        "alignment": [
+          0,
+          0,
+          -36.5
+        ],
+        "distance": 6,
+        "shift": 0.5
+      }
+    ],
+    "key": "2N05_11"
   },
   "2S03_12": {
     "label": "",
     "alignment": [
-      0.2,
-      -3.9,
-      -41.4
+      0.5,
+      -131.7,
+      -180.1
     ],
     "hotspots": [],
     "mapInfo": {
       "building": "Heating Plant",
       "floor": "Platforms & Catwalks",
       "image": "PlatformsCatwalks.png",
-      "x": 336,
-      "y": 239
+      "x": 321,
+      "y": 222
     },
-    "exits": []
+    "exits": [
+      {
+        "key": "2S02_10",
+        "direction": 90,
+        "type": "teleport",
+        "height": -4,
+        "distance": 11
+      },
+      {
+        "key": "2S03_10",
+        "direction": -90,
+        "type": "teleport",
+        "height": -4,
+        "distance": 13.5
+      },
+      {
+        "key": "2N03_22",
+        "direction": 161.2,
+        "type": "teleport",
+        "height": -4,
+        "distance": 17
+      },
+      {
+        "key": "2S03_02",
+        "direction": 137.8,
+        "type": "teleport",
+        "height": -4,
+        "distance": 8
+      }
+    ],
+    "key": "2S03_12"
   },
   "LN03_01": {
     "label": "",
@@ -2111,19 +3207,33 @@
       "building": "Heating Plant",
       "floor": "Basement",
       "image": "Basement.png",
-      "x": 300,
-      "y": 91
+      "x": 308,
+      "y": 87
     },
     "exits": [
       {
         "key": "1N03_10",
-        "direction": -80,
-        "type": "stairsUp"
+        "direction": -88,
+        "type": "stairsUp",
+        "height": 1,
+        "distance": 7,
+        "alignment": [
+          0,
+          -32.6,
+          0
+        ]
       },
       {
         "key": "LN03_12",
-        "direction": 60,
-        "type": "stairsDown"
+        "direction": 90,
+        "type": "stairsDown",
+        "distance": 8,
+        "height": -8,
+        "alignment": [
+          0,
+          -56,
+          0
+        ]
       }
     ],
     "key": "LN03_01"
@@ -2140,14 +3250,33 @@
       "building": "Heating Plant",
       "floor": "Ground Floor",
       "image": "GroundFloor.png",
-      "x": 162,
-      "y": 129
+      "x": 159,
+      "y": 135
     },
     "exits": [
       {
         "key": "1N04_00",
         "direction": 180,
-        "type": "stairsDown"
+        "type": "stairsDown",
+        "height": -7,
+        "distance": 7,
+        "alignment": [
+          0,
+          -46.9,
+          0
+        ]
+      },
+      {
+        "key": "2S04_00",
+        "direction": 0,
+        "type": "stairsUp",
+        "distance": 8,
+        "height": 2,
+        "alignment": [
+          0,
+          -50.8,
+          0
+        ]
       }
     ],
     "key": "1N04_10"
@@ -2164,24 +3293,40 @@
       "building": "Heating Plant",
       "floor": "Basement",
       "image": "Basement.png",
-      "x": 336,
-      "y": 129
+      "x": 341,
+      "y": 112
     },
     "exits": [
       {
         "key": "LN02_11",
-        "direction": 90,
-        "type": "arrow"
+        "direction": 88,
+        "type": "teleport",
+        "height": -4,
+        "distance": 16
       },
       {
         "key": "LS03_02",
-        "direction": -25,
-        "type": "arrow"
+        "direction": -90,
+        "type": "arrow",
+        "alignment": [
+          0,
+          0,
+          -90
+        ],
+        "shift": 3,
+        "distance": 4
       },
       {
         "key": "LN03_01",
-        "direction": -130,
-        "type": "stairsUp"
+        "direction": -150,
+        "type": "stairsUp",
+        "distance": 11,
+        "alignment": [
+          0,
+          54.5,
+          0
+        ],
+        "height": -4
       }
     ],
     "key": "LN03_12"
@@ -2199,23 +3344,30 @@
       "floor": "Basement",
       "image": "Basement.png",
       "x": 402,
-      "y": 129
+      "y": 112
     },
     "exits": [
       {
         "key": "LN03_12",
         "direction": -90,
-        "type": "arrow"
+        "type": "teleport",
+        "height": -4,
+        "distance": 14,
+        "shift": -1
       },
       {
         "key": "LN01_10",
-        "direction": 90,
-        "type": "arrow"
+        "direction": 96,
+        "type": "teleport",
+        "height": -4,
+        "distance": 14
       },
       {
         "key": "LS02_01",
-        "direction": 0,
-        "type": "arrow"
+        "direction": -7,
+        "type": "teleport",
+        "height": -4,
+        "distance": 14
       }
     ],
     "key": "LN02_11"
@@ -2232,19 +3384,30 @@
       "building": "Heating Plant",
       "floor": "Basement",
       "image": "Basement.png",
-      "x": 402,
-      "y": 201
+      "x": 406,
+      "y": 189
     },
     "exits": [
       {
         "key": "LS02_10",
-        "direction": -15,
-        "type": "arrow"
+        "direction": -17,
+        "type": "teleport",
+        "height": -4,
+        "distance": 16
       },
       {
         "key": "LN02_11",
         "direction": 180,
-        "type": "arrow"
+        "type": "teleport",
+        "height": -4,
+        "distance": 13.5
+      },
+      {
+        "key": "LS02_12",
+        "direction": 20.5,
+        "type": "teleport",
+        "height": -4,
+        "distance": 16
       }
     ],
     "key": "LS02_01"
@@ -2261,19 +3424,28 @@
       "building": "Heating Plant",
       "floor": "Basement",
       "image": "Basement.png",
-      "x": 336,
-      "y": 201
+      "x": 292,
+      "y": 191
     },
     "exits": [
       {
         "key": "LS03_11",
-        "direction": 0,
-        "type": "arrow"
+        "direction": 15,
+        "type": "teleport",
+        "height": -4,
+        "distance": 12.5
       },
       {
         "key": "LN03_12",
-        "direction": 165,
-        "type": "arrow"
+        "direction": 180,
+        "type": "arrow",
+        "distance": 7,
+        "alignment": [
+          0,
+          0,
+          40
+        ],
+        "shift": -1
       }
     ],
     "key": "LS03_02"
@@ -2290,19 +3462,23 @@
       "building": "Heating Plant",
       "floor": "Basement",
       "image": "Basement.png",
-      "x": 471,
-      "y": 129
+      "x": 479,
+      "y": 112
     },
     "exits": [
       {
         "key": "LN01_02",
         "direction": 100,
-        "type": "arrow"
+        "type": "teleport",
+        "height": -4,
+        "distance": 11
       },
       {
         "key": "LN02_11",
         "direction": -90,
-        "type": "arrow"
+        "type": "teleport",
+        "height": -4,
+        "distance": 14
       }
     ],
     "key": "LN01_10"
@@ -2327,9 +3503,9 @@
   "RS03_01b": {
     "label": "",
     "alignment": [
-      0.2,
-      -3.9,
-      -41.4
+      -0.7,
+      -22.4,
+      -182
     ],
     "hotspots": [],
     "mapInfo": {
@@ -2339,6 +3515,61 @@
       "x": 300,
       "y": 201
     },
-    "exits": []
+    "exits": [
+      {
+        "key": "2N04_22",
+        "direction": -139.3,
+        "type": "stairsDown",
+        "distance": 17,
+        "height": -2,
+        "alignment": [
+          0,
+          -45.6,
+          0
+        ]
+      },
+      {
+        "key": "RS05_11",
+        "direction": -75,
+        "type": "door",
+        "distance": 20,
+        "alignment": [
+          0,
+          123.4,
+          0
+        ],
+        "height": 1
+      }
+    ],
+    "key": "RS03_01b"
+  },
+  "RS05_11": {
+    "label": "Roof Cooling Tower 1",
+    "alignment": [
+      -0.7,
+      -8,
+      -180
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Roof",
+      "image": "Roof.png",
+      "x": 80,
+      "y": 245
+    },
+    "exits": [
+      {
+        "key": "RS03_01b",
+        "direction": 180,
+        "type": "door",
+        "alignment": [
+          0,
+          90,
+          0
+        ]
+      }
+    ],
+    "key": "RS05_11"
   }
 }

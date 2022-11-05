@@ -7,7 +7,7 @@ import { useRecoilValue } from 'recoil'
 import { currentCameraYawState, currentPanoKeyState } from '../../state/globalState.js'
 import { getFullTourDataFromServer } from '../../state/asyncDataHelper.js'
 
-import localDB from '../../state/localDB.js'
+import localDB, { setCurrentPanoData } from '../../state/localDB.js'
 import { useLiveQuery } from 'dexie-react-hooks'
 
 import { useHotkeys } from 'react-hotkeys-hook'
@@ -18,8 +18,14 @@ import { Close as CloseIcon, Map as MapIcon, ExpandLess as ExpandIcon } from '@m
 import MiniMapPin from './MiniMapPin.jsx'
 import MiniMapArrow from './MiniMapArrow.jsx'
 
+// Read in raw full map data
+import JSONMapData from '../../state/heatingPlantTourInfo.json'
+
 // Header offsets the point by 90 (without padding which adds 16px)
-const ARROW_PIN_Y_OFFSET = 90 - 16
+const ARROW_PIN_X_OFFSET = 42
+const ARROW_PIN_Y_OFFSET = 205
+const ARROW_PIN_SCALE_X = 0.45
+const ARROW_PIN_SCALE_Y = 0.45
 
 export default function MiniMap (props) {
   const { startVisible } = props
@@ -31,7 +37,7 @@ export default function MiniMap (props) {
   const currentPanoKey = useRecoilValue(currentPanoKeyState)
   const currentPanoData = useLiveQuery(() => localDB.panoInfoState.get(currentPanoKey), [currentPanoKey], null)
 
-  // Retrieve global map data
+  // Get latest map info data
   const [fullTourData, setFullTourData] = React.useState({})
   React.useEffect(() => {
     const retrieveData = async () => {
@@ -39,7 +45,12 @@ export default function MiniMap (props) {
       setFullTourData(newData)
     }
 
-    retrieveData()
+    // Only need to use this if data editing is enabled
+    if (CONFIG.ENABLE_DATA_EDITING) {
+      retrieveData()
+    } else {
+      setFullTourData(JSONMapData)
+    }
   }, [])
 
   // Controlling visibility of the minimap
@@ -47,13 +58,25 @@ export default function MiniMap (props) {
 
   // Mini map local state
   const [mapInfo, setMapInfo] = React.useState(null)
+  const updateMapInfo = (panoKey, newMapInfo) => {
+    console.log(`[${newMapInfo.x}, ${newMapInfo.y}]`)
+    if (CONFIG.ENABLE_DATA_EDITING) {
+      setCurrentPanoData(currentPanoKey, {
+        ...currentPanoData,
+        mapInfo: newMapInfo
+      })
+    }
+
+    fullTourData[panoKey].mapInfo = newMapInfo
+    setMapInfo(newMapInfo)
+  }
 
   /* eslint-disable react-hooks/rules-of-hooks */
   if (CONFIG.ENABLE_MINIMAP_HOTKEYS) {
-    useHotkeys('shift+left', () => { setMapInfo({ ...mapInfo, x: mapInfo.x - 1 }) }, {}, [mapInfo])
-    useHotkeys('shift+right', () => { setMapInfo({ ...mapInfo, x: mapInfo.x + 1 }) }, {}, [mapInfo])
-    useHotkeys('shift+up', () => { setMapInfo({ ...mapInfo, y: mapInfo.y - 1 }) }, {}, [mapInfo])
-    useHotkeys('shift+down', () => { setMapInfo({ ...mapInfo, y: mapInfo.y + 1 }) }, {}, [mapInfo])
+    useHotkeys('shift+left', () => { updateMapInfo(currentPanoKey, { ...mapInfo, x: mapInfo.x - 1 }) }, {}, [currentPanoKey, mapInfo])
+    useHotkeys('shift+right', () => { updateMapInfo(currentPanoKey, { ...mapInfo, x: mapInfo.x + 1 }) }, {}, [currentPanoKey, mapInfo])
+    useHotkeys('shift+up', () => { updateMapInfo(currentPanoKey, { ...mapInfo, y: mapInfo.y - 1 }) }, {}, [currentPanoKey, mapInfo])
+    useHotkeys('shift+down', () => { updateMapInfo(currentPanoKey, { ...mapInfo, y: mapInfo.y + 1 }) }, {}, [currentPanoKey, mapInfo])
   }
   /* eslint-enable react-hooks/rules-of-hooks */
 
@@ -77,7 +100,8 @@ export default function MiniMap (props) {
             key={curInfo.key}
             {...curInfo}
             adjacent={currentPanoData?.exits.some(exit => curInfo.key === exit.key)}
-            offset={{ x: 0, y: ARROW_PIN_Y_OFFSET }}
+            offset={{ x: ARROW_PIN_X_OFFSET, y: ARROW_PIN_Y_OFFSET }}
+            scale={{ x: ARROW_PIN_SCALE_X, y: ARROW_PIN_SCALE_Y }}
           />
         ))
     } else {
@@ -124,7 +148,12 @@ export default function MiniMap (props) {
                       alt="Blueprint image of the current floor of the building"
                       src={`media/${mapInfo.image}`}
                     />
-                    <MiniMapArrow {...mapInfo} angle={currentCameraYaw} offset={{ x: 0, y: ARROW_PIN_Y_OFFSET }} />
+                    <MiniMapArrow
+                      {...mapInfo}
+                      angle={currentCameraYaw}
+                      offset={{ x: ARROW_PIN_X_OFFSET, y: ARROW_PIN_Y_OFFSET }}
+                      scale={{ x: ARROW_PIN_SCALE_X, y: ARROW_PIN_SCALE_Y }}
+                      />
                     {allPins}
                   </React.Fragment>}
               </CardContent>

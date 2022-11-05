@@ -9,7 +9,7 @@ import { getDataSubRoute } from '../../state/asyncDataHelper.js'
 import AlignmentEditor from './AlignmentEditor.jsx'
 
 export default function PanoExitEdit (params) {
-  const { exit, onChange, onDelete, enableEdit, onEdit, enableAlign, onAlign } = params
+  const { exit, onChange, onDelete, enableEdit, onEdit, enableAlign, onAlign, currentPanoKey } = params
 
   const updateExit = newData => {
     if (onChange) { onChange({ ...exit, ...newData }) }
@@ -28,16 +28,18 @@ export default function PanoExitEdit (params) {
   }
 
   const [exitKeys, setExitKeys] = React.useState([])
-  React.useState(() => {
+  React.useEffect(() => {
     const retrieveKeys = async () => {
       const newKeys = await getDataSubRoute('keys', [])
-      setExitKeys(newKeys)
+      setExitKeys(newKeys.sort())
     }
 
     retrieveKeys()
   })
 
-  const destinationOptions = exitKeys.map(key => (<MenuItem key={key} value={key}>{key}</MenuItem>))
+  const destinationOptions = exitKeys.map(
+    key => (<MenuItem key={key} value={key} disabled={key === currentPanoKey}>{key}</MenuItem>)
+  )
 
   return (
     <React.Fragment>
@@ -50,7 +52,7 @@ export default function PanoExitEdit (params) {
           variant='standard'
           select
         >
-          {destinationOptions.sort()}
+          {destinationOptions}
         </TextField>
 
         <TextField
@@ -150,7 +152,8 @@ PanoExitEdit.propTypes = {
   onEdit: PropTypes.func,
   onAlign: PropTypes.func,
   enableEdit: PropTypes.bool,
-  enableAlign: PropTypes.bool
+  enableAlign: PropTypes.bool,
+  currentPanoKey: PropTypes.string
 }
 
 PanoExitEdit.defaultProps = {
@@ -159,5 +162,6 @@ PanoExitEdit.defaultProps = {
   onEdit: null,
   onAlign: null,
   enableEdit: false,
-  enableAlign: false
+  enableAlign: false,
+  currentPanoKey: ''
 }

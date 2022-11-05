@@ -1,6 +1,6 @@
 import Axios from 'axios'
 
-export async function getFullTourDataFromServer (panoKey) {
+export async function getFullTourDataFromServer () {
   try {
     const response = await Axios.get('data/')
     return response.data

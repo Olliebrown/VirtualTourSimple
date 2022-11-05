@@ -4,6 +4,10 @@ import https from 'https'
 
 import DataRouter from './tourDataRouter.js'
 
+// Turn on live data editing
+const ENABLE_DATA_EDITING = true
+
+// Base express HTTP(s) server
 const app = new Express()
 
 // Create an SSL server if we are in dev mode
@@ -22,9 +26,15 @@ app.use((req, res, next) => {
   next()
 })
 
-app.use('/data', DataRouter)
+// Only enable the data routes if editing is enabled
+if (ENABLE_DATA_EDITING) {
+  app.use('/data', DataRouter)
+}
+
+// Statically serve the public folder
 app.use(Express.static('./public'))
 
+// Start listening for HTTP requests
 if (server) {
   server.listen(3000, () => {
     console.log('SECURE server listening on port 3000')

@@ -4,6 +4,9 @@ import './shaders/CutoutShader.js'
 import React from 'react'
 import PropTypes from 'prop-types'
 
+// Global config variables
+import CONFIG from './config.js'
+
 // eslint-disable-next-line camelcase
 import { useRecoilBridgeAcrossReactRoots_UNSTABLE, useSetRecoilState } from 'recoil'
 import { CssBaseline } from '@mui/material'
@@ -15,7 +18,7 @@ import MiniMap from './components/MiniMap/MiniMap.jsx'
 import TourInfoEditor from './components/TourMaker/TourInfoEditor.jsx'
 
 import { Canvas } from '@react-three/fiber'
-import { Loader, useProgress } from '@react-three/drei'
+import { useProgress } from '@react-three/drei'
 
 import { setTextureAllDoneState, setTextureDoneState, setTextureFailedState } from './state/globalState.js'
 
@@ -67,11 +70,12 @@ export default function VirtualTour (props) {
       {/* MUI overlay */}
       <CssBaseline />
       <SettingsDial allowMotion={allowMotion} />
-      <TourInfoEditor />
       <MiniMap />
 
+      {/* Editing interface */}
+      {CONFIG.ENABLE_DATA_EDITING && <TourInfoEditor />}
+
       <InfoModal />
-      <Loader />
     </React.StrictMode>
   )
 }

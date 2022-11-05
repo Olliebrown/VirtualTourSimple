@@ -9,6 +9,9 @@ export default {
   // Enable the dynamic backend database server
   USE_DYNAMIC_DATABASE: true,
 
+  // Turn on live data editing
+  ENABLE_DATA_EDITING: true,
+
   // Enable these in dev mode
   ENABLE_ROTATE_HOTKEYS: _DEV_,
   ENABLE_INDEX_ADVANCING_HOTKEYS: _DEV_,
