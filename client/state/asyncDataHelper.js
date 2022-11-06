@@ -11,6 +11,17 @@ export async function getFullTourDataFromServer () {
   }
 }
 
+export async function getMapInfoDataFromServer () {
+  try {
+    const response = await Axios.get('data/mapInfo')
+    return response.data
+  } catch (err) {
+    console.error('Error retrieving full tour data from server')
+    console.error(err)
+    return null
+  }
+}
+
 export async function getPanoDataFromServer (panoKey) {
   try {
     const response = await Axios.get(`data/${panoKey}`)

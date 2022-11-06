@@ -3,12 +3,11 @@ import PropTypes from 'prop-types'
 
 import CONFIG from '../../config.js'
 
-import { useRecoilValue } from 'recoil'
-import { currentCameraYawState, currentPanoKeyState } from '../../state/globalState.js'
-import { getFullTourDataFromServer } from '../../state/asyncDataHelper.js'
+import { fullTourDataState, currentPanoKeyState, currentPanoDataState } from '../../state/fullTourState.js'
+import { currentCameraYawState } from '../../state/globalState.js'
+import { useRecoilState, useRecoilValue } from 'recoil'
 
-import localDB, { setCurrentPanoData } from '../../state/localDB.js'
-import { useLiveQuery } from 'dexie-react-hooks'
+import { getFullTourDataFromServer } from '../../state/asyncDataHelper.js'
 
 import { useHotkeys } from 'react-hotkeys-hook'
 
@@ -17,9 +16,6 @@ import { Close as CloseIcon, Map as MapIcon, ExpandLess as ExpandIcon } from '@m
 
 import MiniMapPin from './MiniMapPin.jsx'
 import MiniMapArrow from './MiniMapArrow.jsx'
-
-// Read in raw full map data
-import JSONMapData from '../../state/heatingPlantTourInfo.json'
 
 // Header offsets the point by 90 (without padding which adds 16px)
 const ARROW_PIN_X_OFFSET = 42
@@ -35,11 +31,12 @@ export default function MiniMap (props) {
 
   // Subscribe to pano DB changes
   const currentPanoKey = useRecoilValue(currentPanoKeyState)
-  const currentPanoData = useLiveQuery(() => localDB.panoInfoState.get(currentPanoKey), [currentPanoKey], null)
+  const [currentPanoData, setCurrentPanoData] = useRecoilState(currentPanoDataState)
 
   // Get latest map info data
-  const [fullTourData, setFullTourData] = React.useState({})
+  const [fullTourData, setFullTourData] = useRecoilState(fullTourDataState)
   React.useEffect(() => {
+    // Possibly retrieve the full tour data from the server
     const retrieveData = async () => {
       const newData = await getFullTourDataFromServer()
       setFullTourData(newData)
@@ -48,35 +45,29 @@ export default function MiniMap (props) {
     // Only need to use this if data editing is enabled
     if (CONFIG.ENABLE_DATA_EDITING) {
       retrieveData()
-    } else {
-      setFullTourData(JSONMapData)
     }
-  }, [])
+  }, [setFullTourData])
 
   // Controlling visibility of the minimap
   const [showMap, setShowMap] = React.useState(startVisible)
 
   // Mini map local state
   const [mapInfo, setMapInfo] = React.useState(null)
-  const updateMapInfo = (panoKey, newMapInfo) => {
-    console.log(`[${newMapInfo.x}, ${newMapInfo.y}]`)
+  const updateMapInfo = (newMapInfo) => {
     if (CONFIG.ENABLE_DATA_EDITING) {
-      setCurrentPanoData(currentPanoKey, {
-        ...currentPanoData,
-        mapInfo: newMapInfo
+      setCurrentPanoData({
+        mapInfo: { ...mapInfo, ...newMapInfo }
       })
+      setMapInfo(newMapInfo)
     }
-
-    fullTourData[panoKey].mapInfo = newMapInfo
-    setMapInfo(newMapInfo)
   }
 
   /* eslint-disable react-hooks/rules-of-hooks */
   if (CONFIG.ENABLE_MINIMAP_HOTKEYS) {
-    useHotkeys('shift+left', () => { updateMapInfo(currentPanoKey, { ...mapInfo, x: mapInfo.x - 1 }) }, {}, [currentPanoKey, mapInfo])
-    useHotkeys('shift+right', () => { updateMapInfo(currentPanoKey, { ...mapInfo, x: mapInfo.x + 1 }) }, {}, [currentPanoKey, mapInfo])
-    useHotkeys('shift+up', () => { updateMapInfo(currentPanoKey, { ...mapInfo, y: mapInfo.y - 1 }) }, {}, [currentPanoKey, mapInfo])
-    useHotkeys('shift+down', () => { updateMapInfo(currentPanoKey, { ...mapInfo, y: mapInfo.y + 1 }) }, {}, [currentPanoKey, mapInfo])
+    useHotkeys('shift+left', () => { updateMapInfo({ x: mapInfo.x - 1 }) }, {}, [mapInfo])
+    useHotkeys('shift+right', () => { updateMapInfo({ x: mapInfo.x + 1 }) }, {}, [mapInfo])
+    useHotkeys('shift+up', () => { updateMapInfo({ y: mapInfo.y - 1 }) }, {}, [mapInfo])
+    useHotkeys('shift+down', () => { updateMapInfo({ y: mapInfo.y + 1 }) }, {}, [mapInfo])
   }
   /* eslint-enable react-hooks/rules-of-hooks */
 
@@ -99,7 +90,7 @@ export default function MiniMap (props) {
           <MiniMapPin
             key={curInfo.key}
             {...curInfo}
-            adjacent={currentPanoData?.exits.some(exit => curInfo.key === exit.key)}
+            adjacent={!!currentPanoData?.exits?.some(exit => curInfo.key === exit.key)}
             offset={{ x: ARROW_PIN_X_OFFSET, y: ARROW_PIN_Y_OFFSET }}
             scale={{ x: ARROW_PIN_SCALE_X, y: ARROW_PIN_SCALE_Y }}
           />

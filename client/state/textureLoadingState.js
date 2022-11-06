@@ -17,14 +17,21 @@ export const textureStatusState = atom({
 export const setTextureLoadingState = selector({
   key: 'textureLoadingStatus',
   get: ({ get }) => { return get(textureStatusState) },
-  set: ({ get, set }, newValue) => {
-    const textureStatus = get(textureStatusState)
-
-    // Don't update if it already exists
-    if (!textureStatus[newValue]) {
-      set(textureStatusState, { ...textureStatus, [newValue]: LOADING_STATUS.LOADING })
-      console.log(`${newValue} has STARTED loading`)
+  set: ({ get, set }, newValues) => {
+    // Pack in array if not already
+    if (!Array.isArray(newValues)) {
+      newValues = [newValues]
     }
+
+    const newTextureStatus = { ...get(textureStatusState) }
+    newValues.forEach(newValue => {
+      // Don't update if it already exists
+      if (!newTextureStatus[newValue]) {
+        newTextureStatus[newValue] = LOADING_STATUS.LOADING
+        // console.log(`${newValue} has STARTED loading`)
+      }
+    })
+    set(textureStatusState, newTextureStatus)
   }
 })
 
@@ -32,14 +39,21 @@ export const setTextureLoadingState = selector({
 export const setTextureDoneState = selector({
   key: 'textureDoneStatus',
   get: ({ get }) => { return get(textureStatusState) },
-  set: ({ get, set }, newValue) => {
-    const textureStatus = get(textureStatusState)
-
-    // Only update textures with a 'LOADING' status
-    if (textureStatus[newValue] === LOADING_STATUS.LOADING) {
-      set(textureStatusState, { ...textureStatus, [newValue]: LOADING_STATUS.DONE })
-      console.log(`${newValue} has FINISHED loading`)
+  set: ({ get, set }, newValues) => {
+    // Pack in array if not already
+    if (!Array.isArray(newValues)) {
+      newValues = [newValues]
     }
+
+    const newTextureStatus = { ...get(textureStatusState) }
+    newValues.forEach(newValue => {
+      // Only update textures with a 'LOADING' status
+      if (newTextureStatus[newValue] === LOADING_STATUS.LOADING) {
+        newTextureStatus[newValue] = LOADING_STATUS.DONE
+        // console.log(`${newValue} has FINISHED loading`)
+      }
+    })
+    set(textureStatusState, newTextureStatus)
   }
 })
 
@@ -61,7 +75,7 @@ export const setTextureAllDoneState = selector({
 
     // Update status
     set(textureStatusState, newStatus)
-    console.log('ALL textures have FINISHED loading')
+    // console.log('ALL textures have FINISHED loading')
   }
 })
 
@@ -69,9 +83,18 @@ export const setTextureAllDoneState = selector({
 export const setTextureFailedState = selector({
   key: 'textureFailedStatus',
   get: ({ get }) => { return get(textureStatusState) },
-  set: ({ get, set }, newValue) => {
-    const textureStatus = get(textureStatusState)
-    set(textureStatusState, { ...textureStatus, [newValue]: LOADING_STATUS.FAILED })
-    console.log(`${newValue} has ERRORED while loading`)
+  set: ({ get, set }, newValues) => {
+    // Pack in array if not already
+    if (!Array.isArray(newValues)) {
+      newValues = [newValues]
+    }
+
+    // Update all the given texture's status
+    const newTextureStatus = { ...get(textureStatusState) }
+    newValues.forEach(newValue => {
+      newTextureStatus[newValue] = LOADING_STATUS.FAILED
+      // console.log(`${newValue} has ERRORED while loading`)
+    })
+    set(textureStatusState, newTextureStatus)
   }
 })

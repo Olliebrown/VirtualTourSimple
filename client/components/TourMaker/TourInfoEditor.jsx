@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { useRecoilValue } from 'recoil'
-import { currentPanoKeyState } from '../../state/globalState.js'
+import { currentPanoKeyState } from '../../state/fullTourState.js'
 
 import { Paper, Button, Typography, IconButton, Slide, Fade } from '@mui/material'
 import { Close as CloseIcon, ExpandLess as ExpandIcon } from '@mui/icons-material'

@@ -1,10 +1,7 @@
 import React from 'react'
 
-import { useRecoilValue } from 'recoil'
-import { currentPanoKeyState } from '../../state/globalState.js'
-
-import localDB, { setCurrentPanoData } from '../../state/localDB.js'
-import { useLiveQuery } from 'dexie-react-hooks'
+import { useRecoilState } from 'recoil'
+import { currentPanoDataState } from '../../state/fullTourState.js'
 
 import { Box, Button } from '@mui/material'
 
@@ -12,12 +9,7 @@ import PanoHotspotEdit from './PanoHotspotEdit.jsx'
 
 export default function RoomHotspotList (props) {
   // Subscribe to pano DB changes
-  const currentPanoKey = useRecoilValue(currentPanoKeyState)
-  const currentPanoData = useLiveQuery(
-    () => localDB.panoInfoState.get(currentPanoKey),
-    [currentPanoKey],
-    null
-  )
+  const [currentPanoData, setCurrentPanoData] = useRecoilState(currentPanoDataState)
 
   // Which hotspot is currently being edited
   const [editHotspot, setEditHotspot] = React.useState(-1)
@@ -26,10 +18,7 @@ export default function RoomHotspotList (props) {
   const updateHotspot = (i, updatedHotspot) => {
     const newHotspots = [...currentPanoData.hotspots]
     newHotspots[i] = updatedHotspot
-    setCurrentPanoData(currentPanoKey, {
-      ...currentPanoData,
-      hotspots: newHotspots
-    })
+    setCurrentPanoData({ hotspots: newHotspots })
   }
 
   // Add or delete an exit
@@ -44,19 +33,13 @@ export default function RoomHotspotList (props) {
       scale: 1,
       type: 'info'
     })
-    setCurrentPanoData(currentPanoKey, {
-      ...currentPanoData,
-      hotspots: newHotspots
-    })
+    setCurrentPanoData({ hotspots: newHotspots })
   }
 
   const deleteHotspot = i => {
     const newHotspots = [...currentPanoData.hotspots]
     newHotspots.splice(i, 1)
-    setCurrentPanoData(currentPanoKey, {
-      ...currentPanoData,
-      hotspots: newHotspots
-    })
+    setCurrentPanoData({ ...currentPanoData, hotspots: newHotspots })
   }
 
   return (

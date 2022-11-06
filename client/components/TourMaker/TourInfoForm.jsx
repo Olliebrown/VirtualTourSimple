@@ -1,10 +1,8 @@
 import React from 'react'
 
-import { useRecoilValue } from 'recoil'
-import { currentPanoKeyState } from '../../state/globalState.js'
+import { useRecoilState } from 'recoil'
+import { currentPanoDataState } from '../../state/fullTourState.js'
 
-import localDB, { setCurrentPanoData } from '../../state/localDB.js'
-import { useLiveQuery } from 'dexie-react-hooks'
 import { getDataSubRoute } from '../../state/asyncDataHelper.js'
 
 import { Box, Divider, MenuItem, Stack, TextField, Tabs, Tab, Button, Collapse } from '@mui/material'
@@ -23,8 +21,7 @@ function a11yProps (index) {
 
 export default function TourInfoForm () {
   // Subscribe to pano DB changes
-  const currentPanoKey = useRecoilValue(currentPanoKeyState)
-  const currentPanoData = useLiveQuery(() => localDB.panoInfoState.get(currentPanoKey), [currentPanoKey], null)
+  const [currentPanoData, setCurrentPanoData] = useRecoilState(currentPanoDataState)
 
   // Select dropdown choices
   const [buildingNameChoices, setBuildingNameChoices] = React.useState([])
@@ -46,35 +43,20 @@ export default function TourInfoForm () {
     getDataChoices()
   }, [])
 
-  // General root pano info updates
-  const updatePanoData = newData => {
-    setCurrentPanoData(currentPanoKey, {
-      ...currentPanoData,
-      ...newData
-    })
-  }
-
   // Update alignment values
   const updateAlignment = (x, y, z) => {
     const newAlignment = [
-      isNaN(x) || x === null ? currentPanoData?.alignment[0] : x,
-      isNaN(y) || y === null ? currentPanoData?.alignment[1] : y,
-      isNaN(z) || z === null ? currentPanoData?.alignment[2] : z
+      isNaN(x) || x === null ? (currentPanoData?.alignment?.[0] || 0) : x,
+      isNaN(y) || y === null ? (currentPanoData?.alignment?.[1] || 0) : y,
+      isNaN(z) || z === null ? (currentPanoData?.alignment?.[2] || 0) : z
     ]
-    setCurrentPanoData(currentPanoKey, {
-      ...currentPanoData,
-      alignment: newAlignment
-    })
+    setCurrentPanoData({ alignment: newAlignment })
   }
 
   // Update map info vales
   const updateMapInfo = newData => {
-    setCurrentPanoData(currentPanoKey, {
-      ...currentPanoData,
-      mapInfo: {
-        ...currentPanoData.mapInfo,
-        ...newData
-      }
+    setCurrentPanoData({
+      mapInfo: { ...currentPanoData.mapInfo, ...newData }
     })
   }
 
@@ -100,7 +82,7 @@ export default function TourInfoForm () {
             label="Room Label"
             variant="standard"
             value={currentPanoData?.label}
-            onChange={e => updatePanoData({ label: e.target.value })}
+            onChange={e => setCurrentPanoData({ label: e.target.value })}
             sx={{ mb: 2 }}
           />
 

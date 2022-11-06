@@ -1,10 +1,7 @@
 import React from 'react'
 
-import { useRecoilValue } from 'recoil'
-import { currentPanoKeyState } from '../../state/globalState.js'
-
-import localDB, { setCurrentPanoData } from '../../state/localDB.js'
-import { useLiveQuery } from 'dexie-react-hooks'
+import { useRecoilValue, useRecoilState } from 'recoil'
+import { currentPanoKeyState, currentPanoDataState } from '../../state/fullTourState.js'
 
 import { Box, Button } from '@mui/material'
 
@@ -13,7 +10,7 @@ import PanoExitEdit from './PanoExitEdit.jsx'
 export default function RoomExitList (props) {
   // Subscribe to pano DB changes
   const currentPanoKey = useRecoilValue(currentPanoKeyState)
-  const currentPanoData = useLiveQuery(() => localDB.panoInfoState.get(currentPanoKey), [currentPanoKey], null)
+  const [currentPanoData, setCurrentPanoData] = useRecoilState(currentPanoDataState)
 
   // Which exit is currently being edited
   const [editExit, setEditExit] = React.useState(-1)
@@ -23,29 +20,20 @@ export default function RoomExitList (props) {
   const updateExit = (i, newExit) => {
     const newExits = [...currentPanoData.exits]
     newExits[i] = newExit
-    setCurrentPanoData(currentPanoKey, {
-      ...currentPanoData,
-      exits: newExits
-    })
+    setCurrentPanoData({ exits: newExits })
   }
 
   // Add or delete an exit
   const addExit = () => {
     const newExits = [...currentPanoData.exits]
     newExits.push({ key: '', direction: 0, type: 'arrow' })
-    setCurrentPanoData(currentPanoKey, {
-      ...currentPanoData,
-      exits: newExits
-    })
+    setCurrentPanoData({ exits: newExits })
   }
 
   const deleteExit = i => {
     const newExits = [...currentPanoData.exits]
     newExits.splice(i, 1)
-    setCurrentPanoData(currentPanoKey, {
-      ...currentPanoData,
-      exits: newExits
-    })
+    setCurrentPanoData({ exits: newExits })
   }
 
   return (

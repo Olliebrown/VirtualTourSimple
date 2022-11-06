@@ -6,7 +6,8 @@ import PropTypes from 'prop-types'
 import localDB, { updateSetting } from '../../state/localDB.js'
 import { useLiveQuery } from 'dexie-react-hooks'
 
-import { currentPanoKeyState, currentCameraYawState } from '../../state/globalState.js'
+import { currentPanoKeyState, currentPanoDataState } from '../../state/fullTourState'
+import { currentCameraYawState } from '../../state/globalState.js'
 
 import { useRecoilValue, useSetRecoilState } from 'recoil'
 
@@ -29,7 +30,7 @@ export default function PanoViewer (props) {
 
   // Subscribe to pano DB changes
   const currentPanoKey = useRecoilValue(currentPanoKeyState)
-  const currentPanoData = useLiveQuery(() => localDB.panoInfoState.get(currentPanoKey), [currentPanoKey], null)
+  const currentPanoData = useRecoilValue(currentPanoDataState)
 
   // Update camera yaw in global state
   const setCurrentCameraYaw = useSetRecoilState(currentCameraYawState)
@@ -39,15 +40,15 @@ export default function PanoViewer (props) {
   /* eslint-enable react-hooks/exhaustive-deps */
 
   // Sphere rotation state
-  const [xRotate, setXRotate] = useState(currentPanoData?.alignment[0])
-  const [yRotate, setYRotate] = useState(currentPanoData?.alignment[1])
-  const [zRotate, setZRotate] = useState(currentPanoData?.alignment[2])
+  const [xRotate, setXRotate] = useState(currentPanoData?.alignment?.[0] || 0)
+  const [yRotate, setYRotate] = useState(currentPanoData?.alignment?.[1] || 0)
+  const [zRotate, setZRotate] = useState(currentPanoData?.alignment?.[2] || 0)
 
   // Ensure rotate values are synced with the loaded pano data
   useEffect(() => {
-    setXRotate(currentPanoData?.alignment[0])
-    setYRotate(currentPanoData?.alignment[1])
-    setZRotate(currentPanoData?.alignment[2])
+    setXRotate(currentPanoData?.alignment?.[0] || 0)
+    setYRotate(currentPanoData?.alignment?.[1] || 0)
+    setZRotate(currentPanoData?.alignment?.[2] || 0)
   }, [currentPanoData?.alignment])
 
   // Setup some hotkeys to adjust the sphere offset rotation

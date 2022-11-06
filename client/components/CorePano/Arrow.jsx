@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import CONFIG from '../../config.js'
 
-import { currentPanoKeyState } from '../../state/globalState.js'
+import { currentPanoKeyState } from '../../state/fullTourState.js'
 import { setTextureLoadingState, textureStatusState } from '../../state/textureLoadingState.js'
 import { useRecoilValue, useSetRecoilState } from 'recoil'
 

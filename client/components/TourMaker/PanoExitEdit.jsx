@@ -1,11 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import { allPanoKeysState } from '../../state/fullTourState.js'
+import { useRecoilValue } from 'recoil'
+
 import { MenuItem, Stack, TextField, IconButton, Collapse, Slider, Box } from '@mui/material'
 import { Delete as DeleteIcon, Edit as EditIcon, ThreeSixty as AlignIcon } from '@mui/icons-material'
 
 import NumberField from '../Utility/NumberField.jsx'
-import { getDataSubRoute } from '../../state/asyncDataHelper.js'
 import AlignmentEditor from './AlignmentEditor.jsx'
 
 export default function PanoExitEdit (params) {
@@ -27,15 +29,7 @@ export default function PanoExitEdit (params) {
     }
   }
 
-  const [exitKeys, setExitKeys] = React.useState([])
-  React.useEffect(() => {
-    const retrieveKeys = async () => {
-      const newKeys = await getDataSubRoute('keys', [])
-      setExitKeys(newKeys.sort())
-    }
-
-    retrieveKeys()
-  })
+  const exitKeys = useRecoilValue(allPanoKeysState)
 
   const destinationOptions = exitKeys.map(
     key => (<MenuItem key={key} value={key} disabled={key === currentPanoKey}>{key}</MenuItem>)

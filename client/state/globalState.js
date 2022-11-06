@@ -1,12 +1,4 @@
-import CONFIG from '../config.js'
-
 import { atom } from 'recoil'
-
-// The currently displayed pano room
-export const currentPanoKeyState = atom({
-  key: 'currentPanoKey',
-  default: CONFIG.START_KEY
-})
 
 // The camera rotation
 export const currentCameraYawState = atom({

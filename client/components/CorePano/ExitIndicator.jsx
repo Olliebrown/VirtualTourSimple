@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 
 import CONFIG from '../../config.js'
 
-import { currentPanoKeyState } from '../../state/globalState.js'
-import { setTextureLoadingState, textureStatusState } from '../../state/textureLoadingState.js'
+import { currentPanoKeyState } from '../../state/fullTourState.js'
+import { LOADING_STATUS, setTextureLoadingState, textureStatusState } from '../../state/textureLoadingState.js'
 import { useRecoilValue, useSetRecoilState } from 'recoil'
 
 import { useLoader, useGraph } from '@react-three/fiber'
@@ -40,7 +40,7 @@ const OBJ_DATA = {
 }
 
 // Various colors for the texture loading state
-const LOADING_COLOR = 0x777777
+// const LOADING_COLOR = 0x777777 (not currently in use)
 const LOADED_COLOR = 0x156289
 const FAILED_COLOR = 0x883333
 
@@ -49,22 +49,19 @@ export default function ExitIndicator (props) {
   const { type, shift, height, distance, direction, alignment, destination, ...rest } = props
 
   const setCurrentPanoKey = useSetRecoilState(currentPanoKeyState)
-
-  // Global texture loader status and pano image state
-  const loadingStatus = useRecoilValue(textureStatusState)
   const setTextureLoading = useSetRecoilState(setTextureLoadingState)
-  const imageLoadingStatus = loadingStatus[`${CONFIG.PANO_IMAGE_PATH}/${destination}_Left.ktx2`]
 
-  // Create a valid texture filename
-  const textureFile = (
-    destination !== ''
-      ? `${CONFIG.PANO_IMAGE_PATH}/${destination}_Left.ktx2`
-      : `${CONFIG.PANO_IMAGE_PATH}/1S01_22_Left.ktx2`
-  )
+  // Create array of texture filenames
+  const textureFiles = React.useMemo(() => ([
+    `${CONFIG.PANO_IMAGE_PATH}/${destination || CONFIG.START_KEY}_Left.ktx2`,
+    `${CONFIG.PANO_IMAGE_PATH}/${destination || CONFIG.START_KEY}_Right.ktx2`
+  ]), [destination])
 
   // Start loading (harmless if already loaded)
-  setTextureLoading(textureFile)
-  useKTX2(textureFile)
+  React.useEffect(() => {
+    setTextureLoading(textureFiles)
+  }, [setTextureLoading, textureFiles])
+  useKTX2(textureFiles)
 
   // Track hovering state
   const [hovering, setHovering] = React.useState(false)
@@ -89,20 +86,42 @@ export default function ExitIndicator (props) {
   const loadedObj = useLoader(OBJLoader, objInfo.filename)
   const { nodes } = useGraph(loadedObj.clone())
 
-  let color = LOADING_COLOR
-  switch (imageLoadingStatus) {
-    case 'DONE':
-      color = LOADED_COLOR
-      break
-    case 'FAILED':
-      color = FAILED_COLOR
-      break
-  }
+  // Global texture loader status
+  const loadingStatus = useRecoilValue(textureStatusState)
+
+  // Color derived from loading status
+  const [exitColor, setExitColor] = React.useState(LOADED_COLOR)
+  React.useEffect(() => {
+    // Determine overall loading status
+    const imageLoadingStatus = textureFiles.reduce(
+      (prev, filename) => {
+        // Failed status always prevails
+        if (prev === LOADING_STATUS.FAILED) {
+          return prev
+        }
+
+        // If this one is not DONE, use its status
+        if (loadingStatus[filename] !== LOADING_STATUS.DONE) {
+          return loadingStatus[filename]
+        }
+
+        // Otherwise, stick with previous status
+        return prev
+      },
+      LOADING_STATUS.DONE
+    )
+
+    // Change color based on status
+    switch (imageLoadingStatus) {
+      case LOADING_STATUS.DONE: setExitColor(LOADED_COLOR); break
+      case LOADING_STATUS.FAILED: setExitColor(FAILED_COLOR); break
+    }
+  }, [loadingStatus, textureFiles])
 
   // Build unique sub-meshes for all the loaded objects
   const meshes = Object.keys(nodes).map((meshName) => (
     <animated.mesh scale={springs.scale} key={`${meshName}-mesh`} geometry={nodes[meshName].geometry}>
-      <meshPhongMaterial color={color} flatShading />
+      <meshPhongMaterial color={exitColor} />
     </animated.mesh>
   ))
 

@@ -3,11 +3,8 @@ import PropTypes from 'prop-types'
 
 import CONFIG from '../../config.js'
 
-import localDB from '../../state/localDB.js'
-import { useLiveQuery } from 'dexie-react-hooks'
-
 import { useRecoilValue, useSetRecoilState } from 'recoil'
-import { currentPanoKeyState } from '../../state/globalState.js'
+import { currentPanoKeyState, currentPanoDataState } from '../../state/fullTourState.js'
 import { setTextureLoadingState } from '../../state/textureLoadingState.js'
 
 import { useKTX2 } from '@react-three/drei'
@@ -29,7 +26,7 @@ export default function PanoImage (props) {
 
   // Subscribe to pano DB changes
   const currentPanoKey = useRecoilValue(currentPanoKeyState)
-  const currentPanoData = useLiveQuery(() => localDB.panoInfoState.get(currentPanoKey), [currentPanoKey], null)
+  const currentPanoData = useRecoilValue(currentPanoDataState)
 
   // // Load the pano image or video
   // const [panoVideo, setPanoVideo] = React.useState(null)
@@ -87,13 +84,24 @@ export default function PanoImage (props) {
 
   // Load the base image texture
   const setTextureLoading = useSetRecoilState(setTextureLoadingState)
-  setTextureLoading(`${CONFIG.PANO_IMAGE_PATH}/${currentPanoKey}_Left.ktx2`)
-  const panoImage = useKTX2(`${CONFIG.PANO_IMAGE_PATH}/${currentPanoKey}_Left.ktx2`)
+
+  // Create array of texture filenames
+  const textureFiles = React.useMemo(() => ([
+    `${CONFIG.PANO_IMAGE_PATH}/${currentPanoKey}_Left.ktx2`,
+    `${CONFIG.PANO_IMAGE_PATH}/${currentPanoKey}_Right.ktx2`
+  ]), [currentPanoKey])
+
+  React.useEffect(() => {
+    setTextureLoading(textureFiles)
+  }, [setTextureLoading, textureFiles])
+  const panoImages = useKTX2(textureFiles)
 
   // Build the exit arrows
-  const exitArrows = currentPanoData?.exits.map((exit, i) => {
+  const exitArrows = currentPanoData?.exits?.map((exit, i) => {
     return (
-      <ExitIndicator {...exit} key={`${exit.key}-${i}`} destination={exit.key} />
+      <React.Suspense key={`${exit.key}-${i}`} fallback={null}>
+        <ExitIndicator {...exit} destination={exit.key} />
+      </React.Suspense>
     )
   })
 
@@ -110,7 +118,7 @@ export default function PanoImage (props) {
   // const showVideo = !!panoVideo && mediaPlaying
 
   return (
-    <>
+    <React.Fragment>
       {/* Add extra geometry objects */}
       {exitArrows}
       {hotspots}
@@ -136,10 +144,10 @@ export default function PanoImage (props) {
           // enableVideo={showVideo}
         >
           {/* {showVideo && <videoTexture attach="panoVideo" args={[panoVideo]}/>} */}
-          <primitive attach="panoImage" object={panoImage || null}/>
+          <primitive attach="panoImage" object={panoImages[0] || null}/>
         </cutoutMaterial>
       </mesh>
-    </>
+    </React.Fragment>
   )
 }
 

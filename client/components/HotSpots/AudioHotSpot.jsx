@@ -85,7 +85,7 @@ export default function AudioHotspot (props) {
     >
       <group rotation-x={MathUtils.degToRad(lat)}>
         <animated.mesh scale={springs.scale} position={[0, 0, -5]}>
-          <planeBufferGeometry />
+          <planeGeometry />
           <meshPhongMaterial color={0xFFFFFF} map={audioIconTexture} flatShading transparent />
         </animated.mesh>
       </group>
