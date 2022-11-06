@@ -9,11 +9,8 @@ export default {
   // Path to hotspot info JSON files
   HOTSPOT_INFO_PATH: 'hotspotInfo',
 
-  // Enable the dynamic backend database server
-  USE_DYNAMIC_DATABASE: true,
-
   // Turn on live data editing
-  ENABLE_DATA_EDITING: true,
+  ENABLE_DATA_EDITING: _DEV_,
 
   // Enable these in dev mode
   ENABLE_ROTATE_HOTKEYS: _DEV_,
