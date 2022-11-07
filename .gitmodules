@@ -1,0 +1,3 @@
+[submodule "ThermoTourTutor"]
+	path = ThermoTourTutor
+	url = https://github.com/Olliebrown/ThermoTourTutor.git
