@@ -12,14 +12,14 @@ import { currentCameraYawState } from '../../state/globalState.js'
 import { useRecoilValue, useSetRecoilState } from 'recoil'
 
 import { Vector3 } from 'three'
-
+import { useThree } from '@react-three/fiber'
 import { OrbitControls, DeviceOrientationControls } from '@react-three/drei'
+
 import { useHotkeys } from 'react-hotkeys-hook'
 
 import PanoImage from './PanoImage.jsx'
-
+import PanoTextureLoader from './PanoTextureLoader.jsx'
 import PanoGrid from './PanoGrid.jsx'
-import { useThree } from '@react-three/fiber'
 
 export default function PanoViewer (props) {
   const { isMobile, allowMotion } = props
@@ -104,6 +104,9 @@ export default function PanoViewer (props) {
       />
       <ambientLight />
       <pointLight position={[10, 10, 10]} />
+      <React.Suspense fallback={null}>
+        <PanoTextureLoader />
+      </React.Suspense>
       <PanoImage xRotate={xRotate} yRotate={yRotate} zRotate={zRotate} />
       {CONFIG.ENABLE_ALIGNMENT_GRID && <PanoGrid />}
     </>

@@ -88,8 +88,10 @@ export default function PanoImage (props) {
   // Create array of texture filenames
   const textureFiles = React.useMemo(() => ([
     `${CONFIG.PANO_IMAGE_PATH}/${currentPanoKey}_Left.ktx2`,
-    `${CONFIG.PANO_IMAGE_PATH}/${currentPanoKey}_Right.ktx2`
-  ]), [currentPanoKey])
+    `${CONFIG.PANO_IMAGE_PATH}/${currentPanoKey}_Right.ktx2`,
+    ...(currentPanoData?.exits ? currentPanoData.exits.map(exit => `${CONFIG.PANO_IMAGE_PATH}/${exit.key}_Left.ktx2`) : []),
+    ...(currentPanoData?.exits ? currentPanoData.exits.map(exit => `${CONFIG.PANO_IMAGE_PATH}/${exit.key}_Right.ktx2`) : [])
+  ]), [currentPanoData?.exits, currentPanoKey])
 
   React.useEffect(() => {
     setTextureLoading(textureFiles)

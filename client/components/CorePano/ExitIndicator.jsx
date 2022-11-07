@@ -3,12 +3,11 @@ import PropTypes from 'prop-types'
 
 import CONFIG from '../../config.js'
 
-import { currentPanoKeyState } from '../../state/fullTourState.js'
-import { LOADING_STATUS, setTextureLoadingState, textureStatusState } from '../../state/textureLoadingState.js'
+import { preloadPanoKeyState } from '../../state/fullTourState.js'
+import { LOADING_STATUS, textureStatusState } from '../../state/textureLoadingState.js'
 import { useRecoilValue, useSetRecoilState } from 'recoil'
 
 import { useLoader, useGraph } from '@react-three/fiber'
-import { useKTX2 } from '@react-three/drei'
 import { MathUtils } from 'three'
 
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader.js'
@@ -48,8 +47,7 @@ export default function ExitIndicator (props) {
   // Destructure props
   const { type, shift, height, distance, direction, alignment, destination, ...rest } = props
 
-  const setCurrentPanoKey = useSetRecoilState(currentPanoKeyState)
-  const setTextureLoading = useSetRecoilState(setTextureLoadingState)
+  const setPreloadPanoKey = useSetRecoilState(preloadPanoKeyState)
 
   // Create array of texture filenames
   const textureFiles = React.useMemo(() => ([
@@ -57,19 +55,13 @@ export default function ExitIndicator (props) {
     `${CONFIG.PANO_IMAGE_PATH}/${destination || CONFIG.START_KEY}_Right.ktx2`
   ]), [destination])
 
-  // Start loading (harmless if already loaded)
-  React.useEffect(() => {
-    setTextureLoading(textureFiles)
-  }, [setTextureLoading, textureFiles])
-  useKTX2(textureFiles)
-
   // Track hovering state
   const [hovering, setHovering] = React.useState(false)
 
   // Click callback function
   const onClick = () => {
     if (destination) {
-      setCurrentPanoKey(destination)
+      setPreloadPanoKey(destination)
     }
   }
 

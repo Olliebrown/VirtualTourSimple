@@ -20,6 +20,12 @@ export const currentPanoKeyState = atom({
   default: CONFIG.START_KEY
 })
 
+// The pano room being loaded
+export const preloadPanoKeyState = atom({
+  key: 'preloadPanoKey',
+  default: CONFIG.START_KEY
+})
+
 // Convenience derived state for the data for the current pano only
 export const currentPanoDataState = selector({
   key: 'currentPanoData',
@@ -52,6 +58,17 @@ export const currentPanoDataState = selector({
       ...fullTourData,
       [currentPanoKey]: newPanoData
     })
+  }
+})
+
+// Convenience derived state for the data for the pano room that is preloading
+export const preloadPanoDataState = selector({
+  key: 'preloadPanoData',
+
+  get: ({ get }) => {
+    const fullTourData = get(fullTourDataState)
+    const preloadPanoKey = get(preloadPanoKeyState)
+    return fullTourData[preloadPanoKey]
   }
 })
 
