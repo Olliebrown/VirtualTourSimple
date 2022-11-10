@@ -11,7 +11,7 @@ import { useKTX2 } from '@react-three/drei'
 import { Euler, MathUtils, BackSide } from 'three'
 
 import CutoutMaterial from '../../shaders/CutoutShader.js'
-import InfoHotspot from '../Hotspots/InfoHotspot.jsx'
+import InfoHotspot from '../HotSpots/InfoHotSpot.jsx'
 import ExitIndicator from './ExitIndicator.jsx'
 
 const NO_CROP = {

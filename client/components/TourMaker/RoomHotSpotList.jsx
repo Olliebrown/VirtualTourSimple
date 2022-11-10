@@ -5,7 +5,7 @@ import { currentPanoDataState } from '../../state/fullTourState.js'
 
 import { Box, Button } from '@mui/material'
 
-import PanoHotspotEdit from './PanoHotspotEdit.jsx'
+import PanoHotspotEdit from './PanoHotSpotEdit.jsx'
 
 export default function RoomHotspotList (props) {
   // Subscribe to pano DB changes

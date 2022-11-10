@@ -8,7 +8,7 @@ import { useRecoilState } from 'recoil'
 
 import { Button, Dialog, DialogTitle, DialogContent, DialogActions } from '@mui/material'
 
-import HotspotContent from './HotspotContent.jsx'
+import HotspotContent from './HotSpotContent.jsx'
 import AudioPlayer from './AudioPlayer.jsx'
 
 export default function InfoModal () {

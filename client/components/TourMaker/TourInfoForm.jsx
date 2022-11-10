@@ -9,7 +9,7 @@ import { Box, Divider, MenuItem, Stack, TextField, Tabs, Tab, Button, Collapse }
 
 import AlignmentEditor from './AlignmentEditor.jsx'
 import RoomExitList from './RoomExitList.jsx'
-import RoomHotspotList from './RoomHotspotList.jsx'
+import RoomHotspotList from './RoomHotSpotList.jsx'
 import TabPanel from '../Utility/TabPanel.jsx'
 
 function a11yProps (index) {
