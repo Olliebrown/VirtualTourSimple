@@ -1,5 +1,14 @@
 import { atom } from 'recoil'
 
+// The loading curtain state
+export const loadingCurtainState = atom({
+  key: 'loadingCurtain',
+  default: {
+    open: true,
+    text: ''
+  }
+})
+
 // The camera rotation
 export const currentCameraYawState = atom({
   key: 'currentCameraYaw',

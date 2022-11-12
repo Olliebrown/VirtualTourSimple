@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 
 import CONFIG from '../../config.js'
 
+import { loadingCurtainState } from '../../state/globalState.js'
 import { preloadPanoKeyState } from '../../state/fullTourState.js'
 import { LOADING_STATUS, textureStatusState } from '../../state/textureLoadingState.js'
 import { useRecoilValue, useSetRecoilState } from 'recoil'
@@ -48,6 +49,7 @@ export default function ExitIndicator (props) {
   const { type, shift, height, distance, direction, alignment, destination, ...rest } = props
 
   const setPreloadPanoKey = useSetRecoilState(preloadPanoKeyState)
+  const setLoadingCurtain = useSetRecoilState(loadingCurtainState)
 
   // Create array of texture filenames
   const textureFiles = React.useMemo(() => ([
@@ -61,6 +63,7 @@ export default function ExitIndicator (props) {
   // Click callback function
   const onClick = () => {
     if (destination) {
+      setLoadingCurtain({ text: '', open: false })
       setPreloadPanoKey(destination)
     }
   }

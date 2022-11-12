@@ -6,8 +6,9 @@ import CONFIG from '../../config.js'
 import localDB from '../../state/localDB.js'
 import { useLiveQuery } from 'dexie-react-hooks'
 
-import { useRecoilValue, useSetRecoilState } from 'recoil'
-import { currentPanoKeyState, currentPanoDataState } from '../../state/fullTourState.js'
+import { useRecoilValue, useSetRecoilState, useRecoilState } from 'recoil'
+import { loadingCurtainState } from '../../state/globalState.js'
+import { currentPanoKeyState, currentPanoDataState, enabledPanoRoomsState, enabledHotSpotsState } from '../../state/fullTourState.js'
 import { setTextureLoadingState } from '../../state/textureLoadingState.js'
 
 import { useKTX2 } from '@react-three/drei'
@@ -30,6 +31,11 @@ export default function PanoImage (props) {
   // Subscribe to pano DB changes
   const currentPanoKey = useRecoilValue(currentPanoKeyState)
   const currentPanoData = useRecoilValue(currentPanoDataState)
+  const enabledRooms = useRecoilValue(enabledPanoRoomsState)
+  const enabledHotSpots = useRecoilValue(enabledHotSpotsState)
+
+  // Loading curtain state
+  const [loadingCurtain, setLoadingCurtain] = useRecoilState(loadingCurtainState)
 
   // // Load the pano image or video
   // const [panoVideo, setPanoVideo] = React.useState(null)
@@ -85,6 +91,15 @@ export default function PanoImage (props) {
   //   if (mediaPlaying) { panoVideo?.play() }
   // }, [mediaPlaying, panoVideo])
 
+  // Create filtered arrays of exits and hotspots
+  const filteredExits = enabledRooms.length > 0
+    ? currentPanoData?.exits?.filter(exit => enabledRooms.includes(exit.key))
+    : currentPanoData?.exits
+
+  const filteredHotSpots = enabledHotSpots.length > 0
+    ? currentPanoData?.hotspots?.filter(hotspot => enabledHotSpots.includes(hotspot.id))
+    : currentPanoData?.hotspots
+
   // Load the base image texture
   const setTextureLoading = useSetRecoilState(setTextureLoadingState)
 
@@ -92,17 +107,21 @@ export default function PanoImage (props) {
   const textureFiles = React.useMemo(() => ([
     `${CONFIG.PANO_IMAGE_PATH}/${currentPanoKey}_Left.ktx2`,
     `${CONFIG.PANO_IMAGE_PATH}/${currentPanoKey}_Right.ktx2`,
-    ...(currentPanoData?.exits ? currentPanoData.exits.map(exit => `${CONFIG.PANO_IMAGE_PATH}/${exit.key}_Left.ktx2`) : []),
-    ...(currentPanoData?.exits ? currentPanoData.exits.map(exit => `${CONFIG.PANO_IMAGE_PATH}/${exit.key}_Right.ktx2`) : [])
-  ]), [currentPanoData?.exits, currentPanoKey])
+    ...(filteredExits ? filteredExits.map(exit => `${CONFIG.PANO_IMAGE_PATH}/${exit.key}_Left.ktx2`) : []),
+    ...(filteredExits ? filteredExits.map(exit => `${CONFIG.PANO_IMAGE_PATH}/${exit.key}_Right.ktx2`) : [])
+  ]), [filteredExits, currentPanoKey])
 
   React.useEffect(() => {
     setTextureLoading(textureFiles)
   }, [setTextureLoading, textureFiles])
   const panoImages = useKTX2(textureFiles)
 
+  React.useEffect(() => {
+    setLoadingCurtain({ text: '', open: true })
+  }, [setLoadingCurtain, panoImages])
+
   // Build the exit arrows
-  const exitArrows = currentPanoData?.exits?.map((exit, i) => {
+  const exitArrows = filteredExits?.map((exit, i) => {
     return (
       <React.Suspense key={`${exit.key}-${i}`} fallback={null}>
         <ExitIndicator {...exit} destination={exit.key} />
@@ -111,7 +130,7 @@ export default function PanoImage (props) {
   })
 
   // Build the info hot spots
-  const hotspots = currentPanoData?.hotspots?.map((info) => {
+  const hotspots = filteredHotSpots?.map(info => {
     const key = `${currentPanoKey}-${info.id}`
     switch (info.type) {
       case 'info': return (<InfoHotspot key={key} {...info} />)

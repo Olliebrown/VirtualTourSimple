@@ -57,12 +57,12 @@
     ],
     "hotspots": [
       {
+        "id": "1S01_Boiler",
+        "title": "Water-tube Boilers",
         "type": "info",
         "longitude": 0,
         "latitude": 11.6,
-        "scale": 0.4,
-        "json": "1S01_Boiler.json",
-        "title": "Water-tube Boilers"
+        "scale": 0.4
       }
     ],
     "mapInfo": {

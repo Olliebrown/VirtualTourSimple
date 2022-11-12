@@ -26,6 +26,18 @@ export const preloadPanoKeyState = atom({
   default: ''
 })
 
+// The list of enabled rooms (empty means all enabled)
+export const enabledPanoRoomsState = atom({
+  key: 'enabledPanoRooms',
+  default: []
+})
+
+// The list of enabled hotspots (empty means all enabled)
+export const enabledHotSpotsState = atom({
+  key: 'enabledHotSpots',
+  default: []
+})
+
 // Convenience derived state for the data for the current pano only
 export const currentPanoDataState = selector({
   key: 'currentPanoData',

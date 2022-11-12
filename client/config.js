@@ -3,9 +3,12 @@
 const PREFIX = _DEPLOY_ ? '../assets/' : ''
 
 // Useful global settings
-export default {
+export default Object.freeze({
   // Key of first image to load
   START_KEY: '1S01_22',
+
+  // Time (in ms) to wait to show the interface
+  FADE_TIMEOUT: 500,
 
   // Path to images on dev server
   PANO_IMAGE_PATH: PREFIX + 'panoMedia/panoImages',
@@ -33,4 +36,4 @@ export default {
   ENABLE_INDEX_ADVANCING_HOTKEYS: _DEV_,
   ENABLE_MINIMAP_HOTKEYS: _DEV_,
   ENABLE_ALIGNMENT_GRID: _DEV_
-}
+})

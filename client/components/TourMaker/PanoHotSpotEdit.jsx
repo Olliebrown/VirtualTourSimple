@@ -30,7 +30,7 @@ export default function PanoHotspotEdit (params) {
   const onJSONEdit = () => {
     hotspotContentEditInfo({
       modalOpen: true,
-      jsonFilename: hotspotInfo?.json
+      jsonFilename: `${hotspotInfo?.id}.json`
     })
   }
 
@@ -45,15 +45,15 @@ export default function PanoHotspotEdit (params) {
         />
 
         <TextField
-          label='JSON'
-          value={hotspotInfo?.json || ''}
-          onChange={e => updateHotspot({ json: e.target.value })}
+          label='ID'
+          value={hotspotInfo?.id || ''}
+          onChange={e => updateHotspot({ id: e.target.value })}
           variant='standard'
         />
 
         <Tooltip title='Edit Hotspot Content'>
           <div>
-            <IconButton onClick={onJSONEdit} disabled={!hotspotInfo?.json} size='small' sx={{ my: '10px !important' }}>
+            <IconButton onClick={onJSONEdit} disabled={!hotspotInfo?.id} size='small' sx={{ my: '10px !important' }}>
               <JSONEditIcon fontSize='inherit' />
             </IconButton>
           </div>
@@ -155,7 +155,7 @@ export default function PanoHotspotEdit (params) {
 PanoHotspotEdit.propTypes = {
   hotspotInfo: PropTypes.shape({
     title: PropTypes.string.isRequired,
-    json: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
 
     longitude: PropTypes.number.isRequired,
     latitude: PropTypes.number.isRequired,

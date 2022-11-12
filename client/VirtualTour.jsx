@@ -10,7 +10,8 @@ import CONFIG from './config.js'
 import localDB from './state/localDB.js'
 import { useLiveQuery } from 'dexie-react-hooks'
 
-import { preloadPanoKeyState } from './state/fullTourState.js'
+import { preloadPanoKeyState, enabledHotSpotsState, enabledPanoRoomsState } from './state/fullTourState.js'
+import { loadingCurtainState } from './state/globalState.js'
 
 // eslint-disable-next-line camelcase
 import { useRecoilBridgeAcrossReactRoots_UNSTABLE, useSetRecoilState } from 'recoil'
@@ -47,7 +48,7 @@ function CloseTour (params) {
 }
 
 export default function VirtualTour (props) {
-  const { isMobile, allowMotion, startingRoom, rootElement } = props
+  const { isMobile, allowMotion, startingRoom, enabledRooms, enabledHotSpots, rootElement } = props
 
   // Subscribe to global setting data
   const showHUDInterface = useLiveQuery(() => localDB.settings.get('showHUDInterface'))?.value ?? true
@@ -55,12 +56,34 @@ export default function VirtualTour (props) {
   // Share recoil state across Canvas root
   const RecoilBridge = useRecoilBridgeAcrossReactRoots_UNSTABLE()
 
+  const [fadeInTimeout, setFadeInTimeout] = React.useState(false)
+  React.useEffect(() => {
+    setTimeout(() => setFadeInTimeout(true), CONFIG.FADE_TIMEOUT)
+  }, [])
+
+  // On the first render, close the curtain
+  const setLoadingCurtain = useSetRecoilState(loadingCurtainState)
+  React.useEffect(() => {
+    setLoadingCurtain({
+      open: false,
+      text: 'Loading'
+    })
+  }, [setLoadingCurtain])
+
   // Initialize to the starting room if one was provided
   const setPreloadPanoKey = useSetRecoilState(preloadPanoKeyState)
   React.useEffect(() => {
     console.log('Setting starting room to:', startingRoom)
     setPreloadPanoKey(startingRoom)
   }, [setPreloadPanoKey, startingRoom])
+
+  // Initialize the enabled rooms and hotspots if provided
+  const setEnabledPanoRooms = useSetRecoilState(enabledPanoRoomsState)
+  const setEnabledHotSpots = useSetRecoilState(enabledHotSpotsState)
+  React.useEffect(() => {
+    setEnabledPanoRooms(enabledRooms)
+    setEnabledHotSpots(enabledHotSpots)
+  }, [enabledHotSpots, enabledRooms, setEnabledHotSpots, setEnabledPanoRooms])
 
   // Track texture state
   const setTextureDone = useSetRecoilState(setTextureDoneState)
@@ -97,23 +120,28 @@ export default function VirtualTour (props) {
       <Canvas linear camera={{ position: [0, 0, 0.1] }}>
         <RecoilBridge>
           {/* Panorama viewer/tour */}
-          <PanoViewer isMobile={isMobile} allowMotion={allowMotion} startingRoom={startingRoom} />
+          {fadeInTimeout &&
+            <PanoViewer isMobile={isMobile} allowMotion={allowMotion} startingRoom={startingRoom} />}
         </RecoilBridge>
       </Canvas>
 
       {/* MUI overlay */}
-      <CloseTour rootElement={rootElement} />
-      <InfoModal />
-
-      {showHUDInterface &&
+      {fadeInTimeout &&
         <React.Fragment>
-          <SettingsDial allowMotion={allowMotion} />
-          <MiniMap />
+          <CloseTour rootElement={rootElement} />
+          <InfoModal />
 
-          {/* Editing interface */}
-          {CONFIG.ENABLE_DATA_EDITING && <TourInfoEditor />}
-          {CONFIG.ENABLE_DATA_EDITING && <EditHotspotContentModal />}
+          {showHUDInterface &&
+            <React.Fragment>
+              <SettingsDial allowMotion={allowMotion} />
+              <MiniMap />
+
+              {/* Editing interface */}
+              {CONFIG.ENABLE_DATA_EDITING && <TourInfoEditor />}
+              {CONFIG.ENABLE_DATA_EDITING && <EditHotspotContentModal />}
+            </React.Fragment>}
         </React.Fragment>}
+
     </React.StrictMode>
   )
 }
@@ -122,11 +150,15 @@ VirtualTour.propTypes = {
   isMobile: PropTypes.bool,
   allowMotion: PropTypes.bool,
   startingRoom: PropTypes.string,
+  enabledRooms: PropTypes.arrayOf(PropTypes.string),
+  enabledHotSpots: PropTypes.arrayOf(PropTypes.string),
   rootElement: PropTypes.any.isRequired
 }
 
 VirtualTour.defaultProps = {
   isMobile: false,
   allowMotion: false,
-  startingRoom: CONFIG.START_KEY
+  startingRoom: CONFIG.START_KEY,
+  enabledRooms: [],
+  enabledHotSpots: []
 }
