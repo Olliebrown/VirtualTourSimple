@@ -1,3 +1,5 @@
+import CONFIG from '../../config.js'
+
 import React from 'react'
 import PropTypes from 'prop-types'
 
@@ -41,7 +43,7 @@ export default function InfoHotspot (props) {
   }, [json, playButton, setInfoHotspot, setMediaPlaying, title])
 
   // Load the hot spot geometry and clone our own instance
-  const loadedObj = useLoader(OBJLoader, 'geom/icoSphere.obj')
+  const loadedObj = useLoader(OBJLoader, `${CONFIG.GEOMETRY_FILE_PATH}/icoSphere.obj`)
   const { nodes } = useGraph(loadedObj.clone())
 
   // Animated values

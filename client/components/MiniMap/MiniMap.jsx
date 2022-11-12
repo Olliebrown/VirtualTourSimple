@@ -137,7 +137,7 @@ export default function MiniMap (props) {
                       component="img"
                       sx={{ maxWidth: '100%', marginTop: 'auto' }}
                       alt="Blueprint image of the current floor of the building"
-                      src={`media/${mapInfo.image}`}
+                      src={`${CONFIG.MAP_IMAGE_PATH}/${mapInfo.image}`}
                     />
                     <MiniMapArrow
                       {...mapInfo}

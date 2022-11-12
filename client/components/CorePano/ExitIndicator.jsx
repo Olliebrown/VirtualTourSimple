@@ -17,23 +17,23 @@ import { useSpring, animated } from '@react-spring/three'
 // Different object parameters
 const OBJ_DATA = {
   arrow: {
-    filename: 'geom/arrow.obj',
+    filename: `${CONFIG.GEOMETRY_FILE_PATH}/arrow.obj`,
     rotation: [Math.PI / 2.0, 0, Math.PI]
   },
   teleport: {
-    filename: 'geom/teleport.obj',
+    filename: `${CONFIG.GEOMETRY_FILE_PATH}/teleport.obj`,
     rotation: [0, 0, 0]
   },
   door: {
-    filename: 'geom/door.obj',
+    filename: `${CONFIG.GEOMETRY_FILE_PATH}/door.obj`,
     rotation: [0, 0, 0]
   },
   stairsUp: {
-    filename: 'geom/stairsUp.obj',
+    filename: `${CONFIG.GEOMETRY_FILE_PATH}/stairsUp.obj`,
     rotation: [0, 0, 0]
   },
   stairsDown: {
-    filename: 'geom/stairsDown.obj',
+    filename: `${CONFIG.GEOMETRY_FILE_PATH}/stairsDown.obj`,
     rotation: [0, 0, 0]
   }
 }

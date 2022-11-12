@@ -59,7 +59,7 @@ export default function Arrow (props) {
   })
 
   // Load the arrow geometry and clone our own instance
-  const loadedObj = useLoader(OBJLoader, 'geom/arrow.obj')
+  const loadedObj = useLoader(OBJLoader, `${CONFIG.GEOMETRY_FILE_PATH}/arrow.obj`)
   const { nodes } = useGraph(loadedObj.clone())
 
   let color = LOADING_COLOR

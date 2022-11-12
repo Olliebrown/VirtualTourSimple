@@ -9,7 +9,7 @@ const ALL_DIRS = [
   path.join(DEST_ASSETS, 'css'),
   path.join(DEST_ASSETS, 'js'),
   path.join(DEST_ASSETS, 'geom'),
-  path.join(DEST_ASSETS, 'panoData'),
+  path.join(DEST_ASSETS, 'hotspotData'),
   path.join(DEST_ASSETS, 'panoMedia', 'audio'),
   path.join(DEST_ASSETS, 'panoMedia', 'infoImages'),
   path.join(DEST_ASSETS, 'panoMedia', 'mapImages'),
@@ -32,7 +32,7 @@ async function copyFiles () {
     await fs.copy('public/geom', './ThermoTourTutor/assets/geom')
 
     // Copy pano data
-    await fs.copy('public/data', './ThermoTourTutor/assets/panoData')
+    await fs.copy('public/hotspotData', './ThermoTourTutor/assets/hotspotData')
 
     // Copy pano media
     await fs.copy('public/media', './ThermoTourTutor/assets/panoMedia')

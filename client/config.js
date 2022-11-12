@@ -4,10 +4,16 @@ export default {
   START_KEY: '1S01_22',
 
   // Path to images on dev server
-  PANO_IMAGE_PATH: 'media/panoImgKtx2',
+  PANO_IMAGE_PATH: 'media/panoImages',
+
+  // Path to map image files
+  MAP_IMAGE_PATH: 'media/mapImages',
+
+  // Path to geometry files
+  GEOMETRY_FILE_PATH: 'geom',
 
   // Path to hotspot info JSON files
-  HOTSPOT_INFO_PATH: 'hotspotInfo',
+  HOTSPOT_INFO_PATH: 'hotspotData',
 
   // Turn on live data editing
   ENABLE_DATA_EDITING: _DEV_,

@@ -65,8 +65,8 @@
         // Was a specific starting room requested?
         const queryString = window.location.search
         const urlParams = new URLSearchParams(queryString)
-        console.log('Query string:', queryString)
-        console.log('Start room:', urlParams.get('start_room'))
+
+        // Prepare the tour by attaching to the standard elements
         attachVirtualTour(urlParams.has('start_room') ? urlParams.get('start_room') : null)
       })
     </script>
