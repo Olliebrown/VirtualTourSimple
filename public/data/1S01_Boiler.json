@@ -1,0 +1,9 @@
+{
+  "name": "1S01_Boiler",
+  "images": [
+    { "src": "media/infoImages/DTube-Complete.png" }
+  ],
+  "audio": {
+    "src": "media/audio/1S01_Boiler1_Full_Script"
+  }
+}

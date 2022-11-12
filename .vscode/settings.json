@@ -4,6 +4,7 @@
     "camelcase",
     "Dexie",
     "drei",
+    "esbuild",
     "glsl",
     "Hotspot",
     "hotspots",

@@ -1,9 +1,0 @@
-{
-  "name": "1S01_Burner",
-  "images": [
-    { "src": "media/infoImages/Boiler1-Labeled-Full.png" }
-  ],
-  "audio": {
-    "src": "media/audio/boilers/1S01_Burner1_Full_Script"
-  }
-}

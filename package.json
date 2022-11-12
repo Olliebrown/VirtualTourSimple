@@ -5,11 +5,16 @@
   "main": "public/index.html",
   "type": "module",
   "scripts": {
-    "server": "node server/server.js",
-    "devServer": "nodemon --watch server server/server.js dev",
+    "deploy": "run-s client copyToDeploy",
+    "copyToDeploy": "node deployScript.js",
+
     "client": "esbuild --bundle --minify --target=es2020 --define:_DEV_=false --define:process.env.NODE_ENV=\\\"production\\\" --outfile=public/bundle.js client/app.jsx",
     "prodClient": "esbuild --bundle --watch --minify --target=es2020 --define:_DEV_=false --define:process.env.NODE_ENV=\\\"production\\\" --outfile=public/bundle.js client/app.jsx",
     "devClient": "esbuild --bundle --watch --sourcemap --target=es2020 --define:_DEV_=true --define:process.env.NODE_ENV=\\\"development\\\" --outfile=public/bundle.js client/app.jsx",
+
+    "server": "node server/server.js",
+    "devServer": "nodemon --watch server server/server.js dev",
+
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Seth Berrier",
@@ -34,8 +39,11 @@
     "eslint-plugin-promise": "^6.0.0",
     "eslint-plugin-react": "^7.29.4",
     "eslint-plugin-react-hooks": "^4.4.0",
+    "express": "^4.17.3",
+    "fs-extra": "^10.1.0",
     "howler": "^2.2.3",
     "nodemon": "^2.0.15",
+    "npm-run-all": "^4.1.5",
     "prismjs": "^1.29.0",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
@@ -44,8 +52,5 @@
     "react-simple-code-editor": "^0.13.1",
     "recoil": "^0.7.6",
     "subtitles-parser-vtt": "^0.1.0"
-  },
-  "dependencies": {
-    "express": "^4.17.3"
   }
 }
