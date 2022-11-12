@@ -23,16 +23,20 @@ export function attachVirtualTour (startingRoom, permissionElement, rootRenderEl
   permissionElement = permissionElement ?? document.getElementById('virtualTourPermission')
   rootRenderElement = rootRenderElement ?? document.getElementById('virtualTourRoot')
 
-  // Prepare the root for client rendering
-  const reactRoot = createRoot(rootRenderElement)
-
   // Initiate the React rendering
   const doRender = (allowMotion) => {
     if (_DEV_) console.log('Rendering the root react element ...')
+
+    // Clean up some CSS in case this is an embedded tour
+    rootRenderElement.scrollIntoView(true)
+    document.body.style.overflow = 'hidden'
+
+    // Render the root
+    const reactRoot = createRoot(rootRenderElement)
     reactRoot.render(
       <RecoilRoot>
         <ErrorBoundary FallbackComponent={ErrorFallback}>
-          <VirtualTour isMobile={false} allowMotion={allowMotion} startingRoom={startingRoom} />
+          <VirtualTour isMobile={false} allowMotion={allowMotion} startingRoom={startingRoom} rootElement={reactRoot} />
         </ErrorBoundary>
       </RecoilRoot>
     )

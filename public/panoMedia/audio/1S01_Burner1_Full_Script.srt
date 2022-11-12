@@ -1,0 +1,65 @@
+1
+00:00:00,320 --> 00:00:05,000
+Boilers rely on the combustion process of
+fuel to provide the heat required to produce
+
+2
+00:00:05,000 --> 00:00:07,224
+steam inside the water-filled tubes.
+
+3
+00:00:07,432 --> 00:00:12,254
+The burner mixes the fuel and air together, and,
+with the assistance of an ignition device
+
+4
+00:00:12,254 --> 00:00:14,631
+provides a platform for combustion.
+
+5
+00:00:14,631 --> 00:00:19,470
+This burner incorporates a blower that supplies
+combustion air at a pressure high enough to
+
+6
+00:00:19,470 --> 00:00:22,757
+compensate for the airflow resistance inside
+the boiler.
+
+7
+00:00:22,757 --> 00:00:27,609
+Three types of heat transfer mechanisms occur
+during the combustion process inside the boiler:
+
+8
+00:00:27,609 --> 00:00:30,372
+radiation, convection, and conduction.
+
+9
+00:00:30,372 --> 00:00:34,858
+Each of these mechanisms transfers heat from the
+burning fuel to the water in the boiler,
+
+10
+00:00:34,858 --> 00:00:38,995
+where the combustion air temperature can go up to 500 °F.
+
+11
+00:00:38,995 --> 00:00:45,543
+The university has used natural gas as the primary fuel
+for all boilers to reduce campus pollution emissions.
+
+12
+00:00:45,543 --> 00:00:53,509
+Natural gas emits about 50% less carbon dioxide than
+coal and 28% less carbon dioxide than fuel oil.
+
+13
+00:00:53,509 --> 00:00:57,782
+The emission of nitrogen oxides is nearly
+five times less than burning coal
+
+14
+00:00:57,782 --> 00:01:00,447
+and three times less than burning fuel oil.
+

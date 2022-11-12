@@ -9,10 +9,13 @@
     "Hotspot",
     "hotspots",
     "okaidia",
+    "onloaderror",
+    "onplayerror",
     "outfile",
     "Pano",
     "Phong",
     "prismjs",
     "wireframe"
-  ]
+  ],
+  "liquid.format.enable": false
 }

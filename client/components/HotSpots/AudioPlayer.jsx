@@ -1,3 +1,5 @@
+import CONFIG from '../../config.js'
+
 import React from 'react'
 import PropTypes from 'prop-types'
 
@@ -47,7 +49,7 @@ export default function AudioPlayer (props) {
       // Try to read subtitle file
       const readSubtitles = async () => {
         try {
-          const response = await Axios.get(`${hotspotAudio.src}.srt`)
+          const response = await Axios.get(`${CONFIG.INFO_AUDIO_PATH}/${hotspotAudio.src}.srt`)
           const newSubtitles = srtParser.fromVtt(response.data, 's')
           console.log(newSubtitles)
           setSubtitles(newSubtitles)
@@ -63,7 +65,7 @@ export default function AudioPlayer (props) {
       // Load the audio for playback using howler.js
       const newSound = new Howl({
         html5: true,
-        src: [`${hotspotAudio.src}.mp3`],
+        src: [`${CONFIG.INFO_AUDIO_PATH}/${hotspotAudio.src}.mp3`],
 
         // Report any audio errors to the console
         onloaderror: (err) => console.error('Failed to load audio:', err),

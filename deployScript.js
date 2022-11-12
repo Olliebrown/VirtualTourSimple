@@ -8,8 +8,8 @@ const DEST_ASSETS = path.resolve('./ThermoTourTutor/assets')
 const ALL_DIRS = [
   path.join(DEST_ASSETS, 'css'),
   path.join(DEST_ASSETS, 'js'),
-  path.join(DEST_ASSETS, 'geom'),
-  path.join(DEST_ASSETS, 'hotspotData'),
+  path.join(DEST_ASSETS, 'panoGeom'),
+  path.join(DEST_ASSETS, 'panoData'),
   path.join(DEST_ASSETS, 'panoMedia', 'audio'),
   path.join(DEST_ASSETS, 'panoMedia', 'infoImages'),
   path.join(DEST_ASSETS, 'panoMedia', 'mapImages'),
@@ -29,13 +29,13 @@ async function copyFiles () {
     await fs.copy('public/bundle.js', './ThermoTourTutor/assets/js/virtualTour.js')
 
     // Copy geometry files
-    await fs.copy('public/geom', './ThermoTourTutor/assets/geom')
+    await fs.copy('public/panoGeom', './ThermoTourTutor/assets/panoGeom')
 
     // Copy pano data
-    await fs.copy('public/hotspotData', './ThermoTourTutor/assets/hotspotData')
+    await fs.copy('public/panoData', './ThermoTourTutor/assets/panoData')
 
     // Copy pano media
-    await fs.copy('public/media', './ThermoTourTutor/assets/panoMedia')
+    await fs.copy('public/panoMedia', './ThermoTourTutor/assets/panoMedia')
   } catch (err) {
     console.error('Deployment failed')
     console.error(err)

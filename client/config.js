@@ -1,19 +1,29 @@
+
+// Asset folder prefix used only in deploy mode
+const PREFIX = _DEPLOY_ ? '../assets/' : ''
+
 // Useful global settings
 export default {
   // Key of first image to load
   START_KEY: '1S01_22',
 
   // Path to images on dev server
-  PANO_IMAGE_PATH: 'media/panoImages',
+  PANO_IMAGE_PATH: PREFIX + 'panoMedia/panoImages',
 
   // Path to map image files
-  MAP_IMAGE_PATH: 'media/mapImages',
+  MAP_IMAGE_PATH: PREFIX + 'panoMedia/mapImages',
+
+  // Path to image files for info hotspots
+  INFO_IMAGE_PATH: PREFIX + 'panoMedia/infoImages',
+
+  // Path to image files for info hotspots
+  INFO_AUDIO_PATH: PREFIX + 'panoMedia/audio',
 
   // Path to geometry files
-  GEOMETRY_FILE_PATH: 'geom',
+  GEOMETRY_FILE_PATH: PREFIX + 'panoGeom',
 
   // Path to hotspot info JSON files
-  HOTSPOT_INFO_PATH: 'hotspotData',
+  HOTSPOT_INFO_PATH: PREFIX + 'panoData',
 
   // Turn on live data editing
   ENABLE_DATA_EDITING: _DEV_,

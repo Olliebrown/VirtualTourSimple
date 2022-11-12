@@ -5,12 +5,13 @@
   "main": "public/index.html",
   "type": "module",
   "scripts": {
-    "deploy": "run-s client copyToDeploy",
+    "deploy": "run-s deployClient copyToDeploy",
     "copyToDeploy": "node deployScript.js",
 
-    "client": "esbuild --bundle --minify --target=es2020 --define:_DEV_=false --define:process.env.NODE_ENV=\\\"production\\\" --outfile=public/bundle.js client/app.jsx",
-    "prodClient": "esbuild --bundle --watch --minify --target=es2020 --define:_DEV_=false --define:process.env.NODE_ENV=\\\"production\\\" --outfile=public/bundle.js client/app.jsx",
-    "devClient": "esbuild --bundle --watch --sourcemap --target=es2020 --define:_DEV_=true --define:process.env.NODE_ENV=\\\"development\\\" --outfile=public/bundle.js client/app.jsx",
+    "client": "esbuild --bundle --minify --target=es2020 --define:_DEV_=false --define:_DEPLOY_=false --define:process.env.NODE_ENV=\\\"production\\\" --outfile=public/bundle.js client/app.jsx",
+    "deployClient": "esbuild --bundle --minify --target=es2020 --define:_DEV_=false --define:_DEPLOY_=true --define:process.env.NODE_ENV=\\\"production\\\" --outfile=public/bundle.js client/app.jsx",
+    "prodClient": "esbuild --bundle --watch --minify --target=es2020 --define:_DEV_=false --define:_DEPLOY_=false --define:process.env.NODE_ENV=\\\"production\\\" --outfile=public/bundle.js client/app.jsx",
+    "devClient": "esbuild --bundle --watch --sourcemap --target=es2020 --define:_DEV_=true --define:_DEPLOY_=false --define:process.env.NODE_ENV=\\\"development\\\" --outfile=public/bundle.js client/app.jsx",
 
     "server": "node server/server.js",
     "devServer": "nodemon --watch server server/server.js dev",

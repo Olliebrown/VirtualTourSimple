@@ -14,7 +14,9 @@ import { preloadPanoKeyState } from './state/fullTourState.js'
 
 // eslint-disable-next-line camelcase
 import { useRecoilBridgeAcrossReactRoots_UNSTABLE, useSetRecoilState } from 'recoil'
-import { CssBaseline } from '@mui/material'
+
+import { Fab, Tooltip } from '@mui/material'
+import { Close as CloseIcon } from '@mui/icons-material'
 
 import PanoViewer from './components/CorePano/PanoViewer.jsx'
 import SettingsDial from './components/Utility/SettingsDial.jsx'
@@ -28,8 +30,24 @@ import { useProgress } from '@react-three/drei'
 import { setTextureAllDoneState, setTextureDoneState, setTextureFailedState } from './state/textureLoadingState.js'
 import EditHotspotContentModal from './components/HotSpots/EditHotspotContentModal.jsx'
 
+function CloseTour (params) {
+  const { rootElement } = params
+  const close = () => {
+    rootElement.unmount()
+    document.body.style.overflow = 'auto'
+  }
+
+  return (
+    <Tooltip title="Close Tour">
+      <Fab size="medium" aria-label="close tour" onClick={close} sx={{ position: 'absolute', top: 80, right: 10 }}>
+        <CloseIcon />
+      </Fab>
+    </Tooltip>
+  )
+}
+
 export default function VirtualTour (props) {
-  const { isMobile, allowMotion, startingRoom } = props
+  const { isMobile, allowMotion, startingRoom, rootElement } = props
 
   // Subscribe to global setting data
   const showHUDInterface = useLiveQuery(() => localDB.settings.get('showHUDInterface'))?.value ?? true
@@ -84,7 +102,9 @@ export default function VirtualTour (props) {
       </Canvas>
 
       {/* MUI overlay */}
-      <CssBaseline />
+      <CloseTour rootElement={rootElement} />
+      <InfoModal />
+
       {showHUDInterface &&
         <React.Fragment>
           <SettingsDial allowMotion={allowMotion} />
@@ -93,8 +113,7 @@ export default function VirtualTour (props) {
           {/* Editing interface */}
           {CONFIG.ENABLE_DATA_EDITING && <TourInfoEditor />}
           {CONFIG.ENABLE_DATA_EDITING && <EditHotspotContentModal />}
-          </React.Fragment>}
-      <InfoModal />
+        </React.Fragment>}
     </React.StrictMode>
   )
 }
@@ -102,7 +121,8 @@ export default function VirtualTour (props) {
 VirtualTour.propTypes = {
   isMobile: PropTypes.bool,
   allowMotion: PropTypes.bool,
-  startingRoom: PropTypes.string
+  startingRoom: PropTypes.string,
+  rootElement: PropTypes.any.isRequired
 }
 
 VirtualTour.defaultProps = {

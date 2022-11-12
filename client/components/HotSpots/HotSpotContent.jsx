@@ -1,3 +1,5 @@
+import CONFIG from '../../config'
+
 import React from 'react'
 import PropTypes from 'prop-types'
 
@@ -11,7 +13,7 @@ export default function HotspotContent (props) {
       {Array.isArray(hotspotImages) &&
         <React.Fragment>
           {hotspotImages.map((imageInfo, i) => (
-            <Box component='img' key={i} {...imageInfo} width="100%" />
+            <Box component='img' key={i} src={`${CONFIG.INFO_IMAGE_PATH}/${imageInfo.src}`} alt={imageInfo.alt} width="100%" />
           ))}
         </React.Fragment>
       }
@@ -22,7 +24,8 @@ export default function HotspotContent (props) {
 HotspotContent.propTypes = {
   hotspotImages: PropTypes.arrayOf(
     PropTypes.shape({
-      src: PropTypes.string.isRequired
+      src: PropTypes.string.isRequired,
+      alt: PropTypes.string
     })
   )
 }
