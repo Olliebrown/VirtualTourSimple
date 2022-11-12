@@ -32,10 +32,17 @@ import { setTextureAllDoneState, setTextureDoneState, setTextureFailedState } fr
 import EditHotspotContentModal from './components/HotSpots/EditHotspotContentModal.jsx'
 
 function CloseTour (params) {
-  const { rootElement } = params
+  const { reactRoot, rootElement } = params
+  const setLoadingCurtain = useSetRecoilState(loadingCurtainState)
+
   const close = () => {
-    rootElement.unmount()
-    document.body.style.overflow = 'auto'
+    setLoadingCurtain({ text: '', open: false })
+    setTimeout(() => {
+      rootElement.style.width = '0%'
+      rootElement.style.height = '0%'
+      document.body.style.overflow = 'auto'
+      reactRoot.unmount()
+    }, CONFIG.FADE_TIMEOUT)
   }
 
   return (
@@ -48,7 +55,7 @@ function CloseTour (params) {
 }
 
 export default function VirtualTour (props) {
-  const { isMobile, allowMotion, startingRoom, enabledRooms, enabledHotSpots, rootElement } = props
+  const { isMobile, allowMotion, startingRoom, enabledRooms, enabledHotSpots, reactRoot, rootElement } = props
 
   // Subscribe to global setting data
   const showHUDInterface = useLiveQuery(() => localDB.settings.get('showHUDInterface'))?.value ?? true
@@ -128,7 +135,7 @@ export default function VirtualTour (props) {
       {/* MUI overlay */}
       {fadeInTimeout &&
         <React.Fragment>
-          <CloseTour rootElement={rootElement} />
+          <CloseTour rootElement={rootElement} reactRoot={reactRoot} />
           <InfoModal />
 
           {showHUDInterface &&
@@ -152,7 +159,8 @@ VirtualTour.propTypes = {
   startingRoom: PropTypes.string,
   enabledRooms: PropTypes.arrayOf(PropTypes.string),
   enabledHotSpots: PropTypes.arrayOf(PropTypes.string),
-  rootElement: PropTypes.any.isRequired
+  rootElement: PropTypes.any.isRequired,
+  reactRoot: PropTypes.any.isRequired
 }
 
 VirtualTour.defaultProps = {

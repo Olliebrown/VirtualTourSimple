@@ -6,10 +6,10 @@ import CONFIG from '../../config.js'
 import localDB from '../../state/localDB.js'
 import { useLiveQuery } from 'dexie-react-hooks'
 
-import { useRecoilValue, useSetRecoilState, useRecoilState } from 'recoil'
 import { loadingCurtainState } from '../../state/globalState.js'
 import { currentPanoKeyState, currentPanoDataState, enabledPanoRoomsState, enabledHotSpotsState } from '../../state/fullTourState.js'
 import { setTextureLoadingState } from '../../state/textureLoadingState.js'
+import { useRecoilValue, useSetRecoilState } from 'recoil'
 
 import { useKTX2 } from '@react-three/drei'
 import { Euler, MathUtils, BackSide } from 'three'
@@ -35,7 +35,7 @@ export default function PanoImage (props) {
   const enabledHotSpots = useRecoilValue(enabledHotSpotsState)
 
   // Loading curtain state
-  const [loadingCurtain, setLoadingCurtain] = useRecoilState(loadingCurtainState)
+  const setLoadingCurtain = useSetRecoilState(loadingCurtainState)
 
   // // Load the pano image or video
   // const [panoVideo, setPanoVideo] = React.useState(null)

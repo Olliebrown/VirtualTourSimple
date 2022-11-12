@@ -17,32 +17,16 @@ import Curtain from './components/Utility/Curtain.jsx'
 // Helper scripts for detecting motion control capabilities
 import { installMotionHandler } from './motionControlsPermission.js'
 
-// Needed styling on the root element
-const ROOT_STYLE = {
-  position: 'absolute',
-  top: 0,
-  left: 0,
-  width: '100%',
-  height: '100%',
-  margin: 0,
-  padding: 0,
-  overflow: 'hidden'
-}
-
 // Main entry point for attaching the permission events and rendering the tour
-export function attachVirtualTour (startingRoom, permissionElement, rootRenderElement, enabledRooms, enabledHotSpots) {
+export function attachVirtualTour (startingRoom, permissionElement, rootRenderElement, enabledRooms, enabledHotSpots, textColor, backgroundColor) {
   // Sanitize the inputs
   startingRoom = startingRoom || CONFIG.START_KEY
   permissionElement = permissionElement ?? document.getElementById('virtualTourPermission')
   rootRenderElement = rootRenderElement ?? document.getElementById('virtualTourRoot')
   enabledRooms = enabledRooms ?? []
   enabledHotSpots = enabledHotSpots ?? []
-
-  // Restyle the root to ensure it is visible
-  rootRenderElement.style = {
-    ...rootRenderElement.style,
-    ...ROOT_STYLE
-  }
+  textColor = textColor ?? 'black'
+  backgroundColor = backgroundColor ?? 'lightgrey'
 
   // Initiate the React rendering
   const doRender = (allowMotion) => {
@@ -51,6 +35,10 @@ export function attachVirtualTour (startingRoom, permissionElement, rootRenderEl
     // Clean up some CSS in case this is an embedded tour
     rootRenderElement.scrollIntoView(true)
     document.body.style.overflow = 'hidden'
+
+    // Make fullscreen
+    rootRenderElement.style.width = '100%'
+    rootRenderElement.style.height = '100%'
 
     // Render the root
     const reactRoot = createRoot(rootRenderElement)
@@ -63,9 +51,10 @@ export function attachVirtualTour (startingRoom, permissionElement, rootRenderEl
             startingRoom={startingRoom}
             enabledRooms={enabledRooms}
             enabledHotSpots={enabledHotSpots}
-            rootElement={reactRoot}
+            rootElement={rootRenderElement}
+            reactRoot={reactRoot}
           />
-          <Curtain />
+          <Curtain color={textColor} background={backgroundColor} />
         </ErrorBoundary>
       </RecoilRoot>
     )
