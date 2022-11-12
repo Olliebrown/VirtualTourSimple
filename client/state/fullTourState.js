@@ -17,13 +17,13 @@ export const fullTourDataState = atom({
 // The currently displayed pano room
 export const currentPanoKeyState = atom({
   key: 'currentPanoKey',
-  default: CONFIG.START_KEY
+  default: ''
 })
 
 // The pano room being loaded
 export const preloadPanoKeyState = atom({
   key: 'preloadPanoKey',
-  default: CONFIG.START_KEY
+  default: ''
 })
 
 // Convenience derived state for the data for the current pano only

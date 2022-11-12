@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 import localDB, { updateSetting } from '../../state/localDB.js'
 import { useLiveQuery } from 'dexie-react-hooks'
 
-import { currentPanoKeyState, currentPanoDataState } from '../../state/fullTourState'
+import { currentPanoKeyState, preloadPanoKeyState, currentPanoDataState } from '../../state/fullTourState'
 import { currentCameraYawState } from '../../state/globalState.js'
 
 import { useRecoilValue, useSetRecoilState } from 'recoil'
@@ -25,11 +25,16 @@ export default function PanoViewer (props) {
   const { isMobile, allowMotion } = props
 
   // Subscribe to changes in global state
-  const enableMotionControls = useLiveQuery(() => localDB.settings.get('enableMotionControls'))?.value || false
-  const invertOrbitControls = useLiveQuery(() => localDB.settings.get('invertOrbitControls'))?.value || false
+  const showGrid = useLiveQuery(() => localDB.settings.get('showGrid'))?.value ?? true
+  const showExits = useLiveQuery(() => localDB.settings.get('showExits'))?.value ?? true
+  const showHUDInterface = useLiveQuery(() => localDB.settings.get('showHUDInterface'))?.value ?? true
+
+  const enableMotionControls = useLiveQuery(() => localDB.settings.get('enableMotionControls'))?.value ?? false
+  const invertOrbitControls = useLiveQuery(() => localDB.settings.get('invertOrbitControls'))?.value ?? false
 
   // Subscribe to pano DB changes
   const currentPanoKey = useRecoilValue(currentPanoKeyState)
+  const preloadPanoKey = useRecoilValue(preloadPanoKeyState)
   const currentPanoData = useRecoilValue(currentPanoDataState)
 
   // Update camera yaw in global state
@@ -54,6 +59,10 @@ export default function PanoViewer (props) {
   // Setup some hotkeys to adjust the sphere offset rotation
   /* eslint-disable react-hooks/rules-of-hooks */
   if (CONFIG.ENABLE_ROTATE_HOTKEYS) {
+    useHotkeys('ctrl+G', () => { updateSetting('showGrid', !showGrid) }, {}, [showGrid])
+    useHotkeys('ctrl+H', () => { updateSetting('showExits', !showExits) }, {}, [showExits])
+    useHotkeys('ctrl+I', () => { updateSetting('showHUDInterface', !showHUDInterface) }, {}, [showHUDInterface])
+
     useHotkeys('ctrl+num_divide', () => { setXRotate(xRotate - 0.5) }, {}, [xRotate])
     useHotkeys('ctrl+num_multiply', () => { setXRotate(xRotate + 0.5) }, {}, [xRotate])
     useHotkeys('ctrl+shift+num_divide', () => { setXRotate(xRotate - 0.1) }, {}, [xRotate])
@@ -105,10 +114,10 @@ export default function PanoViewer (props) {
       <ambientLight />
       <pointLight position={[10, 10, 10]} />
       <React.Suspense fallback={null}>
-        <PanoTextureLoader />
+        {!!preloadPanoKey && <PanoTextureLoader />}
       </React.Suspense>
-      <PanoImage xRotate={xRotate} yRotate={yRotate} zRotate={zRotate} />
-      {CONFIG.ENABLE_ALIGNMENT_GRID && <PanoGrid />}
+      {!!currentPanoKey && <PanoImage xRotate={xRotate} yRotate={yRotate} zRotate={zRotate} />}
+      {CONFIG.ENABLE_ALIGNMENT_GRID && showGrid && <PanoGrid />}
     </>
   )
 }

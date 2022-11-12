@@ -3,6 +3,9 @@ import PropTypes from 'prop-types'
 
 import CONFIG from '../../config.js'
 
+import localDB from '../../state/localDB.js'
+import { useLiveQuery } from 'dexie-react-hooks'
+
 import { useRecoilValue, useSetRecoilState } from 'recoil'
 import { currentPanoKeyState, currentPanoDataState } from '../../state/fullTourState.js'
 import { setTextureLoadingState } from '../../state/textureLoadingState.js'
@@ -22,7 +25,7 @@ export default function PanoImage (props) {
   const { xRotate, yRotate, zRotate } = props
 
   // Subscribe to changes in needed global state
-  // const mediaPlaying = useLiveQuery(() => localDB.settings.get('mediaPlaying'))?.value || false
+  const showExits = useLiveQuery(() => localDB.settings.get('showExits'))?.value ?? true
 
   // Subscribe to pano DB changes
   const currentPanoKey = useRecoilValue(currentPanoKeyState)
@@ -122,8 +125,8 @@ export default function PanoImage (props) {
   return (
     <React.Fragment>
       {/* Add extra geometry objects */}
-      {exitArrows}
-      {hotspots}
+      {showExits && exitArrows}
+      {showExits && hotspots}
 
       {/* The main pano image sphere geometry and shader */}
       <mesh

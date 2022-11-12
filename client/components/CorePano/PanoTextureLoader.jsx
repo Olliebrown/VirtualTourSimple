@@ -32,10 +32,8 @@ export default function PanoTextureLoader (props) {
   const [loadedTextures, setLoadedTextures] = React.useState([])
   const textureRefs = useKTX2(textureFiles)
 
-  // Synchronize with state3
-  React.useEffect(() => {
-    setLoadedTextures(textureRefs)
-  }, [textureRefs])
+  // Synchronize texture loading state
+  React.useEffect(() => { setLoadedTextures(textureRefs) }, [textureRefs])
 
   // Update current pano key when textures are loaded
   React.useEffect(() => {
