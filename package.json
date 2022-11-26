@@ -7,15 +7,12 @@
   "scripts": {
     "deploy": "run-s deployClient copyToDeploy",
     "copyToDeploy": "node deployScript.js",
-
     "client": "esbuild --bundle --minify --target=es2020 --define:_DEV_=false --define:_DEPLOY_=false --define:process.env.NODE_ENV=\\\"production\\\" --outfile=public/bundle.js client/app.jsx",
     "deployClient": "esbuild --bundle --minify --target=es2020 --define:_DEV_=false --define:_DEPLOY_=true --define:process.env.NODE_ENV=\\\"production\\\" --outfile=public/bundle.js client/app.jsx",
     "prodClient": "esbuild --bundle --watch --minify --target=es2020 --define:_DEV_=false --define:_DEPLOY_=false --define:process.env.NODE_ENV=\\\"production\\\" --outfile=public/bundle.js client/app.jsx",
     "devClient": "esbuild --bundle --watch --sourcemap --target=es2020 --define:_DEV_=true --define:_DEPLOY_=false --define:process.env.NODE_ENV=\\\"development\\\" --outfile=public/bundle.js client/app.jsx",
-
     "server": "node server/server.js",
     "devServer": "nodemon --watch server server/server.js dev",
-
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Seth Berrier",
@@ -52,6 +49,8 @@
     "react-hotkeys-hook": "^3.4.4",
     "react-simple-code-editor": "^0.13.1",
     "recoil": "^0.7.6",
-    "subtitles-parser-vtt": "^0.1.0"
+    "subtitles-parser-vtt": "^0.1.0",
+    "suspend-react": "^0.0.8",
+    "three": "^0.146.0"
   }
 }
