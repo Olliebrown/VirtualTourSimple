@@ -1,4 +1,5 @@
 import path from 'path'
+import fs from 'fs'
 import childProcess from 'child_process'
 
 // Helper function to spawn a process
@@ -65,9 +66,19 @@ if (opts['vbr:vorbis'] >= 0 && opts['vbr:vorbis'] <= 10) {
   formats.webm = formats.webm.concat(['-ab', opts.bitrate + 'k'])
 }
 
-// Build destination filename without extension
-const destination = path.join(
+// Build destination directory
+const destinationDir = path.join(
   path.dirname(process.argv[2]),
+  'transcode'
+)
+
+if (!fs.existsSync(destinationDir)) {
+  fs.mkdirSync(destinationDir)
+}
+
+// Build destination path w/ filename (without extension)
+const destination = path.join(
+  destinationDir,
   path.basename(process.argv[2], path.extname(process.argv[2]))
 )
 

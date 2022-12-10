@@ -2,4 +2,8 @@ node_modules
 .DS_Store
 notes.txt
 *.blend1
+
+# Old or temporary files
 public/oldMedia
+public/panoMedia/audio/old
+public/panoMedia/audio/processing

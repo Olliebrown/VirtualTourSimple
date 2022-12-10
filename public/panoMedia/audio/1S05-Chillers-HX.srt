@@ -1,0 +1,35 @@
+1
+00:00:00,000 --> 00:00:05,580
+The evaporator and condenser are shell and 
+tube heat exchangers reinforced by a system of  
+
+2
+00:00:05,580 --> 00:00:10,380
+baffles to distribute the refrigerant gas flow 
+properly for the most efficient heat transfer.
+
+3
+00:00:10,380 --> 00:00:14,700
+A baffle is also used to prevent direct 
+high-velocity impingement on the tubes.
+
+4
+00:00:14,700 --> 00:00:18,360
+An integral sub-cooler is located 
+at the bottom of the condenser shell  
+
+5
+00:00:18,360 --> 00:00:23,400
+providing highly effective liquid refrigerant 
+subcooling for the highest cycle efficiency.
+
+6
+00:00:23,400 --> 00:00:27,240
+The shell is covered by a layer of 
+three-quarter-inch thick insulation  
+
+7
+00:00:27,240 --> 00:00:30,120
+to prevent heat loss or gain 
+from the surrounding air.
+

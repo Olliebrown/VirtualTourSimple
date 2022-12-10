@@ -1,0 +1,99 @@
+1
+00:00:00,180 --> 00:00:05,700
+Boilers rely on the combustion process of fuel to 
+provide the heat required to produce steam inside  
+
+2
+00:00:05,700 --> 00:00:11,580
+the boiler. A burner is a group of devices that 
+introduce fuel and air into a furnace, mix them  
+
+3
+00:00:11,580 --> 00:00:16,200
+together, and provide a platform for combustion 
+with the assistance of an ignition device.
+
+4
+00:00:16,200 --> 00:00:20,580
+The burner incorporates a blower 
+that supplies combustion air at  
+
+5
+00:00:20,580 --> 00:00:24,720
+a pressure high enough to compensate for 
+the airflow resistance inside the boiler.
+
+6
+00:00:26,520 --> 00:00:30,540
+Like all burners in the plant, 
+this burner uses natural gas as  
+
+7
+00:00:30,540 --> 00:00:34,140
+the primary fuel and fuel oil 
+as an auxiliary support fuel.
+
+8
+00:00:34,140 --> 00:00:38,700
+Atomization breaks liquid fuel oil into 
+fine particles when admitted into the  
+
+9
+00:00:38,700 --> 00:00:43,440
+furnace. Atomization is done mechanically 
+by blowing air or steam into the burner.
+
+10
+00:00:45,120 --> 00:00:51,060
+Fuel contains some basic elements like carbon, 
+hydrogen, and sulfur. Inside the combustion  
+
+11
+00:00:51,060 --> 00:00:55,800
+chamber, these elements react with oxygen and 
+nitrogen from the supplied air to liberate  
+
+12
+00:00:55,800 --> 00:01:01,500
+heat and form carbon dioxide, nitrogen 
+oxides, sulfur dioxides, and water vapor.
+
+13
+00:01:01,500 --> 00:01:07,080
+The university has used natural gas as its 
+primary fuel for all boilers to reduce campus  
+
+14
+00:01:07,080 --> 00:01:11,940
+pollution emissions. Natural gas emits 
+about 50% less carbon dioxide than coal  
+
+15
+00:01:11,940 --> 00:01:16,920
+and 28% less carbon dioxide than fuel 
+oil. The emission of nitrogen oxides  
+
+16
+00:01:16,920 --> 00:01:21,600
+is nearly five times less than burning coal 
+and three times less than burning fuel oil.
+
+17
+00:01:23,340 --> 00:01:27,840
+Three types of heat transfer mechanisms occur 
+during the combustion process inside the boiler:  
+
+18
+00:01:27,840 --> 00:01:33,240
+radiation, convection, and conduction. 
+Each of these mechanisms transfers heat  
+
+19
+00:01:33,240 --> 00:01:35,460
+from the burning fuel to the water in the boiler,  
+
+20
+00:01:35,460 --> 00:01:39,420
+where the combustion air temperature 
+can go up to 500 degrees Fahrenheit.
+

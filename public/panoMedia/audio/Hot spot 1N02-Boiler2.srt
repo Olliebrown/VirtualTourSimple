@@ -1,0 +1,128 @@
+1
+00:00:00,360 --> 00:00:06,540
+Boiler 2 and Boiler 3 in the next row are D-type 
+water-tube boilers produced by Wickes Boiler  
+
+2
+00:00:06,540 --> 00:00:12,420
+in the 1960s as coal-fired boilers and have 
+been producing steam at the plant since 1965.
+
+3
+00:00:15,240 --> 00:00:20,040
+By March 4, 2020, the university made 
+the switch to natural gas as the main  
+
+4
+00:00:20,040 --> 00:00:23,880
+fuel for all boilers at the plant to 
+reduce campus emissions, operations,  
+
+5
+00:00:23,880 --> 00:00:25,020
+and maintenance
+costs.
+
+6
+00:00:25,020 --> 00:00:28,080
+According to the United States 
+Energy Information Administration,  
+
+7
+00:00:28,080 --> 00:00:33,480
+burning natural gas emits about half of the 
+carbon dioxide, or CO2, as burning coal.
+
+8
+00:00:33,480 --> 00:00:38,760
+Using natural gas also helps eliminate equipment 
+and labor cost for coal and ash handling controls.
+
+9
+00:00:38,760 --> 00:00:42,300
+Now, all boilers can use fuel 
+oil as a backup fuel source.
+
+10
+00:00:46,260 --> 00:00:51,060
+The tubes extend between an upper header, called 
+a steam drum, and a lower header, called a water  
+
+11
+00:00:51,060 --> 00:00:56,520
+drum or sometimes, a mud drum. Tubes are either 
+straight or bent into simple or complex shapes.
+
+12
+00:01:00,540 --> 00:01:05,760
+Water-tube boilers are designed to circulate hot 
+combustion gases or flue gas around the outside  
+
+13
+00:01:05,760 --> 00:01:10,140
+of a large number of water-filled tubes. 
+As the flue gas passes through the tubes,  
+
+14
+00:01:10,140 --> 00:01:12,540
+it heats the tubes, which then heats the water.
+
+15
+00:01:12,540 --> 00:01:16,260
+As more heat is transferred, the water 
+temperature keeps rising until it  
+
+16
+00:01:16,260 --> 00:01:21,420
+reaches the saturation temperature, and water 
+changes phase from liquid to vapor or steam.
+
+17
+00:01:25,500 --> 00:01:29,040
+The temperature of saturated steam 
+rises when pressure is increased,  
+
+18
+00:01:29,040 --> 00:01:31,740
+and the temperature goes down 
+when the pressure is decreased.
+
+19
+00:01:31,740 --> 00:01:36,060
+For example, the temperature of 
+saturated steam is 212 degrees  
+
+20
+00:01:36,060 --> 00:01:41,100
+Fahrenheit at the atmospheric pressure 
+of zero pounds per square inch (or PSI).
+
+21
+00:01:41,100 --> 00:01:45,540
+However, inside the boiler where 
+the pressure is set at 100 PSI,  
+
+22
+00:01:45,540 --> 00:01:49,980
+the temperature of saturated steam 
+increases to 338 degrees Fahrenheit.  
+
+23
+00:01:49,980 --> 00:01:55,800
+A plot showing this relationship is known in 
+Thermodynamics as liquid-vapor saturation curve.
+
+24
+00:01:59,820 --> 00:02:05,460
+Boiler 2 can produce 25,000 pounds of 
+steam per hour at the pressure of 100 PSI,  
+
+25
+00:02:05,460 --> 00:02:08,039
+and temperature of 338 degrees Fahrenheit.
+
+26
+00:02:08,039 --> 00:02:12,300
+This steam is sent out to the buildings on 
+campus through underground piping systems.
+
