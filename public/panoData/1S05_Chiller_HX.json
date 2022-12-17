@@ -1,0 +1,15 @@
+{
+  "name": "1S05_Chiller_HX",
+  "images": [
+    { "src": "1S05-ChillerPlant-HX-1.png" },
+    { "src": "1S05-ChillerPlant-HX-2.png" },
+    { "src": "1S05-ChillerPlant-HX-3.png" },
+    { "src": "1S05-ChillerPlant-HX-4.png" },
+    { "src": "1S05-ChillerPlant-HX-5.png" },
+    { "src": "1S05-ChillerPlant-HX-6.png" },
+    { "src": "1S05-ChillerPlant-HX-7.png" }
+  ],
+  "audio": {
+    "src": "1S05-Chillers-HX"
+  }
+}

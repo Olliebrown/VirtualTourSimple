@@ -378,7 +378,18 @@
       -120,
       -182
     ],
-    "hotspots": [],
+    "hotspots": [
+      {
+        "title": "About the Chiller Plant",
+        "json": "",
+        "longitude": 60,
+        "latitude": 0,
+        "radius": 4,
+        "scale": 0.4,
+        "type": "info",
+        "id": "1S05_Chiller_General"
+      }
+    ],
     "mapInfo": {
       "building": "Heating Plant",
       "floor": "Ground Floor",
@@ -406,6 +417,16 @@
         "direction": -90,
         "type": "door",
         "distance": 6,
+        "hotspots": [
+          {
+            "id": "1S05_Chiller_General",
+            "title": "About the Chiller Plant",
+            "type": "info",
+            "longitude": 0,
+            "latitude": 11.6,
+            "scale": 0.4
+          }
+        ],
         "alignment": [
           0,
           102.7,
@@ -1711,7 +1732,16 @@
       -125.9,
       -180.4
     ],
-    "hotspots": [],
+    "hotspots": [
+      {
+        "id": "1S05_Chiller_HX",
+        "title": "Chiller Heat Exchanger",
+        "type": "info",
+        "longitude": -125,
+        "latitude": 15,
+        "scale": 0.4
+      }
+    ],
     "mapInfo": {
       "building": "Cooling Plant",
       "floor": "Ground Floor",
@@ -1743,7 +1773,16 @@
       -116,
       -181
     ],
-    "hotspots": [],
+    "hotspots": [
+      {
+        "id": "1S05_Chiller_Operation",
+        "title": "Chiller Structure & Operation",
+        "type": "info",
+        "longitude": -100,
+        "latitude": 0,
+        "scale": 0.4
+      }
+    ],
     "mapInfo": {
       "building": "Cooling Plant",
       "floor": "Ground Floor",

@@ -12,7 +12,7 @@ function spawn (name, opt) {
 function exportFile (src, dest, ext, opt, cb) {
   const outfile = dest + '.' + ext
 
-  spawn('ffmpeg', ['-y', '-ar', opts.samplerate, '-ac', opts.channels, '-f', 's16le', '-i', src]
+  spawn('ffmpeg', ['-y', '-ar', opts.samplerate, '-ac', opts.channels, /* '-f', 's16le', */ '-i', src]
     .concat(opt).concat(outfile))
     .on('exit', function (code, signal) {
       if (code) {

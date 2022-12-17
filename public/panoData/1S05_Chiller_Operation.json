@@ -1,0 +1,11 @@
+{
+  "name": "1S05_Chiller_Operation",
+  "images": [
+    { "src": "1S05-ChillerPlant-Operation-Overview.png" },
+    { "src": "1S05-ChillerPlant-Operation-Schematic.png" },
+    { "src": "1S05-ChillerPlant-Operation-Cycle-Diagram.png" }
+  ],
+  "audio": {
+    "src": "1S05-Chillers-Operation"
+  }
+}

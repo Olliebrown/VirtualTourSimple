@@ -1,0 +1,9 @@
+{
+  "name": "1S05_Chiller_General",
+  "images": [
+    { "src": "1S05-ChillerPlant-General.png" }
+  ],
+  "audio": {
+    "src": "1S05-Chiller-General"
+  }
+}
