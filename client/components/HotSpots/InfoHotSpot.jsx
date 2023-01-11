@@ -3,8 +3,8 @@ import CONFIG from '../../config.js'
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { mediaPlayingState, infoHotspotState } from '../../state/globalState.js'
-import { useRecoilState, useSetRecoilState } from 'recoil'
+import { infoHotspotState } from '../../state/globalState.js'
+import { useSetRecoilState } from 'recoil'
 
 import { useLoader, useGraph } from '@react-three/fiber'
 
@@ -15,32 +15,31 @@ import { useSpring, animated } from '@react-spring/three'
 
 // Various colors for the different types of hot spots
 const INFO_COLOR = 0xCC7178
-const VIDEO_COLOR = 0x648646
+// const VIDEO_COLOR = 0x648646
 
 export default function InfoHotspot (props) {
   // Destructure props
-  const { title, id, playButton, longitude, latitude, radius, scale, ...rest } = props
+  const { title, id, modal, longitude, latitude, radius, scale, ...rest } = props
 
   // Track hovering state
   const [hovering, setHovering] = React.useState(false)
 
   // Subscribe to pieces of global state
-  const [mediaPlaying, setMediaPlaying] = useRecoilState(mediaPlayingState)
   const setInfoHotspot = useSetRecoilState(infoHotspotState)
+
+  // Always synchronize the global info hotspot state
+  React.useEffect(() => {
+    console.log('Setting hotspot info')
+    console.log({ modalOpen: false, showAlways: !modal, jsonFilename: `${id}.json`, title })
+    setInfoHotspot({ modalOpen: false, showAlways: !modal, jsonFilename: `${id}.json`, title })
+  }, [id, modal, setInfoHotspot, title])
 
   // Click callback function
   const onClick = React.useCallback(() => {
     console.log(`Hot-spot "${title}" clicked`)
-    if (playButton) {
-      setMediaPlaying(true)
-    } else {
-      setInfoHotspot({
-        modalOpen: true,
-        jsonFilename: `${id}.json`,
-        title
-      })
-    }
-  }, [id, playButton, setInfoHotspot, setMediaPlaying, title])
+    console.log({ modalOpen: modal, showAlways: !modal, jsonFilename: `${id}.json`, title })
+    setInfoHotspot({ modalOpen: modal, showAlways: !modal, jsonFilename: `${id}.json`, title })
+  }, [id, modal, setInfoHotspot, title])
 
   // Load the hot spot geometry and clone our own instance
   const loadedObj = useLoader(OBJLoader, `${CONFIG.GEOMETRY_FILE_PATH}/icoSphere.obj`)
@@ -55,12 +54,12 @@ export default function InfoHotspot (props) {
   // Build unique sub-meshes for all the loaded objects
   const meshes = Object.keys(nodes).map((meshName) => (
     <animated.mesh scale={springs.scale} key={`${meshName}-mesh`} geometry={nodes[meshName].geometry}>
-      <meshPhongMaterial color={playButton ? VIDEO_COLOR : INFO_COLOR} opacity={springs.opacity} />
+      <meshPhongMaterial color={INFO_COLOR} opacity={springs.opacity} />
     </animated.mesh>
   ))
 
-  // Don't render while the video is playing
-  if (playButton && mediaPlaying) {
+  // When it is a non-modal, don't render the hotspot clicker
+  if (!modal) {
     return null
   }
 
@@ -88,7 +87,7 @@ export default function InfoHotspot (props) {
 InfoHotspot.propTypes = {
   title: PropTypes.string,
   id: PropTypes.string,
-  playButton: PropTypes.bool,
+  modal: PropTypes.bool,
 
   longitude: PropTypes.number,
   latitude: PropTypes.number,
@@ -99,7 +98,7 @@ InfoHotspot.propTypes = {
 InfoHotspot.defaultProps = {
   id: '',
   title: 'N/A',
-  playButton: false,
+  modal: false,
 
   longitude: 0,
   latitude: 0,

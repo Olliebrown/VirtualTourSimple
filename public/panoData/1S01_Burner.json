@@ -1,9 +1,9 @@
 {
   "name": "1S01_Burner",
   "images": [
-    { "src": "media/infoImages/Boiler1-Labeled-Full.png" }
+    { "src": "Boiler1-Labeled-Full.png" }
   ],
   "audio": {
-    "src": "media/audio/1S01_Burner1_Full_Script"
+    "src": "Hot Spot 1S01-Burner1"
   }
 }

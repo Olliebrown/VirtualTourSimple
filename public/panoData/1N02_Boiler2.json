@@ -1,0 +1,12 @@
+{
+  "name": "1N02_Boiler2",
+  "images": [
+    { "src": "DTube-CrossSection-Alternate.png", "caption": "D-type water-tube boiler" },
+    { "src": "DTube-CutAway-Alternate-WithLabels.png", "caption": "D-type water-tube boiler" },
+    { "src": "LiquidVaporSaturationCurve-Graph.png", "caption": "Liquid-vapor saturation curve of water" },
+    { "src": "LiquidVaporGraph-Caption.png", "caption": "" }
+  ],
+  "audio": {
+    "src": "Hot spot 1N02-Boiler2"
+  }
+}

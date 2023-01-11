@@ -1,9 +1,5 @@
-import CONFIG from '../../config.js'
-
 import React from 'react'
 import PropTypes from 'prop-types'
-
-import Axios from 'axios'
 
 import { mediaPlayingState } from '../../state/globalState.js'
 import { useRecoilState } from 'recoil'
@@ -15,9 +11,8 @@ import {
   Pause as PauseIcon
 } from '@mui/icons-material'
 
-// Audio and subtitles
-import srtParser from 'subtitles-parser-vtt'
-import { Howl } from 'howler'
+// Audio and subtitle helpers
+import { useAudioSource, useAudioSubtitles } from '../../state/audioHelper.js'
 
 export default function AudioPlayer (props) {
   const { hotspotAudio } = props
@@ -25,16 +20,20 @@ export default function AudioPlayer (props) {
   // Global state
   const [mediaPlaying, setMediaPlaying] = useRecoilState(mediaPlayingState)
 
-  // Track the loaded audio and its playback in local state
-  const [curAudioObj, setCurAudioObj] = React.useState(null)
-  const [playbackTime, setPlaybackTime] = React.useState(0)
-
   // Track subtitle information in local state
-  const [subtitles, setSubtitles] = React.useState([])
   const [subtitleIndex, setSubtitleIndex] = React.useState(-1)
   const [subtitleText, setSubtitleText] = React.useState('')
+  const subtitles = useAudioSubtitles(hotspotAudio?.src)
 
-  // Playing continuous callback
+  React.useEffect(() => {
+    if (!Array.isArray(subtitles) || subtitles.length < 1) {
+      setSubtitleIndex(-1)
+      setSubtitleText('')
+    }
+  }, [subtitles])
+
+  // Local state of playback time
+  const [playbackTime, setPlaybackTime] = React.useState(0)
   const onPlayUpdate = React.useCallback((sound) => {
     if (sound && sound.playing()) {
       setPlaybackTime(sound.seek())
@@ -42,65 +41,26 @@ export default function AudioPlayer (props) {
     }
   }, [])
 
-  // Load audio using howler
-  React.useEffect(() => {
-    // Are there audio sounds to examine?
-    if (!curAudioObj && hotspotAudio?.src) {
-      // Try to read subtitle file
-      const readSubtitles = async () => {
-        try {
-          const response = await Axios.get(`${CONFIG.INFO_AUDIO_PATH}/${hotspotAudio.src}.srt`)
-          const newSubtitles = srtParser.fromVtt(response.data, 's')
-          console.log(newSubtitles)
-          setSubtitles(newSubtitles)
-          setSubtitleIndex(0)
-        } catch (err) {
-          console.log('Error reading subtitle file, skipping')
-          setSubtitles([])
-          setSubtitleIndex(-1)
-        }
-      }
-      readSubtitles()
-
-      // Load the audio for playback using howler.js
-      const newSound = new Howl({
-        html5: true,
-        src: [`${CONFIG.INFO_AUDIO_PATH}/${hotspotAudio.src}.mp3`],
-
-        // Report any audio errors to the console
-        onloaderror: (err) => console.error('Failed to load audio:', err),
-        onplayerror: (err) => console.error('Audio playback error:', err)
-      })
-
-      // Set callbacks
-      newSound.on('play', () => {
-        setSubtitleIndex(0)
-        onPlayUpdate(newSound)
-        setMediaPlaying(true)
-      })
-
-      newSound.on('end', () => {
-        setMediaPlaying(false)
-      })
-
-      // Update state
-      setCurAudioObj(newSound)
-    }
-
-    return () => {
-      // Be sure to unload the audio (so it stops playing) when this unmounts
-      curAudioObj?.unload()
+  // Audio source state management
+  const curAudioObj = useAudioSource(
+    hotspotAudio?.src,
+    (soundObj) => {
+      setSubtitleIndex(0)
+      onPlayUpdate(soundObj)
+      setMediaPlaying(true)
+    },
+    (soundObj) => {
       setMediaPlaying(false)
     }
-  }, [curAudioObj, hotspotAudio?.src, onPlayUpdate, setMediaPlaying])
+  )
 
   // Play/pause management
   const onPlayPause = () => {
     if (mediaPlaying) {
-      curAudioObj.pause()
+      curAudioObj?.pause()
       setMediaPlaying(false)
     } else {
-      curAudioObj.play()
+      curAudioObj?.play()
       setMediaPlaying(true)
     }
   }
@@ -132,28 +92,28 @@ export default function AudioPlayer (props) {
   }, [playbackTime, subtitleIndex, subtitleText, subtitles])
 
   // Return the buttons when audio object exists
-  if (curAudioObj) {
-    return (
-      <Box sx={{ display: 'flex', alignItems: 'center', mr: 'auto' }}>
-        <IconButton
-          aria-label="previous"
-          disabled={playbackTime <= 0}
-          onClick={onRewind}
-        >
-          <PreviousIcon />
-        </IconButton>
-        <IconButton aria-label="play/pause" onClick={onPlayPause} sx={{ mr: 2 }}>
-          {mediaPlaying
-            ? <PauseIcon sx={{ height: 38, width: 38 }} />
-            : <PlayIcon sx={{ height: 38, width: 38 }} />}
-        </IconButton>
-        <Typography variant='body1'>{subtitleText}</Typography>
-      </Box>
-    )
-  }
-
-  // Return nothing if no audio object
-  return <div />
+  return (
+    <Box sx={{ display: 'flex', alignItems: 'center', mr: 'auto' }}>
+      <IconButton
+        aria-label="previous"
+        disabled={playbackTime <= 0}
+        onClick={onRewind}
+      >
+        <PreviousIcon />
+      </IconButton>
+      <IconButton
+        aria-label="play/pause"
+        onClick={onPlayPause}
+        sx={{ mr: 2 }}
+        disabled={!curAudioObj}
+      >
+        {mediaPlaying
+          ? <PauseIcon sx={{ height: 38, width: 38 }} />
+          : <PlayIcon sx={{ height: 38, width: 38 }} />}
+      </IconButton>
+      <Typography variant='body1'>{curAudioObj ? subtitleText : ''}</Typography>
+    </Box>
+  )
 }
 
 AudioPlayer.propTypes = {

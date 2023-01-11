@@ -58,9 +58,19 @@
     "hotspots": [
       {
         "id": "1S01_Boiler",
+        "modal": true,
         "title": "Water-tube Boilers",
         "type": "info",
-        "longitude": 0,
+        "longitude": 10.3,
+        "latitude": 22,
+        "scale": 0.4
+      },
+      {
+        "id": "1S01_Burner",
+        "modal": true,
+        "title": "Water-tube Burner",
+        "type": "info",
+        "longitude": -0.1,
         "latitude": 11.6,
         "scale": 0.4
       }
@@ -381,13 +391,13 @@
     "hotspots": [
       {
         "title": "About the Chiller Plant",
-        "json": "",
         "longitude": 60,
         "latitude": 0,
         "radius": 4,
         "scale": 0.4,
         "type": "info",
-        "id": "1S05_Chiller_General"
+        "id": "1S05_Chiller_General",
+        "modal": false
       }
     ],
     "mapInfo": {
@@ -420,6 +430,7 @@
         "hotspots": [
           {
             "id": "1S05_Chiller_General",
+            "modal": true,
             "title": "About the Chiller Plant",
             "type": "info",
             "longitude": 0,
@@ -891,7 +902,19 @@
       -117.5,
       -182
     ],
-    "hotspots": [],
+    "hotspots": [
+      {
+        "title": "Boiler #2",
+        "json": "",
+        "longitude": 180,
+        "latitude": 20,
+        "radius": 12,
+        "scale": 1,
+        "type": "info",
+        "id": "1N02_Boiler2",
+        "modal": true
+      }
+    ],
     "mapInfo": {
       "building": "Heating Plant",
       "floor": "Ground Floor",
@@ -1689,7 +1712,18 @@
       -141.6,
       -181.3
     ],
-    "hotspots": [],
+    "hotspots": [
+      {
+        "id": "1S05_Chiller",
+        "modal": true,
+        "title": "Chiller Overview",
+        "type": "info",
+        "longitude": 0,
+        "latitude": 12.9,
+        "radius": 12,
+        "scale": 1
+      }
+    ],
     "mapInfo": {
       "building": "Cooling Plant",
       "floor": "Ground Floor",
@@ -1735,6 +1769,7 @@
     "hotspots": [
       {
         "id": "1S05_Chiller_HX",
+        "modal": true,
         "title": "Chiller Heat Exchanger",
         "type": "info",
         "longitude": -125,
@@ -1776,6 +1811,7 @@
     "hotspots": [
       {
         "id": "1S05_Chiller_Operation",
+        "modal": true,
         "title": "Chiller Structure & Operation",
         "type": "info",
         "longitude": -100,
@@ -2085,7 +2121,19 @@
       98.5,
       -181
     ],
-    "hotspots": [],
+    "hotspots": [
+      {
+        "title": "Boiler #4",
+        "json": "",
+        "longitude": -17,
+        "latitude": 9,
+        "radius": 12,
+        "scale": 1,
+        "type": "info",
+        "id": "1S04_Boiler4",
+        "modal": true
+      }
+    ],
     "mapInfo": {
       "building": "Heating Plant",
       "floor": "Ground Floor",
