@@ -1,7 +1,4 @@
-import CONFIG from '../../config.js'
-
 import React from 'react'
-import Axios from 'axios'
 
 import { infoHotspotState } from '../../state/globalState.js'
 import { useRecoilState } from 'recoil'
@@ -22,25 +19,6 @@ export default function InfoModal () {
 
   const [hotspotContent, setHotspotContent] = React.useState(null)
   useHotspotContent(infoHotspot?.jsonFilename, setHotspotContent)
-
-  // React.useEffect(() => {
-  //   // Async process to retrieve the JSON info
-  //   const retrieveInfo = async (fullFilepath) => {
-  //     try {
-  //       const response = await Axios.get(fullFilepath)
-  //       if (response?.data) {
-  //         setHotspotContent(response.data)
-  //       }
-  //     } catch (err) {
-  //       console.error(`Failed to retrieve hotspot content from ${fullFilepath}`)
-  //     }
-  //   }
-
-  //   // Clear any previous info and start the async process
-  //   if (infoHotspot?.jsonFilename) {
-  //     retrieveInfo(`${CONFIG.HOTSPOT_INFO_PATH}/${infoHotspot?.jsonFilename}`)
-  //   }
-  // }, [infoHotspot?.jsonFilename, setHotspotContent])
 
   return (
     <Dialog fullWidth maxWidth='lg' onClose={requestClose} open={infoHotspot?.modalOpen}>
