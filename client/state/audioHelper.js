@@ -16,7 +16,6 @@ export function useAudioSubtitles (audioSrcPrefix) {
   React.useEffect(() => {
     // Try to read subtitle file
     const readSubtitles = async () => {
-      console.log('Reading subtitles for', audioSrcPrefix)
       if (!isLoading) {
         setIsLoading(true)
         try {
@@ -27,8 +26,8 @@ export function useAudioSubtitles (audioSrcPrefix) {
           setCurAudioSrcPrefix(audioSrcPrefix)
           setSubtitles(newSubtitles)
         } catch (err) {
-          console.log('Error reading subtitle file, skipping')
-          console.log(err)
+          console.error('Error reading subtitle file, skipping')
+          console.error(err)
 
           // Update local state (go ahead and set prefix so we don't try to load again)
           setCurAudioSrcPrefix(audioSrcPrefix)
@@ -93,7 +92,10 @@ export function useAudioSource (audioSrcPrefix, onPlay, onEnd) {
 
         // Return cleanup for unmounting
         return () => {
-          curAudioObj?.unload()
+          if (newSound?.playing()) {
+            newSound.stop()
+          }
+          newSound?.unload()
           if (onEnd) { onEnd(newSound) }
         }
       } else {

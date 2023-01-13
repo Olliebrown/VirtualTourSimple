@@ -16,8 +16,6 @@ export default function InfoNonModal () {
   const [hotspotContent, setHotspotContent] = React.useState(null)
   useHotspotContent(infoHotspot?.jsonFilename, setHotspotContent)
 
-  console.log('Rendering with', infoHotspot)
-  console.log('Content is', hotspotContent)
   return (
     <Slide direction="up" in={infoHotspot?.showAlways} mountOnEnter unmountOnExit>
       <Card sx={{ position: 'absolute', bottom: 16, right: '10vw', width: '60vw' }}>

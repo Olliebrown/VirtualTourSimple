@@ -29,15 +29,11 @@ export default function InfoHotspot (props) {
 
   // Always synchronize the global info hotspot state
   React.useEffect(() => {
-    console.log('Setting hotspot info')
-    console.log({ modalOpen: false, showAlways: !modal, jsonFilename: `${id}.json`, title })
     setInfoHotspot({ modalOpen: false, showAlways: !modal, jsonFilename: `${id}.json`, title })
   }, [id, modal, setInfoHotspot, title])
 
   // Click callback function
   const onClick = React.useCallback(() => {
-    console.log(`Hot-spot "${title}" clicked`)
-    console.log({ modalOpen: modal, showAlways: !modal, jsonFilename: `${id}.json`, title })
     setInfoHotspot({ modalOpen: modal, showAlways: !modal, jsonFilename: `${id}.json`, title })
   }, [id, modal, setInfoHotspot, title])
 

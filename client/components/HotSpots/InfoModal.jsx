@@ -17,14 +17,21 @@ export default function InfoModal () {
   // Close the modal
   const requestClose = () => { setInfoHotspotState({ ...infoHotspot, modalOpen: false }) }
 
-  const [hotspotContent, setHotspotContent] = React.useState(null)
-  useHotspotContent(infoHotspot?.jsonFilename, setHotspotContent)
+  // Note: may be null until retrieved
+  const hotspotContent = useHotspotContent(infoHotspot?.jsonFilename)
+  if (hotspotContent === null) {
+    return null
+  }
+  console.log(hotspotContent)
 
   return (
     <Dialog fullWidth maxWidth='lg' onClose={requestClose} open={infoHotspot?.modalOpen}>
       <DialogTitle>{infoHotspot?.title || 'Info'}</DialogTitle>
       <DialogContent dividers>
-        <HotspotContent hotspotImages={hotspotContent?.images} />
+        <HotspotContent
+          hotspotImages={hotspotContent?.images}
+          defaultHeight={hotspotContent?.height > 0 ? hotspotContent?.height : undefined}
+        />
       </DialogContent>
       <DialogActions>
         <AudioPlayer hotspotAudio={hotspotContent?.audio} />

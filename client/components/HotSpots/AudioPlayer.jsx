@@ -54,6 +54,11 @@ export default function AudioPlayer (props) {
     }
   )
 
+  // Be sure to unload audio when unmounted
+  React.useEffect(() => {
+    return () => curAudioObj?.unload()
+  }, [curAudioObj])
+
   // Play/pause management
   const onPlayPause = () => {
     if (mediaPlaying) {
@@ -79,7 +84,7 @@ export default function AudioPlayer (props) {
       let newSubtitleText = ''
       if (playbackTime >= subtitles[subtitleIndex].startTime) {
         if (playbackTime < subtitles[subtitleIndex].endTime) {
-          newSubtitleText = subtitles[subtitleIndex].text
+          newSubtitleText = subtitles[subtitleIndex].text.replace(/\s+/g, ' ')
         } else {
           setSubtitleIndex(subtitleIndex + 1)
         }

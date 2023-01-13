@@ -5,6 +5,7 @@
     { "src": "OType-SteamCreation.png", "caption": "Formation of steam inside the boiler" },
     { "src": "TVGraph-WaterAtConstantPressure.png", "caption": "T-v diagram for the heating process of water at constant pressure" }
   ],
+  "height": 600,
   "audio": {
     "src": "Hot spot 1S04-Boiler4"
   }

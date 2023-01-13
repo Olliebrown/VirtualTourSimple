@@ -6,6 +6,7 @@
     { "src": "LiquidVaporSaturationCurve-Graph.png", "caption": "Liquid-vapor saturation curve of water" },
     { "src": "LiquidVaporGraph-Caption.png", "caption": "" }
   ],
+  "height": 600,
   "audio": {
     "src": "Hot spot 1N02-Boiler2"
   }

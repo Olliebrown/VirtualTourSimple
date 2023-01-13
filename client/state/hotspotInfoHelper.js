@@ -3,7 +3,8 @@ import CONFIG from '../config.js'
 import React from 'react'
 import Axios from 'axios'
 
-export function useHotspotContent (jsonFilename, setHotspotContent) {
+export function useHotspotContent (jsonFilename) {
+  const [hotspotContent, setHotspotContent] = React.useState(null)
   React.useEffect(() => {
     // Async process to retrieve the JSON info
     const retrieveInfo = async (fullFilepath) => {
@@ -22,4 +23,6 @@ export function useHotspotContent (jsonFilename, setHotspotContent) {
       retrieveInfo(`${CONFIG.HOTSPOT_INFO_PATH}/${jsonFilename}`)
     }
   }, [jsonFilename, setHotspotContent])
+
+  return hotspotContent
 }
