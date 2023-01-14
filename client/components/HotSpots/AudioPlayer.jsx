@@ -15,7 +15,7 @@ import {
 import { useAudioSource, useAudioSubtitles } from '../../state/audioHelper.js'
 
 export default function AudioPlayer (props) {
-  const { hotspotAudio } = props
+  const { hotspotAudio, setSlideIndex } = props
 
   // Global state
   const [mediaPlaying, setMediaPlaying] = useRecoilState(mediaPlayingState)
@@ -25,12 +25,25 @@ export default function AudioPlayer (props) {
   const [subtitleText, setSubtitleText] = React.useState('')
   const subtitles = useAudioSubtitles(hotspotAudio?.src)
 
+  // Clear index and text when subtitles are empty
   React.useEffect(() => {
     if (!Array.isArray(subtitles) || subtitles.length < 1) {
       setSubtitleIndex(-1)
       setSubtitleText('')
     }
   }, [subtitles])
+
+  // Sync slide timing with subtitle index
+  React.useEffect(() => {
+    if (setSlideIndex && hotspotAudio?.slideTiming) {
+      if (hotspotAudio.slideTiming[subtitleIndex] !== undefined) {
+        const timing = hotspotAudio.slideTiming[subtitleIndex].split('-')
+        const slide = parseInt(timing[0])
+        const build = (timing[1] ? parseInt(timing[1]) : 0)
+        setSlideIndex([slide, build])
+      }
+    }
+  }, [hotspotAudio?.slideTiming, setSlideIndex, subtitleIndex])
 
   // Local state of playback time
   const [playbackTime, setPlaybackTime] = React.useState(0)
@@ -123,10 +136,13 @@ export default function AudioPlayer (props) {
 
 AudioPlayer.propTypes = {
   hotspotAudio: PropTypes.shape({
-    src: PropTypes.string.isRequired
-  })
+    src: PropTypes.string.isRequired,
+    slideTiming: PropTypes.object
+  }),
+  setSlideIndex: PropTypes.func
 }
 
 AudioPlayer.defaultProps = {
-  hotspotAudio: null
+  hotspotAudio: null,
+  setSlideIndex: null
 }

@@ -17,12 +17,14 @@ export default function InfoModal () {
   // Close the modal
   const requestClose = () => { setInfoHotspotState({ ...infoHotspot, modalOpen: false }) }
 
+  // Track the slideshow state as [slide, build]
+  const [slideIndex, setSlideIndex] = React.useState([0, 0])
+
   // Note: may be null until retrieved
   const hotspotContent = useHotspotContent(infoHotspot?.jsonFilename)
   if (hotspotContent === null) {
     return null
   }
-  console.log(hotspotContent)
 
   return (
     <Dialog fullWidth maxWidth='lg' onClose={requestClose} open={infoHotspot?.modalOpen}>
@@ -31,10 +33,14 @@ export default function InfoModal () {
         <HotspotContent
           hotspotImages={hotspotContent?.images}
           defaultHeight={hotspotContent?.height > 0 ? hotspotContent?.height : undefined}
+          slideIndex={slideIndex}
         />
       </DialogContent>
       <DialogActions>
-        <AudioPlayer hotspotAudio={hotspotContent?.audio} />
+        <AudioPlayer
+          hotspotAudio={hotspotContent?.audio}
+          setSlideIndex={setSlideIndex}
+        />
         <Button onClick={requestClose}>{'Close'}</Button>
       </DialogActions>
     </Dialog>

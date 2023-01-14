@@ -1,12 +1,37 @@
 {
   "name": "1S04_Boiler4",
-  "images": [
-    { "src": "OType-Boiler-Main-WithLabels.png", "caption": "O-type water-tube boiler" },
-    { "src": "OType-SteamCreation.png", "caption": "Formation of steam inside the boiler" },
-    { "src": "TVGraph-WaterAtConstantPressure.png", "caption": "T-v diagram for the heating process of water at constant pressure" }
-  ],
+  "images": [{
+    "src": "OType-Boiler-Main-WithLabels.png",
+    "caption": "O-type water-tube boiler"
+  }, {
+    "src": "OType-SteamCreation-Build.png",
+    "caption": "Formation of steam inside the boiler",
+    "builds": [
+      null,
+      { "src": "Burner", "x": 0, "y": 0 },
+      { "src": "FlueGas", "x": 0, "y": 0 },
+      { "src": "WaterDrum", "x": 0, "y": 0 },
+      null,
+      { "src": "SteamDrum", "x": 0, "y": 0 },
+      null
+    ]
+  }, {
+    "src": "LiquidVaporSaturationCurve-Graph.png",
+    "caption": "Liquid-vapor Saturation Curve of Water"
+  }],
   "height": 600,
   "audio": {
-    "src": "Hot spot 1S04-Boiler4"
+    "src": "Hot spot 1S04-Boiler4",
+    "slideTiming": {
+      "0": "0",
+      "7": "1-0",
+      "8": "1-1",
+      "9": "1-2",
+      "10": "1-3",
+      "12": "1-4",
+      "16": "1-5",
+      "19": "1-6",
+      "22": "2"
+    }
   }
 }
