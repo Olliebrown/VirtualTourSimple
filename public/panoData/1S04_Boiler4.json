@@ -1,17 +1,17 @@
 {
   "name": "1S04_Boiler4",
   "images": [{
-    "src": "OType-Boiler-Main-WithLabels.png",
+    "src": "OType-Boiler.png",
     "caption": "O-type water-tube boiler"
   }, {
-    "src": "OType-SteamCreation-Build.png",
+    "src": "OType-SteamCreation.png",
     "caption": "Formation of steam inside the boiler",
     "builds": [
       null,
       { "src": "Burner", "x": 0, "y": 0 },
       { "src": "FlueGas", "x": 0, "y": 0 },
       { "src": "WaterDrum", "x": 0, "y": 0 },
-      null,
+      { "src": "", "x": 0, "y": 0 },
       { "src": "SteamDrum", "x": 0, "y": 0 },
       null
     ]
@@ -19,7 +19,7 @@
     "src": "LiquidVaporSaturationCurve-Graph.png",
     "caption": "Liquid-vapor Saturation Curve of Water"
   }],
-  "height": 600,
+  "height": 585,
   "audio": {
     "src": "Hot spot 1S04-Boiler4",
     "slideTiming": {

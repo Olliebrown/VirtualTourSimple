@@ -1,9 +1,27 @@
 {
   "name": "1S01_Boiler",
-  "images": [
-    { "src": "DTube-Complete.png" }
-  ],
+  "images": [{
+    "src": "DTube-CutAway.png",
+    "caption": "D-type water-tube boiler",
+    "builds": [
+      null,
+      { "src": "Burner", "x": 0, "y": 0 },
+      { "src": "WaterTubes", "x": 0, "y": 0 },
+      { "src": "SteamDrum", "x": 0, "y": 0 },
+      { "src": "WaterDrum", "x": 0, "y": 0 },
+      null
+    ]
+  }],
+  "height": 684,
   "audio": {
-    "src": "Hot Spot 1S01-Boiler1"
+    "src": "Hot Spot 1S01-Boiler1",
+    "slideTiming": {
+      "0": "0-0",
+      "3": "0-1",
+      "5": "0-2",
+      "7": "0-3",
+      "8": "0-4",
+      "10": "0-5"
+    }
   }
 }

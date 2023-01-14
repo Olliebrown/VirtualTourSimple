@@ -31,30 +31,34 @@ export default function HotspotContent (props) {
   // Make image overlay if there is a build with an image
   const curImageInfo = hotspotImages?.[slideIndex[0]]
   let imageBuilds = null
-  if (curImageInfo?.builds?.[slideIndex[1]]?.src) {
-    // Prepare filename
+  let baseImageFilename = curImageInfo.src
+  if (curImageInfo?.builds?.[slideIndex[1]]) {
+    // Prepare filenames
     const extIndex = curImageInfo.src.lastIndexOf('.')
     const baseName = curImageInfo.src.substring(0, extIndex)
     const extension = curImageInfo.src.substring(extIndex + 1)
     const buildName = curImageInfo.builds[slideIndex[1]].src
+    baseImageFilename = `${baseName}-build.${extension}`
 
     // Add the image
-    imageBuilds = (
-      <Box
-        component='img'
-        sx={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          objectFit: 'contain',
-          maxHeight: 'calc(100vh - 500px)',
-          height: imageLoadList.length < hotspotImages.length ? defaultHeight + 50 : undefined,
-          width: '100%',
-          marginTop: '0px !important'
-        }}
-        src={`${CONFIG.INFO_IMAGE_PATH}/${baseName}-${buildName}.${extension}`}
-      />
-    )
+    if (buildName !== '') {
+      imageBuilds = (
+        <Box
+          component='img'
+          sx={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            objectFit: 'contain',
+            maxHeight: 'calc(100vh - 500px)',
+            height: imageLoadList.length < hotspotImages.length ? defaultHeight + 50 : undefined,
+            width: '100%',
+            marginTop: '0px !important'
+          }}
+          src={`${CONFIG.INFO_IMAGE_PATH}/${baseName}-build-${buildName}.${extension}`}
+        />
+      )
+    }
   }
 
   return (
@@ -71,7 +75,7 @@ export default function HotspotContent (props) {
                   maxHeight: 'calc(100vh - 500px)',
                   height: imageLoadList.length < hotspotImages.length ? defaultHeight + 50 : undefined
                 }}
-                src={`${CONFIG.INFO_IMAGE_PATH}/${imageInfo.src}`}
+                src={`${CONFIG.INFO_IMAGE_PATH}/${i === slideIndex[0] ? baseImageFilename : imageInfo.src}`}
                 alt={imageInfo.alt}
                 onLoad={() => imageDone(i)}
                 onError={(err) => imageDone(i, err)}

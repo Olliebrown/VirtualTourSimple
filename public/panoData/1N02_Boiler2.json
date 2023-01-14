@@ -1,13 +1,33 @@
 {
   "name": "1N02_Boiler2",
-  "images": [
-    { "src": "DTube-CrossSection-Alternate.png", "caption": "D-type water-tube boiler" },
-    { "src": "DTube-CutAway-Alternate-WithLabels.png", "caption": "D-type water-tube boiler" },
-    { "src": "LiquidVaporSaturationCurve-Graph.png", "caption": "Liquid-vapor saturation curve of water" },
-    { "src": "LiquidVaporGraph-Caption.png", "caption": "" }
-  ],
-  "height": 600,
+  "images": [{
+    "src": "DTube-CrossSection-Alternate.png",
+    "caption": "D-type water-tube boiler"
+  }, {
+    "src": "DTube-CutAwayAlternate.png",
+    "caption": "D-type water-tube boiler",
+    "builds": [
+      null,
+      { "src": "SteamDrum", "x": 0, "y": 0 },
+      { "src": "WaterDrum", "x": 0, "y": 0 },
+      { "src": "WaterTubes", "x": 0, "y": 0 },
+      null
+    ]
+  }, {
+    "src": "LiquidVaporSaturationCurve-Graph.png",
+    "caption": "Liquid-vapor saturation curve of water"
+  }],
+  "height": 774,
   "audio": {
-    "src": "Hot spot 1N02-Boiler2"
+    "src": "Hot spot 1N02-Boiler2",
+    "slideTiming": {
+      "0": "0",
+      "5": "1-0",
+      "9": "1-1",
+      "10": "1-2",
+      "12": "1-3",
+      "14": "1-4",
+      "16": "2"
+    }
   }
 }

@@ -1,9 +1,25 @@
 {
   "name": "1S01_Burner",
-  "images": [
-    { "src": "Boiler1-Labeled-Full.png" }
-  ],
+  "images": [{
+    "src": "Boiler1.png",
+    "caption": "Boiler #1: a D-type Water Tube Boiler",
+    "builds": [
+      null,
+      { "src": "Burner", "x": 0, "y": 0 },
+      { "src": "Blower", "x": 0, "y": 0 },
+      { "src": "FuelInlets", "x": 0, "y": 0 },
+      null
+    ]
+  }],
+  "height": 673,
   "audio": {
-    "src": "Hot Spot 1S01-Burner1"
+    "src": "Hot Spot 1S01-Burner1",
+    "slideTiming": {
+      "0": "0-0",
+      "1": "0-1",
+      "3": "0-2",
+      "5": "0-3",
+      "12": "0-4"
+    }
   }
 }
