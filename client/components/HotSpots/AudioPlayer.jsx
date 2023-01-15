@@ -88,6 +88,9 @@ export default function AudioPlayer (props) {
       curAudioObj.seek(0)
       setPlaybackTime(0)
       setSubtitleIndex(0)
+      if (setSlideIndex) {
+        setSlideIndex([0, 0])
+      }
     }
   }
 

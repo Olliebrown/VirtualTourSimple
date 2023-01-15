@@ -397,7 +397,7 @@
         "scale": 0.4,
         "type": "info",
         "id": "1S05_Chiller_General",
-        "modal": false
+        "modal": true
       }
     ],
     "mapInfo": {

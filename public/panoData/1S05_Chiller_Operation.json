@@ -1,11 +1,40 @@
 {
   "name": "1S05_Chiller_Operation",
-  "images": [
-    { "src": "1S05-ChillerPlant-Operation-Overview.png" },
-    { "src": "1S05-ChillerPlant-Operation-Schematic.png" },
-    { "src": "1S05-ChillerPlant-Operation-Cycle-Diagram.png" }
-  ],
+  "images": [{
+    "src": "Chiller-Diagram.png",
+    "caption": "Labeled diagram of the York YK MaxE Chillers",
+    "builds": [
+      null,
+      { "src": "MotorCompressor", "x": 0, "y": 0 },
+      { "src": "EvaporatorCondenser", "x": 0, "y": 0 },
+      { "src": "ControlCenter", "x": 0, "y": 0 }
+    ]
+  }, {
+    "src": "RefrigerationCycle-Diagram.png",
+    "caption": "The Refrigeration Cycle of the Chillers",
+    "builds": [
+      null,
+      { "src": "EvapOutput", "x": 0, "y": 0 },
+      { "src": "Evap2Cond", "x": 0, "y": 0 },
+      { "src": "CondOutput", "x": 0, "y": 0 },
+      { "src": "Cond2Evap", "x": 0, "y": 0 },
+      null
+    ]
+  }],
+  "height": 723,
   "audio": {
-    "src": "1S05-Chillers-Operation"
+    "src": "1S05-Chillers-Operation",
+    "slideTiming": {
+      "0": "0-0",
+      "2": "0-1",
+      "3": "0-2",
+      "4": "0-3",
+      "7": "1-0",
+      "8": "1-1",
+      "14": "1-2",
+      "17": "1-3",
+      "24": "1-4",
+      "26": "1-5"
+    }
   }
 }

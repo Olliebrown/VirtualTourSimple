@@ -1,15 +1,40 @@
 {
   "name": "1S05_Chiller_HX",
-  "images": [
-    { "src": "1S05-ChillerPlant-HX-1.png" },
-    { "src": "1S05-ChillerPlant-HX-2.png" },
-    { "src": "1S05-ChillerPlant-HX-3.png" },
-    { "src": "1S05-ChillerPlant-HX-4.png" },
-    { "src": "1S05-ChillerPlant-HX-5.png" },
-    { "src": "1S05-ChillerPlant-HX-6.png" },
-    { "src": "1S05-ChillerPlant-HX-7.png" }
-  ],
+  "images": [{
+    "src": "Chiller3-SideView.png",
+    "caption": "Chiller #3, a York YK MaxE Centrifugal Chiller"
+  }, {
+    "src": "Chiller3-EndCapRemoved.png",
+    "caption": "Chiller #3 with the internal water tubes exposed"
+  }, {
+    "src": "Chiller3-Condenser.png",
+    "caption": "The condenser side of Chiller #3, water tubes exposed",
+    "builds": [
+      null,
+      { "src": "Diagram", "x": 0, "y": 0 }
+    ]
+  }, {
+    "src": "Chiller3-Evaporator.png",
+    "caption": "The evaporator side of Chiller #3, water tubes exposed",
+    "builds": [
+      null,
+      { "src": "Diagram", "x": 0, "y": 0 }
+    ]
+  }, {
+    "src": "Chiller-FunctionDiagram.png",
+    "caption": "The refrigeration cycle of a centrifugal chiller"
+  }],
+  "height": 723,
   "audio": {
-    "src": "1S05-Chillers-HX"
+    "src": "1S05-Chillers-HX",
+    "slideTiming": {
+      "0": "0",
+      "1": "1",
+      "2": "2-0",
+      "3": "2-1",
+      "4": "3-0",
+      "5": "3-1",
+      "6": "4"
+    }
   }
 }

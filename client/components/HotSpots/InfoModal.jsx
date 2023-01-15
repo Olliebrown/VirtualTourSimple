@@ -14,11 +14,14 @@ export default function InfoModal () {
   // Subscribe to changes in global state
   const [infoHotspot, setInfoHotspotState] = useRecoilState(infoHotspotState)
 
-  // Close the modal
-  const requestClose = () => { setInfoHotspotState({ ...infoHotspot, modalOpen: false }) }
-
   // Track the slideshow state as [slide, build]
   const [slideIndex, setSlideIndex] = React.useState([0, 0])
+
+  // Close the modal
+  const requestClose = () => {
+    setInfoHotspotState({ ...infoHotspot, modalOpen: false })
+    setSlideIndex([0, 0])
+  }
 
   // Note: may be null until retrieved
   const hotspotContent = useHotspotContent(infoHotspot?.jsonFilename)
