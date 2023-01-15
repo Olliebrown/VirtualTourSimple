@@ -5,7 +5,7 @@
     "caption": "Central Heating/Chiller Plants Aerial View",
     "builds": [
       null,
-      { "src": "chiller", "x": 0, "y": 0 }
+      { "src": "Chiller", "x": 0, "y": 0 }
     ]
   }, {
     "src": "Chiller3-SideView.png",
@@ -15,7 +15,7 @@
     "caption": "The Central Heating & Chiller Plants Represent a \"District Energy System\"",
     "builds": [
       null,
-      { "src": "heating", "x": 0, "y": 0 },
+      { "src": "Heating", "x": 0, "y": 0 },
       { "src": "", "x": 0, "y": 0 }
     ]
   }, {
