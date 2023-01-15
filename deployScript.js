@@ -8,6 +8,7 @@ const DEST_ASSETS = path.resolve('./ThermoTourTutor/assets')
 const ALL_DIRS = [
   path.join(DEST_ASSETS, 'css'),
   path.join(DEST_ASSETS, 'js'),
+  path.join(DEST_ASSETS, 'images'),
   path.join(DEST_ASSETS, 'panoGeom'),
   path.join(DEST_ASSETS, 'panoData'),
   path.join(DEST_ASSETS, 'panoMedia', 'audio'),
@@ -15,6 +16,16 @@ const ALL_DIRS = [
   path.join(DEST_ASSETS, 'panoMedia', 'mapImages'),
   path.join(DEST_ASSETS, 'panoMedia', 'panoImages')
 ]
+
+// Filter function to leave out certain dirs and their contents
+const DO_NOT_COPY = [
+  path.join('audio', 'old'),
+  path.join('audio', 'processing'),
+  '~WIP'
+]
+const filter = (src, dest) => {
+  return !DO_NOT_COPY.some(badDir => src.includes(badDir))
+}
 
 // Async function for copying files
 async function copyFiles () {
@@ -25,17 +36,18 @@ async function copyFiles () {
 
   try {
     // Copy base bundle
-    await fs.copy('public/bundle.css', './ThermoTourTutor/assets/css/virtualTour.css')
-    await fs.copy('public/bundle.js', './ThermoTourTutor/assets/js/virtualTour.js')
+    await fs.copy('public/bundle.css', './ThermoTourTutor/assets/css/virtualTour.css', { filter })
+    await fs.copy('public/bundle.js', './ThermoTourTutor/assets/js/virtualTour.js', { filter })
+    await fs.copy('public/images', './ThermoTourTutor/assets/images', { filter })
 
     // Copy geometry files
-    await fs.copy('public/panoGeom', './ThermoTourTutor/assets/panoGeom')
+    await fs.copy('public/panoGeom', './ThermoTourTutor/assets/panoGeom', { filter })
 
     // Copy pano data
-    await fs.copy('public/panoData', './ThermoTourTutor/assets/panoData')
+    await fs.copy('public/panoData', './ThermoTourTutor/assets/panoData', { filter })
 
     // Copy pano media
-    await fs.copy('public/panoMedia', './ThermoTourTutor/assets/panoMedia')
+    await fs.copy('public/panoMedia', './ThermoTourTutor/assets/panoMedia', { filter })
   } catch (err) {
     console.error('Deployment failed')
     console.error(err)

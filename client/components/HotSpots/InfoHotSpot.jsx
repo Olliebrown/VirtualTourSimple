@@ -1,3 +1,5 @@
+import CONFIG from '../../config.js'
+
 import React from 'react'
 import PropTypes from 'prop-types'
 
@@ -36,7 +38,7 @@ export default function InfoHotspot (props) {
   }, [id, modal, setInfoHotspot, title])
 
   // Load texture for the hotspot
-  const texture = useTexture('icons/InfoIconTexture.png')
+  const texture = useTexture(`${CONFIG.TEXTURE_IMAGE_PATH}/InfoIconTexture.png`)
 
   // Animated values
   const springs = useSpring({

@@ -11,6 +11,9 @@ export default Object.freeze({
   FADE_TIMEOUT: 500,
 
   // Path to images on dev server
+  TEXTURE_IMAGE_PATH: PREFIX + 'images',
+
+  // Path to images on dev server
   PANO_IMAGE_PATH: PREFIX + 'panoMedia/panoImages',
 
   // Path to map image files
