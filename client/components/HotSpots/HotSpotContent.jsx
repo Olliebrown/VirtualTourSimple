@@ -31,14 +31,14 @@ export default function HotspotContent (props) {
   // Make image overlay if there is a build with an image
   const curImageInfo = hotspotImages?.[slideIndex[0]]
   let imageBuilds = null
-  let baseImageFilename = curImageInfo.src
+  let baseImageFilename = curImageInfo?.src
   if (curImageInfo?.builds?.[slideIndex[1]]) {
     // Prepare filenames
     const extIndex = curImageInfo.src.lastIndexOf('.')
     const baseName = curImageInfo.src.substring(0, extIndex)
     const extension = curImageInfo.src.substring(extIndex + 1)
     const buildName = curImageInfo.builds[slideIndex[1]].src
-    baseImageFilename = `${baseName}-build.${extension}`
+    baseImageFilename = `${baseName}-Build.${extension}`
 
     // Add the image
     if (buildName !== '') {
@@ -55,7 +55,7 @@ export default function HotspotContent (props) {
             width: '100%',
             marginTop: '0px !important'
           }}
-          src={`${CONFIG.INFO_IMAGE_PATH}/${baseName}-build-${buildName}.${extension}`}
+          src={`${CONFIG.INFO_IMAGE_PATH}/${baseName}-Build-${buildName}.${extension}`}
         />
       )
     }

@@ -14,6 +14,7 @@ import { MathUtils } from 'three'
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader.js'
 
 import { useSpring, animated } from '@react-spring/three'
+import { Edges } from '@react-three/drei'
 
 // Different object parameters
 const OBJ_DATA = {
@@ -42,7 +43,10 @@ const OBJ_DATA = {
 // Various colors for the texture loading state
 // const LOADING_COLOR = 0x777777 (not currently in use)
 const LOADED_COLOR = 0x156289
+const HIGHLIGHT_COLOR = 0x23A0FF
 const FAILED_COLOR = 0x883333
+// 21 98 137
+// 35 160 255
 
 export default function ExitIndicator (props) {
   // Destructure props
@@ -59,6 +63,12 @@ export default function ExitIndicator (props) {
 
   // Track hovering state
   const [hovering, setHovering] = React.useState(false)
+
+  // Show pointer cursor when hovered
+  React.useEffect(() => {
+    document.body.style.cursor = hovering ? 'pointer' : 'auto'
+    return () => { document.body.style.cursor = 'auto' }
+  }, [hovering])
 
   // Click callback function
   const onClick = () => {
@@ -117,6 +127,7 @@ export default function ExitIndicator (props) {
   const meshes = Object.keys(nodes).map((meshName) => (
     <animated.mesh scale={springs.scale} key={`${meshName}-mesh`} geometry={nodes[meshName].geometry}>
       <meshPhongMaterial color={exitColor} />
+      <Edges scale={1.01} threshold={15} color={HIGHLIGHT_COLOR} />
     </animated.mesh>
   ))
 
