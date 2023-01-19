@@ -8,16 +8,26 @@ import { getDataSubRoute } from '../../state/asyncDataHelper.js'
 import { Box, Divider, MenuItem, Stack, TextField, Tabs, Tab, Button, Collapse } from '@mui/material'
 
 import AlignmentEditor from './AlignmentEditor.jsx'
+import VideoDataEditor from './CropEditor.jsx'
 import RoomExitList from './RoomExitList.jsx'
 import RoomHotspotList from './RoomHotSpotList.jsx'
 import TabPanel from '../Utility/TabPanel.jsx'
 
+// Make aria props for tabs
 function a11yProps (index) {
   return {
     id: `virtual-tour-tab-${index}`,
     'aria-controls': `virtual-tour-tabpanel-${index}`
   }
 }
+
+// All the different collapses
+const COLLAPSE = Object.freeze({
+  LABEL_AND_ORIENTATION: 0,
+  VIDEO_SETTINGS: 1,
+  MINI_MAP_INFO: 2,
+  TABBED_INFO: 3
+})
 
 export default function TourInfoForm () {
   // Subscribe to pano DB changes
@@ -53,6 +63,14 @@ export default function TourInfoForm () {
     setCurrentPanoData({ alignment: newAlignment })
   }
 
+  // Sanitized local copy of video data
+  const localVideo = currentPanoData?.video ? { ...currentPanoData.video } : {}
+
+  // Update video crop values
+  const updateVideo = (newData) => {
+    setCurrentPanoData({ video: { ...localVideo, ...newData } })
+  }
+
   // Update map info vales
   const updateMapInfo = newData => {
     setCurrentPanoData({
@@ -60,11 +78,12 @@ export default function TourInfoForm () {
     })
   }
 
+  // Local collapse and tab states
   const [collapse, setCollapse] = React.useState(0)
   const [currentTab, setCurrentTab] = React.useState(0)
   const changeTab = (event, newIndex) => {
     setCurrentTab(newIndex)
-    setCollapse(2)
+    setCollapse(COLLAPSE.TABBED_INFO)
   }
 
   return (
@@ -72,12 +91,12 @@ export default function TourInfoForm () {
       <Stack>
         <Button
           variant="text"
-          onClick={() => setCollapse(0)}
+          onClick={() => setCollapse(COLLAPSE.LABEL_AND_ORIENTATION)}
           sx={{ mb: 1 }}
         >
           Label and Orientation
         </Button>
-        <Collapse in={collapse === 0} collapsedSize='0px'>
+        <Collapse in={collapse === COLLAPSE.LABEL_AND_ORIENTATION} collapsedSize='0px'>
           <TextField
             label="Room Label"
             variant="standard"
@@ -92,12 +111,25 @@ export default function TourInfoForm () {
         <Divider orientation="horizontal" sx={{ my: 2 }} />
         <Button
           variant="text"
-          onClick={() => setCollapse(1)}
+          onClick={() => setCollapse(COLLAPSE.VIDEO_SETTINGS)}
+          sx={{ mb: 1 }}
+        >
+          Video Settings
+        </Button>
+        <Collapse in={collapse === COLLAPSE.VIDEO_SETTINGS} collapsedSize='0px'>
+          <VideoDataEditor video={localVideo} updateVideo={updateVideo} />
+        </Collapse>
+
+        <Divider orientation="horizontal" sx={{ my: 2 }} />
+
+        <Button
+          variant="text"
+          onClick={() => setCollapse(COLLAPSE.MINI_MAP_INFO)}
           sx={{ mb: 1 }}
         >
           Mini-map Info
         </Button>
-        <Collapse in={collapse === 1} collapsedSize='0px'>
+        <Collapse in={collapse === COLLAPSE.MINI_MAP_INFO} collapsedSize='0px'>
           <Stack spacing={2}>
             <TextField
               label="Building Name"
@@ -134,12 +166,12 @@ export default function TourInfoForm () {
         </Collapse>
 
         <Divider orientation="horizontal" sx={{ mb: 2 }} />
-        <Tabs value={currentTab} onChange={changeTab} onClick={() => setCollapse(2)}>
+        <Tabs value={currentTab} onChange={changeTab} onClick={() => setCollapse(COLLAPSE.TABBED_INFO)}>
           <Tab label="Exits" {...a11yProps(0)} />
           <Tab label="Hotspots" {...a11yProps(1)} />
         </Tabs>
 
-        <Collapse in={collapse === 2}>
+        <Collapse in={collapse === COLLAPSE.TABBED_INFO}>
           <TabPanel currentTab={currentTab} index={0}>
             <RoomExitList />
           </TabPanel>

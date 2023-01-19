@@ -6,7 +6,7 @@ import CONFIG from '../../config.js'
 import localDB from '../../state/localDB.js'
 import { useLiveQuery } from 'dexie-react-hooks'
 
-import { loadingCurtainState } from '../../state/globalState.js'
+import { loadingCurtainState, mediaPlayingState } from '../../state/globalState.js'
 import { currentPanoKeyState, currentPanoDataState, enabledPanoRoomsState, enabledHotSpotsState } from '../../state/fullTourState.js'
 import { setTextureLoadingState } from '../../state/textureLoadingState.js'
 import { useRecoilValue, useSetRecoilState } from 'recoil'
@@ -14,13 +14,11 @@ import { useRecoilValue, useSetRecoilState } from 'recoil'
 import { useKTX2 } from '@react-three/drei'
 import { Euler, MathUtils, BackSide } from 'three'
 
+import { NO_CROP, useVideoData } from './videoDataHooks.js'
+
 import CutoutMaterial from '../../shaders/CutoutShader.js'
 import InfoHotspot from '../HotSpots/InfoHotSpot.jsx'
 import ExitIndicator from './ExitIndicator.jsx'
-
-const NO_CROP = {
-  x: 0.0, y: 0.0, width: 0.0, height: 0.0
-}
 
 export default function PanoImage (props) {
   const { xRotate, yRotate, zRotate } = props
@@ -33,63 +31,10 @@ export default function PanoImage (props) {
   const currentPanoData = useRecoilValue(currentPanoDataState)
   const enabledRooms = useRecoilValue(enabledPanoRoomsState)
   const enabledHotSpots = useRecoilValue(enabledHotSpotsState)
+  const mediaPlaying = useRecoilValue(mediaPlayingState)
 
   // Loading curtain state
   const setLoadingCurtain = useSetRecoilState(loadingCurtainState)
-
-  // // Load the pano image or video
-  // const [panoVideo, setPanoVideo] = React.useState(null)
-  // const [videoCrop, setVideoCrop] = React.useState(NO_CROP)
-
-  // // Possibly load a video
-  // React.useEffect(() => {
-  //   if (currentPanoData?.video) {
-  //     // Make a video HTML tag if we don't have one
-  //     if (panoVideo === null) {
-  //       // Create video HTML tag to stream media
-  //       const vid = document.createElement('video')
-  //       vid.crossOrigin = 'anonymous'
-  //       vid.src = currentPanoData?.video.href
-  //       vid.loop = !!currentPanoData?.video.loop
-  //       setPanoVideo(vid)
-
-  //       // Setup to stop showing video once its done
-  //       vid.onended = () => setMediaPlaying(false)
-  //     }
-
-  //     // Update video state and crop box
-  //     if (currentPanoData?.videoCrop) {
-  //       setVideoCrop([
-  //         currentPanoData?.videoCrop.x,
-  //         currentPanoData?.videoCrop.y,
-  //         currentPanoData?.videoCrop.x + currentPanoData?.videoCrop.width,
-  //         currentPanoData?.videoCrop.y + currentPanoData?.videoCrop.height
-  //       ])
-  //     }
-
-  //     // Clean up when the user leaves this pano
-  //     return () => {
-  //       // Stop streaming media
-  //       if (panoVideo !== null) {
-  //         panoVideo.pause()
-  //         panoVideo.remove()
-  //       }
-
-  //       // Reset video state
-  //       setMediaPlaying(false)
-  //       setVideoCrop(NO_CROP)
-  //     }
-  //   } else {
-  //     // No video to load so ensure video state is back to default
-  //     setMediaPlaying(false)
-  //     setVideoCrop(NO_CROP)
-  //   }
-  // }, [currentPanoData?.video, currentPanoData?.videoCrop, panoVideo])
-
-  // // Respond to a change in the video playing state
-  // React.useEffect(() => {
-  //   if (mediaPlaying) { panoVideo?.play() }
-  // }, [mediaPlaying, panoVideo])
 
   // Create filtered arrays of exits and hotspots
   const filteredExits = enabledRooms.length > 0
@@ -120,6 +65,9 @@ export default function PanoImage (props) {
     setLoadingCurtain({ text: '', open: true })
   }, [setLoadingCurtain, panoImages])
 
+  // Possibly load video
+  const [panoVideo, videoCrop] = useVideoData(currentPanoData)
+
   // Build the exit arrows
   const exitArrows = filteredExits?.map((exit, i) => {
     return (
@@ -139,7 +87,7 @@ export default function PanoImage (props) {
   })
 
   // Is there a video to show and is it playing
-  // const showVideo = !!panoVideo && mediaPlaying
+  const showVideo = !!panoVideo && mediaPlaying
 
   return (
     <React.Fragment>
@@ -164,10 +112,10 @@ export default function PanoImage (props) {
         <cutoutMaterial
           key={CutoutMaterial.key}
           side={BackSide}
-          cropBox={NO_CROP} // cropBox
-          // enableVideo={showVideo}
+          cropBox={showVideo ? videoCrop : NO_CROP}
+          enableVideo={showVideo}
         >
-          {/* {showVideo && <videoTexture attach="panoVideo" args={[panoVideo]}/>} */}
+          {showVideo && <videoTexture attach="panoVideo" args={[panoVideo]}/>}
           <primitive attach="panoImage" object={panoImages[0] || null}/>
         </cutoutMaterial>
       </mesh>
