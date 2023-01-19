@@ -6,6 +6,8 @@ const CutoutShaderInfo = {
     panoImage: undefined,
     panoVideo: undefined,
     enableVideo: false,
+    playbackTime: 0.0,
+    playbackDuration: 0.0,
     vidGamma: 1.0,
     imgGamma: 1.8,
     cropBox: [0.0, 0.0, 1.0, 1.0]
@@ -30,6 +32,61 @@ const CutoutShaderInfo = {
     uniform sampler2D panoImage;
     uniform sampler2D panoVideo;
     uniform bool enableVideo;
+    uniform float playbackTime;
+    uniform float playbackDuration;
+
+    // Convert between color spaces
+    vec3 rgb2hsv(vec3 rgb)
+    {
+      // Find max and min color channels and their difference
+      float Cmax = max(rgb.r, max(rgb.g, rgb.b));
+      float Cmin = min(rgb.r, min(rgb.g, rgb.b));
+      float delta = Cmax - Cmin;
+
+      // Value -> max
+      vec3 hsv = vec3(0.0, 0.0, Cmax);
+
+      // Is this a neutral color? (saturation = 0)
+      if (Cmax > Cmin) {
+        // Saturation is difference over max
+        hsv.y = delta / Cmax;
+
+        // Hue depends on color wheel position (r -> g -> b)
+        if (rgb.r == Cmax) {
+          hsv.x = (rgb.g - rgb.b) / delta;
+        } else {
+          if (rgb.g == Cmax) {
+            hsv.x = 2.0 + (rgb.b - rgb.r) / delta;
+          } else {
+            hsv.x = 4.0 + (rgb.r - rgb.g) / delta;
+          }
+        }
+
+        // Scale hue
+        hsv.x = fract(hsv.x / 6.0);
+      }
+      return hsv;
+    }
+
+    // Detect and remove the chroma-key color
+    float chromaKey(vec3 color)
+    {
+      // 44,175,51 [0.173, 0.686, 0.2] <-- our measured green (doesn't look good)
+      vec3 backgroundColor = vec3(0.157, 0.576, 0.129); // Original default: [0.157, 0.576, 0.129]
+      vec3 weights = vec3(4.0, 1.0, 2.0);
+
+      vec3 hsv = rgb2hsv(color);
+      vec3 target = rgb2hsv(backgroundColor);
+      float dist = length(weights * (target - hsv));
+      return 1.0 - clamp(3.0 * dist - 1.5, 0.0, 1.0);
+    }
+
+    // Adjust saturation of given RGB color
+    vec3 changeSaturation(vec3 color, float saturation)
+    {
+      float luma = dot(vec3(0.213, 0.715, 0.072) * color, vec3(1.));
+      return mix(vec3(luma), color, saturation);
+    }
 
     // Test if a point is within the given bounding box
     // p: The point to test
@@ -39,20 +96,41 @@ const CutoutShaderInfo = {
     }
 
     void main() {
-      if (enableVideo && pointInBBox(vec2(vUv.x, 1.0 - vUv.y), cropBox)) {
-        // Show video inside the box
+      // Initial values to use if no video is present (or outside the video crop box)
+      float blendAlpha = 1.0;
+      float fadeValue = 1.0;
+      vec3 vidColor = vec3(0.0);
+
+      // Lookup pano image color
+      vec3 texColor = texture2D(panoImage, vec2(1.0 - vUv.x, vUv.y)).rgb;
+
+      // Possibly lookup video color (when defined and inside the crop box)
+      if (enableVideo && playbackTime > 0.1 && pointInBBox(vec2(vUv.x, 1.0 - vUv.y), cropBox)) {
         vec2 vidUV = vec2(
-          (vUv.x - cropBox.x) / (cropBox.z - cropBox.x),
-          1.0 - ((1.0 - vUv.y) - cropBox.y) / (cropBox.w - cropBox.y)
+          1.0 - (vUv.x - cropBox.x) / (cropBox.z - cropBox.x),
+          ((1.0 - vUv.y) - cropBox.y) / (cropBox.w - cropBox.y)
         );
 
-        vec3 vidColor = texture2D(panoVideo, vidUV).rgb;
-        gl_FragColor = vec4(pow(vidColor, vec3(1.0/vidGamma)), 1.0);
-      } else {
-        // Show image outside the box
-        vec3 texColor = texture2D(panoImage, vec2(1.0 - vUv.x, vUv.y)).rgb;
-        gl_FragColor = vec4(pow(texColor, vec3(1.0/imgGamma)), 1.0);
+        // Check for chroma-key color to blend
+        vidColor = texture2D(panoVideo, vidUV).rgb;
+        blendAlpha = chromaKey(vidColor);
+
+        // Fade video in or out
+        fadeValue = 1.0 - min(
+          clamp(playbackTime / 0.5, 0.0, 1.0), // Fade in
+          clamp((playbackDuration - playbackTime) / 0.5, 0.0, 1.0) // Fade out
+        );
       }
+
+      // Mix between pano and video based on chroma key and fadeValue
+      vec3 finalColor = mix(
+        pow(vidColor, vec3(1.0/vidGamma)),
+        pow(texColor, vec3(1.0/imgGamma)),
+        max(blendAlpha, fadeValue)
+      );
+
+      gl_FragColor = vec4(finalColor, 1.0);
+
       #include <tonemapping_fragment>
       #include <encodings_fragment>
     }

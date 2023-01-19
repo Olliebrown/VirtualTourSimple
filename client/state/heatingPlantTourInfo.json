@@ -57,13 +57,13 @@
     ],
     "video": {
       "href": "panoMedia/panoVideos/BrianPlantIntro-ChromaKeyed.mp4",
-      "loop": true,
+      "loop": false,
       "autoPlay": true,
       "crop": {
-        "x": 10,
-        "y": 20,
-        "width": 541,
-        "height": 961
+        "x": 0.5,
+        "y": 0.35,
+        "width": 0.07,
+        "height": 0.24
       }
     },
     "hotspots": [

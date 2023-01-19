@@ -11,6 +11,7 @@ import { currentPanoKeyState, currentPanoDataState, enabledPanoRoomsState, enabl
 import { setTextureLoadingState } from '../../state/textureLoadingState.js'
 import { useRecoilValue, useSetRecoilState } from 'recoil'
 
+import { useFrame, useThree } from '@react-three/fiber'
 import { useKTX2 } from '@react-three/drei'
 import { Euler, MathUtils, BackSide } from 'three'
 
@@ -65,8 +66,19 @@ export default function PanoImage (props) {
     setLoadingCurtain({ text: '', open: true })
   }, [setLoadingCurtain, panoImages])
 
-  // Possibly load video
+  // Possibly load video and make it part of the Three.js state
   const [panoVideo, videoCrop] = useVideoData(currentPanoData)
+  const setThree = useThree((state) => state.set)
+  React.useEffect(() => {
+    setThree({ videoRef: panoVideo })
+  }, [panoVideo, setThree])
+
+  // Pass playback time and duration in the shader
+  const panoMesh = React.useRef()
+  useFrame(({ videoRef }) => {
+    panoMesh.current.material.uniforms.playbackTime.value = videoRef?.currentTime || 0.0
+    panoMesh.current.material.uniforms.playbackDuration.value = videoRef?.duration || 0.0
+  })
 
   // Build the exit arrows
   const exitArrows = filteredExits?.map((exit, i) => {
@@ -97,6 +109,7 @@ export default function PanoImage (props) {
 
       {/* The main pano image sphere geometry and shader */}
       <mesh
+        ref={panoMesh}
         scale={[-1, 1, 1]} // Deliberately turning this inside-out
         rotation={new Euler(
           MathUtils.degToRad(xRotate),

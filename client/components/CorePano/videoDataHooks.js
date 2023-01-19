@@ -26,13 +26,15 @@ export function useVideoData (currentPanoData) {
         vid.crossOrigin = 'anonymous'
         vid.src = currentPanoData?.video.href
         vid.loop = !!currentPanoData?.video.loop
+        vid.autoplay = !!currentPanoData?.video.autoPlay
         setPanoVideo(vid)
 
-        // Setup to stop showing video once its done
+        // Synchronize playback state
+        vid.onplay = () => setMediaPlaying(true)
         vid.onended = () => setMediaPlaying(false)
       }
 
-      // Update video state and crop box
+      // Update video crop box
       if (currentPanoData?.video.crop) {
         setVideoCrop([
           currentPanoData?.video.crop.x,
@@ -43,19 +45,20 @@ export function useVideoData (currentPanoData) {
       }
 
       // Clean up when the user leaves this pano
-      return () => {
-        // Stop streaming media
-        if (panoVideo !== null) {
-          panoVideo.pause()
-          panoVideo.remove()
-        }
+      // return () => {
+      //   // Stop streaming media
+      //   if (panoVideo !== null) {
+      //     panoVideo.pause()
+      //     panoVideo.remove()
+      //   }
 
-        // Reset video state
-        setMediaPlaying(false)
-        setVideoCrop(NO_CROP)
-      }
+      //   // Reset video state
+      //   setMediaPlaying(false)
+      //   setVideoCrop(NO_CROP)
+      // }
     } else {
       // No video to load so ensure video state is back to default
+      setPanoVideo(null)
       setMediaPlaying(false)
       setVideoCrop(NO_CROP)
     }
