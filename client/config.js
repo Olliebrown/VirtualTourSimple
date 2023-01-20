@@ -16,6 +16,9 @@ export default Object.freeze({
   // Path to images on dev server
   PANO_IMAGE_PATH: PREFIX + 'panoMedia/panoImages',
 
+  // Path to images on dev server
+  PANO_VIDEO_PATH: PREFIX + 'panoMedia/panoVideos',
+
   // Path to map image files
   MAP_IMAGE_PATH: PREFIX + 'panoMedia/mapImages',
 

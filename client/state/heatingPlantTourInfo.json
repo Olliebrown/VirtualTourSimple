@@ -56,9 +56,20 @@
       -182
     ],
     "video": {
-      "href": "panoMedia/panoVideos/BrianPlantIntro-ChromaKeyed.mp4",
+      "href": "BrianPlantIntro-ChromaKeyed.mp4",
       "loop": false,
       "autoPlay": true,
+      "chromaKeyColor": {
+        "r": 0.157,
+        "g": 0.576,
+        "b": 0.129
+      },
+      "chromaKeyWeights": {
+        "r": 3,
+        "g": 1,
+        "b": 2
+      },
+      "fadeTime": 1,
       "crop": {
         "x": 0.5,
         "y": 0.35,

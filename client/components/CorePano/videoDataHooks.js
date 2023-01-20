@@ -1,3 +1,4 @@
+import CONFIG from '../../config.js'
 import React from 'react'
 
 import { mediaPlayingState } from '../../state/globalState.js'
@@ -24,7 +25,7 @@ export function useVideoData (currentPanoData) {
         // Create video HTML tag to stream media
         const vid = document.createElement('video')
         vid.crossOrigin = 'anonymous'
-        vid.src = currentPanoData?.video.href
+        vid.src = `${CONFIG.PANO_VIDEO_PATH}/${currentPanoData?.video.href}`
         vid.loop = !!currentPanoData?.video.loop
         vid.autoplay = !!currentPanoData?.video.autoPlay
         setPanoVideo(vid)
@@ -45,17 +46,17 @@ export function useVideoData (currentPanoData) {
       }
 
       // Clean up when the user leaves this pano
-      // return () => {
-      //   // Stop streaming media
-      //   if (panoVideo !== null) {
-      //     panoVideo.pause()
-      //     panoVideo.remove()
-      //   }
+      return () => {
+        // Stop streaming media
+        if (panoVideo !== null) {
+          panoVideo.pause()
+          panoVideo.remove()
+        }
 
-      //   // Reset video state
-      //   setMediaPlaying(false)
-      //   setVideoCrop(NO_CROP)
-      // }
+        // Reset video state
+        setMediaPlaying(false)
+        setVideoCrop(NO_CROP)
+      }
     } else {
       // No video to load so ensure video state is back to default
       setPanoVideo(null)

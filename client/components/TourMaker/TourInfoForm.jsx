@@ -8,7 +8,7 @@ import { getDataSubRoute } from '../../state/asyncDataHelper.js'
 import { Box, Divider, MenuItem, Stack, TextField, Tabs, Tab, Button, Collapse } from '@mui/material'
 
 import AlignmentEditor from './AlignmentEditor.jsx'
-import VideoDataEditor from './CropEditor.jsx'
+import VideoSettingsEditor from './VideoSettingsEditor.jsx'
 import RoomExitList from './RoomExitList.jsx'
 import RoomHotspotList from './RoomHotSpotList.jsx'
 import TabPanel from '../Utility/TabPanel.jsx'
@@ -117,7 +117,7 @@ export default function TourInfoForm () {
           Video Settings
         </Button>
         <Collapse in={collapse === COLLAPSE.VIDEO_SETTINGS} collapsedSize='0px'>
-          <VideoDataEditor video={localVideo} updateVideo={updateVideo} />
+          <VideoSettingsEditor video={localVideo} updateVideo={updateVideo} />
         </Collapse>
 
         <Divider orientation="horizontal" sx={{ my: 2 }} />

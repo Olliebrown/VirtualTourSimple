@@ -77,7 +77,6 @@ export default function PanoImage (props) {
   const panoMesh = React.useRef()
   useFrame(({ videoRef }) => {
     panoMesh.current.material.uniforms.playbackTime.value = videoRef?.currentTime || 0.0
-    panoMesh.current.material.uniforms.playbackDuration.value = videoRef?.duration || 0.0
   })
 
   // Build the exit arrows
@@ -127,6 +126,10 @@ export default function PanoImage (props) {
           side={BackSide}
           cropBox={showVideo ? videoCrop : NO_CROP}
           enableVideo={showVideo}
+          playbackDuration={panoVideo?.duration || 0.0}
+          // chromaKeyColor={currentPanoData?.video?.chromaKeyColor || undefined}
+          // chromaKeyWeights={currentPanoData?.video?.chromaKeyWeights || undefined}
+          fadeTime={currentPanoData?.video?.fadeTime || undefined}
         >
           {showVideo && <videoTexture attach="panoVideo" args={[panoVideo]}/>}
           <primitive attach="panoImage" object={panoImages[0] || null}/>

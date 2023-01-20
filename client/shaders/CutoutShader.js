@@ -8,6 +8,9 @@ const CutoutShaderInfo = {
     enableVideo: false,
     playbackTime: 0.0,
     playbackDuration: 0.0,
+    fadeTime: 0.5,
+    chromaKeyColor: [0.157, 0.576, 0.129],
+    chromaKeyWeights: [4.0, 1.0, 2.0],
     vidGamma: 1.0,
     imgGamma: 1.8,
     cropBox: [0.0, 0.0, 1.0, 1.0]
@@ -32,8 +35,13 @@ const CutoutShaderInfo = {
     uniform sampler2D panoImage;
     uniform sampler2D panoVideo;
     uniform bool enableVideo;
+
+    uniform vec3 chromaKeyColor;
+    uniform vec3 chromaKeyWeights;
+
     uniform float playbackTime;
     uniform float playbackDuration;
+    uniform float fadeTime;
 
     // Convert between color spaces
     vec3 rgb2hsv(vec3 rgb)
@@ -71,21 +79,10 @@ const CutoutShaderInfo = {
     // Detect and remove the chroma-key color
     float chromaKey(vec3 color)
     {
-      // 44,175,51 [0.173, 0.686, 0.2] <-- our measured green (doesn't look good)
-      vec3 backgroundColor = vec3(0.157, 0.576, 0.129); // Original default: [0.157, 0.576, 0.129]
-      vec3 weights = vec3(4.0, 1.0, 2.0);
-
       vec3 hsv = rgb2hsv(color);
-      vec3 target = rgb2hsv(backgroundColor);
-      float dist = length(weights * (target - hsv));
+      vec3 target = rgb2hsv(chromaKeyColor);
+      float dist = length(chromaKeyWeights * (target - hsv));
       return 1.0 - clamp(3.0 * dist - 1.5, 0.0, 1.0);
-    }
-
-    // Adjust saturation of given RGB color
-    vec3 changeSaturation(vec3 color, float saturation)
-    {
-      float luma = dot(vec3(0.213, 0.715, 0.072) * color, vec3(1.));
-      return mix(vec3(luma), color, saturation);
     }
 
     // Test if a point is within the given bounding box
@@ -117,8 +114,8 @@ const CutoutShaderInfo = {
 
         // Fade video in or out
         fadeValue = 1.0 - min(
-          clamp(playbackTime / 0.5, 0.0, 1.0), // Fade in
-          clamp((playbackDuration - playbackTime) / 0.5, 0.0, 1.0) // Fade out
+          clamp(playbackTime / fadeTime, 0.0, 1.0), // Fade in
+          clamp((playbackDuration - playbackTime) / fadeTime, 0.0, 1.0) // Fade out
         );
       }
 

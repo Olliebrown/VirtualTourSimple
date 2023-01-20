@@ -14,7 +14,8 @@ const ALL_DIRS = [
   path.join(DEST_ASSETS, 'panoMedia', 'audio'),
   path.join(DEST_ASSETS, 'panoMedia', 'infoImages'),
   path.join(DEST_ASSETS, 'panoMedia', 'mapImages'),
-  path.join(DEST_ASSETS, 'panoMedia', 'panoImages')
+  path.join(DEST_ASSETS, 'panoMedia', 'panoImages'),
+  path.join(DEST_ASSETS, 'panoMedia', 'panoVideos')
 ]
 
 // Filter function to leave out certain dirs and their contents
