@@ -32,20 +32,22 @@ export default function HotSpotTooltip (props) {
   })
 
   // Just return the position of the mouse
-  const getBoundingClientRect = () => {
+  const getBoundingClientRect = React.useCallback(() => {
     return new DOMRect(
       positionRef.current.x, positionRef.current.y, 0, 0
     )
-  }
-
-  // Only have an anchor element when show is true
-  const anchorEl = (infoHotspot?.hovering ? { getBoundingClientRect } : null)
+  }, [positionRef])
 
   return (
     <Tooltip
       title={infoHotspot?.title}
       placement="top"
-      PopperProps={{ popperRef, anchorEl }}
+      PopperProps={{
+        popperRef,
+        anchorEl: (
+          infoHotspot?.hovering ? { getBoundingClientRect } : null
+        )
+      }}
     >
       <Box sx={{ display: 'none' }} />
     </Tooltip>
