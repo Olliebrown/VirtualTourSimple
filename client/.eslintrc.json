@@ -28,6 +28,7 @@
     "sourceType": "module"
   },
   "rules": {
+    "react/no-unknown-property": "off",
     "react/prop-types": "warn",
     "react/display-name": "warn",
     "react/jsx-key": "warn",

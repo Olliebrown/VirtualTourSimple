@@ -15,6 +15,9 @@ export default function InfoHotspot (props) {
   // Destructure props
   const { title, id, modal, longitude, latitude, radius, scale, ...rest } = props
 
+  // Subscribe to pieces of global state
+  const setInfoHotspot = useSetRecoilState(infoHotspotState)
+
   // Track hovering state
   const [hovering, setHovering] = React.useState(false)
 
@@ -24,18 +27,15 @@ export default function InfoHotspot (props) {
     return () => { document.body.style.cursor = 'auto' }
   }, [hovering])
 
-  // Subscribe to pieces of global state
-  const setInfoHotspot = useSetRecoilState(infoHotspotState)
-
   // Always synchronize the global info hotspot state
   React.useEffect(() => {
-    setInfoHotspot({ modalOpen: false, showAlways: !modal, jsonFilename: `${id}.json`, title })
-  }, [id, modal, setInfoHotspot, title])
+    setInfoHotspot({ modalOpen: false, showAlways: !modal, jsonFilename: `${id}.json`, title, hovering })
+  }, [id, modal, setInfoHotspot, title, hovering])
 
   // Click callback function
   const onClick = React.useCallback(() => {
-    setInfoHotspot({ modalOpen: modal, showAlways: !modal, jsonFilename: `${id}.json`, title })
-  }, [id, modal, setInfoHotspot, title])
+    setInfoHotspot({ modalOpen: modal, showAlways: !modal, jsonFilename: `${id}.json`, title, hovering })
+  }, [id, modal, setInfoHotspot, title, hovering])
 
   // Load texture for the hotspot
   const texture = useTexture(`${CONFIG.TEXTURE_IMAGE_PATH}/InfoIconTexture.png`)

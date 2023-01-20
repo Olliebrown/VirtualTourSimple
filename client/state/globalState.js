@@ -26,6 +26,8 @@ export const infoHotspotState = atom({
   key: 'infoHotspot',
   default: {
     modalOpen: false,
+    hovering: false,
+    showAlways: false,
     title: '',
     jsonFilename: ''
   }

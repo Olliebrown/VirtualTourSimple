@@ -25,6 +25,7 @@ import InfoModal from './components/HotSpots/InfoModal.jsx'
 import MiniMap from './components/MiniMap/MiniMap.jsx'
 import TourInfoEditor from './components/TourMaker/TourInfoEditor.jsx'
 import InfoNonModal from './components/HotSpots/InfoNonModal.jsx'
+import HotSpotTooltip from './components/HotSpots/HotSpotTooltip.jsx'
 
 import { Canvas } from '@react-three/fiber'
 import { useProgress } from '@react-three/drei'
@@ -138,6 +139,7 @@ export default function VirtualTour (props) {
         <React.Fragment>
           <CloseTour rootElement={rootElement} reactRoot={reactRoot} />
           <InfoModal />
+          <HotSpotTooltip />
 
           {showHUDInterface &&
             <React.Fragment>
