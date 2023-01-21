@@ -1,7 +1,7 @@
 import CONFIG from '../../config.js'
 import React from 'react'
 
-import { mediaPlayingState, mediaSkipState } from '../../state/globalState.js'
+import { panoMediaPlayingState, mediaSkipState } from '../../state/globalState.js'
 import { useRecoilState, useSetRecoilState } from 'recoil'
 import { currentRoomPriorityState } from '../../state/fullTourState.js'
 
@@ -21,7 +21,7 @@ export function useVideoData (currentPanoData) {
   const [videoCrop, setVideoCrop] = React.useState(NO_CROP)
 
   // Global state
-  const [mediaPlaying, setMediaPlaying] = useRecoilState(mediaPlayingState)
+  const [panoMediaPlaying, setMediaPlaying] = useRecoilState(panoMediaPlayingState)
   const [mediaSkip, setMediaSkip] = useRecoilState(mediaSkipState)
   const updateRoomTaskCompletion = useSetRecoilState(currentRoomPriorityState)
 
@@ -83,7 +83,11 @@ export function useVideoData (currentPanoData) {
       panoVideo.currentTime = panoVideo.duration - 1.0
       setMediaSkip(false)
     }
-  }, [mediaSkip, panoVideo, setMediaSkip])
+
+    if (panoMediaPlaying && !isVideoPlaying(panoVideo)) {
+      panoVideo?.play()
+    }
+  }, [mediaSkip, panoMediaPlaying, panoVideo, setMediaSkip])
 
   return [panoVideo, videoCrop]
 }

@@ -16,8 +16,13 @@ export const currentCameraYawState = atom({
 })
 
 // Current Media State
-export const mediaPlayingState = atom({
-  key: 'mediaPlaying',
+export const infoAudioPlayingState = atom({
+  key: 'infoAudioPlaying',
+  default: false
+})
+
+export const panoMediaPlayingState = atom({
+  key: 'panoMediaPlaying',
   default: false
 })
 
@@ -33,13 +38,14 @@ export const infoModalOpenState = atom({
 })
 
 // Info hotspot modal state
-export const infoHotspotDataState = atom({
-  key: 'infoHotspotData',
+export const hotspotDataState = atom({
+  key: 'hotspotData',
   default: {
     hovering: false,
     showAlways: false,
     title: '',
-    jsonFilename: ''
+    jsonFilename: '',
+    type: 'unknown'
   }
 })
 

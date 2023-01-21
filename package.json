@@ -20,7 +20,6 @@
   "devDependencies": {
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
-    "@js-sdsl/priority-queue": "^4.3.0",
     "@mui/icons-material": "^5.11.0",
     "@mui/material": "^5.11.0",
     "@react-spring/three": "^9.5.5",

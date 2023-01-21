@@ -61,7 +61,7 @@
     "video": {
       "href": "BrianPlantIntro-ChromaKeyed.mp4",
       "loop": false,
-      "autoPlay": true,
+      "autoPlay": false,
       "chromaKeyColor": {
         "r": 0.157,
         "g": 0.576,
@@ -81,6 +81,16 @@
       }
     },
     "hotspots": [
+      {
+        "id": "1S01_Welcome",
+        "modal": true,
+        "title": "Heating Plant Introduction",
+        "type": "media",
+        "longitude": -18,
+        "latitude": 4,
+        "scale": 0.4,
+        "priority": 0
+      },
       {
         "id": "1S01_Boiler",
         "modal": true,

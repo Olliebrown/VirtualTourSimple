@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { mediaPlayingState } from '../../state/globalState.js'
+import { infoAudioPlayingState } from '../../state/globalState.js'
 import { useRecoilState } from 'recoil'
 
 import { Box, IconButton, Typography } from '@mui/material'
@@ -18,7 +18,7 @@ export default function AudioPlayer (props) {
   const { hotspotAudio, setSlideIndex } = props
 
   // Global state
-  const [mediaPlaying, setMediaPlaying] = useRecoilState(mediaPlayingState)
+  const [infoAudioPlaying, setInfoAudioPlaying] = useRecoilState(infoAudioPlayingState)
 
   // Track subtitle information in local state
   const [subtitleIndex, setSubtitleIndex] = React.useState(-1)
@@ -60,10 +60,10 @@ export default function AudioPlayer (props) {
     (soundObj) => {
       setSubtitleIndex(0)
       onPlayUpdate(soundObj)
-      setMediaPlaying(true)
+      setInfoAudioPlaying(true)
     },
     (soundObj) => {
-      setMediaPlaying(false)
+      setInfoAudioPlaying(false)
     }
   )
 
@@ -71,18 +71,18 @@ export default function AudioPlayer (props) {
   React.useEffect(() => {
     return () => {
       curAudioObj?.unload()
-      setMediaPlaying(false)
+      setInfoAudioPlaying(false)
     }
-  }, [curAudioObj, setMediaPlaying])
+  }, [curAudioObj, setInfoAudioPlaying])
 
   // Play/pause management
   const onPlayPause = () => {
-    if (mediaPlaying) {
+    if (infoAudioPlaying) {
       curAudioObj?.pause()
-      setMediaPlaying(false)
+      setInfoAudioPlaying(false)
     } else {
       curAudioObj?.play()
-      setMediaPlaying(true)
+      setInfoAudioPlaying(true)
     }
   }
 
@@ -131,7 +131,7 @@ export default function AudioPlayer (props) {
         sx={{ mr: 2 }}
         disabled={!curAudioObj}
       >
-        {mediaPlaying
+        {infoAudioPlaying
           ? <PauseIcon sx={{ height: 38, width: 38 }} />
           : <PlayIcon sx={{ height: 38, width: 38 }} />}
       </IconButton>

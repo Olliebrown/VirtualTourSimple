@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { infoHotspotDataState } from '../../state/globalState.js'
+import { hotspotDataState } from '../../state/globalState.js'
 import { useRecoilValue } from 'recoil'
 
 import { Card, CardHeader, CardContent, Slide } from '@mui/material'
@@ -10,16 +10,16 @@ import { useHotspotContent } from '../../state/hotspotInfoHelper.js'
 
 export default function InfoNonModal () {
   // Subscribe to pieces of global state
-  const infoHotspotData = useRecoilValue(infoHotspotDataState)
+  const hotspotData = useRecoilValue(hotspotDataState)
 
   // Read hotspot json data into local state
-  const hotspotContent = useHotspotContent(infoHotspotData?.jsonFilename)
+  const hotspotContent = useHotspotContent(hotspotData?.jsonFilename)
 
   return (
-    <Slide direction="up" in={infoHotspotData?.showAlways} mountOnEnter unmountOnExit>
+    <Slide direction="up" in={!!hotspotContent && !!hotspotData?.showAlways} mountOnEnter unmountOnExit>
       <Card sx={{ position: 'absolute', bottom: 16, right: '10vw', width: '60vw' }}>
         <CardHeader
-          title={infoHotspotData?.title || 'Unknown Info'}
+          title={hotspotData?.title || 'Unknown Info'}
           sx={{ borderBottom: '1px solid grey', p: 1 }}
         />
 

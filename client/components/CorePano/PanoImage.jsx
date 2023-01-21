@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import CONFIG from '../../config.js'
 
-import { loadingCurtainState, mediaPlayingState } from '../../state/globalState.js'
+import { loadingCurtainState, panoMediaPlayingState } from '../../state/globalState.js'
 import { currentPanoKeyState, currentPanoDataState } from '../../state/fullTourState.js'
 import { setTextureLoadingState } from '../../state/textureLoadingState.js'
 import { useRecoilValue, useSetRecoilState } from 'recoil'
@@ -22,7 +22,7 @@ export default function PanoImage (props) {
   // Subscribe to pano DB changes
   const currentPanoKey = useRecoilValue(currentPanoKeyState)
   const currentPanoData = useRecoilValue(currentPanoDataState)
-  const mediaPlaying = useRecoilValue(mediaPlayingState)
+  const panoMediaPlaying = useRecoilValue(panoMediaPlayingState)
 
   // Loading curtain state
   const setLoadingCurtain = useSetRecoilState(loadingCurtainState)
@@ -61,7 +61,7 @@ export default function PanoImage (props) {
   })
 
   // Is there a video to show and is it playing
-  const showVideo = !!panoVideo && mediaPlaying
+  const showVideo = !!panoVideo && panoMediaPlaying
 
   return (
     <React.Fragment>

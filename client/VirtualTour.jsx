@@ -11,7 +11,7 @@ import localDB from './state/localDB.js'
 import { useLiveQuery } from 'dexie-react-hooks'
 
 import { preloadPanoKeyState, enabledHotSpotsState, enabledPanoRoomsState } from './state/fullTourState.js'
-import { loadingCurtainState, mediaSkipState, mediaPlayingState } from './state/globalState.js'
+import { loadingCurtainState, mediaSkipState, panoMediaPlayingState } from './state/globalState.js'
 
 // eslint-disable-next-line camelcase
 import { useRecoilBridgeAcrossReactRoots_UNSTABLE, useSetRecoilState, useRecoilValue } from 'recoil'
@@ -35,11 +35,11 @@ import EditHotspotContentModal from './components/HotSpots/EditHotspotContentMod
 
 // Button to skip playing media
 function SkipButton (props) {
-  const mediaPlaying = useRecoilValue(mediaPlayingState)
+  const panoMediaPlaying = useRecoilValue(panoMediaPlayingState)
   const setMediaSkip = useSetRecoilState(mediaSkipState)
 
   return (
-    <Fade in={mediaPlaying}>
+    <Fade in={panoMediaPlaying}>
       <Tooltip title="Skip to end of video">
         <Button
           variant="contained"

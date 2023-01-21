@@ -149,8 +149,7 @@ export default function PanoHotspotEdit (params) {
               select
             >
               <MenuItem value={'info'}>Info</MenuItem>
-              <MenuItem value={'audio'}>Audio</MenuItem>
-              <MenuItem value={'video'}>Video</MenuItem>
+              <MenuItem value={'media'}>Media</MenuItem>
             </TextField>
           </Stack>
         </Box>
@@ -169,7 +168,7 @@ PanoHotspotEdit.propTypes = {
 
     radius: PropTypes.number,
     scale: PropTypes.number,
-    type: PropTypes.oneOf(['info', 'audio', 'video'])
+    type: PropTypes.oneOf(['info', 'media'])
   }),
 
   onChange: PropTypes.func,
