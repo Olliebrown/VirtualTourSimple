@@ -10,7 +10,7 @@ import CONFIG from './config.js'
 import localDB from './state/localDB.js'
 import { useLiveQuery } from 'dexie-react-hooks'
 
-import { preloadPanoKeyState, enabledHotSpotsState, enabledPanoRoomsState } from './state/fullTourState.js'
+import { preloadPanoKeyState, enabledHotSpotsState, enabledPanoRoomsState, disablePriorityState } from './state/fullTourState.js'
 import { loadingCurtainState, mediaSkipState, panoMediaPlayingState } from './state/globalState.js'
 
 // eslint-disable-next-line camelcase
@@ -80,7 +80,7 @@ function CloseTour (params) {
 }
 
 export default function VirtualTour (props) {
-  const { isMobile, allowMotion, startingRoom, enabledRooms, enabledHotSpots, reactRoot, rootElement } = props
+  const { isMobile, allowMotion, startingRoom, enableClose, disablePriority, enabledRooms, enabledHotSpots, reactRoot, rootElement } = props
 
   // Subscribe to global setting data
   const showHUDInterface = useLiveQuery(() => localDB.settings.get('showHUDInterface'))?.value ?? true
@@ -92,6 +92,12 @@ export default function VirtualTour (props) {
   React.useEffect(() => {
     setTimeout(() => setFadeInTimeout(true), CONFIG.FADE_TIMEOUT)
   }, [])
+
+  // On the first render, close the curtain
+  const setDisablePriority = useSetRecoilState(disablePriorityState)
+  React.useEffect(() => {
+    setDisablePriority(disablePriority)
+  }, [disablePriority, setDisablePriority])
 
   // On the first render, close the curtain
   const setLoadingCurtain = useSetRecoilState(loadingCurtainState)
@@ -160,7 +166,7 @@ export default function VirtualTour (props) {
       {/* MUI overlay */}
       {fadeInTimeout &&
         <React.Fragment>
-          <CloseTour rootElement={rootElement} reactRoot={reactRoot} />
+          {enableClose && <CloseTour rootElement={rootElement} reactRoot={reactRoot} />}
           <InfoModal />
           <HotSpotTooltip />
           <SkipButton />
@@ -185,6 +191,8 @@ VirtualTour.propTypes = {
   isMobile: PropTypes.bool,
   allowMotion: PropTypes.bool,
   startingRoom: PropTypes.string,
+  enableClose: PropTypes.bool,
+  disablePriority: PropTypes.bool,
   enabledRooms: PropTypes.arrayOf(PropTypes.string),
   enabledHotSpots: PropTypes.arrayOf(PropTypes.string),
   rootElement: PropTypes.any.isRequired,
@@ -194,6 +202,8 @@ VirtualTour.propTypes = {
 VirtualTour.defaultProps = {
   isMobile: false,
   allowMotion: false,
+  enableClose: false,
+  disablePriority: false,
   startingRoom: CONFIG.START_KEY,
   enabledRooms: [],
   enabledHotSpots: []

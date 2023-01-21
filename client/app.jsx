@@ -18,11 +18,16 @@ import Curtain from './components/Utility/Curtain.jsx'
 import { installMotionHandler } from './motionControlsPermission.js'
 
 // Main entry point for attaching the permission events and rendering the tour
-export function attachVirtualTour (startingRoom, permissionElement, rootRenderElement, enabledRooms, enabledHotSpots, textColor, backgroundColor) {
+export function attachVirtualTour (permissionElement, rootRenderElement, {
+  startingRoom, enableClose, disablePriority, enabledRooms, enabledHotSpots, textColor, backgroundColor
+}) {
   // Sanitize the inputs
-  startingRoom = startingRoom || CONFIG.START_KEY
   permissionElement = permissionElement ?? document.getElementById('virtualTourPermission')
   rootRenderElement = rootRenderElement ?? document.getElementById('virtualTourRoot')
+
+  startingRoom = startingRoom || CONFIG.START_KEY
+  enableClose = enableClose ?? false
+  disablePriority = disablePriority ?? false
   enabledRooms = enabledRooms ?? []
   enabledHotSpots = enabledHotSpots ?? []
   textColor = textColor ?? 'black'
@@ -49,6 +54,8 @@ export function attachVirtualTour (startingRoom, permissionElement, rootRenderEl
             isMobile={false} // TODO: Is this a bug?  Should it be something different?
             allowMotion={allowMotion}
             startingRoom={startingRoom}
+            enableClose={enableClose}
+            disablePriority={disablePriority}
             enabledRooms={enabledRooms}
             enabledHotSpots={enabledHotSpots}
             rootElement={rootRenderElement}

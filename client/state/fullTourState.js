@@ -38,6 +38,12 @@ export const enabledHotSpotsState = atom({
   default: []
 })
 
+// Disable any priority calculations
+export const disablePriorityState = atom({
+  key: 'disablePriority',
+  default: false
+})
+
 // The completed task list of each room
 // - Note: This list's length is the "priority level" of that room
 // - Only exits and hotspots with equal or higher priorities to the room are shown
@@ -53,6 +59,12 @@ export const currentRoomPriorityState = selector({
   key: 'currentRoomPriority',
 
   get: ({ get }) => {
+    // If disabled, just return max priority every time
+    const priorityDisabled = get(disablePriorityState)
+    if (priorityDisabled) {
+      return Number.MAX_SAFE_INTEGER
+    }
+
     // Grab data and current room key
     const roomCompletedTasks = get(roomCompletedTasksState)
     const currentPanoKey = get(currentPanoKeyState)

@@ -67,7 +67,11 @@
         const urlParams = new URLSearchParams(queryString)
 
         // Prepare the tour by attaching to the standard elements
-        attachVirtualTour(urlParams.has('start_room') ? urlParams.get('start_room') : null)
+        attachVirtualTour(null, null, {
+          startingRoom: urlParams.get('start_room') ?? undefined,
+          disablePriority: urlParams.get('disable_priority') === 'true',
+          enableClose: urlParams.get('enable_close') === 'true'
+        })
       })
     </script>
   </body>
