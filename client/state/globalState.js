@@ -21,11 +21,21 @@ export const mediaPlayingState = atom({
   default: false
 })
 
+export const mediaSkipState = atom({
+  key: 'mediaSkip',
+  default: false
+})
+
 // Info hotspot modal state
-export const infoHotspotState = atom({
-  key: 'infoHotspot',
+export const infoModalOpenState = atom({
+  key: 'infoModalOpen',
+  default: false
+})
+
+// Info hotspot modal state
+export const infoHotspotDataState = atom({
+  key: 'infoHotspotData',
   default: {
-    modalOpen: false,
     hovering: false,
     showAlways: false,
     title: '',

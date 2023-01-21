@@ -11,13 +11,13 @@ import localDB from './state/localDB.js'
 import { useLiveQuery } from 'dexie-react-hooks'
 
 import { preloadPanoKeyState, enabledHotSpotsState, enabledPanoRoomsState } from './state/fullTourState.js'
-import { loadingCurtainState } from './state/globalState.js'
+import { loadingCurtainState, mediaSkipState, mediaPlayingState } from './state/globalState.js'
 
 // eslint-disable-next-line camelcase
-import { useRecoilBridgeAcrossReactRoots_UNSTABLE, useSetRecoilState } from 'recoil'
+import { useRecoilBridgeAcrossReactRoots_UNSTABLE, useSetRecoilState, useRecoilValue } from 'recoil'
 
-import { Fab, Tooltip } from '@mui/material'
-import { Close as CloseIcon } from '@mui/icons-material'
+import { Fade, Fab, Tooltip, Button } from '@mui/material'
+import { Close as CloseIcon, FastForward as FastForwardIcon } from '@mui/icons-material'
 
 import PanoViewer from './components/CorePano/PanoViewer.jsx'
 import SettingsDial from './components/Utility/SettingsDial.jsx'
@@ -33,6 +33,29 @@ import { useProgress } from '@react-three/drei'
 import { setTextureAllDoneState, setTextureDoneState, setTextureFailedState } from './state/textureLoadingState.js'
 import EditHotspotContentModal from './components/HotSpots/EditHotspotContentModal.jsx'
 
+// Button to skip playing media
+function SkipButton (props) {
+  const mediaPlaying = useRecoilValue(mediaPlayingState)
+  const setMediaSkip = useSetRecoilState(mediaSkipState)
+
+  return (
+    <Fade in={mediaPlaying}>
+      <Tooltip title="Skip to end of video">
+        <Button
+          variant="contained"
+          size="large"
+          endIcon={<FastForwardIcon />}
+          onClick={() => setMediaSkip(true)}
+          sx={{ position: 'absolute', bottom: 24, right: 200 }}
+        >
+          Skip
+        </Button>
+      </Tooltip>
+    </Fade>
+  )
+}
+
+// Button to close the tour
 function CloseTour (params) {
   const { reactRoot, rootElement } = params
   const setLoadingCurtain = useSetRecoilState(loadingCurtainState)
@@ -140,6 +163,7 @@ export default function VirtualTour (props) {
           <CloseTour rootElement={rootElement} reactRoot={reactRoot} />
           <InfoModal />
           <HotSpotTooltip />
+          <SkipButton />
 
           {showHUDInterface &&
             <React.Fragment>

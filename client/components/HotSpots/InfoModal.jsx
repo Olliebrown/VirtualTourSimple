@@ -1,7 +1,8 @@
 import React from 'react'
 
-import { infoHotspotState } from '../../state/globalState.js'
-import { useRecoilState } from 'recoil'
+import { infoModalOpenState, infoHotspotDataState } from '../../state/globalState.js'
+import { currentRoomPriorityState } from '../../state/fullTourState.js'
+import { useRecoilState, useSetRecoilState, useRecoilValue } from 'recoil'
 
 import { Button, Dialog, DialogTitle, DialogContent, DialogActions } from '@mui/material'
 
@@ -12,26 +13,29 @@ import { useHotspotContent } from '../../state/hotspotInfoHelper.js'
 
 export default function InfoModal () {
   // Subscribe to changes in global state
-  const [infoHotspot, setInfoHotspotState] = useRecoilState(infoHotspotState)
+  const [modalOpen, setInfoModalOpen] = useRecoilState(infoModalOpenState)
+  const infoHotspotData = useRecoilValue(infoHotspotDataState)
+  const updateRoomTaskCompletion = useSetRecoilState(currentRoomPriorityState)
 
   // Track the slideshow state as [slide, build]
   const [slideIndex, setSlideIndex] = React.useState([0, 0])
 
   // Close the modal
   const requestClose = () => {
-    setInfoHotspotState({ ...infoHotspot, modalOpen: false })
+    setInfoModalOpen(false)
+    updateRoomTaskCompletion(infoHotspotData.title)
     setSlideIndex([0, 0])
   }
 
   // Note: may be null until retrieved
-  const hotspotContent = useHotspotContent(infoHotspot?.jsonFilename)
+  const hotspotContent = useHotspotContent(infoHotspotData?.jsonFilename)
   if (hotspotContent === null) {
     return null
   }
 
   return (
-    <Dialog fullWidth maxWidth='lg' onClose={requestClose} open={infoHotspot?.modalOpen}>
-      <DialogTitle>{infoHotspot?.title || 'Info'}</DialogTitle>
+    <Dialog fullWidth maxWidth='lg' onClose={requestClose} open={modalOpen}>
+      <DialogTitle>{infoHotspotData?.title || 'Info'}</DialogTitle>
       <DialogContent dividers>
         <HotspotContent
           hotspotImages={hotspotContent?.images}

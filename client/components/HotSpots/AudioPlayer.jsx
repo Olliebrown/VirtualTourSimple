@@ -69,8 +69,11 @@ export default function AudioPlayer (props) {
 
   // Be sure to unload audio when unmounted
   React.useEffect(() => {
-    return () => curAudioObj?.unload()
-  }, [curAudioObj])
+    return () => {
+      curAudioObj?.unload()
+      setMediaPlaying(false)
+    }
+  }, [curAudioObj, setMediaPlaying])
 
   // Play/pause management
   const onPlayPause = () => {

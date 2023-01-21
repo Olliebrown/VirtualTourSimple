@@ -46,7 +46,10 @@
         "type": "arrow"
       }
     ],
-    "key": "1S01_22"
+    "key": "1S01_22",
+    "video": {
+      "autoPlay": false
+    }
   },
   "1S01_10": {
     "label": "Boiler 1 Front",
@@ -85,7 +88,8 @@
         "type": "info",
         "longitude": 10.3,
         "latitude": 22,
-        "scale": 0.4
+        "scale": 0.4,
+        "priority": 1
       },
       {
         "id": "1S01_Burner",
@@ -94,7 +98,8 @@
         "type": "info",
         "longitude": -0.1,
         "latitude": 11.6,
-        "scale": 0.4
+        "scale": 0.4,
+        "priority": 1
       }
     ],
     "mapInfo": {
@@ -110,7 +115,8 @@
         "direction": -90,
         "type": "teleport",
         "distance": 8,
-        "height": -4
+        "height": -4,
+        "priority": 2
       },
       {
         "key": "1S01_22",
@@ -123,14 +129,16 @@
           98.6,
           0
         ],
-        "distance": 6
+        "distance": 6,
+        "priority": 2
       },
       {
         "key": "1S01_01",
         "direction": 150,
         "type": "teleport",
         "distance": 13,
-        "height": -3
+        "height": -3,
+        "priority": 2
       },
       {
         "key": "1S02_02",
@@ -138,14 +146,16 @@
         "type": "arrow",
         "distance": 5,
         "height": -2,
-        "shift": 3.2
+        "shift": 3.2,
+        "priority": 2
       },
       {
         "key": "1S02_11",
         "direction": -90,
         "type": "teleport",
         "height": -4,
-        "distance": 19
+        "distance": 19,
+        "priority": 2
       }
     ],
     "key": "1S01_10"

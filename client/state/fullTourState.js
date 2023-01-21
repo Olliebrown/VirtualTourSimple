@@ -38,6 +38,54 @@ export const enabledHotSpotsState = atom({
   default: []
 })
 
+// The completed task list of each room
+// - Note: This list's length is the "priority level" of that room
+// - Only exits and hotspots with equal or higher priorities to the room are shown
+export const roomCompletedTasksState = atom({
+  key: 'roomCompletedTasks',
+  default: {}
+})
+
+// Convenience derived state for the priority of the current room only
+// - Getter returns an integer that is the length of the task list
+// - Call the setter with a new task key to update the list
+export const currentRoomPriorityState = selector({
+  key: 'currentRoomPriority',
+
+  get: ({ get }) => {
+    // Grab data and current room key
+    const roomCompletedTasks = get(roomCompletedTasksState)
+    const currentPanoKey = get(currentPanoKeyState)
+
+    // Return the length of the task list or zero if it does not exist
+    return roomCompletedTasks[currentPanoKey]?.length ?? 0
+  },
+
+  set: ({ get, set }, newTaskKey) => {
+    // Don't add a null task key
+    if (!newTaskKey) {
+      console.error('Bad Task key', newTaskKey)
+      return
+    }
+
+    // Grab data and current room key
+    const roomCompletedTasks = get(roomCompletedTasksState)
+    const currentPanoKey = get(currentPanoKeyState)
+
+    // Extract the priority array
+    const existingPriority = roomCompletedTasks[currentPanoKey] ?? []
+
+    // Only update if this task is not already in the list
+    if (!existingPriority.some(item => item === newTaskKey)) {
+      // Spread existing priority object and overwrite priority of current room
+      set(roomCompletedTasksState, {
+        ...roomCompletedTasks,
+        [currentPanoKey]: [...existingPriority, newTaskKey]
+      })
+    }
+  }
+})
+
 // Convenience derived state for the data for the current pano only
 export const currentPanoDataState = selector({
   key: 'currentPanoData',

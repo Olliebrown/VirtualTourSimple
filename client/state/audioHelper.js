@@ -67,7 +67,13 @@ export function useAudioSource (audioSrcPrefix, onPlay, onEnd) {
         // Load the audio for playback using howler.js
         const newSound = new Howl({
           html5: true,
-          src: [`${CONFIG.INFO_AUDIO_PATH}/${audioSrcPrefix}.mp3`],
+          src: [
+            `${CONFIG.INFO_AUDIO_PATH}/${audioSrcPrefix}.webm`,
+            `${CONFIG.INFO_AUDIO_PATH}/${audioSrcPrefix}.mp3`,
+            `${CONFIG.INFO_AUDIO_PATH}/${audioSrcPrefix}.ac3`,
+            `${CONFIG.INFO_AUDIO_PATH}/${audioSrcPrefix}.m4a`,
+            `${CONFIG.INFO_AUDIO_PATH}/${audioSrcPrefix}.wav`
+          ],
 
           // Report any audio errors to the console
           onloaderror: (err) => {

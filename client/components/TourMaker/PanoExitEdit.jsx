@@ -122,6 +122,13 @@ export default function PanoExitEdit (params) {
               onChange={newVal => updateExit({ shift: newVal })}
               variant='standard'
             />
+
+            <NumberField
+              label='Priority'
+              value={exit.priority ?? 0}
+              onChange={newVal => updateExit({ priority: newVal })}
+              variant='standard'
+            />
           </Stack>
         </Box>
       </Collapse>

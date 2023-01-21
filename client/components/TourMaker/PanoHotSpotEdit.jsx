@@ -102,14 +102,14 @@ export default function PanoHotspotEdit (params) {
               min={-190}
               max={190}
               step={0.1}
-              value={hotspotInfo?.latitude || 0}
+              value={hotspotInfo?.latitude ?? 0}
               onChange={(e, newVal) => updateHotspot({ latitude: newVal })}
               aria-label="Latitude"
               valueLabelDisplay="auto"
             />
             <NumberField
               aria-label='Latitude'
-              value={hotspotInfo?.latitude || 0}
+              value={hotspotInfo?.latitude ?? 0}
               onChange={newVal => updateHotspot({ latitude: newVal })}
               variant='standard'
               size="small"
@@ -121,22 +121,29 @@ export default function PanoHotspotEdit (params) {
           <Stack direction="row" spacing={2}>
             <NumberField
               label='Dist'
-              value={hotspotInfo?.radius || 0}
+              value={hotspotInfo?.radius ?? 0}
               onChange={newVal => updateHotspot({ radius: newVal })}
               variant='standard'
             />
 
             <NumberField
               label='Scale'
-              value={hotspotInfo?.scale === undefined ? 1 : hotspotInfo?.scale}
+              value={hotspotInfo?.scale ?? 1}
               onChange={newVal => updateHotspot({ scale: newVal })}
+              variant='standard'
+            />
+
+            <NumberField
+              label='Priority'
+              value={hotspotInfo?.priority ?? 0}
+              onChange={newVal => updateHotspot({ priority: newVal })}
               variant='standard'
             />
 
             <TextField
               sx={{ width: '35%' }}
               label='Type'
-              value={hotspotInfo?.type || ''}
+              value={hotspotInfo?.type ?? ''}
               onChange={e => updateHotspot({ type: e.target.value })}
               variant='standard'
               select

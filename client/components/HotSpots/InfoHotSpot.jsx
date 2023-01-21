@@ -3,7 +3,7 @@ import CONFIG from '../../config.js'
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { infoHotspotState } from '../../state/globalState.js'
+import { infoModalOpenState, infoHotspotDataState } from '../../state/globalState.js'
 import { useSetRecoilState } from 'recoil'
 
 import { MathUtils } from 'three'
@@ -16,26 +16,23 @@ export default function InfoHotspot (props) {
   const { title, id, modal, longitude, latitude, radius, scale, ...rest } = props
 
   // Subscribe to pieces of global state
-  const setInfoHotspot = useSetRecoilState(infoHotspotState)
+  const setInfoModalOpen = useSetRecoilState(infoModalOpenState)
+  const setInfoHotspotData = useSetRecoilState(infoHotspotDataState)
 
-  // Track hovering state
+  // Track hovering state and modal state
   const [hovering, setHovering] = React.useState(false)
 
   // Show pointer cursor when hovered
   React.useEffect(() => {
+    setInfoHotspotData({ jsonFilename: `${id}.json`, title, showAlways: !modal, hovering })
     document.body.style.cursor = hovering ? 'pointer' : 'auto'
     return () => { document.body.style.cursor = 'auto' }
-  }, [hovering])
-
-  // Always synchronize the global info hotspot state
-  React.useEffect(() => {
-    setInfoHotspot({ modalOpen: false, showAlways: !modal, jsonFilename: `${id}.json`, title, hovering })
-  }, [id, modal, setInfoHotspot, title, hovering])
+  }, [id, title, hovering, modal, setInfoHotspotData])
 
   // Click callback function
   const onClick = React.useCallback(() => {
-    setInfoHotspot({ modalOpen: modal, showAlways: !modal, jsonFilename: `${id}.json`, title, hovering })
-  }, [id, modal, setInfoHotspot, title, hovering])
+    setInfoModalOpen(true)
+  }, [setInfoModalOpen])
 
   // Load texture for the hotspot
   const texture = useTexture(`${CONFIG.TEXTURE_IMAGE_PATH}/InfoIconTexture.png`)
