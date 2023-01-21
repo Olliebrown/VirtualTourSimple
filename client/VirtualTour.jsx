@@ -29,6 +29,7 @@ import HotSpotTooltip from './components/HotSpots/HotSpotTooltip.jsx'
 
 import { Canvas } from '@react-three/fiber'
 import { useProgress } from '@react-three/drei'
+import { Vector3, Spherical } from 'three'
 
 import { setTextureAllDoneState, setTextureDoneState, setTextureFailedState } from './state/textureLoadingState.js'
 import EditHotspotContentModal from './components/HotSpots/EditHotspotContentModal.jsx'
@@ -80,7 +81,7 @@ function CloseTour (params) {
 }
 
 export default function VirtualTour (props) {
-  const { isMobile, allowMotion, startingRoom, enableClose, disablePriority, enabledRooms, enabledHotSpots, reactRoot, rootElement } = props
+  const { isMobile, allowMotion, startingRoom, initialYaw, enableClose, disablePriority, enabledRooms, enabledHotSpots, reactRoot, rootElement } = props
 
   // Subscribe to global setting data
   const showHUDInterface = useLiveQuery(() => localDB.settings.get('showHUDInterface'))?.value ?? true
@@ -93,20 +94,13 @@ export default function VirtualTour (props) {
     setTimeout(() => setFadeInTimeout(true), CONFIG.FADE_TIMEOUT)
   }, [])
 
-  // On the first render, close the curtain
+  // On the first render, initialize some state
   const setDisablePriority = useSetRecoilState(disablePriorityState)
-  React.useEffect(() => {
-    setDisablePriority(disablePriority)
-  }, [disablePriority, setDisablePriority])
-
-  // On the first render, close the curtain
   const setLoadingCurtain = useSetRecoilState(loadingCurtainState)
   React.useEffect(() => {
-    setLoadingCurtain({
-      open: false,
-      text: 'Loading'
-    })
-  }, [setLoadingCurtain])
+    setDisablePriority(disablePriority)
+    setLoadingCurtain({ open: false, text: 'Loading' })
+  }, [setLoadingCurtain, disablePriority, setDisablePriority])
 
   // Initialize to the starting room if one was provided
   const setPreloadPanoKey = useSetRecoilState(preloadPanoKeyState)
@@ -152,10 +146,14 @@ export default function VirtualTour (props) {
     if (loadingProgress === 100) { setTextureAllDone() }
   }, [loadedItem, loadingErrors, loadingProgress, setTextureAllDone, setTextureDone, setTextureFailed])
 
+  // Calculate initial camera position
+  const startPosition = new Vector3().setFromSpherical(new Spherical(0.1, Math.PI / 2, initialYaw / 180 * Math.PI))
+  console.log(`${initialYaw} -> (${startPosition.x}, ${startPosition.y}, ${startPosition.z})`)
+
   return (
     <React.StrictMode>
       {/* Main three.js fiber canvas */}
-      <Canvas linear camera={{ position: [0, 0, 0.1] }}>
+      <Canvas linear camera={{ position: startPosition }}>
         <RecoilBridge>
           {/* Panorama viewer/tour */}
           {fadeInTimeout &&
@@ -191,10 +189,12 @@ VirtualTour.propTypes = {
   isMobile: PropTypes.bool,
   allowMotion: PropTypes.bool,
   startingRoom: PropTypes.string,
+  initialYaw: PropTypes.number,
   enableClose: PropTypes.bool,
   disablePriority: PropTypes.bool,
   enabledRooms: PropTypes.arrayOf(PropTypes.string),
   enabledHotSpots: PropTypes.arrayOf(PropTypes.string),
+
   rootElement: PropTypes.any.isRequired,
   reactRoot: PropTypes.any.isRequired
 }
@@ -205,6 +205,7 @@ VirtualTour.defaultProps = {
   enableClose: false,
   disablePriority: false,
   startingRoom: CONFIG.START_KEY,
+  initialYaw: 0,
   enabledRooms: [],
   enabledHotSpots: []
 }

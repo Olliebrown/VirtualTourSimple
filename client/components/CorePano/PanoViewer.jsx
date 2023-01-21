@@ -100,11 +100,13 @@ export default function PanoViewer (props) {
   }
   /* eslint-enable react-hooks/rules-of-hooks */
 
+  // Synchronize the camera yaw into global state
   const getThreeJS = useThree(state => state.get)
   const orbitChangeEvent = () => {
     const camera = getThreeJS().camera
     const camAngles = camera.getWorldDirection(new Vector3())
-    setCurrentCameraYaw(Math.atan2(camAngles.z, camAngles.x) + Math.PI)
+    const yaw = Math.atan2(camAngles.z, camAngles.x) + Math.PI
+    setCurrentCameraYaw(yaw)
   }
 
   return (
@@ -141,10 +143,12 @@ export default function PanoViewer (props) {
 
 PanoViewer.propTypes = {
   isMobile: PropTypes.bool,
-  allowMotion: PropTypes.bool
+  allowMotion: PropTypes.bool,
+  initialYaw: PropTypes.number
 }
 
 PanoViewer.defaultProps = {
   isMobile: false,
-  allowMotion: false
+  allowMotion: false,
+  initialYaw: 0
 }

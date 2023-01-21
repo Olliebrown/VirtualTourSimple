@@ -19,12 +19,13 @@ import { installMotionHandler } from './motionControlsPermission.js'
 
 // Main entry point for attaching the permission events and rendering the tour
 export function attachVirtualTour (permissionElement, rootRenderElement, {
-  startingRoom, enableClose, disablePriority, enabledRooms, enabledHotSpots, textColor, backgroundColor
+  startingRoom, enableClose, disablePriority, enabledRooms, enabledHotSpots, textColor, backgroundColor, initialYaw, ...rest
 }) {
-  // Sanitize the inputs
+  // Sanitize the HTML elements
   permissionElement = permissionElement ?? document.getElementById('virtualTourPermission')
   rootRenderElement = rootRenderElement ?? document.getElementById('virtualTourRoot')
 
+  // Sanitize the options
   startingRoom = startingRoom || CONFIG.START_KEY
   enableClose = enableClose ?? false
   disablePriority = disablePriority ?? false
@@ -32,6 +33,12 @@ export function attachVirtualTour (permissionElement, rootRenderElement, {
   enabledHotSpots = enabledHotSpots ?? []
   textColor = textColor ?? 'black'
   backgroundColor = backgroundColor ?? 'lightgrey'
+  initialYaw = initialYaw ?? 0
+
+  // Log any unexpected options
+  for (const param in rest) {
+    console.warning(`Unknown virtual tour option: ${param}`)
+  }
 
   // Initiate the React rendering
   const doRender = (allowMotion) => {
@@ -53,6 +60,7 @@ export function attachVirtualTour (permissionElement, rootRenderElement, {
           <VirtualTour
             isMobile={false} // TODO: Is this a bug?  Should it be something different?
             allowMotion={allowMotion}
+            initialYaw={initialYaw}
             startingRoom={startingRoom}
             enableClose={enableClose}
             disablePriority={disablePriority}

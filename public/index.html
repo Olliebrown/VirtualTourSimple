@@ -70,7 +70,8 @@
         attachVirtualTour(null, null, {
           startingRoom: urlParams.get('start_room') ?? undefined,
           disablePriority: urlParams.get('disable_priority') === 'true',
-          enableClose: urlParams.get('enable_close') === 'true'
+          enableClose: urlParams.get('enable_close') === 'true',
+          initialYaw: parseFloat(urlParams.get('initial_yaw') ?? '0')
         })
       })
     </script>
