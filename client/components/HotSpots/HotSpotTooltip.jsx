@@ -3,8 +3,7 @@ import * as React from 'react'
 import { infoHotspotState } from '../../state/globalState.js'
 import { useRecoilValue } from 'recoil'
 
-import { Tooltip } from '@mui/material'
-import { Box } from '@mui/system'
+import { Popper, Fade, Paper, Typography } from '@mui/material'
 
 export default function HotSpotTooltip (props) {
   // Subscribe to pieces of global state
@@ -18,10 +17,8 @@ export default function HotSpotTooltip (props) {
 
   // Update along with mouse position
   const handleMouseMove = (event) => {
-    positionRef.current = { x: event.clientX, y: event.clientY }
-    if (popperRef.current != null) {
-      popperRef.current.update()
-    }
+    positionRef.current = { x: event.clientX + 20, y: event.clientY + 20 }
+    popperRef?.current?.update()
   }
 
   // Install a global event listener to follow the mouse
@@ -39,17 +36,20 @@ export default function HotSpotTooltip (props) {
   }, [positionRef])
 
   return (
-    <Tooltip
-      title={infoHotspot?.title}
-      placement="top"
-      PopperProps={{
-        popperRef,
-        anchorEl: (
-          infoHotspot?.hovering ? { getBoundingClientRect } : null
-        )
-      }}
+    <Popper
+      popperRef={popperRef}
+      open={infoHotspot?.hovering}
+      anchorEl={{ getBoundingClientRect }}
+      transition
+      placement="bottom-start"
     >
-      <Box sx={{ display: 'none' }} />
-    </Tooltip>
+      {({ TransitionProps }) => (
+        <Fade {...TransitionProps}>
+          <Paper>
+            <Typography sx={{ p: 2 }}>{infoHotspot?.title}</Typography>
+          </Paper>
+        </Fade>
+      )}
+    </Popper>
   )
 }

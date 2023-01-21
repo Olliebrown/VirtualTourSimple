@@ -3,11 +3,8 @@ import PropTypes from 'prop-types'
 
 import CONFIG from '../../config.js'
 
-import localDB from '../../state/localDB.js'
-import { useLiveQuery } from 'dexie-react-hooks'
-
 import { loadingCurtainState, mediaPlayingState } from '../../state/globalState.js'
-import { currentPanoKeyState, currentPanoDataState, enabledPanoRoomsState, enabledHotSpotsState } from '../../state/fullTourState.js'
+import { currentPanoKeyState, currentPanoDataState } from '../../state/fullTourState.js'
 import { setTextureLoadingState } from '../../state/textureLoadingState.js'
 import { useRecoilValue, useSetRecoilState } from 'recoil'
 
@@ -18,33 +15,17 @@ import { Euler, MathUtils, BackSide } from 'three'
 import { NO_CROP, useVideoData } from './videoDataHooks.js'
 
 import CutoutMaterial from '../../shaders/CutoutShader.js'
-import InfoHotspot from '../HotSpots/InfoHotSpot.jsx'
-import ExitIndicator from './ExitIndicator.jsx'
 
 export default function PanoImage (props) {
-  const { xRotate, yRotate, zRotate } = props
-
-  // Subscribe to changes in needed global state
-  const showExits = useLiveQuery(() => localDB.settings.get('showExits'))?.value ?? true
+  const { xRotate, yRotate, zRotate, exits } = props
 
   // Subscribe to pano DB changes
   const currentPanoKey = useRecoilValue(currentPanoKeyState)
   const currentPanoData = useRecoilValue(currentPanoDataState)
-  const enabledRooms = useRecoilValue(enabledPanoRoomsState)
-  const enabledHotSpots = useRecoilValue(enabledHotSpotsState)
   const mediaPlaying = useRecoilValue(mediaPlayingState)
 
   // Loading curtain state
   const setLoadingCurtain = useSetRecoilState(loadingCurtainState)
-
-  // Create filtered arrays of exits and hotspots
-  const filteredExits = enabledRooms.length > 0
-    ? currentPanoData?.exits?.filter(exit => enabledRooms.includes(exit.key))
-    : currentPanoData?.exits
-
-  const filteredHotSpots = enabledHotSpots.length > 0
-    ? currentPanoData?.hotspots?.filter(hotspot => enabledHotSpots.includes(hotspot.id))
-    : currentPanoData?.hotspots
 
   // Load the base image texture
   const setTextureLoading = useSetRecoilState(setTextureLoadingState)
@@ -53,9 +34,9 @@ export default function PanoImage (props) {
   const textureFiles = React.useMemo(() => ([
     `${CONFIG.PANO_IMAGE_PATH}/${currentPanoKey}_Left.ktx2`,
     // `${CONFIG.PANO_IMAGE_PATH}/${currentPanoKey}_Right.ktx2`,
-    ...(filteredExits ? filteredExits.map(exit => `${CONFIG.PANO_IMAGE_PATH}/${exit.key}_Left.ktx2`) : [])
-    // ...(filteredExits ? filteredExits.map(exit => `${CONFIG.PANO_IMAGE_PATH}/${exit.key}_Right.ktx2`) : [])
-  ]), [filteredExits, currentPanoKey])
+    ...(exits.map(exit => `${CONFIG.PANO_IMAGE_PATH}/${exit.key}_Left.ktx2`))
+    // ...(exits.map(exit => `${CONFIG.PANO_IMAGE_PATH}/${exit.key}_Right.ktx2`))
+  ]), [exits, currentPanoKey])
 
   React.useEffect(() => {
     setTextureLoading(textureFiles)
@@ -79,33 +60,11 @@ export default function PanoImage (props) {
     panoMesh.current.material.uniforms.playbackTime.value = videoRef?.currentTime || 0.0
   })
 
-  // Build the exit arrows
-  const exitArrows = filteredExits?.map((exit, i) => {
-    return (
-      <React.Suspense key={`${exit.key}-${i}`} fallback={null}>
-        <ExitIndicator {...exit} destination={exit.key} />
-      </React.Suspense>
-    )
-  })
-
-  // Build the info hot spots
-  const hotspots = filteredHotSpots?.map(info => {
-    const key = `${currentPanoKey}-${info.id}`
-    switch (info.type) {
-      case 'info': return (<InfoHotspot key={key} {...info} />)
-    }
-    return null
-  })
-
   // Is there a video to show and is it playing
   const showVideo = !!panoVideo && mediaPlaying
 
   return (
     <React.Fragment>
-      {/* Add extra geometry objects */}
-      {showExits && exitArrows}
-      {showExits && hotspots}
-
       {/* The main pano image sphere geometry and shader */}
       <mesh
         ref={panoMesh}
@@ -142,11 +101,15 @@ export default function PanoImage (props) {
 PanoImage.propTypes = {
   xRotate: PropTypes.number,
   yRotate: PropTypes.number,
-  zRotate: PropTypes.number
+  zRotate: PropTypes.number,
+  exits: PropTypes.arrayOf(PropTypes.shape({
+    key: PropTypes.string.isRequired
+  }))
 }
 
 PanoImage.defaultProps = {
   xRotate: 0,
   yRotate: 0,
-  zRotate: 0
+  zRotate: 0,
+  exits: []
 }

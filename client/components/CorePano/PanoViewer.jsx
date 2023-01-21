@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 import localDB, { updateSetting } from '../../state/localDB.js'
 import { useLiveQuery } from 'dexie-react-hooks'
 
-import { currentPanoKeyState, preloadPanoKeyState, currentPanoDataState } from '../../state/fullTourState'
+import { currentPanoKeyState, preloadPanoKeyState, currentPanoDataState, enabledPanoRoomsState, enabledHotSpotsState } from '../../state/fullTourState'
 import { currentCameraYawState } from '../../state/globalState.js'
 
 import { useRecoilValue, useSetRecoilState } from 'recoil'
@@ -20,6 +20,7 @@ import { useHotkeys } from 'react-hotkeys-hook'
 import PanoImage from './PanoImage.jsx'
 import PanoTextureLoader from './PanoTextureLoader.jsx'
 import PanoGrid from './PanoGrid.jsx'
+import PanoExtras from './PanoExtras.jsx'
 
 export default function PanoViewer (props) {
   const { isMobile, allowMotion } = props
@@ -43,6 +44,17 @@ export default function PanoViewer (props) {
   /* eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => { updateSetting('invertOrbitControls', isMobile) }, [])
   /* eslint-enable react-hooks/exhaustive-deps */
+
+  // Create filtered arrays of exits and hotspots
+  const enabledRooms = useRecoilValue(enabledPanoRoomsState)
+  const filteredExits = enabledRooms.length > 0
+    ? currentPanoData?.exits?.filter(exit => enabledRooms.includes(exit.key))
+    : currentPanoData?.exits
+
+  const enabledHotSpots = useRecoilValue(enabledHotSpotsState)
+  const filteredHotSpots = enabledHotSpots.length > 0
+    ? currentPanoData?.hotspots?.filter(hotspot => enabledHotSpots.includes(hotspot.id))
+    : currentPanoData?.hotspots
 
   // Sphere rotation state
   const [xRotate, setXRotate] = useState(currentPanoData?.alignment?.[0] || 0)
@@ -111,12 +123,17 @@ export default function PanoViewer (props) {
         reverseOrbit={invertOrbitControls}
         onChange={orbitChangeEvent}
       />
+
       <ambientLight />
       <pointLight position={[10, 10, 10]} />
+
       <React.Suspense fallback={null}>
         {!!preloadPanoKey && <PanoTextureLoader />}
       </React.Suspense>
-      {!!currentPanoKey && <PanoImage xRotate={xRotate} yRotate={yRotate} zRotate={zRotate} />}
+
+      {!!currentPanoKey && showExits && <PanoExtras exits={filteredExits} hotSpots={filteredHotSpots} panoKey={currentPanoKey} />}
+      {!!currentPanoKey && <PanoImage xRotate={xRotate} yRotate={yRotate} zRotate={zRotate} exits={filteredExits} />}
+
       {CONFIG.ENABLE_ALIGNMENT_GRID && showGrid && <PanoGrid />}
     </>
   )
