@@ -1,7 +1,7 @@
 import { extend } from '@react-three/fiber'
 import { shaderMaterial } from '@react-three/drei'
 
-const CutoutShaderInfo = {
+export const CutoutShaderInfo = {
   uniforms: {
     panoImage: undefined,
     panoVideo: undefined,

@@ -5,6 +5,14 @@ import CONFIG from './config.js'
 import React from 'react'
 import { createRoot } from 'react-dom/client'
 
+// MUI Emotion styles custom cache
+import createCache from '@emotion/cache'
+import { CacheProvider } from '@emotion/react'
+
+// MUI custom theme management
+import { ThemeProvider } from '@mui/system'
+import { createTheme } from '@mui/material/styles'
+
 // Installation of recoil state
 import { RecoilRoot } from 'recoil'
 
@@ -48,30 +56,67 @@ export function attachVirtualTour (permissionElement, rootRenderElement, {
     rootRenderElement.scrollIntoView(true)
     document.body.style.overflow = 'hidden'
 
+    // Attach using a shadow-dom to avoid style collisions
+    const shadowContainer = rootRenderElement.attachShadow({ mode: 'open' })
+    const emotionRoot = document.createElement('style')
+    const shadowRootElement = document.createElement('div')
+    shadowContainer.appendChild(emotionRoot)
+    shadowContainer.appendChild(shadowRootElement)
+
+    // Make theme with proper portal root
+    const shadowDOMTheme = createTheme({
+      components: {
+        MuiPopover: {
+          defaultProps: {
+            container: shadowRootElement
+          }
+        },
+        MuiPopper: {
+          defaultProps: {
+            container: shadowRootElement
+          }
+        },
+        MuiModal: {
+          defaultProps: {
+            container: shadowRootElement
+          }
+        }
+      }
+    })
+
     // Make fullscreen
     rootRenderElement.style.width = '100%'
     rootRenderElement.style.height = '100%'
+    shadowRootElement.style.width = '100%'
+    shadowRootElement.style.height = '100%'
+
+    // Setup an emotion style cache
+    const cache = createCache.default({ key: 'css', prepend: true, container: emotionRoot })
 
     // Render the root
-    const reactRoot = createRoot(rootRenderElement)
+    const reactRoot = createRoot(shadowRootElement)
     reactRoot.render(
-      <RecoilRoot>
-        <ErrorBoundary FallbackComponent={ErrorFallback}>
-          <VirtualTour
-            isMobile={false} // TODO: Is this a bug?  Should it be something different?
-            allowMotion={allowMotion}
-            initialYaw={initialYaw}
-            startingRoom={startingRoom}
-            enableClose={enableClose}
-            disablePriority={disablePriority}
-            enabledRooms={enabledRooms}
-            enabledHotSpots={enabledHotSpots}
-            rootElement={rootRenderElement}
-            reactRoot={reactRoot}
-          />
-          <Curtain color={textColor} background={backgroundColor} />
-        </ErrorBoundary>
-      </RecoilRoot>
+      <CacheProvider value={cache}>
+        <ThemeProvider theme={shadowDOMTheme}>
+          <RecoilRoot>
+            <ErrorBoundary FallbackComponent={ErrorFallback}>
+              <VirtualTour
+                isMobile={false} // TODO: Is this a bug?  Should it be something different?
+                allowMotion={allowMotion}
+                initialYaw={initialYaw}
+                startingRoom={startingRoom}
+                enableClose={enableClose}
+                disablePriority={disablePriority}
+                enabledRooms={enabledRooms}
+                enabledHotSpots={enabledHotSpots}
+                rootElement={rootRenderElement}
+                reactRoot={reactRoot}
+              />
+              <Curtain color={textColor} background={backgroundColor} />
+            </ErrorBoundary>
+          </RecoilRoot>
+        </ThemeProvider>
+      </CacheProvider>
     )
   }
 

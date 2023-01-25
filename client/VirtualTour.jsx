@@ -11,13 +11,19 @@ import localDB from './state/localDB.js'
 import { useLiveQuery } from 'dexie-react-hooks'
 
 import { preloadPanoKeyState, enabledHotSpotsState, enabledPanoRoomsState, disablePriorityState } from './state/fullTourState.js'
-import { loadingCurtainState, mediaSkipState, panoMediaPlayingState } from './state/globalState.js'
+import { loadingCurtainState, mediaSkipState, mediaPauseState, mediaRewindState, panoMediaPlayingState } from './state/globalState.js'
 
 // eslint-disable-next-line camelcase
-import { useRecoilBridgeAcrossReactRoots_UNSTABLE, useSetRecoilState, useRecoilValue } from 'recoil'
+import { useRecoilBridgeAcrossReactRoots_UNSTABLE, useSetRecoilState, useRecoilState, useRecoilValue } from 'recoil'
 
-import { Fade, Fab, Tooltip, Button } from '@mui/material'
-import { Close as CloseIcon, FastForward as FastForwardIcon } from '@mui/icons-material'
+import { Fade, Fab, Tooltip, Button, ButtonGroup } from '@mui/material'
+import {
+  Close as CloseIcon,
+  FastForward as FastForwardIcon,
+  Pause as PauseIcon,
+  PlayArrow as PlayIcon,
+  SkipPrevious as RewindIcon
+} from '@mui/icons-material'
 
 import PanoViewer from './components/CorePano/PanoViewer.jsx'
 import SettingsDial from './components/Utility/SettingsDial.jsx'
@@ -37,21 +43,35 @@ import EditHotspotContentModal from './components/HotSpots/EditHotspotContentMod
 // Button to skip playing media
 function SkipButton (props) {
   const panoMediaPlaying = useRecoilValue(panoMediaPlayingState)
+  const setMediaRewind = useSetRecoilState(mediaRewindState)
+  const [mediaPaused, setMediaPaused] = useRecoilState(mediaPauseState)
   const setMediaSkip = useSetRecoilState(mediaSkipState)
 
   return (
     <Fade in={panoMediaPlaying}>
-      <Tooltip title="Skip to end of video">
-        <Button
-          variant="contained"
-          size="large"
-          endIcon={<FastForwardIcon />}
-          onClick={() => setMediaSkip(true)}
-          sx={{ position: 'absolute', bottom: 24, right: 200 }}
-        >
-          Skip
-        </Button>
-      </Tooltip>
+      <ButtonGroup
+        size="large"
+        variant="contained"
+        sx={{ position: 'absolute', bottom: 24, right: 200 }}
+      >
+        <Tooltip title="Restart Video">
+          <Button onClick={() => setMediaRewind(true)}>
+            <RewindIcon />
+          </Button>
+        </Tooltip>
+
+        <Tooltip title={mediaPaused ? 'Resume Video' : 'Pause Video'}>
+          <Button onClick={() => setMediaPaused(!mediaPaused)}>
+            {mediaPaused ? <PlayIcon/> : <PauseIcon />}
+          </Button>
+        </Tooltip>
+
+        <Tooltip title="Skip to End of Video">
+          <Button onClick={() => setMediaSkip(true)}>
+            <FastForwardIcon />
+          </Button>
+        </Tooltip>
+      </ButtonGroup>
     </Fade>
   )
 }
@@ -147,8 +167,9 @@ export default function VirtualTour (props) {
   }, [loadedItem, loadingErrors, loadingProgress, setTextureAllDone, setTextureDone, setTextureFailed])
 
   // Calculate initial camera position
-  const startPosition = new Vector3().setFromSpherical(new Spherical(0.1, Math.PI / 2, initialYaw / 180 * Math.PI))
-  console.log(`${initialYaw} -> (${startPosition.x}, ${startPosition.y}, ${startPosition.z})`)
+  const startPosition = new Vector3().setFromSpherical(
+    new Spherical(0.1, Math.PI / 2, initialYaw / 180 * Math.PI)
+  )
 
   return (
     <React.StrictMode>

@@ -26,6 +26,16 @@ export const panoMediaPlayingState = atom({
   default: false
 })
 
+export const mediaRewindState = atom({
+  key: 'mediaRewind',
+  default: false
+})
+
+export const mediaPauseState = atom({
+  key: 'mediaPause',
+  default: false
+})
+
 export const mediaSkipState = atom({
   key: 'mediaSkip',
   default: false

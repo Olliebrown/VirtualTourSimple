@@ -99,7 +99,7 @@
         "longitude": 10.3,
         "latitude": 22,
         "scale": 0.4,
-        "priority": 1
+        "priority": 0
       },
       {
         "id": "1S01_Burner",
@@ -109,7 +109,7 @@
         "longitude": -0.1,
         "latitude": 11.6,
         "scale": 0.4,
-        "priority": 1
+        "priority": 0
       }
     ],
     "mapInfo": {
@@ -126,7 +126,7 @@
         "type": "teleport",
         "distance": 8,
         "height": -4,
-        "priority": 2
+        "priority": 1
       },
       {
         "key": "1S01_22",
@@ -140,7 +140,7 @@
           0
         ],
         "distance": 6,
-        "priority": 2
+        "priority": 1
       },
       {
         "key": "1S01_01",
@@ -148,7 +148,7 @@
         "type": "teleport",
         "distance": 13,
         "height": -3,
-        "priority": 2
+        "priority": 1
       },
       {
         "key": "1S02_02",
@@ -157,7 +157,7 @@
         "distance": 5,
         "height": -2,
         "shift": 3.2,
-        "priority": 2
+        "priority": 1
       },
       {
         "key": "1S02_11",
@@ -165,7 +165,7 @@
         "type": "teleport",
         "height": -4,
         "distance": 19,
-        "priority": 2
+        "priority": 1
       }
     ],
     "key": "1S01_10"
@@ -1754,18 +1754,7 @@
       -141.6,
       -181.3
     ],
-    "hotspots": [
-      {
-        "id": "1S05_Chiller",
-        "modal": true,
-        "title": "Chiller Overview",
-        "type": "info",
-        "longitude": 0,
-        "latitude": 12.9,
-        "radius": 12,
-        "scale": 1
-      }
-    ],
+    "hotspots": [],
     "mapInfo": {
       "building": "Cooling Plant",
       "floor": "Ground Floor",
@@ -1913,7 +1902,40 @@
       153,
       -180
     ],
-    "hotspots": [],
+    "video": {
+      "href": "SteveChillerIntro-ChromaKeyed.mp4",
+      "loop": false,
+      "autoPlay": false,
+      "chromaKeyColor": {
+        "r": 0,
+        "g": 0.6,
+        "b": 0
+      },
+      "chromaKeyWeights": {
+        "r": 3,
+        "g": 1,
+        "b": 2
+      },
+      "fadeTime": 1,
+      "crop": {
+        "x": 0.54,
+        "y": 0.24,
+        "width": 0.125,
+        "height": 0.45
+      }
+    },
+    "hotspots": [
+      {
+        "id": "1S05_ChillerWelcome",
+        "modal": true,
+        "title": "Chiller Plant Introduction",
+        "type": "media",
+        "longitude": -75,
+        "latitude": -8,
+        "scale": 0.6,
+        "priority": 0
+      }
+    ],
     "mapInfo": {
       "building": "Cooling Plant",
       "floor": "Ground Floor",

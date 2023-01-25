@@ -57,8 +57,8 @@ export default function ExitIndicator (props) {
 
   // Create array of texture filenames
   const textureFiles = React.useMemo(() => ([
-    `${CONFIG.PANO_IMAGE_PATH}/${destination || CONFIG.START_KEY}_Left.ktx2`,
-    `${CONFIG.PANO_IMAGE_PATH}/${destination || CONFIG.START_KEY}_Right.ktx2`
+    `${CONFIG.PANO_IMAGE_PATH}/${destination || CONFIG.START_KEY}_Left.ktx2`
+    // `${CONFIG.PANO_IMAGE_PATH}/${destination || CONFIG.START_KEY}_Right.ktx2`
   ]), [destination])
 
   // Track hovering state

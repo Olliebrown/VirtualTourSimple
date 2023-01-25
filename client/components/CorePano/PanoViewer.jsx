@@ -3,7 +3,7 @@ import CONFIG from '../../config.js'
 import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 
-import localDB, { updateSetting } from '../../state/localDB.js'
+import localDB, { INVERT_CONTROLS_DEFAULT, MOTION_CONTROLS_DEFAULT, updateSetting } from '../../state/localDB.js'
 import { useLiveQuery } from 'dexie-react-hooks'
 
 import { currentPanoKeyState, preloadPanoKeyState, currentPanoDataState, enabledPanoRoomsState, enabledHotSpotsState } from '../../state/fullTourState'
@@ -30,8 +30,8 @@ export default function PanoViewer (props) {
   const showExits = useLiveQuery(() => localDB.settings.get('showExits'))?.value ?? true
   const showHUDInterface = useLiveQuery(() => localDB.settings.get('showHUDInterface'))?.value ?? true
 
-  const enableMotionControls = useLiveQuery(() => localDB.settings.get('enableMotionControls'))?.value ?? false
-  const invertOrbitControls = useLiveQuery(() => localDB.settings.get('invertOrbitControls'))?.value ?? false
+  const enableMotionControls = useLiveQuery(() => localDB.settings.get('enableMotionControls'))?.value ?? MOTION_CONTROLS_DEFAULT
+  const invertOrbitControls = useLiveQuery(() => localDB.settings.get('invertOrbitControls'))?.value ?? INVERT_CONTROLS_DEFAULT
 
   // Subscribe to pano DB changes
   const currentPanoKey = useRecoilValue(currentPanoKeyState)
@@ -40,10 +40,6 @@ export default function PanoViewer (props) {
 
   // Update camera yaw in global state
   const setCurrentCameraYaw = useSetRecoilState(currentCameraYawState)
-
-  /* eslint-disable react-hooks/exhaustive-deps */
-  useEffect(() => { updateSetting('invertOrbitControls', isMobile) }, [])
-  /* eslint-enable react-hooks/exhaustive-deps */
 
   // Create filtered arrays of exits and hotspots
   const enabledRooms = useRecoilValue(enabledPanoRoomsState)
@@ -122,7 +118,7 @@ export default function PanoViewer (props) {
         enabled={!allowMotion || !enableMotionControls}
         enablePan={false}
         enableZoom={false}
-        reverseOrbit={invertOrbitControls}
+        reverseOrbit={isMobile ? !invertOrbitControls : invertOrbitControls}
         onChange={orbitChangeEvent}
       />
 

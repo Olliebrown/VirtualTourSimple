@@ -1,7 +1,7 @@
 import CONFIG from '../../config.js'
 import React from 'react'
 
-import { panoMediaPlayingState, mediaSkipState } from '../../state/globalState.js'
+import { panoMediaPlayingState, mediaRewindState, mediaPauseState, mediaSkipState } from '../../state/globalState.js'
 import { useRecoilState, useSetRecoilState } from 'recoil'
 import { currentRoomPriorityState } from '../../state/fullTourState.js'
 
@@ -22,6 +22,8 @@ export function useVideoData (currentPanoData) {
 
   // Global state
   const [panoMediaPlaying, setMediaPlaying] = useRecoilState(panoMediaPlayingState)
+  const [mediaRewind, setMediaRewind] = useRecoilState(mediaRewindState)
+  const [mediaPause, setMediaPaused] = useRecoilState(mediaPauseState)
   const [mediaSkip, setMediaSkip] = useRecoilState(mediaSkipState)
   const updateRoomTaskCompletion = useSetRecoilState(currentRoomPriorityState)
 
@@ -40,7 +42,10 @@ export function useVideoData (currentPanoData) {
         setPanoVideo(vid)
 
         // Synchronize playback state
-        vid.onplay = () => setMediaPlaying(true)
+        vid.onplay = () => {
+          setMediaPaused(false)
+          setMediaPlaying(true)
+        }
         vid.onended = () => {
           updateRoomTaskCompletion(currentPanoData.video.href)
           setMediaPlaying(false)
@@ -59,15 +64,15 @@ export function useVideoData (currentPanoData) {
 
       // Clean up when the user leaves this pano
       return () => {
-        // Stop streaming media
-        if (panoVideo !== null) {
-          panoVideo.pause()
-          panoVideo.remove()
-        }
+        // // Stop streaming media
+        // if (panoVideo !== null) {
+        //   panoVideo.pause()
+        //   panoVideo.remove()
+        // }
 
-        // Reset video state
-        setMediaPlaying(false)
-        setVideoCrop(NO_CROP)
+        // // Reset video state
+        // setMediaPlaying(false)
+        // setVideoCrop(NO_CROP)
       }
     } else {
       // No video to load so ensure video state is back to default
@@ -75,19 +80,38 @@ export function useVideoData (currentPanoData) {
       setMediaPlaying(false)
       setVideoCrop(NO_CROP)
     }
-  }, [currentPanoData?.video, panoVideo, setMediaPlaying, updateRoomTaskCompletion])
+  }, [currentPanoData?.video, panoVideo, setMediaPaused, setMediaPlaying, updateRoomTaskCompletion])
 
   // Respond to a change in the video playing state
   React.useEffect(() => {
-    if (mediaSkip && isVideoPlaying(panoVideo)) {
+    if (mediaRewind && panoVideo.currentTime > 0) {
+      panoVideo.currentTime = 0
+      setMediaRewind(false)
+    }
+
+    if (mediaSkip) {
+      // Jump to the end and unpause if needed
       panoVideo.currentTime = panoVideo.duration - 1.0
+      setMediaPaused(false)
       setMediaSkip(false)
     }
 
-    if (panoMediaPlaying && !isVideoPlaying(panoVideo)) {
-      panoVideo?.play()
+    if (isVideoPlaying(panoVideo)) {
+      if (mediaPause) {
+        panoVideo?.pause()
+      }
+    } else if (!isVideoPlaying(panoVideo)) {
+      if (panoMediaPlaying && !mediaPause) {
+        const playPromise = panoVideo?.play()
+        if (playPromise) {
+          playPromise.catch((error) => {
+            console.error('Playback failed')
+            console.error(error)
+          })
+        }
+      }
     }
-  }, [mediaSkip, panoMediaPlaying, panoVideo, setMediaSkip])
+  }, [mediaPause, mediaRewind, mediaSkip, panoMediaPlaying, panoVideo, setMediaPaused, setMediaRewind, setMediaSkip])
 
   return [panoVideo, videoCrop]
 }

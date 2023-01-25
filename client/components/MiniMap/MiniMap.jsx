@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import CONFIG from '../../config.js'
 
-import { fullTourDataState, currentPanoKeyState, currentPanoDataState } from '../../state/fullTourState.js'
+import { fullTourDataState, currentPanoKeyState, currentPanoDataState, enabledPanoRoomsState } from '../../state/fullTourState.js'
 import { currentCameraYawState } from '../../state/globalState.js'
 import { useRecoilState, useRecoilValue } from 'recoil'
 
@@ -32,6 +32,7 @@ export default function MiniMap (props) {
   // Subscribe to pano DB changes
   const currentPanoKey = useRecoilValue(currentPanoKeyState)
   const [currentPanoData, setCurrentPanoData] = useRecoilState(currentPanoDataState)
+  const enabledPanoRooms = useRecoilValue(enabledPanoRoomsState)
 
   // Get latest map info data
   const [fullTourData, setFullTourData] = useRecoilState(fullTourDataState)
@@ -83,7 +84,7 @@ export default function MiniMap (props) {
   const allPins = React.useMemo(() => {
     if (mapInfo) {
       return Object.keys(fullTourData)
-        .filter(key => key !== currentPanoKey)
+        .filter(key => key !== currentPanoKey && enabledPanoRooms.includes(key))
         .map(key => ({ ...fullTourData[key].mapInfo, key }))
         .filter(curInfo => curInfo && curInfo.floor === mapInfo.floor && (curInfo.x !== 0 || curInfo.y !== 0))
         .map(curInfo => (
@@ -98,9 +99,8 @@ export default function MiniMap (props) {
     } else {
       return []
     }
-  }, [currentPanoData?.exits, currentPanoKey, fullTourData, mapInfo])
+  }, [currentPanoData?.exits, currentPanoKey, fullTourData, mapInfo, enabledPanoRooms])
 
-  // console.log({ ...mapInfo, currentPano })
   return (
     <React.Fragment>
       <Fade in={!showMap}>

@@ -14,7 +14,7 @@ import { Euler, MathUtils, BackSide } from 'three'
 
 import { NO_CROP, useVideoData } from './videoDataHooks.js'
 
-import CutoutMaterial from '../../shaders/CutoutShader.js'
+import CutoutMaterial, { CutoutShaderInfo } from '../../shaders/CutoutShader.js'
 
 export default function PanoImage (props) {
   const { xRotate, yRotate, zRotate, exits } = props
@@ -86,8 +86,12 @@ export default function PanoImage (props) {
           cropBox={showVideo ? videoCrop : NO_CROP}
           enableVideo={showVideo}
           playbackDuration={panoVideo?.duration || 0.0}
-          // chromaKeyColor={currentPanoData?.video?.chromaKeyColor || undefined}
-          // chromaKeyWeights={currentPanoData?.video?.chromaKeyWeights || undefined}
+          chromaKeyColor={
+            currentPanoData?.video?.chromaKeyColor || CutoutShaderInfo.uniforms.chromaKeyColor
+          }
+          chromaKeyWeights={
+            currentPanoData?.video?.chromaKeyWeights || CutoutShaderInfo.uniforms.chromaKeyWeights
+          }
           fadeTime={currentPanoData?.video?.fadeTime || undefined}
         >
           {showVideo && <videoTexture attach="panoVideo" args={[panoVideo]}/>}
