@@ -14,7 +14,7 @@ import { MathUtils } from 'three'
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader.js'
 
 import { useSpring, animated } from '@react-spring/three'
-import { Edges } from '@react-three/drei'
+import { Edges, Text } from '@react-three/drei'
 
 // Different object parameters
 const OBJ_DATA = {
@@ -50,7 +50,7 @@ const FAILED_COLOR = 0x883333
 
 export default function ExitIndicator (props) {
   // Destructure props
-  const { type, shift, height, distance, direction, alignment, destination, ...rest } = props
+  const { type, caption, shift, height, distance, direction, alignment, destination, ...rest } = props
 
   const setPreloadPanoKey = useSetRecoilState(preloadPanoKeyState)
   const setLoadingCurtain = useSetRecoilState(loadingCurtainState)
@@ -147,6 +147,24 @@ export default function ExitIndicator (props) {
         rotation-z={objInfo.rotation[2] + (alignment[2] / 180 * Math.PI)}
       >
         {meshes}
+        {caption !== '' && hovering &&
+          <Text
+            position={[0, -1.5, 0]}
+            scale={[0.033, 0.033, 0.033]}
+            rotation-y={Math.PI / 2.0}
+            color={'#000000'}
+            fontSize={12}
+            lineHeight={1}
+            letterSpacing={0.02}
+            textAlign={'center'}
+            anchorX="center"
+            anchorY="middle"
+            outlineWidth={0.5}
+            outlineColor="#ffffff"
+            {...rest}
+          >
+            {caption}
+          </Text>}
       </group>
     </group>
   )
@@ -154,6 +172,7 @@ export default function ExitIndicator (props) {
 
 ExitIndicator.propTypes = {
   type: PropTypes.oneOf(['arrow', 'teleport', 'door', 'stairsUp', 'stairsDown']),
+  caption: PropTypes.string,
   shift: PropTypes.number,
   height: PropTypes.number,
   distance: PropTypes.number,
@@ -164,6 +183,7 @@ ExitIndicator.propTypes = {
 
 ExitIndicator.defaultProps = {
   type: 'arrow',
+  caption: '',
   shift: 0,
   height: -2.5,
   distance: 5,

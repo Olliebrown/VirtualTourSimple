@@ -30,6 +30,7 @@
         "key": "1S01_10",
         "direction": -90,
         "type": "door",
+        "caption": "Exit Control Room",
         "shift": -7,
         "distance": 7,
         "height": -1,
@@ -43,6 +44,7 @@
         "key": "1N01_11",
         "direction": 180,
         "type": "door",
+        "caption": "Exit Control Room",
         "distance": 15,
         "height": -1,
         "alignment": [
@@ -143,6 +145,7 @@
         "key": "1S01_22",
         "direction": 120,
         "type": "door",
+        "caption": "Enter Control Room",
         "height": -1.5,
         "shift": 0.5,
         "alignment": [
@@ -479,6 +482,7 @@
         "key": "1S05_22",
         "direction": -90,
         "type": "door",
+        "caption": "Enter Chiller Plant",
         "distance": 6,
         "hotspots": [
           {
@@ -1154,6 +1158,7 @@
         "key": "1N01_11",
         "direction": 0,
         "type": "door",
+        "caption": "Exit Water Treatment",
         "alignment": [
           0,
           90,
@@ -1698,6 +1703,7 @@
         "key": "LS05_20",
         "direction": 0,
         "type": "door",
+        "caption": "Stairs to First Floor",
         "alignment": [
           0,
           90,
@@ -1734,6 +1740,7 @@
         "key": "LS05_10b",
         "direction": 180,
         "type": "door",
+        "caption": "Enter Basement",
         "distance": 10,
         "height": -6,
         "alignment": [
@@ -2159,6 +2166,7 @@
         "key": "1S04_20",
         "direction": 90,
         "type": "door",
+        "caption": "Exit Chiller Plant",
         "distance": 8,
         "shift": -3,
         "alignment": [
@@ -2286,6 +2294,7 @@
         "key": "1S01_22",
         "direction": 8,
         "type": "door",
+        "caption": "Enter Control Room",
         "distance": 10,
         "height": -1,
         "shift": 0.2,
@@ -2306,6 +2315,7 @@
         "key": "1W01_11",
         "direction": 180,
         "type": "door",
+        "caption": "Enter Water Treatment",
         "distance": 8,
         "height": -1.5,
         "shift": -1,
@@ -3240,6 +3250,7 @@
         "key": "2S05_12",
         "direction": -90,
         "type": "door",
+        "caption": "Enter Chiller Plant",
         "height": -1,
         "alignment": [
           0,
@@ -3282,6 +3293,7 @@
         "key": "2S04_20",
         "direction": 39,
         "type": "door",
+        "caption": "Exit Chiller Plant",
         "distance": 10,
         "height": -1,
         "alignment": [
@@ -3708,6 +3720,7 @@
         "key": "RS05_11",
         "direction": -75,
         "type": "door",
+        "caption": "Enter Cooling Tower",
         "distance": 20,
         "alignment": [
           0,
@@ -3739,6 +3752,7 @@
         "key": "RS03_01b",
         "direction": 180,
         "type": "door",
+        "caption": "Exit Cooling Tower",
         "alignment": [
           0,
           90,
