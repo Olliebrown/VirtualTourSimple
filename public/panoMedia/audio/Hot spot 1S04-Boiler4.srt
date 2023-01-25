@@ -5,132 +5,116 @@ of a central heating system where  
 
 2
 00:00:03,840 --> 00:00:07,440
-it generates high-pressured steam and 
+it generates high-pressure steam and 
 sends it to buildings around campus.
 
 3
-00:00:07,440 --> 00:00:10,620
-Boiler four is an O-type water-tube boiler  
+00:00:07,440 --> 00:00:12,900
+Boiler 4 is an O-type water-tube boiler 
+produced by Cleaver-Brooks and was put  
 
 4
-00:00:10,620 --> 00:00:14,940
-produced by Cleaver-Brooks and 
-was put into operation in 1973.
+00:00:12,900 --> 00:00:18,540
+into operation in 1973. It can generate 
+about 90,000 pounds of saturated steam  
 
 5
-00:00:14,940 --> 00:00:18,720
-It can generate about 90,000 
-pounds of saturated steam per  
+00:00:18,540 --> 00:00:25,080
+per hour at a pressure of 114.7 PSI and 
+a temperature of 338 degrees Fahrenheit.
 
 6
-00:00:18,720 --> 00:00:25,080
-hour at the pressure of 114.7 PSI and a 
-temperature of 338 degrees Fahrenheit.
-
-7
 00:00:25,080 --> 00:00:28,800
 This section will explain how steam 
 is generated inside the boiler.
 
-8
-00:00:30,060 --> 00:00:34,200
+7
+00:00:30,060 --> 00:00:34,380
 Water-tube boilers are designed to 
-circulate hot combustion gases from  
+circulate hot combustion gases from the
 
-9
-00:00:34,200 --> 00:00:37,740
-the burner around the outside of a 
+8
+00:00:34,380 --> 00:00:37,740
+burner around the outside of a 
 large number of water-filled tubes.
 
+9
+00:00:37,740 --> 00:00:43,260
+As the flue gas passes through the tubes, it heats 
+the tubes, which then heats the water. When water  
+
 10
-00:00:37,740 --> 00:00:42,420
-As the flue gas passes through the tubes, it 
-heats the tubes, which then heats the water.
+00:00:43,260 --> 00:00:48,180
+is heated in the boiler at atmospheric pressure, 
+the water temperature increases until the boiling  
 
 11
-00:00:42,420 --> 00:00:47,580
-When water is heated in the boiler at atmospheric 
-pressure, the water temperature increases until  
+00:00:48,180 --> 00:00:53,460
+point or saturated temperature, and the volume of 
+water increases slightly. Once the water reaches  
 
 12
-00:00:47,580 --> 00:00:51,900
-the boiling point or saturated temperature, 
-and the volume of water increases slightly.
+00:00:53,460 --> 00:00:56,880
+saturation temperature (the temperature 
+at which it will boil at that pressure),  
 
 13
-00:00:51,900 --> 00:00:56,400
-Once the water reaches saturation temperature 
-(the temperature at which it will boil at  
+00:00:56,880 --> 00:01:01,860
+the water temperature remains there even 
+if heat is added. The heat added does  
 
 14
-00:00:56,400 --> 00:01:00,540
-that pressure), the water temperature 
-remains there even if heat is added.
-
-15
-00:01:00,540 --> 00:01:03,720
-The heat added does not increase 
-the water temperature, but the  
-
-16
-00:01:03,720 --> 00:01:06,000
+00:01:01,860 --> 00:01:06,000
+not increase the water temperature, but the 
 water gets converted from liquid into steam.
 
+15
+00:01:06,000 --> 00:01:09,780
+Bubbles of steam are produced and 
+rise to the steam drum on the top  
+
+16
+00:01:09,780 --> 00:01:12,840
+of the boiler. These bubbles 
+burst and release steam into  
+
 17
-00:01:06,000 --> 00:01:10,500
-Bubbles of steam are produced and rise to 
-the steam drum on the top of the boiler.
+00:01:12,840 --> 00:01:16,200
+the space above the steam drum and 
+are ready to enter the steam system.
 
 18
-00:01:10,500 --> 00:01:13,020
-These bubbles burst and release steam into the  
+00:01:18,000 --> 00:01:22,200
+The saturated temperature of steam varies 
+with the boiler pressure at which water is  
 
 19
-00:01:13,020 --> 00:01:16,200
-space above the steam drum and are 
-ready to enter the steam system.
+00:01:22,200 --> 00:01:25,260
+heated. The saturated temperature 
+rises when pressure is increased,  
 
 20
-00:01:18,000 --> 00:01:22,500
-The saturated temperature of steam varies with 
-the boiler pressure at which water is heated.
-
-21
-00:01:22,500 --> 00:01:25,260
-The saturated temperature rises 
-when pressure is increased,  
-
-22
 00:01:25,260 --> 00:01:28,260
 and the temperature goes down 
 when pressure is decreased.
 
+21
+00:01:28,260 --> 00:01:34,080
+For example, the saturated temperature of the 
+steam is 212 degrees Fahrenheit at the atmospheric  
+
+22
+00:01:34,080 --> 00:01:40,140
+pressure of 14.7 psi. This state of steam is 
+represented by point A on a diagram called the  
+
 23
-00:01:28,260 --> 00:01:31,080
-For example, the saturated 
-temperature of the steam  
+00:01:40,140 --> 00:01:46,680
+Liquid-vapor saturation curve of water. Inside the 
+boiler, where the pressure is set at 114.7 psi,  
 
 24
-00:01:31,080 --> 00:01:36,060
-is 212 degrees Fahrenheit at the 
-atmospheric pressure of 14.7 psi.
-
-25
-00:01:36,060 --> 00:01:40,140
-This state of steam is represented 
-by point A on a diagram called the  
-
-26
-00:01:40,140 --> 00:01:42,060
-Liquid-vapor saturation curve of water.
-
-27
-00:01:42,060 --> 00:01:46,680
-Inside the boiler, where the 
-pressure is set at 114.7 psi,  
-
-28
-00:01:46,680 --> 00:01:51,960
+00:01:46,680 --> 00:01:51,840
 the temperature of saturated steam increases 
 to 338 degrees Fahrenheit at point B.
 

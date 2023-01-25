@@ -41,6 +41,7 @@ export default function HotSpotTooltip (props) {
   switch (hotspotData?.type) {
     case 'info': tooltipTitle = 'Learn about ' + tooltipTitle; break
     case 'media': tooltipTitle = 'Watch ' + tooltipTitle; break
+    case 'audio': tooltipTitle = 'Listen to ' + tooltipTitle; break
     default: tooltipTitle = 'undefined'; break
   }
 

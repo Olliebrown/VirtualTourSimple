@@ -6,7 +6,18 @@
       -28,
       179
     ],
-    "hotspots": [],
+    "hotspots": [
+      {
+        "id": "1S01-ControlRoom",
+        "modal": true,
+        "title": "Heating Plant Control Room",
+        "type": "audio",
+        "longitude": -87.3,
+        "latitude": 3,
+        "scale": 0.4,
+        "priority": 0
+      }
+    ],
     "mapInfo": {
       "building": "Heating Plant",
       "floor": "Ground Floor",

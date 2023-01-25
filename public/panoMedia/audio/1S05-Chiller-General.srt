@@ -1,79 +1,75 @@
 1
-00:00:00,000 --> 00:00:02,820
-Attached to the heating plant 
-is the central chiller plant  
+00:00:00,000 --> 00:00:04,920
+Attached to the heating plant is the central 
+chiller plant that has been operating since 2007,  
 
 2
-00:00:02,820 --> 00:00:07,500
-that has been operating since 2007, 
-consisting of three 800 Ton chillers.
+00:00:04,920 --> 00:00:11,220
+consisting of three 800 ton chillers. These highly 
+efficient, industrial-grade units, provide chilled  
 
 3
-00:00:07,500 --> 00:00:12,540
-These highly efficient, industrial-grade 
-units, provide chilled water to 20 buildings  
+00:00:11,220 --> 00:00:16,379
+water to 20 buildings on campus through over ten 
+thousand feet of insulated underground piping.
 
 4
-00:00:12,540 --> 00:00:16,379
-on campus through over ten thousand 
-feet of insulated underground piping.
+00:00:16,379 --> 00:00:20,160
+The chilled supply water enters the 
+building and flows through a heat exchanger,  
 
 5
-00:00:16,379 --> 00:00:19,680
-The chilled supply water enters the 
-building and flows through a heat  
+00:00:20,160 --> 00:00:23,400
+absorbing heat from the building 
+space before recirculating back  
 
 6
-00:00:19,680 --> 00:00:21,900
-exchanger, absorbing heat from the building space  
+00:00:23,400 --> 00:00:26,040
+to the central plant through 
+a closed loop return line.  
 
 7
-00:00:21,900 --> 00:00:26,040
-before recirculating back to the central 
-plant through a closed-loop return line.
-
-8
-00:00:29,460 --> 00:00:34,560
+00:00:27,300 --> 00:00:32,400
 The central heating and chiller plants at UW Stout 
 constitute an efficient way of air conditioning  
 
-9
-00:00:34,560 --> 00:00:39,240
+8
+00:00:32,400 --> 00:00:37,080
 and heating the high-density building clusters 
 on the campus called District Energy Systems.
 
-10
-00:00:43,020 --> 00:00:48,360
+9
+00:00:38,280 --> 00:00:43,620
 By delivering thermal energy directly in a usable 
 form and combining loads for multiple buildings,  
 
-11
-00:00:48,360 --> 00:00:53,880
+10
+00:00:43,620 --> 00:00:49,140
 District Energy Systems create economies of scale 
-that drive efficiency and reduce energy costs.
+that drive efficiency and reduce energy costs.  
+
+11
+00:00:50,520 --> 00:00:55,860
+According to the United Nations Environment 
+Program, known as the UNEP, District Energy  
 
 12
-00:00:56,040 --> 00:01:01,440
-According to the United Nations Environment 
-Program, known as UNEP, District Energy  
-
-13
-00:01:01,440 --> 00:01:06,540
+00:00:55,860 --> 00:01:00,960
 Systems represent a best practice approach 
 that can help cities, populated urban areas,  
 
-14
-00:01:06,540 --> 00:01:12,720
-and campuses “to move towards climate-resilient, 
-resource-efficient, and low-carbon pathways.”
+13
+00:01:00,960 --> 00:01:07,200
+and campuses "to move forward towards climate-resilient, 
+resource-efficient, and low-carbon pathways."
 
-15
-00:01:16,860 --> 00:01:22,380
+14
+00:01:08,400 --> 00:01:13,920
 Many equipment, processes, and systems in the 
 heating and chiller plants are relevant resources  
 
-16
-00:01:22,380 --> 00:01:27,600
+15
+00:01:13,920 --> 00:01:19,080
 for students in environmental science, applied 
 science, engineering, and engineering technology.
 

@@ -23,6 +23,7 @@ export default function HotSpotIndicator (props) {
     // Synchronize hotspot data
     setHotspotData({
       jsonFilename: (type === 'info' ? `${id}.json` : undefined),
+      id,
       title,
       type,
       showAlways: !modal,
@@ -74,7 +75,7 @@ export default function HotSpotIndicator (props) {
 HotSpotIndicator.propTypes = {
   title: PropTypes.string,
   id: PropTypes.string,
-  type: PropTypes.oneOf(['info', 'media', 'unknown']),
+  type: PropTypes.oneOf(['info', 'media', 'audio', 'unknown']),
   modal: PropTypes.bool,
   hidden: PropTypes.bool,
 

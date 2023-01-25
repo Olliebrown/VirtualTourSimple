@@ -21,6 +21,11 @@ export const infoAudioPlayingState = atom({
   default: false
 })
 
+export const roomAudioState = atom({
+  key: 'roomAudio',
+  default: false
+})
+
 export const panoMediaPlayingState = atom({
   key: 'panoMediaPlaying',
   default: false

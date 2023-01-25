@@ -9,129 +9,116 @@ Each chiller produces a cooling capacity 
 of 800 tons using refrigerant R134a.
 
 3
-00:00:10,620 --> 00:00:14,640
-The chiller consists of an open motor 
-mounted to a compressor, condenser,  
+00:00:10,620 --> 00:00:13,920
+The chiller consists of an open 
+motor mounted to a compressor,  
 
 4
-00:00:14,640 --> 00:00:18,120
-evaporator, and variable 
-control or expansion valve.
+00:00:13,920 --> 00:00:18,120
+condenser, evaporator, and variable 
+flow control or expansion valve.
 
 5
-00:00:20,580 --> 00:00:24,900
+00:00:19,200 --> 00:00:24,060
 The chiller is controlled by the Microcomputer 
-Control Center that monitors its operation.
+Control Center that monitors its operation. The  
 
 6
-00:00:24,900 --> 00:00:29,640
-The operating status, temperatures, 
-pressures, and other information pertinent  
+00:00:24,060 --> 00:00:29,340
+operating status, temperatures, pressures, and 
+other information pertinent to operation of the  
 
 7
-00:00:29,640 --> 00:00:33,780
-to operation of the chiller are automatically 
-displayed and read on the graphic display.
+00:00:29,340 --> 00:00:32,400
+chiller are automatically displayed 
+and read on the graphic display.
 
 8
-00:00:36,000 --> 00:00:40,020
+00:00:33,780 --> 00:00:37,800
 Let’s look at the water-cooled chiller 
 and its diagram in the inserted pictures:
 
 9
-00:00:40,020 --> 00:00:45,720
+00:00:37,800 --> 00:00:43,500
 In operation, water at 54 degrees Fahrenheit from 
 the primary circuit flows through the evaporator,  
 
 10
-00:00:45,720 --> 00:00:50,940
+00:00:43,500 --> 00:00:48,660
 where boiling refrigerant absorbs heat, making 
-it become chilled water at 44 degrees Farenheit.
+it become chilled water at 44 degrees Fahrenheit.  
 
 11
-00:00:53,820 --> 00:00:58,020
+00:00:50,100 --> 00:00:54,300
 The chilled water is then piped through a 
 secondary circuit to buildings around campus.
 
 12
-00:00:58,020 --> 00:01:02,100
+00:00:54,300 --> 00:00:58,440
 From here, it flows through fan coil 
 units or other air conditioning units,  
 
 13
-00:01:02,100 --> 00:01:04,379
-absorbing heat from the air at terminal buildings.
+00:00:58,440 --> 00:01:01,560
+absorbing heat from the air at 
+terminal buildings. The warmed  
 
 14
-00:01:04,379 --> 00:01:08,399
-The warmed water is then returned to the 
-chiller to complete the chilled water circuit.
+00:01:01,560 --> 00:01:04,740
+water is then returned to the chiller 
+to complete the chilled water circuit.
 
 15
-00:01:13,740 --> 00:01:18,060
+00:01:05,940 --> 00:01:10,260
 The refrigerant vapor, which is produced 
 by the boiling action in the evaporator,  
 
 16
-00:01:18,060 --> 00:01:21,660
+00:01:10,260 --> 00:01:13,860
 flows to the compressor where a 
 rotating impeller increases its  
 
 17
-00:01:21,660 --> 00:01:24,480
+00:01:13,860 --> 00:01:16,680
 pressure and temperature, then 
 discharges into the condenser.
 
 18
-00:01:27,240 --> 00:01:30,480
-Condenser water at about 
-85 degrees Fahrenheit flows  
+00:01:17,880 --> 00:01:22,800
+Condenser water at about 85 degrees Fahrenheit 
+flows through the condenser tubes absorbing heat  
 
 19
-00:01:30,480 --> 00:01:33,660
-through the condenser tubes absorbing 
-heat from the hot refrigerant vapor.
+00:01:22,800 --> 00:01:27,180
+from the hot refrigerant vapor. This causes 
+the refrigerant to condense. After the heat  
 
 20
-00:01:33,660 --> 00:01:37,440
-This causes the refrigerant to condense. 
-After the heat absorption process,  
+00:01:27,180 --> 00:01:32,460
+absorption process, the condenser water becomes 
+warmer, at around 95 degrees Fahrenheit. It is  
 
 21
-00:01:37,440 --> 00:01:41,220
-the condenser water becomes warmer, 
-at around 95 degrees Fahrenheit.
+00:01:32,460 --> 00:01:36,780
+then pumped into a cooling tower where it yields 
+the most heat energy to the fast-moving air inside  
 
 22
-00:01:41,220 --> 00:01:43,680
-It is then pumped into a cooling tower where it  
+00:01:36,780 --> 00:01:41,640
+the tower. Afterward, the water flows back to the 
+condenser to complete the condenser water circuit.
 
 23
-00:01:43,680 --> 00:01:46,680
-yields the most heat energy to the 
-fast-moving air inside the tower.
-
-24
-00:01:46,680 --> 00:01:51,000
-Afterward, the water flows back to the condenser 
-to complete the condenser water circuit.
-
-25
-00:01:51,000 --> 00:01:55,200
+00:01:41,640 --> 00:01:45,840
 Meanwhile, the condensed refrigerant drains 
 from the condenser into the liquid return line,  
 
-26
-00:01:55,200 --> 00:01:59,220
-where a variable orifice meters the flow 
-of liquid refrigerant to the evaporator.
+24
+00:01:45,840 --> 00:01:48,480
+where a variable orifice meters the flow of liquid  
 
-27
-00:01:59,220 --> 00:02:01,320
-This completes the refrigerant circuit.
-
-28
-00:02:03,840 --> 00:02:07,380
-Click on the hotspot to learn more 
-about the operation of each component.
+25
+00:01:48,480 --> 00:01:51,960
+refrigerant to the evaporator. This 
+completes the refrigerant circuit.
 

@@ -20,7 +20,7 @@ const ALL_DIRS = [
 
 // Filter function to leave out certain dirs and their contents
 const DO_NOT_COPY = [
-  path.join('audio', 'old'),
+  path.join('audio', 'Old'),
   path.join('audio', 'processing'),
   '~WIP'
 ]

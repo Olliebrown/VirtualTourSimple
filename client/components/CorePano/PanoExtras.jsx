@@ -35,7 +35,7 @@ export default function PanoExtras (props) {
     const key = `${panoKey}-${info.id}`
     switch (info.type) {
       case 'info': return (<InfoHotspot key={key} {...info} />)
-      case 'media': return (<MediaHotspot key={key} {...info} />)
+      case 'media': case 'audio': return (<MediaHotspot key={key} {...info} />)
     }
     return null
   })

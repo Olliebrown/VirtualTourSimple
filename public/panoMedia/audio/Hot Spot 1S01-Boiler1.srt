@@ -1,5 +1,5 @@
 1
-00:00:00,000 --> 00:00:05,340
+00:00:00,060 --> 00:00:05,340
 Boiler 1 was a D-type water-tube boiler 
 produced by English Boiler in 1953.
 
@@ -14,74 +14,71 @@ in 1965. It was then upgraded 
 to a new larger unit in 2005.
 
 4
-00:00:15,180 --> 00:00:18,660
+00:00:14,760 --> 00:00:18,240
 Water-tube boilers are designed 
 to circulate hot combustion gases  
 
 5
-00:00:18,660 --> 00:00:22,680
+00:00:18,240 --> 00:00:22,260
 or flue gas around the outside of a 
 large number of water-filled tubes.
 
 6
-00:00:22,680 --> 00:00:26,340
+00:00:22,260 --> 00:00:25,920
 As the flue gas passes through 
 the tubes, it heats the tubes,  
 
 7
-00:00:26,340 --> 00:00:28,860
+00:00:25,920 --> 00:00:28,440
 which then heat the water to produce steam.
 
 8
-00:00:30,960 --> 00:00:35,400
-The tubes extend between an upper header, 
-called a steam drum, and a lower header,  
+00:00:29,700 --> 00:00:34,800
+The tubes extend between an upper header, called 
+a steam drum, and a lower header, called a mud  
 
 9
-00:00:35,400 --> 00:00:38,340
-called a mud drum or sometimes, a water drum.
+00:00:34,800 --> 00:00:40,860
+drum or sometimes, a water drum. Tubes are either 
+straight or bent into simple or complex shapes.
 
 10
-00:00:38,340 --> 00:00:42,180
-Tubes are either straight or bent 
-into simple or complex shapes.
-
-11
-00:00:45,780 --> 00:00:49,380
+00:00:42,060 --> 00:00:45,660
 Water-tube boilers are designed 
 to circulate hot combustion gases  
 
-12
-00:00:49,380 --> 00:00:53,580
+11
+00:00:45,660 --> 00:00:49,860
 or flue gas around the outside of a 
 large number of water-filled tubes.
 
-13
-00:00:53,580 --> 00:00:58,620
+12
+00:00:49,860 --> 00:00:54,900
 As the flue gas passes through the tubes, 
 it heats the tubes, which then heats the  
 
-14
-00:00:58,620 --> 00:01:02,940
+13
+00:00:54,900 --> 00:00:59,220
 water. As more heat is transferred, the 
 water temperature keeps rising until it  
 
-15
-00:01:02,940 --> 00:01:08,460
+14
+00:00:59,220 --> 00:01:04,740
 reaches the saturation temperature and water 
 changes phase from liquid to vapor or steam.
 
+15
+00:01:06,000 --> 00:01:10,920
+Boiler 1 can produce 25,000 pounds 
+of saturated steam per hour at the  
+
 16
-00:01:10,800 --> 00:01:17,220
-Boiler 1 can produce 25,000 pounds of saturated 
-steam per hour at the pressure of 100 psi,  
+00:01:10,920 --> 00:01:16,320
+pressure of 100 psi, at a temperature 
+of 338 degrees Fahrenheit. The steam  
 
 17
-00:01:17,760 --> 00:01:20,280
-at a temperature of 338 degrees Fahrenheit.
-
-18
-00:01:20,280 --> 00:01:24,600
-The steam is sent out to the buildings on 
-campus through an underground piping system.
+00:01:16,320 --> 00:01:19,740
+is sent out to the buildings on campus 
+through an underground piping system.
 

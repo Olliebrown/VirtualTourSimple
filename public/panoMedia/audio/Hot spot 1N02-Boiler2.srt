@@ -9,120 +9,121 @@ in the 1960s as coal-fired boilers and have 
 been producing steam at the plant since 1965.
 
 3
-00:00:15,240 --> 00:00:20,040
+00:00:13,560 --> 00:00:18,300
 By March 4, 2020, the university made 
 the switch to natural gas as the main  
 
 4
-00:00:20,040 --> 00:00:23,880
+00:00:18,300 --> 00:00:22,200
 fuel for all boilers at the plant to 
 reduce campus emissions, operations,  
 
 5
-00:00:23,880 --> 00:00:25,020
+00:00:22,200 --> 00:00:23,340
 and maintenance
 costs.
 
 6
-00:00:25,020 --> 00:00:28,080
+00:00:23,340 --> 00:00:26,400
 According to the United States 
 Energy Information Administration,  
 
 7
-00:00:28,080 --> 00:00:33,480
-burning natural gas emits about half of the 
-carbon dioxide, or CO2, as burning coal.
+00:00:26,400 --> 00:00:32,460
+burning natural gas emits about half of the carbon 
+dioxide, or CO2, as burning coal. Using natural  
 
 8
-00:00:33,480 --> 00:00:38,760
-Using natural gas also helps eliminate equipment 
-and labor cost for coal and ash handling controls.
+00:00:32,460 --> 00:00:37,080
+gas also helps eliminate equipment and labor 
+cost for the coal and ash handling controls.
 
 9
-00:00:38,760 --> 00:00:42,300
+00:00:37,080 --> 00:00:40,620
 Now, all boilers can use fuel 
-oil as a backup fuel source.
+oil as a backup fuel source.  
 
 10
-00:00:46,260 --> 00:00:51,060
-The tubes extend between an upper header, called 
-a steam drum, and a lower header, called a water  
+00:00:41,820 --> 00:00:45,060
+The tubes extend between an upper 
+header, called a steam drum,
 
 11
-00:00:51,060 --> 00:00:56,520
-drum or sometimes, a mud drum. Tubes are either 
-straight or bent into simple or complex shapes.
+00:00:45,060 --> 00:00:48,780
+and a lower header, called a water 
+drum or sometimes, a mud drum.
 
 12
-00:01:00,540 --> 00:01:05,760
+00:00:48,780 --> 00:00:52,080
+Tubes are either straight or bent 
+into simple or complex shapes.
+
+13
+00:00:53,340 --> 00:00:58,500
 Water-tube boilers are designed to circulate hot 
 combustion gases or flue gas around the outside  
 
-13
-00:01:05,760 --> 00:01:10,140
+14
+00:00:58,500 --> 00:01:02,880
 of a large number of water-filled tubes. 
 As the flue gas passes through the tubes,  
 
-14
-00:01:10,140 --> 00:01:12,540
+15
+00:01:02,880 --> 00:01:05,340
 it heats the tubes, which then heats the water.
 
-15
-00:01:12,540 --> 00:01:16,260
+16
+00:01:05,340 --> 00:01:09,000
 As more heat is transferred, the water 
 temperature keeps rising until it  
 
-16
-00:01:16,260 --> 00:01:21,420
-reaches the saturation temperature, and water 
+17
+00:01:09,000 --> 00:01:14,220
+reaches the saturation temperature and water 
 changes phase from liquid to vapor or steam.
 
-17
-00:01:25,500 --> 00:01:29,040
-The temperature of saturated steam 
-rises when pressure is increased,  
-
 18
-00:01:29,040 --> 00:01:31,740
-and the temperature goes down 
-when the pressure is decreased.
+00:01:15,360 --> 00:01:20,100
+The temperature of saturated steam rises when 
+pressure is increased, and the temperature goes  
 
 19
-00:01:31,740 --> 00:01:36,060
-For example, the temperature of 
-saturated steam is 212 degrees  
+00:01:20,100 --> 00:01:25,920
+down when pressure is decreased. For example, 
+the temperature of saturated steam is212 degrees  
 
 20
-00:01:36,060 --> 00:01:41,100
+00:01:25,920 --> 00:01:30,960
 Fahrenheit at the atmospheric pressure 
-of zero pounds per square inch (or PSI).
+of zero pounds per square inch, or PSI.
 
 21
-00:01:41,100 --> 00:01:45,540
+00:01:30,960 --> 00:01:35,400
 However, inside the boiler where 
 the pressure is set at 100 PSI,  
 
 22
-00:01:45,540 --> 00:01:49,980
+00:01:35,400 --> 00:01:39,840
 the temperature of saturated steam 
-increases to 338 degrees Fahrenheit.  
+increases to 338 degrees Fahrenheit.
 
 23
-00:01:49,980 --> 00:01:55,800
+00:01:39,840 --> 00:01:45,660
 A plot showing this relationship is known in 
-Thermodynamics as liquid-vapor saturation curve.
+Thermodynamics as liquid-vapor saturation curve.  
 
 24
-00:01:59,820 --> 00:02:05,460
+00:01:46,740 --> 00:01:52,440
 Boiler 2 can produce 25,000 pounds of 
 steam per hour at the pressure of 100 PSI,  
 
 25
-00:02:05,460 --> 00:02:08,039
-and temperature of 338 degrees Fahrenheit.
+00:01:52,440 --> 00:01:56,220
+and temperature of 338 degrees 
+Fahrenheit. This steam is sent  
 
 26
-00:02:08,039 --> 00:02:12,300
-This steam is sent out to the buildings on 
-campus through underground piping systems.
+00:01:56,220 --> 00:01:59,160
+out to the buildings on campus 
+through underground piping systems.
 

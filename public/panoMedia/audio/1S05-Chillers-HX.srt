@@ -11,7 +11,7 @@ properly for the most efficient heat transfer.
 3
 00:00:10,380 --> 00:00:14,700
 A baffle is also used to prevent direct 
-high-velocity impingement on the tubes.
+high-velocity impingement on the tubes.  
 
 4
 00:00:14,700 --> 00:00:18,360
@@ -21,7 +21,7 @@ at the bottom of the condenser shell  
 5
 00:00:18,360 --> 00:00:23,400
 providing highly effective liquid refrigerant 
-subcooling for the highest cycle efficiency.
+sub-cooling for the highest cycle efficiency.
 
 6
 00:00:23,400 --> 00:00:27,240

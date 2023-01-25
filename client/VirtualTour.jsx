@@ -30,7 +30,7 @@ import SettingsDial from './components/Utility/SettingsDial.jsx'
 import InfoModal from './components/HotSpots/InfoModal.jsx'
 import MiniMap from './components/MiniMap/MiniMap.jsx'
 import TourInfoEditor from './components/TourMaker/TourInfoEditor.jsx'
-import InfoNonModal from './components/HotSpots/InfoNonModal.jsx'
+import RoomAudioPlayer from './components/HotSpots/RoomAudioPlayer.jsx'
 import HotSpotTooltip from './components/HotSpots/HotSpotTooltip.jsx'
 
 import { Canvas } from '@react-three/fiber'
@@ -194,7 +194,7 @@ export default function VirtualTour (props) {
             <React.Fragment>
               <SettingsDial allowMotion={allowMotion} />
               <MiniMap />
-              <InfoNonModal show />
+              <RoomAudioPlayer />
 
               {/* Editing interface */}
               {CONFIG.ENABLE_DATA_EDITING && <TourInfoEditor />}
