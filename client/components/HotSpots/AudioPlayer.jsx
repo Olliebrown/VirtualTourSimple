@@ -15,7 +15,7 @@ import {
 import { useAudioSource, useAudioSubtitles } from '../../state/audioHelper.js'
 
 export default function AudioPlayer (props) {
-  const { hotspotAudio, setSlideIndex, onStop } = props
+  const { hotspotAudio, setSlideIndex, autoplay } = props
 
   // Global state
   const [infoAudioPlaying, setInfoAudioPlaying] = useRecoilState(infoAudioPlayingState)
@@ -57,6 +57,7 @@ export default function AudioPlayer (props) {
   // Audio source state management
   const curAudioObj = useAudioSource(
     hotspotAudio?.src,
+    autoplay,
     (soundObj) => {
       setSubtitleIndex(0)
       onPlayUpdate(soundObj)
@@ -64,7 +65,6 @@ export default function AudioPlayer (props) {
     },
     (soundObj) => {
       setInfoAudioPlaying(false)
-      if (onStop) { onStop() }
     }
   )
 
@@ -73,9 +73,8 @@ export default function AudioPlayer (props) {
     return () => {
       curAudioObj?.unload()
       setInfoAudioPlaying(false)
-      if (onStop) { onStop() }
     }
-  }, [curAudioObj, onStop, setInfoAudioPlaying])
+  }, [curAudioObj, setInfoAudioPlaying])
 
   // Play/pause management
   const onPlayPause = () => {
@@ -148,11 +147,11 @@ AudioPlayer.propTypes = {
     slideTiming: PropTypes.object
   }),
   setSlideIndex: PropTypes.func,
-  onStop: PropTypes.func
+  autoplay: PropTypes.bool
 }
 
 AudioPlayer.defaultProps = {
   hotspotAudio: null,
   setSlideIndex: null,
-  onStop: null
+  autoplay: false
 }

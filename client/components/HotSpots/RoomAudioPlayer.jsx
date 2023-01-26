@@ -26,7 +26,7 @@ export default function RoomAudioPlayer () {
         />
 
         <CardContent aria-label="Audio Info">
-          <AudioPlayer hotspotAudio={hotspotData?.id ? { src: hotspotData.id } : undefined} />
+          <AudioPlayer hotspotAudio={hotspotData?.id ? { src: hotspotData.id } : undefined} autoplay />
         </CardContent>
       </Card>
     </Slide>

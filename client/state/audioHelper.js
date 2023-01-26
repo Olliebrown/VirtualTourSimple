@@ -54,7 +54,7 @@ export function useAudioSubtitles (audioSrcPrefix) {
   return subtitles
 }
 
-export function useAudioSource (audioSrcPrefix, onPlay, onEnd) {
+export function useAudioSource (audioSrcPrefix, autoplay, onPlay, onEnd) {
   const [curAudioSrcPrefix, setCurAudioSrcPrefix] = React.useState('')
   const [curAudioObj, setCurAudioObj] = React.useState(null)
 
@@ -67,6 +67,7 @@ export function useAudioSource (audioSrcPrefix, onPlay, onEnd) {
         // Load the audio for playback using howler.js
         const newSound = new Howl({
           html5: true,
+          autoplay,
           src: [
             `${CONFIG.INFO_AUDIO_PATH}/${audioSrcPrefix}.webm`,
             `${CONFIG.INFO_AUDIO_PATH}/${audioSrcPrefix}.mp3`,
@@ -76,8 +77,8 @@ export function useAudioSource (audioSrcPrefix, onPlay, onEnd) {
           ],
 
           // Report any audio errors to the console
-          onloaderror: (err) => {
-            console.error('Failed to load audio:', err)
+          onloaderror: (soundId, err) => {
+            console.error('Failed to load audio:', soundId, '/', err)
             setCurAudioSrcPrefix(audioSrcPrefix)
             curAudioObj?.unload()
             setCurAudioObj(null)
@@ -93,8 +94,8 @@ export function useAudioSource (audioSrcPrefix, onPlay, onEnd) {
         newSound.on('end', () => { onEnd(newSound) })
 
         // Update state
-        setCurAudioSrcPrefix(audioSrcPrefix)
         setCurAudioObj(newSound)
+        setCurAudioSrcPrefix(audioSrcPrefix)
 
         // Return cleanup for unmounting
         return () => {
@@ -109,7 +110,7 @@ export function useAudioSource (audioSrcPrefix, onPlay, onEnd) {
         setCurAudioObj(null)
       }
     }
-  }, [audioSrcPrefix, curAudioObj, curAudioSrcPrefix, onEnd, onPlay])
+  }, [audioSrcPrefix, curAudioObj, curAudioSrcPrefix, autoplay, onEnd, onPlay])
 
   return curAudioObj
 }
