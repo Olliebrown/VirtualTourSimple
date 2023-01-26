@@ -1,0 +1,23 @@
+{
+  "name": "2N04_Boiler4_Safety_Valves",
+  "images": [{
+    "src": "Boiler4-SafetyAndVenting.png",
+    "caption": "Safety and venting valves on top of Boiler 4",
+    "builds": [
+      null,
+      { "src": "Safety", "x": 0, "y": 0 },
+      { "src": "Vent", "x": 0, "y": 0 },
+      null
+    ]
+  }],
+  "height": 774,
+  "audio": {
+    "src": "2N04-Boiler4-Safety-Valves",
+    "slideTiming": {
+      "0": "0-0",
+      "1": "0-1",
+      "7": "0-2",
+      "9": "0-3"
+    }
+  }
+}

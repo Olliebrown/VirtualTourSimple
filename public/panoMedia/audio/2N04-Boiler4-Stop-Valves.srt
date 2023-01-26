@@ -1,0 +1,30 @@
+1
+00:00:00,060 --> 00:00:04,380
+Here is the highest point inside the 
+heating plant on top of boiler number 4.
+
+2
+00:00:04,380 --> 00:00:09,060
+When boiler number 4 is in service, it 
+is taking water into the tubes and the  
+
+3
+00:00:09,060 --> 00:00:11,760
+burner will boil that water to 
+make steam at a high pressure.
+
+4
+00:00:13,080 --> 00:00:16,500
+The main stop valve is located 
+on the top of the steam drum.
+
+5
+00:00:16,500 --> 00:00:20,700
+Because the plant has four boilers connecting 
+parallel to a common steam header, the second  
+
+6
+00:00:20,700 --> 00:00:24,900
+stop valve is required to isolate this boiler 
+and its pressure from the process of the plant.
+

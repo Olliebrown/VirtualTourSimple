@@ -8,7 +8,7 @@
     ],
     "hotspots": [
       {
-        "id": "1S01-ControlRoom",
+        "id": "1S01_Control_Room",
         "modal": true,
         "title": "Heating Plant Control Room",
         "type": "audio",
@@ -1119,7 +1119,28 @@
       -121,
       -182
     ],
-    "hotspots": [],
+    "hotspots": [
+      {
+        "id": "1W01_WaterTreat_Mechanical",
+        "modal": true,
+        "title": "Mechanical Water Treatment",
+        "type": "audio",
+        "longitude": -52.2,
+        "latitude": 3,
+        "scale": 0.4,
+        "priority": 0
+      },
+      {
+        "id": "1W02_WaterTreat_Chemical",
+        "modal": true,
+        "title": "Chemical Water Treatment",
+        "type": "audio",
+        "longitude": 90,
+        "latitude": -10,
+        "scale": 0.4,
+        "priority": 0
+      }
+    ],
     "mapInfo": {
       "building": "Heating Plant",
       "floor": "Ground Floor",
@@ -1145,7 +1166,28 @@
       -129,
       -182
     ],
-    "hotspots": [],
+    "hotspots": [
+      {
+        "id": "1W01_WaterTreat_Mechanical",
+        "modal": true,
+        "title": "Mechanical Water Treatment",
+        "type": "audio",
+        "longitude": 30,
+        "latitude": -5,
+        "scale": 0.4,
+        "priority": 0
+      },
+      {
+        "id": "1W02_WaterTreat_Chemical",
+        "modal": true,
+        "title": "Chemical Water Treatment",
+        "type": "audio",
+        "longitude": 90,
+        "latitude": -5,
+        "scale": 0.4,
+        "priority": 0
+      }
+    ],
     "mapInfo": {
       "building": "Heating Plant",
       "floor": "Ground Floor",
@@ -1304,7 +1346,18 @@
       -123.4,
       -185.5
     ],
-    "hotspots": [],
+    "hotspots": [
+      {
+        "id": "LS01_Holding_Tank",
+        "modal": true,
+        "title": "Return Water Holding Tank",
+        "type": "audio",
+        "longitude": -110,
+        "latitude": -20,
+        "scale": 0.4,
+        "priority": 0
+      }
+    ],
     "mapInfo": {
       "building": "Heating Plant",
       "floor": "Basement",
@@ -3093,7 +3146,28 @@
       -75.8,
       -178
     ],
-    "hotspots": [],
+    "hotspots": [
+      {
+        "id": "2N04_Boiler4_Stop_Valves",
+        "modal": true,
+        "title": "Boiler 4 Stop Valves",
+        "type": "info",
+        "longitude": -70,
+        "latitude": -20,
+        "scale": 0.4,
+        "priority": 0
+      },
+      {
+        "id": "2N04_Boiler4_Safety_Valves",
+        "modal": true,
+        "title": "Boiler 4 Safety Valves",
+        "type": "info",
+        "longitude": -150,
+        "latitude": -25,
+        "scale": 0.4,
+        "priority": 0
+      }
+    ],
     "mapInfo": {
       "building": "Heating Plant",
       "floor": "Platforms & Catwalks",

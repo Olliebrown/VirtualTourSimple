@@ -22,8 +22,7 @@ export default function HotSpotIndicator (props) {
   React.useEffect(() => {
     // Synchronize hotspot data
     setHotspotData({
-      jsonFilename: (type === 'info' ? `${id}.json` : undefined),
-      id,
+      jsonFilename: `${id}.json`,
       title,
       type,
       showAlways: !modal,

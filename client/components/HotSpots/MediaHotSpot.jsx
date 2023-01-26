@@ -15,7 +15,6 @@ export default function MediaHotspot (props) {
     switch (props.type) {
       case 'audio':
         if (!roomAudio) {
-          console.log('Setting room audio to true')
           setRoomAudio(true)
         }
         break

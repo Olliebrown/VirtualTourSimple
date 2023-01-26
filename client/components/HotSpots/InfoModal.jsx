@@ -29,8 +29,10 @@ export default function InfoModal () {
 
   // Note: may be null until retrieved
   const hotspotContent = useHotspotContent(hotspotData?.jsonFilename)
+  const enableModal = hotspotContent && hotspotData?.type === 'info'
+
   return (
-    <Dialog fullWidth maxWidth='lg' onClose={requestClose} open={!!hotspotContent && modalOpen}>
+    <Dialog fullWidth maxWidth='lg' onClose={requestClose} open={!!enableModal && modalOpen}>
       <DialogTitle>{hotspotData?.title || 'Info'}</DialogTitle>
       <DialogContent dividers>
         <HotspotContent

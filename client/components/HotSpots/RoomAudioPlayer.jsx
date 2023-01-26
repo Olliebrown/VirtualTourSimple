@@ -5,15 +5,22 @@ import { useRecoilValue, useRecoilState } from 'recoil'
 
 import { Card, CardHeader, CardContent, Slide, IconButton } from '@mui/material'
 import { Close as CloseIcon } from '@mui/icons-material'
+
 import AudioPlayer from './AudioPlayer.jsx'
+
+import { useHotspotContent } from '../../state/hotspotInfoHelper.js'
 
 export default function RoomAudioPlayer () {
   // Subscribe to pieces of global state
   const hotspotData = useRecoilValue(hotspotDataState)
   const [roomAudio, setRoomAudio] = useRecoilState(roomAudioState)
 
+  // Note: may be null until retrieved
+  const hotspotContent = useHotspotContent(hotspotData?.jsonFilename)
+  const enableRoomAudio = hotspotContent && hotspotData?.type === 'audio'
+
   return (
-    <Slide direction="up" in={roomAudio} mountOnEnter unmountOnExit>
+    <Slide direction="up" in={!!enableRoomAudio && roomAudio} mountOnEnter unmountOnExit>
       <Card sx={{ position: 'absolute', bottom: 16, right: '10vw', width: '60vw' }}>
         <CardHeader
           title={hotspotData?.title || 'Unknown Info'}
@@ -26,7 +33,7 @@ export default function RoomAudioPlayer () {
         />
 
         <CardContent aria-label="Audio Info">
-          <AudioPlayer hotspotAudio={hotspotData?.id ? { src: hotspotData.id } : undefined} autoplay />
+          <AudioPlayer hotspotAudio={hotspotContent?.audio} autoplay />
         </CardContent>
       </Card>
     </Slide>

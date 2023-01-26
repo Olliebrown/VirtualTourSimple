@@ -1,0 +1,23 @@
+{
+  "name": "2N04_Boiler4_Stop_Valves",
+  "images": [{
+    "src": "Boiler4-StopValves.png",
+    "caption": "Stop Valves on top of Boiler 4",
+    "builds": [
+      null,
+      { "src": "Main", "x": 0, "y": 0 },
+      { "src": "Second", "x": 0, "y": 0 },
+      null
+    ]
+  }],
+  "height": 774,
+  "audio": {
+    "src": "2N04-Boiler4-Stop-Valves",
+    "slideTiming": {
+      "0": "0-0",
+      "3": "0-1",
+      "5": "0-2",
+      "6": "0-3"
+    }
+  }
+}
