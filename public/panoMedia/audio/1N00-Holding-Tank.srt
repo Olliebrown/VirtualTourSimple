@@ -1,0 +1,45 @@
+1
+00:00:00,000 --> 00:00:03,840
+After providing heat to the buildings, the 
+steam is sent to a condensate collection  
+
+2
+00:00:03,840 --> 00:00:06,780
+tank within each building, where 
+the majority condenses into water.
+
+3
+00:00:06,780 --> 00:00:09,960
+Once the building's condensate 
+tank has collected enough water,  
+
+4
+00:00:09,960 --> 00:00:13,980
+a pump sends the water to the heating plant's 
+primary holding tank below the control room.
+
+5
+00:00:13,980 --> 00:00:19,500
+This tank holds 5,000 gallons of water and is 
+the main feedwater supply to the boilers. Here,  
+
+6
+00:00:19,500 --> 00:00:22,740
+about 75 percent of the steam 
+sent out, returns as water.
+
+7
+00:00:24,060 --> 00:00:28,860
+At this stage, the condensate water is 
+recycled, reused, and mixed with makeup  
+
+8
+00:00:28,860 --> 00:00:33,240
+water to feed into the system. As the water 
+leaves the tank, it is pumped back up to a  
+
+9
+00:00:33,240 --> 00:00:37,620
+pressure of 150 psi and is sent through 
+the boilers to repeat the process again.
+

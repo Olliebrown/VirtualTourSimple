@@ -1,0 +1,93 @@
+1
+00:00:00,000 --> 00:00:03,300
+Here is the top of boiler number 
+1 where the combustion product,  
+
+2
+00:00:03,300 --> 00:00:07,020
+or flue gases inside the boiler, are 
+going to be released to the chimney.
+
+3
+00:00:07,020 --> 00:00:11,640
+Flue gases are generally in the temperature 
+range of 400 to 500 degrees Fahrenheit,  
+
+4
+00:00:11,640 --> 00:00:15,720
+so there is a huge amount of losses from the 
+boiler if we cannot utilize this heat energy.
+
+5
+00:00:17,100 --> 00:00:22,260
+The university has installed a heat recovery 
+device called the economizer to recover some  
+
+6
+00:00:22,260 --> 00:00:26,220
+of the heat from the flue gases for 
+heating the feed water into the boiler.
+
+7
+00:00:26,220 --> 00:00:28,800
+An economizer is a heat exchanger device that  
+
+8
+00:00:28,800 --> 00:00:31,500
+preheats feed water before 
+it gets fed to the boiler.
+
+9
+00:00:32,280 --> 00:00:35,880
+Since the heat energy is given to the 
+water, the requirement of fuel for  
+
+10
+00:00:35,880 --> 00:00:40,320
+producing steam is optimized. Because of 
+that, we call this device an economizer.
+
+11
+00:00:41,460 --> 00:00:45,840
+The Economizer works on the principle of heat 
+transfer that usually takes place from high  
+
+12
+00:00:45,840 --> 00:00:51,000
+temperature to low temperature. As shown in the 
+figure of a heat exchanger, hot flue gas enters  
+
+13
+00:00:51,000 --> 00:00:55,980
+on the shell side and water the on tube side with 
+an extended heating surface like Fins or Gills.  
+
+14
+00:00:56,640 --> 00:01:00,720
+Flue gases from the boiler outlet are at 
+high a temperature and feed water that  
+
+15
+00:01:00,720 --> 00:01:02,580
+needs to be preheated is at a low temperature.
+
+16
+00:01:02,580 --> 00:01:06,720
+So, this temperature difference between 
+the water and flue gases helps to increase  
+
+17
+00:01:06,720 --> 00:01:11,040
+the feed water temperature and reduce the 
+heat load on the boiler to a great extent.
+
+18
+00:01:12,300 --> 00:01:18,000
+The economizer reduces not only consumption but 
+also the overall energy costs, environmental  
+
+19
+00:01:18,000 --> 00:01:24,120
+impact, and carbon footprint. The economizer can 
+boost system efficiency by 3% to 5% on average.
+

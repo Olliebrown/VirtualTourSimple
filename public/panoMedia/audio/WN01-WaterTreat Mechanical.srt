@@ -1,0 +1,67 @@
+1
+00:00:00,000 --> 00:00:04,260
+Water treatment is required to maintain 
+peak performance, reduce water consumption,  
+
+2
+00:00:04,260 --> 00:00:08,820
+and minimize corrosion, scale, and fouling 
+while controlling microbial growth.
+
+3
+00:00:09,360 --> 00:00:12,240
+Water quality is controlled by 
+a combination of pretreatment  
+
+4
+00:00:12,240 --> 00:00:14,280
+for makeup water and chemical treatment.
+
+5
+00:00:16,004 --> 00:00:20,220
+Pretreatment for makeup water, sometimes 
+called mechanical filtration, is used to  
+
+6
+00:00:20,220 --> 00:00:25,200
+remove suspended particles. Pretreatment for 
+makeup water consists of the following elements:
+
+7
+00:00:26,340 --> 00:00:30,540
+Water softeners (for removal of 
+calcium and magnesium hardness)
+
+8
+00:00:31,800 --> 00:00:35,580
+Reverse osmosis (which can remove up to 99% of  
+
+9
+00:00:35,580 --> 00:00:39,480
+minerals and dissolved solids from 
+the water leaving almost pure H2O).
+
+10
+00:00:40,140 --> 00:00:45,720
+Reverse osmosis is a process in which reactive, 
+colloidal silica, and dissolved salts can be  
+
+11
+00:00:45,720 --> 00:00:50,220
+removed from water by forcing the water through 
+a semi-permeable membrane under high pressure.
+
+12
+00:00:51,600 --> 00:00:56,640
+Contaminants that are not removed mechanically by 
+pretreatment equipment must be treated chemically.
+
+13
+00:00:56,640 --> 00:01:00,180
+Once in the feedwater, dissolved gases, hardness,  
+
+14
+00:01:00,180 --> 00:01:03,960
+and dissolved minerals must be treated 
+to prevent deposition and corrosion.
+

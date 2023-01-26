@@ -1,0 +1,44 @@
+1
+00:00:00,000 --> 00:00:04,620
+Here is an example of what safety valves look 
+like. These safety valves are for protection.
+
+2
+00:00:04,620 --> 00:00:09,780
+They protect the boilers and plant staff from 
+a high-pressure situation. Boiler safety valves  
+
+3
+00:00:09,780 --> 00:00:13,740
+are installed in a pair with one valve set 
+at slightly higher pressure than the other.
+
+4
+00:00:13,740 --> 00:00:17,400
+This ensures the boiler does 
+not explode if over-pressurized  
+
+5
+00:00:17,400 --> 00:00:19,740
+through failure of any one safety valve.
+
+6
+00:00:20,820 --> 00:00:26,040
+The set pressure of the valves must not exceed the 
+maximum allowable working pressure of the boiler.
+
+7
+00:00:26,040 --> 00:00:32,160
+What this means is that the safety valve 
+of Boiler 4 must open at or below 120 PSIG.
+
+8
+00:00:33,660 --> 00:00:38,880
+Installed next to the two safety valves is 
+the vent valve. The valve will vent air from  
+
+9
+00:00:38,880 --> 00:00:43,020
+the steam drum when filling the boiler, or 
+release moist steam prior to the filling.
+
