@@ -2741,7 +2741,18 @@
       54,
       -182
     ],
-    "hotspots": [],
+    "hotspots": [
+      {
+        "id": "2N01_Deaerator",
+        "modal": true,
+        "title": "Feedwater Deaerator",
+        "type": "info",
+        "longitude": -70,
+        "latitude": -20,
+        "scale": 0.4,
+        "priority": 0
+      }
+    ],
     "mapInfo": {
       "building": "Heating Plant",
       "floor": "Platforms & Catwalks",
@@ -2774,7 +2785,18 @@
       -119.2,
       -182
     ],
-    "hotspots": [],
+    "hotspots": [
+      {
+        "id": "2S01_Economizer",
+        "modal": true,
+        "title": "Boiler Economizer",
+        "type": "info",
+        "longitude": 143.7,
+        "latitude": 5.9,
+        "scale": 0.4,
+        "priority": 0
+      }
+    ],
     "mapInfo": {
       "building": "Heating Plant",
       "floor": "Platforms & Catwalks",
@@ -2807,7 +2829,18 @@
       -121.7,
       -180.1
     ],
-    "hotspots": [],
+    "hotspots": [
+      {
+        "id": "2S01_Economizer",
+        "modal": true,
+        "title": "Boiler Economizer",
+        "type": "info",
+        "longitude": 48.7,
+        "latitude": 5.9,
+        "scale": 0.4,
+        "priority": 0
+      }
+    ],
     "mapInfo": {
       "building": "Heating Plant",
       "floor": "Platforms & Catwalks",

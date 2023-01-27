@@ -1,0 +1,19 @@
+{
+  "name": "2S01_Economizer",
+  "images": [{
+    "src": "Boiler1-Economizer.jpg",
+    "caption": "The top of boiler 1 showing the economizer in place."
+  }, {
+    "src": "BoilerEconomizer-Render.jpg",
+    "caption": "A rendering of a boiler economizer"
+  }],
+  "height": 774,
+  "audio": {
+    "src": "2S01-Economizer Final",
+    "slideTiming": {
+      "0": "0",
+      "6": "1",
+      "17": "0"
+    }
+  }
+}

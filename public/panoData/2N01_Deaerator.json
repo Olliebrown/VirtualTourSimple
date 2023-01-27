@@ -1,0 +1,19 @@
+{
+  "name": "2N01_Deaerator",
+  "images": [{
+    "src": "Deaerator-Photograph.jpg",
+    "caption": "A photograph of the deaerator setup at the central heating plant"
+  }, {
+    "src": "Deaerator-Diagram.gif",
+    "caption": "Inside a deaerator"
+  }],
+  "height": 774,
+  "audio": {
+    "src": "2N01-Deaerator Final",
+    "slideTiming": {
+      "0": "0",
+      "8": "1",
+      "19": "0"
+    }
+  }
+}
