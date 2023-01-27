@@ -59,10 +59,7 @@
         "type": "arrow"
       }
     ],
-    "key": "1S01_22",
-    "video": {
-      "autoPlay": false
-    }
+    "key": "1S01_22"
   },
   "1S01_10": {
     "label": "Boiler 1 Front",
@@ -85,7 +82,7 @@
         "g": 1,
         "b": 2
       },
-      "fadeTime": 1,
+      "fadeTime": 0.5,
       "crop": {
         "x": 0.5,
         "y": 0.35,
@@ -1525,10 +1522,10 @@
         "distance": 19
       },
       {
-        "key": "LS04_10",
-        "direction": -94,
+        "key": "LS05_12",
+        "direction": -98.6,
         "type": "teleport",
-        "height": -4,
+        "height": -3,
         "distance": 14
       },
       {
@@ -1596,11 +1593,11 @@
     },
     "exits": [
       {
-        "key": "LS04_10",
-        "direction": 0,
-        "type": "teleport",
-        "height": -4,
-        "distance": 17
+        "key": "LS05_12",
+        "direction": -14,
+        "type": "arrow",
+        "height": -3,
+        "distance": 6
       },
       {
         "key": "LN04_12",
@@ -1638,12 +1635,15 @@
       {
         "key": "LS04_12",
         "direction": 0,
-        "type": "arrow"
+        "type": "arrow",
+        "distance": 0
       },
       {
         "key": "LN04_10",
         "direction": -90,
-        "type": "arrow"
+        "type": "teleport",
+        "distance": 13,
+        "height": -4
       }
     ],
     "key": "LN04_12"
@@ -1665,11 +1665,11 @@
     },
     "exits": [
       {
-        "key": "LS05_11",
-        "direction": -1,
+        "key": "LS05_11b",
+        "direction": -18,
         "type": "teleport",
         "height": -4,
-        "distance": 14
+        "distance": 16
       },
       {
         "key": "LN04_10",
@@ -1688,7 +1688,40 @@
       -100.5,
       -185.5
     ],
-    "hotspots": [],
+    "video": {
+      "href": "LS05-DistributionHeader-SteveNarration.mp4",
+      "loop": false,
+      "autoPlay": false,
+      "chromaKeyColor": {
+        "r": 0,
+        "g": 0.6,
+        "b": 0
+      },
+      "chromaKeyWeights": {
+        "r": 3,
+        "g": 1,
+        "b": 2
+      },
+      "fadeTime": 0.5,
+      "crop": {
+        "x": 0.24,
+        "y": 0.37,
+        "width": 0.054,
+        "height": 0.167
+      }
+    },
+    "hotspots": [
+      {
+        "id": "LS05_DistributionHeader",
+        "modal": true,
+        "title": "Chilled Water Distribution and Return",
+        "type": "media",
+        "longitude": -94,
+        "latitude": -4,
+        "scale": 0.6,
+        "priority": 0
+      }
+    ],
     "mapInfo": {
       "building": "Cooling Plant",
       "floor": "Basement",
@@ -1719,6 +1752,79 @@
     ],
     "key": "LS05_11"
   },
+  "LS05_11b": {
+    "label": "",
+    "alignment": [
+      0,
+      39,
+      -180.9
+    ],
+    "video": {
+      "href": "LN05-DistributionPumps-SteveNarration.mp4",
+      "loop": false,
+      "autoPlay": false,
+      "chromaKeyColor": {
+        "r": 0,
+        "g": 0.6,
+        "b": 0
+      },
+      "chromaKeyWeights": {
+        "r": 3,
+        "g": 1,
+        "b": 2
+      },
+      "fadeTime": 0.5,
+      "crop": {
+        "x": 0.935,
+        "y": 0.23,
+        "width": 0.188,
+        "height": 0.45
+      }
+    },
+    "hotspots": [
+      {
+        "id": "LN05_DistributionPumps",
+        "modal": true,
+        "title": "Chilled Water Pumps",
+        "type": "media",
+        "longitude": -42.7,
+        "latitude": -2.4,
+        "scale": 0.6,
+        "priority": 0
+      }
+    ],
+    "mapInfo": {
+      "building": "Cooling Plant",
+      "floor": "Basement",
+      "image": "Basement.png",
+      "x": 95,
+      "y": 245
+    },
+    "exits": [
+      {
+        "key": "LS05_10b",
+        "direction": -110,
+        "type": "teleport",
+        "distance": 7,
+        "height": -4
+      },
+      {
+        "key": "LS05_12",
+        "direction": 90,
+        "type": "teleport",
+        "height": -4,
+        "distance": 11
+      },
+      {
+        "key": "LN05_11",
+        "direction": 168.6,
+        "type": "teleport",
+        "height": -4,
+        "distance": 15
+      }
+    ],
+    "key": "LS05_11b"
+  },
   "LS05_10a": {
     "label": "",
     "alignment": [
@@ -1735,6 +1841,79 @@
       "y": 239
     },
     "exits": []
+  },
+  "LS05_12": {
+    "label": "",
+    "alignment": [
+      0,
+      -54.6,
+      -180.9
+    ],
+    "video": {
+      "href": "LS05-DistributionHeader-SteveNarration.mp4",
+      "loop": false,
+      "autoPlay": false,
+      "chromaKeyColor": {
+        "r": 0,
+        "g": 0.6,
+        "b": 0
+      },
+      "chromaKeyWeights": {
+        "r": 3,
+        "g": 1,
+        "b": 2
+      },
+      "fadeTime": 0.5,
+      "crop": {
+        "x": 0.04,
+        "y": 0.26,
+        "width": 0.12,
+        "height": 0.36
+      }
+    },
+    "hotspots": [
+      {
+        "id": "LS05_DistributionHeader",
+        "modal": true,
+        "title": "Chilled Water Distribution and Return",
+        "type": "media",
+        "longitude": -108.1,
+        "latitude": -4,
+        "scale": 0.6,
+        "priority": 0
+      }
+    ],
+    "mapInfo": {
+      "building": "Cooling Plant",
+      "floor": "Basement",
+      "image": "Basement.png",
+      "x": 95,
+      "y": 245
+    },
+    "exits": [
+      {
+        "key": "LS05_11b",
+        "direction": -83.1,
+        "type": "teleport",
+        "distance": 12,
+        "height": -4
+      },
+      {
+        "key": "LS04_12",
+        "direction": 68.9,
+        "type": "teleport",
+        "height": -3,
+        "distance": 11
+      },
+      {
+        "key": "LN04_12",
+        "direction": 135.4,
+        "type": "teleport",
+        "height": -4,
+        "distance": 20
+      }
+    ],
+    "key": "LS05_12"
   },
   "LS05_10b": {
     "label": "",
@@ -1766,9 +1945,18 @@
         "distance": 7
       },
       {
-        "key": "LS05_11",
-        "direction": 90,
-        "type": "arrow"
+        "key": "LS05_12",
+        "direction": 87,
+        "type": "teleport",
+        "height": -4,
+        "distance": 21
+      },
+      {
+        "key": "LS05_11b",
+        "direction": 53.4,
+        "type": "teleport",
+        "height": -3,
+        "distance": 6
       }
     ],
     "key": "LS05_10b"
@@ -1910,7 +2098,38 @@
       -116,
       -181
     ],
+    "video": {
+      "loop": false,
+      "autoPlay": false,
+      "href": "1S05-ChillerComponents-SteveNarration.mp4",
+      "chromaKeyColor": {
+        "r": 0,
+        "g": 0.6,
+        "b": 0
+      },
+      "chromaKeyWeights": {
+        "r": 3,
+        "g": 1,
+        "b": 2
+      },
+      "fadeTime": 0.5,
+      "crop": {
+        "x": 0.023,
+        "y": 0.27,
+        "width": 0.11,
+        "height": 0.35
+      }
+    },
     "hotspots": [
+      {
+        "id": "1S05_ChillerComponents",
+        "modal": true,
+        "title": "Chiller BasicComponents",
+        "type": "media",
+        "longitude": 180,
+        "latitude": -3,
+        "scale": 0.4
+      },
       {
         "id": "1S05_Chiller_Operation",
         "modal": true,
@@ -1987,7 +2206,7 @@
         "g": 1,
         "b": 2
       },
-      "fadeTime": 1,
+      "fadeTime": 0.5,
       "crop": {
         "x": 0.54,
         "y": 0.24,
@@ -3342,7 +3561,40 @@
       72.5,
       -182
     ],
-    "hotspots": [],
+    "video": {
+      "href": "2S05-ChemicalTreatmentAndPumps-SteveNarration.mp4",
+      "loop": false,
+      "autoPlay": false,
+      "chromaKeyColor": {
+        "r": 0,
+        "g": 0.6,
+        "b": 0
+      },
+      "chromaKeyWeights": {
+        "r": 3,
+        "g": 1,
+        "b": 2
+      },
+      "fadeTime": 0.5,
+      "crop": {
+        "x": 0.923,
+        "y": 0.24,
+        "width": 0.16,
+        "height": 0.47
+      }
+    },
+    "hotspots": [
+      {
+        "id": "2S05_ChemicalTreatmentAndPumps",
+        "modal": true,
+        "title": "Chiller Water Treatment and Pumps",
+        "type": "media",
+        "longitude": -14.2,
+        "latitude": -8,
+        "scale": 0.6,
+        "priority": 0
+      }
+    ],
     "mapInfo": {
       "building": "Cooling Plant",
       "floor": "Platforms & Catwalks",
@@ -3386,7 +3638,40 @@
       -104.3,
       -182
     ],
-    "hotspots": [],
+    "video": {
+      "href": "2N05-BromineAndCutoffs-SteveNarration.mp4",
+      "loop": false,
+      "autoPlay": false,
+      "chromaKeyColor": {
+        "r": 0,
+        "g": 0.6,
+        "b": 0
+      },
+      "chromaKeyWeights": {
+        "r": 3,
+        "g": 1,
+        "b": 2
+      },
+      "fadeTime": 0.5,
+      "crop": {
+        "x": 0.908,
+        "y": 0.252,
+        "width": 0.15,
+        "height": 0.385
+      }
+    },
+    "hotspots": [
+      {
+        "id": "2N05_BromineAndCutoffs",
+        "modal": true,
+        "title": "Chiller Bromine Treatment and Pump Cutoffs",
+        "type": "media",
+        "longitude": 156.8,
+        "latitude": -8,
+        "scale": 0.6,
+        "priority": 0
+      }
+    ],
     "mapInfo": {
       "building": "Cooling Plant",
       "floor": "Platforms & Catwalks",

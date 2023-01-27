@@ -95,28 +95,40 @@ export const CutoutShaderInfo = {
     void main() {
       // Initial values to use if no video is present (or outside the video crop box)
       float blendAlpha = 1.0;
-      float fadeValue = 1.0;
+      float fadeValue = 0.0;
       vec3 vidColor = vec3(0.0);
 
       // Lookup pano image color
       vec3 texColor = texture2D(panoImage, vec2(1.0 - vUv.x, vUv.y)).rgb;
 
       // Possibly lookup video color (when defined and inside the crop box)
-      if (enableVideo && playbackTime > 0.1 && pointInBBox(vec2(vUv.x, 1.0 - vUv.y), cropBox)) {
-        vec2 vidUV = vec2(
-          1.0 - (vUv.x - cropBox.x) / (cropBox.z - cropBox.x),
-          ((1.0 - vUv.y) - cropBox.y) / (cropBox.w - cropBox.y)
-        );
+      if (enableVideo && playbackTime > 0.1) {
+        // Check box allowing it to wrap around in the X
+        vec4 wrappedBox = cropBox;
+        if (!pointInBBox(vec2(vUv.x, 1.0 - vUv.y), wrappedBox)) {
+          wrappedBox = cropBox - vec4(1.0, 0.0, 1.0, 0.0);
+          if (!pointInBBox(vec2(vUv.x, 1.0 - vUv.y), wrappedBox)) {
+            wrappedBox = cropBox + vec4(1.0, 0.0, 1.0, 0.0);
+          }
+        }
 
-        // Check for chroma-key color to blend
-        vidColor = texture2D(panoVideo, vidUV).rgb;
-        blendAlpha = chromaKey(vidColor);
+        // Did we find a valid crop box?
+        if (pointInBBox(vec2(vUv.x, 1.0 - vUv.y), wrappedBox)) {
+          vec2 vidUV = vec2(
+            1.0 - (vUv.x - wrappedBox.x) / (wrappedBox.z - wrappedBox.x),
+            ((1.0 - vUv.y) - wrappedBox.y) / (wrappedBox.w - wrappedBox.y)
+          );
 
-        // Fade video in or out
-        fadeValue = 1.0 - min(
-          clamp(playbackTime / fadeTime, 0.0, 1.0), // Fade in
-          clamp((playbackDuration - playbackTime) / fadeTime, 0.0, 1.0) // Fade out
-        );
+          // Check for chroma-key color to blend
+          vidColor = texture2D(panoVideo, vidUV).rgb;
+          blendAlpha = chromaKey(vidColor);
+
+          // Fade video in or out
+          fadeValue = 1.0 - min(
+            clamp(playbackTime / fadeTime, 0.0, 1.0), // Fade in
+            clamp((playbackDuration - playbackTime) / fadeTime, 0.0, 1.0) // Fade out
+          );
+        }
       }
 
       // Mix between pano and video based on chroma key and fadeValue

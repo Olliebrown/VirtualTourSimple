@@ -20,8 +20,6 @@ export default function PanoHotspotEdit (params) {
 
   const updateHotspot = newData => {
     if (onChange) {
-      console.log(`Old: ${JSON.stringify(hotspotInfo)}`)
-      console.log(`New: ${JSON.stringify(newData)}`)
       onChange({ ...hotspotInfo, ...newData })
     }
   }

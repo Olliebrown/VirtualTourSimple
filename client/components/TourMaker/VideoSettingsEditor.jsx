@@ -93,6 +93,7 @@ export default function VideoSettingsEditor (props) {
           onChange={newVal => onCropChange({ height: newVal })}
           variant='standard'
           size="small"
+          precision={3}
           sx={{ width: '45%' }}
         />
       </Stack>
