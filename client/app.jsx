@@ -25,6 +25,10 @@ import Curtain from './components/Utility/Curtain.jsx'
 // Helper scripts for detecting motion control capabilities
 import { installMotionHandler } from './motionControlsPermission.js'
 
+// Some element ids for later lookup
+export const EMOTION_ROOT_ID = 'virtualTourEmotionRoot'
+export const SHADOW_ROOT_ID = 'virtualTourShadowDomReactRoot'
+
 // Main entry point for attaching the permission events and rendering the tour
 export function attachVirtualTour (permissionElement, rootRenderElement, {
   startingRoom, enableClose, disablePriority, enabledRooms, enabledHotSpots, textColor, backgroundColor, initialYaw, ...rest
@@ -57,9 +61,18 @@ export function attachVirtualTour (permissionElement, rootRenderElement, {
     document.body.style.overflow = 'hidden'
 
     // Attach using a shadow-dom to avoid style collisions
-    const shadowContainer = rootRenderElement.attachShadow({ mode: 'open' })
+    let shadowContainer = rootRenderElement.shadowRoot
+    if (!shadowContainer) {
+      shadowContainer = rootRenderElement.attachShadow({ mode: 'open' })
+    }
+
+    // Build up the basic shadow DOM tree
     const emotionRoot = document.createElement('style')
+    emotionRoot.id = EMOTION_ROOT_ID
+
     const shadowRootElement = document.createElement('div')
+    shadowRootElement.id = SHADOW_ROOT_ID
+
     shadowContainer.appendChild(emotionRoot)
     shadowContainer.appendChild(shadowRootElement)
 

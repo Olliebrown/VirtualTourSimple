@@ -11,7 +11,7 @@ import localDB from './state/localDB.js'
 import { useLiveQuery } from 'dexie-react-hooks'
 
 import { preloadPanoKeyState, enabledHotSpotsState, enabledPanoRoomsState, disablePriorityState } from './state/fullTourState.js'
-import { loadingCurtainState, mediaSkipState, mediaPauseState, mediaRewindState, panoMediaPlayingState } from './state/globalState.js'
+import { loadingCurtainState, mediaSkipState, mediaPauseState, mediaRewindState, panoMediaPlayingState, destroyMediaState } from './state/globalState.js'
 
 // eslint-disable-next-line camelcase
 import { useRecoilBridgeAcrossReactRoots_UNSTABLE, useSetRecoilState, useRecoilState, useRecoilValue } from 'recoil'
@@ -39,6 +39,7 @@ import { Vector3, Spherical } from 'three'
 
 import { setTextureAllDoneState, setTextureDoneState, setTextureFailedState } from './state/textureLoadingState.js'
 import EditHotspotContentModal from './components/HotSpots/EditHotspotContentModal.jsx'
+import { EMOTION_ROOT_ID, SHADOW_ROOT_ID } from './app.jsx'
 
 // Button to skip playing media
 function SkipButton (props) {
@@ -80,13 +81,19 @@ function SkipButton (props) {
 function CloseTour (params) {
   const { reactRoot, rootElement } = params
   const setLoadingCurtain = useSetRecoilState(loadingCurtainState)
+  const setDestroyMedia = useSetRecoilState(destroyMediaState)
 
   const close = () => {
+    setDestroyMedia(true)
     setLoadingCurtain({ text: '', open: false })
     setTimeout(() => {
+      rootElement.shadowRoot.getElementById(SHADOW_ROOT_ID).remove()
+      rootElement.shadowRoot.getElementById(EMOTION_ROOT_ID).remove()
+
       rootElement.style.width = '0%'
       rootElement.style.height = '0%'
       document.body.style.overflow = 'auto'
+
       reactRoot.unmount()
     }, CONFIG.FADE_TIMEOUT)
   }

@@ -4054,7 +4054,40 @@
       -22.4,
       -182
     ],
-    "hotspots": [],
+    "video": {
+      "href": "RS03-CoolingTowerExterior-SteveNarration.mp4",
+      "loop": false,
+      "autoPlay": false,
+      "chromaKeyColor": {
+        "r": 0,
+        "g": 0.6,
+        "b": 0
+      },
+      "chromaKeyWeights": {
+        "r": 3,
+        "g": 1,
+        "b": 2
+      },
+      "fadeTime": 0.5,
+      "crop": {
+        "x": 0.35,
+        "y": 0.23,
+        "width": 0.188,
+        "height": 0.45
+      }
+    },
+    "hotspots": [
+      {
+        "id": "RS03_CoolingTowerExterior",
+        "modal": true,
+        "title": "Outside the Cooling Tower",
+        "type": "media",
+        "longitude": 52.2,
+        "latitude": -2.4,
+        "scale": 0.6,
+        "priority": 0
+      }
+    ],
     "mapInfo": {
       "building": "Heating Plant",
       "floor": "Roof",
@@ -4098,7 +4131,40 @@
       -8,
       -180
     ],
-    "hotspots": [],
+    "video": {
+      "href": "RS05-CoolingTowerInterior-SteveNarration.mp4",
+      "loop": false,
+      "autoPlay": false,
+      "chromaKeyColor": {
+        "r": 0,
+        "g": 0.6,
+        "b": 0
+      },
+      "chromaKeyWeights": {
+        "r": 3,
+        "g": 1,
+        "b": 2
+      },
+      "fadeTime": 0.5,
+      "crop": {
+        "x": 0.079,
+        "y": 0.129,
+        "width": 0.34,
+        "height": 0.41
+      }
+    },
+    "hotspots": [
+      {
+        "id": "RS05_CoolingTowerInterior",
+        "modal": true,
+        "title": "Inside the Cooling Tower",
+        "type": "media",
+        "longitude": 0,
+        "latitude": -11.9,
+        "scale": 0.6,
+        "priority": 0
+      }
+    ],
     "mapInfo": {
       "building": "Heating Plant",
       "floor": "Roof",

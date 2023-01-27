@@ -1,8 +1,8 @@
 import CONFIG from '../../config.js'
 import React from 'react'
 
-import { panoMediaPlayingState, mediaRewindState, mediaPauseState, mediaSkipState } from '../../state/globalState.js'
-import { useRecoilState, useSetRecoilState } from 'recoil'
+import { panoMediaPlayingState, mediaRewindState, mediaPauseState, mediaSkipState, destroyMediaState } from '../../state/globalState.js'
+import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil'
 import { currentRoomPriorityState } from '../../state/fullTourState.js'
 
 // A default crop of zero area
@@ -17,6 +17,7 @@ const isVideoPlaying = video => (
 
 export function useVideoData (currentPanoData) {
   // Load the pano image or video
+  const [currentSrc, setCurrentSrc] = React.useState('')
   const [panoVideo, setPanoVideo] = React.useState(null)
   const [videoCrop, setVideoCrop] = React.useState(NO_CROP)
 
@@ -25,62 +26,66 @@ export function useVideoData (currentPanoData) {
   const [mediaRewind, setMediaRewind] = useRecoilState(mediaRewindState)
   const [mediaPause, setMediaPaused] = useRecoilState(mediaPauseState)
   const [mediaSkip, setMediaSkip] = useRecoilState(mediaSkipState)
+  const destroyMedia = useRecoilValue(destroyMediaState)
   const updateRoomTaskCompletion = useSetRecoilState(currentRoomPriorityState)
+
+  // Make a video tag if we don't have one
+  React.useEffect(() => {
+    const vid = document.createElement('video')
+    vid.crossOrigin = 'anonymous'
+    vid.onplay = () => {
+      setMediaPaused(false)
+      setMediaPlaying(true)
+    }
+    setPanoVideo(vid)
+  }, [setMediaPaused, setMediaPlaying])
+
+  // Remove the video tag
+  React.useEffect(() => {
+    if (destroyMedia && panoVideo) {
+      panoVideo.removeAttribute('src')
+      panoVideo.load()
+      panoVideo.remove()
+    }
+  }, [destroyMedia, panoVideo])
 
   // Possibly load a video
   React.useEffect(() => {
     // Only process video data if 'video' is defined and the 'href' is not empty
-    if (currentPanoData?.video?.href) {
-      // Make a video HTML tag if we don't have one
-      if (panoVideo === null) {
-        // Create video HTML tag to stream media
-        const vid = document.createElement('video')
-        vid.crossOrigin = 'anonymous'
-        vid.src = `${CONFIG.PANO_VIDEO_PATH}/${currentPanoData.video.href}`
-        vid.loop = !!currentPanoData.video?.loop
-        vid.autoplay = !!currentPanoData.video?.autoPlay
-        setPanoVideo(vid)
+    if (currentPanoData?.video?.href && panoVideo !== null) {
+      if (currentSrc !== currentPanoData?.video?.href) {
+        // Update video element attributes
+        panoVideo.src = `${CONFIG.PANO_VIDEO_PATH}/${currentPanoData.video.href}`
+        panoVideo.loop = !!currentPanoData.video?.loop
+        panoVideo.autoplay = !!currentPanoData.video?.autoPlay
+        setCurrentSrc(currentPanoData.video.href)
 
         // Synchronize playback state
-        vid.onplay = () => {
-          setMediaPaused(false)
-          setMediaPlaying(true)
-        }
-        vid.onended = () => {
+        panoVideo.onended = () => {
           updateRoomTaskCompletion(currentPanoData.video.href)
           setMediaPlaying(false)
         }
-      }
 
-      // Update video crop box
-      if (currentPanoData.video?.crop) {
-        setVideoCrop([
-          currentPanoData.video.crop?.x,
-          currentPanoData.video.crop?.y,
-          currentPanoData.video.crop?.x + currentPanoData.video.crop?.width,
-          currentPanoData.video.crop?.y + currentPanoData.video.crop?.height
-        ])
-      }
-
-      // Clean up when the user leaves this pano
-      return () => {
-        // // Stop streaming media
-        // if (panoVideo !== null) {
-        //   panoVideo.pause()
-        //   panoVideo.remove()
-        // }
-
-        // // Reset video state
-        // setMediaPlaying(false)
-        // setVideoCrop(NO_CROP)
+        // Update crop box if there is one
+        if (currentPanoData.video.crop) {
+          setVideoCrop([
+            currentPanoData.video.crop?.x,
+            currentPanoData.video.crop?.y,
+            currentPanoData.video.crop?.x + currentPanoData.video.crop?.width,
+            currentPanoData.video.crop?.y + currentPanoData.video.crop?.height
+          ])
+        }
       }
     } else {
-      // No video to load so ensure video state is back to default
-      setPanoVideo(null)
+      if (panoVideo) {
+        panoVideo.removeAttribute('src')
+        panoVideo.load()
+      }
+
       setMediaPlaying(false)
       setVideoCrop(NO_CROP)
     }
-  }, [currentPanoData?.video, panoVideo, setMediaPaused, setMediaPlaying, updateRoomTaskCompletion])
+  }, [currentPanoData?.video?.autoPlay, currentPanoData?.video?.crop, currentPanoData?.video?.href, currentPanoData?.video?.loop, currentSrc, panoVideo, setMediaPlaying, updateRoomTaskCompletion])
 
   // Respond to a change in the video playing state
   React.useEffect(() => {

@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import { panoMediaPlayingState } from '../../state/globalState.js'
 import { currentRoomPriorityState } from '../../state/fullTourState.js'
 import { useRecoilValue } from 'recoil'
 
@@ -12,6 +13,7 @@ export default function PanoExtras (props) {
   const { exits, hotSpots, panoKey } = props
 
   const currentRoomPriority = useRecoilValue(currentRoomPriorityState)
+  const panoMediaPlaying = useRecoilValue(panoMediaPlayingState)
 
   // Enable exits and hotspots based on priority (must be equal to or higher than the current priority)
   const [activeExits, setActiveExits] = React.useState([])
@@ -43,7 +45,7 @@ export default function PanoExtras (props) {
   return (
     <React.Fragment>
       {/* Add extra geometry objects */}
-      {exitArrows}
+      {!panoMediaPlaying && exitArrows}
       {hotspots}
     </React.Fragment>
   )

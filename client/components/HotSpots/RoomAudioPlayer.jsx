@@ -16,7 +16,7 @@ export default function RoomAudioPlayer () {
   const [roomAudio, setRoomAudio] = useRecoilState(roomAudioState)
 
   // Note: may be null until retrieved
-  const hotspotContent = useHotspotContent(hotspotData?.jsonFilename)
+  const hotspotContent = useHotspotContent(hotspotData?.jsonFilename, hotspotData?.type)
   const enableRoomAudio = hotspotContent && hotspotData?.type === 'audio'
 
   return (

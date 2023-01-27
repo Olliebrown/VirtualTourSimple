@@ -28,7 +28,7 @@ export default function InfoModal () {
   }
 
   // Note: may be null until retrieved
-  const hotspotContent = useHotspotContent(hotspotData?.jsonFilename)
+  const hotspotContent = useHotspotContent(hotspotData?.jsonFilename, hotspotData?.type)
   const enableModal = hotspotContent && hotspotData?.type === 'info'
 
   return (
