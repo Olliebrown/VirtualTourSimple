@@ -114,14 +114,19 @@ export const CutoutShaderInfo = {
 
         // Did we find a valid crop box?
         if (pointInBBox(vec2(vUv.x, 1.0 - vUv.y), wrappedBox)) {
+          // Calculate the proper UV video texture coords
           vec2 vidUV = vec2(
             1.0 - (vUv.x - wrappedBox.x) / (wrappedBox.z - wrappedBox.x),
             ((1.0 - vUv.y) - wrappedBox.y) / (wrappedBox.w - wrappedBox.y)
           );
 
-          // Check for chroma-key color to blend
+          // Cut the x-value in half, then compute the alpha coordinates
+          vidUV.x *= 0.5;
+          vec2 alphaUV = vidUV + vec2(0.5, 0.0);
+
+          // Grab the base color and alpha values
           vidColor = texture2D(panoVideo, vidUV).rgb;
-          blendAlpha = chromaKey(vidColor);
+          blendAlpha = 1.0 - texture2D(panoVideo, alphaUV).g;
 
           // Fade video in or out
           fadeValue = 1.0 - min(
