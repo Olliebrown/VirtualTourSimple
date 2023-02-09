@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Folder locations
-srcFolder="./"
+srcFolder="./public/oldMedia/panoImg/LibraryCondenser"
 destFolder="./media"
 
 while IFS="" read -r p || [ -n "$p" ]; do

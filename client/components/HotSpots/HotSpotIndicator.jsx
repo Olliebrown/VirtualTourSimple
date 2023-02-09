@@ -74,7 +74,7 @@ export default function HotSpotIndicator (props) {
 HotSpotIndicator.propTypes = {
   title: PropTypes.string,
   id: PropTypes.string,
-  type: PropTypes.oneOf(['info', 'media', 'audio', 'unknown']),
+  type: PropTypes.oneOf(['info', 'media', 'audio', 'placard', 'unknown']),
   modal: PropTypes.bool,
   hidden: PropTypes.bool,
 
