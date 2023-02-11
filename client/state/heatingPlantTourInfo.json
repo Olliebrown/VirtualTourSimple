@@ -246,6 +246,19 @@
     },
     "exits": [
       {
+        "key": "LIB_NE",
+        "direction": -4,
+        "type": "door",
+        "caption": "Enter Library",
+        "height": 0,
+        "distance": 6,
+        "alignment": [
+          0,
+          120,
+          0
+        ]
+      },
+      {
         "key": "1S03_12",
         "direction": -90,
         "type": "teleport",
@@ -4219,5 +4232,151 @@
       }
     ],
     "key": "RS05_11"
+  },
+  "LIB_NW": {
+    "label": "Library Condenser: Intake",
+    "alignment": [
+      0,
+      60,
+      181
+    ],
+    "hotspots": [],
+    "exits": [
+      {
+        "direction": 50,
+        "key": "LIB_NE",
+        "type": "teleport",
+        "alignment": [
+          0,
+          0,
+          0
+        ],
+        "height": -4,
+        "distance": 6
+      }
+    ]
+  },
+  "LIB_NE": {
+    "label": "Library Condenser: Distribution",
+    "alignment": [
+      0,
+      57,
+      181
+    ],
+    "hotspots": [],
+    "exits": [
+      {
+        "direction": 71,
+        "key": "1S02_11",
+        "type": "door",
+        "caption": "Return to Heating Plant",
+        "alignment": [
+          0,
+          100,
+          0
+        ],
+        "distance": 12,
+        "height": -0.3
+      },
+      {
+        "direction": -155,
+        "key": "LIB_NW",
+        "type": "teleport",
+        "alignment": [
+          0,
+          0,
+          0
+        ],
+        "height": -5,
+        "distance": 7
+      },
+      {
+        "direction": -15,
+        "key": "LIB_SE",
+        "type": "arrow",
+        "alignment": [
+          0,
+          0,
+          0
+        ],
+        "height": -4
+      },
+      {
+        "direction": 40,
+        "key": "LIB_SW",
+        "type": "arrow",
+        "alignment": [
+          0,
+          0,
+          20
+        ],
+        "distance": 5,
+        "height": -3
+      }
+    ]
+  },
+  "LIB_SE": {
+    "label": "Library Condenser",
+    "alignment": [
+      0,
+      178,
+      180
+    ],
+    "hotspots": [],
+    "exits": [
+      {
+        "direction": 160,
+        "key": "LIB_NE",
+        "type": "arrow",
+        "alignment": [
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "direction": 75,
+        "key": "LIB_SW",
+        "type": "teleport",
+        "alignment": [
+          0,
+          0,
+          0
+        ],
+        "distance": 16
+      }
+    ]
+  },
+  "LIB_SW": {
+    "label": "Library Condenser",
+    "alignment": [
+      0,
+      -70,
+      180
+    ],
+    "hotspots": [],
+    "exits": [
+      {
+        "direction": 200,
+        "key": "LIB_NE",
+        "type": "arrow",
+        "alignment": [
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "direction": -109,
+        "key": "LIB_SE",
+        "type": "teleport",
+        "alignment": [
+          0,
+          0,
+          0
+        ],
+        "distance": 15
+      }
+    ]
   }
 }
