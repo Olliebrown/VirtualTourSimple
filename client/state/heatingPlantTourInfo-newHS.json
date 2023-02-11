@@ -1,0 +1,4515 @@
+{
+  "1S01_22": {
+    "label": "Control Room",
+    "alignment": [
+      0.3,
+      -28,
+      179
+    ],
+    "hotspots": [
+      {
+        "id": "1S01_Control_Room",
+        "modal": true,
+        "title": "Heating Plant Control Room",
+        "type": "audio",
+        "longitude": -87.3,
+        "latitude": 3,
+        "scale": 0.4,
+        "priority": 0
+      }
+    ],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Ground Floor",
+      "image": "GroundFloor.png",
+      "x": 543,
+      "y": 276
+    },
+    "exits": [
+      {
+        "key": "1S01_10",
+        "direction": -90,
+        "type": "door",
+        "caption": "Exit Control Room",
+        "shift": -7,
+        "distance": 7,
+        "height": -1,
+        "alignment": [
+          0,
+          90,
+          0
+        ]
+      },
+      {
+        "key": "1N01_11",
+        "direction": 180,
+        "type": "door",
+        "caption": "Exit Control Room",
+        "distance": 15,
+        "height": -1,
+        "alignment": [
+          0,
+          120,
+          0
+        ]
+      },
+      {
+        "key": "LN01_01",
+        "direction": 0,
+        "type": "arrow"
+      }
+    ],
+    "key": "1S01_22"
+  },
+  "1S01_10": {
+    "label": "Boiler 1 Front",
+    "alignment": [
+      -1.7,
+      -120,
+      -182
+    ],
+    "video": {
+      "href": "BrianPlantIntro-ChromaKeyed.mp4",
+      "loop": false,
+      "autoPlay": false,
+      "chromaKeyColor": {
+        "r": 0.157,
+        "g": 0.576,
+        "b": 0.129
+      },
+      "chromaKeyWeights": {
+        "r": 3,
+        "g": 1,
+        "b": 2
+      },
+      "fadeTime": 0.5,
+      "crop": {
+        "x": 0.5,
+        "y": 0.35,
+        "width": 0.07,
+        "height": 0.24
+      }
+    },
+    "hotspots": [
+      {
+        "id": "1S01_Welcome",
+        "modal": true,
+        "title": "Heating Plant Introduction",
+        "type": "media",
+        "longitude": -18,
+        "latitude": 4,
+        "scale": 0.4,
+        "priority": 0
+      },
+      {
+        "id": "1S01_Boiler",
+        "modal": true,
+        "title": "Water-tube Boilers",
+        "type": "info",
+        "longitude": 10.3,
+        "latitude": 22,
+        "scale": 0.4,
+        "priority": 0
+      },
+      {
+        "id": "1S01_Burner",
+        "modal": true,
+        "title": "Water-tube Burner",
+        "type": "info",
+        "longitude": -0.1,
+        "latitude": 11.8,
+        "scale": 0.4,
+        "priority": 0
+      },
+      {
+        "title": "Steam Drum",
+        "json": "",
+        "longitude": 0,
+        "latitude": 0,
+        "radius": 0,
+        "scale": 1,
+        "type": "info",
+        "id": "steamDrumNew"
+      },
+      {
+        "title": "Mud Drum",
+        "json": "",
+        "longitude": 0,
+        "latitude": 0,
+        "radius": 0,
+        "scale": 1,
+        "type": "info",
+        "id": "mudDrumNew"
+      },
+      {
+        "title": "Blower",
+        "json": "",
+        "longitude": 0,
+        "latitude": 0,
+        "radius": 0,
+        "scale": 1,
+        "type": "info",
+        "id": "blowerNew"
+      }
+    ],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Ground Floor",
+      "image": "GroundFloor.png",
+      "x": 480,
+      "y": 262
+    },
+    "exits": [
+      {
+        "key": "1S02_12",
+        "direction": -90,
+        "type": "teleport",
+        "distance": 8,
+        "height": -4,
+        "priority": 1
+      },
+      {
+        "key": "1S01_22",
+        "direction": 120,
+        "type": "door",
+        "caption": "Enter Control Room",
+        "height": -1.5,
+        "shift": 0.5,
+        "alignment": [
+          0,
+          98.6,
+          0
+        ],
+        "distance": 6,
+        "priority": 1
+      },
+      {
+        "key": "1S01_01",
+        "direction": 150,
+        "type": "teleport",
+        "distance": 13,
+        "height": -3,
+        "priority": 1
+      },
+      {
+        "key": "1S02_02",
+        "direction": -180,
+        "type": "arrow",
+        "distance": 5,
+        "height": -2,
+        "shift": 3.2,
+        "priority": 1
+      },
+      {
+        "key": "1S02_11",
+        "direction": -90,
+        "type": "teleport",
+        "height": -4,
+        "distance": 19,
+        "priority": 1
+      }
+    ],
+    "key": "1S01_10"
+  },
+  "1S02_12": {
+    "label": "Between Boilers 1 & 2",
+    "alignment": [
+      -1.6,
+      -120,
+      -182
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Ground Floor",
+      "image": "GroundFloor.png",
+      "x": 448,
+      "y": 262
+    },
+    "exits": [
+      {
+        "key": "1S02_11",
+        "direction": -90,
+        "type": "teleport",
+        "height": -4,
+        "distance": 12
+      },
+      {
+        "key": "1S01_10",
+        "direction": 90,
+        "type": "teleport",
+        "height": -4,
+        "distance": 6.5
+      },
+      {
+        "key": "1S02_02",
+        "direction": 180,
+        "type": "teleport",
+        "height": -4,
+        "distance": 20,
+        "shift": 0.2
+      },
+      {
+        "key": "1S03_12",
+        "direction": -90,
+        "type": "teleport",
+        "height": -4,
+        "distance": 20
+      }
+    ],
+    "key": "1S02_12"
+  },
+  "1S02_11": {
+    "label": "Boiler 2 Front",
+    "alignment": [
+      -0.2,
+      -120,
+      -180
+    ],
+    "hotspots": [
+      {
+        "title": "Boiler 2 Peephole",
+        "json": "",
+        "longitude": 127.1,
+        "latitude": 0,
+        "radius": 3,
+        "scale": 2,
+        "type": "media",
+        "id": "boiler2Peep_new"
+      },
+      {
+        "title": "Boiler Control Panel",
+        "json": "",
+        "longitude": 0,
+        "latitude": 0,
+        "radius": 0,
+        "scale": 1,
+        "type": "info",
+        "id": "controlPanel_New"
+      }
+    ],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Ground Floor",
+      "image": "GroundFloor.png",
+      "x": 402,
+      "y": 262
+    },
+    "exits": [
+      {
+        "key": "1S03_12",
+        "direction": -90,
+        "type": "teleport",
+        "height": -4,
+        "distance": 8.5
+      },
+      {
+        "key": "1S02_12",
+        "direction": 90,
+        "type": "teleport",
+        "height": -4,
+        "distance": 9
+      },
+      {
+        "key": "1S03_02",
+        "direction": -180,
+        "type": "arrow",
+        "shift": 5,
+        "distance": 4
+      },
+      {
+        "key": "1S01_10",
+        "direction": 90,
+        "type": "teleport",
+        "height": -4,
+        "distance": 18
+      },
+      {
+        "key": "1S03_11",
+        "direction": -90,
+        "type": "teleport",
+        "height": -4,
+        "distance": 19
+      }
+    ],
+    "key": "1S02_11"
+  },
+  "1S03_12": {
+    "label": "Between Boilers 2 & 3",
+    "alignment": [
+      -1.6,
+      -120,
+      -182
+    ],
+    "hotspots": [
+      {
+        "title": "Access PeepHole",
+        "json": "",
+        "longitude": 0,
+        "latitude": 0,
+        "radius": 0,
+        "scale": 1,
+        "type": "info",
+        "id": "peepHoleNew"
+      }
+    ],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Ground Floor",
+      "image": "GroundFloor.png",
+      "x": 351,
+      "y": 262
+    },
+    "exits": [
+      {
+        "key": "1S03_11",
+        "direction": -90,
+        "type": "teleport",
+        "height": -4,
+        "distance": 12
+      },
+      {
+        "key": "1S02_11",
+        "direction": 90,
+        "type": "teleport",
+        "height": -4,
+        "distance": 6
+      },
+      {
+        "key": "1S03_02",
+        "direction": 180,
+        "type": "arrow"
+      },
+      {
+        "key": "1S02_12",
+        "direction": 90,
+        "type": "teleport",
+        "height": -4,
+        "distance": 14
+      }
+    ],
+    "key": "1S03_12"
+  },
+  "1S03_11": {
+    "label": "Boiler 3 Front",
+    "alignment": [
+      -1.4,
+      -121.5,
+      -182
+    ],
+    "hotspots": [
+      {
+        "title": "Control Panel",
+        "json": "",
+        "longitude": 0,
+        "latitude": 0,
+        "radius": 0,
+        "scale": 1,
+        "type": "info",
+        "id": "boiler3CPNew"
+      },
+      {
+        "title": "Fuel Distribution",
+        "json": "",
+        "longitude": 0,
+        "latitude": 0,
+        "radius": 0,
+        "scale": 1,
+        "type": "info",
+        "id": "fuelBoiler3New"
+      }
+    ],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Ground Floor",
+      "image": "GroundFloor.png",
+      "x": 300,
+      "y": 262
+    },
+    "exits": [
+      {
+        "key": "1S04_12",
+        "direction": -90,
+        "type": "teleport",
+        "height": -4,
+        "distance": 13
+      },
+      {
+        "key": "1S03_12",
+        "direction": 90,
+        "type": "teleport",
+        "height": -4,
+        "distance": 9
+      },
+      {
+        "key": "1N03_20",
+        "direction": 180,
+        "type": "arrow",
+        "shift": 5,
+        "distance": 5
+      },
+      {
+        "key": "1S02_11",
+        "direction": 90,
+        "type": "teleport",
+        "shift": 0,
+        "height": -4,
+        "distance": 16
+      }
+    ],
+    "key": "1S03_11"
+  },
+  "1S04_12": {
+    "label": "Between Boilers 3 & 4",
+    "alignment": [
+      -1,
+      -120,
+      -182
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Ground Floor",
+      "image": "GroundFloor.png",
+      "x": 234,
+      "y": 262
+    },
+    "exits": [
+      {
+        "key": "1S04_11",
+        "direction": -130.1,
+        "type": "stairsUp",
+        "distance": 14,
+        "height": -4,
+        "alignment": [
+          0,
+          -34.8,
+          0
+        ]
+      },
+      {
+        "key": "1S04_20",
+        "direction": -82,
+        "type": "teleport",
+        "distance": 16,
+        "height": -4
+      },
+      {
+        "key": "1N04_22",
+        "direction": 180,
+        "type": "teleport",
+        "distance": 18,
+        "height": -4
+      },
+      {
+        "key": "1S03_11",
+        "direction": 90,
+        "type": "teleport",
+        "height": -4,
+        "distance": 11
+      },
+      {
+        "key": "1N03_20",
+        "direction": 153,
+        "type": "arrow",
+        "distance": 8
+      }
+    ],
+    "key": "1S04_12"
+  },
+  "1S04_20": {
+    "label": "Door to Chiller Plant",
+    "alignment": [
+      -1.6,
+      -120,
+      -182
+    ],
+    "hotspots": [
+      {
+        "title": "About the Chiller Plant",
+        "longitude": 60,
+        "latitude": 0,
+        "radius": 4,
+        "scale": 0.4,
+        "type": "info",
+        "id": "1S05_Chiller_General",
+        "modal": true
+      }
+    ],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Ground Floor",
+      "image": "GroundFloor.png",
+      "x": 162,
+      "y": 277
+    },
+    "exits": [
+      {
+        "key": "1N04_20",
+        "direction": 180,
+        "type": "arrow",
+        "shift": 1,
+        "distance": 7
+      },
+      {
+        "key": "1S04_12",
+        "direction": 95,
+        "type": "teleport",
+        "height": -4,
+        "distance": 16
+      },
+      {
+        "key": "1S05_22",
+        "direction": -90,
+        "type": "door",
+        "caption": "Enter Chiller Plant",
+        "distance": 6,
+        "hotspots": [
+          {
+            "id": "1S05_Chiller_General",
+            "modal": true,
+            "title": "About the Chiller Plant",
+            "type": "info",
+            "longitude": 0,
+            "latitude": 11.6,
+            "scale": 0.4
+          }
+        ],
+        "alignment": [
+          0,
+          102.7,
+          0
+        ],
+        "shift": 2
+      },
+      {
+        "key": "1S04_11",
+        "direction": 154.4,
+        "type": "stairsUp",
+        "distance": 12,
+        "alignment": [
+          0,
+          -29.4,
+          0
+        ]
+      }
+    ],
+    "key": "1S04_20"
+  },
+  "1N04_20": {
+    "label": "Boiler 4 West Side",
+    "alignment": [
+      -2,
+      -120,
+      -182
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Ground Floor",
+      "image": "GroundFloor.png",
+      "x": 162,
+      "y": 185
+    },
+    "exits": [
+      {
+        "key": "1N04_00",
+        "direction": 180,
+        "type": "arrow",
+        "shift": 1,
+        "distance": 7
+      },
+      {
+        "key": "1S04_20",
+        "direction": 0,
+        "type": "arrow"
+      }
+    ],
+    "key": "1N04_20"
+  },
+  "1N04_00": {
+    "label": "Boiler 4 Northwest Corner",
+    "alignment": [
+      -1.6,
+      -110,
+      -182
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Ground Floor",
+      "image": "GroundFloor.png",
+      "x": 160,
+      "y": 90
+    },
+    "exits": [
+      {
+        "key": "1N04_01",
+        "direction": 105,
+        "type": "teleport",
+        "height": -4,
+        "distance": 9
+      },
+      {
+        "key": "1N04_20",
+        "direction": 0,
+        "type": "arrow",
+        "shift": -1.5,
+        "height": -4
+      },
+      {
+        "key": "1N04_10",
+        "direction": 10,
+        "type": "stairsUp",
+        "distance": 10,
+        "shift": -0.5,
+        "alignment": [
+          0,
+          -45.6,
+          0
+        ]
+      },
+      {
+        "key": "1N04_02",
+        "direction": 98,
+        "type": "teleport",
+        "distance": 15,
+        "height": -4
+      }
+    ],
+    "key": "1N04_00"
+  },
+  "1N04_01": {
+    "label": "Boiler 4 Back",
+    "alignment": [
+      1,
+      -73,
+      -180
+    ],
+    "hotspots": [
+      {
+        "title": "Boiler4 Mud Drum",
+        "json": "",
+        "longitude": 0,
+        "latitude": 0,
+        "radius": 0,
+        "scale": 1,
+        "type": "info",
+        "id": "mud drum new"
+      },
+      {
+        "title": "Boiler 4 Steam Drum",
+        "json": "",
+        "longitude": 0,
+        "latitude": 0,
+        "radius": 0,
+        "scale": 1,
+        "type": "info",
+        "id": "steam drum new"
+      },
+      {
+        "title": "Peep Hole Combustion Chamber",
+        "json": "",
+        "longitude": 0,
+        "latitude": 0,
+        "radius": 0,
+        "scale": 1,
+        "type": "info",
+        "id": "peepHoldNew"
+      }
+    ],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Ground Floor",
+      "image": "GroundFloor.png",
+      "x": 198,
+      "y": 88
+    },
+    "exits": [
+      {
+        "key": "1N04_02",
+        "direction": 97,
+        "type": "teleport",
+        "height": -4,
+        "distance": 8
+      },
+      {
+        "key": "1N04_00",
+        "direction": -97,
+        "type": "teleport",
+        "height": -4,
+        "distance": 8
+      }
+    ],
+    "key": "1N04_01"
+  },
+  "1N04_02": {
+    "label": "Boiler 4 Northeast Corner",
+    "alignment": [
+      0,
+      -127,
+      -180.5
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Ground Floor",
+      "image": "GroundFloor.png",
+      "x": 229,
+      "y": 89
+    },
+    "exits": [
+      {
+        "key": "1N04_22",
+        "direction": 0,
+        "type": "teleport",
+        "height": -4,
+        "distance": 10
+      },
+      {
+        "key": "1N04_01",
+        "direction": -107,
+        "type": "teleport",
+        "height": -4,
+        "distance": 10
+      },
+      {
+        "key": "1N03_10",
+        "direction": 90,
+        "type": "arrow",
+        "shift": -1.5,
+        "distance": 2.5
+      }
+    ],
+    "key": "1N04_02"
+  },
+  "1N04_22": {
+    "label": "Boiler 4 East Side",
+    "alignment": [
+      -1.5,
+      -118,
+      -183
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Ground Floor",
+      "image": "GroundFloor.png",
+      "x": 231,
+      "y": 170
+    },
+    "exits": [
+      {
+        "key": "1S04_12",
+        "direction": 0,
+        "type": "teleport",
+        "distance": 20,
+        "height": -4,
+        "shift": 0.5
+      },
+      {
+        "key": "1N04_02",
+        "direction": 180,
+        "type": "teleport",
+        "height": -4,
+        "distance": 14
+      },
+      {
+        "key": "1N03_10",
+        "direction": 90,
+        "type": "arrow",
+        "shift": 6,
+        "distance": 1.5
+      }
+    ],
+    "key": "1N04_22"
+  },
+  "1N03_10": {
+    "label": "Boiler 3 Northwest Corner",
+    "alignment": [
+      -1.6,
+      -118.5,
+      -182
+    ],
+    "hotspots": [
+      {
+        "title": "Ash Chute",
+        "json": "",
+        "longitude": 0,
+        "latitude": 0,
+        "radius": 0,
+        "scale": 1,
+        "type": "info",
+        "id": "ashChuteB3New"
+      }
+    ],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Ground Floor",
+      "image": "GroundFloor.png",
+      "x": 263,
+      "y": 108
+    },
+    "exits": [
+      {
+        "key": "1N03_20",
+        "direction": 0,
+        "type": "teleport",
+        "height": -4,
+        "distance": 13,
+        "shift": 0.3
+      },
+      {
+        "key": "1N03_11",
+        "direction": 90,
+        "type": "teleport",
+        "height": -4,
+        "distance": 8
+      },
+      {
+        "key": "1N04_22",
+        "direction": -90,
+        "type": "arrow",
+        "alignment": [
+          0,
+          0,
+          -90
+        ],
+        "height": -3,
+        "shift": 1.75
+      },
+      {
+        "key": "1N04_02",
+        "direction": -90,
+        "type": "arrow",
+        "height": -3,
+        "alignment": [
+          0,
+          0,
+          90
+        ],
+        "shift": -2.25
+      },
+      {
+        "key": "LN03_01",
+        "direction": 160,
+        "type": "stairsDown",
+        "height": -6,
+        "distance": 8,
+        "alignment": [
+          0,
+          -48.4,
+          0
+        ]
+      },
+      {
+        "key": "1N03_12",
+        "direction": 90,
+        "type": "teleport",
+        "height": -4,
+        "distance": 18,
+        "shift": 1
+      }
+    ],
+    "key": "1N03_10"
+  },
+  "1N03_20": {
+    "label": "Boiler 3 West Side",
+    "alignment": [
+      0.5,
+      -120,
+      178
+    ],
+    "hotspots": [
+      {
+        "title": "Boiler3 Mud Drum",
+        "json": "",
+        "longitude": 0,
+        "latitude": 0,
+        "radius": 0,
+        "scale": 1,
+        "type": "info",
+        "id": "muddrumNew"
+      }
+    ],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Ground Floor",
+      "image": "GroundFloor.png",
+      "x": 264,
+      "y": 170
+    },
+    "exits": [
+      {
+        "key": "1N03_10",
+        "direction": 185,
+        "type": "teleport",
+        "height": -4,
+        "distance": 13
+      },
+      {
+        "key": "1S03_11",
+        "direction": 0,
+        "type": "arrow"
+      }
+    ],
+    "key": "1N03_20"
+  },
+  "1N03_11": {
+    "label": "Boiler 3 Back",
+    "alignment": [
+      -1.3,
+      -123,
+      -182
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Ground Floor",
+      "image": "GroundFloor.png",
+      "x": 300,
+      "y": 108
+    },
+    "exits": [
+      {
+        "key": "1N03_10",
+        "direction": -90,
+        "type": "teleport",
+        "height": -4,
+        "distance": 9,
+        "shift": 1
+      },
+      {
+        "key": "1N03_12",
+        "direction": 90,
+        "type": "teleport",
+        "height": -4,
+        "distance": 11
+      },
+      {
+        "key": "1N02_11",
+        "direction": 90,
+        "type": "teleport",
+        "height": -4,
+        "distance": 21
+      }
+    ],
+    "key": "1N03_11"
+  },
+  "1N03_12": {
+    "label": "Boiler 3 NE Corner / Boiler 2 NW Corner",
+    "alignment": [
+      -1.6,
+      -121.5,
+      -182
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Ground Floor",
+      "image": "GroundFloor.png",
+      "x": 351,
+      "y": 103
+    },
+    "exits": [
+      {
+        "key": "1N03_11",
+        "direction": -90,
+        "type": "teleport",
+        "height": -4,
+        "distance": 10,
+        "shift": 1
+      },
+      {
+        "key": "1N02_11",
+        "direction": 90,
+        "type": "teleport",
+        "height": -4,
+        "distance": 11
+      },
+      {
+        "key": "1S03_02",
+        "direction": 0,
+        "type": "teleport",
+        "height": -4,
+        "distance": 12,
+        "shift": -0.3
+      },
+      {
+        "key": "1N02_12",
+        "direction": 90,
+        "type": "teleport",
+        "height": -4,
+        "distance": 18.5
+      },
+      {
+        "key": "1N03_10",
+        "direction": -90,
+        "type": "teleport",
+        "height": -4,
+        "shift": 1,
+        "distance": 19
+      }
+    ],
+    "key": "1N03_12"
+  },
+  "1S03_02": {
+    "label": "Boiler 3 East Side / Boiler 2 West Side",
+    "alignment": [
+      -1.6,
+      -125,
+      -182
+    ],
+    "hotspots": [
+      {
+        "title": "Coal Access Door x 2",
+        "json": "",
+        "longitude": 0,
+        "latitude": 0,
+        "radius": 0,
+        "scale": 1,
+        "type": "info",
+        "id": "coalAccessDoorNew"
+      },
+      {
+        "title": "Mud Drum x 2",
+        "json": "",
+        "longitude": 0,
+        "latitude": 0,
+        "radius": 0,
+        "scale": 1,
+        "type": "info",
+        "id": "mudDrumsNew"
+      }
+    ],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Ground Floor",
+      "image": "GroundFloor.png",
+      "x": 351,
+      "y": 170
+    },
+    "exits": [
+      {
+        "key": "1S03_12",
+        "direction": 0,
+        "type": "arrow"
+      },
+      {
+        "key": "1N03_12",
+        "direction": 180,
+        "type": "teleport",
+        "height": -4,
+        "distance": 12,
+        "shift": 1.1
+      }
+    ],
+    "key": "1S03_02"
+  },
+  "1N02_11": {
+    "label": "Boiler 2 Back",
+    "alignment": [
+      -1.7,
+      -117.5,
+      -182
+    ],
+    "hotspots": [
+      {
+        "title": "Boiler #2",
+        "json": "",
+        "longitude": 180,
+        "latitude": 20,
+        "radius": 12,
+        "scale": 1,
+        "type": "info",
+        "id": "1N02_Boiler2",
+        "modal": true
+      }
+    ],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Ground Floor",
+      "image": "GroundFloor.png",
+      "x": 402,
+      "y": 103
+    },
+    "exits": [
+      {
+        "key": "1N03_12",
+        "direction": -90,
+        "type": "teleport",
+        "height": -4,
+        "distance": 10,
+        "shift": 1
+      },
+      {
+        "key": "1N02_12",
+        "direction": 90,
+        "type": "teleport",
+        "height": -4,
+        "shift": -1,
+        "distance": 9
+      },
+      {
+        "key": "1N03_11",
+        "direction": -90,
+        "type": "teleport",
+        "height": -4,
+        "shift": 1,
+        "distance": 21
+      },
+      {
+        "key": "LN01_01",
+        "direction": 102,
+        "type": "stairsDown",
+        "height": -4.5,
+        "distance": 16,
+        "alignment": [
+          0,
+          -45.7,
+          0
+        ]
+      }
+    ],
+    "key": "1N02_11"
+  },
+  "1N02_12": {
+    "label": "Boiler 2 East Side / Boiler 1 West Side",
+    "alignment": [
+      -1.7,
+      -119,
+      -182
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Ground Floor",
+      "image": "GroundFloor.png",
+      "x": 448,
+      "y": 107
+    },
+    "exits": [
+      {
+        "key": "1N01_11",
+        "direction": 90,
+        "type": "teleport",
+        "height": -4,
+        "distance": 16
+      },
+      {
+        "key": "1S02_02",
+        "direction": 0,
+        "type": "teleport",
+        "height": -4,
+        "distance": 12
+      },
+      {
+        "key": "1N02_11",
+        "direction": -90,
+        "type": "teleport",
+        "height": -4,
+        "distance": 9
+      },
+      {
+        "key": "LN01_01",
+        "direction": 145,
+        "type": "stairsDown",
+        "height": -5,
+        "distance": 9,
+        "alignment": [
+          0,
+          -38.9,
+          0
+        ]
+      },
+      {
+        "key": "1N03_12",
+        "direction": -90,
+        "type": "teleport",
+        "height": -4,
+        "distance": 18
+      }
+    ],
+    "key": "1N02_12"
+  },
+  "1S02_02": {
+    "label": "Boiler 2 East Side / Boiler 1 West Side",
+    "alignment": [
+      -1.6,
+      -126,
+      -182
+    ],
+    "hotspots": [
+      {
+        "title": "boiler2Info",
+        "json": "",
+        "longitude": 0,
+        "latitude": 0,
+        "radius": 0,
+        "scale": 1,
+        "type": "info",
+        "id": "boiler2InfoMove"
+      },
+      {
+        "title": "boiler2MudDrum",
+        "json": "",
+        "longitude": 0,
+        "latitude": 0,
+        "radius": 0,
+        "scale": 1,
+        "type": "info",
+        "id": "mudDrumNew"
+      }
+    ],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Ground Floor",
+      "image": "GroundFloor.png",
+      "x": 448,
+      "y": 170
+    },
+    "exits": [
+      {
+        "key": "1S02_12",
+        "direction": 0,
+        "type": "teleport",
+        "height": -4,
+        "distance": 18,
+        "shift": 0.3
+      },
+      {
+        "key": "1N02_12",
+        "direction": 180,
+        "type": "teleport",
+        "height": -4,
+        "distance": 12
+      }
+    ],
+    "key": "1S02_02"
+  },
+  "1W02_11": {
+    "label": "Water Room West",
+    "alignment": [
+      -1.7,
+      -121,
+      -182
+    ],
+    "hotspots": [
+      {
+        "id": "1W01_WaterTreat_Mechanical",
+        "modal": true,
+        "title": "Mechanical Water Treatment",
+        "type": "audio",
+        "longitude": -52.2,
+        "latitude": 3,
+        "scale": 0.4,
+        "priority": 0
+      },
+      {
+        "id": "1W02_WaterTreat_Chemical",
+        "modal": true,
+        "title": "Chemical Water Treatment",
+        "type": "audio",
+        "longitude": 90,
+        "latitude": -10,
+        "scale": 0.4,
+        "priority": 0
+      }
+    ],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Ground Floor",
+      "image": "GroundFloor.png",
+      "x": 478,
+      "y": 37
+    },
+    "exits": [
+      {
+        "key": "1W01_11",
+        "direction": 90,
+        "type": "teleport",
+        "height": -4,
+        "distance": 11.5
+      }
+    ],
+    "key": "1W02_11"
+  },
+  "1W01_11": {
+    "label": "Water Room East",
+    "alignment": [
+      -2,
+      -129,
+      -182
+    ],
+    "hotspots": [
+      {
+        "id": "1W01_WaterTreat_Mechanical",
+        "modal": true,
+        "title": "Mechanical Water Treatment",
+        "type": "audio",
+        "longitude": 30,
+        "latitude": -5,
+        "scale": 0.4,
+        "priority": 0
+      },
+      {
+        "id": "1W02_WaterTreat_Chemical",
+        "modal": true,
+        "title": "Chemical Water Treatment",
+        "type": "audio",
+        "longitude": 90,
+        "latitude": -5,
+        "scale": 0.4,
+        "priority": 0
+      }
+    ],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Ground Floor",
+      "image": "GroundFloor.png",
+      "x": 528,
+      "y": 37
+    },
+    "exits": [
+      {
+        "key": "1N01_11",
+        "direction": 0,
+        "type": "door",
+        "caption": "Exit Water Treatment",
+        "alignment": [
+          0,
+          90,
+          0
+        ],
+        "distance": 6,
+        "height": -1
+      },
+      {
+        "key": "1W02_11",
+        "direction": -90,
+        "type": "teleport",
+        "height": -4,
+        "distance": 11.5
+      }
+    ],
+    "key": "1W01_11"
+  },
+  "LN01_01": {
+    "label": "",
+    "alignment": [
+      -0.5,
+      -112,
+      -182
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Basement",
+      "image": "Basement.png",
+      "x": 501,
+      "y": 86
+    },
+    "exits": [
+      {
+        "key": "LN01_02",
+        "direction": 90,
+        "type": "stairsDown",
+        "height": -7,
+        "distance": 7,
+        "alignment": [
+          0,
+          -54.7,
+          0
+        ]
+      },
+      {
+        "key": "1N02_12",
+        "direction": -90,
+        "type": "stairsUp",
+        "distance": 8,
+        "height": 2,
+        "alignment": [
+          0,
+          -23.5,
+          0
+        ]
+      }
+    ],
+    "key": "LN01_01"
+  },
+  "LN01_02": {
+    "label": "",
+    "alignment": [
+      -5,
+      -133,
+      -185
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Basement",
+      "image": "Basement.png",
+      "x": 543,
+      "y": 91
+    },
+    "exits": [
+      {
+        "key": "LN01_22",
+        "direction": 0,
+        "type": "teleport",
+        "height": -4,
+        "distance": 17
+      },
+      {
+        "key": "LN01_01",
+        "direction": -110,
+        "type": "stairsUp",
+        "distance": 10,
+        "alignment": [
+          0,
+          -59.9,
+          0
+        ]
+      },
+      {
+        "key": "LN01_10",
+        "direction": -80,
+        "type": "teleport",
+        "height": -4,
+        "distance": 10.5
+      }
+    ],
+    "key": "LN01_02"
+  },
+  "LN01_22": {
+    "label": "",
+    "alignment": [
+      -1.4,
+      -123.5,
+      -182
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Basement",
+      "image": "Basement.png",
+      "x": 536,
+      "y": 169
+    },
+    "exits": [
+      {
+        "key": "LN01_02",
+        "direction": 182,
+        "type": "teleport",
+        "height": -4,
+        "distance": 15
+      },
+      {
+        "key": "LS01_11",
+        "direction": -27.4,
+        "type": "teleport",
+        "height": -4,
+        "distance": 15
+      }
+    ],
+    "key": "LN01_22"
+  },
+  "LS01_11": {
+    "label": "",
+    "alignment": [
+      -4.1,
+      -123.4,
+      -185.5
+    ],
+    "hotspots": [
+      {
+        "id": "LS01_Holding_Tank",
+        "modal": true,
+        "title": "Return Water Holding Tank",
+        "type": "audio",
+        "longitude": -110,
+        "latitude": -20,
+        "scale": 0.4,
+        "priority": 0
+      }
+    ],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Basement",
+      "image": "Basement.png",
+      "x": 507,
+      "y": 248
+    },
+    "exits": [
+      {
+        "key": "LS02_12",
+        "direction": -88,
+        "type": "teleport",
+        "height": -4,
+        "distance": 12.5
+      },
+      {
+        "key": "LN01_22",
+        "direction": 150.7,
+        "type": "teleport",
+        "height": -4,
+        "distance": 14
+      }
+    ],
+    "key": "LS01_11"
+  },
+  "LS02_12": {
+    "label": "",
+    "alignment": [
+      -1.6,
+      -113.2,
+      -181.7
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Basement",
+      "image": "Basement.png",
+      "x": 438,
+      "y": 248
+    },
+    "exits": [
+      {
+        "key": "LS01_11",
+        "direction": 93,
+        "type": "teleport",
+        "height": -4,
+        "distance": 13.5
+      },
+      {
+        "key": "LS02_10",
+        "direction": -90,
+        "type": "arrow"
+      },
+      {
+        "key": "LS02_01",
+        "direction": -153,
+        "type": "teleport",
+        "height": -4,
+        "distance": 17
+      }
+    ],
+    "key": "LS02_12"
+  },
+  "LS02_10": {
+    "label": "",
+    "alignment": [
+      -3.5,
+      -119,
+      -184
+    ],
+    "hotspots": [
+      {
+        "title": "Boiler2 Blower",
+        "json": "",
+        "longitude": 0,
+        "latitude": 0,
+        "radius": 0,
+        "scale": 1,
+        "type": "info",
+        "id": "boiler2Blower_new"
+      },
+      {
+        "title": "PLC Compressor",
+        "json": "",
+        "longitude": 0,
+        "latitude": 0,
+        "radius": 0,
+        "scale": 1,
+        "type": "info",
+        "id": "plcCompresser_new"
+      }
+    ],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Basement",
+      "image": "Basement.png",
+      "x": 366,
+      "y": 259
+    },
+    "exits": [
+      {
+        "key": "LS02_01",
+        "direction": 165,
+        "type": "teleport",
+        "height": -4,
+        "distance": 16
+      },
+      {
+        "key": "LS02_12",
+        "direction": 90,
+        "type": "teleport",
+        "height": -4,
+        "distance": 12
+      },
+      {
+        "key": "LS03_11",
+        "direction": -95,
+        "type": "teleport",
+        "height": -4,
+        "distance": 14
+      }
+    ],
+    "key": "LS02_10"
+  },
+  "LS03_11": {
+    "label": "",
+    "alignment": [
+      0,
+      -117,
+      -182
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Basement",
+      "image": "Basement.png",
+      "x": 300,
+      "y": 248
+    },
+    "exits": [
+      {
+        "key": "LS03_02",
+        "direction": -172,
+        "type": "teleport",
+        "height": -4,
+        "distance": 13
+      },
+      {
+        "key": "LS04_12",
+        "direction": -80,
+        "type": "teleport",
+        "height": -4,
+        "distance": 19
+      },
+      {
+        "key": "LS02_10",
+        "direction": 80,
+        "type": "teleport",
+        "height": -4,
+        "distance": 14
+      }
+    ],
+    "key": "LS03_11"
+  },
+  "LS04_12": {
+    "label": "",
+    "alignment": [
+      -1.6,
+      -119.5,
+      -183
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Basement",
+      "image": "Basement.png",
+      "x": 226,
+      "y": 255
+    },
+    "exits": [
+      {
+        "key": "LS03_11",
+        "direction": 100,
+        "type": "teleport",
+        "height": -4,
+        "distance": 19
+      },
+      {
+        "key": "LS05_12",
+        "direction": -98.6,
+        "type": "teleport",
+        "height": -3,
+        "distance": 14
+      },
+      {
+        "key": "LN04_12",
+        "direction": -180,
+        "type": "arrow"
+      }
+    ],
+    "key": "LS04_12"
+  },
+  "LS04_10": {
+    "label": "",
+    "alignment": [
+      -1.3,
+      -126.7,
+      -182
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Basement",
+      "image": "Basement.png",
+      "x": 162,
+      "y": 252
+    },
+    "exits": [
+      {
+        "key": "LN04_10",
+        "direction": 180,
+        "type": "teleport",
+        "height": -4,
+        "distance": 18
+      },
+      {
+        "key": "LS04_12",
+        "direction": 80,
+        "type": "teleport",
+        "height": -4,
+        "distance": 15
+      },
+      {
+        "key": "LS05_11",
+        "direction": -98,
+        "type": "teleport",
+        "height": -4,
+        "distance": 13
+      }
+    ],
+    "key": "LS04_10"
+  },
+  "LN04_10": {
+    "label": "",
+    "alignment": [
+      -1,
+      -137.9,
+      -181
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Basement",
+      "image": "Basement.png",
+      "x": 162,
+      "y": 162
+    },
+    "exits": [
+      {
+        "key": "LS05_12",
+        "direction": -14,
+        "type": "arrow",
+        "height": -3,
+        "distance": 6
+      },
+      {
+        "key": "LN04_12",
+        "direction": 95,
+        "type": "teleport",
+        "height": -4,
+        "distance": 12
+      },
+      {
+        "key": "LN05_11",
+        "direction": -81,
+        "type": "teleport",
+        "height": -4,
+        "distance": 12.5
+      }
+    ],
+    "key": "LN04_10"
+  },
+  "LN04_12": {
+    "label": "",
+    "alignment": [
+      -3.8,
+      -110.5,
+      -183.8
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Basement",
+      "image": "Basement.png",
+      "x": 226,
+      "y": 162
+    },
+    "exits": [
+      {
+        "key": "LS04_12",
+        "direction": 0,
+        "type": "arrow",
+        "distance": 0
+      },
+      {
+        "key": "LN04_10",
+        "direction": -90,
+        "type": "teleport",
+        "distance": 13,
+        "height": -4
+      }
+    ],
+    "key": "LN04_12"
+  },
+  "LN05_11": {
+    "label": "",
+    "alignment": [
+      -1.3,
+      -106.8,
+      -182.6
+    ],
+    "hotspots": [
+      {
+        "title": "TempGauge",
+        "json": "",
+        "longitude": 0,
+        "latitude": 0,
+        "radius": 0,
+        "scale": 1,
+        "type": "info",
+        "id": "tempGaugeNew"
+      }
+    ],
+    "mapInfo": {
+      "building": "Cooling Plant",
+      "floor": "Basement",
+      "image": "Basement.png",
+      "x": 95,
+      "y": 170
+    },
+    "exits": [
+      {
+        "key": "LS05_11b",
+        "direction": -18,
+        "type": "teleport",
+        "height": -4,
+        "distance": 16
+      },
+      {
+        "key": "LN04_10",
+        "direction": 96,
+        "type": "teleport",
+        "height": -4,
+        "distance": 12
+      }
+    ],
+    "key": "LN05_11"
+  },
+  "LS05_11": {
+    "label": "",
+    "alignment": [
+      -3.9,
+      -100.5,
+      -185.5
+    ],
+    "video": {
+      "href": "LS05-DistributionHeader-SteveNarration.mp4",
+      "loop": false,
+      "autoPlay": false,
+      "chromaKeyColor": {
+        "r": 0,
+        "g": 0.6,
+        "b": 0
+      },
+      "chromaKeyWeights": {
+        "r": 3,
+        "g": 1,
+        "b": 2
+      },
+      "fadeTime": 0.5,
+      "crop": {
+        "x": 0.24,
+        "y": 0.37,
+        "width": 0.054,
+        "height": 0.167
+      }
+    },
+    "hotspots": [
+      {
+        "id": "LS05_DistributionHeader",
+        "modal": true,
+        "title": "Chilled Water Distribution and Return",
+        "type": "media",
+        "longitude": -94,
+        "latitude": -4,
+        "scale": 0.6,
+        "priority": 0
+      }
+    ],
+    "mapInfo": {
+      "building": "Cooling Plant",
+      "floor": "Basement",
+      "image": "Basement.png",
+      "x": 95,
+      "y": 245
+    },
+    "exits": [
+      {
+        "key": "LS04_10",
+        "direction": 80,
+        "type": "teleport",
+        "height": -4,
+        "distance": 13
+      },
+      {
+        "key": "LN05_11",
+        "direction": 181,
+        "type": "teleport",
+        "height": -4,
+        "distance": 13
+      },
+      {
+        "key": "LS05_10b",
+        "direction": -90,
+        "type": "arrow"
+      }
+    ],
+    "key": "LS05_11"
+  },
+  "LS05_11b": {
+    "label": "",
+    "alignment": [
+      0,
+      39,
+      -180.9
+    ],
+    "video": {
+      "href": "LN05-DistributionPumps-SteveNarration.mp4",
+      "loop": false,
+      "autoPlay": false,
+      "chromaKeyColor": {
+        "r": 0,
+        "g": 0.6,
+        "b": 0
+      },
+      "chromaKeyWeights": {
+        "r": 3,
+        "g": 1,
+        "b": 2
+      },
+      "fadeTime": 0.5,
+      "crop": {
+        "x": 0.935,
+        "y": 0.23,
+        "width": 0.188,
+        "height": 0.45
+      }
+    },
+    "hotspots": [
+      {
+        "id": "LN05_DistributionPumps",
+        "modal": true,
+        "title": "Chilled Water Pumps",
+        "type": "media",
+        "longitude": -42.7,
+        "latitude": -2.4,
+        "scale": 0.6,
+        "priority": 0
+      }
+    ],
+    "mapInfo": {
+      "building": "Cooling Plant",
+      "floor": "Basement",
+      "image": "Basement.png",
+      "x": 95,
+      "y": 245
+    },
+    "exits": [
+      {
+        "key": "LS05_10b",
+        "direction": -110,
+        "type": "teleport",
+        "distance": 7,
+        "height": -4
+      },
+      {
+        "key": "LS05_12",
+        "direction": 90,
+        "type": "teleport",
+        "height": -4,
+        "distance": 11
+      },
+      {
+        "key": "LN05_11",
+        "direction": 168.6,
+        "type": "teleport",
+        "height": -4,
+        "distance": 15
+      }
+    ],
+    "key": "LS05_11b"
+  },
+  "LS05_10a": {
+    "label": "",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Cooling Plant",
+      "floor": "Basement",
+      "image": "Basement.png",
+      "x": 55,
+      "y": 239
+    },
+    "exits": []
+  },
+  "LS05_12": {
+    "label": "",
+    "alignment": [
+      0,
+      -54.6,
+      -180.9
+    ],
+    "video": {
+      "href": "LS05-DistributionHeader-SteveNarration.mp4",
+      "loop": false,
+      "autoPlay": false,
+      "chromaKeyColor": {
+        "r": 0,
+        "g": 0.6,
+        "b": 0
+      },
+      "chromaKeyWeights": {
+        "r": 3,
+        "g": 1,
+        "b": 2
+      },
+      "fadeTime": 0.5,
+      "crop": {
+        "x": 0.04,
+        "y": 0.26,
+        "width": 0.12,
+        "height": 0.36
+      }
+    },
+    "hotspots": [
+      {
+        "id": "LS05_DistributionHeader",
+        "modal": true,
+        "title": "Chilled Water Distribution and Return",
+        "type": "media",
+        "longitude": -108.1,
+        "latitude": -4,
+        "scale": 0.6,
+        "priority": 0
+      },
+      {
+        "title": "Boiler4 Blower",
+        "json": "",
+        "longitude": 0,
+        "latitude": 0,
+        "radius": 0,
+        "scale": 1,
+        "type": "info",
+        "id": "boiler4BlowreNew"
+      }
+    ],
+    "mapInfo": {
+      "building": "Cooling Plant",
+      "floor": "Basement",
+      "image": "Basement.png",
+      "x": 95,
+      "y": 245
+    },
+    "exits": [
+      {
+        "key": "LS05_11b",
+        "direction": -83.1,
+        "type": "teleport",
+        "distance": 12,
+        "height": -4
+      },
+      {
+        "key": "LS04_12",
+        "direction": 68.9,
+        "type": "teleport",
+        "height": -3,
+        "distance": 11
+      },
+      {
+        "key": "LN04_12",
+        "direction": 135.4,
+        "type": "teleport",
+        "height": -4,
+        "distance": 20
+      }
+    ],
+    "key": "LS05_12"
+  },
+  "LS05_10b": {
+    "label": "",
+    "alignment": [
+      -1.3,
+      -115.5,
+      -182.6
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Cooling Plant",
+      "floor": "Basement",
+      "image": "Basement.png",
+      "x": 46,
+      "y": 238
+    },
+    "exits": [
+      {
+        "key": "LS05_20",
+        "direction": 0,
+        "type": "door",
+        "caption": "Stairs to First Floor",
+        "alignment": [
+          0,
+          90,
+          0
+        ],
+        "shift": -3.5,
+        "distance": 7
+      },
+      {
+        "key": "LS05_12",
+        "direction": 87,
+        "type": "teleport",
+        "height": -4,
+        "distance": 21
+      },
+      {
+        "key": "LS05_11b",
+        "direction": 53.4,
+        "type": "teleport",
+        "height": -3,
+        "distance": 6
+      }
+    ],
+    "key": "LS05_10b"
+  },
+  "LS05_20": {
+    "label": "",
+    "alignment": [
+      2.2,
+      59.3,
+      -183
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Cooling Plant",
+      "floor": "Basement",
+      "image": "Basement.png",
+      "x": 44,
+      "y": 281
+    },
+    "exits": [
+      {
+        "key": "LS05_10b",
+        "direction": 180,
+        "type": "door",
+        "caption": "Enter Basement",
+        "distance": 10,
+        "height": -6,
+        "alignment": [
+          0,
+          109.1,
+          0
+        ],
+        "shift": -0.5
+      },
+      {
+        "key": "1S05_21",
+        "direction": 90,
+        "type": "stairsUp",
+        "distance": 8,
+        "height": 0,
+        "alignment": [
+          0,
+          -41.7,
+          0
+        ]
+      }
+    ],
+    "key": "LS05_20"
+  },
+  "1S05_21": {
+    "label": "",
+    "alignment": [
+      -1.3,
+      -141.6,
+      -181.3
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Cooling Plant",
+      "floor": "Ground Floor",
+      "image": "GroundFloor.png",
+      "x": 91,
+      "y": 270
+    },
+    "exits": [
+      {
+        "key": "1S05_10",
+        "direction": -125,
+        "type": "arrow",
+        "alignment": [
+          0,
+          0,
+          25
+        ]
+      },
+      {
+        "key": "1S05_22",
+        "direction": 84.4,
+        "type": "teleport",
+        "distance": 11,
+        "height": -4
+      },
+      {
+        "key": "LS05_20",
+        "direction": -40,
+        "type": "stairsDown",
+        "height": -5,
+        "distance": 8,
+        "alignment": [
+          0,
+          -33.9,
+          0
+        ]
+      }
+    ],
+    "key": "1S05_21"
+  },
+  "1S05_10": {
+    "label": "",
+    "alignment": [
+      0.2,
+      -125.9,
+      -180.4
+    ],
+    "hotspots": [
+      {
+        "id": "1S05_Chiller_HX",
+        "modal": true,
+        "title": "Chiller Heat Exchanger",
+        "type": "info",
+        "longitude": -125,
+        "latitude": 15,
+        "scale": 0.4
+      }
+    ],
+    "mapInfo": {
+      "building": "Cooling Plant",
+      "floor": "Ground Floor",
+      "image": "GroundFloor.png",
+      "x": 55,
+      "y": 239
+    },
+    "exits": [
+      {
+        "key": "1S05_21",
+        "direction": 27,
+        "type": "arrow",
+        "alignment": [
+          0,
+          0,
+          -20
+        ]
+      },
+      {
+        "key": "1S05_00",
+        "direction": 180,
+        "type": "teleport",
+        "height": -4,
+        "shift": -1,
+        "distance": 6
+      }
+    ],
+    "key": "1S05_10"
+  },
+  "1S05_00": {
+    "label": "",
+    "alignment": [
+      -0.6,
+      -116,
+      -181
+    ],
+    "video": {
+      "loop": false,
+      "autoPlay": false,
+      "href": "1S05-ChillerComponents-SteveNarration.mp4",
+      "chromaKeyColor": {
+        "r": 0,
+        "g": 0.6,
+        "b": 0
+      },
+      "chromaKeyWeights": {
+        "r": 3,
+        "g": 1,
+        "b": 2
+      },
+      "fadeTime": 0.5,
+      "crop": {
+        "x": 0.023,
+        "y": 0.27,
+        "width": 0.11,
+        "height": 0.35
+      }
+    },
+    "hotspots": [
+      {
+        "id": "1S05_ChillerComponents",
+        "modal": true,
+        "title": "Chiller BasicComponents",
+        "type": "media",
+        "longitude": 180,
+        "latitude": -3,
+        "scale": 0.4
+      },
+      {
+        "id": "1S05_Chiller_Operation",
+        "modal": true,
+        "title": "Chiller Structure & Operation",
+        "type": "info",
+        "longitude": -100,
+        "latitude": 0,
+        "scale": 0.4
+      },
+      {
+        "title": "Exp Valve",
+        "json": "",
+        "longitude": 0,
+        "latitude": 0,
+        "radius": 0,
+        "scale": 1,
+        "type": "info",
+        "id": "valueNew"
+      }
+    ],
+    "mapInfo": {
+      "building": "Cooling Plant",
+      "floor": "Ground Floor",
+      "image": "GroundFloor.png",
+      "x": 55,
+      "y": 212
+    },
+    "exits": [
+      {
+        "key": "1S05_10",
+        "direction": 0,
+        "type": "teleport",
+        "height": -4,
+        "distance": 6
+      },
+      {
+        "key": "1N05_21",
+        "direction": 90,
+        "type": "stairsUp",
+        "height": 2,
+        "distance": 12,
+        "shift": 5,
+        "alignment": [
+          0,
+          -26.8,
+          0
+        ]
+      },
+      {
+        "key": "1N05_10",
+        "direction": 180,
+        "type": "teleport",
+        "height": -4,
+        "distance": 15
+      },
+      {
+        "key": "1S05_11",
+        "direction": 90,
+        "type": "teleport",
+        "height": -4,
+        "distance": 7.5
+      }
+    ],
+    "key": "1S05_00"
+  },
+  "1S05_11": {
+    "label": "",
+    "alignment": [
+      -0.6,
+      153,
+      -180
+    ],
+    "video": {
+      "href": "SteveChillerIntro-ChromaKeyed.mp4",
+      "loop": false,
+      "autoPlay": false,
+      "chromaKeyColor": {
+        "r": 0,
+        "g": 0.6,
+        "b": 0
+      },
+      "chromaKeyWeights": {
+        "r": 3,
+        "g": 1,
+        "b": 2
+      },
+      "fadeTime": 0.5,
+      "crop": {
+        "x": 0.54,
+        "y": 0.24,
+        "width": 0.125,
+        "height": 0.45
+      }
+    },
+    "hotspots": [
+      {
+        "id": "1S05_ChillerWelcome",
+        "modal": true,
+        "title": "Chiller Plant Introduction",
+        "type": "media",
+        "longitude": -75,
+        "latitude": -8,
+        "scale": 0.6,
+        "priority": 0
+      }
+    ],
+    "mapInfo": {
+      "building": "Cooling Plant",
+      "floor": "Ground Floor",
+      "image": "GroundFloor.png",
+      "x": 91,
+      "y": 212
+    },
+    "exits": [
+      {
+        "key": "1S05_00",
+        "direction": -88,
+        "type": "teleport",
+        "height": -4,
+        "distance": 7
+      },
+      {
+        "key": "1N05_21",
+        "direction": 180,
+        "type": "stairsUp",
+        "height": 5,
+        "distance": 8,
+        "alignment": [
+          0,
+          -23.5,
+          0
+        ],
+        "shift": -1.5
+      }
+    ],
+    "key": "1S05_11"
+  },
+  "1N05_21": {
+    "label": "",
+    "alignment": [
+      -0.6,
+      164,
+      -181
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Cooling Plant",
+      "floor": "Ground Floor",
+      "image": "GroundFloor.png",
+      "x": 91,
+      "y": 188
+    },
+    "exits": [
+      {
+        "key": "1S05_00",
+        "direction": -70,
+        "type": "teleport",
+        "height": -8,
+        "distance": 8
+      },
+      {
+        "key": "1S05_11",
+        "direction": 0,
+        "type": "stairsDown",
+        "height": -8,
+        "distance": 3,
+        "alignment": [
+          0,
+          -50.8,
+          0
+        ]
+      }
+    ],
+    "key": "1N05_21"
+  },
+  "1N05_10": {
+    "label": "",
+    "alignment": [
+      -1,
+      -121.1,
+      -182
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Cooling Plant",
+      "floor": "Ground Floor",
+      "image": "GroundFloor.png",
+      "x": 55,
+      "y": 150
+    },
+    "exits": [
+      {
+        "key": "1N05_11",
+        "direction": 90,
+        "type": "teleport",
+        "height": -4,
+        "distance": 6.5
+      },
+      {
+        "key": "1N05_01",
+        "direction": 117,
+        "type": "stairsUp",
+        "distance": 12,
+        "height": 3,
+        "alignment": [
+          0,
+          -38.5,
+          0
+        ]
+      },
+      {
+        "key": "1S05_00",
+        "direction": 0,
+        "type": "teleport",
+        "height": -4,
+        "distance": 13,
+        "shift": -0.5
+      }
+    ],
+    "key": "1N05_10"
+  },
+  "1N05_11": {
+    "label": "",
+    "alignment": [
+      -1,
+      -125,
+      -182
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Cooling Plant",
+      "floor": "Ground Floor",
+      "image": "GroundFloor.png",
+      "x": 91,
+      "y": 150
+    },
+    "exits": [
+      {
+        "key": "1N05_10",
+        "direction": -90,
+        "type": "teleport",
+        "height": -4,
+        "distance": 7,
+        "shift": 0.5
+      },
+      {
+        "key": "1N05_01",
+        "direction": 180,
+        "type": "stairsUp",
+        "height": 5,
+        "distance": 8,
+        "alignment": [
+          0,
+          -41.1,
+          0
+        ]
+      }
+    ],
+    "key": "1N05_11"
+  },
+  "1N05_01": {
+    "label": "",
+    "alignment": [
+      -2.5,
+      -128,
+      -180
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Cooling Plant",
+      "floor": "Ground Floor",
+      "image": "GroundFloor.png",
+      "x": 90,
+      "y": 125
+    },
+    "exits": [
+      {
+        "key": "1N05_10",
+        "direction": -63,
+        "type": "teleport",
+        "height": -8,
+        "distance": 7.5
+      },
+      {
+        "key": "1N05_11",
+        "direction": 0,
+        "type": "stairsDown",
+        "height": -8,
+        "distance": 4,
+        "alignment": [
+          0,
+          -52.8,
+          0
+        ]
+      }
+    ],
+    "key": "1N05_01"
+  },
+  "1S05_22": {
+    "label": "",
+    "alignment": [
+      0.2,
+      -126,
+      -180
+    ],
+    "hotspots": [
+      {
+        "title": "Chiller3 Evap",
+        "json": "",
+        "longitude": 0,
+        "latitude": 0,
+        "radius": 0,
+        "scale": 1,
+        "type": "info",
+        "id": "evaporator3New"
+      },
+      {
+        "title": "Warm Chilled Water",
+        "json": "",
+        "longitude": 0,
+        "latitude": 0,
+        "radius": 0,
+        "scale": 1,
+        "type": "info",
+        "id": "returnFromPumpNew"
+      }
+    ],
+    "mapInfo": {
+      "building": "Cooling Plant",
+      "floor": "Ground Floor",
+      "image": "GroundFloor.png",
+      "x": 122,
+      "y": 277
+    },
+    "exits": [
+      {
+        "key": "1S04_20",
+        "direction": 90,
+        "type": "door",
+        "caption": "Exit Chiller Plant",
+        "distance": 8,
+        "shift": -3,
+        "alignment": [
+          0,
+          92.6,
+          0
+        ]
+      },
+      {
+        "key": "1S05_21",
+        "direction": -100.3,
+        "type": "teleport",
+        "distance": 12,
+        "height": -4
+      },
+      {
+        "key": "LS05_20",
+        "direction": -84,
+        "type": "stairsDown",
+        "distance": 20,
+        "height": -4.5,
+        "alignment": [
+          0,
+          -63.8,
+          0
+        ]
+      }
+    ],
+    "key": "1S05_22"
+  },
+  "1S04_11": {
+    "label": "",
+    "alignment": [
+      -0.8,
+      98.5,
+      -181
+    ],
+    "hotspots": [
+      {
+        "title": "Boiler #4",
+        "json": "",
+        "longitude": -30,
+        "latitude": 20,
+        "radius": 12,
+        "scale": 1,
+        "type": "info",
+        "id": "1S04_Boiler4",
+        "modal": true
+      },
+      {
+        "title": "Boiler 4 CP",
+        "json": "",
+        "longitude": 0,
+        "latitude": 0,
+        "radius": 0,
+        "scale": 1,
+        "type": "info",
+        "id": "controlPanel4New"
+      },
+      {
+        "title": "Boiler4 Burner",
+        "json": "",
+        "longitude": 0,
+        "latitude": 0,
+        "radius": 0,
+        "scale": 1,
+        "type": "info",
+        "id": "burnerFuelPipeNew"
+      }
+    ],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Ground Floor",
+      "image": "GroundFloor.png",
+      "x": 198,
+      "y": 239
+    },
+    "exits": [
+      {
+        "key": "1S04_12",
+        "direction": 65,
+        "type": "teleport",
+        "height": -8,
+        "distance": 12
+      },
+      {
+        "key": "1S04_20",
+        "direction": -50.8,
+        "type": "teleport",
+        "height": -8,
+        "distance": 12
+      }
+    ],
+    "key": "1S04_11"
+  },
+  "1S01_01": {
+    "label": "Boiler 1 East Side",
+    "alignment": [
+      -0.4,
+      -119.5,
+      -180
+    ],
+    "hotspots": [
+      {
+        "title": "Boiler1",
+        "json": "",
+        "longitude": -122.3,
+        "latitude": 0,
+        "radius": 10,
+        "scale": 1,
+        "type": "info",
+        "id": "boiler1_label_new"
+      }
+    ],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Ground Floor",
+      "image": "GroundFloor.png",
+      "x": 507,
+      "y": 170
+    },
+    "exits": [
+      {
+        "key": "1S01_10",
+        "direction": -20.4,
+        "type": "teleport",
+        "distance": 14
+      },
+      {
+        "key": "1N01_11",
+        "direction": 175,
+        "type": "teleport",
+        "distance": 10,
+        "height": -3
+      }
+    ],
+    "key": "1S01_01"
+  },
+  "1N01_11": {
+    "label": "Boiler 1 NE Corner",
+    "alignment": [
+      -0.2,
+      -122,
+      179
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Ground Floor",
+      "image": "GroundFloor.png",
+      "x": 528,
+      "y": 112
+    },
+    "exits": [
+      {
+        "key": "1S01_22",
+        "direction": 8,
+        "type": "door",
+        "caption": "Enter Control Room",
+        "distance": 10,
+        "height": -1,
+        "shift": 0.2,
+        "alignment": [
+          0,
+          105.9,
+          0
+        ]
+      },
+      {
+        "key": "1S01_01",
+        "direction": -11.3,
+        "type": "teleport",
+        "height": -3,
+        "distance": 11
+      },
+      {
+        "key": "1W01_11",
+        "direction": 180,
+        "type": "door",
+        "caption": "Enter Water Treatment",
+        "distance": 8,
+        "height": -1.5,
+        "shift": -1,
+        "alignment": [
+          0,
+          107.3,
+          0
+        ]
+      },
+      {
+        "key": "1N02_12",
+        "direction": -90,
+        "type": "teleport",
+        "height": -4,
+        "distance": 18
+      },
+      {
+        "key": "1N01_00",
+        "direction": 180,
+        "type": "stairsUp",
+        "distance": 9,
+        "shift": 15,
+        "height": 0
+      }
+    ],
+    "key": "1N01_11"
+  },
+  "1N01_00": {
+    "label": "East Stairs to Catwalk",
+    "alignment": [
+      1.2,
+      -51,
+      -180.1
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Ground Floor",
+      "image": "GroundFloor.png",
+      "x": 485,
+      "y": 87
+    },
+    "exits": [
+      {
+        "key": "1N01_11",
+        "direction": 80,
+        "type": "teleport",
+        "height": -8,
+        "distance": 10
+      },
+      {
+        "key": "2N02_02",
+        "direction": -90,
+        "type": "stairsUp",
+        "alignment": [
+          0,
+          67.5,
+          0
+        ],
+        "distance": 10,
+        "height": 2,
+        "shift": 3
+      }
+    ],
+    "key": "1N01_00"
+  },
+  "2N02_02": {
+    "label": "",
+    "alignment": [
+      0.4,
+      -3.7,
+      -181
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Platforms & Catwalks",
+      "image": "PlatformsCatwalks.png",
+      "x": 443,
+      "y": 91
+    },
+    "exits": [
+      {
+        "key": "1N01_00",
+        "direction": 105.2,
+        "type": "stairsDown",
+        "distance": 12,
+        "height": -12,
+        "alignment": [
+          0,
+          -79.4,
+          0
+        ]
+      },
+      {
+        "key": "2N01_00",
+        "direction": 79.2,
+        "type": "stairsUp",
+        "distance": 12,
+        "height": 0.7,
+        "alignment": [
+          0,
+          -65.1,
+          0
+        ]
+      }
+    ],
+    "key": "2N02_02"
+  },
+  "2N01_00": {
+    "label": "",
+    "alignment": [
+      0.4,
+      86.8,
+      -180.1
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Platforms & Catwalks",
+      "image": "PlatformsCatwalks.png",
+      "x": 495,
+      "y": 98
+    },
+    "exits": [
+      {
+        "key": "2N01_11",
+        "direction": 36.3,
+        "type": "teleport",
+        "distance": 11
+      },
+      {
+        "key": "2N02_02",
+        "direction": -105.5,
+        "type": "stairsDown",
+        "height": -8,
+        "alignment": [
+          0,
+          -78.1,
+          0
+        ],
+        "distance": 10
+      }
+    ],
+    "key": "2N01_00"
+  },
+  "2N01_11": {
+    "label": "",
+    "alignment": [
+      1.4,
+      54,
+      -182
+    ],
+    "hotspots": [
+      {
+        "id": "2N01_Deaerator",
+        "modal": true,
+        "title": "Feedwater Deaerator",
+        "type": "info",
+        "longitude": -70,
+        "latitude": -20,
+        "scale": 0.4,
+        "priority": 0
+      }
+    ],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Platforms & Catwalks",
+      "image": "PlatformsCatwalks.png",
+      "x": 520,
+      "y": 127
+    },
+    "exits": [
+      {
+        "key": "2N01_21",
+        "direction": 0,
+        "type": "teleport",
+        "distance": 8,
+        "height": -4
+      },
+      {
+        "key": "2N01_00",
+        "direction": -141.9,
+        "type": "teleport",
+        "height": -8,
+        "distance": 8.5
+      }
+    ],
+    "key": "2N01_11"
+  },
+  "2N01_21": {
+    "label": "",
+    "alignment": [
+      -1.3,
+      -119.2,
+      -182
+    ],
+    "hotspots": [
+      {
+        "id": "2S01_Economizer",
+        "modal": true,
+        "title": "Boiler Economizer",
+        "type": "info",
+        "longitude": 143.7,
+        "latitude": 5.9,
+        "scale": 0.4,
+        "priority": 0
+      }
+    ],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Platforms & Catwalks",
+      "image": "PlatformsCatwalks.png",
+      "x": 520,
+      "y": 156
+    },
+    "exits": [
+      {
+        "key": "2N01_11",
+        "direction": -180,
+        "type": "teleport",
+        "height": -6,
+        "distance": 10
+      },
+      {
+        "key": "2S01_11",
+        "direction": 0,
+        "type": "teleport",
+        "distance": 10,
+        "height": -3
+      }
+    ],
+    "key": "2N01_21"
+  },
+  "2S01_11": {
+    "label": "",
+    "alignment": [
+      0.4,
+      -121.7,
+      -180.1
+    ],
+    "hotspots": [
+      {
+        "id": "2S01_Economizer",
+        "modal": true,
+        "title": "Boiler Economizer",
+        "type": "info",
+        "longitude": 48.7,
+        "latitude": 5.9,
+        "scale": 0.4,
+        "priority": 0
+      }
+    ],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Platforms & Catwalks",
+      "image": "PlatformsCatwalks.png",
+      "x": 520,
+      "y": 219
+    },
+    "exits": [
+      {
+        "key": "2N01_21",
+        "direction": -180,
+        "type": "teleport",
+        "distance": 13,
+        "height": -4
+      },
+      {
+        "key": "2S02_12",
+        "direction": -90,
+        "type": "stairsUp",
+        "alignment": [
+          0,
+          -66.4,
+          0
+        ],
+        "distance": 12,
+        "height": -1
+      }
+    ],
+    "key": "2S01_11"
+  },
+  "2S02_12": {
+    "label": "",
+    "alignment": [
+      -0.4,
+      -133,
+      -181
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Platforms & Catwalks",
+      "image": "PlatformsCatwalks.png",
+      "x": 443,
+      "y": 222
+    },
+    "exits": [
+      {
+        "key": "2S01_11",
+        "direction": 88.3,
+        "type": "stairsDown",
+        "alignment": [
+          0,
+          -63.8,
+          0
+        ],
+        "distance": 10,
+        "height": -7
+      },
+      {
+        "key": "2N02_12",
+        "direction": -180,
+        "type": "teleport",
+        "distance": 16,
+        "height": -4,
+        "shift": -1
+      },
+      {
+        "key": "2S02_10",
+        "direction": -90,
+        "type": "teleport",
+        "height": -4,
+        "distance": 15
+      },
+      {
+        "key": "2N02_21",
+        "direction": -170.9,
+        "type": "stairsUp",
+        "height": 0,
+        "distance": 20,
+        "alignment": [
+          0,
+          60.5,
+          0
+        ]
+      }
+    ],
+    "key": "2S02_12"
+  },
+  "2S02_10": {
+    "label": "",
+    "alignment": [
+      0,
+      -131.7,
+      -180.1
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Platforms & Catwalks",
+      "image": "PlatformsCatwalks.png",
+      "x": 375,
+      "y": 222
+    },
+    "exits": [
+      {
+        "key": "2S02_12",
+        "direction": 90,
+        "type": "teleport",
+        "height": -4,
+        "distance": 14.5,
+        "shift": -0.5
+      },
+      {
+        "key": "2S03_12",
+        "direction": -90,
+        "type": "teleport",
+        "height": -4,
+        "distance": 10,
+        "shift": -0.5
+      },
+      {
+        "key": "2S03_02",
+        "direction": -150,
+        "type": "teleport",
+        "height": -4,
+        "distance": 9
+      }
+    ],
+    "key": "2S02_10"
+  },
+  "2S03_02": {
+    "label": "",
+    "alignment": [
+      -0.1,
+      -160.2,
+      -181
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Platforms & Catwalks",
+      "image": "PlatformsCatwalks.png",
+      "x": 353,
+      "y": 197
+    },
+    "exits": [
+      {
+        "key": "2S03_12",
+        "direction": -32,
+        "type": "teleport",
+        "height": -4,
+        "distance": 10
+      },
+      {
+        "key": "2S02_10",
+        "direction": 33,
+        "type": "teleport",
+        "height": -4,
+        "distance": 10
+      },
+      {
+        "key": "2N03_22",
+        "direction": 180,
+        "type": "teleport",
+        "height": -4,
+        "distance": 9
+      },
+      {
+        "key": "2N03_21",
+        "direction": -127,
+        "type": "stairsUp",
+        "distance": 12,
+        "height": 2,
+        "alignment": [
+          0,
+          38.7,
+          0
+        ]
+      },
+      {
+        "key": "2N02_21",
+        "direction": 127,
+        "type": "stairsUp",
+        "distance": 12,
+        "height": 2,
+        "alignment": [
+          0,
+          -45.7,
+          0
+        ]
+      }
+    ],
+    "key": "2S03_02"
+  },
+  "2N03_22": {
+    "label": "",
+    "alignment": [
+      -1.5,
+      -111.8,
+      -182.6
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Platforms & Catwalks",
+      "image": "PlatformsCatwalks.png",
+      "x": 353,
+      "y": 144
+    },
+    "exits": [
+      {
+        "key": "2N03_21",
+        "direction": -46.9,
+        "type": "stairsUp",
+        "height": 1.5,
+        "distance": 12,
+        "alignment": [
+          0,
+          -32.6,
+          0
+        ]
+      },
+      {
+        "key": "2N02_21",
+        "direction": 46,
+        "type": "stairsUp",
+        "distance": 12,
+        "height": 1,
+        "alignment": [
+          0,
+          61,
+          0
+        ]
+      },
+      {
+        "key": "2S03_02",
+        "direction": 0,
+        "type": "teleport",
+        "height": -4,
+        "distance": 11
+      },
+      {
+        "key": "2S03_12",
+        "direction": -16,
+        "type": "teleport",
+        "height": -4,
+        "distance": 18
+      },
+      {
+        "key": "2S02_10",
+        "direction": 17,
+        "type": "teleport",
+        "height": -4,
+        "distance": 18
+      }
+    ],
+    "key": "2N03_22"
+  },
+  "2N03_21": {
+    "label": "",
+    "alignment": [
+      0.6,
+      12.4,
+      -180.1
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Platforms & Catwalks",
+      "image": "PlatformsCatwalks.png",
+      "x": 298,
+      "y": 166
+    },
+    "exits": [
+      {
+        "key": "2N03_22",
+        "direction": 90,
+        "type": "stairsDown",
+        "distance": 13,
+        "height": -7.5,
+        "shift": 0.5,
+        "alignment": [
+          0,
+          -62.5,
+          0
+        ]
+      },
+      {
+        "key": "2N03_10",
+        "direction": -90,
+        "type": "stairsDown",
+        "height": -8.5,
+        "distance": 13,
+        "alignment": [
+          0,
+          -45.6,
+          0
+        ],
+        "shift": 0.3
+      }
+    ],
+    "key": "2N03_21"
+  },
+  "2N02_21": {
+    "label": "",
+    "alignment": [
+      -5,
+      -106.8,
+      -186
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Platforms & Catwalks",
+      "image": "PlatformsCatwalks.png",
+      "x": 406,
+      "y": 167
+    },
+    "exits": [
+      {
+        "key": "2N03_22",
+        "direction": -90,
+        "type": "stairsDown",
+        "distance": 10,
+        "height": -7,
+        "alignment": [
+          0,
+          -63.8,
+          0
+        ]
+      },
+      {
+        "key": "2N02_12",
+        "direction": 90,
+        "type": "stairsDown",
+        "distance": 10,
+        "height": -6.5,
+        "alignment": [
+          0,
+          -54.7,
+          0
+        ]
+      }
+    ],
+    "key": "2N02_21"
+  },
+  "2N02_12": {
+    "label": "",
+    "alignment": [
+      -2.3,
+      110.4,
+      -178
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Platforms & Catwalks",
+      "image": "PlatformsCatwalks.png",
+      "x": 448,
+      "y": 144
+    },
+    "exits": [
+      {
+        "key": "2S02_12",
+        "direction": 0,
+        "type": "teleport",
+        "height": -4,
+        "distance": 17,
+        "shift": -1
+      },
+      {
+        "key": "2N02_21",
+        "direction": -38,
+        "type": "stairsUp",
+        "distance": 12,
+        "height": 1.5,
+        "alignment": [
+          0,
+          -49.5,
+          0
+        ]
+      }
+    ],
+    "key": "2N02_12"
+  },
+  "2N03_10": {
+    "label": "",
+    "alignment": [
+      -1.3,
+      -123,
+      -182
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Platforms & Catwalks",
+      "image": "PlatformsCatwalks.png",
+      "x": 260,
+      "y": 144
+    },
+    "exits": [
+      {
+        "key": "2S03_10",
+        "direction": 0,
+        "type": "arrow",
+        "height": -3,
+        "distance": 7,
+        "shift": 2.2
+      },
+      {
+        "key": "2N03_21",
+        "direction": 37.6,
+        "type": "stairsUp",
+        "distance": 13,
+        "height": 0.5,
+        "alignment": [
+          0,
+          -54.7,
+          0
+        ]
+      }
+    ],
+    "key": "2N03_10"
+  },
+  "2S03_10": {
+    "label": "",
+    "alignment": [
+      -1.5,
+      -121.7,
+      -182
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Platforms & Catwalks",
+      "image": "PlatformsCatwalks.png",
+      "x": 267,
+      "y": 222
+    },
+    "exits": [
+      {
+        "key": "2S03_12",
+        "direction": 90,
+        "type": "teleport",
+        "height": -4,
+        "distance": 14,
+        "shift": 0.5
+      },
+      {
+        "key": "2S04_12",
+        "direction": -90,
+        "type": "teleport",
+        "height": -3,
+        "distance": 11,
+        "shift": -1
+      },
+      {
+        "key": "2N03_10",
+        "direction": -178,
+        "type": "arrow",
+        "height": -2.5,
+        "distance": 6,
+        "shift": 0
+      }
+    ],
+    "key": "2S03_10"
+  },
+  "2S04_12": {
+    "label": "",
+    "alignment": [
+      -2.2,
+      -125.4,
+      -182.5
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Platforms & Catwalks",
+      "image": "PlatformsCatwalks.png",
+      "x": 220,
+      "y": 215
+    },
+    "exits": [
+      {
+        "key": "2S03_10",
+        "direction": 90,
+        "type": "teleport",
+        "height": -5.5,
+        "distance": 8,
+        "shift": -0.5
+      },
+      {
+        "key": "2N04_22",
+        "direction": 180,
+        "type": "teleport",
+        "distance": 15,
+        "height": -4
+      }
+    ],
+    "key": "2S04_12"
+  },
+  "2N04_22": {
+    "label": "",
+    "alignment": [
+      -1.9,
+      -139.1,
+      -181.3
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Platforms & Catwalks",
+      "image": "PlatformsCatwalks.png",
+      "x": 220,
+      "y": 153
+    },
+    "exits": [
+      {
+        "key": "2S04_12",
+        "direction": 0,
+        "type": "teleport",
+        "height": -4,
+        "distance": 15
+      },
+      {
+        "key": "2N04_21",
+        "direction": -90,
+        "type": "stairsDown",
+        "height": -7,
+        "alignment": [
+          0,
+          -56,
+          0
+        ]
+      },
+      {
+        "key": "RS03_01b",
+        "direction": 101.3,
+        "type": "stairsUp",
+        "distance": 9,
+        "height": 0,
+        "alignment": [
+          0,
+          62.3,
+          0
+        ]
+      }
+    ],
+    "key": "2N04_22"
+  },
+  "2N04_21": {
+    "label": "",
+    "alignment": [
+      2.4,
+      -75.8,
+      -178
+    ],
+    "hotspots": [
+      {
+        "id": "2N04_Boiler4_Stop_Valves",
+        "modal": true,
+        "title": "Boiler 4 Stop Valves",
+        "type": "info",
+        "longitude": -70,
+        "latitude": -20,
+        "scale": 0.4,
+        "priority": 0
+      },
+      {
+        "id": "2N04_Boiler4_Safety_Valves",
+        "modal": true,
+        "title": "Boiler 4 Safety Valves",
+        "type": "info",
+        "longitude": -150,
+        "latitude": -25,
+        "scale": 0.4,
+        "priority": 0
+      }
+    ],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Platforms & Catwalks",
+      "image": "PlatformsCatwalks.png",
+      "x": 183,
+      "y": 175
+    },
+    "exits": [
+      {
+        "key": "2S04_00",
+        "direction": -13.1,
+        "type": "stairsDown",
+        "distance": 8,
+        "height": -7,
+        "alignment": [
+          0,
+          -52.1,
+          0
+        ]
+      },
+      {
+        "key": "2N04_22",
+        "direction": 135.2,
+        "type": "stairsUp",
+        "distance": 10,
+        "height": 1,
+        "alignment": [
+          0,
+          -48.2,
+          0
+        ]
+      }
+    ],
+    "key": "2N04_21"
+  },
+  "2S04_00": {
+    "label": "",
+    "alignment": [
+      -2.5,
+      -115.5,
+      -182.6
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Platforms & Catwalks",
+      "image": "PlatformsCatwalks.png",
+      "x": 157,
+      "y": 198
+    },
+    "exits": [
+      {
+        "key": "2S04_10",
+        "direction": 0,
+        "type": "teleport",
+        "height": -4,
+        "distance": 13.5,
+        "shift": 2
+      },
+      {
+        "key": "2N04_21",
+        "direction": 90,
+        "type": "stairsUp",
+        "height": -1.5,
+        "distance": 9,
+        "alignment": [
+          0,
+          -39.1,
+          0
+        ]
+      },
+      {
+        "key": "1N04_10",
+        "direction": 180,
+        "type": "stairsDown",
+        "height": -6,
+        "distance": 10,
+        "alignment": [
+          0,
+          -48.2,
+          0
+        ]
+      }
+    ],
+    "key": "2S04_00"
+  },
+  "2S04_10": {
+    "label": "",
+    "alignment": [
+      -6.3,
+      -108.1,
+      -186
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Platforms & Catwalks",
+      "image": "PlatformsCatwalks.png",
+      "x": 169,
+      "y": 244
+    },
+    "exits": [
+      {
+        "key": "2S04_20",
+        "direction": 0,
+        "type": "stairsUp",
+        "distance": 8,
+        "height": 1,
+        "alignment": [
+          0,
+          -58.6,
+          0
+        ]
+      },
+      {
+        "key": "2S04_00",
+        "direction": -174.4,
+        "type": "teleport",
+        "height": -4,
+        "distance": 14
+      }
+    ],
+    "key": "2S04_10"
+  },
+  "2S04_20": {
+    "label": "",
+    "alignment": [
+      -1.3,
+      -149,
+      -181.3
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Platforms & Catwalks",
+      "image": "PlatformsCatwalks.png",
+      "x": 159,
+      "y": 286
+    },
+    "exits": [
+      {
+        "key": "2S04_10",
+        "direction": 143,
+        "type": "stairsDown",
+        "height": -7,
+        "distance": 8,
+        "alignment": [
+          0,
+          -37.8,
+          0
+        ]
+      },
+      {
+        "key": "2S05_12",
+        "direction": -90,
+        "type": "door",
+        "caption": "Enter Chiller Plant",
+        "height": -1,
+        "alignment": [
+          0,
+          110.4,
+          0
+        ]
+      }
+    ],
+    "key": "2S04_20"
+  },
+  "2S05_12": {
+    "label": "",
+    "alignment": [
+      0.6,
+      72.5,
+      -182
+    ],
+    "video": {
+      "href": "2S05-ChemicalTreatmentAndPumps-SteveNarration.mp4",
+      "loop": false,
+      "autoPlay": false,
+      "chromaKeyColor": {
+        "r": 0,
+        "g": 0.6,
+        "b": 0
+      },
+      "chromaKeyWeights": {
+        "r": 3,
+        "g": 1,
+        "b": 2
+      },
+      "fadeTime": 0.5,
+      "crop": {
+        "x": 0.923,
+        "y": 0.24,
+        "width": 0.16,
+        "height": 0.47
+      }
+    },
+    "hotspots": [
+      {
+        "id": "2S05_ChemicalTreatmentAndPumps",
+        "modal": true,
+        "title": "Chiller Water Treatment and Pumps",
+        "type": "media",
+        "longitude": -14.2,
+        "latitude": -8,
+        "scale": 0.6,
+        "priority": 0
+      }
+    ],
+    "mapInfo": {
+      "building": "Cooling Plant",
+      "floor": "Platforms & Catwalks",
+      "image": "PlatformsCatwalks.png",
+      "x": 107,
+      "y": 249
+    },
+    "exits": [
+      {
+        "key": "2N05_11",
+        "direction": 180,
+        "type": "arrow",
+        "shift": -1,
+        "distance": 7,
+        "alignment": [
+          0,
+          0,
+          -31.3
+        ]
+      },
+      {
+        "key": "2S04_20",
+        "direction": 39,
+        "type": "door",
+        "caption": "Exit Chiller Plant",
+        "distance": 10,
+        "height": -1,
+        "alignment": [
+          0,
+          136.4,
+          0
+        ]
+      }
+    ],
+    "key": "2S05_12"
+  },
+  "2N05_11": {
+    "label": "",
+    "alignment": [
+      -0.6,
+      -104.3,
+      -182
+    ],
+    "video": {
+      "href": "2N05-BromineAndCutoffs-SteveNarration.mp4",
+      "loop": false,
+      "autoPlay": false,
+      "chromaKeyColor": {
+        "r": 0,
+        "g": 0.6,
+        "b": 0
+      },
+      "chromaKeyWeights": {
+        "r": 3,
+        "g": 1,
+        "b": 2
+      },
+      "fadeTime": 0.5,
+      "crop": {
+        "x": 0.908,
+        "y": 0.252,
+        "width": 0.15,
+        "height": 0.385
+      }
+    },
+    "hotspots": [
+      {
+        "id": "2N05_BromineAndCutoffs",
+        "modal": true,
+        "title": "Chiller Bromine Treatment and Pump Cutoffs",
+        "type": "media",
+        "longitude": 156.8,
+        "latitude": -8,
+        "scale": 0.6,
+        "priority": 0
+      }
+    ],
+    "mapInfo": {
+      "building": "Cooling Plant",
+      "floor": "Platforms & Catwalks",
+      "image": "PlatformsCatwalks.png",
+      "x": 93,
+      "y": 125
+    },
+    "exits": [
+      {
+        "key": "2S05_12",
+        "direction": 0,
+        "type": "arrow",
+        "alignment": [
+          0,
+          0,
+          -36.5
+        ],
+        "distance": 6,
+        "shift": 0.5
+      }
+    ],
+    "key": "2N05_11"
+  },
+  "2S03_12": {
+    "label": "",
+    "alignment": [
+      0.5,
+      -131.7,
+      -180.1
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Platforms & Catwalks",
+      "image": "PlatformsCatwalks.png",
+      "x": 321,
+      "y": 222
+    },
+    "exits": [
+      {
+        "key": "2S02_10",
+        "direction": 90,
+        "type": "teleport",
+        "height": -4,
+        "distance": 11
+      },
+      {
+        "key": "2S03_10",
+        "direction": -90,
+        "type": "teleport",
+        "height": -4,
+        "distance": 13.5
+      },
+      {
+        "key": "2N03_22",
+        "direction": 161.2,
+        "type": "teleport",
+        "height": -4,
+        "distance": 17
+      },
+      {
+        "key": "2S03_02",
+        "direction": 137.8,
+        "type": "teleport",
+        "height": -4,
+        "distance": 8
+      }
+    ],
+    "key": "2S03_12"
+  },
+  "LN03_01": {
+    "label": "",
+    "alignment": [
+      0.2,
+      -107,
+      -181
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Basement",
+      "image": "Basement.png",
+      "x": 308,
+      "y": 87
+    },
+    "exits": [
+      {
+        "key": "1N03_10",
+        "direction": -88,
+        "type": "stairsUp",
+        "height": 1,
+        "distance": 7,
+        "alignment": [
+          0,
+          -32.6,
+          0
+        ]
+      },
+      {
+        "key": "LN03_12",
+        "direction": 90,
+        "type": "stairsDown",
+        "distance": 8,
+        "height": -8,
+        "alignment": [
+          0,
+          -56,
+          0
+        ]
+      }
+    ],
+    "key": "LN03_01"
+  },
+  "1N04_10": {
+    "label": "",
+    "alignment": [
+      1,
+      101,
+      -182
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Ground Floor",
+      "image": "GroundFloor.png",
+      "x": 159,
+      "y": 135
+    },
+    "exits": [
+      {
+        "key": "1N04_00",
+        "direction": 180,
+        "type": "stairsDown",
+        "height": -7,
+        "distance": 7,
+        "alignment": [
+          0,
+          -46.9,
+          0
+        ]
+      },
+      {
+        "key": "2S04_00",
+        "direction": 0,
+        "type": "stairsUp",
+        "distance": 8,
+        "height": 2,
+        "alignment": [
+          0,
+          -50.8,
+          0
+        ]
+      }
+    ],
+    "key": "1N04_10"
+  },
+  "LN03_12": {
+    "label": "",
+    "alignment": [
+      -3,
+      -125,
+      -182
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Basement",
+      "image": "Basement.png",
+      "x": 341,
+      "y": 112
+    },
+    "exits": [
+      {
+        "key": "LN02_11",
+        "direction": 88,
+        "type": "teleport",
+        "height": -4,
+        "distance": 16
+      },
+      {
+        "key": "LS03_02",
+        "direction": -90,
+        "type": "arrow",
+        "alignment": [
+          0,
+          0,
+          -90
+        ],
+        "shift": 3,
+        "distance": 4
+      },
+      {
+        "key": "LN03_01",
+        "direction": -150,
+        "type": "stairsUp",
+        "distance": 11,
+        "alignment": [
+          0,
+          54.5,
+          0
+        ],
+        "height": -4
+      }
+    ],
+    "key": "LN03_12"
+  },
+  "LN02_11": {
+    "label": "",
+    "alignment": [
+      -1.5,
+      -131,
+      -182
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Basement",
+      "image": "Basement.png",
+      "x": 402,
+      "y": 112
+    },
+    "exits": [
+      {
+        "key": "LN03_12",
+        "direction": -90,
+        "type": "teleport",
+        "height": -4,
+        "distance": 14,
+        "shift": -1
+      },
+      {
+        "key": "LN01_10",
+        "direction": 96,
+        "type": "teleport",
+        "height": -4,
+        "distance": 14
+      },
+      {
+        "key": "LS02_01",
+        "direction": -7,
+        "type": "teleport",
+        "height": -4,
+        "distance": 14
+      }
+    ],
+    "key": "LN02_11"
+  },
+  "LS02_01": {
+    "label": "",
+    "alignment": [
+      -1.6,
+      -120.8,
+      -181.7
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Basement",
+      "image": "Basement.png",
+      "x": 406,
+      "y": 189
+    },
+    "exits": [
+      {
+        "key": "LS02_10",
+        "direction": -17,
+        "type": "teleport",
+        "height": -4,
+        "distance": 16
+      },
+      {
+        "key": "LN02_11",
+        "direction": 180,
+        "type": "teleport",
+        "height": -4,
+        "distance": 13.5
+      },
+      {
+        "key": "LS02_12",
+        "direction": 20.5,
+        "type": "teleport",
+        "height": -4,
+        "distance": 16
+      }
+    ],
+    "key": "LS02_01"
+  },
+  "LS03_02": {
+    "label": "",
+    "alignment": [
+      -0.6,
+      -136,
+      -181.2
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Basement",
+      "image": "Basement.png",
+      "x": 292,
+      "y": 191
+    },
+    "exits": [
+      {
+        "key": "LS03_11",
+        "direction": 15,
+        "type": "teleport",
+        "height": -4,
+        "distance": 12.5
+      },
+      {
+        "key": "LN03_12",
+        "direction": 180,
+        "type": "arrow",
+        "distance": 7,
+        "alignment": [
+          0,
+          0,
+          40
+        ],
+        "shift": -1
+      }
+    ],
+    "key": "LS03_02"
+  },
+  "LN01_10": {
+    "label": "",
+    "alignment": [
+      -2,
+      -122,
+      -182
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Basement",
+      "image": "Basement.png",
+      "x": 479,
+      "y": 112
+    },
+    "exits": [
+      {
+        "key": "LN01_02",
+        "direction": 100,
+        "type": "teleport",
+        "height": -4,
+        "distance": 11
+      },
+      {
+        "key": "LN02_11",
+        "direction": -90,
+        "type": "teleport",
+        "height": -4,
+        "distance": 14
+      }
+    ],
+    "key": "LN01_10"
+  },
+  "RS03_01a": {
+    "label": "",
+    "alignment": [
+      0.2,
+      -3.9,
+      -41.4
+    ],
+    "hotspots": [],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Roof",
+      "image": "Roof.png",
+      "x": 300,
+      "y": 201
+    },
+    "exits": []
+  },
+  "RS03_01b": {
+    "label": "",
+    "alignment": [
+      -0.7,
+      -22.4,
+      -182
+    ],
+    "video": {
+      "href": "RS03-CoolingTowerExterior-SteveNarration.mp4",
+      "loop": false,
+      "autoPlay": false,
+      "chromaKeyColor": {
+        "r": 0,
+        "g": 0.6,
+        "b": 0
+      },
+      "chromaKeyWeights": {
+        "r": 3,
+        "g": 1,
+        "b": 2
+      },
+      "fadeTime": 0.5,
+      "crop": {
+        "x": 0.35,
+        "y": 0.23,
+        "width": 0.188,
+        "height": 0.45
+      }
+    },
+    "hotspots": [
+      {
+        "id": "RS03_CoolingTowerExterior",
+        "modal": true,
+        "title": "Outside the Cooling Tower",
+        "type": "media",
+        "longitude": 52.2,
+        "latitude": -2.4,
+        "scale": 0.6,
+        "priority": 0
+      }
+    ],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Roof",
+      "image": "Roof.png",
+      "x": 300,
+      "y": 201
+    },
+    "exits": [
+      {
+        "key": "2N04_22",
+        "direction": -139.3,
+        "type": "stairsDown",
+        "distance": 17,
+        "height": -2,
+        "alignment": [
+          0,
+          -45.6,
+          0
+        ]
+      },
+      {
+        "key": "RS05_11",
+        "direction": -75,
+        "type": "door",
+        "caption": "Enter Cooling Tower",
+        "distance": 20,
+        "alignment": [
+          0,
+          123.4,
+          0
+        ],
+        "height": 1
+      }
+    ],
+    "key": "RS03_01b"
+  },
+  "RS05_11": {
+    "label": "Roof Cooling Tower 1",
+    "alignment": [
+      -0.7,
+      -8,
+      -180
+    ],
+    "video": {
+      "href": "RS05-CoolingTowerInterior-SteveNarration.mp4",
+      "loop": false,
+      "autoPlay": false,
+      "chromaKeyColor": {
+        "r": 0,
+        "g": 0.6,
+        "b": 0
+      },
+      "chromaKeyWeights": {
+        "r": 3,
+        "g": 1,
+        "b": 2
+      },
+      "fadeTime": 0.5,
+      "crop": {
+        "x": 0.079,
+        "y": 0.129,
+        "width": 0.34,
+        "height": 0.41
+      }
+    },
+    "hotspots": [
+      {
+        "id": "RS05_CoolingTowerInterior",
+        "modal": true,
+        "title": "Inside the Cooling Tower",
+        "type": "media",
+        "longitude": 0,
+        "latitude": -11.9,
+        "scale": 0.6,
+        "priority": 0
+      }
+    ],
+    "mapInfo": {
+      "building": "Heating Plant",
+      "floor": "Roof",
+      "image": "Roof.png",
+      "x": 80,
+      "y": 245
+    },
+    "exits": [
+      {
+        "key": "RS03_01b",
+        "direction": 180,
+        "type": "door",
+        "caption": "Exit Cooling Tower",
+        "alignment": [
+          0,
+          90,
+          0
+        ]
+      }
+    ],
+    "key": "RS05_11"
+  }
+}
