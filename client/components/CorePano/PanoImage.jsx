@@ -49,15 +49,21 @@ export default function PanoImage (props) {
 
   // Possibly load video and make it part of the Three.js state
   const [panoVideo, videoCrop] = useVideoData(currentPanoData)
-  const setThree = useThree((state) => state.set)
+  const [setThree, resolution] = useThree((state) => [state.set, state.size])
   React.useEffect(() => {
     setThree({ videoRef: panoVideo })
   }, [panoVideo, setThree])
 
-  // Pass playback time and duration in the shader
+  // Pass playback time and current time to the shader
   const panoMesh = React.useRef()
   useFrame(({ videoRef }) => {
+    // Sync playback time with video
     panoMesh.current.material.uniforms.playbackTime.value = videoRef?.currentTime || 0.0
+
+    // Set time to the number of seconds since the last minute
+    panoMesh.current.material.uniforms.time.value = (
+      (Date.now() / 1000) - (Math.floor(Date.now() / 60000) * 60)
+    )
   })
 
   // Is there a video to show and is it playing
@@ -83,8 +89,9 @@ export default function PanoImage (props) {
         <cutoutMaterial
           key={CutoutMaterial.key}
           side={BackSide}
+          resolution={[resolution.width, resolution.height, 0]}
           cropBox={showVideo ? videoCrop : NO_CROP}
-          enableVideo={showVideo}
+          videoMode={showVideo ? CutoutShaderInfo[currentPanoData?.video?.mode ?? 'VIDEO_DISABLED'] : CutoutShaderInfo.VIDEO_DISABLED}
           playbackDuration={panoVideo?.duration || 0.0}
           chromaKeyColor={
             currentPanoData?.video?.chromaKeyColor || CutoutShaderInfo.uniforms.chromaKeyColor

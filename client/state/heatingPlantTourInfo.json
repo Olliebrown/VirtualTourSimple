@@ -69,18 +69,14 @@
       -182
     ],
     "video": {
-      "href": "BrianPlantIntro-ChromaKeyed.mp4",
+      "href": "1S01-BrianPlantIntro-Chroma.mp4",
+      "mode": "VIDEO_HOLOGRAM",
       "loop": false,
       "autoPlay": false,
       "chromaKeyColor": {
-        "r": 0.157,
-        "g": 0.576,
-        "b": 0.129
-      },
-      "chromaKeyWeights": {
-        "r": 3,
-        "g": 1,
-        "b": 2
+        "r": 1,
+        "g": 186,
+        "b": 29
       },
       "fadeTime": 0.5,
       "crop": {
@@ -1702,20 +1698,16 @@
       -185.5
     ],
     "video": {
-      "href": "LS05-DistributionHeader-SteveNarration.mp4",
+      "href": "LS05-DistributionHeader-SteveNarration-chroma.mp4",
+      "mode": "VIDEO_HOLOGRAM",
       "loop": false,
       "autoPlay": false,
+      "fadeTime": 0.5,
       "chromaKeyColor": {
         "r": 0,
-        "g": 0.6,
+        "g": 216,
         "b": 0
       },
-      "chromaKeyWeights": {
-        "r": 3,
-        "g": 1,
-        "b": 2
-      },
-      "fadeTime": 0.5,
       "crop": {
         "x": 0.24,
         "y": 0.37,
@@ -1773,20 +1765,16 @@
       -180.9
     ],
     "video": {
-      "href": "LN05-DistributionPumps-SteveNarration.mp4",
+      "href": "LN05-DistributionPumps-SteveNarration-chroma.mp4",
+      "mode": "VIDEO_HOLOGRAM",
       "loop": false,
       "autoPlay": false,
+      "fadeTime": 0.5,
       "chromaKeyColor": {
         "r": 0,
-        "g": 0.6,
+        "g": 216,
         "b": 0
       },
-      "chromaKeyWeights": {
-        "r": 3,
-        "g": 1,
-        "b": 2
-      },
-      "fadeTime": 0.5,
       "crop": {
         "x": 0.935,
         "y": 0.23,
@@ -1863,20 +1851,16 @@
       -180.9
     ],
     "video": {
-      "href": "LS05-DistributionHeader-SteveNarration.mp4",
+      "href": "LS05-DistributionHeader-SteveNarration-chroma.mp4",
+      "mode": "VIDEO_HOLOGRAM",
       "loop": false,
       "autoPlay": false,
+      "fadeTime": 0.5,
       "chromaKeyColor": {
         "r": 0,
-        "g": 0.6,
+        "g": 216,
         "b": 0
       },
-      "chromaKeyWeights": {
-        "r": 3,
-        "g": 1,
-        "b": 2
-      },
-      "fadeTime": 0.5,
       "crop": {
         "x": 0.04,
         "y": 0.26,
@@ -2112,20 +2096,16 @@
       -181
     ],
     "video": {
+      "href": "1S05-ChillerComponents-SteveNarration-chroma.mp4",
+      "mode": "VIDEO_HOLOGRAM",
       "loop": false,
       "autoPlay": false,
-      "href": "1S05-ChillerComponents-SteveNarration.mp4",
+      "fadeTime": 0.5,
       "chromaKeyColor": {
         "r": 0,
-        "g": 0.6,
+        "g": 216,
         "b": 0
       },
-      "chromaKeyWeights": {
-        "r": 3,
-        "g": 1,
-        "b": 2
-      },
-      "fadeTime": 0.5,
       "crop": {
         "x": 0.023,
         "y": 0.27,
@@ -2206,20 +2186,16 @@
       -180
     ],
     "video": {
-      "href": "SteveChillerIntro-ChromaKeyed.mp4",
+      "href": "1S05-ChillerIntro-SteveNarration-chroma.mp4",
+      "mode": "VIDEO_HOLOGRAM",
       "loop": false,
       "autoPlay": false,
+      "fadeTime": 0.5,
       "chromaKeyColor": {
         "r": 0,
-        "g": 0.6,
+        "g": 216,
         "b": 0
       },
-      "chromaKeyWeights": {
-        "r": 3,
-        "g": 1,
-        "b": 2
-      },
-      "fadeTime": 0.5,
       "crop": {
         "x": 0.54,
         "y": 0.24,
@@ -3608,20 +3584,16 @@
       -182
     ],
     "video": {
-      "href": "2S05-ChemicalTreatmentAndPumps-SteveNarration.mp4",
+      "href": "2S05-ChemicalTreatmentAndPumps-SteveNarration-chroma.mp4",
+      "mode": "VIDEO_HOLOGRAM",
       "loop": false,
       "autoPlay": false,
+      "fadeTime": 0.5,
       "chromaKeyColor": {
         "r": 0,
-        "g": 0.6,
+        "g": 216,
         "b": 0
       },
-      "chromaKeyWeights": {
-        "r": 3,
-        "g": 1,
-        "b": 2
-      },
-      "fadeTime": 0.5,
       "crop": {
         "x": 0.923,
         "y": 0.24,
@@ -3685,20 +3657,16 @@
       -182
     ],
     "video": {
-      "href": "2N05-BromineAndCutoffs-SteveNarration.mp4",
+      "href": "2N05-BromineAndCutoffs-SteveNarration-chroma.mp4",
+      "mode": "VIDEO_HOLOGRAM",
       "loop": false,
       "autoPlay": false,
+      "fadeTime": 0.5,
       "chromaKeyColor": {
         "r": 0,
-        "g": 0.6,
+        "g": 216,
         "b": 0
       },
-      "chromaKeyWeights": {
-        "r": 3,
-        "g": 1,
-        "b": 2
-      },
-      "fadeTime": 0.5,
       "crop": {
         "x": 0.908,
         "y": 0.252,
@@ -4101,20 +4069,16 @@
       -182
     ],
     "video": {
-      "href": "RS03-CoolingTowerExterior-SteveNarration.mp4",
+      "href": "RS03-CoolingTowerExterior-SteveNarration-chroma.mp4",
+      "mode": "VIDEO_HOLOGRAM",
       "loop": false,
       "autoPlay": false,
+      "fadeTime": 0.5,
       "chromaKeyColor": {
         "r": 0,
-        "g": 0.6,
+        "g": 216,
         "b": 0
       },
-      "chromaKeyWeights": {
-        "r": 3,
-        "g": 1,
-        "b": 2
-      },
-      "fadeTime": 0.5,
       "crop": {
         "x": 0.35,
         "y": 0.23,
@@ -4178,20 +4142,16 @@
       -180
     ],
     "video": {
-      "href": "RS05-CoolingTowerInterior-SteveNarration.mp4",
+      "href": "RS05-CoolingTowerInterior-SteveNarration-chroma.mp4",
+      "mode": "VIDEO_HOLOGRAM",
       "loop": false,
       "autoPlay": false,
+      "fadeTime": 0.5,
       "chromaKeyColor": {
         "r": 0,
-        "g": 0.6,
+        "g": 216,
         "b": 0
       },
-      "chromaKeyWeights": {
-        "r": 3,
-        "g": 1,
-        "b": 2
-      },
-      "fadeTime": 0.5,
       "crop": {
         "x": 0.079,
         "y": 0.129,

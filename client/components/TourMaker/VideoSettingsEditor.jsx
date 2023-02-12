@@ -7,8 +7,7 @@ import NumberField from '../Utility/NumberField.jsx'
 import { NO_CROP } from '../CorePano/videoDataHooks.js'
 
 // Default green-screen value from original shader
-const defaultColor = { r: 0.157, g: 0.576, b: 0.129 }
-const defaultWeights = { r: 4, g: 1, b: 2 }
+const defaultColor = { r: 0, g: 153, b: 0 }
 
 export default function VideoSettingsEditor (props) {
   const { video, updateVideo } = props
@@ -23,10 +22,6 @@ export default function VideoSettingsEditor (props) {
 
   const onColorChange = (newData) => {
     updateVideo({ chromaKeyColor: { ...video.chromaKeyColor, ...newData } })
-  }
-
-  const onWeightsChange = (newData) => {
-    updateVideo({ chromaKeyWeights: { ...video.chromaKeyWeights, ...newData } })
   }
 
   return (
@@ -106,7 +101,7 @@ export default function VideoSettingsEditor (props) {
           onChange={newVal => onColorChange({ r: newVal })}
           variant='standard'
           size="small"
-          precision={3}
+          precision={0}
         />
         <NumberField
           label='Chroma Color G'
@@ -115,7 +110,7 @@ export default function VideoSettingsEditor (props) {
           onChange={newVal => onColorChange({ g: newVal })}
           variant='standard'
           size="small"
-          precision={3}
+          precision={0}
         />
         <NumberField
           label='Chroma Color B'
@@ -124,37 +119,7 @@ export default function VideoSettingsEditor (props) {
           onChange={newVal => onColorChange({ b: newVal })}
           variant='standard'
           size="small"
-          precision={3}
-        />
-      </Stack>
-
-      <Stack direction="row" spacing={2}>
-        <NumberField
-          label='Chroma Weight H'
-          aria-label='Chroma Weight H'
-          value={video.chromaKeyWeights?.r ?? 0}
-          onChange={newVal => onWeightsChange({ r: newVal })}
-          variant='standard'
-          size="small"
-          precision={3}
-        />
-        <NumberField
-          label='Chroma Weight S'
-          aria-label='Chroma Weight S'
-          value={video.chromaKeyWeights?.g ?? 0}
-          onChange={newVal => onWeightsChange({ g: newVal })}
-          variant='standard'
-          size="small"
-          precision={3}
-        />
-        <NumberField
-          label='Chroma Weight V'
-          aria-label='Chroma Weight V'
-          value={video.chromaKeyWeights?.b ?? 0}
-          onChange={newVal => onWeightsChange({ b: newVal })}
-          variant='standard'
-          size="small"
-          precision={3}
+          precision={0}
         />
       </Stack>
     </Stack>
@@ -180,7 +145,6 @@ VideoSettingsEditor.propTypes = {
     autoPlay: PropTypes.bool,
     loop: PropTypes.bool,
     chromaKeyColor: PropTypes.shape(colorShape),
-    chromaKeyWeights: PropTypes.shape(colorShape),
     crop: PropTypes.shape(boxShape)
   }),
   updateVideo: PropTypes.func.isRequired
@@ -192,7 +156,6 @@ VideoSettingsEditor.defaultProps = {
     autoPlay: false,
     loop: false,
     crop: NO_CROP,
-    chromaKeyColor: defaultColor,
-    chromaKeyWeights: defaultWeights
+    chromaKeyColor: defaultColor
   }
 }
