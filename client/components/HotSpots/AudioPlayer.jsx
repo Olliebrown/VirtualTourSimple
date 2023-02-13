@@ -1,3 +1,5 @@
+import CONFIG from '../../config.js'
+
 import React from 'react'
 import PropTypes from 'prop-types'
 
@@ -12,38 +14,14 @@ import {
 } from '@mui/icons-material'
 
 // Audio and subtitle helpers
-import { useAudioSource, useAudioSubtitles } from '../../state/audioHelper.js'
+import { useAudioSource } from '../../state/audioHelper.js'
+import { useSubtitles } from '../../state/subtitlesHelper.js'
 
 export default function AudioPlayer (props) {
   const { hotspotAudio, setSlideIndex, autoplay } = props
 
   // Global state
   const [infoAudioPlaying, setInfoAudioPlaying] = useRecoilState(infoAudioPlayingState)
-
-  // Track subtitle information in local state
-  const [subtitleIndex, setSubtitleIndex] = React.useState(-1)
-  const [subtitleText, setSubtitleText] = React.useState('')
-  const subtitles = useAudioSubtitles(hotspotAudio?.src)
-
-  // Clear index and text when subtitles are empty
-  React.useEffect(() => {
-    if (!Array.isArray(subtitles) || subtitles.length < 1) {
-      setSubtitleIndex(-1)
-      setSubtitleText('')
-    }
-  }, [subtitles])
-
-  // Sync slide timing with subtitle index
-  React.useEffect(() => {
-    if (setSlideIndex && hotspotAudio?.slideTiming) {
-      if (hotspotAudio.slideTiming[subtitleIndex] !== undefined) {
-        const timing = hotspotAudio.slideTiming[subtitleIndex].split('-')
-        const slide = parseInt(timing[0])
-        const build = (timing[1] ? parseInt(timing[1]) : 0)
-        setSlideIndex([slide, build])
-      }
-    }
-  }, [hotspotAudio?.slideTiming, setSlideIndex, subtitleIndex])
 
   // Local state of playback time
   const [playbackTime, setPlaybackTime] = React.useState(0)
@@ -54,12 +32,29 @@ export default function AudioPlayer (props) {
     }
   }, [])
 
+  // Track subtitle information in local state
+  const [subtitleText, subtitleIndex, subtitleStartTime] =
+    useSubtitles(`${CONFIG.INFO_AUDIO_PATH}/${hotspotAudio?.src}.srt`, playbackTime)
+
+  // Sync slide timing with subtitle index
+  React.useEffect(() => {
+    if (setSlideIndex && hotspotAudio?.slideTiming) {
+      if (subtitleText !== '' && playbackTime >= subtitleStartTime) {
+        if (hotspotAudio.slideTiming[subtitleIndex] !== undefined) {
+          const timing = hotspotAudio.slideTiming[subtitleIndex].split('-')
+          const slide = parseInt(timing[0])
+          const build = (timing[1] ? parseInt(timing[1]) : 0)
+          setSlideIndex([slide, build])
+        }
+      }
+    }
+  }, [hotspotAudio.slideTiming, setSlideIndex, playbackTime, subtitleStartTime, subtitleText, subtitleIndex])
+
   // Audio source state management
   const curAudioObj = useAudioSource(
     hotspotAudio?.src,
     autoplay,
     (soundObj) => {
-      setSubtitleIndex(0)
       onPlayUpdate(soundObj)
       setInfoAudioPlaying(true)
     },
@@ -91,30 +86,11 @@ export default function AudioPlayer (props) {
     if (curAudioObj) {
       curAudioObj.seek(0)
       setPlaybackTime(0)
-      setSubtitleIndex(0)
       if (setSlideIndex) {
         setSlideIndex([0, 0])
       }
     }
   }
-
-  // Check for and update subtitle text
-  React.useEffect(() => {
-    if (subtitleIndex >= 0 && subtitleIndex < subtitles.length) {
-      let newSubtitleText = ''
-      if (playbackTime >= subtitles[subtitleIndex].startTime) {
-        if (playbackTime < subtitles[subtitleIndex].endTime) {
-          newSubtitleText = subtitles[subtitleIndex].text.replace(/\s+/g, ' ')
-        } else {
-          setSubtitleIndex(subtitleIndex + 1)
-        }
-      }
-
-      if (newSubtitleText !== subtitleText) {
-        setSubtitleText(newSubtitleText)
-      }
-    }
-  }, [playbackTime, subtitleIndex, subtitleText, subtitles])
 
   // Return the buttons when audio object exists
   return (

@@ -11,19 +11,14 @@ import localDB from './state/localDB.js'
 import { useLiveQuery } from 'dexie-react-hooks'
 
 import { preloadPanoKeyState, enabledHotSpotsState, enabledPanoRoomsState, disablePriorityState } from './state/fullTourState.js'
-import { loadingCurtainState, mediaSkipState, mediaPauseState, mediaRewindState, panoMediaPlayingState, destroyMediaState } from './state/globalState.js'
+import { loadingCurtainState, destroyMediaState } from './state/globalState.js'
+import { setTextureAllDoneState, setTextureDoneState, setTextureFailedState } from './state/textureLoadingState.js'
 
 // eslint-disable-next-line camelcase
-import { useRecoilBridgeAcrossReactRoots_UNSTABLE, useSetRecoilState, useRecoilState, useRecoilValue } from 'recoil'
+import { useRecoilBridgeAcrossReactRoots_UNSTABLE, useSetRecoilState } from 'recoil'
 
-import { Fade, Fab, Tooltip, Button, ButtonGroup } from '@mui/material'
-import {
-  Close as CloseIcon,
-  FastForward as FastForwardIcon,
-  Pause as PauseIcon,
-  PlayArrow as PlayIcon,
-  SkipPrevious as RewindIcon
-} from '@mui/icons-material'
+import { Fab, Tooltip } from '@mui/material'
+import { Close as CloseIcon } from '@mui/icons-material'
 
 import PanoViewer from './components/CorePano/PanoViewer.jsx'
 import SettingsDial from './components/Utility/SettingsDial.jsx'
@@ -37,45 +32,10 @@ import { Canvas } from '@react-three/fiber'
 import { useProgress } from '@react-three/drei'
 import { Vector3, Spherical } from 'three'
 
-import { setTextureAllDoneState, setTextureDoneState, setTextureFailedState } from './state/textureLoadingState.js'
 import EditHotspotContentModal from './components/HotSpots/EditHotspotContentModal.jsx'
+import VideoPlayerControls from './components/HotSpots/VideoPlayerControls.jsx'
+
 import { EMOTION_ROOT_ID, SHADOW_ROOT_ID } from './app.jsx'
-
-// Button to skip playing media
-function SkipButton (props) {
-  const panoMediaPlaying = useRecoilValue(panoMediaPlayingState)
-  const setMediaRewind = useSetRecoilState(mediaRewindState)
-  const [mediaPaused, setMediaPaused] = useRecoilState(mediaPauseState)
-  const setMediaSkip = useSetRecoilState(mediaSkipState)
-
-  return (
-    <Fade in={panoMediaPlaying}>
-      <ButtonGroup
-        size="large"
-        variant="contained"
-        sx={{ position: 'absolute', bottom: 24, right: 200 }}
-      >
-        <Tooltip title="Restart Video">
-          <Button onClick={() => setMediaRewind(true)}>
-            <RewindIcon />
-          </Button>
-        </Tooltip>
-
-        <Tooltip title={mediaPaused ? 'Resume Video' : 'Pause Video'}>
-          <Button onClick={() => setMediaPaused(!mediaPaused)}>
-            {mediaPaused ? <PlayIcon/> : <PauseIcon />}
-          </Button>
-        </Tooltip>
-
-        <Tooltip title="Skip to End of Video">
-          <Button onClick={() => setMediaSkip(true)}>
-            <FastForwardIcon />
-          </Button>
-        </Tooltip>
-      </ButtonGroup>
-    </Fade>
-  )
-}
 
 // Button to close the tour
 function CloseTour (params) {
@@ -149,6 +109,9 @@ export default function VirtualTour (props) {
   const setTextureAllDone = useSetRecoilState(setTextureAllDoneState)
   const setTextureFailed = useSetRecoilState(setTextureFailedState)
 
+  // Track video playback time
+  const [videoTime, setVideoTime] = React.useState(0.0)
+
   // Use drei progress hook to update texture state
   const { loadedItem, loadingErrors, loadingProgress } = useProgress((state) => ({
     loadedItem: state.item,
@@ -185,7 +148,7 @@ export default function VirtualTour (props) {
         <RecoilBridge>
           {/* Panorama viewer/tour */}
           {fadeInTimeout &&
-            <PanoViewer isMobile={isMobile} allowMotion={allowMotion} startingRoom={startingRoom} />}
+            <PanoViewer isMobile={isMobile} allowMotion={allowMotion} startingRoom={startingRoom} onVideoUpdate={setVideoTime} />}
         </RecoilBridge>
       </Canvas>
 
@@ -195,7 +158,7 @@ export default function VirtualTour (props) {
           {enableClose && <CloseTour rootElement={rootElement} reactRoot={reactRoot} />}
           <InfoModal />
           <HotSpotTooltip />
-          <SkipButton />
+          <VideoPlayerControls videoTime={videoTime} />
 
           {showHUDInterface &&
             <React.Fragment>

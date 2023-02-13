@@ -1645,7 +1645,8 @@
         "key": "LS04_12",
         "direction": 0,
         "type": "arrow",
-        "distance": 0
+        "distance": 4,
+        "height": -4
       },
       {
         "key": "LN04_10",

@@ -12,12 +12,12 @@ import { useFrame, useThree } from '@react-three/fiber'
 import { useKTX2 } from '@react-three/drei'
 import { Euler, MathUtils, BackSide } from 'three'
 
-import { NO_CROP, useVideoData } from './videoDataHooks.js'
+import { NO_CROP, useVideoSource } from '../../state/videoHelper.js'
 
 import CutoutMaterial, { CutoutShaderInfo } from '../../shaders/CutoutShader.js'
 
 export default function PanoImage (props) {
-  const { xRotate, yRotate, zRotate, exits } = props
+  const { xRotate, yRotate, zRotate, exits, onVideoUpdate } = props
 
   // Subscribe to pano DB changes
   const currentPanoKey = useRecoilValue(currentPanoKeyState)
@@ -48,7 +48,7 @@ export default function PanoImage (props) {
   }, [setLoadingCurtain, panoImages])
 
   // Possibly load video and make it part of the Three.js state
-  const [panoVideo, videoCrop] = useVideoData(currentPanoData)
+  const [panoVideo, videoCrop] = useVideoSource(currentPanoData)
   const [setThree, resolution] = useThree((state) => [state.set, state.size])
   React.useEffect(() => {
     setThree({ videoRef: panoVideo })
@@ -59,6 +59,9 @@ export default function PanoImage (props) {
   useFrame(({ videoRef }) => {
     // Sync playback time with video
     panoMesh.current.material.uniforms.playbackTime.value = videoRef?.currentTime || 0.0
+    if (onVideoUpdate) {
+      onVideoUpdate(videoRef?.currentTime || 0.0)
+    }
 
     // Set time to the number of seconds since the last minute
     panoMesh.current.material.uniforms.time.value = (
@@ -115,12 +118,14 @@ PanoImage.propTypes = {
   zRotate: PropTypes.number,
   exits: PropTypes.arrayOf(PropTypes.shape({
     key: PropTypes.string.isRequired
-  }))
+  })),
+  onVideoUpdate: PropTypes.func
 }
 
 PanoImage.defaultProps = {
   xRotate: 0,
   yRotate: 0,
   zRotate: 0,
-  exits: []
+  exits: [],
+  onVideoUpdate: null
 }

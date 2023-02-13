@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 import localDB, { INVERT_CONTROLS_DEFAULT, MOTION_CONTROLS_DEFAULT, updateSetting } from '../../state/localDB.js'
 import { useLiveQuery } from 'dexie-react-hooks'
 
-import { currentPanoKeyState, preloadPanoKeyState, currentPanoDataState, enabledPanoRoomsState, enabledHotSpotsState } from '../../state/fullTourState'
+import { currentPanoKeyState, preloadPanoKeyState, currentPanoDataState, enabledPanoRoomsState, enabledHotSpotsState } from '../../state/fullTourState.js'
 import { currentCameraYawState } from '../../state/globalState.js'
 
 import { useRecoilValue, useSetRecoilState } from 'recoil'
@@ -23,7 +23,7 @@ import PanoGrid from './PanoGrid.jsx'
 import PanoExtras from './PanoExtras.jsx'
 
 export default function PanoViewer (props) {
-  const { isMobile, allowMotion } = props
+  const { isMobile, allowMotion, onVideoUpdate } = props
 
   // Subscribe to changes in global state
   const showGrid = useLiveQuery(() => localDB.settings.get('showGrid'))?.value ?? true
@@ -130,7 +130,7 @@ export default function PanoViewer (props) {
       </React.Suspense>
 
       {!!currentPanoKey && showExits && <PanoExtras exits={filteredExits} hotSpots={filteredHotSpots} panoKey={currentPanoKey} />}
-      {!!currentPanoKey && <PanoImage xRotate={xRotate} yRotate={yRotate} zRotate={zRotate} exits={filteredExits} />}
+      {!!currentPanoKey && <PanoImage xRotate={xRotate} yRotate={yRotate} zRotate={zRotate} exits={filteredExits} onVideoUpdate={onVideoUpdate}/>}
 
       {CONFIG.ENABLE_ALIGNMENT_GRID && showGrid && <PanoGrid />}
     </>
@@ -140,11 +140,11 @@ export default function PanoViewer (props) {
 PanoViewer.propTypes = {
   isMobile: PropTypes.bool,
   allowMotion: PropTypes.bool,
-  initialYaw: PropTypes.number
+  onVideoUpdate: PropTypes.func
 }
 
 PanoViewer.defaultProps = {
   isMobile: false,
   allowMotion: false,
-  initialYaw: 0
+  onVideoUpdate: null
 }

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { Stack, TextField, FormGroup, FormControlLabel, Switch } from '@mui/material'
 
 import NumberField from '../Utility/NumberField.jsx'
-import { NO_CROP } from '../CorePano/videoDataHooks.js'
+import { NO_CROP } from '../../state/videoHelper.js'
 
 // Default green-screen value from original shader
 const defaultColor = { r: 0, g: 153, b: 0 }
