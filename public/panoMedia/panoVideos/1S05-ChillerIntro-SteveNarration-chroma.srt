@@ -1,0 +1,98 @@
+1
+00:00:00,600 --> 00:00:06,180
+And we’re in our central chilled plant, 
+which is attached to the heating plant.
+
+2
+00:00:07,800 --> 00:00:15,000
+We have our 3, 800 ton York 
+chillers in this plant, 
+
+3
+00:00:16,020 --> 00:00:19,080
+and I’m just going to kinda go through …
+
+4
+00:00:19,080 --> 00:00:28,320
+The plant was put in in 2007 so this is coming 
+up on our 15th year of operation of this plant.
+
+5
+00:00:29,880 --> 00:00:36,120
+I’ll kinda walk you through some of the 
+piping that comes in and out of this chiller.
+
+6
+00:00:38,460 --> 00:00:43,260
+We’re gonna look at our flow 
+through the condenser first. 
+
+7
+00:00:44,580 --> 00:00:47,640
+Up on the roof we have our cooling towers,  
+
+8
+00:00:47,640 --> 00:00:52,740
+and we come out of the basin of the 
+cooling tower and go through a pump,
+
+9
+00:00:53,640 --> 00:00:57,720
+And that pumps the water down 
+through this pipe right here  
+
+10
+00:00:58,620 --> 00:01:02,100
+and it comes in to the bottom 
+of the condenser on the chiller.
+
+11
+00:01:03,300 --> 00:01:08,040
+Now there’s a divider plate in this 
+green box on the end of the chiller  
+
+12
+00:01:08,040 --> 00:01:13,800
+so the waters going through the 
+lower half of that condenser,
+
+13
+00:01:13,800 --> 00:01:21,300
+it makes a turn on the end of the condenser 
+and comes back through and then it comes  
+
+14
+00:01:21,300 --> 00:01:26,060
+through this pipe over here and heads to the 
+top of the cooling tower that’s on the roof.
+
+15
+00:01:26,060 --> 00:01:31,320
+And once it gets there it 
+goes through a distribution  
+
+16
+00:01:33,180 --> 00:01:39,660
+system that directs the water down through 
+nozzles and breaks the water up into  
+
+17
+00:01:40,560 --> 00:01:46,920
+smaller droplets that drop down 
+through the fill in the tower,
+
+18
+00:01:47,760 --> 00:01:55,020
+and we have a fan that induces a draft 
+in that tower, where it sucks air in, and  
+
+19
+00:01:55,020 --> 00:02:03,060
+that helps cool the water droplets off
+and they fall into the basin on the bottom  
+
+20
+00:02:03,060 --> 00:02:07,020
+of the cooling tower and collect 
+and the cycle starts over again.
+

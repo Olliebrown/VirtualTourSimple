@@ -1,0 +1,74 @@
+1
+00:00:00,600 --> 00:00:07,980
+We’re in the basement of our chilled plant 
+and what we’re looking at here is our supply  
+
+2
+00:00:09,120 --> 00:00:16,380
+line right here going out that feeds the loop 
+around campus (the secondary chilled water loop).
+
+3
+00:00:17,040 --> 00:00:20,040
+And that goes to the air handlers  
+
+4
+00:00:20,940 --> 00:00:29,100
+in the buildings around campus to provide the 45 
+deg water for the cooling coils in those areas.
+
+5
+00:00:29,100 --> 00:00:36,480
+And over here is our return 
+line that brings the 55 deg  
+
+6
+00:00:36,480 --> 00:00:45,360
+water back to our chilled plant to be 
+cooled down again to 45 deg and sent out.
+
+7
+00:00:45,360 --> 00:00:52,620
+Right over here, the first piece of 
+equipment we go through is a air separator.  
+
+8
+00:00:53,160 --> 00:00:58,800
+So, if we have any air in that chilled water 
+returning that’s where we take it out at.
+
+9
+00:01:01,620 --> 00:01:11,040
+We also add some water treatment into 
+the secondary chilled water loop just  
+
+10
+00:01:11,040 --> 00:01:19,952
+to prevent corrosion on the inside 
+of our piping; to protect our piping.
+
+11
+00:01:19,952 --> 00:01:27,840
+And over here we have a sand filter. And 
+what that does is it will pick up any  
+
+12
+00:01:28,380 --> 00:01:36,240
+small particulate, or small fine 
+pieces of rust, it filters it out.  
+
+13
+00:01:37,200 --> 00:01:41,580
+And then when this backflushes it 
+will flush that down the drain.
+
+14
+00:01:43,680 --> 00:01:50,460
+This piece of equipment here, when it 
+backflushes, it goes through 600 gallons of water  
+
+15
+00:01:51,120 --> 00:01:57,955
+per backflush cycle. And that 
+goes once a day, it backflushes.
+

@@ -1,0 +1,52 @@
+1
+00:00:00,780 --> 00:00:07,440
+We’re on the roof of the chilled plant, and 
+what we have behind me is the cooling towers,  
+
+2
+00:00:07,440 --> 00:00:12,780
+starting on the north that’s #1, #2 in 
+the middle, and #3 on the south here.
+
+3
+00:00:12,780 --> 00:00:20,880
+Our water comes from the basin of the cooling 
+tower flows through the condenser water pumps  
+
+4
+00:00:20,880 --> 00:00:25,860
+which were in the Mezz just down below here, 
+and the pressure is increased on that water.
+
+5
+00:00:25,860 --> 00:00:31,800
+It’s pumped down through the condenser and is 
+brought back up through the piping here, back  
+
+6
+00:00:31,800 --> 00:00:37,560
+up to the top of the cooling tower where 
+it goes through some distributor nozzles.
+
+7
+00:00:37,560 --> 00:00:39,360
+That water’s broken up,  
+
+8
+00:00:46,020 --> 00:00:46,800
+and it drops down through the 
+fill area, and we have a fan up  
+
+9
+00:00:46,800 --> 00:00:50,160
+on top of this cooling tower that induces a draft.
+
+10
+00:00:50,160 --> 00:00:55,620
+And that draft cools that water down  
+
+11
+00:00:55,620 --> 00:01:02,460
+about 10 deg before it returns to the sump 
+and is pumped around to the chiller again.
+

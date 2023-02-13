@@ -1,0 +1,71 @@
+1
+00:00:01,020 --> 00:00:04,200
+Right now we’re in our lower 
+level of our chilled plant.  
+
+2
+00:00:06,720 --> 00:00:09,600
+This device right here is our air separator.
+
+3
+00:00:10,160 --> 00:00:15,180
+The return line from our secondary loop,  
+
+4
+00:00:15,180 --> 00:00:18,720
+which feeds the buildings and 
+air handlers in those buildings,  
+
+5
+00:00:19,860 --> 00:00:27,720
+comes back and any air that is entrained in the 
+water is separated out in this air separator.
+
+6
+00:00:30,060 --> 00:00:33,180
+Then what it does is it comes across  
+
+7
+00:00:34,980 --> 00:00:46,260
+and we go into our primary chilled water pumps 
+which take off of this header and increase the  
+
+8
+00:00:46,260 --> 00:00:54,540
+pressure on that water and force it to go 
+up through the evaporator on the chiller.
+
+9
+00:00:55,500 --> 00:01:04,560
+And then that water, after it goes through the 
+evaporator, returns back down and comes back  
+
+10
+00:01:04,560 --> 00:01:15,480
+around and goes into a header for our secondary 
+loop pumps which pump the water around campus.
+
+11
+00:01:15,480 --> 00:01:25,080
+And that’s these three pumps on this side over 
+here, and they are 150 HP … motors on these pumps,  
+
+12
+00:01:25,080 --> 00:01:34,260
+and its more redundant capacity there, we don’t 
+really need it. Generally, we run with just one  
+
+13
+00:01:36,420 --> 00:01:40,140
+secondary loop pump at a time.
+
+14
+00:01:40,140 --> 00:01:52,560
+And, those are on variable frequency drives. 
+So, we control our flow that we have going out  
+
+15
+00:01:53,280 --> 00:02:02,700
+in that secondary loop. We maintain a 10 PSI 
+differential between our supply and return lines.
+

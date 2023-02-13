@@ -1,0 +1,117 @@
+1
+00:00:00,660 --> 00:00:06,300
+The heating plant at U.W. Stout was 
+built in 1965. It was designed to  
+
+2
+00:00:06,300 --> 00:00:11,640
+supply the entire campus with steam 
+for heating, hot water, and cooking.
+
+3
+00:00:11,640 --> 00:00:16,740
+We have a closed-loop system. Steam 
+is generated at the heating plant  
+
+4
+00:00:16,740 --> 00:00:19,560
+and sent in underground pipes to the buildings.
+
+5
+00:00:19,560 --> 00:00:23,040
+After use, the steam is condensed into water  
+
+6
+00:00:23,040 --> 00:00:27,300
+and pumped back to the plant 
+where it can be used again.
+
+7
+00:00:28,380 --> 00:00:30,720
+The original plant had 3 boilers.  
+
+8
+00:00:31,620 --> 00:00:37,980
+Two burned coal and natural gas. The other boiler 
+was converted to burn natural gas and fuel oil.
+
+9
+00:00:37,980 --> 00:00:42,600
+In 1972 the plant was expanded, 
+and a fourth boiler was added.  
+
+10
+00:00:43,140 --> 00:00:46,560
+The boiler burned natural gas as well as fuel oil.
+
+11
+00:00:47,280 --> 00:00:49,740
+All four boilers are water tube boilers.  
+
+12
+00:00:50,340 --> 00:00:56,100
+This means the water is inside the tubes, 
+and this is where it is converted to steam.
+
+13
+00:00:57,300 --> 00:01:02,340
+In 2005 the oldest boiler was 
+replaced with a newer, larger one.
+
+14
+00:01:02,340 --> 00:01:07,860
+The new boiler is more efficient and built 
+with its own stack making it more versatile.
+
+15
+00:01:08,940 --> 00:01:11,940
+Originally, the plant had pneumatic controls.  
+
+16
+00:01:12,480 --> 00:01:20,520
+In 2000 the plant was converted to electronic 
+controls, and in 2021 the controls were converted  
+
+17
+00:01:20,520 --> 00:01:27,540
+to Program Logic Controllers, or PLC’s. These 
+are more accurate, efficient, and user-friendly.
+
+18
+00:01:28,680 --> 00:01:34,740
+There have been many upgrades to the plant. 
+All boiler feed pumps, condensate pumps,  
+
+19
+00:01:34,740 --> 00:01:41,100
+and forced draft fans now are equipped 
+with Variable Frequency Drives, or VFD’s.  
+
+20
+00:01:41,760 --> 00:01:45,420
+We have also one turbine-driven boiler feed pump.
+
+21
+00:01:46,440 --> 00:01:51,960
+In 2020 and 21 we added a 42,000-gallon fuel oil  
+
+22
+00:01:51,960 --> 00:01:58,980
+tank to ensure a reliable fuel supply and 
+removed all boiler coal-burning equipment.
+
+23
+00:02:00,180 --> 00:02:04,800
+All four boilers are now capable of 
+burning fuel oil and natural gas.
+
+24
+00:02:05,460 --> 00:02:10,380
+The plant is operated and staffed 
+24 hours a day, seven days a week.
+
+25
+00:02:11,160 --> 00:02:17,280
+We have six power plant operators and 
+two power plant superintendents on staff.
+

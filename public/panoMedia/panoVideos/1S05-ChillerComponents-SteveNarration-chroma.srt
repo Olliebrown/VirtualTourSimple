@@ -1,0 +1,46 @@
+1
+00:00:00,660 --> 00:00:06,420
+Okay, our components of the chiller, 
+you’re going to have the condenser,
+
+2
+00:00:07,080 --> 00:00:14,580
+you’re going to have an evaporator, we have 
+a drive motor, a centrifugal compressor,
+
+3
+00:00:17,460 --> 00:00:23,100
+so basically, our water flow 
+is coming down, and it's…
+
+4
+00:00:23,760 --> 00:00:26,580
+In this condenser, we have a lot of tubes.
+
+5
+00:00:27,480 --> 00:00:31,800
+There's, I believe it’s over 
+1000 tubes in the condenser.
+
+6
+00:00:32,940 --> 00:00:34,860
+The water’s coming through the condenser  
+
+7
+00:00:35,460 --> 00:00:40,500
+and then going back up to the 
+cooling tower, and that takes the
+
+8
+00:00:43,380 --> 00:00:45,840
+super-heated discharge  
+
+9
+00:00:46,500 --> 00:00:54,420
+gas coming off the compressor and cools it down 
+and changes that vapor to a liquid refrigerant.
+
+10
+00:00:57,240 --> 00:01:00,000
+There’s a lot of tubes in that condenser!
+

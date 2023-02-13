@@ -1,0 +1,53 @@
+1
+00:00:01,140 --> 00:00:05,280
+We’re in the Mezz of the 
+chilled plant. Up on this level,  
+
+2
+00:00:05,280 --> 00:00:09,900
+we have our three … condenser water pumps up here.
+
+3
+00:00:10,560 --> 00:00:21,960
+We have a bromine feeder which we feed bromine 
+into our cooling tower water to prevent Legionella  
+
+4
+00:00:23,700 --> 00:00:28,260
+bacteria growing in the towers. Very important!
+
+5
+00:00:31,620 --> 00:00:39,540
+And we also have our switch gear up here. We 
+have our 4160v main disconnects for our chiller,  
+
+6
+00:00:40,260 --> 00:00:45,420
+these three disconnects here.
+And then over here we have  
+
+7
+00:00:45,420 --> 00:00:51,660
+our motor starters, and our chiller 
+motors are a reduced voltage start.
+
+8
+00:00:52,700 --> 00:01:00,880
+Gives them a little chance to get going 
+without creating too much stress on them.
+
+9
+00:01:01,440 --> 00:01:07,800
+And over in this area, we 
+have our disconnects for our  
+
+10
+00:01:08,820 --> 00:01:15,420
+pumps that are in the basement for our chilled 
+water, primary pumps, and then also our  
+
+11
+00:01:16,080 --> 00:01:24,900
+oil freq drives on the chiller that vary the 
+oil pressure with the chiller compressor.
+

@@ -1,0 +1,99 @@
+1
+00:00:00,960 --> 00:00:10,560
+Right now, we’re in the Mezz of the chilled plant 
+and what we do on this level is we add chemical  
+
+2
+00:00:11,220 --> 00:00:12,900
+to our tower water.
+
+3
+00:00:14,220 --> 00:00:23,640
+We have a chem meter right here that … senses 
+the amount of mineral that we have in the water  
+
+4
+00:00:23,640 --> 00:00:30,720
+and then it operates a blow-down valve and 
+reduces that amount of mineral in the water.
+
+5
+00:00:30,720 --> 00:00:35,220
+We do that so we don’t foul our 
+condenser tubes on the chillers.
+
+6
+00:00:35,820 --> 00:00:46,200
+Our pumps here are 60 HP apiece on these pumps and 
+it takes the water out of the basin of the cooling  
+
+7
+00:00:46,200 --> 00:00:52,380
+tower, comes down to the inlet of the pump, 
+and it increases the pressure of that water,
+
+8
+00:00:53,100 --> 00:01:03,240
+And that water goes down to the bottom pass of 
+the condenser and returns back and goes to the  
+
+9
+00:01:03,240 --> 00:01:10,260
+top of the cooling tower where that water is 
+sent through the cooling tower to cool it off.
+
+10
+00:01:11,160 --> 00:01:20,880
+Generally, we kinda go … like to see the 
+water come back at like 75 deg, 70 deg,  
+
+11
+00:01:22,560 --> 00:01:28,020
+and then we add about 10 deg to that 
+when it goes through the condenser.
+
+12
+00:01:29,940 --> 00:01:34,320
+For efficiency, the lower you bring 
+that temperature back the more  
+
+13
+00:01:35,280 --> 00:01:41,280
+efficient that chiller will be. But 
+if you get a day that’s really hot,  
+
+14
+00:01:41,280 --> 00:01:46,140
+and a lot of humidity, you don’t 
+get a very good heat transfer.
+
+15
+00:01:47,040 --> 00:01:55,620
+It's hard to remove heat and humidity in 
+the water with air that is really humid.
+
+16
+00:01:55,620 --> 00:02:02,400
+In those cases, we have to throttle 
+back our chillers at a reduced capacity.
+
+17
+00:02:06,840 --> 00:02:12,300
+And our power fans are 
+controlled with frequency drives  
+
+18
+00:02:12,300 --> 00:02:16,800
+and those are right here. We have three 
+of those, one for each cooling tower.
+
+19
+00:02:17,820 --> 00:02:24,420
+Our pumps for the condensers they're 
+a solid, they’re a steady-flow pump.  
+
+20
+00:02:25,560 --> 00:02:31,580
+We need that to provide a steady flow 
+of water through those condensers.
+

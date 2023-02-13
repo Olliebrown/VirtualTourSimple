@@ -1,0 +1,69 @@
+1
+00:00:00,720 --> 00:00:06,540
+This is our cooling tower, or one of our 
+cooling towers, in the roof of the chill plant.
+
+2
+00:00:07,500 --> 00:00:11,760
+And what we’re looking at is our 
+inducer fan which induces a draft.
+
+3
+00:00:12,540 --> 00:00:15,840
+it’s a pretty fan with a lot of blades on it!
+
+4
+00:00:17,160 --> 00:00:23,100
+You can see the belt drive and 
+that’s on a frequency drive so  
+
+5
+00:00:23,100 --> 00:00:27,300
+depending on how much cooling we need 
+that fan will speed up or slow down.
+
+6
+00:00:27,300 --> 00:00:35,040
+That’s all based off our water temp 
+leaving the basin and going to the chiller.
+
+7
+00:00:35,040 --> 00:00:38,340
+And the black material here 
+is what they call fill,  
+
+8
+00:00:39,240 --> 00:00:44,400
+and the water droplets are 
+dropping down through that fill,
+
+9
+00:00:44,400 --> 00:00:48,660
+and then we’re bringing air from 
+outside the cooling tower with  
+
+10
+00:00:48,660 --> 00:00:54,960
+this fan and pushing the exhaust air up 
+through the top of the cooling tower.
+
+11
+00:00:54,960 --> 00:01:00,300
+Yeah, normally we’d have water if we were 
+up and running, we’d have this filled,  
+
+12
+00:01:00,300 --> 00:01:08,340
+and we’d have about 18 inches of water 
+in this sump when the chillers off.
+
+13
+00:01:09,840 --> 00:01:15,000
+When it’s running and the pumps running, 
+the water level drops about 4 inches and  
+
+14
+00:01:15,000 --> 00:01:19,920
+that’s mostly water that’s falling down through 
+the fill, that's where it goes at that time.
+
