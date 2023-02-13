@@ -8,7 +8,7 @@ import { currentPanoDataState } from '../../state/fullTourState.js'
 
 import { useSetRecoilState, useRecoilState, useRecoilValue } from 'recoil'
 
-import { Fade, Tooltip, Button, ButtonGroup } from '@mui/material'
+import { Fade, Tooltip, Button, ButtonGroup, Paper } from '@mui/material'
 import {
   SkipNext as FastForwardIcon,
   Pause as PauseIcon,
@@ -41,47 +41,53 @@ export default function VideoPlayerControls (props) {
 
   return (
     <Fade in={panoMediaPlaying}>
-      <ButtonGroup
-        size="large"
-        variant="contained"
-        sx={{ position: 'absolute', bottom: 45, right: 100 }}
-      >
-        <Button
-          disableRipple
+      <div>
+        <Paper
           sx={{
+            padding: 2,
             fontSize: '1.2rem',
-            backgroundColor: 'white',
-            color: 'black',
-            width: '50vw',
-            justifyContent: 'left',
-            textTransform: 'none',
-            cursor: 'default',
-            '&:hover': {
-              backgroundColor: 'white',
-              color: 'black'
-            }
+            fontWeight: 'bold',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            minHeight: '84px',
+            width: '500px',
+            whiteSpace: 'pre-line',
+            position: 'absolute',
+            bottom: 45,
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            left: 0,
+            right: 0
           }}
         >
           {subtitleText}
-        </Button>
-        <Tooltip title="Restart Video">
-          <Button onClick={() => setMediaRewind(true)}>
-            <RewindIcon />
-          </Button>
-        </Tooltip>
+        </Paper>
 
-        <Tooltip title={mediaPaused ? 'Resume Video' : 'Pause Video'}>
-          <Button onClick={() => setMediaPaused(!mediaPaused)}>
-            {mediaPaused ? <PlayIcon/> : <PauseIcon />}
-          </Button>
-        </Tooltip>
+        <ButtonGroup
+          size="large"
+          variant="contained"
+          sx={{ position: 'absolute', bottom: 16, right: 100 }}
+        >
+          <Tooltip title="Restart Video">
+            <Button onClick={() => setMediaRewind(true)}>
+              <RewindIcon />
+            </Button>
+          </Tooltip>
 
-        <Tooltip title="Skip to End of Video">
-          <Button onClick={() => setMediaSkip(true)}>
-            <FastForwardIcon />
-          </Button>
-        </Tooltip>
-      </ButtonGroup>
+          <Tooltip title={mediaPaused ? 'Resume Video' : 'Pause Video'}>
+            <Button onClick={() => setMediaPaused(!mediaPaused)}>
+              {mediaPaused ? <PlayIcon/> : <PauseIcon />}
+            </Button>
+          </Tooltip>
+
+          <Tooltip title="Skip to End of Video">
+            <Button onClick={() => setMediaSkip(true)}>
+              <FastForwardIcon />
+            </Button>
+          </Tooltip>
+        </ButtonGroup>
+      </div>
     </Fade>
   )
 }

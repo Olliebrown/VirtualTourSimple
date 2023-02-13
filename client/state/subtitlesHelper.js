@@ -78,7 +78,7 @@ export function useSubtitles (subtitlePath, playbackTime) {
       let newSubtitleText = ''
       if (playbackTime >= subtitles[subtitleIndex].startTime) {
         if (playbackTime < subtitles[subtitleIndex].endTime) {
-          newSubtitleText = subtitles[subtitleIndex].text.replace(/\s+/g, ' ')
+          newSubtitleText = subtitles[subtitleIndex].text
         } else {
           setSubtitleIndex(subtitleIndex + 1)
         }

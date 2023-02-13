@@ -112,7 +112,7 @@ export default function AudioPlayer (props) {
           ? <PauseIcon sx={{ height: 38, width: 38 }} />
           : <PlayIcon sx={{ height: 38, width: 38 }} />}
       </IconButton>
-      <Typography variant='body1'>{curAudioObj ? subtitleText : ''}</Typography>
+      <Typography variant='body1' sx={{ fontSize: '1.2rem' }}>{curAudioObj ? subtitleText?.replace(/\s+/g, ' ') : ''}</Typography>
     </Box>
   )
 }
