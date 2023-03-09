@@ -120,7 +120,7 @@ export const currentPanoDataState = selector({
     }
 
     // Update server data if enabled
-    if (CONFIG.ENABLE_DATA_EDITING) {
+    if (CONFIG().ENABLE_DATA_EDITING) {
       // CAUTION: this is asynchronous
       setPanoDataOnServer(currentPanoKey, newData)
     }

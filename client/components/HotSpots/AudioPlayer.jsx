@@ -34,7 +34,7 @@ export default function AudioPlayer (props) {
 
   // Track subtitle information in local state
   const [subtitleText, subtitleIndex, subtitleStartTime] =
-    useSubtitles(`${CONFIG.INFO_AUDIO_PATH}/${hotspotAudio?.src}.srt`, playbackTime)
+    useSubtitles(`${CONFIG().INFO_AUDIO_PATH}/${hotspotAudio?.src}.srt`, playbackTime)
 
   // Sync slide timing with subtitle index
   React.useEffect(() => {

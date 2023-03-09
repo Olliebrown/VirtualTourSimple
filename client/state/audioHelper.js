@@ -17,11 +17,11 @@ export function useAudioSource (audioSrcPrefix, autoplay, onPlay, onEnd) {
           html5: true,
           autoplay,
           src: [
-            `${CONFIG.INFO_AUDIO_PATH}/${audioSrcPrefix}.webm`,
-            `${CONFIG.INFO_AUDIO_PATH}/${audioSrcPrefix}.mp3`,
-            `${CONFIG.INFO_AUDIO_PATH}/${audioSrcPrefix}.ac3`,
-            `${CONFIG.INFO_AUDIO_PATH}/${audioSrcPrefix}.m4a`,
-            `${CONFIG.INFO_AUDIO_PATH}/${audioSrcPrefix}.wav`
+            `${CONFIG().INFO_AUDIO_PATH}/${audioSrcPrefix}.webm`,
+            `${CONFIG().INFO_AUDIO_PATH}/${audioSrcPrefix}.mp3`,
+            `${CONFIG().INFO_AUDIO_PATH}/${audioSrcPrefix}.ac3`,
+            `${CONFIG().INFO_AUDIO_PATH}/${audioSrcPrefix}.m4a`,
+            `${CONFIG().INFO_AUDIO_PATH}/${audioSrcPrefix}.wav`
           ],
 
           // Report any audio errors to the console

@@ -33,7 +33,7 @@ export default function VideoPlayerControls (props) {
   let subtitlePath = currentPanoData?.video?.href
   if (typeof subtitlePath === 'string') {
     const basename = subtitlePath.substring(0, subtitlePath.lastIndexOf('.'))
-    subtitlePath = `${CONFIG.PANO_VIDEO_PATH}/${basename}.srt`
+    subtitlePath = `${CONFIG().PANO_VIDEO_PATH}/${basename}.srt`
   }
 
   // Determine current subtitle

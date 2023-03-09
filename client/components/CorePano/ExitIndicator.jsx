@@ -17,28 +17,28 @@ import { useSpring, animated } from '@react-spring/three'
 import { Edges, Text } from '@react-three/drei'
 
 // Different object parameters
-const OBJ_DATA = {
+const OBJ_DATA = () => ({
   arrow: {
-    filename: `${CONFIG.GEOMETRY_FILE_PATH}/arrow.obj`,
+    filename: `${CONFIG().GEOMETRY_FILE_PATH}/arrow.obj`,
     rotation: [Math.PI / 2.0, 0, Math.PI]
   },
   teleport: {
-    filename: `${CONFIG.GEOMETRY_FILE_PATH}/teleport.obj`,
+    filename: `${CONFIG().GEOMETRY_FILE_PATH}/teleport.obj`,
     rotation: [0, 0, 0]
   },
   door: {
-    filename: `${CONFIG.GEOMETRY_FILE_PATH}/door.obj`,
+    filename: `${CONFIG().GEOMETRY_FILE_PATH}/door.obj`,
     rotation: [0, 0, 0]
   },
   stairsUp: {
-    filename: `${CONFIG.GEOMETRY_FILE_PATH}/stairsUp.obj`,
+    filename: `${CONFIG().GEOMETRY_FILE_PATH}/stairsUp.obj`,
     rotation: [0, 0, 0]
   },
   stairsDown: {
-    filename: `${CONFIG.GEOMETRY_FILE_PATH}/stairsDown.obj`,
+    filename: `${CONFIG().GEOMETRY_FILE_PATH}/stairsDown.obj`,
     rotation: [0, 0, 0]
   }
-}
+})
 
 // Various colors for the texture loading state
 // const LOADING_COLOR = 0x777777 (not currently in use)
@@ -57,8 +57,8 @@ export default function ExitIndicator (props) {
 
   // Create array of texture filenames
   const textureFiles = React.useMemo(() => ([
-    `${CONFIG.PANO_IMAGE_PATH}/${destination || CONFIG.START_KEY}_Left.ktx2`
-    // `${CONFIG.PANO_IMAGE_PATH}/${destination || CONFIG.START_KEY}_Right.ktx2`
+    `${CONFIG().PANO_IMAGE_PATH}/${destination || CONFIG().START_KEY}_Left.ktx2`
+    // `${CONFIG().PANO_IMAGE_PATH}/${destination || CONFIG().START_KEY}_Right.ktx2`
   ]), [destination])
 
   // Track hovering state
@@ -85,7 +85,7 @@ export default function ExitIndicator (props) {
   })
 
   // Pick the geometry
-  const objInfo = OBJ_DATA[type]
+  const objInfo = OBJ_DATA()[type]
 
   // Load the geometry and clone our own instance
   const loadedObj = useLoader(OBJLoader, objInfo.filename)

@@ -66,7 +66,7 @@ export default function PanoViewer (props) {
 
   // Setup some hotkeys to adjust the sphere offset rotation
   /* eslint-disable react-hooks/rules-of-hooks */
-  if (CONFIG.ENABLE_ROTATE_HOTKEYS) {
+  if (CONFIG().ENABLE_ROTATE_HOTKEYS) {
     useHotkeys('ctrl+G', () => { updateSetting('showGrid', !showGrid) }, {}, [showGrid])
     useHotkeys('ctrl+H', () => { updateSetting('showExits', !showExits) }, {}, [showExits])
     useHotkeys('ctrl+I', () => { updateSetting('showHUDInterface', !showHUDInterface) }, {}, [showHUDInterface])
@@ -132,7 +132,7 @@ export default function PanoViewer (props) {
       {!!currentPanoKey && showExits && <PanoExtras exits={filteredExits} hotSpots={filteredHotSpots} panoKey={currentPanoKey} />}
       {!!currentPanoKey && <PanoImage xRotate={xRotate} yRotate={yRotate} zRotate={zRotate} exits={filteredExits} onVideoUpdate={onVideoUpdate}/>}
 
-      {CONFIG.ENABLE_ALIGNMENT_GRID && showGrid && <PanoGrid />}
+      {CONFIG().ENABLE_ALIGNMENT_GRID && showGrid && <PanoGrid />}
     </>
   )
 }

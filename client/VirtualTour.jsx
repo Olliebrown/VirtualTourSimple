@@ -55,7 +55,7 @@ function CloseTour (params) {
       document.body.style.overflow = 'auto'
 
       reactRoot.unmount()
-    }, CONFIG.FADE_TIMEOUT)
+    }, CONFIG().FADE_TIMEOUT)
   }
 
   return (
@@ -78,7 +78,7 @@ export default function VirtualTour (props) {
 
   const [fadeInTimeout, setFadeInTimeout] = React.useState(false)
   React.useEffect(() => {
-    setTimeout(() => setFadeInTimeout(true), CONFIG.FADE_TIMEOUT)
+    setTimeout(() => setFadeInTimeout(true), CONFIG().FADE_TIMEOUT)
   }, [])
 
   // On the first render, initialize some state
@@ -167,8 +167,8 @@ export default function VirtualTour (props) {
               <RoomAudioPlayer />
 
               {/* Editing interface */}
-              {CONFIG.ENABLE_DATA_EDITING && <TourInfoEditor />}
-              {CONFIG.ENABLE_DATA_EDITING && <EditHotspotContentModal />}
+              {CONFIG().ENABLE_DATA_EDITING && <TourInfoEditor />}
+              {CONFIG().ENABLE_DATA_EDITING && <EditHotspotContentModal />}
             </React.Fragment>}
         </React.Fragment>}
 
@@ -195,7 +195,7 @@ VirtualTour.defaultProps = {
   allowMotion: false,
   enableClose: false,
   disablePriority: false,
-  startingRoom: CONFIG.START_KEY,
+  startingRoom: CONFIG().START_KEY,
   initialYaw: 0,
   enabledRooms: [],
   enabledHotSpots: []

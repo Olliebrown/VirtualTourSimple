@@ -38,7 +38,7 @@ export default function HotSpotIndicator (props) {
   React.useEffect(() => { if (hidden) { setHovering(false) } }, [hidden])
 
   // Load texture for the hotspot
-  const texture = useTexture(`${CONFIG.TEXTURE_IMAGE_PATH}/${texName}`)
+  const texture = useTexture(`${CONFIG().TEXTURE_IMAGE_PATH}/${texName}`)
 
   // Animated values
   const springs = useSpring({

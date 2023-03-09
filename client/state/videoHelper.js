@@ -55,7 +55,7 @@ export function useVideoSource (currentPanoData) {
     if (currentPanoData?.video?.href && panoVideo !== null) {
       if (currentSrc !== currentPanoData?.video?.href) {
         // Update video element attributes
-        panoVideo.src = `${CONFIG.PANO_VIDEO_PATH}/${currentPanoData.video.href}`
+        panoVideo.src = `${CONFIG().PANO_VIDEO_PATH}/${currentPanoData.video.href}`
         panoVideo.loop = !!currentPanoData.video?.loop
         panoVideo.autoplay = !!currentPanoData.video?.autoPlay
         setCurrentSrc(currentPanoData.video.href)

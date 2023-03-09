@@ -44,7 +44,7 @@ export default function MiniMap (props) {
     }
 
     // Only need to use this if data editing is enabled
-    if (CONFIG.ENABLE_DATA_EDITING) {
+    if (CONFIG().ENABLE_DATA_EDITING) {
       retrieveData()
     }
   }, [setFullTourData])
@@ -55,7 +55,7 @@ export default function MiniMap (props) {
   // Mini map local state
   const [mapInfo, setMapInfo] = React.useState(null)
   const updateMapInfo = (newMapInfo) => {
-    if (CONFIG.ENABLE_DATA_EDITING) {
+    if (CONFIG().ENABLE_DATA_EDITING) {
       setCurrentPanoData({
         mapInfo: { ...mapInfo, ...newMapInfo }
       })
@@ -64,7 +64,7 @@ export default function MiniMap (props) {
   }
 
   /* eslint-disable react-hooks/rules-of-hooks */
-  if (CONFIG.ENABLE_MINIMAP_HOTKEYS) {
+  if (CONFIG().ENABLE_MINIMAP_HOTKEYS) {
     useHotkeys('shift+left', () => { updateMapInfo({ x: mapInfo.x - 1 }) }, {}, [mapInfo])
     useHotkeys('shift+right', () => { updateMapInfo({ x: mapInfo.x + 1 }) }, {}, [mapInfo])
     useHotkeys('shift+up', () => { updateMapInfo({ y: mapInfo.y - 1 }) }, {}, [mapInfo])
@@ -137,7 +137,7 @@ export default function MiniMap (props) {
                       component="img"
                       sx={{ maxWidth: '100%', marginTop: 'auto' }}
                       alt="Blueprint image of the current floor of the building"
-                      src={`${CONFIG.MAP_IMAGE_PATH}/${mapInfo.image}`}
+                      src={`${CONFIG().MAP_IMAGE_PATH}/${mapInfo.image}`}
                     />
                     <MiniMapArrow
                       {...mapInfo}

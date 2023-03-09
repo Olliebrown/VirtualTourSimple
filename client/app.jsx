@@ -1,5 +1,5 @@
 // Static global app configuration
-import CONFIG from './config.js'
+import CONFIG, { updatePrefix } from './config.js'
 
 // React.js v18 basic includes
 import React from 'react'
@@ -31,14 +31,14 @@ export const SHADOW_ROOT_ID = 'virtualTourShadowDomReactRoot'
 
 // Main entry point for attaching the permission events and rendering the tour
 export function attachVirtualTour (permissionElement, rootRenderElement, {
-  startingRoom, enableClose, disablePriority, enabledRooms, enabledHotSpots, textColor, backgroundColor, initialYaw, ...rest
+  startingRoom, enableClose, disablePriority, enabledRooms, enabledHotSpots, textColor, backgroundColor, initialYaw, urlPrefix, ...rest
 }) {
   // Sanitize the HTML elements
   permissionElement = permissionElement ?? document.getElementById('virtualTourPermission')
   rootRenderElement = rootRenderElement ?? document.getElementById('virtualTourRoot')
 
   // Sanitize the options
-  startingRoom = startingRoom || CONFIG.START_KEY
+  startingRoom = startingRoom || CONFIG().START_KEY
   enableClose = enableClose ?? false
   disablePriority = disablePriority ?? false
   enabledRooms = enabledRooms ?? []
@@ -46,11 +46,17 @@ export function attachVirtualTour (permissionElement, rootRenderElement, {
   textColor = textColor ?? 'black'
   backgroundColor = backgroundColor ?? 'lightgrey'
   initialYaw = initialYaw ?? 0
+  urlPrefix = urlPrefix ?? ''
 
   // Log any unexpected options
   for (const param in rest) {
     console.warning(`Unknown virtual tour option: ${param}`)
   }
+
+  // Update path prefix if needed
+  updatePrefix(urlPrefix)
+  console.log('urlPrefix is:', urlPrefix)
+  console.log('Pano Prefix is:', CONFIG().PANO_IMAGE_PATH)
 
   // Initiate the React rendering
   const doRender = (allowMotion) => {
@@ -124,6 +130,7 @@ export function attachVirtualTour (permissionElement, rootRenderElement, {
                 enabledHotSpots={enabledHotSpots}
                 rootElement={rootRenderElement}
                 reactRoot={reactRoot}
+                urlPrefix={urlPrefix}
               />
               <Curtain color={textColor} background={backgroundColor} />
             </ErrorBoundary>

@@ -55,7 +55,7 @@ export default function HotspotContent (props) {
             width: '100%',
             marginTop: '0px !important'
           }}
-          src={`${CONFIG.INFO_IMAGE_PATH}/${baseName}-Build-${buildName}.${extension}`}
+          src={`${CONFIG().INFO_IMAGE_PATH}/${baseName}-Build-${buildName}.${extension}`}
         />
       )
     }
@@ -75,7 +75,7 @@ export default function HotspotContent (props) {
                   maxHeight: 'calc(100vh - 500px)',
                   height: imageLoadList.length < hotspotImages.length ? defaultHeight + 50 : undefined
                 }}
-                src={`${CONFIG.INFO_IMAGE_PATH}/${i === slideIndex[0] ? baseImageFilename : imageInfo.src}`}
+                src={`${CONFIG().INFO_IMAGE_PATH}/${i === slideIndex[0] ? baseImageFilename : imageInfo.src}`}
                 alt={imageInfo.alt}
                 onLoad={() => imageDone(i)}
                 onError={(err) => imageDone(i, err)}

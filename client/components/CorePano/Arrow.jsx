@@ -29,13 +29,13 @@ export default function Arrow (props) {
   // Global texture loader status and pano image state
   const loadingStatus = useRecoilValue(textureStatusState)
   const setTextureLoading = useSetRecoilState(setTextureLoadingState)
-  const imageLoadingStatus = loadingStatus[`${CONFIG.PANO_IMAGE_PATH}/${destination}_Left.ktx2`]
+  const imageLoadingStatus = loadingStatus[`${CONFIG().PANO_IMAGE_PATH}/${destination}_Left.ktx2`]
 
   // Create a valid texture filename
   const textureFile = (
     destination !== ''
-      ? `${CONFIG.PANO_IMAGE_PATH}/${destination}_Left.ktx2`
-      : `${CONFIG.PANO_IMAGE_PATH}/1S01_22_Left.ktx2`
+      ? `${CONFIG().PANO_IMAGE_PATH}/${destination}_Left.ktx2`
+      : `${CONFIG().PANO_IMAGE_PATH}/1S01_22_Left.ktx2`
   )
 
   // Start loading (harmless if already loaded)
@@ -59,7 +59,7 @@ export default function Arrow (props) {
   })
 
   // Load the arrow geometry and clone our own instance
-  const loadedObj = useLoader(OBJLoader, `${CONFIG.GEOMETRY_FILE_PATH}/arrow.obj`)
+  const loadedObj = useLoader(OBJLoader, `${CONFIG().GEOMETRY_FILE_PATH}/arrow.obj`)
   const { nodes } = useGraph(loadedObj.clone())
 
   let color = LOADING_COLOR
