@@ -12,8 +12,8 @@
         "modal": true,
         "title": "Heating Plant Control Room",
         "type": "audio",
-        "longitude": -87.3,
-        "latitude": 3,
+        "longitude": -86.7,
+        "latitude": 4.7,
         "scale": 0.4,
         "priority": 0
       }
@@ -2464,7 +2464,6 @@
     "hotspots": [
       {
         "title": "Boiler #4",
-        "json": "",
         "longitude": -17,
         "latitude": 9,
         "radius": 12,
@@ -4092,6 +4091,16 @@
         "latitude": -2.4,
         "scale": 0.6,
         "priority": 0
+      },
+      {
+        "title": "Cooling Tower Basics",
+        "modal": true,
+        "longitude": 112,
+        "latitude": 7,
+        "radius": 6,
+        "scale": 0.4,
+        "type": "info",
+        "id": "RS05_CoolingTower"
       }
     ],
     "mapInfo": {

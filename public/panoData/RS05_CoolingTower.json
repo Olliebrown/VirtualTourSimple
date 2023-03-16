@@ -1,0 +1,17 @@
+{
+  "name": "RS05_CoolingTower",
+  "images": [{
+    "src": "Cooling-Tower-CutoutView.jpg",
+    "caption": "Cooling Tower Cutout View"
+  }, {
+    "src": "Cooling-Tower-CrossFlow-Diagram.jpg",
+    "caption": "Schematic of a Cooling Tower"
+  }],
+  "height": 774,
+  "audio": {
+    "src": "RS05-CoolingTower",
+    "slideTiming": {
+      "0": "0"
+    }
+  }
+}
