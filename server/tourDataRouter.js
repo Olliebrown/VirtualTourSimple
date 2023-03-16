@@ -26,21 +26,24 @@ function getMapInfoLists () {
       throw new Error('Failed to read base json')
     }
 
-    const mapInfoLists = Object.keys(baseData).map(panoKey => ({
-      building: baseData[panoKey].mapInfo.building,
-      floor: baseData[panoKey].mapInfo.floor,
-      image: baseData[panoKey].mapInfo.image
-    })).reduce((prev, mapInfo) => {
-      if (!prev.buildings.some(item => item === mapInfo.building)) {
-        prev.buildings.push(mapInfo.building)
+    const mapInfoLists = Object.keys(baseData).map(panoKey => {
+      if (!baseData[panoKey].mapInfo) { return null }
+      return {
+        building: baseData[panoKey].mapInfo.building,
+        floor: baseData[panoKey].mapInfo.floor,
+        image: baseData[panoKey].mapInfo.image
+      }
+    }).reduce((prev, mapInfo) => {
+      if (!prev.buildings.some(item => item === mapInfo?.building)) {
+        prev.buildings.push(mapInfo?.building)
       }
 
-      if (!prev.floors.some(item => item === mapInfo.floor)) {
-        prev.floors.push(mapInfo.floor)
+      if (!prev.floors.some(item => item === mapInfo?.floor)) {
+        prev.floors.push(mapInfo?.floor)
       }
 
-      if (!prev.images.some(item => item === mapInfo.image)) {
-        prev.images.push(mapInfo.image)
+      if (!prev.images.some(item => item === mapInfo?.image)) {
+        prev.images.push(mapInfo?.image)
       }
 
       return prev
