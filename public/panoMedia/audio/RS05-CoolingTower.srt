@@ -1,0 +1,129 @@
+1
+00:00:00,000 --> 00:00:04,740
+Cooling towers are large evaporative cooling 
+systems that can be used to reject heat from  
+
+2
+00:00:04,740 --> 00:00:09,480
+a warm condenser water to the atmosphere 
+by a combination of heat and mass transfer.
+
+3
+00:00:09,480 --> 00:00:14,760
+Cooling towers can operate by natural or forced 
+convection. Also, they may be counter-flow,  
+
+4
+00:00:14,760 --> 00:00:17,520
+cross-flow, or a combination of these.
+
+5
+00:00:17,520 --> 00:00:20,640
+Figure 1 is a cutaway picture 
+of a forced convection,  
+
+6
+00:00:20,640 --> 00:00:24,660
+cross-flow cooling tower and Figure 
+2 shows its working principle.
+
+7
+00:00:26,160 --> 00:00:30,240
+The cooling tower contains a large fan 
+which blows air through the unit. The  
+
+8
+00:00:30,240 --> 00:00:34,920
+warm condenser water about to be cooled enters 
+at 1 and is sprayed from the top of the tower.
+
+9
+00:00:34,920 --> 00:00:38,400
+The falling water usually passes 
+through the fill media intended  
+
+10
+00:00:38,400 --> 00:00:41,520
+to keep it broken up into fine 
+drops to promote evaporation.
+
+11
+00:00:41,520 --> 00:00:45,360
+Atmospheric air drawn in at 
+3 by the fan flows upward,  
+
+12
+00:00:45,360 --> 00:00:49,620
+counter to the direction of the falling 
+water droplets. As the two streams interact,  
+
+13
+00:00:49,620 --> 00:00:53,580
+a fraction of the entering liquid water 
+stream evaporates into the moist air,
+
+14
+00:00:53,580 --> 00:00:58,140
+which exits at 4 with a greater humidity 
+ratio than the incoming moist air at 3,  
+
+15
+00:00:58,140 --> 00:01:02,700
+while liquid water exits at 2 with a lower 
+temperature than the water entering at 1.
+
+16
+00:01:02,700 --> 00:01:06,480
+Since some of the incoming water is 
+evaporated into the moist air stream,  
+
+17
+00:01:06,480 --> 00:01:10,320
+an equivalent amount of makeup water 
+is added at 5 so that the return mass  
+
+18
+00:01:10,320 --> 00:01:14,880
+flow rate of the cool water equals the mass 
+flow rate of the warm water entering at 1.
+
+19
+00:01:14,880 --> 00:01:20,760
+For operation at a steady state, mass balances 
+for the dry air, and water and an energy balance  
+
+20
+00:01:20,760 --> 00:01:25,560
+on the overall cooling tower, provide information 
+about the cooling tower performance. In applying  
+
+21
+00:01:25,560 --> 00:01:29,400
+the energy balance, heat transfer with 
+the surroundings is usually neglected.
+
+22
+00:01:29,400 --> 00:01:34,320
+The power input to the fan of forced-convection 
+towers also may be negligible relative to other  
+
+23
+00:01:34,320 --> 00:01:39,120
+energy rates involved. The example that follows 
+illustrates the analysis of a cooling tower  
+
+24
+00:01:39,120 --> 00:01:44,160
+using conservation of mass and energy together 
+with property data for the dry air and water.
+
+25
+00:01:44,160 --> 00:01:50,580
+Each cooling tower can typically cool 
+2,400 gallons (about 9,084.98 L) per  
+
+26
+00:01:50,580 --> 00:01:57,540
+minute of water from 95°F to 85°F at 
+72°F ambient wet bulb temperature.
+

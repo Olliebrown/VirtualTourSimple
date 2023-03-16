@@ -11,7 +11,8 @@
   "audio": {
     "src": "RS05-CoolingTower",
     "slideTiming": {
-      "0": "0"
+      "0": "0",
+      "6": "1"
     }
   }
 }
