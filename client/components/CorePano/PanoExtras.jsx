@@ -6,6 +6,8 @@ import { currentRoomPriorityState } from '../../state/fullTourState.js'
 import { useRecoilValue } from 'recoil'
 
 import InfoHotspot from '../HotSpots/InfoHotSpot.jsx'
+import PlacardHotspot from '../HotSpots/PlacardHotSpot.jsx'
+import ZoomHotspot from '../HotSpots/ZoomHotSpot.jsx'
 import MediaHotspot from '../HotSpots/MediaHotSpot.jsx'
 import ExitIndicator from './ExitIndicator.jsx'
 
@@ -37,6 +39,8 @@ export default function PanoExtras (props) {
     const key = `${panoKey}-${info.id}`
     switch (info.type) {
       case 'info': return (<InfoHotspot key={key} {...info} />)
+      case 'placard': return (<PlacardHotspot key={key} {...info} />)
+      case 'zoom': return (<ZoomHotspot key={key} {...info} />)
       case 'media': case 'audio': return (<MediaHotspot key={key} {...info} />)
     }
     return null

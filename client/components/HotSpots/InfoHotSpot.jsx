@@ -15,7 +15,7 @@ export default function InfoHotspot (props) {
     setInfoModalOpen(true)
   }, [setInfoModalOpen])
 
-  // Pack in groups to position in the scene
+  // Render the appropriate indicator
   return (
     <HotSpotIndicator
       hidden={!props.modal}

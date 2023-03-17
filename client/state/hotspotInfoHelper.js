@@ -19,7 +19,7 @@ export function useHotspotContent (jsonFilename, type = 'unknown') {
     }
 
     // Clear any previous info and start the async process
-    if (jsonFilename && type !== 'media') {
+    if (jsonFilename && jsonFilename !== '.json') {
       retrieveInfo(`${CONFIG().HOTSPOT_INFO_PATH}/${jsonFilename}`)
     }
   }, [jsonFilename, setHotspotContent, type])

@@ -20,9 +20,11 @@ export default function HotSpotIndicator (props) {
   // Track hovering state and modal state
   const [hovering, setHovering] = React.useState(false)
   React.useEffect(() => {
+    const useJSON = type === 'info' || type === 'audio'
+
     // Synchronize hotspot data
     setHotspotData({
-      jsonFilename: `${id}.json`,
+      jsonFilename: useJSON && id ? `${id}.json` : undefined,
       title,
       type,
       showAlways: !modal,
@@ -30,7 +32,7 @@ export default function HotSpotIndicator (props) {
     })
 
     // Update cursor to indicate this can be clicked
-    document.body.style.cursor = hovering ? 'pointer' : 'auto'
+    document.body.style.cursor = hovering && type !== 'placard' ? 'pointer' : 'auto'
     return () => { document.body.style.cursor = 'auto' }
   }, [id, title, type, hovering, modal, setHotspotData])
 
@@ -74,7 +76,7 @@ export default function HotSpotIndicator (props) {
 HotSpotIndicator.propTypes = {
   title: PropTypes.string,
   id: PropTypes.string,
-  type: PropTypes.oneOf(['info', 'media', 'audio', 'placard', 'unknown']),
+  type: PropTypes.oneOf(['info', 'media', 'audio', 'placard', 'zoom', 'unknown']),
   modal: PropTypes.bool,
   hidden: PropTypes.bool,
 

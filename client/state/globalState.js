@@ -57,6 +57,12 @@ export const infoModalOpenState = atom({
   default: false
 })
 
+// Zoom hotspot modal state
+export const zoomModalOpenState = atom({
+  key: 'zoomModalOpen',
+  default: false
+})
+
 // Info hotspot modal state
 export const hotspotDataState = atom({
   key: 'hotspotData',
