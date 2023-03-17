@@ -14,10 +14,10 @@ export default function RoomHotspotList (props) {
   // Which hotspot is currently being edited
   const [editHotspot, setEditHotspot] = React.useState(-1)
 
-  // Update one of the exits
+  // Update one of the hotspots
   const updateHotspot = (i, updatedHotspot) => {
     const newHotspots = [...currentPanoData.hotspots]
-    newHotspots[i] = updatedHotspot
+    newHotspots[i] = { ...newHotspots[i], ...updatedHotspot }
     setCurrentPanoData({ hotspots: newHotspots })
   }
 
@@ -25,13 +25,14 @@ export default function RoomHotspotList (props) {
   const addHotspot = () => {
     const newHotspots = [...currentPanoData.hotspots]
     newHotspots.push({
+      id: '',
       title: '',
-      json: '',
       longitude: 0,
       latitude: 0,
-      radius: 0,
+      radius: 6,
       scale: 1,
-      type: 'info'
+      type: 'info',
+      modal: true
     })
     setCurrentPanoData({ hotspots: newHotspots })
   }
