@@ -8,7 +8,7 @@ import { setTextureLoadingState, textureStatusState } from '../../state/textureL
 import { useRecoilValue, useSetRecoilState } from 'recoil'
 
 import { useLoader, useGraph } from '@react-three/fiber'
-import { useKTX2 } from '@react-three/drei'
+import { onKTX2Load, useKTX2WithOnLoad } from '../Utility/useKTX2WithOnLoad.js'
 import { MathUtils } from 'three'
 
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader.js'
@@ -40,7 +40,7 @@ export default function Arrow (props) {
 
   // Start loading (harmless if already loaded)
   setTextureLoading(textureFile)
-  useKTX2(textureFile)
+  useKTX2WithOnLoad(textureFile, onKTX2Load)
 
   // Track hovering state
   const [hovering, setHovering] = React.useState(false)

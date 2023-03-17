@@ -9,7 +9,7 @@ import { setTextureLoadingState } from '../../state/textureLoadingState.js'
 import { useRecoilValue, useSetRecoilState } from 'recoil'
 
 import { useFrame, useThree } from '@react-three/fiber'
-import { useKTX2 } from '@react-three/drei'
+import { onKTX2Load, useKTX2WithOnLoad } from '../Utility/useKTX2WithOnLoad.js'
 import { Euler, MathUtils, BackSide } from 'three'
 
 import { NO_CROP, useVideoSource } from '../../state/videoHelper.js'
@@ -41,7 +41,7 @@ export default function PanoImage (props) {
   React.useEffect(() => {
     setTextureLoading(textureFiles)
   }, [setTextureLoading, textureFiles])
-  const panoImages = useKTX2(textureFiles)
+  const panoImages = useKTX2WithOnLoad(textureFiles, onKTX2Load)
 
   React.useEffect(() => {
     setLoadingCurtain({ text: '', open: true })

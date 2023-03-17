@@ -56,7 +56,17 @@
   </head>
   <body>
     <div id="virtualTourRoot">
-      <button id="virtualTourPermission">Start the Tour</a>
+      <div style="margin-bottom: 10px;">
+        <button id="virtualTourPermission">Start the Tour</a>
+      </div>
+      <div style="margin-bottom: 10px; font-size: 28pt;">
+        <label for="tourRoomSelector">Starting Room</label>
+        <select id="tourRoomSelector" style="margin-bottom: 10px; font-size: 28pt;"></select>
+      </div>
+      <div style="margin-bottom: 10px; display: flex; justify-content: center;">
+        <input type="checkbox" id="tourPriorityCheckbox" style="transform: scale(2.3);"/>
+        <label for="tourPriorityCheckbox" style="font-size: 28pt; padding-left: 20px;">Disable Room Priority</label>
+      </div>
     </div>
 
     <script src="bundle.js"></script>
@@ -66,12 +76,31 @@
         const queryString = window.location.search
         const urlParams = new URLSearchParams(queryString)
 
-        // Prepare the tour by attaching to the standard elements
-        attachVirtualTour(null, null, {
-          startingRoom: urlParams.get('start_room') ?? undefined,
-          disablePriority: urlParams.get('disable_priority') === 'true',
-          enableClose: urlParams.get('enable_close') === 'true',
-          initialYaw: parseFloat(urlParams.get('initial_yaw') ?? '0')
+        // Prepare the debug form
+        const tourPriorityCheckbox = document.getElementById('tourPriorityCheckbox')
+        tourPriorityCheckbox.checked = urlParams.get('disable_priority') === 'true'
+
+        const tourRoomSelector = document.getElementById('tourRoomSelector')
+        fetch('data/').then(response => response.json())
+          .then(data => {
+            Object.keys(data).forEach(room => {
+              const option = document.createElement('option')
+              option.value = room
+              option.text = data[room].label || room
+              option.selected = room === urlParams.get('start_room')
+              tourRoomSelector.appendChild(option)
+            })
+          })
+
+        document.getElementById('virtualTourPermission').addEventListener('click', (event) => {
+          // Prepare the tour by attaching to the standard elements
+          attachVirtualTour(null, null, {
+            startingRoom: document.getElementById('tourRoomSelector').value,
+            disablePriority: document.getElementById('tourPriorityCheckbox').checked,
+            enableClose: urlParams.get('enable_close') === 'true',
+            initialYaw: parseFloat(urlParams.get('initial_yaw') ?? '0'),
+            autoStart: true
+          })
         })
       })
     </script>

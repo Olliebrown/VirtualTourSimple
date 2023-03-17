@@ -31,7 +31,7 @@ export const SHADOW_ROOT_ID = 'virtualTourShadowDomReactRoot'
 
 // Main entry point for attaching the permission events and rendering the tour
 export function attachVirtualTour (permissionElement, rootRenderElement, {
-  startingRoom, enableClose, disablePriority, enabledRooms, enabledHotSpots, textColor, backgroundColor, initialYaw, urlPrefix, ...rest
+  startingRoom, enableClose, disablePriority, enabledRooms, enabledHotSpots, textColor, backgroundColor, initialYaw, urlPrefix, autoStart, ...rest
 }) {
   // Sanitize the HTML elements
   permissionElement = permissionElement ?? document.getElementById('virtualTourPermission')
@@ -139,9 +139,13 @@ export function attachVirtualTour (permissionElement, rootRenderElement, {
   }
 
   // Setup the permission listener
-  permissionElement.addEventListener('click', event => {
-    installMotionHandler(doRender, event)
-  })
+  if (autoStart) {
+    installMotionHandler(doRender)
+  } else {
+    permissionElement.addEventListener('click', event => {
+      installMotionHandler(doRender, event)
+    })
+  }
 }
 
 // Export to main context for calling from HTML scripts

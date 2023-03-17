@@ -21,7 +21,7 @@ function motionListener (doRender) {
 // Attempt to install motion handler event (to detect gyroscope capabilities)
 export function installMotionHandler (doRender, event) {
   // Avoid any default event behavior
-  event.preventDefault()
+  event?.preventDefault()
 
   // Do we need to request permission for motion?
   if (permissionRequested) {

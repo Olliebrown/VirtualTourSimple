@@ -6,7 +6,7 @@ import { currentPanoKeyState, preloadPanoKeyState, preloadPanoDataState } from '
 import { setTextureLoadingState } from '../../state/textureLoadingState.js'
 import { useRecoilValue, useSetRecoilState } from 'recoil'
 
-import { useKTX2 } from '@react-three/drei'
+import { useKTX2WithOnLoad, onKTX2Load } from '../Utility/useKTX2WithOnLoad.js'
 
 export default function PanoTextureLoader (props) {
   // Subscribe to pano DB changes
@@ -32,7 +32,7 @@ export default function PanoTextureLoader (props) {
 
   // Start the loading (causes this render to suspend)
   const [loadedTextures, setLoadedTextures] = React.useState([])
-  const textureRefs = useKTX2(textureFiles)
+  const textureRefs = useKTX2WithOnLoad(textureFiles, onKTX2Load)
 
   // Synchronize texture loading state
   React.useEffect(() => {
