@@ -3,9 +3,13 @@ node_modules
 notes.txt
 *.blend1
 
+# Audio processing files
+public/panoMedia/audio/processing/**/*
+!public/panoMedia/audio/processing/youtubeify.sh
+!public/panoMedia/audio/processing/dummy.png
+
 # Old or temporary files
 public/oldMedia
 public/panoMedia/audio/old
-public/panoMedia/audio/processing
 public/~WIP
 media/CropVidsAndWaves
