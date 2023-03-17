@@ -11,10 +11,10 @@
         "id": "1S01_Control_Room",
         "modal": true,
         "title": "Heating Plant Control Room",
-        "type": "audio",
-        "longitude": -86.7,
-        "latitude": 4.7,
-        "scale": 0.4,
+        "type": "info",
+        "longitude": -160.3,
+        "latitude": -2.4,
+        "scale": 0.6,
         "priority": 0
       }
     ],
@@ -339,7 +339,18 @@
       -121.5,
       -182
     ],
-    "hotspots": [],
+    "hotspots": [
+      {
+        "id": " 1S03-Fuel-Combustion",
+        "title": "Fuel Combustion",
+        "longitude": 21.4,
+        "latitude": -8.3,
+        "radius": 8,
+        "scale": 1,
+        "type": "info",
+        "modal": true
+      }
+    ],
     "mapInfo": {
       "building": "Heating Plant",
       "floor": "Ground Floor",

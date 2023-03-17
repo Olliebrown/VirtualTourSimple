@@ -1,0 +1,148 @@
+1
+00:00:00,000 --> 00:00:05,100
+Here we are in the central control room where the 
+boiler operators monitor and control the boilers.
+
+2
+00:00:05,100 --> 00:00:07,920
+This state-of-the-art control 
+system has been implemented  
+
+3
+00:00:07,920 --> 00:00:12,600
+since 2021 using PLC technology and 
+a system of cameras and sensors.
+
+4
+00:00:12,600 --> 00:00:16,200
+These interactive screens like the 
+one you see in Picture 1 are touch  
+
+5
+00:00:16,200 --> 00:00:19,560
+screen Human-Machine-Interface (HMI) displays.
+
+6
+00:00:19,560 --> 00:00:24,240
+They give the boiler operator an overview of 
+the entire operation of the system in real time,  
+
+7
+00:00:24,240 --> 00:00:29,040
+including states and measurements 
+of air, water, steam, and fuel.
+
+8
+00:00:29,040 --> 00:00:33,480
+They also make the control and operation 
+of devices around the plant such as valves,  
+
+9
+00:00:33,480 --> 00:00:38,760
+sensors, pumps, and motors more accurate, 
+efficient, reliable, and user-friendly.
+
+10
+00:00:38,760 --> 00:00:42,060
+These direct interactions are made 
+through a computerized automatic  
+
+11
+00:00:42,060 --> 00:00:46,980
+system called Supervisory Control and 
+Data Acquisition or SCADA for short.
+
+12
+00:00:46,980 --> 00:00:51,780
+The SCADA system consists of software and 
+hardware elements that allow the operators  
+
+13
+00:00:51,780 --> 00:00:55,680
+to control steam-producing processes 
+locally or at a remote location;
+
+14
+00:00:55,680 --> 00:01:01,200
+monitor, gather, and process real-time 
+data, and record events into a log file.
+
+15
+00:01:01,200 --> 00:01:06,720
+The SCADA software processes, distributes, 
+and displays the data, helping operators and  
+
+16
+00:01:06,720 --> 00:01:10,800
+facility management personnels analyze 
+the data and make important decisions.
+
+17
+00:01:13,800 --> 00:01:18,960
+Picture 1 gives you an overview of Boiler 2, which 
+is hundreds of feet away from this control room.
+
+18
+00:01:18,960 --> 00:01:23,340
+We can also see this same screen in front 
+of Boiler 2 on the main plant ground floor.
+
+19
+00:01:23,340 --> 00:01:26,700
+Here is our combustion chamber 
+with two burners running.
+
+20
+00:01:26,700 --> 00:01:32,880
+The boiler is making 19.4-kilo pounds of 
+steam per hour at a pressure of 98.3 PSIG.
+
+21
+00:01:32,880 --> 00:01:38,640
+The number 22.8 kSCFH along the yellow 
+pipe on this screen suggests that the  
+
+22
+00:01:38,640 --> 00:01:44,160
+boiler uses 22.8 kilos standard cubic feet 
+of natural gas per hour for its burners.
+
+23
+00:01:44,160 --> 00:01:48,120
+Also, the silver pipe at the bottom 
+indicates that the boiler is taking  
+
+24
+00:01:48,120 --> 00:01:55,800
+4,457 standard cubic feet of supply air at 60.4 
+degrees Fahrenheit for the combustion process.
+
+25
+00:01:58,320 --> 00:02:03,000
+Picture 2 here just tells us the steam 
+trends, how much steam flow the boilers make,  
+
+26
+00:02:03,000 --> 00:02:08,160
+and what the water level inside the boiler 
+is on a real-time or hourly and daily basis.
+
+27
+00:02:08,160 --> 00:02:11,160
+There are two teams of three 
+staff staying here 24/7.
+
+28
+00:02:11,880 --> 00:02:16,500
+The boiler operator is responsible for the entire 
+shift and will report to the superintendent.
+
+29
+00:02:16,500 --> 00:02:18,600
+Together, they are in charge of the shift,  
+
+30
+00:02:18,600 --> 00:02:21,840
+making all the decisions for all 
+operations in the heating plant.
+
