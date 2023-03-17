@@ -1,6 +1,41 @@
 {
   "name": "1S01_Control_Room",
+  "images": [{
+    "src": "ControlRoom-Picture1.jpg",
+    "caption": "Overview of Boiler 2"
+  },
+  {
+    "src": "ControlRoom-Picture1-Zoom1.jpg",
+    "caption": "Boiler 2's Combustion Chamber"
+  },
+  {
+    "src": "ControlRoom-Picture1-Zoom2.jpg",
+    "caption": "Boiler 2's Steam Production"
+  },
+  {
+    "src": "ControlRoom-Picture1-Zoom3.jpg",
+    "caption": "Boiler 2's Natural Gas Supply"
+  },
+  {
+    "src": "ControlRoom-Picture1-Zoom4.jpg",
+    "caption": "Boiler 2's Air Supply & Intake"
+  },
+
+   {
+    "src": "ControlRoom-Picture2.jpg",
+    "caption": "Steam Trends"
+
+  }],
+  "height": 774,
   "audio": {
-    "src": "1S01-ControlRoom"
+    "src": "1S01-CtlRoom",
+    "slideTiming": {
+      "0": "0",
+      "18": "1",
+      "19": "2",
+      "20": "3",
+      "22": "4",
+      "24": "5"
+    }
   }
 }
