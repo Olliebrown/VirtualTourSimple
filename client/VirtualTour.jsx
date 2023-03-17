@@ -92,7 +92,7 @@ export default function VirtualTour (props) {
   // Initialize to the starting room if one was provided
   const setPreloadPanoKey = useSetRecoilState(preloadPanoKeyState)
   React.useEffect(() => {
-    console.log('Setting starting room to:', startingRoom)
+    if (_DEV_) console.log('Setting starting room to:', startingRoom)
     setPreloadPanoKey(startingRoom)
   }, [setPreloadPanoKey, startingRoom])
 

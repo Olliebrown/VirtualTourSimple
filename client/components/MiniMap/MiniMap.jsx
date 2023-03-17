@@ -83,8 +83,8 @@ export default function MiniMap (props) {
   // Compute all pins
   const allPins = React.useMemo(() => {
     if (mapInfo) {
-      return Object.keys(fullTourData)
-        .filter(key => key !== currentPanoKey && enabledPanoRooms.includes(key))
+      const pins = Object.keys(fullTourData)
+        .filter(key => key !== currentPanoKey && (enabledPanoRooms.length < 1 || enabledPanoRooms.includes(key)))
         .map(key => ({ ...fullTourData[key].mapInfo, key }))
         .filter(curInfo => curInfo && curInfo.floor === mapInfo.floor && (curInfo.x !== 0 || curInfo.y !== 0))
         .map(curInfo => (
@@ -96,6 +96,7 @@ export default function MiniMap (props) {
             scale={{ x: ARROW_PIN_SCALE_X, y: ARROW_PIN_SCALE_Y }}
           />
         ))
+      return pins
     } else {
       return []
     }

@@ -55,8 +55,6 @@ export function attachVirtualTour (permissionElement, rootRenderElement, {
 
   // Update path prefix if needed
   updatePrefix(urlPrefix)
-  console.log('urlPrefix is:', urlPrefix)
-  console.log('Pano Prefix is:', CONFIG().PANO_IMAGE_PATH)
 
   // Initiate the React rendering
   const doRender = (allowMotion) => {

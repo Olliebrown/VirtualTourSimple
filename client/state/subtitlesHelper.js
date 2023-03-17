@@ -30,7 +30,6 @@ export function useSubtitles (subtitlePath, playbackTime) {
           setSubtitles(newSubtitles)
           setSubtitleText('')
           setSubtitleIndex(0)
-          console.log('Subtitle path updated to', subtitlePath)
         } catch (err) {
           console.error('Error reading subtitle file, skipping')
           console.error(err)
@@ -41,7 +40,6 @@ export function useSubtitles (subtitlePath, playbackTime) {
 
           setSubtitleText('')
           setSubtitleIndex(-1)
-          console.log('Subtitle path errored to', subtitlePath)
         } finally {
           setIsLoading(false)
         }
@@ -51,7 +49,6 @@ export function useSubtitles (subtitlePath, playbackTime) {
     // Only read if prefix has changed
     if (curSubtitlePath !== subtitlePath) {
       if (subtitlePath) {
-        console.log(`Reading subtitles from "${subtitlePath}" (old path was "${curSubtitlePath}")`)
         readSubtitles()
       } else {
         // When nullish, just record and set an empty array

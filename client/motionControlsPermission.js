@@ -73,7 +73,7 @@ function onMotion (doRender, event) {
 function motionTimeout (doRender) {
   // Stop waiting for a motion event (took too long)
   if (waitingForMotion) {
-    console.log('Timed out while waiting for a motion event (assume not supported)')
+    if (_DEV_) console.log('Timed out while waiting for a motion event (assume not supported)')
     waitingForMotion = false
     motionSupported = false
 
