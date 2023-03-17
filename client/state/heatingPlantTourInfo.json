@@ -387,7 +387,48 @@
       -120,
       -182
     ],
-    "hotspots": [],
+    "hotspots": [
+      {
+        "id": "1S04_Boiler4Title",
+        "title": "Boiler 4",
+        "longitude": 17.8,
+        "latitude": 9.5,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S04_AirDuct",
+        "title": "Combustion Air Duct",
+        "longitude": 45.1,
+        "latitude": -10.7,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S04_ControlPanel",
+        "title": "Boiler 4 Control Panel",
+        "longitude": 61.8,
+        "latitude": 9.5,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S04_BurnerBlower",
+        "title": "Burner Boiler",
+        "longitude": 44.1,
+        "latitude": 10.4,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      }
+    ],
     "mapInfo": {
       "building": "Heating Plant",
       "floor": "Ground Floor",
@@ -454,6 +495,46 @@
         "scale": 0.4,
         "type": "info",
         "id": "1S05_Chiller_General",
+        "modal": true
+      },
+      {
+        "id": "1S04_Boiler4Title",
+        "title": "Boiler 4",
+        "longitude": -16.6,
+        "latitude": 26.1,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S04_ControlPanel",
+        "title": "Boiler 4 Control Panel",
+        "longitude": -26,
+        "latitude": 17,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S04_AirDuct",
+        "title": "Combustion Air Duct",
+        "longitude": -35.6,
+        "latitude": -7,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S04_BurnerBlower",
+        "title": "Burner Blower",
+        "longitude": -40.6,
+        "latitude": 16.7,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
         "modal": true
       }
     ],
@@ -2470,6 +2551,46 @@
         "scale": 1,
         "type": "info",
         "id": "1S04_Boiler4",
+        "modal": true
+      },
+      {
+        "id": "1S04_ControlPanel",
+        "title": "Boiler 4 Control Panel",
+        "longitude": 40.4,
+        "latitude": -1.2,
+        "radius": 10,
+        "scale": 0.75,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S04_Boiler4Title",
+        "title": "Boiler 4",
+        "longitude": 3.6,
+        "latitude": 26.1,
+        "radius": 10,
+        "scale": 0.75,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S04_BurnerBlower",
+        "title": "Burner Blower",
+        "longitude": 0,
+        "latitude": 0,
+        "radius": 10,
+        "scale": 0.75,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S04_AirDuct",
+        "title": "Combustion Air Duct",
+        "longitude": 0,
+        "latitude": -49.3,
+        "radius": 10,
+        "scale": 0.75,
+        "type": "placard",
         "modal": true
       }
     ],

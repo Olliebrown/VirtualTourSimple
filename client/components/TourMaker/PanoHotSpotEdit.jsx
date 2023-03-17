@@ -94,7 +94,7 @@ export default function PanoHotspotEdit (params) {
             />
           </Stack>
 
-          <Stack direction="row" spacing={2}>
+          <Stack direction="row" spacing={2} sx={{ mb: 1 }}>
             <Slider
               size="small"
               min={-190}

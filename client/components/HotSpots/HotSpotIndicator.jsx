@@ -20,11 +20,11 @@ export default function HotSpotIndicator (props) {
   // Track hovering state and modal state
   const [hovering, setHovering] = React.useState(false)
   React.useEffect(() => {
-    const useJSON = type === 'info' || type === 'audio'
+    const useJSON = type === 'info' || type === 'audio' || type === 'placard'
 
     // Synchronize hotspot data
     setHotspotData({
-      jsonFilename: useJSON && id ? `${id}.json` : undefined,
+      jsonFilename: useJSON && id ? `${type}/${id}.json` : undefined,
       title,
       type,
       showAlways: !modal,

@@ -3,7 +3,9 @@ import * as React from 'react'
 import { infoModalOpenState, hotspotDataState } from '../../state/globalState.js'
 import { useRecoilValue } from 'recoil'
 
-import { Popper, Fade, Paper, Typography } from '@mui/material'
+import { Popper, Fade, Paper, Typography, Card, CardContent } from '@mui/material'
+
+import { useHotspotContent } from '../../state/hotspotInfoHelper.js'
 
 export default function HotSpotTooltip (props) {
   // Subscribe to pieces of global state
@@ -21,6 +23,8 @@ export default function HotSpotTooltip (props) {
     positionRef.current = { x: event.clientX + 20, y: event.clientY + 20 }
     popperRef?.current?.update()
   }
+
+  const hotspotContent = useHotspotContent(hotspotData?.jsonFilename, hotspotData?.type)
 
   // Install a global event listener to follow the mouse
   // Note: Only runs once on first render
@@ -40,11 +44,10 @@ export default function HotSpotTooltip (props) {
   let tooltipTitle = hotspotData?.title ?? ''
   switch (hotspotData?.type) {
     case 'info': tooltipTitle = 'Learn about ' + tooltipTitle; break
-    case 'placard': tooltipTitle = 'Placard text for ' + tooltipTitle; break
     case 'zoom': tooltipTitle = 'Zoom in on ' + tooltipTitle; break
     case 'media': tooltipTitle = 'Watch ' + tooltipTitle; break
     case 'audio': tooltipTitle = 'Listen to ' + tooltipTitle; break
-    default: tooltipTitle = 'undefined'; break
+    default: tooltipTitle = 'Bad Type'; break
   }
 
   return (
@@ -57,9 +60,25 @@ export default function HotSpotTooltip (props) {
     >
       {({ TransitionProps }) => (
         <Fade {...TransitionProps}>
-          <Paper>
-            <Typography sx={{ p: 2 }}>{tooltipTitle}</Typography>
-          </Paper>
+          {hotspotData?.type === 'placard'
+            ? <Card sx={{ maxWidth: 400, textAlign: 'left' }}>
+                <CardContent>
+                  <Typography
+                    variant="h5"
+                    component="div"
+                    gutterBottom
+                    sx={{ borderBottom: '1px solid lightgrey' }}
+                  >
+                    {hotspotContent?.title || 'Loading...'}
+                  </Typography>
+                  <Typography variant="body2">
+                    {hotspotContent?.description || '(please wait)'}
+                  </Typography>
+                </CardContent>
+              </Card>
+            : <Paper>
+                <Typography sx={{ p: 2 }}>{tooltipTitle}</Typography>
+              </Paper>}
         </Fade>
       )}
     </Popper>
