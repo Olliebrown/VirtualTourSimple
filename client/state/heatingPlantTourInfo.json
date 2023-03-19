@@ -2150,6 +2150,16 @@
         "longitude": -125,
         "latitude": 15,
         "scale": 0.4
+      },
+      {
+        "id": "1S05_Refrigeration_Cycle",
+        "title": "Refrigeration Cycle",
+        "longitude": -62.9,
+        "latitude": -8.3,
+        "radius": 6,
+        "scale": 0.5,
+        "type": "info",
+        "modal": true
       }
     ],
     "mapInfo": {

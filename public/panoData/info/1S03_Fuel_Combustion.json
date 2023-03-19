@@ -1,0 +1,20 @@
+{
+    "name": "1S03_Fuel_Combustion",
+    "images": [{
+        "src": "1S03-Fuel-Combustion-Fig1.JPEG",
+        "caption": "Fuel Valve Train"
+      },
+      {
+          "src": "1S03-Fuel-Combustion-Fig2.png",
+          "caption": "Combustion Efficiency"
+        }],
+    "height": 774,
+    "audio": {
+        "src": "1S01-CtlRoom",
+        "slideTiming": {
+          "0": "0",
+          "18": "1"
+
+        }
+    }
+}

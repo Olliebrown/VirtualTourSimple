@@ -1,0 +1,18 @@
+{
+    "name": "1S05_Refrigeration_Cycle",
+    "images": [{
+      "src": "1S03- Fuel-Combustion-Fig1.jpg",
+      "caption": "Fuel Valve Train"
+    },
+    {
+        "src": "1S03- Fuel-Combustion-Fig2.jpg",
+        "caption": "Combustion Efficiency"
+      }],
+    "height": 774,
+    "audio": {
+        "src": "1S01-CtlRoom",
+        "slideTiming": {
+          "0": "0"
+        }
+    }
+}
