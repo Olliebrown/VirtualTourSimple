@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 import localDB, { INVERT_CONTROLS_DEFAULT, MOTION_CONTROLS_DEFAULT, updateSetting } from '../../state/localDB.js'
 import { useLiveQuery } from 'dexie-react-hooks'
 
-import { currentPanoKeyState, preloadPanoKeyState, currentPanoDataState, enabledPanoRoomsState, enabledHotSpotsState } from '../../state/fullTourState.js'
+import { currentPanoKeyState, nextPanoKeyState, currentPanoDataState, enabledPanoRoomsState, enabledHotSpotsState } from '../../state/fullTourState.js'
 import { currentCameraYawState } from '../../state/globalState.js'
 
 import { useRecoilValue, useSetRecoilState } from 'recoil'
@@ -17,8 +17,8 @@ import { OrbitControls, DeviceOrientationControls } from '@react-three/drei'
 
 import { useHotkeys } from 'react-hotkeys-hook'
 
-import PanoImage from './PanoImage.jsx'
-import PanoTextureLoader from './PanoTextureLoader.jsx'
+import PanoSphere from './PanoSphere.jsx'
+import PanoSphereTransition from './PanoSphereTransition.jsx'
 import PanoGrid from './PanoGrid.jsx'
 import PanoExtras from './PanoExtras.jsx'
 
@@ -35,7 +35,7 @@ export default function PanoViewer (props) {
 
   // Subscribe to pano DB changes
   const currentPanoKey = useRecoilValue(currentPanoKeyState)
-  const preloadPanoKey = useRecoilValue(preloadPanoKeyState)
+  const nextPanoKey = useRecoilValue(nextPanoKeyState)
   const currentPanoData = useRecoilValue(currentPanoDataState)
 
   // Update camera yaw in global state
@@ -107,7 +107,8 @@ export default function PanoViewer (props) {
 
   return (
     <>
-      {/* <color attach="background" args={['red']} /> */}
+      <color attach="background" args={['darkgrey']} />
+
       <DeviceOrientationControls
         enabled={allowMotion && enableMotionControls}
         enablePan={false}
@@ -125,12 +126,23 @@ export default function PanoViewer (props) {
       <ambientLight />
       <pointLight position={[10, 10, 10]} />
 
+      {/* Next panorama view */}
+      {nextPanoKey !== '' &&
+        <React.Suspense fallback={null}>
+          <PanoSphereTransition />
+        </React.Suspense>}
+
+      {/* Main panorama view */}
       <React.Suspense fallback={null}>
-        {!!preloadPanoKey && <PanoTextureLoader />}
+        <PanoSphere onVideoUpdate={onVideoUpdate} />
       </React.Suspense>
 
-      {!!currentPanoKey && showExits && <PanoExtras exits={filteredExits} hotSpots={filteredHotSpots} panoKey={currentPanoKey} />}
-      {!!currentPanoKey && <PanoImage xRotate={xRotate} yRotate={yRotate} zRotate={zRotate} exits={filteredExits} onVideoUpdate={onVideoUpdate}/>}
+      {showExits &&
+        <PanoExtras
+          exits={filteredExits}
+          hotSpots={filteredHotSpots}
+          panoKey={currentPanoKey}
+        />}
 
       {CONFIG().ENABLE_ALIGNMENT_GRID && showGrid && <PanoGrid />}
     </>

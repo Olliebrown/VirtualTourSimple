@@ -10,8 +10,8 @@ import CONFIG from './config.js'
 import localDB from './state/localDB.js'
 import { useLiveQuery } from 'dexie-react-hooks'
 
-import { preloadPanoKeyState, enabledHotSpotsState, enabledPanoRoomsState, disablePriorityState } from './state/fullTourState.js'
-import { loadingCurtainState, destroyMediaState } from './state/globalState.js'
+import { enabledHotSpotsState, enabledPanoRoomsState, disablePriorityState, currentPanoKeyState } from './state/fullTourState.js'
+import { destroyMediaState, loadingCurtainState } from './state/globalState.js'
 import { setTextureAllDoneState, setTextureDoneState, setTextureFailedState } from './state/textureLoadingState.js'
 
 // eslint-disable-next-line camelcase
@@ -87,14 +87,14 @@ export default function VirtualTour (props) {
   React.useEffect(() => {
     setDisablePriority(disablePriority)
     setLoadingCurtain({ open: false, text: 'Loading' })
-  }, [setLoadingCurtain, disablePriority, setDisablePriority])
+  }, [disablePriority, setDisablePriority, setLoadingCurtain])
 
   // Initialize to the starting room if one was provided
-  const setPreloadPanoKey = useSetRecoilState(preloadPanoKeyState)
+  const setCurrentPanoKey = useSetRecoilState(currentPanoKeyState)
   React.useEffect(() => {
     if (_DEV_) console.log('Setting starting room to:', startingRoom)
-    setPreloadPanoKey(startingRoom)
-  }, [setPreloadPanoKey, startingRoom])
+    setCurrentPanoKey(startingRoom)
+  }, [setCurrentPanoKey, startingRoom])
 
   // Initialize the enabled rooms and hotspots if provided
   const setEnabledPanoRooms = useSetRecoilState(enabledPanoRoomsState)
@@ -144,7 +144,7 @@ export default function VirtualTour (props) {
   return (
     <React.StrictMode>
       {/* Main three.js fiber canvas */}
-      <Canvas linear camera={{ position: startPosition }}>
+      <Canvas camera={{ position: startPosition }} gl={{ sortObjects: false }}>
         <RecoilBridge>
           {/* Panorama viewer/tour */}
           {fadeInTimeout &&

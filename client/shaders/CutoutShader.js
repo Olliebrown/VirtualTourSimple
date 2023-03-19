@@ -9,8 +9,9 @@ export const CutoutShaderInfo = {
 
   uniforms: {
     resolution: [1, 1, 1],
-    vidGamma: 1.0,
-    imgGamma: 1.8,
+    vidGamma: 0.45454545,
+    imgGamma: 1.0,
+    opacity: 1.0,
 
     cropBox: [0.0, 0.0, 1.0, 1.0],
     panoImage: undefined,
@@ -44,10 +45,11 @@ export const CutoutShaderInfo = {
     // Screen texture coordinates
     varying vec2 vUv;
 
-    // Resolution of viewport + gamma correction values
+    // Resolution of viewport + gamma correction and opacity values
     uniform vec3 resolution;
     uniform float vidGamma;
     uniform float imgGamma;
+    uniform float opacity;
 
     // Crop box, textures, and video toggle
     uniform vec4 cropBox;
@@ -172,6 +174,9 @@ export const CutoutShaderInfo = {
       // Add the Hologram effect
       col *= Hologram(uv);
 
+      // Gamma correct video (or un-gamma correct)
+      col = pow(col, vec3(1.0/vidGamma));
+
       // Read the background
       vec3 backCol = texture(panoImage, backST).rgb;
       // Alternative: Noisy moving background ??
@@ -281,12 +286,12 @@ export const CutoutShaderInfo = {
 
       // Mix between pano and video based on chroma key and fadeValue
       vec3 finalColor = mix(
-        pow(vidColor, vec3(1.0/vidGamma)),
+        vidColor,
         pow(texColor, vec3(1.0/imgGamma)),
         max(blendAlpha, fadeValue)
       );
 
-      gl_FragColor = vec4(finalColor, 1.0);
+      gl_FragColor = vec4(finalColor, opacity);
 
       #include <tonemapping_fragment>
       #include <encodings_fragment>

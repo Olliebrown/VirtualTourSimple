@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import CONFIG from '../../config.js'
 
-import { loadingCurtainState, panoMediaPlayingState } from '../../state/globalState.js'
+import { panoMediaPlayingState } from '../../state/globalState.js'
 import { currentPanoKeyState, currentPanoDataState } from '../../state/fullTourState.js'
 import { setTextureLoadingState } from '../../state/textureLoadingState.js'
 import { useRecoilValue, useSetRecoilState } from 'recoil'
@@ -25,7 +25,7 @@ export default function PanoImage (props) {
   const panoMediaPlaying = useRecoilValue(panoMediaPlayingState)
 
   // Loading curtain state
-  const setLoadingCurtain = useSetRecoilState(loadingCurtainState)
+//  const setLoadingCurtain = useSetRecoilState(loadingCurtainState)
 
   // Load the base image texture
   const setTextureLoading = useSetRecoilState(setTextureLoadingState)
@@ -43,9 +43,9 @@ export default function PanoImage (props) {
   }, [setTextureLoading, textureFiles])
   const panoImages = useKTX2WithOnLoad(textureFiles, onKTX2Load)
 
-  React.useEffect(() => {
-    setLoadingCurtain({ text: '', open: true })
-  }, [setLoadingCurtain, panoImages])
+  // React.useEffect(() => {
+  //   setLoadingCurtain({ text: '', open: true })
+  // }, [setLoadingCurtain, panoImages])
 
   // Possibly load video and make it part of the Three.js state
   const [panoVideo, videoCrop] = useVideoSource(currentPanoData)

@@ -3,10 +3,10 @@ import PropTypes from 'prop-types'
 
 import CONFIG from '../../config.js'
 
-import { loadingCurtainState } from '../../state/globalState.js'
-import { preloadPanoKeyState } from '../../state/fullTourState.js'
-import { LOADING_STATUS, textureStatusState } from '../../state/textureLoadingState.js'
-import { useRecoilValue, useSetRecoilState } from 'recoil'
+// import { loadingCurtainState } from '../../state/globalState.js'
+import { nextPanoKeyState } from '../../state/fullTourState.js'
+import { exitDirectionState, transitionStartedState } from '../../state/transitionState.js'
+import { useRecoilState, useSetRecoilState, useRecoilValue } from 'recoil'
 
 import { useLoader, useGraph } from '@react-three/fiber'
 import { MathUtils } from 'three'
@@ -44,7 +44,7 @@ const OBJ_DATA = () => ({
 // const LOADING_COLOR = 0x777777 (not currently in use)
 const LOADED_COLOR = 0x156289
 const HIGHLIGHT_COLOR = 0x23A0FF
-const FAILED_COLOR = 0x883333
+// const FAILED_COLOR = 0x883333 (not currently in use)
 // 21 98 137
 // 35 160 255
 
@@ -52,37 +52,47 @@ export default function ExitIndicator (props) {
   // Destructure props
   const { type, caption, shift, height, distance, direction, alignment, destination, ...rest } = props
 
-  const setPreloadPanoKey = useSetRecoilState(preloadPanoKeyState)
-  const setLoadingCurtain = useSetRecoilState(loadingCurtainState)
+  // Setup to update global state
+  const setExitDirection = useSetRecoilState(exitDirectionState)
+  const [nextPanoKey, setNextPanoKey] = useRecoilState(nextPanoKeyState)
+  const transitionStarted = useRecoilValue(transitionStartedState)
 
-  // Create array of texture filenames
-  const textureFiles = React.useMemo(() => ([
-    `${CONFIG().PANO_IMAGE_PATH}/${destination || CONFIG().START_KEY}_Left.ktx2`
-    // `${CONFIG().PANO_IMAGE_PATH}/${destination || CONFIG().START_KEY}_Right.ktx2`
-  ]), [destination])
+  // Track first render
+  const [firstRender, setFirstRender] = React.useState(true)
+  React.useEffect(() => { setFirstRender(false) }, [])
 
-  // Track hovering state
+  // Track hovering and enabled state
   const [hovering, setHovering] = React.useState(false)
+  const [enabled, setEnabled] = React.useState(!transitionStarted)
 
-  // Show pointer cursor when hovered
+  // Show pointer cursor when hovered and enabled
   React.useEffect(() => {
-    document.body.style.cursor = hovering ? 'pointer' : 'auto'
-    return () => { document.body.style.cursor = 'auto' }
-  }, [hovering])
-
-  // Click callback function
-  const onClick = () => {
-    if (destination) {
-      setLoadingCurtain({ text: '', open: false })
-      setPreloadPanoKey(destination)
+    if (enabled) {
+      document.body.style.cursor = hovering ? 'pointer' : 'auto'
     }
-  }
+    return () => { document.body.style.cursor = 'auto' }
+  }, [hovering, enabled])
 
   // Animated values
-  const springs = useSpring({
+  const hoverSpring = useSpring({
     scale: hovering ? 1 : 0.75,
-    opacity: hovering ? 1.0 : 0.333
+    opacity: hovering && enabled ? 1 : 0.0
   })
+
+  const fadeSpring = useSpring({
+    opacity: firstRender || nextPanoKey !== '' ? 0 : 1.0,
+    onStart: () => { setEnabled(false) },
+    onRest: () => { setEnabled(!transitionStarted) }
+  })
+
+  // Click callback function
+  const onClick = React.useCallback(() => {
+    if (enabled) {
+      setExitDirection(direction)
+      setNextPanoKey(destination)
+      setEnabled(false)
+    }
+  }, [destination, direction, enabled, setExitDirection, setNextPanoKey])
 
   // Pick the geometry
   const objInfo = OBJ_DATA()[type]
@@ -91,43 +101,19 @@ export default function ExitIndicator (props) {
   const loadedObj = useLoader(OBJLoader, objInfo.filename)
   const { nodes } = useGraph(loadedObj.clone())
 
-  // Global texture loader status
-  const loadingStatus = useRecoilValue(textureStatusState)
-
-  // Color derived from loading status
-  const [exitColor, setExitColor] = React.useState(LOADED_COLOR)
-  React.useEffect(() => {
-    // Determine overall loading status
-    const imageLoadingStatus = textureFiles.reduce(
-      (prev, filename) => {
-        // Failed status always prevails
-        if (prev === LOADING_STATUS.FAILED) {
-          return prev
-        }
-
-        // If this one is not DONE, use its status
-        if (loadingStatus[filename] !== LOADING_STATUS.DONE) {
-          return loadingStatus[filename]
-        }
-
-        // Otherwise, stick with previous status
-        return prev
-      },
-      LOADING_STATUS.DONE
-    )
-
-    // Change color based on status
-    switch (imageLoadingStatus) {
-      case LOADING_STATUS.DONE: setExitColor(LOADED_COLOR); break
-      case LOADING_STATUS.FAILED: setExitColor(FAILED_COLOR); break
-    }
-  }, [loadingStatus, textureFiles])
-
   // Build unique sub-meshes for all the loaded objects
   const meshes = Object.keys(nodes).map((meshName) => (
-    <animated.mesh scale={springs.scale} key={`${meshName}-mesh`} geometry={nodes[meshName].geometry}>
-      <meshPhongMaterial color={exitColor} />
-      <Edges scale={1.01} threshold={15} color={HIGHLIGHT_COLOR} />
+    <animated.mesh scale={hoverSpring.scale} key={`${meshName}-mesh`} geometry={nodes[meshName].geometry}>
+      <animated.meshPhongMaterial color={LOADED_COLOR} opacity={fadeSpring.opacity} transparent />
+      <Edges threshold={15}>
+        <animated.lineBasicMaterial
+          color={HIGHLIGHT_COLOR}
+          opacity={fadeSpring.opacity}
+          polygonOffset
+          polygonOffsetFactor={1}
+          transparent
+        />
+      </Edges>
     </animated.mesh>
   ))
 
@@ -147,7 +133,7 @@ export default function ExitIndicator (props) {
         rotation-z={objInfo.rotation[2] + (alignment[2] / 180 * Math.PI)}
       >
         {meshes}
-        {caption !== '' && hovering &&
+        {caption !== '' &&
           <Text
             position={[0, -1.5, 0]}
             scale={[0.033, 0.033, 0.033]}
@@ -163,6 +149,11 @@ export default function ExitIndicator (props) {
             outlineColor="#ffffff"
             {...rest}
           >
+            <animated.meshBasicMaterial
+              attach="material"
+              opacity={hoverSpring.opacity}
+              transparent
+            />
             {caption}
           </Text>}
       </group>

@@ -64,7 +64,12 @@ useKTX2WithOnLoad.clear = (input) => {
 }
 
 export function onKTX2Load (textures) {
+  if (!Array.isArray(textures)) {
+    textures = [textures]
+  }
+
   textures.forEach(texture => {
+    if (!texture) { return }
     texture.wrapS = texture.wrapT = RepeatWrapping
     texture.repeat.set(-1, 1)
   })

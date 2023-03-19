@@ -3,8 +3,10 @@ import CONFIG from '../../config.js'
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import { nextPanoKeyState } from '../../state/fullTourState.js'
 import { hotspotDataState } from '../../state/globalState.js'
-import { useSetRecoilState } from 'recoil'
+import { transitionStartedState } from '../../state/transitionState.js'
+import { useRecoilValue, useSetRecoilState } from 'recoil'
 
 import { MathUtils } from 'three'
 
@@ -15,10 +17,40 @@ export default function HotSpotIndicator (props) {
   // Destructure props
   const { id, type, title, modal, hidden, longitude, latitude, radius, scale, onClick, texName, ...rest } = props
 
+  // Subscribe to changes in global state
   const setHotspotData = useSetRecoilState(hotspotDataState)
+  const nextPanoKey = useRecoilValue(nextPanoKeyState)
+  const transitionStarted = useRecoilValue(transitionStartedState)
+
+  // Track first render
+  const [firstRender, setFirstRender] = React.useState(true)
+  React.useEffect(() => { setFirstRender(false) }, [])
+
+  // Track hovering and enabled state
+  const [hovering, setHovering] = React.useState(false)
+  const [enabled, setEnabled] = React.useState(!transitionStarted)
+
+  // Show pointer cursor when hovered and enabled
+  React.useEffect(() => {
+    if (enabled) {
+      document.body.style.cursor = hovering ? 'pointer' : 'auto'
+    }
+    return () => { document.body.style.cursor = 'auto' }
+  }, [hovering, enabled])
+
+  // Animated values
+  const hoverSpring = useSpring({
+    scale: hovering ? 1 : 0.5,
+    opacity: hovering && enabled ? 1 : 0.75
+  })
+
+  const fadeSpring = useSpring({
+    opacity: firstRender || nextPanoKey !== '' ? 0 : 0.75,
+    onStart: () => { setEnabled(false) },
+    onRest: () => { setEnabled(!transitionStarted) }
+  }) // test
 
   // Track hovering state and modal state
-  const [hovering, setHovering] = React.useState(false)
   React.useEffect(() => {
     const useJSON = type === 'info' || type === 'audio' || type === 'placard'
 
@@ -42,12 +74,6 @@ export default function HotSpotIndicator (props) {
   // Load texture for the hotspot
   const texture = useTexture(`${CONFIG().TEXTURE_IMAGE_PATH}/${texName}`)
 
-  // Animated values
-  const springs = useSpring({
-    scale: hovering ? 1 : 0.5,
-    opacity: hovering ? 1.0 : 0.333
-  })
-
   // Pack in groups to position in the scene
   return (
     hidden ||
@@ -63,9 +89,14 @@ export default function HotSpotIndicator (props) {
             position={[0, 0, -radius]}
             scale={[scale, scale, scale]}
           >
-            <animated.mesh scale={springs.scale} {...rest}>
+            <animated.mesh scale={hoverSpring.scale} {...rest}>
               <circleGeometry args={[1, 24]} />
-              <meshBasicMaterial color={0xFFFFFF} map={texture} />
+              <animated.meshBasicMaterial
+                opacity={fadeSpring.opacity.get() < 0.75 ? fadeSpring.opacity : hoverSpring.opacity}
+                color={0xFFFFFF}
+                map={texture}
+                transparent
+              />
             </animated.mesh>
           </group>
         </group>

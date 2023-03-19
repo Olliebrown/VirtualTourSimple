@@ -8,6 +8,12 @@ import { setPanoDataOnServer } from './asyncDataHelper'
 // Raw pano tour data
 import fullTourData from './heatingPlantTourInfo.json'
 
+// Helper function to get a pano image path
+export const panoImagePath = (panoKey) => {
+  if (!panoKey) { return null }
+  return `${CONFIG().PANO_IMAGE_PATH}/${panoKey}_Left.ktx2`
+}
+
 // All the pano tour data loaded in state
 export const fullTourDataState = atom({
   key: 'fullTourData',
@@ -21,8 +27,8 @@ export const currentPanoKeyState = atom({
 })
 
 // The pano room being loaded
-export const preloadPanoKeyState = atom({
-  key: 'preloadPanoKey',
+export const nextPanoKeyState = atom({
+  key: 'nextPanoKey',
   default: ''
 })
 
@@ -101,11 +107,13 @@ export const currentRoomPriorityState = selector({
 // Convenience derived state for the data for the current pano only
 export const currentPanoDataState = selector({
   key: 'currentPanoData',
-
   get: ({ get }) => {
-    const fullTourData = get(fullTourDataState)
+    // Get current pano key and return null if not set
     const currentPanoKey = get(currentPanoKeyState)
-    return fullTourData[currentPanoKey]
+    if (!currentPanoKey) { return null }
+
+    const fullTourData = get(fullTourDataState)
+    return { key: currentPanoKey, ...fullTourData[currentPanoKey] }
   },
 
   set: ({ get, set }, newData) => {
@@ -134,13 +142,16 @@ export const currentPanoDataState = selector({
 })
 
 // Convenience derived state for the data for the pano room that is preloading
-export const preloadPanoDataState = selector({
-  key: 'preloadPanoData',
-
+export const nextPanoDataState = selector({
+  key: 'nextPanoData',
   get: ({ get }) => {
-    const fullTourData = get(fullTourDataState)
-    const preloadPanoKey = get(preloadPanoKeyState)
-    return fullTourData[preloadPanoKey]
+    // Get next pano key and return null if not set
+    const nextPanoKey = get(nextPanoKeyState)
+    if (!nextPanoKey) { return null }
+
+    // Get and return the data for the next pano
+    const currentTourData = get(fullTourDataState)
+    return { key: nextPanoKey, ...currentTourData[nextPanoKey] }
   }
 })
 
@@ -150,5 +161,26 @@ export const allPanoKeysState = selector({
   get: ({ get }) => {
     const fullTourData = get(fullTourDataState)
     return Object.keys(fullTourData).sort()
+  }
+})
+
+export const panoTextureFilesState = selector({
+  key: 'panoTextureFiles',
+  get: ({ get }) => {
+    // Data for the current pano image
+    const currentPanoKey = get(currentPanoKeyState)
+    const currentPanoData = get(currentPanoDataState)
+
+    // If no data, return empty array
+    if (!currentPanoData) {
+      return {}
+    }
+
+    // Object with pano keys as keys and paths to pano images as values
+    const textures = { [currentPanoKey]: panoImagePath(currentPanoKey) }
+    currentPanoData.exits.forEach(exit => {
+      textures[exit.key] = panoImagePath(exit.key)
+    })
+    return textures
   }
 })

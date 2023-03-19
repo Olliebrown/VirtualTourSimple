@@ -37,6 +37,8 @@ function loadingFunction (extensions, onProgress) {
  * @see https://docs.pmnd.rs/react-three-fiber/api/hooks#useloader
  */
 export function useLoaderWithDispose (ProtoLoader, input, extensions, onProgress) {
+  if (!input) return null
+
   // Use suspense to load async assets
   const keys = (Array.isArray(input) ? input : [input])
   const results = suspend(loadingFunction(extensions, onProgress), [ProtoLoader, ...keys], { equal: is.equ })
