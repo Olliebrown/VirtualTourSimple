@@ -10,10 +10,9 @@
         }],
     "height": 774,
     "audio": {
-        "src": "1S01-CtlRoom",
+        "src": "",
         "slideTiming": {
-          "0": "0",
-          "18": "1"
+          "0": "0"
 
         }
     }

@@ -1,0 +1,32 @@
+{
+    "name": "1S05_Chillers_HX2",
+    "images": [{
+      "src": "1S05-Chillers-HX2-Picture1.png",
+      "caption": "Chiller #3, a York YK MaxE Centrifugal Chiller"
+    }, {
+      "src": "1S05-Chillers-HX2-Picture2.png",
+      "caption": "Chiller #3 with the internal water tubes exposed"
+    }, {
+      "src": "1S05-Chillers-HX2-Picture3.png",
+      "caption": "Condenser Water Pumps and Bromine Feeder"
+      
+    }, {
+      "src": "1S05-Chillers-HX2-Picture4.png",
+      "caption": "Chiller Water Pumps for Primary Loop"
+    }, {
+      "src": "1S05-Chillers-HX2-Picture5.png",
+      "caption": "Heat Transfer in a Double Pipe Heat Exchanger"
+    }],
+    "height": 774,
+    "audio": {
+      "src": "1S05-Chillers-HX2",
+      "slideTiming": {
+        "0": "0",
+        "1": "1",
+        "2": "2",
+        "8": "3",
+        "12": "4"
+      }
+    }
+  }
+  

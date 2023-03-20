@@ -1,0 +1,85 @@
+1
+00:00:00,900 --> 00:00:07,200
+A heat exchanger typically involves two flowing 
+fluids separated by a solid wall of a metal tube.
+
+2
+00:00:07,800 --> 00:00:12,960
+For the condenser, the first fluid is hot 
+refrigerant entering the condenser shell from the  
+
+3
+00:00:12,960 --> 00:00:17,340
+compressor, and the second fluid is the condenser 
+water entering the tube from the cooling tower.
+
+4
+00:00:17,340 --> 00:00:20,280
+The pumps causing the condenser 
+water to flow across the 
+
+5
+00:00:20,280 --> 00:00:23,760
+tubes are located outside the chiller 
+on the second floor of this plant.
+
+6
+00:00:23,760 --> 00:00:28,020
+To control the growth of slime, 
+which is organic bacteria and algae,  
+
+7
+00:00:28,020 --> 00:00:31,980
+that can significantly reduce the efficiency 
+of cooling by reducing heat transfer,  
+
+8
+00:00:31,980 --> 00:00:36,240
+oxidizing biocide like bromine 
+are fed in the condenser water.
+
+9
+00:00:40,800 --> 00:00:45,060
+For the evaporator, the first fluid 
+is cold liquid refrigerant entering  
+
+10
+00:00:45,060 --> 00:00:47,940
+the evaporator shell from the 
+expansion valve and the second  
+
+11
+00:00:47,940 --> 00:00:51,240
+fluid is the return chilled water 
+entering the tube from the buildings.
+
+12
+00:00:51,240 --> 00:00:55,800
+The pumps causing the chilled water to flow across 
+the tubes are on the basement floor of this plant.
+
+13
+00:00:59,100 --> 00:01:02,820
+Heat is first transferred from the hot 
+fluid to the tube wall by convection,  
+
+14
+00:01:02,820 --> 00:01:07,500
+through the wall by conduction, and from the 
+wall to the cold fluid again by convection.
+
+15
+00:01:07,500 --> 00:01:11,940
+Any radiation effects are usually included 
+in the convection heat transfer coefficients.
+
+16
+00:01:11,940 --> 00:01:15,300
+Heat exchangers are normally 
+well-insulated devices that  
+
+17
+00:01:15,300 --> 00:01:19,380
+allow energy exchange between hot and 
+cold fluids without mixing the fluids.
+

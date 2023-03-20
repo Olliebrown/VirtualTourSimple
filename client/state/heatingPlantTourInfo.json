@@ -341,7 +341,7 @@
     ],
     "hotspots": [
       {
-        "id": "1S03-Fuel-Combustion",
+        "id": "1S03_Fuel_Combustion",
         "title": "Fuel Combustion",
         "longitude": 21.4,
         "latitude": -8.3,
@@ -2215,7 +2215,7 @@
       {
         "id": "1S05_ChillerComponents",
         "modal": true,
-        "title": "Chiller BasicComponents",
+        "title": "Chiller Basic Components",
         "type": "media",
         "longitude": 180,
         "latitude": -3,
@@ -2229,6 +2229,16 @@
         "longitude": -100,
         "latitude": 0,
         "scale": 0.4
+      },
+      {
+        "id": "1S05_Chillers_HX2",
+        "title": "Chiller Heat Exchanger(continued)",
+        "longitude": -26.1,
+        "latitude": 0,
+        "radius": 6,
+        "scale": 0.7,
+        "type": "info",
+        "modal": true
       }
     ],
     "mapInfo": {
