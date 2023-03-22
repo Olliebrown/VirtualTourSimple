@@ -16,6 +16,16 @@
         "latitude": -2.4,
         "scale": 0.6,
         "priority": 0
+      },
+      {
+        "id": "L000-AHUs",
+        "title": "UW Stout Library’s Mechanical Room",
+        "longitude": -40.4,
+        "latitude": 3.6,
+        "radius": 6,
+        "scale": 0.5,
+        "type": "info",
+        "modal": true
       }
     ],
     "mapInfo": {

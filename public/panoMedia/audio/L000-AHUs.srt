@@ -1,0 +1,171 @@
+1
+00:00:00,000 --> 00:00:02,640
+UW Stout Library’s Mechanical Room.
+
+2
+00:00:02,640 --> 00:00:06,840
+We are in a mechanical room on the 
+sixth floor of UW Stout’s library.
+
+3
+00:00:06,840 --> 00:00:11,400
+The key equipment in the room is the 
+air handling unit, commonly called AHU.
+
+4
+00:00:11,400 --> 00:00:16,020
+The AHU is responsible for heating and 
+cooling the five-story library that  
+
+5
+00:00:16,020 --> 00:00:22,140
+provides seating capacity for 1,086 readers 
+and space for 400,000 volumes of work.
+
+6
+00:00:22,140 --> 00:00:27,840
+Three AHUs in this mechanical room 
+can provide conditioned air to 123,000  
+
+7
+00:00:27,840 --> 00:00:31,980
+square feet of the library at up 
+to 75000 cubic feet per minute.
+
+8
+00:00:34,260 --> 00:00:40,680
+An AHU is a mechanical device used to regulate and 
+circulate air as part of a heating, ventilating,  
+
+9
+00:00:40,680 --> 00:00:46,140
+and air-conditioning (HVAC) system.
+ 
+It is usually a large metal box containing  
+
+10
+00:00:46,140 --> 00:00:51,240
+a blower, heating and cooling coils, filter 
+racks, a mixing chamber, and dampeners.
+
+11
+00:00:51,240 --> 00:00:54,780
+Air handlers usually connect to a 
+ductwork ventilation system that  
+
+12
+00:00:54,780 --> 00:00:58,560
+distributes the conditioned air through 
+the building and returns it to the AHU.
+
+13
+00:01:02,340 --> 00:01:07,140
+The operation of an AHU is illustrated 
+in a schematic in Figure 1.
+
+14
+00:01:07,140 --> 00:01:12,600
+You can relate this schematic to the key parts of 
+an actual AHU in this mechanical room in Figure 2.
+
+15
+00:01:15,600 --> 00:01:18,840
+Let’s start with the cold outside 
+air on the left of the schematic.
+
+16
+00:01:18,840 --> 00:01:23,820
+Air handling units collect air from outside, which 
+is treated and distributed throughout the rooms.
+
+17
+00:01:23,820 --> 00:01:27,900
+They also recycle part of the returned 
+air from indoors and mix it with the  
+
+18
+00:01:27,900 --> 00:01:30,120
+outside air in the mixing chamber to save energy.
+
+19
+00:01:33,840 --> 00:01:36,120
+Mixed air then flows through filters.
+
+20
+00:01:36,120 --> 00:01:40,380
+Depending on the air purity requirements, 
+the filter applied will have a higher or  
+
+21
+00:01:40,380 --> 00:01:45,300
+lower particle, virus, bacteria, odor, and
+other air pollutants retention levels.
+
+22
+00:01:45,300 --> 00:01:50,520
+During the COVID-19 pandemic, filters 
+in an HVAC's air handling unit are a  
+
+23
+00:01:50,520 --> 00:01:54,000
+first line of defense in removing 
+virus germs from recirculated air.
+
+24
+00:01:54,000 --> 00:01:57,180
+The conservation principle 
+applied to the mixing chamber is 
+
+25
+00:01:57,180 --> 00:01:58,740
+illustrated in Figure 3.
+
+26
+00:02:01,200 --> 00:02:05,640
+After filtration, air flows through heating 
+and cooling coils where it is either heated  
+
+27
+00:02:05,640 --> 00:02:10,080
+up or cooled down to meet the required indoor 
+temperature for both comfort and efficiency.
+
+28
+00:02:10,080 --> 00:02:15,180
+Heating and cooling coils are heat exchangers that
+transfer temperature between steam and air in the  
+
+29
+00:02:15,180 --> 00:02:19,200
+case of the heating coil and between chilled 
+water and air in the case of the cooling coil.
+
+30
+00:02:19,200 --> 00:02:22,260
+The humidifier and dehumidifier are optional parts  
+
+31
+00:02:22,260 --> 00:02:26,160
+of an AHU if humidity control 
+of the indoor air is desired.
+
+32
+00:02:26,160 --> 00:02:31,140
+The conservation principle applied to the heating 
+and cooling coils is illustrated in Figure 4.
+
+33
+00:02:34,500 --> 00:02:37,440
+The supply fan is on the 
+far right of the schematic.
+
+34
+00:02:37,440 --> 00:02:41,280
+It is an electromechanical system that 
+powers the air to expel it from the  
+
+35
+00:02:41,280 --> 00:02:44,400
+AHU to the ducts that distribute 
+the air throughout the library.
+

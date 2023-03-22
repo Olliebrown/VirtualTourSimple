@@ -1,0 +1,29 @@
+{
+    "name": "L000-AHUs",
+    "images": [{
+      "src": "AHU-Schematic.png",
+      "caption": "Schematic of an AHU"
+    }, {
+      "src": "AHU-Library.png",
+      "caption": "AHU 1 at UW Stout’s Library"
+    }, {
+      "src": "Conservation Eqns-HX.jpg",
+      "caption": "Conservation Principle Applied to Mixing Chamber"
+      
+    }, {
+      "src": "Conservation Eqns-Mix.jpg",
+      "caption": "Conservation Principle Applied to Heating or Cooling Coil"
+    }],
+    "height": 774,
+    "audio": {
+      "src": "L000-AHUs",
+      "slideTiming": {
+        "0": "0",
+        "13": "1",
+        "23": "2",
+        "31": "3",
+        "33": "0"
+      }
+    }
+  }
+  
