@@ -1,0 +1,204 @@
+1
+00:00:00,000 --> 00:00:03,900
+We are standing in front of Combustion 
+Air Fan 3 on the basement floor.
+
+2
+00:00:03,900 --> 00:00:09,060
+A fan is an air pump: a machine that creates 
+a pressure difference and causes airflow.
+
+3
+00:00:09,060 --> 00:00:12,180
+The impeller imparts to the 
+air static and kinetic energy,  
+
+4
+00:00:12,180 --> 00:00:14,940
+which varies in proportion, 
+depending on the type of fan.
+
+5
+00:00:14,940 --> 00:00:18,480
+Fans are classified as centrifugal or axial flow  
+
+6
+00:00:18,480 --> 00:00:21,300
+fans according to the direction 
+of airflow through the impeller.
+
+7
+00:00:21,300 --> 00:00:25,380
+The general configuration of a 
+centrifugal fan is shown in Figure 1.
+
+8
+00:00:25,380 --> 00:00:31,140
+A typical application of centrifugal fans at UW 
+Stout’s central heating plant involves combustion  
+
+9
+00:00:31,140 --> 00:00:35,640
+air blowers that provide air at the right 
+temperature and pressure to the boilers’ burners.
+
+10
+00:00:38,640 --> 00:00:42,900
+A general configuration of an axial 
+flow fan is shown in Figure 2.
+
+11
+00:00:42,900 --> 00:00:47,760
+A typical application of axial fans at 
+UW Stout’s central chiller plant involves  
+
+12
+00:00:47,760 --> 00:00:52,140
+electric fans within cooling towers that 
+create airflows and remove heat from warm  
+
+13
+00:00:52,140 --> 00:00:52,860
+condenser
+water.
+
+14
+00:00:55,740 --> 00:00:59,580
+Except for Boiler 1, which has its 
+combustion air blower attached to  
+
+15
+00:00:59,580 --> 00:01:02,520
+the unit on the main floor, three 
+other boilers have their combustion  
+
+16
+00:01:02,520 --> 00:01:05,040
+air blowers located on the
+basement floor of the plant.
+
+17
+00:01:05,040 --> 00:01:10,260
+Figure 3 illustrates Fan 3’s Station supplying
+combustion air to Boiler 3 above.
+
+18
+00:01:10,260 --> 00:01:13,740
+Fan 3 is a centrifugal fan driven by an electric
+motor.
+
+19
+00:01:13,740 --> 00:01:16,320
+The motor’s speed and torque are controlled  
+
+20
+00:01:16,320 --> 00:01:21,000
+by an electronic device called a 
+Variable Frequency Drive or VFD.
+
+21
+00:01:21,000 --> 00:01:25,860
+The VFD controls the fan's output depending 
+on the amount of air demanded by the boiler.
+
+22
+00:01:27,780 --> 00:01:33,060
+Fan 3 also has an Inlet Vane Damper 
+to control the low flow at a very  
+
+23
+00:01:33,060 --> 00:01:35,400
+low load during the start and closing burner.
+
+24
+00:01:35,400 --> 00:01:38,280
+A fan damper is similar to air vents in your car.
+
+25
+00:01:38,280 --> 00:01:41,460
+You can open or close louvers 
+to adjust the airflow;  
+
+26
+00:01:41,460 --> 00:01:44,880
+Increase by opening the damper 
+and decrease by closing it.
+
+27
+00:01:44,880 --> 00:01:47,220
+The fan and motor speeds remain constant.
+
+28
+00:01:48,960 --> 00:01:53,460
+The Inlet Vane Damper is installed 
+on the fan's inlet and swirls the  
+
+29
+00:01:53,460 --> 00:01:57,300
+inlet air in the same direction as the 
+fan rotation to alter fan performance.
+
+30
+00:01:57,300 --> 00:02:01,200
+They are commonly modulated with 
+electric or pneumatic actuators.
+
+31
+00:02:01,200 --> 00:02:10,259
+Working together with VFD, the 
+Inlet Vane Damper can help Fan  
+
+32
+00:02:10,259 --> 00:02:12,720
+3 be more responsive on load reduction control.
+
+33
+00:02:12,720 --> 00:02:17,100
+The centrifugal fan often generates 
+noise from the inlet during operation.
+
+34
+00:02:17,100 --> 00:02:21,600
+This noise is loud and considered an 
+occupational hazard because loud noise  
+
+35
+00:02:21,600 --> 00:02:25,920
+can create physical and psychological 
+stress, reduce productivity, interfere  
+
+36
+00:02:25,920 --> 00:02:29,580
+with communication and concentration, 
+and contribute to workplace accidents.
+
+37
+00:02:29,580 --> 00:02:33,240
+A silencer duct was installed to 
+reduce noise at the fan inlet.
+
+38
+00:02:36,240 --> 00:02:41,160
+In Thermodynamics, fans are considered 
+shaft work machines whose primary  
+
+39
+00:02:41,160 --> 00:02:44,880
+function is to promote a work input 
+or output through a rotating shaft.
+
+40
+00:02:44,880 --> 00:02:49,920
+Shaft work machines are steady-state, 
+single-inlet single-outlet open systems.
+
+41
+00:02:49,920 --> 00:02:52,920
+The work produced or absorbed 
+by fans can then be determined  
+
+42
+00:02:52,920 --> 00:02:56,280
+from the energy rate balance 
+equation, as seen in Figure 4.
+

@@ -1,5 +1,5 @@
 {
-    "name": "L000-AHUs",
+    "name": "L000_AHUs",
     "images": [{
       "src": "AHU-Schematic.png",
       "caption": "Schematic of an AHU"

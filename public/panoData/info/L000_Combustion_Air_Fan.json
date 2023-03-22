@@ -1,0 +1,27 @@
+{
+    "name": "L000_Combustion_Air_Fan",
+    "images": [{
+      "src": "L000-CombustionAirFan-Picture1.png",
+      "caption": "Centrifugal Fan Components"
+    }, {
+      "src": "L000-CombustionAirFan-Picture2.png",
+      "caption": "Axial Fan Components"
+    }, {
+      "src": "L000-CombustionAirFan-Picture3.png",
+      "caption": "Components of Combustion Air Blower 3 on the Basement Floor"
+      
+    }, {
+      "src": "L000-CombustionAirFan-Picture4.png",
+      "caption": "Conservation Principle Applied to Fan Shaft Work"
+    }],
+    "height": 774,
+    "audio": {
+      "src": "L000-CombustionAirFan",
+      "slideTiming": {
+        "0": "0",
+        "9": "1",
+        "16": "2",
+        "40": "3"
+      }
+    }
+  }

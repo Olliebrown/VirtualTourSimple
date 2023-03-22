@@ -18,10 +18,20 @@
         "priority": 0
       },
       {
-        "id": "L000-AHUs",
+        "id": "L000_AHUs",
         "title": "UW Stout Library’s Mechanical Room",
         "longitude": -40.4,
         "latitude": 3.6,
+        "radius": 6,
+        "scale": 0.5,
+        "type": "info",
+        "modal": true
+      },
+      {
+        "id": "L000_Combustion_Air_Fan",
+        "title": "Combustion Air Fan",
+        "longitude": -40.4,
+        "latitude": -3,
         "radius": 6,
         "scale": 0.5,
         "type": "info",
@@ -4099,7 +4109,7 @@
     ],
     "hotspots": [
       {
-        "id": "LS02-Compressor",
+        "id": "LS02_Compressor",
         "title": "Compressor",
         "longitude": -74.8,
         "latitude": -4.7,
