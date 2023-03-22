@@ -4097,7 +4097,18 @@
       -120.8,
       -181.7
     ],
-    "hotspots": [],
+    "hotspots": [
+      {
+        "id": "LS02-Compressor",
+        "title": "Compressor",
+        "longitude": -74.8,
+        "latitude": -4.7,
+        "radius": 6,
+        "scale": 0.7,
+        "type": "info",
+        "modal": true
+      }
+    ],
     "mapInfo": {
       "building": "Heating Plant",
       "floor": "Basement",

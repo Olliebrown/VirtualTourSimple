@@ -1,0 +1,100 @@
+1
+00:00:00,000 --> 00:00:05,040
+Compressors and fans are essentially the 
+same devices. However, compressors are  
+
+2
+00:00:05,040 --> 00:00:07,740
+capable of compressing gas at very high pressures.
+
+3
+00:00:07,740 --> 00:00:12,720
+Compressed air at the heating plant finds 
+application in operating pneumatic instruments  
+
+4
+00:00:12,720 --> 00:00:18,420
+connected with boilers, fans, valves, 
+actuators, motors, and control systems.
+
+5
+00:00:21,960 --> 00:00:26,040
+The air system in the Plant is divided 
+into instrument air and service air.
+
+6
+00:00:26,040 --> 00:00:29,880
+As the name suggests, instrument 
+air is used to operate pneumatic  
+
+7
+00:00:29,880 --> 00:00:32,700
+instruments where the quality of 
+the air is extremely important.
+
+8
+00:00:32,700 --> 00:00:35,760
+All control valves, pneumatic dampers, gates,  
+
+9
+00:00:35,760 --> 00:00:40,860
+guide vanes, and solenoid valves operate using 
+instrument air, which is dry compressed air.
+
+10
+00:00:40,860 --> 00:00:42,960
+Figure 1 is the compressor system.
+
+11
+00:00:42,960 --> 00:00:47,700
+It can produce instrument air at 
+a rate of up to 125 cubic feet per  
+
+12
+00:00:47,700 --> 00:00:51,720
+minute and at the pressure range of 90 to 110 psi.
+
+13
+00:00:54,240 --> 00:00:57,600
+Service air is required for 
+cleaning and purging of filters,  
+
+14
+00:00:57,600 --> 00:01:01,380
+and it is compressed air directly 
+coming out of the compressor (Figure 2).
+
+15
+00:01:01,380 --> 00:01:05,880
+Its quality requirements are not as stringent 
+as those of instrument air, therefore,  
+
+16
+00:01:05,880 --> 00:01:08,460
+there is no need to have air
+dryer for service air.
+
+17
+00:01:11,040 --> 00:01:16,500
+Compressors, as well as pumps and fans, are 
+devices to increase the pressure of a fluid.
+
+18
+00:01:16,500 --> 00:01:20,700
+Work is supplied to these devices from an 
+external source through a rotating shaft.
+
+19
+00:01:20,700 --> 00:01:23,400
+Therefore, compressors involve work inputs.
+
+20
+00:01:23,400 --> 00:01:27,360
+If we neglect the changes in kinetic 
+and potential energies the steady-state,  
+
+21
+00:01:27,360 --> 00:01:32,640
+steady-flow first law of the conservation of 
+energy equation will look like this in Figure 3.
+

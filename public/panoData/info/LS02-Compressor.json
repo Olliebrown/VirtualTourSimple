@@ -1,0 +1,24 @@
+{
+    "name": "LS02-Compressor",
+    "images": [{
+      "src": "LS02-Compressor4.JPEG",
+      "caption": "Air Compressor No. 4 with Air Dryer and Receiver"
+    }, {
+      "src": "LS02-Compressor.png",
+      "caption": "Reciprocating Compressor With an Inline Cylinder Arrangement"
+    }, {
+      "src": "Conservation Eqns-Compressor.png",
+      "caption": "The Conservation of Energy Equation for Compressors"
+      
+    }],
+    "height": 774,
+    "audio": {
+      "src": "LS02-Compressor",
+      "slideTiming": {
+        "0": "0",
+        "12": "1",
+        "18": "2"
+      }
+    }
+  }
+  
