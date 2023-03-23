@@ -1,5 +1,10 @@
 import { atom } from 'recoil'
 
+export const loadingProgressState = atom({
+  key: 'loadingProgress',
+  default: 100
+})
+
 // The loading curtain state
 export const loadingCurtainState = atom({
   key: 'loadingCurtain',

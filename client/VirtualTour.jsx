@@ -11,8 +11,7 @@ import localDB from './state/localDB.js'
 import { useLiveQuery } from 'dexie-react-hooks'
 
 import { enabledHotSpotsState, enabledPanoRoomsState, disablePriorityState, currentPanoKeyState } from './state/fullTourState.js'
-import { destroyMediaState, loadingCurtainState } from './state/globalState.js'
-import { setTextureAllDoneState, setTextureDoneState, setTextureFailedState } from './state/textureLoadingState.js'
+import { destroyMediaState, loadingCurtainState, loadingProgressState } from './state/globalState.js'
 
 // eslint-disable-next-line camelcase
 import { useRecoilBridgeAcrossReactRoots_UNSTABLE, useSetRecoilState } from 'recoil'
@@ -36,6 +35,7 @@ import EditHotspotContentModal from './components/HotSpots/EditHotspotContentMod
 import VideoPlayerControls from './components/HotSpots/VideoPlayerControls.jsx'
 
 import { EMOTION_ROOT_ID, SHADOW_ROOT_ID } from './app.jsx'
+import LoadingProgressIndicator from './components/Utility/LoadingProgressIndicator.jsx'
 
 // Button to close the tour
 function CloseTour (params) {
@@ -104,37 +104,13 @@ export default function VirtualTour (props) {
     setEnabledHotSpots(enabledHotSpots)
   }, [enabledHotSpots, enabledRooms, setEnabledHotSpots, setEnabledPanoRooms])
 
-  // Track texture state
-  const setTextureDone = useSetRecoilState(setTextureDoneState)
-  const setTextureAllDone = useSetRecoilState(setTextureAllDoneState)
-  const setTextureFailed = useSetRecoilState(setTextureFailedState)
-
   // Track video playback time
   const [videoTime, setVideoTime] = React.useState(0.0)
 
-  // Use drei progress hook to update texture state
-  const { loadedItem, loadingErrors, loadingProgress } = useProgress((state) => ({
-    loadedItem: state.item,
-    loadingErrors: state.errors,
-    loadingProgress: state.progress
-  }))
-
-  React.useEffect(() => {
-    // Record any completed textures
-    if (loadedItem.toLowerCase().includes('.ktx2')) {
-      setTextureDone(loadedItem)
-    }
-
-    // Record any failed textures
-    if (Array.isArray(loadingErrors)) {
-      loadingErrors
-        .filter(item => item.toLowerCase().includes('.ktx2'))
-        .forEach(setTextureFailed)
-    }
-
-    // Record when everything is done
-    if (loadingProgress === 100) { setTextureAllDone() }
-  }, [loadedItem, loadingErrors, loadingProgress, setTextureAllDone, setTextureDone, setTextureFailed])
+  // Copy Drei loading progress into global state
+  const setLoadingProgress = useSetRecoilState(loadingProgressState)
+  const loadingProgress = useProgress((state) => state.progress)
+  React.useEffect(() => { setLoadingProgress(loadingProgress) }, [loadingProgress, setLoadingProgress])
 
   // Calculate initial camera position
   const startPosition = new Vector3().setFromSpherical(
@@ -163,6 +139,7 @@ export default function VirtualTour (props) {
           {showHUDInterface &&
             <React.Fragment>
               <SettingsDial allowMotion={allowMotion} />
+              <LoadingProgressIndicator />
               <MiniMap />
               <RoomAudioPlayer />
 
