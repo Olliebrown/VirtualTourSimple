@@ -4393,13 +4393,20 @@
     "key": "RS05_11"
   },
   "LIB_NW": {
-    "label": "Library Condenser: Intake",
+    "label": "Library AHU: North",
     "alignment": [
       0,
       60,
       181
     ],
     "hotspots": [],
+    "mapInfo": {
+      "building": "Library",
+      "floor": "Attic",
+      "image": "LibraryAttic.png",
+      "x": 543,
+      "y": 276
+    },
     "exits": [
       {
         "direction": 50,
@@ -4416,13 +4423,20 @@
     ]
   },
   "LIB_NE": {
-    "label": "Library Condenser: Distribution",
+    "label": "Library AHU: North 2",
     "alignment": [
       0,
       57,
       181
     ],
     "hotspots": [],
+    "mapInfo": {
+      "building": "Library",
+      "floor": "Attic",
+      "image": "LibraryAttic.png",
+      "x": 543,
+      "y": 276
+    },
     "exits": [
       {
         "direction": 71,
@@ -4475,13 +4489,20 @@
     ]
   },
   "LIB_SE": {
-    "label": "Library Condenser",
+    "label": "Library AHU: South",
     "alignment": [
       0,
       178,
       180
     ],
     "hotspots": [],
+    "mapInfo": {
+      "building": "Library",
+      "floor": "Attic",
+      "image": "LibraryAttic.png",
+      "x": 543,
+      "y": 276
+    },
     "exits": [
       {
         "direction": 160,
@@ -4507,13 +4528,20 @@
     ]
   },
   "LIB_SW": {
-    "label": "Library Condenser",
+    "label": "Library AHU: South 2",
     "alignment": [
       0,
       -70,
       180
     ],
     "hotspots": [],
+    "mapInfo": {
+      "building": "Library",
+      "floor": "Attic",
+      "image": "LibraryAttic.png",
+      "x": 543,
+      "y": 276
+    },
     "exits": [
       {
         "direction": 200,
