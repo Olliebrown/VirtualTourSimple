@@ -1,0 +1,184 @@
+1
+00:00:00,000 --> 00:00:05,160
+Water pumps move chilled, condenser water 
+and feedwater to and from the refrigeration  
+
+2
+00:00:05,160 --> 00:00:07,620
+equipment and associated ancillary equipment.
+
+3
+00:00:07,620 --> 00:00:10,680
+Pumps can be classified 
+into three broad categories: 
+
+4
+00:00:14,400 --> 00:00:19,560
+(1) reciprocating, (2) 
+rotary, and (3) centrifugal.
+
+5
+00:00:19,560 --> 00:00:23,880
+Both reciprocating and rotary pumps 
+are positive displacement pumps.
+
+6
+00:00:23,880 --> 00:00:26,760
+They discharge a fixed amount of liquid
+at a given speed.
+
+7
+00:00:26,760 --> 00:00:30,420
+The primary moving element 
+of a reciprocating pump is a  
+
+8
+00:00:30,420 --> 00:00:33,420
+piston or plunger, while a rotary pump is a rotor.
+
+9
+00:00:33,420 --> 00:00:38,520
+The most frequently used pump in the heating, 
+ventilating, and air-conditioning industry is  
+
+10
+00:00:38,520 --> 00:00:43,740
+a centrifugal pump with an enclosed impeller 
+and a volute casing, as seen in Figure 1.
+
+11
+00:00:43,740 --> 00:00:48,540
+In a centrifugal pump, an electric 
+motor or other power source rotates  
+
+12
+00:00:48,540 --> 00:00:50,520
+the impellers at the motor’s rated speed.
+
+13
+00:00:50,520 --> 00:00:54,600
+Impeller rotation adds energy to 
+the fluid after it is directed  
+
+14
+00:00:54,600 --> 00:00:56,520
+into the center of the rotating impeller.
+
+15
+00:01:00,720 --> 00:01:05,700
+Centrifugal pumps provide the primary 
+force to distribute and recirculate hot  
+
+16
+00:01:05,700 --> 00:01:09,420
+and chilled water in various space 
+conditioning and plumping systems.
+
+17
+00:01:09,420 --> 00:01:12,180
+The pump provides predetermined water flow to the  
+
+18
+00:01:12,180 --> 00:01:16,740
+space load terminal units or to a thermal 
+storage chamber for release at peak load.
+
+19
+00:01:16,740 --> 00:01:21,540
+At the central heating and chiller plant, 
+the hydronic systems that use pumps include:
+
+20
+00:01:22,500 --> 00:01:25,080
+Condensing water circuits to the cooling tower.
+
+21
+00:01:25,080 --> 00:01:26,700
+Chilled water pumps.
+
+22
+00:01:26,700 --> 00:01:28,080
+Boiler feeds.
+
+23
+00:01:28,080 --> 00:01:31,500
+Condensate returns as seen in Figures 2 and 3.
+
+24
+00:01:33,240 --> 00:01:36,300
+A boiler feed pump is a critical equipment used in  
+
+25
+00:01:36,300 --> 00:01:41,220
+a boiler house that supplies deaerated 
+and LP-dosed feedwater to the boiler.
+
+26
+00:01:41,220 --> 00:01:44,700
+This pump must pump feedwater into 
+the boiler drum against the pressure.
+
+27
+00:01:44,700 --> 00:01:48,780
+So, discharged pressure of this pump is 
+higher than the boiler drum pressure.
+
+28
+00:01:48,780 --> 00:01:53,400
+A feed pump is a multistage pump driven 
+by an electrical motor or turbine.
+
+29
+00:01:53,400 --> 00:01:57,240
+Boiler feed and condensate return 
+pumps for steam boilers should be  
+
+30
+00:01:57,240 --> 00:01:59,940
+selected based on the boiler 
+manufacturer’s requirements.
+
+31
+00:01:59,940 --> 00:02:05,160
+Centrifugal pumps can also be found in water 
+treatment and service water heating systems.
+
+32
+00:02:06,840 --> 00:02:11,880
+Pumps, as well as compressors and fans, are 
+devices that increase the pressure of a fluid.
+
+33
+00:02:11,880 --> 00:02:15,840
+Work is supplied to these devices from an 
+external source through a rotating shaft.
+
+34
+00:02:15,840 --> 00:02:21,000
+Therefore, pumps involve work inputs. If we 
+neglect the changes in kinetic and potential  
+
+35
+00:02:21,000 --> 00:02:25,860
+energies as fluid flows through a pump having 
+one entrance and one exit, the steady-state,  
+
+36
+00:02:25,860 --> 00:02:31,200
+steady-flow, the first law, or the conservation of
+energy equation is presented in Figure 4.
+
+37
+00:02:31,200 --> 00:02:34,860
+As there is very little temperature 
+change across such hydraulic pumps,  
+
+38
+00:02:34,860 --> 00:02:37,140
+the shaft work absorbed by pumps does not 
+
+39
+00:02:37,140 --> 00:02:40,440
+depend on the temperature difference 
+between output and input fluids.
+

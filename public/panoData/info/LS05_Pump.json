@@ -1,0 +1,26 @@
+{
+    "name": "LS05_Pump",
+    "images": [{
+      "src": "LS05-Pump-Pic.png",
+      "caption": "Centrifugal Pump"
+    }, {
+      "src": "ChillerPumps.png",
+      "caption": "Chiller Water Pumps"
+    }, {
+      "src": "BoilerFeedPumps.png",
+      "caption": "Boiler Feed Pumps"
+    }, {
+      "src": "LS05-Pump-Concervation Eqns.png",
+      "caption": "Conservation Equations for Pumps"
+    }],
+    "height": 774,
+    "audio": {
+      "src": "LS05-Pump",
+      "slideTiming": {
+        "0": "0",
+        "18": "1",
+        "23": "2",
+        "31": "3"
+      }
+    }
+  }

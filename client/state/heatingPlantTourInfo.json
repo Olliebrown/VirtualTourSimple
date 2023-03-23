@@ -2027,7 +2027,18 @@
       -115.5,
       -182.6
     ],
-    "hotspots": [],
+    "hotspots": [
+      {
+        "id": "LS05_Pump",
+        "title": "Water Pumps",
+        "longitude": -27.3,
+        "latitude": -21.4,
+        "radius": 6,
+        "scale": 1.5,
+        "type": "info",
+        "modal": true
+      }
+    ],
     "mapInfo": {
       "building": "Cooling Plant",
       "floor": "Basement",
