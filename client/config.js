@@ -20,6 +20,9 @@ export default function config () {
     // Path to images on dev server
     TEXTURE_IMAGE_PATH: PREFIX + 'images',
 
+    // Time to wait before removing the loading indicator
+    LOADING_INDICATOR_TIMEOUT: 1000,
+
     // Path to images on dev server
     PANO_IMAGE_PATH: PREFIX + 'panoMedia/panoImages',
 
