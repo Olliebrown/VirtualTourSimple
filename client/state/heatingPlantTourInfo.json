@@ -16,26 +16,6 @@
         "latitude": -2.4,
         "scale": 0.6,
         "priority": 0
-      },
-      {
-        "id": "L000_AHUs",
-        "title": "UW Stout Library’s Mechanical Room",
-        "longitude": -40.4,
-        "latitude": 3.6,
-        "radius": 6,
-        "scale": 0.5,
-        "type": "info",
-        "modal": true
-      },
-      {
-        "id": "L000_Combustion_Air_Fan",
-        "title": "Combustion Air Fan",
-        "longitude": -40.4,
-        "latitude": -3,
-        "radius": 6,
-        "scale": 0.5,
-        "type": "info",
-        "modal": true
       }
     ],
     "mapInfo": {
@@ -4169,7 +4149,18 @@
       -136,
       -181.2
     ],
-    "hotspots": [],
+    "hotspots": [
+      {
+        "id": "LS03_Combustion_Air_Fan",
+        "title": "Combustion Air Fan",
+        "longitude": -34.4,
+        "latitude": -21.4,
+        "radius": 6,
+        "scale": 1,
+        "type": "info",
+        "modal": true
+      }
+    ],
     "mapInfo": {
       "building": "Heating Plant",
       "floor": "Basement",
@@ -4399,7 +4390,18 @@
       60,
       181
     ],
-    "hotspots": [],
+    "hotspots": [
+      {
+        "id": "LIB_AHUs",
+        "title": "Air Handling Unit",
+        "longitude": 0,
+        "latitude": 0,
+        "radius": 6,
+        "scale": 1,
+        "type": "info",
+        "modal": true
+      }
+    ],
     "mapInfo": {
       "building": "Library",
       "floor": "Attic",
