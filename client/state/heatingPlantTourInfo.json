@@ -111,6 +111,16 @@
         "latitude": 11.6,
         "scale": 0.4,
         "priority": 0
+      },
+      {
+        "id": "1S01_SteamDrum",
+        "title": "Boiler 1 Title",
+        "longitude": -17.9,
+        "latitude": 25.4,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
       }
     ],
     "mapInfo": {
@@ -179,7 +189,18 @@
       -120,
       -182
     ],
-    "hotspots": [],
+    "hotspots": [
+      {
+        "id": "1S01_SteamDrum",
+        "title": "Boiler 1 Steam Drum",
+        "longitude": -35.6,
+        "latitude": 21.4,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      }
+    ],
     "mapInfo": {
       "building": "Heating Plant",
       "floor": "Ground Floor",
