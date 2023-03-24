@@ -23,7 +23,7 @@ const OBJ_DATA = () => ({
     rotation: [Math.PI / 2.0, 0, Math.PI]
   },
   teleport: {
-    filename: `${CONFIG().GEOMETRY_FILE_PATH}/teleport.obj`,
+    filename: `${CONFIG().GEOMETRY_FILE_PATH}/teleportNoArrow.obj`,
     rotation: [0, 0, 0]
   },
   door: {
