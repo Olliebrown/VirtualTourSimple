@@ -1,19 +1,19 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { infoModalOpenState } from '../../state/globalState.js'
+import { hotspotModalOpenState } from '../../state/globalState.js'
 import { useSetRecoilState } from 'recoil'
 
 import HotSpotIndicator from './HotSpotIndicator.jsx'
 
 export default function InfoHotspot (props) {
   // Subscribe to pieces of global state
-  const setInfoModalOpen = useSetRecoilState(infoModalOpenState)
+  const setHotspotModalOpen = useSetRecoilState(hotspotModalOpenState)
 
   // Click callback function
   const onClick = React.useCallback(() => {
-    setInfoModalOpen(true)
-  }, [setInfoModalOpen])
+    setHotspotModalOpen('info')
+  }, [setHotspotModalOpen])
 
   // Render the appropriate indicator
   return (

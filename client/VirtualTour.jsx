@@ -21,7 +21,7 @@ import { Close as CloseIcon } from '@mui/icons-material'
 
 import PanoViewer from './components/CorePano/PanoViewer.jsx'
 import SettingsDial from './components/Utility/SettingsDial.jsx'
-import InfoModal from './components/HotSpots/InfoModal.jsx'
+import InfoZoomModal from './components/HotSpots/InfoZoomModal.jsx'
 import MiniMap from './components/MiniMap/MiniMap.jsx'
 import TourInfoEditor from './components/TourMaker/TourInfoEditor.jsx'
 import RoomAudioPlayer from './components/HotSpots/RoomAudioPlayer.jsx'
@@ -132,7 +132,7 @@ export default function VirtualTour (props) {
       {fadeInTimeout &&
         <React.Fragment>
           {enableClose && <CloseTour rootElement={rootElement} reactRoot={reactRoot} />}
-          <InfoModal />
+          <InfoZoomModal />
           <HotSpotTooltip />
           <VideoPlayerControls videoTime={videoTime} />
 

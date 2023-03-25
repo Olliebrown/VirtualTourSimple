@@ -1,18 +1,18 @@
 import React from 'react'
 
-import { zoomModalOpenState } from '../../state/globalState.js'
+import { hotspotModalOpenState } from '../../state/globalState.js'
 import { useSetRecoilState } from 'recoil'
 
 import HotSpotIndicator from './HotSpotIndicator.jsx'
 
 export default function ZoomHotspot (props) {
   // Subscribe to pieces of global state
-  const setZoomModalOpen = useSetRecoilState(zoomModalOpenState)
+  const setHotspotModalOpen = useSetRecoilState(hotspotModalOpenState)
 
   // Click callback function
   const onClick = React.useCallback(() => {
-    setZoomModalOpen(true)
-  }, [setZoomModalOpen])
+    setHotspotModalOpen('zoom')
+  }, [setHotspotModalOpen])
 
   return (
     <HotSpotIndicator

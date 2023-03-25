@@ -56,15 +56,9 @@ export const mediaSkipState = atom({
   default: false
 })
 
-// Info hotspot modal state
-export const infoModalOpenState = atom({
-  key: 'infoModalOpen',
-  default: false
-})
-
-// Zoom hotspot modal state
-export const zoomModalOpenState = atom({
-  key: 'zoomModalOpen',
+// Info/Zoom hotspot modal state
+export const hotspotModalOpenState = atom({
+  key: 'hotspotModalOpen',
   default: false
 })
 

@@ -1,19 +1,20 @@
 import React from 'react'
 
-import { infoModalOpenState, hotspotDataState } from '../../state/globalState.js'
+import { hotspotModalOpenState, hotspotDataState } from '../../state/globalState.js'
 import { currentRoomPriorityState } from '../../state/fullTourState.js'
 import { useRecoilState, useSetRecoilState, useRecoilValue } from 'recoil'
 
 import { Button, Dialog, DialogTitle, DialogContent, DialogActions } from '@mui/material'
 
-import HotspotContent from './HotSpotContent.jsx'
+import InfoHotspotContent from './InfoHotSpotContent.jsx'
+import ZoomHotspotContent from './ZoomHotSpotContent.jsx'
 import AudioPlayer from './AudioPlayer.jsx'
 
 import { useHotspotContent } from '../../state/hotspotInfoHelper.js'
 
-export default function InfoModal () {
+export default function InfoZoomModal () {
   // Subscribe to changes in global state
-  const [modalOpen, setInfoModalOpen] = useRecoilState(infoModalOpenState)
+  const [hotspotModalOpen, setHotspotModalOpen] = useRecoilState(hotspotModalOpenState)
   const hotspotData = useRecoilValue(hotspotDataState)
   const updateRoomTaskCompletion = useSetRecoilState(currentRoomPriorityState)
 
@@ -22,7 +23,7 @@ export default function InfoModal () {
 
   // Close the modal
   const requestClose = () => {
-    setInfoModalOpen(false)
+    setHotspotModalOpen('')
     updateRoomTaskCompletion(hotspotData.title)
     setSlideIndex([0, 0])
   }
@@ -32,14 +33,17 @@ export default function InfoModal () {
   const enableModal = hotspotContent && hotspotData?.type === 'info'
 
   return (
-    <Dialog fullWidth maxWidth='lg' onClose={requestClose} open={!!enableModal && modalOpen}>
+    <Dialog fullWidth maxWidth='lg' onClose={requestClose} open={!!enableModal && hotspotModalOpen !== ''}>
       <DialogTitle>{hotspotData?.title || 'Info'}</DialogTitle>
       <DialogContent dividers>
-        <HotspotContent
-          hotspotImages={hotspotContent?.images}
-          defaultHeight={hotspotContent?.height > 0 ? hotspotContent?.height : undefined}
-          slideIndex={slideIndex}
-        />
+        {hotspotModalOpen === 'info'
+          ? <InfoHotspotContent
+              hotspotImages={hotspotContent?.images}
+              defaultHeight={hotspotContent?.height > 0 ? hotspotContent?.height : undefined}
+              slideIndex={slideIndex}
+            />
+          : <ZoomHotspotContent image={hotspotContent?.image} />
+        }
       </DialogContent>
       <DialogActions>
         <AudioPlayer

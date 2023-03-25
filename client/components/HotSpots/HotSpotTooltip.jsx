@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { infoModalOpenState, hotspotDataState } from '../../state/globalState.js'
+import { hotspotModalOpenState, hotspotDataState } from '../../state/globalState.js'
 import { useRecoilValue } from 'recoil'
 
 import { Popper, Fade, Paper, Typography, Card, CardContent } from '@mui/material'
@@ -9,7 +9,7 @@ import { useHotspotContent } from '../../state/hotspotInfoHelper.js'
 
 export default function HotSpotTooltip (props) {
   // Subscribe to pieces of global state
-  const infoModalOpen = useRecoilValue(infoModalOpenState)
+  const hotspotModalOpen = useRecoilValue(hotspotModalOpenState)
   const hotspotData = useRecoilValue(hotspotDataState)
 
   // Reference for tracking mouse position
@@ -53,7 +53,7 @@ export default function HotSpotTooltip (props) {
   return (
     <Popper
       popperRef={popperRef}
-      open={hotspotData?.hovering && !infoModalOpen}
+      open={hotspotData?.hovering && !hotspotModalOpen}
       anchorEl={{ getBoundingClientRect }}
       transition
       placement="bottom-start"
