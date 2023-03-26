@@ -108,17 +108,57 @@
         "title": "Water-tube Burner",
         "type": "info",
         "longitude": -0.1,
-        "latitude": 11.6,
+        "latitude": 16.7,
         "scale": 0.4,
         "priority": 0
       },
       {
         "id": "1S01_SteamDrum",
-        "title": "Boiler 1 Title",
+        "title": "Boiler 1 Steam Drum",
         "longitude": -17.9,
         "latitude": 25.4,
         "radius": 8,
         "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S01_MudDrum",
+        "title": "Boiler 1 Mud Drum",
+        "longitude": -16.9,
+        "latitude": -5.7,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S01_BurnerBlower",
+        "title": "Boiler 1 Burner Blower",
+        "longitude": 0,
+        "latitude": -5.7,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S01_CombustionAirBlower",
+        "title": "Boiler 1 Combustion Air Blower",
+        "longitude": -0.8,
+        "latitude": 9.2,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S02_FuelValveTrain",
+        "title": "Fuel Valve Train",
+        "longitude": 60.2,
+        "latitude": -7,
+        "radius": 10,
+        "scale": 0.5,
         "type": "placard",
         "modal": true
       }
@@ -199,6 +239,46 @@
         "scale": 0.5,
         "type": "placard",
         "modal": true
+      },
+      {
+        "id": "1S01_MudDrum",
+        "title": "Boiler 1 Mud Drum",
+        "longitude": -35.6,
+        "latitude": -4.7,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S01_BurnerBlower",
+        "title": "Boiler 1 Burner Blower",
+        "longitude": -29.7,
+        "latitude": -4.7,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S01_CombustionAirBlower",
+        "title": "Boiler 1 Combustion Air Blower",
+        "longitude": -29.4,
+        "latitude": 10.4,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S02_FuelValveTrain",
+        "title": "Fuel Valve Train",
+        "longitude": 37.8,
+        "latitude": -8.2,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
       }
     ],
     "mapInfo": {
@@ -248,7 +328,38 @@
       -120,
       -180
     ],
-    "hotspots": [],
+    "hotspots": [
+      {
+        "id": "1S02_FuelValveTrain",
+        "title": "Fuel Valve Train",
+        "longitude": -45.1,
+        "latitude": -8.3,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S03_Boiler2ControlBox",
+        "title": "Boiler 2 Control Boxes",
+        "longitude": 16.6,
+        "latitude": -14.2,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S03_Boiler2Title",
+        "title": "Boiler 2 Title",
+        "longitude": -19,
+        "latitude": 21.4,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      }
+    ],
     "mapInfo": {
       "building": "Heating Plant",
       "floor": "Ground Floor",
@@ -315,7 +426,48 @@
       -120,
       -182
     ],
-    "hotspots": [],
+    "hotspots": [
+      {
+        "id": "1S03_Boiler2Title",
+        "title": "Boiler 2 Title",
+        "longitude": -38,
+        "latitude": 15.4,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S03_Boiler3Title",
+        "title": "1S03_Boiler3Title",
+        "longitude": 35.6,
+        "latitude": 17.8,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S03_Boiler2ControlBox",
+        "title": "Boiler 2 Control Boxes",
+        "longitude": -43.9,
+        "latitude": -11.9,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S03_Boiler3ControlBox",
+        "title": "Boiler 3 Control Boxes",
+        "longitude": 42.8,
+        "latitude": -7,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      }
+    ],
     "mapInfo": {
       "building": "Heating Plant",
       "floor": "Ground Floor",
@@ -369,6 +521,26 @@
         "radius": 8,
         "scale": 1,
         "type": "info",
+        "modal": true
+      },
+      {
+        "id": "1S03_Boiler3ControlBox",
+        "title": "Boiler 3 Control Boxes",
+        "longitude": -47.5,
+        "latitude": -8.3,
+        "radius": 8,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S03_Boiler3Title",
+        "title": "Boiler 3 Title",
+        "longitude": -2.4,
+        "latitude": 21.4,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
         "modal": true
       }
     ],
@@ -637,7 +809,38 @@
       -120,
       -182
     ],
-    "hotspots": [],
+    "hotspots": [
+      {
+        "id": "1N04_GasPressureValve",
+        "title": "Gas Pressure Valve",
+        "longitude": -24.9,
+        "latitude": 2.4,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1N04_NaturalGasLine",
+        "title": "Natural Gas Line",
+        "longitude": -46.3,
+        "latitude": -28.5,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1N04_GasShutoffCock",
+        "title": "",
+        "longitude": -156.7,
+        "latitude": -34.4,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      }
+    ],
     "mapInfo": {
       "building": "Heating Plant",
       "floor": "Ground Floor",
@@ -668,7 +871,38 @@
       -110,
       -182
     ],
-    "hotspots": [],
+    "hotspots": [
+      {
+        "id": "1N04_PeepingHole",
+        "title": "Peeping Hole",
+        "longitude": -92.6,
+        "latitude": 29.7,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1N04_SteamDrum",
+        "title": "Steam Drum",
+        "longitude": -90.2,
+        "latitude": 48.7,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1N04_MudDrum",
+        "title": "Boiler 4 Mud Drum",
+        "longitude": -89.1,
+        "latitude": -16.6,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      }
+    ],
     "mapInfo": {
       "building": "Heating Plant",
       "floor": "Ground Floor",
@@ -720,7 +954,38 @@
       -73,
       -180
     ],
-    "hotspots": [],
+    "hotspots": [
+      {
+        "id": "1N04_PeepingHole",
+        "title": "Peeping Hole",
+        "longitude": -182.5,
+        "latitude": 57,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1N04_SteamDrum",
+        "title": "Steam Drum",
+        "longitude": -182.9,
+        "latitude": 77.2,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1N04_MudDrum",
+        "title": "Boiler 4 Mud Drum",
+        "longitude": 174.6,
+        "latitude": -54.6,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      }
+    ],
     "mapInfo": {
       "building": "Heating Plant",
       "floor": "Ground Floor",
@@ -753,7 +1018,28 @@
       -127,
       -180.5
     ],
-    "hotspots": [],
+    "hotspots": [
+      {
+        "id": "1N04_PeepingHole",
+        "title": "Peeping Hole",
+        "longitude": 85.5,
+        "latitude": 27.3,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1N04_SteamDrum",
+        "title": "Steam Drum",
+        "longitude": 84.3,
+        "latitude": 45.1,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      }
+    ],
     "mapInfo": {
       "building": "Heating Plant",
       "floor": "Ground Floor",
@@ -984,7 +1270,28 @@
       -121.5,
       -182
     ],
-    "hotspots": [],
+    "hotspots": [
+      {
+        "id": "1N02_AshHoppers1",
+        "title": "Ash Hoppers Bottom",
+        "longitude": -124.7,
+        "latitude": -1.2,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1N02_AshHoppers2",
+        "title": "Ash Hoppers Ceiling",
+        "longitude": -101.4,
+        "latitude": 33.3,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      }
+    ],
     "mapInfo": {
       "building": "Heating Plant",
       "floor": "Ground Floor",
@@ -1041,7 +1348,58 @@
       -125,
       -182
     ],
-    "hotspots": [],
+    "hotspots": [
+      {
+        "id": "1S03_MudDrum",
+        "title": "Boiler 3 Mud Drum",
+        "longitude": 40.4,
+        "latitude": 16.6,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S03_FireDoor",
+        "title": "Boiler 3 Fire Door",
+        "longitude": 58.2,
+        "latitude": -28.5,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S03_LowPressureSteam",
+        "title": "Boiler 3 Low Pressure Steam",
+        "longitude": 33.3,
+        "latitude": 0,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S02_CombustionAirDuct",
+        "title": "Combustion Air Duct 1",
+        "longitude": -143.9,
+        "latitude": 3,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S02_CombustionAirDuct",
+        "title": "Combustion Air Duct 2",
+        "longitude": 134.9,
+        "latitude": 0,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      }
+    ],
     "mapInfo": {
       "building": "Heating Plant",
       "floor": "Ground Floor",
@@ -1083,6 +1441,26 @@
         "scale": 1,
         "type": "info",
         "id": "1N02_Boiler2",
+        "modal": true
+      },
+      {
+        "id": "1N02_AshHoppers1",
+        "title": "Ash Hoppers Bottom",
+        "longitude": -156.7,
+        "latitude": 0,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1N02_AshHoppers2",
+        "title": "Ash Hoppers Ceiling",
+        "longitude": -180.5,
+        "latitude": 74.8,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
         "modal": true
       }
     ],
@@ -1140,7 +1518,28 @@
       -119,
       -182
     ],
-    "hotspots": [],
+    "hotspots": [
+      {
+        "id": "1N02_AshHoppers1",
+        "title": "Ash Hoppers Bottom",
+        "longitude": 127.1,
+        "latitude": -2.4,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1N02_AshHoppers2",
+        "title": "Ash Hoppers Ceiling",
+        "longitude": 93,
+        "latitude": 47,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      }
+    ],
     "mapInfo": {
       "building": "Heating Plant",
       "floor": "Ground Floor",
@@ -2689,7 +3088,28 @@
       -119.5,
       -180
     ],
-    "hotspots": [],
+    "hotspots": [
+      {
+        "id": "1S01_OxygenAnalyzer",
+        "title": "Oxygen Analyzer",
+        "longitude": 143.7,
+        "latitude": 13.1,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S01_MassFlowTransmitter",
+        "title": "Mass Flow Transmitter",
+        "longitude": 129.4,
+        "latitude": 15.4,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      }
+    ],
     "mapInfo": {
       "building": "Heating Plant",
       "floor": "Ground Floor",
@@ -2721,7 +3141,28 @@
       -122,
       179
     ],
-    "hotspots": [],
+    "hotspots": [
+      {
+        "id": "1S01_OxygenAnalyzer",
+        "title": "Oxygen Analyzer",
+        "longitude": 165.1,
+        "latitude": 3.1,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S01_MassFlowTransmitter",
+        "title": "Mass Flow Transmitter",
+        "longitude": 162,
+        "latitude": 3.6,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      }
+    ],
     "mapInfo": {
       "building": "Heating Plant",
       "floor": "Ground Floor",
