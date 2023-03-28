@@ -5390,11 +5390,121 @@
       {
         "id": "LIB_AHUs",
         "title": "Air Handling Unit",
-        "longitude": 0,
-        "latitude": 0,
+        "longitude": 8,
+        "latitude": -4.5,
         "radius": 6,
         "scale": 1,
         "type": "info",
+        "modal": true
+      },
+      {
+        "id": "LIB_MixingChamber",
+        "title": "Mixing Chamber",
+        "longitude": 58.2,
+        "latitude": 0,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "LIB_Filter",
+        "title": "Filter",
+        "longitude": 51.1,
+        "latitude": 0,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "LIB_HeatingCoil",
+        "title": "Heating Coil",
+        "longitude": 46.6,
+        "latitude": -16.9,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "LIB_CoolingCoil",
+        "title": "Cooling Coil",
+        "longitude": 41.6,
+        "latitude": 0,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "LIB_ChilledWaterSupply",
+        "title": "Chilled Water Supply",
+        "longitude": 22.9,
+        "latitude": -19.4,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "LIB_ChilledWaterReturn",
+        "title": "Chilled Water Return",
+        "longitude": 30.4,
+        "latitude": -5.7,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "LIB_SupplyFanCompartment",
+        "title": "Supply Fan Compartment",
+        "longitude": -3.2,
+        "latitude": -14.5,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "LIB_CondensateReturn",
+        "title": "Condensate Return",
+        "longitude": -15.7,
+        "latitude": 0,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "LIB_ColdAirSupply",
+        "title": "Cold Air Supply",
+        "longitude": -29.4,
+        "latitude": 17.9,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "LIB_SteamSupply",
+        "title": "Steam Supply",
+        "longitude": -12,
+        "latitude": 49,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "LIB_WarmAirReturn",
+        "title": "Warm Air Return",
+        "longitude": 64,
+        "latitude": 32.9,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
         "modal": true
       }
     ],
@@ -5427,7 +5537,118 @@
       57,
       181
     ],
-    "hotspots": [],
+    "hotspots": [
+      {
+        "id": "LIB_MixingChamber",
+        "title": "Mixing Chamber",
+        "longitude": 51.1,
+        "latitude": 0,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "LIB_Filter",
+        "title": "Filter",
+        "longitude": 42.8,
+        "latitude": 0,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "LIB_HeatingCoil",
+        "title": "Heating Coil",
+        "longitude": 39.2,
+        "latitude": -9.5,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "LIB_CoolingCoil",
+        "title": "Cooling Coil",
+        "longitude": 35.3,
+        "latitude": 0,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "LIB_ChilledWaterSupply",
+        "title": "Chilled Water Supply",
+        "longitude": 26.6,
+        "latitude": -10.7,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "LIB_ChilledWaterReturn",
+        "title": "Chilled Water Return",
+        "longitude": 30.4,
+        "latitude": -2,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "LIB_SupplyFanCompartment",
+        "title": "Supply Fan Compartment",
+        "longitude": 11.7,
+        "latitude": -7,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "LIB_CondensateReturn",
+        "title": "Condensate Return",
+        "longitude": 4.7,
+        "latitude": 0,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "LIB_ColdAirSupply",
+        "title": "Cold Air Supply",
+        "longitude": -3.2,
+        "latitude": 14.2,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "LIB_SteamSupply",
+        "title": "Steam Supply",
+        "longitude": 14.2,
+        "latitude": 22.9,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "LIB_WarmAirReturn",
+        "title": "Warm Air Return",
+        "longitude": 46.6,
+        "latitude": 19.2,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      }
+    ],
     "mapInfo": {
       "building": "Library",
       "floor": "Attic",
