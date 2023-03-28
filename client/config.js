@@ -35,6 +35,9 @@ export default function config () {
     // Path to image files for info hotspots
     INFO_IMAGE_PATH: PREFIX + 'panoMedia/infoImages',
 
+    // Path to image files for zoom hotspots
+    ZOOM_IMAGE_PATH: PREFIX + 'panoMedia/zoomImages',
+
     // Path to image files for info hotspots
     INFO_AUDIO_PATH: PREFIX + 'panoMedia/audio',
 

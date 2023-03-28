@@ -16,6 +16,36 @@
         "latitude": -2.4,
         "scale": 0.6,
         "priority": 0
+      },
+      {
+        "id": "1S01_Screen1",
+        "title": "Alarm Panel Screen",
+        "longitude": -70.1,
+        "latitude": 13.1,
+        "radius": 10,
+        "scale": 1,
+        "type": "zoom",
+        "modal": true
+      },
+      {
+        "id": "1S01_Screen2",
+        "title": "Boiler 1 Overview Screen",
+        "longitude": -105.3,
+        "latitude": 13.1,
+        "radius": 10,
+        "scale": 1,
+        "type": "zoom",
+        "modal": true
+      },
+      {
+        "id": "1S01_Screen3",
+        "title": "Boiler 2 Overview Screen",
+        "longitude": -149.5,
+        "latitude": 16.3,
+        "radius": 10,
+        "scale": 1,
+        "type": "zoom",
+        "modal": true
       }
     ],
     "mapInfo": {

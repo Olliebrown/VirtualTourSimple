@@ -40,7 +40,7 @@ export default function InfoZoomModal () {
       slideIndex={slideIndex}
     />
   } else if (hotspotModalOpen === 'zoom') {
-    modalContent = <ZoomHotspotContent image={hotspotContent?.image} />
+    modalContent = <ZoomHotspotContent hotspotImage={hotspotContent?.image} caption={hotspotContent?.caption} />
   }
 
   return (

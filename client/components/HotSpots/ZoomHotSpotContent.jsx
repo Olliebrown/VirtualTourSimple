@@ -18,7 +18,7 @@ export default function ZoomHotspotContent (props) {
             objectFit: 'contain',
             maxHeight: 'calc(100vh - 500px)'
           }}
-          src={`${CONFIG().INFO_IMAGE_PATH}/${hotspotImage.src}`}
+          src={`${CONFIG().ZOOM_IMAGE_PATH}/${hotspotImage.src}`}
           alt={hotspotImage.alt}
         />
         {caption &&
