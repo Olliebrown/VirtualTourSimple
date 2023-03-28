@@ -32,18 +32,22 @@ export default function InfoZoomModal () {
   const hotspotContent = useHotspotContent(hotspotData?.jsonFilename, hotspotData?.type)
   const enableModal = hotspotContent && hotspotData?.type === 'info'
 
+  let modalContent = null
+  if (hotspotModalOpen === 'info') {
+    modalContent = <InfoHotspotContent
+      hotspotImages={hotspotContent?.images}
+      defaultHeight={hotspotContent?.height > 0 ? hotspotContent?.height : undefined}
+      slideIndex={slideIndex}
+    />
+  } else if (hotspotModalOpen === 'zoom') {
+    modalContent = <ZoomHotspotContent image={hotspotContent?.image} />
+  }
+
   return (
     <Dialog fullWidth maxWidth='lg' onClose={requestClose} open={!!enableModal && hotspotModalOpen !== ''}>
       <DialogTitle>{hotspotData?.title || 'Info'}</DialogTitle>
       <DialogContent dividers>
-        {hotspotModalOpen === 'info'
-          ? <InfoHotspotContent
-              hotspotImages={hotspotContent?.images}
-              defaultHeight={hotspotContent?.height > 0 ? hotspotContent?.height : undefined}
-              slideIndex={slideIndex}
-            />
-          : <ZoomHotspotContent image={hotspotContent?.image} />
-        }
+        {modalContent}
       </DialogContent>
       <DialogActions>
         <AudioPlayer

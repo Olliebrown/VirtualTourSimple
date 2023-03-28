@@ -50,10 +50,16 @@ export default function HotSpotTooltip (props) {
     default: tooltipTitle = 'Bad Type'; break
   }
 
+  // Is there a description to show?
+  const showDescription = (
+    typeof hotspotContent?.description === 'string' &&
+    hotspotContent?.description?.trim() !== ''
+  )
+
   return (
     <Popper
       popperRef={popperRef}
-      open={hotspotData?.hovering && !hotspotModalOpen}
+      open={hotspotData?.hovering && hotspotModalOpen === ''}
       anchorEl={{ getBoundingClientRect }}
       transition
       placement="bottom-start"
@@ -62,18 +68,19 @@ export default function HotSpotTooltip (props) {
         <Fade {...TransitionProps}>
           {hotspotData?.type === 'placard'
             ? <Card sx={{ maxWidth: 400, textAlign: 'left' }}>
-                <CardContent>
+                <CardContent sx={{ paddingBottom: '16px !important' }}>
                   <Typography
                     variant="h5"
                     component="div"
-                    gutterBottom
-                    sx={{ borderBottom: '1px solid lightgrey' }}
+                    gutterBottom={showDescription}
+                    sx={{ borderBottom: showDescription ? '1px solid lightgrey' : undefined }}
                   >
                     {hotspotContent?.title || 'Loading...'}
                   </Typography>
-                  <Typography variant="body2">
-                    {hotspotContent?.description || '(please wait)'}
-                  </Typography>
+                  {showDescription &&
+                    <Typography variant="body2">
+                      {hotspotContent?.description || '(please wait)'}
+                    </Typography>}
                 </CardContent>
               </Card>
             : <Paper>
