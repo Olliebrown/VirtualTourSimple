@@ -2670,6 +2670,96 @@
         "scale": 0.7,
         "type": "info",
         "modal": true
+      },
+      {
+        "id": "1S05_Compressor",
+        "title": "Compressor",
+        "longitude": -112.8,
+        "latitude": 21.7,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S05_Condenser",
+        "title": "Condenser",
+        "longitude": -127.7,
+        "latitude": 9.2,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S05_ExpansionValve",
+        "title": "Expansion Valve",
+        "longitude": -122.8,
+        "latitude": -7,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S05_LeavingCondenserWater",
+        "title": "Leaving Condenser Water",
+        "longitude": -103,
+        "latitude": 16.7,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S05_ReturnCondenserWater",
+        "title": "Return Condenser Water",
+        "longitude": -91.6,
+        "latitude": 8,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S05_LeavingChilledWater",
+        "title": "Leaving Chilled Water",
+        "longitude": -79.2,
+        "latitude": 19.2,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S05_ReturnChilledWater",
+        "title": "Return Chilled Water",
+        "longitude": -80.4,
+        "latitude": -2,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S05_Evaporator",
+        "title": "Evaportator",
+        "longitude": -46.8,
+        "latitude": 9.2,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S05_ControlCenter",
+        "title": "Control Center",
+        "longitude": -54.3,
+        "latitude": 24.1,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
       }
     ],
     "mapInfo": {
@@ -2752,6 +2842,96 @@
         "latitude": -8,
         "scale": 0.6,
         "priority": 0
+      },
+      {
+        "id": "1S05_Compressor",
+        "title": "Compressor",
+        "longitude": -146.1,
+        "latitude": 38,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S05_Consdenser",
+        "title": "Condenser",
+        "longitude": -184.1,
+        "latitude": 17.8,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S05_ExpansionValve",
+        "title": "Expansion Valve",
+        "longitude": -171.3,
+        "latitude": -12,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S05_LeavingCondenserWater",
+        "title": "Leaving Condenser Water",
+        "longitude": -121.5,
+        "latitude": 27.9,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S05_ReturnCondenserWater",
+        "title": "Return Condenser Water",
+        "longitude": -102.8,
+        "latitude": 31.6,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S05_LeavingChilledWater",
+        "title": "Leaving Chilled Water",
+        "longitude": -66.7,
+        "latitude": 31.6,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S05_ReturnChilledWater",
+        "title": "Return Chilled Water",
+        "longitude": -64.3,
+        "latitude": -0.8,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S05_Evaporator",
+        "title": "Evaportator",
+        "longitude": 31.6,
+        "latitude": 9.2,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S05_ControlCenter",
+        "title": "Control Center",
+        "longitude": 9.2,
+        "latitude": 39.1,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
       }
     ],
     "mapInfo": {
@@ -2792,7 +2972,98 @@
       164,
       -181
     ],
-    "hotspots": [],
+    "hotspots": [
+      {
+        "id": "1S05_Compressor",
+        "title": "Compressor",
+        "longitude": -143.7,
+        "latitude": 14.3,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S05_Condenser",
+        "title": "Condenser",
+        "longitude": -185.2,
+        "latitude": -22.6,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S05_ExpansionValve",
+        "title": "Expansion Valve",
+        "longitude": -178.5,
+        "latitude": -36.8,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S05_LeavingCondenserWater",
+        "title": "Leaving Condenser Water",
+        "longitude": -131.5,
+        "latitude": 1.7,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S05_ReturnCondenserWater",
+        "title": "Return Condenser Water",
+        "longitude": -153.9,
+        "latitude": -39.4,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S05_LeavingChilledWater",
+        "title": "Leaving Chilled Water",
+        "longitude": -90.4,
+        "latitude": 11.7,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S05_ReturnChilledWater",
+        "title": "Return Chilled Water",
+        "longitude": -89.2,
+        "latitude": -34.4,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S05_Evaporator",
+        "title": "Evaporator",
+        "longitude": 69,
+        "latitude": -38.1,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S05_ControlCenter",
+        "title": "Control Center",
+        "longitude": 40.3,
+        "latitude": 0,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      }
+    ],
     "mapInfo": {
       "building": "Cooling Plant",
       "floor": "Ground Floor",
@@ -2830,7 +3101,98 @@
       -121.1,
       -182
     ],
-    "hotspots": [],
+    "hotspots": [
+      {
+        "id": "1S05_Compressor",
+        "title": "Compressor",
+        "longitude": -117.6,
+        "latitude": 21.4,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S05_Condenser",
+        "title": "Condenser",
+        "longitude": -133,
+        "latitude": 10.7,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S05_ExpansionValve",
+        "title": "Expansion Valve",
+        "longitude": -128.2,
+        "latitude": -8.3,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S05_LeavingCondenserWater",
+        "title": "Leaving Condenser Water",
+        "longitude": -106,
+        "latitude": 31.6,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S05_ReturnCondenserWater",
+        "title": "Return Condenser Water",
+        "longitude": -107.8,
+        "latitude": 8,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S05_LeavingChilledWater",
+        "title": "Leaving Chilled Water",
+        "longitude": -80.4,
+        "latitude": 6.7,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S05_ReturnChilledWater",
+        "title": "Return Chilled Water",
+        "longitude": -86.7,
+        "latitude": -10.7,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S05_Evaporator",
+        "title": "Evaporator",
+        "longitude": -45.6,
+        "latitude": 9.2,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S05_ControlCenter",
+        "title": "Control Center",
+        "longitude": -49.3,
+        "latitude": 29.1,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      }
+    ],
     "mapInfo": {
       "building": "Cooling Plant",
       "floor": "Ground Floor",
@@ -2876,7 +3238,98 @@
       -125,
       -182
     ],
-    "hotspots": [],
+    "hotspots": [
+      {
+        "id": "1S05_Compressor",
+        "title": "Compressor",
+        "longitude": -156.7,
+        "latitude": 39.2,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S05_Condenser",
+        "title": "Condenser",
+        "longitude": -186.4,
+        "latitude": 17.8,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S05_ExpansionValve",
+        "title": "Expansion Valve",
+        "longitude": -171,
+        "latitude": -14.2,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S05_LeavingCondenserWater",
+        "title": "Leaving Condenser Water",
+        "longitude": -122.8,
+        "latitude": 30.4,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S05_ReturnCondenserWater",
+        "title": "Return Condenser Water",
+        "longitude": -139,
+        "latitude": 19.2,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S05_LeavingChilledWater",
+        "title": "Leaving Chilled Water",
+        "longitude": -50.6,
+        "latitude": 0,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S05_ReturnChilledWater",
+        "title": "Return Chilled Water",
+        "longitude": -75.5,
+        "latitude": -5.7,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S05_Evaporator",
+        "title": "Evaporator",
+        "longitude": 30.4,
+        "latitude": 11.7,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S05_ControlCenter",
+        "title": "Control Center",
+        "longitude": 10.4,
+        "latitude": 41.6,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      }
+    ],
     "mapInfo": {
       "building": "Cooling Plant",
       "floor": "Ground Floor",
@@ -2915,7 +3368,88 @@
       -128,
       -180
     ],
-    "hotspots": [],
+    "hotspots": [
+      {
+        "id": "1S05_Compressor",
+        "title": "Compressor",
+        "longitude": -149.6,
+        "latitude": 3.6,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S05_Condenser",
+        "title": "Condenser",
+        "longitude": -188.8,
+        "latitude": -21.4,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S05_ExpansionValve",
+        "title": "Expansion Valve",
+        "longitude": -172.2,
+        "latitude": -35.6,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S05_ReturnCondenserWater",
+        "title": "Return Condenser Water",
+        "longitude": -155.1,
+        "latitude": -26.9,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S05_LeavingChilledWater",
+        "title": "Leaving Chilled Water",
+        "longitude": -100.4,
+        "latitude": -35.6,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S05_ReturnChilledWater",
+        "title": "Return Chilled Water",
+        "longitude": -131.5,
+        "latitude": -50.6,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S05_Evaporator",
+        "title": "Evaporator",
+        "longitude": 64,
+        "latitude": -44.3,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S05_ControlCenter",
+        "title": "Control Center",
+        "longitude": 21.7,
+        "latitude": -7,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      }
+    ],
     "mapInfo": {
       "building": "Cooling Plant",
       "floor": "Ground Floor",
