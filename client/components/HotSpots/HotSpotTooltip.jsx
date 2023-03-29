@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { hotspotModalOpenState, hotspotDataState } from '../../state/globalState.js'
+import { hotspotModalOpenState, hotspotHoverState } from '../../state/globalState.js'
 import { useRecoilValue } from 'recoil'
 
 import { Popper, Fade, Paper, Typography, Card, CardContent } from '@mui/material'
@@ -10,7 +10,10 @@ import { useHotspotContent } from '../../state/hotspotInfoHelper.js'
 export default function HotSpotTooltip (props) {
   // Subscribe to pieces of global state
   const hotspotModalOpen = useRecoilValue(hotspotModalOpenState)
-  const hotspotData = useRecoilValue(hotspotDataState)
+  const hotspotHover = useRecoilValue(hotspotHoverState)
+
+  // console.log('======= HotSpotTooltip =======')
+  // console.log(hotspotHover)
 
   // Reference for tracking mouse position
   const positionRef = React.useRef({ x: 0, y: 0 })
@@ -24,7 +27,7 @@ export default function HotSpotTooltip (props) {
     popperRef?.current?.update()
   }
 
-  const hotspotContent = useHotspotContent(hotspotData?.jsonFilename, hotspotData?.type)
+  const hotspotContent = useHotspotContent(hotspotHover?.jsonFilename, hotspotHover?.type)
 
   // Install a global event listener to follow the mouse
   // Note: Only runs once on first render
@@ -41,8 +44,8 @@ export default function HotSpotTooltip (props) {
   }, [positionRef])
 
   // Construct the tooltip
-  let tooltipTitle = hotspotData?.title ?? ''
-  switch (hotspotData?.type) {
+  let tooltipTitle = hotspotHover?.title ?? ''
+  switch (hotspotHover?.type) {
     case 'info': tooltipTitle = 'Learn about ' + tooltipTitle; break
     case 'zoom': tooltipTitle = 'Zoom in on ' + tooltipTitle; break
     case 'media': tooltipTitle = 'Watch ' + tooltipTitle; break
@@ -59,14 +62,14 @@ export default function HotSpotTooltip (props) {
   return (
     <Popper
       popperRef={popperRef}
-      open={hotspotData?.hovering && hotspotModalOpen === ''}
+      open={!!hotspotHover?.hovering && hotspotModalOpen === ''}
       anchorEl={{ getBoundingClientRect }}
       transition
       placement="bottom-start"
     >
       {({ TransitionProps }) => (
         <Fade {...TransitionProps}>
-          {hotspotData?.type === 'placard'
+          {hotspotHover?.type === 'placard'
             ? <Card sx={{ maxWidth: 400, textAlign: 'left' }}>
                 <CardContent sx={{ paddingBottom: '16px !important' }}>
                   <Typography

@@ -46,6 +46,36 @@
         "scale": 1,
         "type": "zoom",
         "modal": true
+      },
+      {
+        "id": "1S01_Screen4",
+        "title": "Boiler 2 Faceplates",
+        "longitude": 165.3,
+        "latitude": 18.7,
+        "radius": 10,
+        "scale": 1,
+        "type": "zoom",
+        "modal": true
+      },
+      {
+        "id": "1S01_Screen5",
+        "title": "Boiler 3 Overview",
+        "longitude": 131.5,
+        "latitude": 13.5,
+        "radius": 10,
+        "scale": 1,
+        "type": "zoom",
+        "modal": true
+      },
+      {
+        "id": "1S01_Screen6",
+        "title": "Plant Faceplates",
+        "longitude": 74.7,
+        "latitude": -1.8,
+        "radius": 10,
+        "scale": 1,
+        "type": "zoom",
+        "modal": true
       }
     ],
     "mapInfo": {

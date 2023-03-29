@@ -4,7 +4,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { nextPanoKeyState } from '../../state/fullTourState.js'
-import { hotspotDataState } from '../../state/globalState.js'
+import { hotspotHoverState } from '../../state/globalState.js'
 import { transitionStartedState } from '../../state/transitionState.js'
 import { useRecoilValue, useSetRecoilState } from 'recoil'
 
@@ -18,9 +18,9 @@ export default function HotSpotIndicator (props) {
   const { id, type, title, modal, hidden, longitude, latitude, radius, scale, onClick, texName, ...rest } = props
 
   // Subscribe to changes in global state
-  const setHotspotData = useSetRecoilState(hotspotDataState)
   const nextPanoKey = useRecoilValue(nextPanoKeyState)
   const transitionStarted = useRecoilValue(transitionStartedState)
+  const setHotspotHover = useSetRecoilState(hotspotHoverState)
 
   // Track first render
   const [firstRender, setFirstRender] = React.useState(true)
@@ -34,9 +34,15 @@ export default function HotSpotIndicator (props) {
   React.useEffect(() => {
     if (enabled) {
       document.body.style.cursor = hovering ? 'pointer' : 'auto'
+      setHotspotHover({
+        hovering,
+        type,
+        title,
+        jsonFilename: id ? `${type}/${id}.json` : undefined
+      })
     }
     return () => { document.body.style.cursor = 'auto' }
-  }, [hovering, enabled])
+  }, [hovering, enabled, setHotspotHover, type, title, id])
 
   // Animated values
   const hoverSpring = useSpring({
@@ -49,24 +55,6 @@ export default function HotSpotIndicator (props) {
     onStart: () => { setEnabled(false) },
     onRest: () => { setEnabled(!transitionStarted) }
   }) // test
-
-  // Track hovering state and modal state
-  React.useEffect(() => {
-    const useJSON = type === 'info' || type === 'audio' || type === 'placard'
-
-    // Synchronize hotspot data
-    setHotspotData({
-      jsonFilename: useJSON && id ? `${type}/${id}.json` : undefined,
-      title,
-      type,
-      showAlways: !modal,
-      hovering
-    })
-
-    // Update cursor to indicate this can be clicked
-    document.body.style.cursor = hovering && type !== 'placard' ? 'pointer' : 'auto'
-    return () => { document.body.style.cursor = 'auto' }
-  }, [id, title, type, hovering, modal, setHotspotData])
 
   // If hidden, be sure to set hovering to false
   React.useEffect(() => { if (hidden) { setHovering(false) } }, [hidden])

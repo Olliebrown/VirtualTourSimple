@@ -18,6 +18,9 @@ export default function InfoZoomModal () {
   const hotspotData = useRecoilValue(hotspotDataState)
   const updateRoomTaskCompletion = useSetRecoilState(currentRoomPriorityState)
 
+  // console.log('======= InfoZoomModal =======')
+  // console.log(hotspotData)
+
   // Track the slideshow state as [slide, build]
   const [slideIndex, setSlideIndex] = React.useState([0, 0])
 
@@ -30,18 +33,17 @@ export default function InfoZoomModal () {
 
   // Note: may be null until retrieved
   const hotspotContent = useHotspotContent(hotspotData?.jsonFilename, hotspotData?.type)
-  const enableModal = hotspotContent && hotspotData?.type === 'info'
+  const enableModal = hotspotContent && (hotspotData?.type === 'info' || hotspotData?.type === 'zoom')
 
-  let modalContent = null
-  if (hotspotModalOpen === 'info') {
-    modalContent = <InfoHotspotContent
-      hotspotImages={hotspotContent?.images}
-      defaultHeight={hotspotContent?.height > 0 ? hotspotContent?.height : undefined}
-      slideIndex={slideIndex}
-    />
-  } else if (hotspotModalOpen === 'zoom') {
-    modalContent = <ZoomHotspotContent hotspotImage={hotspotContent?.image} caption={hotspotContent?.caption} />
-  }
+  // Build the modal content
+  const modalContent = (hotspotModalOpen === 'zoom'
+    ? <ZoomHotspotContent hotspotImage={hotspotContent?.image} caption={hotspotContent?.caption} />
+    : <InfoHotspotContent
+        hotspotImages={hotspotContent?.images}
+        defaultHeight={hotspotContent?.height > 0 ? hotspotContent?.height : undefined}
+        slideIndex={slideIndex}
+      />
+  )
 
   return (
     <Dialog fullWidth maxWidth='lg' onClose={requestClose} open={!!enableModal && hotspotModalOpen !== ''}>
@@ -50,10 +52,11 @@ export default function InfoZoomModal () {
         {modalContent}
       </DialogContent>
       <DialogActions>
-        <AudioPlayer
-          hotspotAudio={hotspotContent?.audio}
-          setSlideIndex={setSlideIndex}
-        />
+        {hotspotModalOpen === 'info' && !!hotspotContent?.audio &&
+          <AudioPlayer
+            hotspotAudio={hotspotContent?.audio}
+            setSlideIndex={setSlideIndex}
+          />}
         <Button onClick={requestClose}>{'Close'}</Button>
       </DialogActions>
     </Dialog>

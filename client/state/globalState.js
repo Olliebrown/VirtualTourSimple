@@ -62,12 +62,19 @@ export const hotspotModalOpenState = atom({
   default: ''
 })
 
-// Info hotspot modal state
+// Data for the most recently hovered hotspot
+export const hotspotHoverState = atom({
+  key: 'hotspotHover',
+  default: {
+    title: '',
+    type: 'unknown'
+  }
+})
+
+// Data for the most recently clicked hotspot
 export const hotspotDataState = atom({
   key: 'hotspotData',
   default: {
-    hovering: false,
-    showAlways: false,
     title: '',
     jsonFilename: '',
     type: 'unknown'
