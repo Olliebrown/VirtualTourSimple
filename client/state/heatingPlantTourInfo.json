@@ -221,6 +221,16 @@
         "scale": 0.5,
         "type": "placard",
         "modal": true
+      },
+      {
+        "id": "1S01_PressureGauge",
+        "title": "Pressure Gauge",
+        "longitude": -29.4,
+        "latitude": 10.4,
+        "radius": 10,
+        "scale": 0.6,
+        "type": "zoom",
+        "modal": true
       }
     ],
     "mapInfo": {
@@ -525,6 +535,16 @@
         "radius": 8,
         "scale": 0.6,
         "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S03_Boiler2",
+        "title": "Burner 2",
+        "longitude": -8.2,
+        "latitude": 20.4,
+        "radius": 10,
+        "scale": 1,
+        "type": "zoom",
         "modal": true
       }
     ],
@@ -1043,6 +1063,16 @@
         "radius": 8,
         "scale": 0.6,
         "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1N04_PeepingHoleVid",
+        "title": "Peeping Hole Video",
+        "longitude": -182.5,
+        "latitude": 46.6,
+        "radius": 10,
+        "scale": 1,
+        "type": "zoom",
         "modal": true
       }
     ],
@@ -3122,6 +3152,16 @@
         "scale": 0.5,
         "type": "placard",
         "modal": true
+      },
+      {
+        "id": "1S05_ControlScreens",
+        "title": "Condenser Screen",
+        "longitude": 24.1,
+        "latitude": -3.2,
+        "radius": 6,
+        "scale": 1,
+        "type": "zoom",
+        "modal": true
       }
     ],
     "mapInfo": {
@@ -3508,6 +3548,16 @@
         "scale": 0.5,
         "type": "placard",
         "modal": true
+      },
+      {
+        "id": "1S05_ControlScreens2",
+        "title": "Evaporator Screen",
+        "longitude": 1.7,
+        "latitude": -3.2,
+        "radius": 6,
+        "scale": 1,
+        "type": "zoom",
+        "modal": true
       }
     ],
     "mapInfo": {
@@ -3694,13 +3744,13 @@
         "modal": true
       },
       {
-        "id": "1S01_MassFlowTransmitter",
-        "title": "Mass Flow Transmitter",
+        "id": "1S01_FlowMeters",
+        "title": "Flow Meters",
         "longitude": 129.4,
-        "latitude": 15.4,
-        "radius": 8,
-        "scale": 0.6,
-        "type": "placard",
+        "latitude": 22.6,
+        "radius": 10,
+        "scale": 1,
+        "type": "zoom",
         "modal": true
       }
     ],
@@ -3741,16 +3791,6 @@
         "title": "Oxygen Analyzer",
         "longitude": 165.1,
         "latitude": 3.1,
-        "radius": 10,
-        "scale": 0.5,
-        "type": "placard",
-        "modal": true
-      },
-      {
-        "id": "1S01_MassFlowTransmitter",
-        "title": "Mass Flow Transmitter",
-        "longitude": 162,
-        "latitude": 3.6,
         "radius": 10,
         "scale": 0.5,
         "type": "placard",
@@ -5565,6 +5605,16 @@
         "radius": 8,
         "scale": 0.6,
         "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "LIB_louver",
+        "title": "Outside Air Louver",
+        "longitude": 72.7,
+        "latitude": 9.2,
+        "radius": 10,
+        "scale": 1,
+        "type": "zoom",
         "modal": true
       }
     ],
