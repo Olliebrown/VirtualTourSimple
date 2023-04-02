@@ -1210,7 +1210,28 @@
       -118.5,
       -182
     ],
-    "hotspots": [],
+    "hotspots": [
+      {
+        "id": "1N02_AshHoppers1",
+        "title": "Ash Hoppers Bottom",
+        "longitude": -127.1,
+        "latitude": -3.6,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1N02_AshHoppers2",
+        "title": "Ash Hoppers Ceiling",
+        "longitude": -87.9,
+        "latitude": 48.7,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      }
+    ],
     "mapInfo": {
       "building": "Heating Plant",
       "floor": "Ground Floor",
@@ -1319,7 +1340,28 @@
       -123,
       -182
     ],
-    "hotspots": [],
+    "hotspots": [
+      {
+        "id": "1N02_AshHoppers1",
+        "title": "Ash Hoppers Bottom",
+        "longitude": -155.6,
+        "latitude": -3.6,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1N02_AshHoppers2",
+        "title": "Ash Hoopers Ceiling",
+        "longitude": -8.3,
+        "latitude": 100.9,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      }
+    ],
     "mapInfo": {
       "building": "Heating Plant",
       "floor": "Ground Floor",
@@ -1376,6 +1418,26 @@
         "title": "Ash Hoppers Ceiling",
         "longitude": -101.4,
         "latitude": 33.3,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1N02_AshHoppers1",
+        "title": "Ash Hoppers Bottom",
+        "longitude": 124.7,
+        "latitude": -1.2,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1N02_AshHoppers2",
+        "title": "Ash Hoppers Ceiling",
+        "longitude": 98.8,
+        "latitude": 39,
         "radius": 10,
         "scale": 0.5,
         "type": "placard",
@@ -1484,6 +1546,36 @@
         "title": "Combustion Air Duct 2",
         "longitude": 134.9,
         "latitude": 0,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S03_LowPressureSteam",
+        "title": "Boiler 2 Low Pressure Steam",
+        "longitude": -38.1,
+        "latitude": 0,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S03_MudDrum2",
+        "title": "Boiler 2 Mud Drum",
+        "longitude": -44.3,
+        "latitude": 16.7,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S03_FireDoor2",
+        "title": "Boiler 2 Fire Door",
+        "longitude": -60.5,
+        "latitude": -28.1,
         "radius": 8,
         "scale": 0.6,
         "type": "placard",
