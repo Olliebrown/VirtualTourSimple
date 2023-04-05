@@ -2979,8 +2979,13 @@
     "exits": [
       {
         "key": "1S05_10",
-        "direction": -140,
-        "type": "arrow"
+        "direction": -127.1,
+        "type": "arrow",
+        "alignment": [
+          0,
+          0,
+          52
+        ]
       },
       {
         "key": "1S05_22",
