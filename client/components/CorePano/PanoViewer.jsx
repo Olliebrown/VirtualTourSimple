@@ -3,7 +3,7 @@ import CONFIG from '../../config.js'
 import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 
-import localDB, { INVERT_CONTROLS_DEFAULT, MOTION_CONTROLS_DEFAULT, updateSetting } from '../../state/localDB.js'
+import localDB, { INVERT_CONTROLS_DEFAULT, MOTION_CONTROLS_DEFAULT, ENABLE_PLACARD_HS_DEFAULT, ENABLE_ZOOM_HS_DEFAULT, updateSetting } from '../../state/localDB.js'
 import { useLiveQuery } from 'dexie-react-hooks'
 
 import { currentPanoKeyState, nextPanoKeyState, currentPanoDataState, enabledPanoRoomsState, enabledHotSpotsState } from '../../state/fullTourState.js'
@@ -32,6 +32,8 @@ export default function PanoViewer (props) {
 
   const enableMotionControls = useLiveQuery(() => localDB.settings.get('enableMotionControls'))?.value ?? MOTION_CONTROLS_DEFAULT
   const invertOrbitControls = useLiveQuery(() => localDB.settings.get('invertOrbitControls'))?.value ?? INVERT_CONTROLS_DEFAULT
+  const enablePlacardHotspots = useLiveQuery(() => localDB.settings.get('enablePlacardHotspots'))?.value ?? ENABLE_PLACARD_HS_DEFAULT
+  const enableZoomHotspots = useLiveQuery(() => localDB.settings.get('enableZoomHotspots'))?.value ?? ENABLE_ZOOM_HS_DEFAULT
 
   // Subscribe to pano DB changes
   const currentPanoKey = useRecoilValue(currentPanoKeyState)
@@ -49,7 +51,11 @@ export default function PanoViewer (props) {
 
   const enabledHotSpots = useRecoilValue(enabledHotSpotsState)
   const filteredHotSpots = enabledHotSpots.length > 0
-    ? currentPanoData?.hotspots?.filter(hotspot => enabledHotSpots.includes(hotspot.id))
+    ? currentPanoData?.hotspots?.filter(hotspot => (
+      enabledHotSpots.includes(hotspot.id) ||
+      (hotspot.type === 'placard' && enablePlacardHotspots) ||
+      (hotspot.type === 'zoom' && enableZoomHotspots)
+    ))
     : currentPanoData?.hotspots
 
   // Sphere rotation state
