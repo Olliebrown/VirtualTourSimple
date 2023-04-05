@@ -53,8 +53,7 @@ export default function PanoViewer (props) {
   const filteredHotSpots = enabledHotSpots.length > 0
     ? currentPanoData?.hotspots?.filter(hotspot => (
       enabledHotSpots.includes(hotspot.id) ||
-      (hotspot.type === 'placard' && enablePlacardHotspots) ||
-      (hotspot.type === 'zoom' && enableZoomHotspots)
+      (hotspot.type !== 'info' && hotspot.type !== 'media' && hotspot.type !== 'audio')
     ))
     : currentPanoData?.hotspots
 
