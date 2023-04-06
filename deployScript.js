@@ -10,12 +10,16 @@ const ALL_DIRS = [
   path.join(DEST_ASSETS, 'js'),
   path.join(DEST_ASSETS, 'images'),
   path.join(DEST_ASSETS, 'panoGeom'),
-  path.join(DEST_ASSETS, 'panoData'),
+  path.join(DEST_ASSETS, 'panoData', 'audio'),
+  path.join(DEST_ASSETS, 'panoData', 'info'),
+  path.join(DEST_ASSETS, 'panoData', 'placard'),
+  path.join(DEST_ASSETS, 'panoData', 'zoom'),
   path.join(DEST_ASSETS, 'panoMedia', 'audio'),
   path.join(DEST_ASSETS, 'panoMedia', 'infoImages'),
   path.join(DEST_ASSETS, 'panoMedia', 'mapImages'),
   path.join(DEST_ASSETS, 'panoMedia', 'panoImages'),
-  path.join(DEST_ASSETS, 'panoMedia', 'panoVideos')
+  path.join(DEST_ASSETS, 'panoMedia', 'panoVideos'),
+  path.join(DEST_ASSETS, 'panoMedia', 'zoomImages')
 ]
 
 // Filter function to leave out certain dirs and their contents

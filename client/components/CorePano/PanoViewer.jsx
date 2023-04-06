@@ -50,12 +50,35 @@ export default function PanoViewer (props) {
     : currentPanoData?.exits
 
   const enabledHotSpots = useRecoilValue(enabledHotSpotsState)
-  const filteredHotSpots = enabledHotSpots.length > 0
-    ? currentPanoData?.hotspots?.filter(hotspot => (
-      enabledHotSpots.includes(hotspot.id) ||
-      (hotspot.type !== 'info' && hotspot.type !== 'media' && hotspot.type !== 'audio')
-    ))
-    : currentPanoData?.hotspots
+  const filteredHotSpots = currentPanoData?.hotspots?.reduce((filteredList, hotspot) => {
+    switch (hotspot.type) {
+      case 'info': case 'audio': case 'media':
+        if (enabledHotSpots.length < 1 || enabledHotSpots.includes(hotspot.id)) {
+          return [...filteredList, hotspot]
+        }
+        break
+      case 'placard':
+        if (enablePlacardHotspots) {
+          return [...filteredList, hotspot]
+        }
+        break
+
+      case 'zoom':
+        if (enableZoomHotspots) {
+          return [...filteredList, hotspot]
+        }
+        break
+    }
+
+    return filteredList
+  }, [])
+
+  // enabledHotSpots.length > 0
+  //   ? currentPanoData?.hotspots?.filter(hotspot => (
+  //     enabledHotSpots.includes(hotspot.id) ||
+  //     (hotspot.type !== 'info' && hotspot.type !== 'media' && hotspot.type !== 'audio')
+  //   ))
+  //   : currentPanoData?.hotspots
 
   // Sphere rotation state
   const [xRotate, setXRotate] = useState(currentPanoData?.alignment?.[0] || 0)
