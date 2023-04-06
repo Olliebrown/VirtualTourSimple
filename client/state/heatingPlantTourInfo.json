@@ -5619,6 +5619,16 @@
         "scale": 0.6,
         "type": "placard",
         "modal": true
+      },
+      {
+        "id": "LN02_Steam_Turbine",
+        "title": "Steam Turbine",
+        "longitude": -48.1,
+        "latitude": 0,
+        "radius": 8,
+        "scale": 1,
+        "type": "info",
+        "modal": true
       }
     ],
     "mapInfo": {
@@ -5910,6 +5920,16 @@
         "radius": 8,
         "scale": 0.6,
         "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "LN02_Steam_Turbine",
+        "title": "Steam Turbine",
+        "longitude": 55.8,
+        "latitude": -3.6,
+        "radius": 8,
+        "scale": 1,
+        "type": "info",
         "modal": true
       }
     ],

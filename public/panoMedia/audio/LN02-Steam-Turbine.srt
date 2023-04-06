@@ -1,0 +1,109 @@
+1
+00:00:00,000 --> 00:00:04,800
+A steam turbine is a mechanical device 
+that converts mechanical energy stored in 
+
+2
+00:00:04,800 --> 00:00:08,940
+high-pressure flowing steam into 
+rotational mechanical energy. Turbines are 
+
+3
+00:00:08,940 --> 00:00:12,660
+commonly used in power plants to produce 
+mechanical power that may be used 
+
+4
+00:00:12,660 --> 00:00:16,800
+by a generator to produce electrical 
+power. At Stout’s heating plant, the 
+
+5
+00:00:16,800 --> 00:00:20,940
+mechanical energy from the turbine is 
+used to run the feedwater pump, as seen 
+
+6
+00:00:20,940 --> 00:00:25,560
+in Figure 1. The steam turbine drives this 
+feed pump to supply water to the boiler 
+
+7
+00:00:25,560 --> 00:00:29,700
+units as needed. The feed pump raises 
+the feedwater to a pressure high enough 
+
+8
+00:00:29,700 --> 00:00:34,740
+to enter the boiler. Steam turbine-driven feed 
+pumps are typical with high pressure water-tube  
+
+9
+00:00:34,740 --> 00:00:39,780
+boiler installations. The turbine is supplied with 
+steam directly from the boiler and exhausts into a  
+
+10
+00:00:39,780 --> 00:00:42,120
+back-pressure line which can be used
+for feed heating. 
+
+11
+00:00:43,140 --> 00:00:48,000
+A schematic of this steam turbine is shown 
+in Figure 2. It consists of two sets of 
+
+12
+00:00:48,000 --> 00:00:52,500
+blades. The first set of blades, called 
+stationary blades, are fixed on a casing., The 
+
+13
+00:00:52,500 --> 00:00:56,700
+second set of blades, called rotor blades, 
+are fixed on the rotor.. The steam is 
+
+14
+00:00:56,700 --> 00:01:00,240
+directed by the stationary blades so 
+that it impinges on the rotating turbine 
+
+15
+00:01:00,240 --> 00:01:04,379
+blades. During this process, momentum 
+is transferred from the fluid, causing a 
+
+16
+00:01:04,379 --> 00:01:08,460
+torque on the rotating shaft. Stationary 
+blades are used to redirect the steam 
+
+17
+00:01:08,460 --> 00:01:12,540
+between each set of rotating blades. 
+Steam enters the turbine at high pressure 
+
+18
+00:01:12,540 --> 00:01:16,620
+and temperature. The pressure of steam 
+decreases as it flows from the inlet to 
+
+19
+00:01:16,620 --> 00:01:21,540
+the outlet of the turbine. The specific 
+enthalpy of the steam also decreases as it 
+
+20
+00:01:21,540 --> 00:01:24,960
+flows through the device since energy is 
+transferred from the fluid to the rotating 
+
+21
+00:01:24,960 --> 00:01:29,460
+shaft. Figure 3 illustrates the typical 
+symbol used to represent the turbine 
+
+22
+00:01:29,460 --> 00:01:31,140
+component in a cycle schematic.
+
