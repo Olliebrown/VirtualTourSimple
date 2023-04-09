@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { hotspotModalOpenState, hotspotDataState } from '../../state/globalState.js'
-import { useSetRecoilState } from 'recoil'
+import { hotspotModalOpenState, hotspotDataState, panoMediaPlayingState, roomAudioState } from '../../state/globalState.js'
+import { useRecoilValue, useSetRecoilState } from 'recoil'
 
 import HotSpotIndicator from './HotSpotIndicator.jsx'
 
@@ -10,6 +10,8 @@ export default function ZoomHotspot (props) {
   const { id, title } = props
 
   // Subscribe to pieces of global state
+  const panoMediaPlaying = useRecoilValue(panoMediaPlayingState)
+  const roomAudio = useRecoilValue(roomAudioState)
   const setHotspotModalOpen = useSetRecoilState(hotspotModalOpenState)
   const setHotspotData = useSetRecoilState(hotspotDataState)
 
@@ -25,6 +27,7 @@ export default function ZoomHotspot (props) {
 
   return (
     <HotSpotIndicator
+      hidden={panoMediaPlaying || roomAudio}
       texName='ZoomIconTexture.png'
       onClick={onClick}
       {...props}

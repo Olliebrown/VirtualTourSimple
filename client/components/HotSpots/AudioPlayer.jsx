@@ -48,7 +48,7 @@ export default function AudioPlayer (props) {
         }
       }
     }
-  }, [hotspotAudio.slideTiming, setSlideIndex, playbackTime, subtitleStartTime, subtitleText, subtitleIndex])
+  }, [hotspotAudio?.slideTiming, setSlideIndex, playbackTime, subtitleStartTime, subtitleText, subtitleIndex])
 
   // Audio source state management
   const curAudioObj = useAudioSource(

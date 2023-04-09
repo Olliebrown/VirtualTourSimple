@@ -124,7 +124,7 @@
       -182
     ],
     "video": {
-      "href": "1S01-BrianPlantIntro-Chroma.mp4",
+      "href": "1S01-BrianPlantIntro-chroma.mp4",
       "mode": "VIDEO_HOLOGRAM",
       "loop": false,
       "autoPlay": false,
@@ -1964,7 +1964,28 @@
       -133,
       -185
     ],
-    "hotspots": [],
+    "hotspots": [
+      {
+        "id": "LN01_FuelOilPumps",
+        "title": "Fuel Oil Pumps",
+        "longitude": -131.8,
+        "latitude": -9.5,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "LN01_ControlPanel",
+        "title": "Control Panel",
+        "longitude": 161.5,
+        "latitude": -1.2,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      }
+    ],
     "mapInfo": {
       "building": "Heating Plant",
       "floor": "Basement",
@@ -2008,7 +2029,38 @@
       -123.5,
       -182
     ],
-    "hotspots": [],
+    "hotspots": [
+      {
+        "id": "LN01_FuelOilPumps",
+        "title": "Fuel Oil Pumps",
+        "longitude": -8.3,
+        "latitude": -3.6,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "LS01_CondensatePumpSkid",
+        "title": "Condensate Pump Skid",
+        "longitude": -179.1,
+        "latitude": -7.1,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "LN01_ControlPanel",
+        "title": "Control Panel",
+        "longitude": 55.8,
+        "latitude": 0,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      }
+    ],
     "mapInfo": {
       "building": "Heating Plant",
       "floor": "Basement",
@@ -2051,6 +2103,16 @@
         "latitude": -20,
         "scale": 0.4,
         "priority": 0
+      },
+      {
+        "id": "LS01_CondensatePumpSkid",
+        "title": "Condensate Pump Skid",
+        "longitude": -125.9,
+        "latitude": -11.9,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
       }
     ],
     "mapInfo": {
@@ -2085,7 +2147,78 @@
       -113.2,
       -181.7
     ],
-    "hotspots": [],
+    "hotspots": [
+      {
+        "id": "LS02_BlowerFan2",
+        "title": "Blower Fan #2",
+        "longitude": 40.4,
+        "latitude": -4.7,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "LS02_AirReceiver2",
+        "title": "Air Receiver",
+        "longitude": 140.1,
+        "latitude": 4.7,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "LS02_AirDryer2",
+        "title": "Air Dryer",
+        "longitude": 128.3,
+        "latitude": -15.4,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "LN02_NaturalGasDistributionLoop",
+        "title": "Natural Gas Distribution Loop",
+        "longitude": -174.7,
+        "latitude": -15.7,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "LS02_PressureGauge",
+        "title": "Pressure Gauge",
+        "longitude": -166.5,
+        "latitude": 6,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "zoom",
+        "modal": true
+      },
+      {
+        "id": "LS02_ServiceAirCompressor",
+        "title": "Service Air Compressor",
+        "longitude": 112.5,
+        "latitude": -5.7,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "LS01_CondensatePumpSkid",
+        "title": "Condensate Pump Skid",
+        "longitude": -100.4,
+        "latitude": -5.7,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      }
+    ],
     "mapInfo": {
       "building": "Heating Plant",
       "floor": "Basement",
@@ -2123,7 +2256,58 @@
       -119,
       -184
     ],
-    "hotspots": [],
+    "hotspots": [
+      {
+        "id": "LS02_BlowerFan2",
+        "title": "Blower Fan #2",
+        "longitude": 0,
+        "latitude": -5.9,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "LS02_AirReceiver2",
+        "title": "Air Receiver",
+        "longitude": -149.6,
+        "latitude": 5.9,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "LS02_AirDryer2",
+        "title": "Air Dryer",
+        "longitude": -131.8,
+        "latitude": -16,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "LN02_NaturalGasDistributionLoop",
+        "title": "Natural Gas Distribution Loop",
+        "longitude": -123.5,
+        "latitude": -7,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "LS02_ServiceAirCompressor",
+        "title": "Service Air Compressor",
+        "longitude": 154.9,
+        "latitude": -9.5,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      }
+    ],
     "mapInfo": {
       "building": "Heating Plant",
       "floor": "Basement",
@@ -2163,7 +2347,28 @@
       -117,
       -182
     ],
-    "hotspots": [],
+    "hotspots": [
+      {
+        "id": "LS03_BlowerFan3",
+        "title": "Blower Fan #3",
+        "longitude": -4.7,
+        "latitude": -3.6,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "LS02_ServiceAirCompressor",
+        "title": "Service Air Compressor",
+        "longitude": -117.6,
+        "latitude": -5.9,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      }
+    ],
     "mapInfo": {
       "building": "Heating Plant",
       "floor": "Basement",
@@ -2203,7 +2408,18 @@
       -119.5,
       -183
     ],
-    "hotspots": [],
+    "hotspots": [
+      {
+        "id": "LS05_BlowerFan4",
+        "title": "Blower Fan #4",
+        "longitude": 59.4,
+        "latitude": 23.8,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      }
+    ],
     "mapInfo": {
       "building": "Heating Plant",
       "floor": "Basement",
@@ -2281,7 +2497,38 @@
       -137.9,
       -181
     ],
-    "hotspots": [],
+    "hotspots": [
+      {
+        "id": "LS05_SandFilter",
+        "title": "Sand Filter",
+        "longitude": 165.1,
+        "latitude": -2.4,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "LS05_BlowerFan4",
+        "title": "Blower Fan #4",
+        "longitude": -143.7,
+        "latitude": 3.6,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "LN05_ChillerWaterPumps2",
+        "title": "Chiller Water Pumps 2",
+        "longitude": 114,
+        "latitude": -7.1,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      }
+    ],
     "mapInfo": {
       "building": "Heating Plant",
       "floor": "Basement",
@@ -2321,7 +2568,18 @@
       -110.5,
       -183.8
     ],
-    "hotspots": [],
+    "hotspots": [
+      {
+        "id": "LS05_BlowerFan4",
+        "title": "Blower Fan #4",
+        "longitude": 149.6,
+        "latitude": 7.1,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      }
+    ],
     "mapInfo": {
       "building": "Heating Plant",
       "floor": "Basement",
@@ -2354,7 +2612,28 @@
       -106.8,
       -182.6
     ],
-    "hotspots": [],
+    "hotspots": [
+      {
+        "id": "LN05_ChillerWaterPumps",
+        "title": "Chiller Water Pumps",
+        "longitude": 90.3,
+        "latitude": 0,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "LN05_ChillerWaterPumps2",
+        "title": "Chiller Water Pumps 2",
+        "longitude": -125.9,
+        "latitude": 0,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      }
+    ],
     "mapInfo": {
       "building": "Cooling Plant",
       "floor": "Basement",
@@ -2482,6 +2761,36 @@
         "latitude": -2.4,
         "scale": 0.6,
         "priority": 0
+      },
+      {
+        "id": "LS05_AirSeparator",
+        "title": "Air Separator",
+        "longitude": -116.4,
+        "latitude": 10.7,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "LN05_ChillerWaterPumps",
+        "title": "Chiller Water Pumps",
+        "longitude": 30.9,
+        "latitude": 0,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "LN05_ChillerWaterPumps2",
+        "title": "Chiller Water Pumps 2",
+        "longitude": -54.3,
+        "latitude": -15.7,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
       }
     ],
     "mapInfo": {
@@ -2568,6 +2877,36 @@
         "latitude": -4,
         "scale": 0.6,
         "priority": 0
+      },
+      {
+        "id": "LS05_AirSeparator",
+        "title": "Air Separator",
+        "longitude": 124.7,
+        "latitude": 0,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "LS05_SandFilter",
+        "title": "Sand Filter",
+        "longitude": -9.5,
+        "latitude": 0,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "LS05_BlowerFan4",
+        "title": "Blower Fan #4",
+        "longitude": -77.9,
+        "latitude": 0,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
       }
     ],
     "mapInfo": {
@@ -2618,6 +2957,16 @@
         "radius": 6,
         "scale": 1.5,
         "type": "info",
+        "modal": true
+      },
+      {
+        "id": "LN05_ChillerWaterPumps",
+        "title": "Chiller Water Pumps",
+        "longitude": -14.2,
+        "latitude": 0,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
         "modal": true
       }
     ],
@@ -2722,8 +3071,13 @@
     "exits": [
       {
         "key": "1S05_10",
-        "direction": -140,
-        "type": "arrow"
+        "direction": -127.1,
+        "type": "arrow",
+        "alignment": [
+          0,
+          0,
+          52
+        ]
       },
       {
         "key": "1S05_22",
@@ -4086,6 +4440,16 @@
         "latitude": -20,
         "scale": 0.4,
         "priority": 0
+      },
+      {
+        "id": "2N01_Deaerator",
+        "title": "Deaerator",
+        "longitude": -116.4,
+        "latitude": 2.4,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
       }
     ],
     "mapInfo": {
@@ -4125,11 +4489,22 @@
         "id": "2S01_Economizer",
         "modal": true,
         "title": "Boiler Economizer",
-        "type": "info",
-        "longitude": 143.7,
-        "latitude": 5.9,
-        "scale": 0.4,
-        "priority": 0
+        "type": "placard",
+        "longitude": -52.2,
+        "latitude": -5.9,
+        "scale": 0.6,
+        "priority": 0,
+        "radius": 8
+      },
+      {
+        "id": "2N01_Deaerator",
+        "title": "Deaerator",
+        "longitude": -121.1,
+        "latitude": -5.9,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
       }
     ],
     "mapInfo": {
@@ -4174,6 +4549,16 @@
         "latitude": 5.9,
         "scale": 0.4,
         "priority": 0
+      },
+      {
+        "id": "2N01_Deaerator",
+        "title": "Deaerator",
+        "longitude": -32.1,
+        "latitude": 0,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
       }
     ],
     "mapInfo": {
@@ -5195,7 +5580,38 @@
       -125,
       -182
     ],
-    "hotspots": [],
+    "hotspots": [
+      {
+        "id": "LS03_BlowerFan3",
+        "title": "Blower Fan #3",
+        "longitude": 160.3,
+        "latitude": -4.7,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "LN03_FeedwaterPumpSkid",
+        "title": "Feedwater Pump Skid",
+        "longitude": -64.1,
+        "latitude": -14.2,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "LN02_FeedPumpControlPanel",
+        "title": "Feed Pump Control Panel",
+        "longitude": -78.4,
+        "latitude": 5.9,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      }
+    ],
     "mapInfo": {
       "building": "Heating Plant",
       "floor": "Basement",
@@ -5245,7 +5661,68 @@
       -131,
       -182
     ],
-    "hotspots": [],
+    "hotspots": [
+      {
+        "id": "LS02_BlowerFan2",
+        "title": "Blower Fan #2",
+        "longitude": 160.3,
+        "latitude": -3.6,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "LN03_FeedwaterPumpSkid",
+        "title": "Feedwater Pump Skid",
+        "longitude": 62.9,
+        "latitude": -7.1,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "LN02_FeedPumpControlPanel",
+        "title": "Feed Pump Control Panel",
+        "longitude": 33.3,
+        "latitude": 3.6,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "LN02_PumpControlPanel",
+        "title": "Feed Pump Control Panel",
+        "longitude": 32.9,
+        "latitude": 12.9,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "zoom",
+        "modal": true
+      },
+      {
+        "id": "LN02_SteamTurbine",
+        "title": "Steam Turbine and Feedwater Pump",
+        "longitude": -56.8,
+        "latitude": -14.5,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "LN02_Steam_Turbine",
+        "title": "Steam Turbine",
+        "longitude": -48.1,
+        "latitude": 0,
+        "radius": 8,
+        "scale": 1,
+        "type": "info",
+        "modal": true
+      }
+    ],
     "mapInfo": {
       "building": "Heating Plant",
       "floor": "Basement",
@@ -5290,11 +5767,131 @@
       {
         "id": "LS02_Compressor",
         "title": "Compressor",
-        "longitude": -74.8,
-        "latitude": -4.7,
+        "longitude": -89.1,
+        "latitude": -3.6,
         "radius": 6,
         "scale": 0.7,
         "type": "info",
+        "modal": true
+      },
+      {
+        "id": "LS02_AirCompressor",
+        "title": "Air Compressor",
+        "longitude": -103.3,
+        "latitude": -19,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "LS02_AirDryer",
+        "title": "Air Dryer",
+        "longitude": -76,
+        "latitude": -14.2,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "LS02_AirReceiver",
+        "title": "Air Receiver",
+        "longitude": -66.7,
+        "latitude": 0,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "LS02_ControlDisplay",
+        "title": "Control Display",
+        "longitude": -102.8,
+        "latitude": -4.5,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "zoom",
+        "modal": true
+      },
+      {
+        "id": "LS02_BlowerFan2",
+        "title": "Blower Fan #2",
+        "longitude": 120,
+        "latitude": -13.2,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "LN03_FeedwaterPumpSkid",
+        "title": "Feedwater Pump Skid",
+        "longitude": 27.9,
+        "latitude": -4.5,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "LN02_FeedPumpControlPanel",
+        "title": "Feed Pump Control Panel",
+        "longitude": 10,
+        "latitude": 3.5,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "LN02_SteamTurbine",
+        "title": "Steam Turbine and Feedwater Pump",
+        "longitude": -12,
+        "latitude": -5.7,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "LS02_AirReceiver2",
+        "title": "Air Receiver",
+        "longitude": -181.7,
+        "latitude": 1.5,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "LS02_AirDryer2",
+        "title": "Air Dryer",
+        "longitude": -179.4,
+        "latitude": -7.6,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "LN02_NaturalGasDistributionLoop",
+        "title": "Natural Gas Distribution Loop",
+        "longitude": -162,
+        "latitude": -3.2,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "LS02_ServiceAirCompressor",
+        "title": "Service Air Compressor",
+        "longitude": 158.6,
+        "latitude": -3.2,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
         "modal": true
       }
     ],
@@ -5347,6 +5944,16 @@
         "scale": 1,
         "type": "info",
         "modal": true
+      },
+      {
+        "id": "LS03_BlowerFan3",
+        "title": "Blower Fan #3",
+        "longitude": -26.1,
+        "latitude": -5.9,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
       }
     ],
     "mapInfo": {
@@ -5386,7 +5993,38 @@
       -122,
       -182
     ],
-    "hotspots": [],
+    "hotspots": [
+      {
+        "id": "LN01_FuelOilPumps",
+        "title": "Fuel Oil Pumps",
+        "longitude": -89.1,
+        "latitude": -3.6,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "LN02_SteamTurbine",
+        "title": "Steam Turbine and Feedwater Pump",
+        "longitude": 54.6,
+        "latitude": -15.4,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "LN02_Steam_Turbine",
+        "title": "Steam Turbine",
+        "longitude": 55.8,
+        "latitude": -3.6,
+        "radius": 8,
+        "scale": 1,
+        "type": "info",
+        "modal": true
+      }
+    ],
     "mapInfo": {
       "building": "Heating Plant",
       "floor": "Basement",
