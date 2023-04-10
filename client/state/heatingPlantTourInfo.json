@@ -4393,7 +4393,18 @@
       86.8,
       -180.1
     ],
-    "hotspots": [],
+    "hotspots": [
+      {
+        "id": "2N01_Deaerator",
+        "title": "Deaerator",
+        "longitude": -133,
+        "latitude": 13.1,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      }
+    ],
     "mapInfo": {
       "building": "Heating Plant",
       "floor": "Platforms & Catwalks",
@@ -4598,7 +4609,18 @@
       -133,
       -181
     ],
-    "hotspots": [],
+    "hotspots": [
+      {
+        "id": "2S02_SteamPipe1",
+        "title": "Steam Pipe",
+        "longitude": 125.9,
+        "latitude": -36.8,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      }
+    ],
     "mapInfo": {
       "building": "Heating Plant",
       "floor": "Platforms & Catwalks",
@@ -4656,7 +4678,18 @@
       -131.7,
       -180.1
     ],
-    "hotspots": [],
+    "hotspots": [
+      {
+        "id": "2S02_SteamPipe1",
+        "title": "Steam Pipe",
+        "longitude": -190,
+        "latitude": -51.1,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      }
+    ],
     "mapInfo": {
       "building": "Heating Plant",
       "floor": "Platforms & Catwalks",
@@ -4698,7 +4731,28 @@
       -160.2,
       -181
     ],
-    "hotspots": [],
+    "hotspots": [
+      {
+        "id": "2S03_SteamDrum2",
+        "title": "Boiler 2 Steam Drum",
+        "longitude": -27,
+        "latitude": -4,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "2S03_SteamDrum3",
+        "title": "Boiler 3 Steam Drum",
+        "longitude": 29,
+        "latitude": -4,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      }
+    ],
     "mapInfo": {
       "building": "Heating Plant",
       "floor": "Platforms & Catwalks",
@@ -4762,7 +4816,28 @@
       -111.8,
       -182.6
     ],
-    "hotspots": [],
+    "hotspots": [
+      {
+        "id": "2S03_SteamDrum2",
+        "title": "Boiler 2 Steam Drum",
+        "longitude": -95,
+        "latitude": -10.7,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "2S03_SteamDrum3",
+        "title": "Boiler 3 Steam Drum",
+        "longitude": 95,
+        "latitude": -10.7,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      }
+    ],
     "mapInfo": {
       "building": "Heating Plant",
       "floor": "Platforms & Catwalks",
@@ -4992,7 +5067,18 @@
       -121.7,
       -182
     ],
-    "hotspots": [],
+    "hotspots": [
+      {
+        "id": "2S02_SteamPipe1",
+        "title": "Steam Pipe",
+        "longitude": -134.2,
+        "latitude": -42.7,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      }
+    ],
     "mapInfo": {
       "building": "Heating Plant",
       "floor": "Platforms & Catwalks",
@@ -5447,7 +5533,18 @@
       -131.7,
       -180.1
     ],
-    "hotspots": [],
+    "hotspots": [
+      {
+        "id": "2S02_SteamPipe1",
+        "title": "Steam Pipe",
+        "longitude": 136.6,
+        "latitude": -40.4,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      }
+    ],
     "mapInfo": {
       "building": "Heating Plant",
       "floor": "Platforms & Catwalks",
