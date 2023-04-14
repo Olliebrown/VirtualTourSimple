@@ -4516,6 +4516,16 @@
         "scale": 0.6,
         "type": "placard",
         "modal": true
+      },
+      {
+        "id": "2N01_BoilerValves",
+        "title": "Boiler Valves",
+        "longitude": 84.3,
+        "latitude": -49.9,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "zoom",
+        "modal": true
       }
     ],
     "mapInfo": {
@@ -4688,6 +4698,26 @@
         "scale": 0.6,
         "type": "placard",
         "modal": true
+      },
+      {
+        "id": "2S02_SteamPipe2",
+        "title": "Steam Pipe",
+        "longitude": 127.1,
+        "latitude": 0,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "2S02_SteamPipe3",
+        "title": "Steam Pipe",
+        "longitude": 106.9,
+        "latitude": 0,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
       }
     ],
     "mapInfo": {
@@ -4747,6 +4777,26 @@
         "title": "Boiler 3 Steam Drum",
         "longitude": 29,
         "latitude": -4,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "2S02_SteamPipe2",
+        "title": "Steam Pipe",
+        "longitude": -168.6,
+        "latitude": 0,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "2S02_SteamPipe3",
+        "title": "Steam Pipe",
+        "longitude": -190,
+        "latitude": 0,
         "radius": 10,
         "scale": 0.5,
         "type": "placard",
@@ -4901,7 +4951,38 @@
       12.4,
       -180.1
     ],
-    "hotspots": [],
+    "hotspots": [
+      {
+        "id": "2N03_MainStopValve",
+        "title": "Main Stop Valve",
+        "longitude": -3.6,
+        "latitude": -16.6,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "2N03_SafetyValves",
+        "title": "Safety Valves",
+        "longitude": -51.1,
+        "latitude": -14.2,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "2N03_SafetyValvesZoom2",
+        "title": "Safety Valves",
+        "longitude": 49.9,
+        "latitude": -13.1,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "zoom",
+        "modal": true
+      }
+    ],
     "mapInfo": {
       "building": "Heating Plant",
       "floor": "Platforms & Catwalks",
@@ -4946,7 +5027,38 @@
       -106.8,
       -186
     ],
-    "hotspots": [],
+    "hotspots": [
+      {
+        "id": "2N03_MainStopValve",
+        "title": "Main Stop Valve",
+        "longitude": -1.2,
+        "latitude": -19,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "2N03_SafetyValves",
+        "title": "Safety Valves",
+        "longitude": 49.9,
+        "latitude": -13.1,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "2N03_SafetyValvesZoom3",
+        "title": "Safety Valves",
+        "longitude": -51.1,
+        "latitude": -13.1,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "zoom",
+        "modal": true
+      }
+    ],
     "mapInfo": {
       "building": "Heating Plant",
       "floor": "Platforms & Catwalks",
@@ -5077,6 +5189,16 @@
         "scale": 0.6,
         "type": "placard",
         "modal": true
+      },
+      {
+        "id": "2S03_MakeUpAirFan",
+        "title": "Make Up Air Fan",
+        "longitude": -167.4,
+        "latitude": 20.2,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
       }
     ],
     "mapInfo": {
@@ -5121,7 +5243,18 @@
       -125.4,
       -182.5
     ],
-    "hotspots": [],
+    "hotspots": [
+      {
+        "id": "2S03_MakeUpAirFan",
+        "title": "Make Up Air Fan",
+        "longitude": -125.9,
+        "latitude": 2.4,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      }
+    ],
     "mapInfo": {
       "building": "Heating Plant",
       "floor": "Platforms & Catwalks",
@@ -5539,6 +5672,26 @@
         "title": "Steam Pipe",
         "longitude": 136.6,
         "latitude": -40.4,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "2S02_SteamPipe2",
+        "title": "Steam Pipe",
+        "longitude": -108.1,
+        "latitude": 0,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "2S02_SteamPipe3",
+        "title": "Steam Pipe",
+        "longitude": -128.2,
+        "latitude": 0,
         "radius": 8,
         "scale": 0.6,
         "type": "placard",
