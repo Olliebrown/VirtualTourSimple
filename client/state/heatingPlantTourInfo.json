@@ -428,6 +428,16 @@
         "scale": 0.6,
         "type": "placard",
         "modal": true
+      },
+      {
+        "id": "1S02_Boiler2HMI",
+        "title": "HMI Display",
+        "longitude": 14.2,
+        "latitude": 6.7,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "zoom",
+        "modal": true
       }
     ],
     "mapInfo": {
@@ -546,6 +556,26 @@
         "scale": 1,
         "type": "zoom",
         "modal": true
+      },
+      {
+        "id": "1S02_Boiler2HMI",
+        "title": "HMI Display",
+        "longitude": -48.1,
+        "latitude": 3.5,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "zoom",
+        "modal": true
+      },
+      {
+        "id": "1S03_Boiler3HMI",
+        "title": "HMI Display",
+        "longitude": 45.3,
+        "latitude": 5.5,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "zoom",
+        "modal": true
       }
     ],
     "mapInfo": {
@@ -621,6 +651,16 @@
         "radius": 8,
         "scale": 0.6,
         "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1S03_Boiler3HMI",
+        "title": "HMI Display",
+        "longitude": -45.6,
+        "latitude": 5,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "zoom",
         "modal": true
       }
     ],
@@ -2112,6 +2152,16 @@
         "radius": 8,
         "scale": 0.6,
         "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "LS01_CondensatePump",
+        "title": "Condensate Pump",
+        "longitude": -131.8,
+        "latitude": -3.6,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "zoom",
         "modal": true
       }
     ],
@@ -4144,6 +4194,16 @@
         "scale": 0.75,
         "type": "placard",
         "modal": true
+      },
+      {
+        "id": "1S04_Boiler4HMI",
+        "title": "HMI Display",
+        "longitude": 46.6,
+        "latitude": -23.2,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "zoom",
+        "modal": true
       }
     ],
     "mapInfo": {
@@ -4196,6 +4256,16 @@
         "latitude": 22.6,
         "radius": 10,
         "scale": 1,
+        "type": "zoom",
+        "modal": true
+      },
+      {
+        "id": "1S01_OxyZoom",
+        "title": "Oxygen Analyzer",
+        "longitude": 144.9,
+        "latitude": 19,
+        "radius": 8,
+        "scale": 0.6,
         "type": "zoom",
         "modal": true
       }
@@ -4621,10 +4691,20 @@
     ],
     "hotspots": [
       {
-        "id": "2S02_SteamPipe1",
-        "title": "Steam Pipe",
+        "id": "2S02_MainHeader",
+        "title": "2S02_MainHeader",
         "longitude": 125.9,
         "latitude": -36.8,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "2S02_SteamPipe1",
+        "title": "Steam Pipe",
+        "longitude": 115.2,
+        "latitude": 0,
         "radius": 8,
         "scale": 0.6,
         "type": "placard",
@@ -4690,8 +4770,8 @@
     ],
     "hotspots": [
       {
-        "id": "2S02_SteamPipe1",
-        "title": "Steam Pipe",
+        "id": "2S02_MainHeader",
+        "title": "Main Header",
         "longitude": -190,
         "latitude": -51.1,
         "radius": 8,
@@ -4713,6 +4793,16 @@
         "id": "2S02_SteamPipe3",
         "title": "Steam Pipe",
         "longitude": 106.9,
+        "latitude": 0,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "2S02_SteamPipe1",
+        "title": "Steam Pipe",
+        "longitude": -106.6,
         "latitude": 0,
         "radius": 10,
         "scale": 0.5,
@@ -5181,8 +5271,8 @@
     ],
     "hotspots": [
       {
-        "id": "2S02_SteamPipe1",
-        "title": "Steam Pipe",
+        "id": "2S02_MainHeader",
+        "title": "Main Header",
         "longitude": -134.2,
         "latitude": -42.7,
         "radius": 8,
@@ -5668,8 +5758,8 @@
     ],
     "hotspots": [
       {
-        "id": "2S02_SteamPipe1",
-        "title": "Steam Pipe",
+        "id": "2S02_MainHeader",
+        "title": "Main Header",
         "longitude": 136.6,
         "latitude": -40.4,
         "radius": 8,
