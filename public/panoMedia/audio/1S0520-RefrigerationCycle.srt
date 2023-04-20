@@ -1,0 +1,289 @@
+1
+00:00:00,099 --> 00:00:05,380
+A thermodynamic cycle is a sequence of processes
+that begins and ends at the same state.
+
+2
+00:00:05,380 --> 00:00:07,750
+A
+system has completed a thermodynamic cycle
+
+3
+00:00:07,750 --> 00:00:12,269
+when the system undergoes a series of processes
+and then returns to its original state, so
+
+4
+00:00:12,269 --> 00:00:14,860
+that the properties of the system at the end
+of the cycle
+
+5
+00:00:14,860 --> 00:00:16,680
+are the same as at its beginning.
+
+6
+00:00:16,680 --> 00:00:19,960
+For example, refrigerant circulating through
+a chiller executes
+
+7
+00:00:19,960 --> 00:00:20,960
+a cycle.
+
+8
+00:00:20,960 --> 00:00:26,820
+A vapor compression refrigeration cycle typically
+has four processes.
+
+9
+00:00:26,820 --> 00:00:32,079
+Process 1 to 2 is the Isentropic compression
+in a compressor.
+
+10
+00:00:32,079 --> 00:00:37,660
+Process 2 to 3 is the Constant-pressure
+heat rejection in a condenser.
+
+11
+00:00:37,660 --> 00:00:43,000
+Process 3 to 4 is the throttling in an
+expansive device.
+
+12
+00:00:43,000 --> 00:00:49,309
+Process 4 to 1 is the Constant-pressure
+heat absorption in an evaporator
+
+13
+00:00:49,309 --> 00:00:53,020
+When a heat engine is run thermodynamically
+backward, it becomes a heat
+
+14
+00:00:53,020 --> 00:00:57,560
+pump, a refrigerator, or an air conditioner,
+depending on your point of view.
+
+15
+00:00:57,560 --> 00:01:02,000
+When a heat engine runs backward (or in reverse),
+it receives a net input of work
+
+16
+00:01:02,000 --> 00:01:07,120
+W that causes an amount of heat QL to be removed
+from a low-temperature
+
+17
+00:01:07,120 --> 00:01:11,610
+region and an amount of heat QH to be added
+to a high-temperature region.
+
+18
+00:01:11,610 --> 00:01:14,330
+So, it
+actually cools the low-temperature region
+
+19
+00:01:14,330 --> 00:01:18,960
+and heats the high-temperature region.
+
+20
+00:01:18,960 --> 00:01:23,180
+A backward-running heat engine is a refrigeration
+machine, but its technical name
+
+21
+00:01:23,180 --> 00:01:25,540
+depends on exactly how it is being used.
+
+22
+00:01:25,540 --> 00:01:30,890
+For example, if food occupies the lowtemperature
+region, then the device is indeed called a
+
+23
+00:01:30,890 --> 00:01:34,280
+refrigerator, but if people
+occupy the low-temperature region, then the
+
+24
+00:01:34,280 --> 00:01:38,900
+device is called an air conditioner.
+
+25
+00:01:38,900 --> 00:01:43,290
+On the other hand, if people occupy the high-temperature
+region and utilize QH
+
+26
+00:01:43,290 --> 00:01:46,760
+for space-heating purposes, then the device
+is called a heat pump.
+
+27
+00:01:46,760 --> 00:01:49,250
+Though the
+details of their design and operation differ
+
+28
+00:01:49,250 --> 00:01:54,350
+slightly, refrigerators, air conditioners,
+and heat pumps can all be modeled as backward-running
+
+29
+00:01:54,350 --> 00:01:58,370
+heat engines.
+
+30
+00:01:58,370 --> 00:02:01,960
+The distinctions between a refrigerator and
+a heat pump are shown in the next
+
+31
+00:02:01,960 --> 00:02:05,390
+figure.
+
+32
+00:02:05,390 --> 00:02:10,098
+A heat pump is a thermodynamic system operating
+in a thermodynamic cycle that
+
+33
+00:02:10,098 --> 00:02:13,660
+removes heat from a low-temperature body and
+delivers heat to a high
+
+34
+00:02:13,660 --> 00:02:14,819
+temperature body.
+
+35
+00:02:14,819 --> 00:02:17,480
+To accomplish this energy transfer, the heat
+pump receives
+
+36
+00:02:17,480 --> 00:02:23,819
+external energy in the form of work or heat
+from the surroundings.
+
+37
+00:02:23,819 --> 00:02:27,980
+While the name “heat pump” is the thermodynamic
+term used to describe a cyclic
+
+38
+00:02:27,980 --> 00:02:32,300
+device that allows the transfer of heat energy
+from a low temperature to a higher
+
+39
+00:02:32,300 --> 00:02:36,000
+temperature, we use the terms “refrigerator”
+and “heat pump” to apply to
+
+40
+00:02:36,000 --> 00:02:37,830
+particular devices.
+
+41
+00:02:37,830 --> 00:02:41,099
+Here a refrigerator is a device that operates
+on a thermodynamic
+
+42
+00:02:41,099 --> 00:02:44,209
+cycle and extracts heat from a low-temperature
+medium.
+
+43
+00:02:44,209 --> 00:02:47,930
+The heat pump also
+operates on a thermodynamic cycle but rejects
+
+44
+00:02:47,930 --> 00:02:51,640
+heat to the high-temperature
+medium.
+
+45
+00:02:51,640 --> 00:02:55,269
+The efficiency of a refrigerator or heat pump
+is expressed in terms of the
+
+46
+00:02:55,269 --> 00:03:00,400
+coefficient of performance, or COP.
+
+47
+00:03:00,400 --> 00:03:04,580
+For the refrigerator the desired result is
+the heat supplied at the low temperature
+
+48
+00:03:04,580 --> 00:03:08,550
+and the input is the net work into the device
+to make the cycle operate.
+
+49
+00:03:08,550 --> 00:03:10,739
+The
+performance of refrigeration cycles can be
+
+50
+00:03:10,739 --> 00:03:15,640
+described as the ratio of the amount of
+energy received by the system from the low-temperature
+
+51
+00:03:15,640 --> 00:03:20,610
+medium, QL, to the net
+work into the system to accomplish this effect,
+
+52
+00:03:20,610 --> 00:03:23,250
+Wnet, in.
+
+53
+00:03:23,250 --> 00:03:26,909
+For the heat pump acting like a refrigerator
+or an air conditioner, the primary
+
+54
+00:03:26,909 --> 00:03:31,110
+function of the device is the transfer of
+heat from the low- temperature system.
+
+55
+00:03:31,110 --> 00:03:34,549
+The performance of heat pumps can be described
+as the ratio of the amount of
+
+56
+00:03:34,549 --> 00:03:38,769
+energy discharged from the system to the high-temperature
+medium, QH, to the
+
+57
+00:03:38,769 --> 00:03:44,659
+net work into the system to accomplish this
+effect, Wnet, in.
+
+58
+00:03:44,659 --> 00:03:49,980
+For a reversible cycle, a reversed Carnot
+cycle is called a Carnot refrigerator cycle.
+
+59
+00:03:49,980 --> 00:03:53,490
+The coefficients of performance of Carnot
+refrigerators and heat pumps are
+
+60
+00:03:53,490 --> 00:03:57,390
+expressed in terms of temperatures as illustrated
+in the diagram below.
+
