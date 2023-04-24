@@ -99,7 +99,8 @@
             disablePriority: document.getElementById('tourPriorityCheckbox').checked,
             enableClose: urlParams.get('enable_close') === 'true',
             initialYaw: parseFloat(urlParams.get('initial_yaw') ?? '0'),
-            autoStart: true
+            autoStart: true,
+            onClose: () => window.alert('Tour was closed')
           })
         })
       })

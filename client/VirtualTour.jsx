@@ -39,7 +39,7 @@ import LoadingProgressIndicator from './components/Utility/LoadingProgressIndica
 
 // Button to close the tour
 function CloseTour (params) {
-  const { reactRoot, rootElement } = params
+  const { reactRoot, rootElement, onClose } = params
   const setLoadingCurtain = useSetRecoilState(loadingCurtainState)
   const setDestroyMedia = useSetRecoilState(destroyMediaState)
 
@@ -55,6 +55,7 @@ function CloseTour (params) {
       document.body.style.overflow = 'auto'
 
       reactRoot.unmount()
+      setTimeout(onClose, 100)
     }, CONFIG().FADE_TIMEOUT)
   }
 
@@ -68,7 +69,7 @@ function CloseTour (params) {
 }
 
 export default function VirtualTour (props) {
-  const { isMobile, allowMotion, startingRoom, initialYaw, enableClose, disablePriority, enabledRooms, enabledHotSpots, reactRoot, rootElement } = props
+  const { isMobile, allowMotion, startingRoom, initialYaw, enableClose, onClose, disablePriority, enabledRooms, enabledHotSpots, reactRoot, rootElement } = props
 
   // Subscribe to global setting data
   const showHUDInterface = useLiveQuery(() => localDB.settings.get('showHUDInterface'))?.value ?? true
@@ -131,7 +132,7 @@ export default function VirtualTour (props) {
       {/* MUI overlay */}
       {fadeInTimeout &&
         <React.Fragment>
-          {enableClose && <CloseTour rootElement={rootElement} reactRoot={reactRoot} />}
+          {enableClose && <CloseTour rootElement={rootElement} reactRoot={reactRoot} onClose={onClose} />}
           <InfoZoomModal />
           <HotSpotTooltip />
           <VideoPlayerControls videoTime={videoTime} />
@@ -162,6 +163,7 @@ VirtualTour.propTypes = {
   disablePriority: PropTypes.bool,
   enabledRooms: PropTypes.arrayOf(PropTypes.string),
   enabledHotSpots: PropTypes.arrayOf(PropTypes.string),
+  onClose: PropTypes.func,
 
   rootElement: PropTypes.any.isRequired,
   reactRoot: PropTypes.any.isRequired
@@ -175,5 +177,6 @@ VirtualTour.defaultProps = {
   startingRoom: CONFIG().START_KEY,
   initialYaw: 0,
   enabledRooms: [],
-  enabledHotSpots: []
+  enabledHotSpots: [],
+  onClose: () => {}
 }
