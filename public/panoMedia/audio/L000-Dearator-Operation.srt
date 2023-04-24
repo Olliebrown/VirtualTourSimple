@@ -1,0 +1,152 @@
+1
+00:00:00,000 --> 00:00:04,380
+Here we are on the mezzanine of the 
+heating plant and these two big green tanks 
+
+2
+00:00:04,380 --> 00:00:09,240
+are deaerators. A deaerator is a device 
+that is widely used for the removal of air 
+
+3
+00:00:09,240 --> 00:00:13,200
+and other dissolved gases from the 
+feedwater to steam generating boilers. 
+
+4
+00:00:13,200 --> 00:00:18,540
+Specifically, dissolved oxygen in boiler 
+feed waters will cause serious corrosion 
+
+5
+00:00:18,540 --> 00:00:22,500
+damage in steam systems by attaching 
+to the walls of metal piping and other 
+
+6
+00:00:22,500 --> 00:00:26,760
+metallic equipment and forming oxides 
+or rust. It also combines with any 
+
+7
+00:00:26,760 --> 00:00:31,440
+dissolved carbon dioxide to form carbonic 
+acid, which causes further corrosion. 
+
+8
+00:00:34,560 --> 00:00:40,140
+Figure 2 is a schematic diagram of a 
+tray-type deaerator. It has a vertical domed 
+
+9
+00:00:40,140 --> 00:00:44,460
+deaeration section mounted above a 
+horizontal boiler feedwater storage vessel. 
+
+10
+00:00:44,460 --> 00:00:49,260
+Boiler feedwater enters the vertical 
+dearation section above the perforated trays 
+
+11
+00:00:49,260 --> 00:00:53,700
+and flows downward through the 
+perforations. Low-pressure dearation steam 
+
+12
+00:00:53,700 --> 00:00:57,660
+enters below the perforated trays and 
+flows upward through the perforations. 
+
+13
+00:00:57,660 --> 00:01:02,280
+The perforated trays provide good contact 
+and mixing between the steam and the 
+
+14
+00:01:02,280 --> 00:01:06,780
+boiler feed water. The steam strips 
+dissolved gas from the boiler feedwater and 
+
+15
+00:01:06,780 --> 00:01:11,640
+exits via the vent at the top of the 
+domed section. The deaerated water flows 
+
+16
+00:01:11,640 --> 00:01:15,600
+down into the horizontal storage vessel 
+from which it is pumped to the steam 
+
+17
+00:01:15,600 --> 00:01:20,160
+generating boiler system. External insulation 
+of the vessel is typically provided to 
+
+18
+00:01:20,160 --> 00:01:21,240
+minimize heat loss.
+
+19
+00:01:23,840 --> 00:01:27,840
+Deaerators provide many benefits 
+to the boiler system, including: 
+
+20
+00:01:27,840 --> 00:01:31,320
+Serving as a surge collection tank 
+for process condensate return. 
+
+21
+00:01:31,320 --> 00:01:34,560
+Blending hot return condensate 
+and cold makeup water. 
+
+22
+00:01:34,560 --> 00:01:39,120
+Preheating feedwater uniformly 
+to improve boiler efficiency, and 
+
+23
+00:01:39,120 --> 00:01:44,640
+Removing oxygen (O2) and carbon dioxide 
+(CO2) from feedwater to mitigate 
+
+24
+00:01:44,640 --> 00:01:45,240
+corrosion. 
+
+25
+00:01:49,260 --> 00:01:54,660
+Most deaerators are American Society of 
+Mechanical Engineers- (ASME-) certified 
+
+26
+00:01:54,660 --> 00:01:59,520
+pressure vessels that operate at 5 to 
+15 psig and at a water temperature of 
+
+27
+00:02:00,720 --> 00:02:04,380
+225°Fahrenheit, which is the minimum 
+temperature required to remove dissolved 
+
+28
+00:02:04,380 --> 00:02:09,240
+O2 and CO2 from feedwater. A deaerator 
+is not only an essential auxiliary 
+
+29
+00:02:09,240 --> 00:02:13,980
+component of a reliable feedwater system, 
+but the heart of a boiler mass-flow 
+
+30
+00:02:13,980 --> 00:02:18,240
+and thermal-energy database that can be 
+used to critique plant operations and 
+
+31
+00:02:18,240 --> 00:02:20,100
+identify energy-savings opportunities.
+

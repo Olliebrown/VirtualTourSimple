@@ -2140,7 +2140,7 @@
         "title": "Return Water Holding Tank",
         "type": "audio",
         "longitude": -110,
-        "latitude": -20,
+        "latitude": -2.4,
         "scale": 0.4,
         "priority": 0
       },
@@ -2577,6 +2577,16 @@
         "scale": 0.6,
         "type": "placard",
         "modal": true
+      },
+      {
+        "id": "LS05_Pump",
+        "title": "Water Pumps",
+        "longitude": 66.5,
+        "latitude": -12,
+        "radius": 6,
+        "scale": 1,
+        "type": "info",
+        "modal": true
       }
     ],
     "mapInfo": {
@@ -2681,6 +2691,36 @@
         "radius": 8,
         "scale": 0.6,
         "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "LS05_Pump",
+        "title": "Water Pumps",
+        "longitude": -32.1,
+        "latitude": -20.2,
+        "radius": 6,
+        "scale": 1,
+        "type": "info",
+        "modal": true
+      },
+      {
+        "id": "LN05_PressureGauge",
+        "title": "Pressure Gauge",
+        "longitude": -28.1,
+        "latitude": -5.7,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "zoom",
+        "modal": true
+      },
+      {
+        "id": "LN05_Thermometer",
+        "title": "Thermometer",
+        "longitude": -40.6,
+        "latitude": 11.7,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "zoom",
         "modal": true
       }
     ],
@@ -3002,9 +3042,9 @@
       {
         "id": "LS05_Pump",
         "title": "Water Pumps",
-        "longitude": -27.3,
-        "latitude": -21.4,
-        "radius": 6,
+        "longitude": -59.4,
+        "latitude": -13.1,
+        "radius": 8,
         "scale": 1.5,
         "type": "info",
         "modal": true
@@ -4596,6 +4636,16 @@
         "scale": 0.6,
         "type": "zoom",
         "modal": true
+      },
+      {
+        "id": "2S01_ DeaeratorOperations",
+        "title": "Deaerator Operations",
+        "longitude": -158.9,
+        "latitude": 0,
+        "radius": 6,
+        "scale": 1,
+        "type": "info",
+        "modal": true
       }
     ],
     "mapInfo": {
@@ -4644,11 +4694,21 @@
       {
         "id": "2N01_Deaerator",
         "title": "Deaerator",
-        "longitude": -32.1,
+        "longitude": -20.2,
         "latitude": 0,
         "radius": 8,
         "scale": 0.6,
         "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "2S01_ DeaeratorOperations",
+        "title": "Deaerator Operations",
+        "longitude": -34.4,
+        "latitude": 0,
+        "radius": 6,
+        "scale": 1,
+        "type": "info",
         "modal": true
       }
     ],
@@ -6670,8 +6730,8 @@
       {
         "id": "LIB_WarmAirReturn",
         "title": "Warm Air Return",
-        "longitude": 64,
-        "latitude": 32.9,
+        "longitude": 29.1,
+        "latitude": 36.6,
         "radius": 8,
         "scale": 0.6,
         "type": "placard",
@@ -6821,8 +6881,8 @@
       {
         "id": "LIB_WarmAirReturn",
         "title": "Warm Air Return",
-        "longitude": 46.6,
-        "latitude": 19.2,
+        "longitude": 39.1,
+        "latitude": 24.1,
         "radius": 10,
         "scale": 0.5,
         "type": "placard",
@@ -7008,8 +7068,8 @@
       {
         "id": "LIB_WarmAirReturn",
         "title": "Warm Air Return",
-        "longitude": 96.4,
-        "latitude": 47.8,
+        "longitude": 139.9,
+        "latitude": 31.6,
         "radius": 8,
         "scale": 0.6,
         "type": "placard",

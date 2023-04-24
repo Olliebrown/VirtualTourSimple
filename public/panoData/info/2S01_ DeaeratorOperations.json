@@ -1,0 +1,20 @@
+{
+    "name": "2S01_DeaeratorOperations",
+    "images": [{
+      "src": "DeaeratorOperations1.png",
+      "caption": "Deaerators at the Heating Plant"
+    },
+    {
+        "src": "DeaeratorOperations2.png",
+        "caption": "Schematic Diagram of a Tray-type Deaerator"
+      }],
+    "height": 774,
+    "audio": {
+      "src": "L000-Dearator-Operation",
+      "slideTiming": {
+        "0": "0",
+        "7": "1"
+      }
+    }
+  }
+  
