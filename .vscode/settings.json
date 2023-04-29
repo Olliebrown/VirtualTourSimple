@@ -22,7 +22,8 @@
     "Pano",
     "Phong",
     "prismjs",
-    "wireframe"
+    "wireframe",
+    "Zoomable"
   ],
   "liquid.format.enable": false
 }
