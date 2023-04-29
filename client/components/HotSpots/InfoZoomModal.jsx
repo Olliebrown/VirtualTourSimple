@@ -46,7 +46,7 @@ export default function InfoZoomModal () {
   )
 
   return (
-    <Dialog fullWidth maxWidth='lg' onClose={requestClose} open={!!enableModal && hotspotModalOpen !== ''}>
+    <Dialog fullWidth maxWidth='xl' onClose={requestClose} open={!!enableModal && hotspotModalOpen !== ''}>
       <DialogTitle>{hotspotData?.title || 'Info'}</DialogTitle>
       <DialogContent dividers>
         {modalContent}

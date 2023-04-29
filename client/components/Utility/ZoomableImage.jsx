@@ -33,11 +33,11 @@ export default function ZoomableImage (props) {
   return (
     <TransformWrapper initialScale={1}>
       {(utils) => (
-        <div style={{ position: 'relative' }}>
+        <div style={{ position: 'relative', width: '100%', height: '100%' }}>
           <Controls {...utils} />
           <TransformComponent wrapperClass='zoomable-wrapper' contentClass='zoomable-content'>
             <img src={src} alt={alt} />
-            <Typography variant="h5" component="div">{caption}</Typography>
+            <Typography variant="h5" component="div" sx={{ p: 1, width: '100%' }}>{caption}</Typography>
           </TransformComponent>
         </div>
       )}
