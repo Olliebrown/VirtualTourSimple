@@ -1,8 +1,8 @@
 {
-    "image": {
-      "src": "Burner2-peephole.MP4",
-      "alt": " "
-    },
-    "caption": " "
-  }
-  
+  "image": {
+    "src": "Boiler4-Peephole.mp4",
+    "isVideo": true,
+    "alt": "A video showing a view through the peephole on the backside of boiler #4. Flames are visible inside the boiler."
+  },
+  "caption": "A video showing a view through the peephole on the back side of boiler #4."
+}
