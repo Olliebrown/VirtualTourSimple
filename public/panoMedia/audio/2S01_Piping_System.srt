@@ -1,0 +1,100 @@
+1
+00:00:00,720 --> 00:00:05,280
+The underground piping network system 
+distributes steam and chilled water 
+
+2
+00:00:05,280 --> 00:00:08,880
+generated from the Plant to buildings 
+around the campus to serve their heating 
+
+3
+00:00:08,880 --> 00:00:12,240
+and cooling needs. Underground 
+systems are used because of their  
+
+4
+00:00:12,240 --> 00:00:15,720
+aesthetics and safety
+issues. They are closed-loop systems.  
+
+5
+00:00:15,720 --> 00:00:20,400
+That means that steam is generated at the
+Plant, sent via underground pipes to the  
+
+6
+00:00:20,400 --> 00:00:24,960
+buildings to be used, then the steam is
+condensed back to water which is then pumped  
+
+7
+00:00:24,960 --> 00:00:28,560
+back to the Plant to be reused. This
+network also includes the underground  
+
+8
+00:00:28,560 --> 00:00:32,940
+piping system that collects warmed water
+after chilled water has been used at the  
+
+9
+00:00:32,940 --> 00:00:37,920
+buildings. The steam piping system is about
+5 miles in length and serves 51 buildings  
+
+10
+00:00:37,920 --> 00:00:41,820
+across campus, while the chilled water
+piping system is about two miles long  
+
+11
+00:00:41,820 --> 00:00:48,420
+and serves 20 buildings, mainly on South
+Campus. Several buildings contain old steam  
+
+12
+00:00:48,420 --> 00:00:54,180
+and condensate pipes installed in 1916 and still
+have insulation with asbestos, which are buried  
+
+13
+00:00:54,180 --> 00:00:58,440
+underground. Significant parts of
+the steam and condensate system are  
+
+14
+00:00:58,440 --> 00:01:02,880
+pre-insulated cast iron pipes running in
+concrete surface trenches or deep-buried  
+
+15
+00:01:02,880 --> 00:01:08,700
+small tunnels. Steam pipe sizes vary from
+2.5 to 10 inches and condensate pipes  
+
+16
+00:01:08,700 --> 00:01:14,760
+employ smaller sizes ranging from 1.5 to 5
+inches. Heat transfer in buried systems is  
+
+17
+00:01:14,760 --> 00:01:18,720
+influenced by the thermal conductivity of
+the soil and by the depth of burial,  
+
+18
+00:01:18,720 --> 00:01:22,860
+particularly when the system's thermal
+insulation has a low thermal resistance.  
+
+19
+00:01:22,860 --> 00:01:27,960
+All directly buried underground chilled
+water piping systems use 4-inch to 18-inch  
+
+20
+00:01:27,960 --> 00:01:32,820
+diameter HDPE pipes and can handle
+working pressure up to 350 PSIG.
+

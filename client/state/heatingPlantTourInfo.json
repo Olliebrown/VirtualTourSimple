@@ -4710,6 +4710,16 @@
         "scale": 1,
         "type": "info",
         "modal": true
+      },
+      {
+        "id": "2S01_Piping_System",
+        "title": "Piping System",
+        "longitude": -187.5,
+        "latitude": 14.2,
+        "radius": 6,
+        "scale": 1,
+        "type": "info",
+        "modal": true
       }
     ],
     "mapInfo": {
