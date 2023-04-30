@@ -49,9 +49,6 @@ export default function HotspotContent (props) {
             position: 'absolute',
             top: 0,
             left: 0,
-            objectFit: 'contain',
-            maxHeight: 'calc(100vh - 500px)',
-            height: imageLoadList.length < hotspotImages.length ? defaultHeight + 50 : undefined,
             width: '100%',
             marginTop: '0px !important'
           }}
@@ -62,18 +59,16 @@ export default function HotspotContent (props) {
   }
 
   return (
-    <Box sx={{ p: 2, height: 'calc(100vh - 400px)' }}>
+    <Box sx={{ width: '100%', overflowX: 'auto' }}>
       {Array.isArray(hotspotImages) &&
-        <Carousel autoPlay={false} index={slideIndex[0]}>
+        <Carousel autoPlay={false} index={slideIndex[0]} navButtonsAlwaysInvisible={hotspotImages.length < 2} fullHeightHover sx={{ overflow: 'auto' }}>
           {hotspotImages.map((imageInfo, i) => (
-            <Stack key={i} spacing={2} justifyContent='center'>
+            <Stack key={i} spacing={2} justifyContent='center' sx={{ position: 'relative' }}>
               <Box
                 component='img'
                 sx={{
-                  position: 'relative',
                   objectFit: 'contain',
-                  maxHeight: 'calc(100vh - 500px)',
-                  height: imageLoadList.length < hotspotImages.length ? defaultHeight + 50 : undefined
+                  height: '75vh'
                 }}
                 src={`${CONFIG().INFO_IMAGE_PATH}/${i === slideIndex[0] ? baseImageFilename : imageInfo.src}`}
                 alt={imageInfo.alt}

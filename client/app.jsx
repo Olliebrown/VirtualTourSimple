@@ -25,6 +25,9 @@ import Curtain from './components/Utility/Curtain.jsx'
 // Helper scripts for detecting motion control capabilities
 import { installMotionHandler } from './motionControlsPermission.js'
 
+// Import custom CSS as a raw string (so we can attach to shadow DOM)
+import CUSTOM_STYLES from './customCSS.txt'
+
 // Some element ids for later lookup
 export const EMOTION_ROOT_ID = 'virtualTourEmotionRoot'
 export const SHADOW_ROOT_ID = 'virtualTourShadowDomReactRoot'
@@ -85,10 +88,14 @@ export function attachVirtualTour (permissionElement, rootRenderElement, {
     const emotionRoot = document.createElement('style')
     emotionRoot.id = EMOTION_ROOT_ID
 
+    const customStyleRoot = document.createElement('style')
+    customStyleRoot.appendChild(document.createTextNode(CUSTOM_STYLES))
+
     const shadowRootElement = document.createElement('div')
     shadowRootElement.id = SHADOW_ROOT_ID
 
     shadowContainer.appendChild(emotionRoot)
+    shadowContainer.appendChild(customStyleRoot)
     shadowContainer.appendChild(shadowRootElement)
 
     // Make theme with proper portal root
