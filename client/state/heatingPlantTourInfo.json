@@ -5721,6 +5721,66 @@
         "latitude": -8,
         "scale": 0.6,
         "priority": 0
+      },
+      {
+        "id": "2S05_WaterIn1",
+        "title": "Water In 1",
+        "longitude": 68.9,
+        "latitude": 7.1,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "2S05_CondenserWaterPump3",
+        "title": "Condenser Water Pump 3",
+        "longitude": 36.8,
+        "latitude": -15.4,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "2S05_CondenserWaterPump2",
+        "title": "Condenser Water Pump 2",
+        "longitude": 25.4,
+        "latitude": -7,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "2S05_WaterIn2",
+        "title": "Water In 2",
+        "longitude": 22.9,
+        "latitude": 6.7,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "2S05_WaterOut1",
+        "title": "Water Out 1",
+        "longitude": 3,
+        "latitude": -9.5,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "2S05_VariablePump",
+        "title": "Variable Pump Speed Controls",
+        "longitude": -20.7,
+        "latitude": 0.5,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
       }
     ],
     "mapInfo": {
@@ -5794,6 +5854,76 @@
         "latitude": -8,
         "scale": 0.6,
         "priority": 0
+      },
+      {
+        "id": "2S05_ChillerMainDisconnects",
+        "title": "Chiller Main Disconnects",
+        "longitude": 152,
+        "latitude": 2.4,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "2S05_BromineFeeder1",
+        "title": "Bromine Feeder 1",
+        "longitude": -131,
+        "latitude": -15.4,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "2S05_CondenserWaterPump1",
+        "title": "Condenser Water Pump 1",
+        "longitude": -151.4,
+        "latitude": -16.9,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "2S05_WaterIn1",
+        "title": "Water In  1",
+        "longitude": -142.6,
+        "latitude": 0,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "2S05_BromineFeeder2",
+        "title": "Bromine Feeder 2",
+        "longitude": -178.8,
+        "latitude": -12,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "2S05_CondenserWaterPump2",
+        "title": "Condenser Water Pump 2",
+        "longitude": -171.3,
+        "latitude": -7,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "2S05_WaterIn2",
+        "title": "Water In 2",
+        "longitude": 187.8,
+        "latitude": 0,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
       }
     ],
     "mapInfo": {
