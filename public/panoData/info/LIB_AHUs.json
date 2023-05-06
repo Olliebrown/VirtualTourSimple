@@ -5,7 +5,15 @@
       "caption": "Schematic of an AHU"
     }, {
       "src": "AHU-Library.png",
-      "caption": "AHU 1 at UW Stout’s Library"
+      "caption": "AHU 1 at UW Stout’s Library",
+      "builds": [
+        null,
+        { "src": "1", "x": 0, "y": 0 },
+        { "src": "2", "x": 0, "y": 0 },
+        { "src": "3", "x": 0, "y": 0 },
+        { "src": "4", "x": 0, "y": 0 },
+        { "src": "5", "x": 0, "y": 0 }
+      ]
     }, {
       "src": "Conservation Eqns-HX.jpg",
       "caption": "Conservation Principle Applied to Mixing Chamber"
@@ -19,10 +27,13 @@
       "src": "L000-AHUs",
       "slideTiming": {
         "0": "0",
-        "13": "1",
+        "13": "1-1",
+        "14": "1-2",
+        "18": "1-3",
         "23": "2",
+        "25": "1-4",
         "31": "3",
-        "33": "0"
+        "33": "1-5"
       }
     }
   }
