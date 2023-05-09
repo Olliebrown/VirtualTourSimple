@@ -1,184 +1,165 @@
 1
-00:00:00,000 --> 00:00:05,160
-Water pumps move chilled, condenser water 
-and feedwater to and from the refrigeration  
+00:00:00,000 --> 00:00:04,830
+Water pumps move chilled, condenser 
+water and feedwater to and from the 
 
 2
-00:00:05,160 --> 00:00:07,620
-equipment and associated ancillary equipment.
+00:00:04,830 --> 00:00:08,460
+refrigeration equipment and associated 
+ancillary equipment. Pumps can be 
 
 3
-00:00:07,620 --> 00:00:10,680
-Pumps can be classified 
-into three broad categories: 
+00:00:08,460 --> 00:00:15,060
+classified into three broad categories:
+(1) reciprocating, (2) rotary, and (3)  
 
 4
-00:00:14,400 --> 00:00:19,560
-(1) reciprocating, (2) 
-rotary, and (3) centrifugal.
+00:00:15,060 --> 00:00:21,000
+centrifugal. Both reciprocating and rotary
+pumps are positive displacement pumps. They  
 
 5
-00:00:19,560 --> 00:00:23,880
-Both reciprocating and rotary pumps 
-are positive displacement pumps.
+00:00:21,000 --> 00:00:24,780
+discharge a fixed amount of liquid
+at a given speed. The primary moving  
 
 6
-00:00:23,880 --> 00:00:26,760
-They discharge a fixed amount of liquid
-at a given speed.
+00:00:24,780 --> 00:00:30,120
+element of a reciprocating pump is a piston
+or plunger, while a rotary pump is a rotor.  
 
 7
-00:00:26,760 --> 00:00:30,420
-The primary moving element 
-of a reciprocating pump is a  
+00:00:30,120 --> 00:00:34,380
+The most frequently used pump in the
+heating, ventilating, and air-conditioning  
 
 8
-00:00:30,420 --> 00:00:33,420
-piston or plunger, while a rotary pump is a rotor.
+00:00:34,380 --> 00:00:38,880
+industry is a centrifugal pump with an
+enclosed impeller and a volute casing,  
 
 9
-00:00:33,420 --> 00:00:38,520
-The most frequently used pump in the heating, 
-ventilating, and air-conditioning industry is  
+00:00:38,880 --> 00:00:44,760
+as seen in Figure 1. In a centrifugal pump, an
+electric motor or other power source  
 
 10
-00:00:38,520 --> 00:00:43,740
-a centrifugal pump with an enclosed impeller 
-and a volute casing, as seen in Figure 1.
+00:00:44,760 --> 00:00:49,800
+rotates the impellers at the motor’s rated
+speed. Impeller rotation adds energy to the  
 
 11
-00:00:43,740 --> 00:00:48,540
-In a centrifugal pump, an electric 
-motor or other power source rotates  
+00:00:49,800 --> 00:00:53,220
+fluid after it is directed into the center
+of the rotating impeller.
 
 12
-00:00:48,540 --> 00:00:50,520
-the impellers at the motor’s rated speed.
+00:00:53,760 --> 00:00:58,920
+Centrifugal pumps provide the primary 
+force to distribute and recirculate hot and 
 
 13
-00:00:50,520 --> 00:00:54,600
-Impeller rotation adds energy to 
-the fluid after it is directed  
+00:00:58,920 --> 00:01:03,000
+chilled water in various space 
+conditioning and plumping systems. The pump 
 
 14
-00:00:54,600 --> 00:00:56,520
-into the center of the rotating impeller.
+00:01:03,000 --> 00:01:07,560
+provides predetermined water flow to the 
+space load terminal units or to a thermal 
 
 15
-00:01:00,720 --> 00:01:05,700
-Centrifugal pumps provide the primary 
-force to distribute and recirculate hot  
+00:01:07,560 --> 00:01:11,760
+storage chamber for release at peak load. 
+At the central heating and chiller plant, 
 
 16
-00:01:05,700 --> 00:01:09,420
-and chilled water in various space 
-conditioning and plumping systems.
+00:01:11,760 --> 00:01:18,000
+the hydronic systems that use pumps include:
+Condensing water circuits to the cooling tower. 
 
 17
-00:01:09,420 --> 00:01:12,180
-The pump provides predetermined water flow to the  
+00:01:18,000 --> 00:01:21,060
+Chilled water pump.
+Boiler feeds. 
 
 18
-00:01:12,180 --> 00:01:16,740
-space load terminal units or to a thermal 
-storage chamber for release at peak load.
+00:01:21,060 --> 00:01:28,140
+Condensate returns as seen in Figures 2 and 3.
+A boiler feed pump is a critical equipment used  
 
 19
-00:01:16,740 --> 00:01:21,540
-At the central heating and chiller plant, 
-the hydronic systems that use pumps include:
+00:01:28,140 --> 00:01:32,460
+in a boiler house that supplies 
+deaerated and LP-dosed feedwater  
 
 20
-00:01:22,500 --> 00:01:25,080
-Condensing water circuits to the cooling tower.
+00:01:32,460 --> 00:01:37,440
+to the boiler. This pump must pump feedwater
+into the boiler drum against the pressure. So,  
 
 21
-00:01:25,080 --> 00:01:26,700
-Chilled water pumps.
+00:01:37,440 --> 00:01:40,860
+discharged pressure of this pump is
+higher than the boiler drum pressure.  
 
 22
-00:01:26,700 --> 00:01:28,080
-Boiler feeds.
+00:01:40,860 --> 00:01:46,440
+A feed pump is a multistage pump driven by
+an electrical motor or turbine. Boiler feed  
 
 23
-00:01:28,080 --> 00:01:31,500
-Condensate returns as seen in Figures 2 and 3.
+00:01:46,440 --> 00:01:50,160
+and condensate return pumps for steam
+boilers should be selected based on  
 
 24
-00:01:33,240 --> 00:01:36,300
-A boiler feed pump is a critical equipment used in  
+00:01:50,160 --> 00:01:54,720
+the boiler manufacturer’s requirements.
+Centrifugal pumps can also be found in water  
 
 25
-00:01:36,300 --> 00:01:41,220
-a boiler house that supplies deaerated 
-and LP-dosed feedwater to the boiler.
+00:01:54,720 --> 00:01:57,240
+treatment and service water heating
+systems.
 
 26
-00:01:41,220 --> 00:01:44,700
-This pump must pump feedwater into 
-the boiler drum against the pressure.
+00:01:57,840 --> 00:02:02,580
+Pumps, as well as compressors and fans, 
+are devices that increase the pressure of 
 
 27
-00:01:44,700 --> 00:01:48,780
-So, discharged pressure of this pump is 
-higher than the boiler drum pressure.
+00:02:02,580 --> 00:02:06,180
+a fluid. Work is supplied to these 
+devices from an external source through a 
 
 28
-00:01:48,780 --> 00:01:53,400
-A feed pump is a multistage pump driven 
-by an electrical motor or turbine.
+00:02:06,180 --> 00:02:11,100
+rotating shaft. Therefore, pumps involve 
+work inputs. If we neglect the changes in 
 
 29
-00:01:53,400 --> 00:01:57,240
-Boiler feed and condensate return 
-pumps for steam boilers should be  
+00:02:11,100 --> 00:02:15,240
+kinetic and potential energies as fluid 
+flows through a pump having one entrance 
 
 30
-00:01:57,240 --> 00:01:59,940
-selected based on the boiler 
-manufacturer’s requirements.
+00:02:15,240 --> 00:02:19,980
+and one exit, the steady-state, steady-flow, 
+the first law, or the conservation of 
 
 31
-00:01:59,940 --> 00:02:05,160
-Centrifugal pumps can also be found in water 
-treatment and service water heating systems.
+00:02:19,980 --> 00:02:24,000
+energy equation is presented in Figure 
+4. As there is very little temperature 
 
 32
-00:02:06,840 --> 00:02:11,880
-Pumps, as well as compressors and fans, are 
-devices that increase the pressure of a fluid.
+00:02:24,000 --> 00:02:28,200
+change across such hydraulic pumps, the 
+shaft work absorbed by pumps does not 
 
 33
-00:02:11,880 --> 00:02:15,840
-Work is supplied to these devices from an 
-external source through a rotating shaft.
-
-34
-00:02:15,840 --> 00:02:21,000
-Therefore, pumps involve work inputs. If we 
-neglect the changes in kinetic and potential  
-
-35
-00:02:21,000 --> 00:02:25,860
-energies as fluid flows through a pump having 
-one entrance and one exit, the steady-state,  
-
-36
-00:02:25,860 --> 00:02:31,200
-steady-flow, the first law, or the conservation of
-energy equation is presented in Figure 4.
-
-37
-00:02:31,200 --> 00:02:34,860
-As there is very little temperature 
-change across such hydraulic pumps,  
-
-38
-00:02:34,860 --> 00:02:37,140
-the shaft work absorbed by pumps does not 
-
-39
-00:02:37,140 --> 00:02:40,440
+00:02:28,200 --> 00:02:31,500
 depend on the temperature difference 
 between output and input fluids.
 
