@@ -8,14 +8,14 @@ import { hotspotHoverState } from '../../state/globalState.js'
 import { transitionStartedState } from '../../state/transitionState.js'
 import { useRecoilValue, useSetRecoilState } from 'recoil'
 
-import { MathUtils } from 'three'
-
 import { useSpring, animated } from '@react-spring/three'
 import { useTexture } from '@react-three/drei'
+import HotSpot from '../Utility/HotSpot.js'
+import Transform from '../Utility/Transform.jsx'
 
 export default function HotSpotIndicator (props) {
   // Destructure props
-  const { id, type, title, modal, hidden, longitude, latitude, radius, scale, onClick, texName, ...rest } = props
+  const { hotSpotBase, hidden, onClick, ...rest } = props
 
   // Subscribe to changes in global state
   const nextPanoKey = useRecoilValue(nextPanoKeyState)
@@ -36,13 +36,13 @@ export default function HotSpotIndicator (props) {
       document.body.style.cursor = hovering ? 'pointer' : 'auto'
       setHotspotHover({
         hovering,
-        type,
-        title,
-        jsonFilename: id ? `${type}/${id}.json` : undefined
+        type: hotSpotBase.type,
+        title: hotSpotBase.title,
+        jsonFilename: hotSpotBase.jsonFilename()
       })
     }
     return () => { document.body.style.cursor = 'auto' }
-  }, [hovering, enabled, setHotspotHover, type, title, id])
+  }, [hovering, enabled, setHotspotHover, hotSpotBase])
 
   // Animated values
   const hoverSpring = useSpring({
@@ -60,51 +60,35 @@ export default function HotSpotIndicator (props) {
   React.useEffect(() => { if (hidden) { setHovering(false) } }, [hidden])
 
   // Load texture for the hotspot
-  const texture = useTexture(`${CONFIG().TEXTURE_IMAGE_PATH}/${texName}`)
+  const texture = useTexture(`${CONFIG().TEXTURE_IMAGE_PATH}/${hotSpotBase.textureName()}`)
 
   // Pack in groups to position in the scene
   return (
     hidden ||
-      <group
-        rotation-y={MathUtils.degToRad(longitude)}
-        {...rest}
+      <Transform
+        transform={hotSpotBase.transform}
         onClick={onClick}
         onPointerEnter={() => setHovering(true)}
         onPointerLeave={() => setHovering(false)}
+        {...rest}
       >
-        <group rotation-x={MathUtils.degToRad(latitude)}>
-          <group
-            position={[0, 0, -radius]}
-            scale={[scale, scale, scale]}
-          >
-            <animated.mesh scale={hoverSpring.scale} {...rest}>
-              <circleGeometry args={[1, 24]} />
-              <animated.meshBasicMaterial
-                opacity={fadeSpring.opacity.get() < 0.75 ? fadeSpring.opacity : hoverSpring.opacity}
-                color={0xFFFFFF}
-                map={texture}
-                transparent
-              />
-            </animated.mesh>
-          </group>
-        </group>
-      </group>
+        <animated.mesh scale={hoverSpring.scale} {...rest}>
+          <circleGeometry args={[1, 24]} />
+          <animated.meshBasicMaterial
+            opacity={fadeSpring.opacity.get() < 0.75 ? fadeSpring.opacity : hoverSpring.opacity}
+            color={0xFFFFFF}
+            map={texture}
+            transparent
+          />
+        </animated.mesh>
+      </Transform>
   )
 }
 
 HotSpotIndicator.propTypes = {
-  title: PropTypes.string,
-  id: PropTypes.string,
-  type: PropTypes.oneOf(['info', 'media', 'audio', 'placard', 'zoom', 'unknown']),
-  modal: PropTypes.bool,
+  hotSpotBase: PropTypes.instanceOf(HotSpot).isRequired,
+
   hidden: PropTypes.bool,
-
-  texName: PropTypes.string.isRequired,
-  longitude: PropTypes.number,
-  latitude: PropTypes.number,
-  radius: PropTypes.number,
-  scale: PropTypes.number,
-
   onClick: PropTypes.func,
 
   hovering: PropTypes.bool,
@@ -112,17 +96,7 @@ HotSpotIndicator.propTypes = {
 }
 
 HotSpotIndicator.defaultProps = {
-  id: '',
-  title: 'N/A',
-  type: 'unknown',
-  modal: false,
   hidden: false,
-
-  longitude: 0,
-  latitude: 0,
-  radius: 5,
-  scale: 0.5,
-
   onClick: null,
   hovering: false,
   onHover: null

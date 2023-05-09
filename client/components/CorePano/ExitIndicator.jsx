@@ -3,18 +3,17 @@ import PropTypes from 'prop-types'
 
 import CONFIG from '../../config.js'
 
-// import { loadingCurtainState } from '../../state/globalState.js'
 import { nextPanoKeyState } from '../../state/fullTourState.js'
 import { exitDirectionState, transitionStartedState } from '../../state/transitionState.js'
 import { useRecoilState, useSetRecoilState, useRecoilValue } from 'recoil'
 
 import { useLoader, useGraph } from '@react-three/fiber'
-import { MathUtils } from 'three'
-
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader.js'
 
 import { useSpring, animated } from '@react-spring/three'
 import { Edges, Text } from '@react-three/drei'
+
+import Transform, { TransformData } from '../Utility/Transform.jsx'
 
 // Different object parameters
 const OBJ_DATA = () => ({
@@ -94,8 +93,9 @@ export default function ExitIndicator (props) {
     }
   }, [destination, direction, enabled, setExitDirection, setNextPanoKey])
 
-  // Pick the geometry
+  // Pick the geometry and build the transform object
   const objInfo = OBJ_DATA()[type]
+  const transformData = new TransformData({ shift, height, distance, direction, alignment, rotation: objInfo.rotation })
 
   // Load the geometry and clone our own instance
   const loadedObj = useLoader(OBJLoader, objInfo.filename)
@@ -119,45 +119,38 @@ export default function ExitIndicator (props) {
 
   // Pack in groups to position in the scene
   return (
-    <group
-      rotation-y={MathUtils.degToRad(direction)}
-      {...rest}
+    <Transform
+      transform={transformData}
       onClick={onClick}
       onPointerEnter={() => setHovering(true)}
       onPointerLeave={() => setHovering(false)}
+      {...rest}
     >
-      <group
-        position={[shift, height, distance]}
-        rotation-x={objInfo.rotation[0] + (alignment[0] / 180 * Math.PI)}
-        rotation-y={objInfo.rotation[1] + (alignment[1] / 180 * Math.PI)}
-        rotation-z={objInfo.rotation[2] + (alignment[2] / 180 * Math.PI)}
-      >
-        {meshes}
-        {caption !== '' &&
-          <Text
-            position={[0, -1.5, 0]}
-            scale={[0.033, 0.033, 0.033]}
-            rotation-y={Math.PI / 2.0}
-            color={'#000000'}
-            fontSize={12}
-            lineHeight={1}
-            letterSpacing={0.02}
-            textAlign={'center'}
-            anchorX="center"
-            anchorY="middle"
-            outlineWidth={0.5}
-            outlineColor="#ffffff"
-            {...rest}
-          >
-            <animated.meshBasicMaterial
-              attach="material"
-              opacity={hoverSpring.opacity}
-              transparent
-            />
-            {caption}
-          </Text>}
-      </group>
-    </group>
+      {meshes}
+      {caption !== '' &&
+        <Text
+          position={[0, -1.5, 0]}
+          scale={[0.033, 0.033, 0.033]}
+          rotation-y={Math.PI / 2.0}
+          color={'#000000'}
+          fontSize={12}
+          lineHeight={1}
+          letterSpacing={0.02}
+          textAlign={'center'}
+          anchorX="center"
+          anchorY="middle"
+          outlineWidth={0.5}
+          outlineColor="#ffffff"
+          {...rest}
+        >
+          <animated.meshBasicMaterial
+            attach="material"
+            opacity={hoverSpring.opacity}
+            transparent
+          />
+          {caption}
+        </Text>}
+    </Transform>
   )
 }
 

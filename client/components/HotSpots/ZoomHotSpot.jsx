@@ -5,9 +5,10 @@ import { hotspotModalOpenState, hotspotDataState, panoMediaPlayingState, roomAud
 import { useRecoilValue, useSetRecoilState } from 'recoil'
 
 import HotSpotIndicator from './HotSpotIndicator.jsx'
+import HotSpot from '../Utility/HotSpot.js'
 
 export default function ZoomHotspot (props) {
-  const { id, title } = props
+  const { id, title, ...rest } = props
 
   // Subscribe to pieces of global state
   const panoMediaPlaying = useRecoilValue(panoMediaPlayingState)
@@ -15,22 +16,26 @@ export default function ZoomHotspot (props) {
   const setHotspotModalOpen = useSetRecoilState(hotspotModalOpenState)
   const setHotspotData = useSetRecoilState(hotspotDataState)
 
+  const hotSpotBase = React.useMemo(
+    () => new HotSpot({ id, title, type: 'zoom', ...rest }),
+    [id, title, rest]
+  )
+
   // Click callback function
   const onClick = React.useCallback(() => {
     setHotspotData({
-      type: 'zoom',
-      jsonFilename: id ? `zoom/${id}.json` : undefined,
-      title
+      type: hotSpotBase.type,
+      title: hotSpotBase.title,
+      jsonFilename: hotSpotBase.jsonFilename()
     })
     setHotspotModalOpen('zoom')
-  }, [id, setHotspotData, setHotspotModalOpen, title])
+  }, [hotSpotBase, setHotspotData, setHotspotModalOpen])
 
   return (
     <HotSpotIndicator
+      hotSpotBase={hotSpotBase}
       hidden={panoMediaPlaying || roomAudio}
-      texName='ZoomIconTexture.png'
       onClick={onClick}
-      {...props}
     />
   )
 }
