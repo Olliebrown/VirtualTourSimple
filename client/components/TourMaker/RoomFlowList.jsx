@@ -12,50 +12,51 @@ export default function RoomFlowList (props) {
   const [currentPanoData, setCurrentPanoData] = useRecoilState(currentPanoDataState)
 
   // Which hotspot is currently being edited
-  const [editHotspot, setEditHotspot] = React.useState(-1)
+  const [editFlowItem, setEditFlowItem] = React.useState(-1)
+  const [alignFlowItem, setAlignFlowItem] = React.useState(-1)
 
   // Update one of the hotspots
-  const updateHotspot = (i, updatedHotspot) => {
-    const newHotspots = [...currentPanoData.hotspots]
-    newHotspots[i] = { ...newHotspots[i], ...updatedHotspot }
-    setCurrentPanoData({ hotspots: newHotspots })
+  const updateFlowItem = (i, updatedFlowItem) => {
+    const newFlowItems = [...(currentPanoData.flowItems ?? [])]
+    newFlowItems[i] = { ...newFlowItems[i], ...updatedFlowItem }
+    setCurrentPanoData({ flowItems: newFlowItems })
   }
 
   // Add or delete an exit
-  const addHotspot = () => {
-    const newHotspots = [...currentPanoData.hotspots]
-    newHotspots.push({
-      id: '',
-      title: '',
+  const addFlowItem = () => {
+    const newFlowItems = [...(currentPanoData.flowItems ?? [])]
+    newFlowItems.push({
+      key: '',
       longitude: 0,
       latitude: 0,
       radius: 6,
       scale: 1,
-      type: 'info',
-      modal: true
+      alignment: [0, 0, 0]
     })
-    setCurrentPanoData({ hotspots: newHotspots })
+    setCurrentPanoData({ flowItems: newFlowItems })
   }
 
-  const deleteHotspot = i => {
-    const newHotspots = [...currentPanoData.hotspots]
-    newHotspots.splice(i, 1)
-    setCurrentPanoData({ ...currentPanoData, hotspots: newHotspots })
+  const deleteFlowItem = i => {
+    const newFlowItems = [...(currentPanoData.flowItems ?? [])]
+    newFlowItems.splice(i, 1)
+    setCurrentPanoData({ ...currentPanoData, flowItems: newFlowItems })
   }
 
   return (
     <Box sx={{ p: 1, overflowY: 'auto', maxHeight: '400px' }}>
-      {currentPanoData?.hotspots.map((hotspot, i) => (
+      {currentPanoData?.flowItems?.map((flowItem, i) => (
         <PanoFlowItemEdit
           key={i}
-          hotspotInfo={hotspot}
-          enableEdit={editHotspot === i}
-          onChange={updatedHotspot => updateHotspot(i, updatedHotspot) }
-          onDelete={() => deleteHotspot(i)}
-          onEdit={() => { setEditHotspot(editHotspot === i ? -1 : i) }}
+          flowItemInfo={flowItem}
+          enableEdit={editFlowItem === i}
+          enableAlign={alignFlowItem === i}
+          onChange={updatedFlowItem => updateFlowItem(i, updatedFlowItem) }
+          onDelete={() => deleteFlowItem(i)}
+          onEdit={() => { setEditFlowItem(editFlowItem === i ? -1 : i) }}
+          onAlign={() => { setAlignFlowItem(alignFlowItem === i ? -1 : i) }}
         />
       ))}
-      <Button onClick={addHotspot} fullWidth sx={{ mb: 2 }}>New Hotspot</Button>
+      <Button onClick={addFlowItem} fullWidth sx={{ mb: 2 }}>New Flow Item</Button>
     </Box>
   )
 }

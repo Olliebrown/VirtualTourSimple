@@ -114,7 +114,21 @@
         ]
       }
     ],
-    "key": "1S01_22"
+    "key": "1S01_22",
+    "flowItems": [
+      {
+        "key": "testFlow",
+        "longitude": 0,
+        "latitude": 0,
+        "radius": 6,
+        "scale": 1,
+        "alignment": [
+          0,
+          0,
+          0
+        ]
+      }
+    ]
   },
   "1S01_10": {
     "label": "Boiler 1 Front",

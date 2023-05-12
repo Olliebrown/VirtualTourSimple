@@ -1,69 +1,59 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { hotspotContentEditJSONState } from '../../state/globalState.js'
-import { useSetRecoilState } from 'recoil'
-
-import { MenuItem, Stack, TextField, IconButton, Collapse, Slider, Box, Tooltip } from '@mui/material'
+import { Stack, TextField, IconButton, Collapse, Slider, Box, Tooltip } from '@mui/material'
 import {
-  DataObject as JSONEditIcon,
   Delete as DeleteIcon,
-  Edit as EditIcon
+  Edit as EditIcon,
+  ThreeSixty as AlignIcon
 } from '@mui/icons-material'
 
 import NumberField from '../Utility/NumberField.jsx'
+import AlignmentEditor from './AlignmentEditor.jsx'
 
 export default function PanoFlowItemEdit (params) {
-  const { hotspotInfo, onChange, onDelete, enableEdit, onEdit } = params
-
-  const hotspotContentEditInfo = useSetRecoilState(hotspotContentEditJSONState)
-
-  const updateHotspot = newData => {
+  const { flowItemInfo, onChange, onDelete, enableAlign, onAlign, enableEdit, onEdit } = params
+  const updateFlowItem = newData => {
     if (onChange) {
-      onChange({ ...hotspotInfo, ...newData })
+      onChange({ ...flowItemInfo, ...newData })
     }
   }
 
-  // Show the JSON content in an editor
-  const onJSONEdit = () => {
-    hotspotContentEditInfo({
-      modalOpen: true,
-      jsonFilename: `${hotspotInfo?.id}.json`
-    })
+  const updateAlignment = (x, y, z) => {
+    const newAlignment = [
+      isNaN(x) || x === null ? flowItemInfo.alignment?.[0] || 0.0 : x,
+      isNaN(y) || y === null ? flowItemInfo.alignment?.[1] || 0.0 : y,
+      isNaN(z) || z === null ? flowItemInfo.alignment?.[2] || 0.0 : z
+    ]
+
+    if (onChange) {
+      onChange({ ...flowItemInfo, alignment: newAlignment })
+    }
   }
 
   return (
     <React.Fragment>
       <Stack direction="row" spacing={2} sx={{ mb: 1 }}>
         <TextField
-          label='Title'
-          value={hotspotInfo?.title || ''}
-          onChange={e => updateHotspot({ title: e.target.value })}
-          variant='standard'
-        />
-
-        <TextField
           label='ID'
-          value={hotspotInfo?.id || ''}
-          onChange={e => updateHotspot({ id: e.target.value })}
+          value={flowItemInfo?.key || ''}
+          onChange={e => updateFlowItem({ key: e.target.value })}
           variant='standard'
         />
 
-        <Tooltip title='Edit Hotspot Content'>
-          <div>
-            <IconButton onClick={onJSONEdit} disabled={!hotspotInfo?.id} size='small' sx={{ my: '10px !important' }}>
-              <JSONEditIcon fontSize='inherit' />
-            </IconButton>
-          </div>
-        </Tooltip>
-
-        <Tooltip title='Edit Hotspot Details'>
+        <Tooltip title='Edit Flow Item Details'>
           <IconButton onClick={onEdit} size='small' sx={{ my: '10px !important' }}>
             <EditIcon fontSize='inherit' />
           </IconButton>
         </Tooltip>
 
-        <Tooltip title='Delete Hotspot'>
+        <Tooltip title='Edit Flow Item Alignment'>
+          <IconButton onClick={onAlign} size='small' sx={{ my: '10px !important' }}>
+            <AlignIcon fontSize='inherit' />
+          </IconButton>
+        </Tooltip>
+
+        <Tooltip title='Delete Flow Item'>
           <IconButton onClick={onDelete} size='small' sx={{ my: '10px !important' }}>
             <DeleteIcon fontSize='inherit' />
           </IconButton>
@@ -78,15 +68,15 @@ export default function PanoFlowItemEdit (params) {
               min={-190}
               max={190}
               step={0.1}
-              value={hotspotInfo?.longitude || 0}
-              onChange={(e, newVal) => updateHotspot({ longitude: newVal })}
+              value={flowItemInfo?.longitude || 0}
+              onChange={(e, newVal) => updateFlowItem({ longitude: newVal })}
               aria-label="Longitude"
               valueLabelDisplay="auto"
             />
             <NumberField
               aria-label='Longitude'
-              value={hotspotInfo?.longitude || 0}
-              onChange={newVal => updateHotspot({ longitude: newVal })}
+              value={flowItemInfo?.longitude || 0}
+              onChange={newVal => updateFlowItem({ longitude: newVal })}
               variant='standard'
               size="small"
               hiddenLabel
@@ -100,15 +90,15 @@ export default function PanoFlowItemEdit (params) {
               min={-190}
               max={190}
               step={0.1}
-              value={hotspotInfo?.latitude ?? 0}
-              onChange={(e, newVal) => updateHotspot({ latitude: newVal })}
+              value={flowItemInfo?.latitude ?? 0}
+              onChange={(e, newVal) => updateFlowItem({ latitude: newVal })}
               aria-label="Latitude"
               valueLabelDisplay="auto"
             />
             <NumberField
               aria-label='Latitude'
-              value={hotspotInfo?.latitude ?? 0}
-              onChange={newVal => updateHotspot({ latitude: newVal })}
+              value={flowItemInfo?.latitude ?? 0}
+              onChange={newVal => updateFlowItem({ latitude: newVal })}
               variant='standard'
               size="small"
               hiddenLabel
@@ -119,40 +109,23 @@ export default function PanoFlowItemEdit (params) {
           <Stack direction="row" spacing={2}>
             <NumberField
               label='Dist'
-              value={hotspotInfo?.radius ?? 0}
-              onChange={newVal => updateHotspot({ radius: newVal })}
+              value={flowItemInfo?.radius ?? 0}
+              onChange={newVal => updateFlowItem({ radius: newVal })}
               variant='standard'
             />
-
             <NumberField
               label='Scale'
-              value={hotspotInfo?.scale ?? 1}
-              onChange={newVal => updateHotspot({ scale: newVal })}
+              value={flowItemInfo?.scale ?? 1}
+              onChange={newVal => updateFlowItem({ scale: newVal })}
               variant='standard'
             />
-
-            <NumberField
-              label='Priority'
-              value={hotspotInfo?.priority ?? 0}
-              onChange={newVal => updateHotspot({ priority: newVal })}
-              variant='standard'
-            />
-
-            <TextField
-              sx={{ width: '35%' }}
-              label='Type'
-              value={hotspotInfo?.type ?? ''}
-              onChange={e => updateHotspot({ type: e.target.value })}
-              variant='standard'
-              select
-            >
-              <MenuItem value={'info'}>Info</MenuItem>
-              <MenuItem value={'media'}>Media</MenuItem>
-              <MenuItem value={'audio'}>Audio</MenuItem>
-              <MenuItem value={'placard'}>Placard</MenuItem>
-              <MenuItem value={'zoom'}>Zoom</MenuItem>
-            </TextField>
           </Stack>
+        </Box>
+      </Collapse>
+
+      <Collapse in={enableAlign} collapsedSize='0px'>
+        <Box sx={{ py: 2, mb: 2, borderTop: '1px solid grey', borderBottom: '1px  solid grey' }}>
+          <AlignmentEditor alignment={flowItemInfo.alignment || [0, 0, 0]} updateAlignment={updateAlignment} />
         </Box>
       </Collapse>
     </React.Fragment>
@@ -160,30 +133,29 @@ export default function PanoFlowItemEdit (params) {
 }
 
 PanoFlowItemEdit.propTypes = {
-  hotspotInfo: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    id: PropTypes.string.isRequired,
-
+  flowItemInfo: PropTypes.shape({
+    key: PropTypes.string.isRequired,
+    alignment: PropTypes.arrayOf(PropTypes.number),
     longitude: PropTypes.number.isRequired,
     latitude: PropTypes.number.isRequired,
-
     radius: PropTypes.number,
-    scale: PropTypes.number,
-    type: PropTypes.oneOf(['info', 'media', 'audio', 'placard', 'zoom'])
+    scale: PropTypes.number
   }),
 
   onChange: PropTypes.func,
   onDelete: PropTypes.func,
+  onAlign: PropTypes.func,
+  enableAlign: PropTypes.bool,
   onEdit: PropTypes.func,
-  onJSONEdit: PropTypes.func,
   enableEdit: PropTypes.bool
 }
 
 PanoFlowItemEdit.defaultProps = {
-  hotspotInfo: null,
+  flowItemInfo: null,
   onChange: null,
   onDelete: null,
+  onAlign: null,
+  enableAlign: false,
   onEdit: null,
-  onJSONEdit: null,
   enableEdit: false
 }
