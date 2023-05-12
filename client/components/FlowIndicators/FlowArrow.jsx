@@ -34,7 +34,7 @@ export default function FlowArrow (props) {
     hidden ||
       <Transform transform={transform}>
         <animated.mesh scale={hoverSpring.scale} {...rest}>
-          <circleGeometry args={[1, 24]} />
+          <planeGeometry args={[1, 1]} />
           <animated.meshBasicMaterial
             opacity={hoverSpring.opacity}
             color={color}

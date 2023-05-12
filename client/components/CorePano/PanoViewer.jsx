@@ -21,6 +21,7 @@ import PanoSphere from './PanoSphere.jsx'
 import PanoSphereTransition from './PanoSphereTransition.jsx'
 import PanoGrid from './PanoGrid.jsx'
 import PanoExtras from './PanoExtras.jsx'
+import PanoFlowOverlay from '../FlowIndicators/PanoFlowOverlay.jsx'
 
 export default function PanoViewer (props) {
   const { isMobile, allowMotion, onVideoUpdate } = props
@@ -28,6 +29,7 @@ export default function PanoViewer (props) {
   // Subscribe to changes in global state
   const showGrid = useLiveQuery(() => localDB.settings.get('showGrid'))?.value ?? true
   const showExits = useLiveQuery(() => localDB.settings.get('showExits'))?.value ?? true
+  const showFlow = useLiveQuery(() => localDB.settings.get('showFlow'))?.value ?? true
   const showHUDInterface = useLiveQuery(() => localDB.settings.get('showHUDInterface'))?.value ?? true
 
   const enableMotionControls = useLiveQuery(() => localDB.settings.get('enableMotionControls'))?.value ?? MOTION_CONTROLS_DEFAULT
@@ -80,6 +82,10 @@ export default function PanoViewer (props) {
   //   ))
   //   : currentPanoData?.hotspots
 
+  // Flow items filtering
+  const flowArrows = currentPanoData?.flowItems?.filter(item => item.type === 'arrow' || !item.type) ?? []
+  const flowLabels = currentPanoData?.flowItems?.filter(item => item.type === 'label') ?? []
+
   // Sphere rotation state
   const [xRotate, setXRotate] = useState(currentPanoData?.alignment?.[0] || 0)
   const [yRotate, setYRotate] = useState(currentPanoData?.alignment?.[1] || 0)
@@ -97,6 +103,7 @@ export default function PanoViewer (props) {
   if (CONFIG().ENABLE_ROTATE_HOTKEYS) {
     useHotkeys('ctrl+G', () => { updateSetting('showGrid', !showGrid) }, {}, [showGrid])
     useHotkeys('ctrl+H', () => { updateSetting('showExits', !showExits) }, {}, [showExits])
+    useHotkeys('ctrl+F', () => { updateSetting('showFlow', !showFlow) }, {}, [showFlow])
     useHotkeys('ctrl+I', () => { updateSetting('showHUDInterface', !showHUDInterface) }, {}, [showHUDInterface])
 
     useHotkeys('ctrl+num_divide', () => { setXRotate(xRotate - 0.5) }, {}, [xRotate])
@@ -169,6 +176,13 @@ export default function PanoViewer (props) {
         <PanoExtras
           exits={filteredExits}
           hotSpots={filteredHotSpots}
+          panoKey={currentPanoKey}
+        />}
+
+      {showFlow &&
+        <PanoFlowOverlay
+          arrows={flowArrows}
+          labels={flowLabels}
           panoKey={currentPanoKey}
         />}
 

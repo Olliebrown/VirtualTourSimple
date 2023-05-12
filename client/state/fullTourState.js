@@ -1,5 +1,7 @@
 import { atom, selector } from 'recoil'
 
+import debounce from 'debounce-promise'
+
 import CONFIG from '../config.js'
 
 // Ability to send updates to server
@@ -7,6 +9,9 @@ import { setPanoDataOnServer } from './asyncDataHelper'
 
 // Raw pano tour data
 import fullTourData from './heatingPlantTourInfo.json'
+
+// Create a debounced setter
+const debouncedSetPanoDataOnServer = debounce(setPanoDataOnServer, 500)
 
 // Helper function to get a pano image path
 export const panoImagePath = (panoKey) => {
@@ -129,8 +134,8 @@ export const currentPanoDataState = selector({
 
     // Update server data if enabled
     if (CONFIG().ENABLE_DATA_EDITING) {
-      // CAUTION: this is asynchronous
-      setPanoDataOnServer(currentPanoKey, newData)
+      // CAUTION: this is asynchronous and debounced
+      debouncedSetPanoDataOnServer(currentPanoKey, newData)
     }
 
     // Merge and reset the current pano

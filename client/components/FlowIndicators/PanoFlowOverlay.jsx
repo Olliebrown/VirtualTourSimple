@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import FlowArrow from './FlowArrow.jsx'
 import FlowLabel from './FlowLabel.jsx'
 
-export default function FlowOverlay (props) {
+export default function PanoFlowOverlay (props) {
   const { arrows, labels, panoKey } = props
 
   // Build the flow labels and arrows
@@ -27,7 +27,7 @@ export default function FlowOverlay (props) {
   )
 }
 
-FlowOverlay.propTypes = {
+PanoFlowOverlay.propTypes = {
   panoKey: PropTypes.string.isRequired,
   arrows: PropTypes.arrayOf(PropTypes.shape({
     key: PropTypes.string.isRequired
@@ -37,7 +37,7 @@ FlowOverlay.propTypes = {
   }))
 }
 
-FlowOverlay.defaultProps = {
+PanoFlowOverlay.defaultProps = {
   arrows: [],
   labels: []
 }
