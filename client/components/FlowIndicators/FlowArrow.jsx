@@ -9,7 +9,10 @@ import Transform, { TransformData } from '../Utility/Transform.jsx'
 
 export default function FlowArrow (props) {
   // Destructure props
-  const { transform, color, hidden, onClick, ...rest } = props
+  const { longitude, latitude, radius, scale, alignment, color, hidden, onClick, ...rest } = props
+  const transform = new TransformData({
+    longitude, latitude, radius, scale, alignment, isHotSpot: true
+  })
 
   // Track hovering and enabled state
   const [hovering, setHovering] = React.useState(false)
@@ -24,7 +27,7 @@ export default function FlowArrow (props) {
   React.useEffect(() => { if (hidden) { setHovering(false) } }, [hidden])
 
   // Load texture for the hotspot
-  const texture = useTexture(`${CONFIG().TEXTURE_IMAGE_PATH}/FlowArrowSprite.png`)
+  const texture = useTexture(`${CONFIG().TEXTURE_IMAGE_PATH}/FlowArrowTexture.png`)
 
   // Pack in groups to position in the scene
   return (
@@ -44,14 +47,22 @@ export default function FlowArrow (props) {
 }
 
 FlowArrow.propTypes = {
-  transform: PropTypes.instanceOf(TransformData),
+  longitude: PropTypes.number,
+  latitude: PropTypes.number,
+  radius: PropTypes.number,
+  scale: PropTypes.number,
+  alignment: PropTypes.arrayOf(PropTypes.number),
   color: PropTypes.number,
   hidden: PropTypes.bool,
   onClick: PropTypes.func
 }
 
 FlowArrow.defaultProps = {
-  transform: new TransformData(),
+  longitude: 0,
+  latitude: 0,
+  radius: 5,
+  scale: 1,
+  alignment: [0, 0, 0],
   color: 0xFFFFFF,
   hidden: false,
   onClick: null

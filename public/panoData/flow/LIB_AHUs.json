@@ -1,0 +1,6 @@
+{
+  "key": "LIB_AHUs",
+  "arrows": [
+    { "key": "flow1", "longitude": 0, "latitude": 0, "radius": 0, "scale": 0, "alignment": [0, 0, 0], "color": "0x0000FF" }
+  ]
+}

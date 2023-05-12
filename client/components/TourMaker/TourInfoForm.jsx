@@ -11,6 +11,7 @@ import AlignmentEditor from './AlignmentEditor.jsx'
 import VideoSettingsEditor from './VideoSettingsEditor.jsx'
 import RoomExitList from './RoomExitList.jsx'
 import RoomHotspotList from './RoomHotSpotList.jsx'
+import RoomFlowList from './RoomFlowList.jsx'
 import TabPanel from '../Utility/TabPanel.jsx'
 
 // Make aria props for tabs
@@ -169,6 +170,7 @@ export default function TourInfoForm () {
         <Tabs value={currentTab} onChange={changeTab} onClick={() => setCollapse(COLLAPSE.TABBED_INFO)}>
           <Tab label="Exits" {...a11yProps(0)} />
           <Tab label="Hotspots" {...a11yProps(1)} />
+          <Tab label="Flow" {...a11yProps(2)} />
         </Tabs>
 
         <Collapse in={collapse === COLLAPSE.TABBED_INFO}>
@@ -178,6 +180,10 @@ export default function TourInfoForm () {
 
           <TabPanel currentTab={currentTab} index={1}>
             <RoomHotspotList />
+          </TabPanel>
+
+          <TabPanel currentTab={currentTab} index={2}>
+            <RoomFlowList />
           </TabPanel>
         </Collapse>
 

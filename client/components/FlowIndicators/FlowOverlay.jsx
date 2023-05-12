@@ -7,7 +7,7 @@ import FlowLabel from './FlowLabel.jsx'
 export default function FlowOverlay (props) {
   const { arrows, labels, panoKey } = props
 
-  // Build the info hot spots
+  // Build the flow labels and arrows
   const flowArrows = arrows.map(arrow => {
     const key = `${panoKey}-${arrow.key}`
     return (<FlowArrow key={key} {...arrow} />)
