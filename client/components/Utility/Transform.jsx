@@ -5,14 +5,17 @@ import { MathUtils } from 'three'
 
 // Object for storing Transformation data for R3F
 export class TransformData {
-  constructor ({ direction, longitude, latitude, shift, height, distance, radius, scale, rotation, alignment, isHotSpot }) {
+  constructor ({ direction, longitude, latitude, shift, width, height, elevation, distance, radius, scale, rotation, alignment, isHotSpot }) {
     // Location information
     this.longitude = longitude ?? direction ?? 0
     this.latitude = latitude ?? 0
 
     this.shift = shift ?? 0
-    this.height = height ?? 0
+    this.elevation = elevation ?? 0
     this.distance = distance ?? 0
+
+    this.width = width ?? 1
+    this.height = height ?? 1
 
     if (isHotSpot) {
       this.distance = -(radius ?? 5)
@@ -34,8 +37,8 @@ export default function Transform (props) {
     >
       <group rotation-x={MathUtils.degToRad(transform.latitude)}>
         <group
-          position={[transform.shift, transform.height, transform.distance]}
-          scale={transform.scale}
+          position={[transform.shift, transform.elevation, transform.distance]}
+          scale={[transform.width * transform.scale, transform.height * transform.scale, transform.scale]}
           rotation-x={transform.rotation[0] + MathUtils.degToRad(transform.alignment[0])}
           rotation-y={transform.rotation[1] + MathUtils.degToRad(transform.alignment[1])}
           rotation-z={transform.rotation[2] + MathUtils.degToRad(transform.alignment[2])}

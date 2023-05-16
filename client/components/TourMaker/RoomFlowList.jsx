@@ -13,6 +13,7 @@ export default function RoomFlowList (props) {
 
   // Which hotspot is currently being edited
   const [editFlowItem, setEditFlowItem] = React.useState(-1)
+  const [stylingFlowItem, setStylingFlowItem] = React.useState(-1)
   const [alignFlowItem, setAlignFlowItem] = React.useState(-1)
 
   // Update one of the hotspots
@@ -49,11 +50,25 @@ export default function RoomFlowList (props) {
           key={i}
           flowItemInfo={flowItem}
           enableEdit={editFlowItem === i}
+          enableStyling={stylingFlowItem === i}
           enableAlign={alignFlowItem === i}
           onChange={updatedFlowItem => updateFlowItem(i, updatedFlowItem) }
           onDelete={() => deleteFlowItem(i)}
-          onEdit={() => { setEditFlowItem(editFlowItem === i ? -1 : i) }}
-          onAlign={() => { setAlignFlowItem(alignFlowItem === i ? -1 : i) }}
+          onEdit={() => {
+            setEditFlowItem(editFlowItem === i ? -1 : i)
+            setStylingFlowItem(-1)
+            setAlignFlowItem(-1)
+          }}
+          onStyling={() => {
+            setEditFlowItem(-1)
+            setStylingFlowItem(stylingFlowItem === i ? -1 : i)
+            setAlignFlowItem(-1)
+          }}
+          onAlign={() => {
+            setEditFlowItem(-1)
+            setStylingFlowItem(-1)
+            setAlignFlowItem(alignFlowItem === i ? -1 : i)
+          }}
         />
       ))}
       <Button onClick={addFlowItem} fullWidth sx={{ mb: 2 }}>New Flow Item</Button>

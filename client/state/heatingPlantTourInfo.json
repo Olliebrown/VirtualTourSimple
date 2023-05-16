@@ -120,13 +120,23 @@
         "key": "testFlow",
         "longitude": -24.9,
         "latitude": -23.7,
-        "radius": 4,
+        "radius": 6,
         "scale": 1,
         "alignment": [
-          0,
+          15.4,
           0,
           0
-        ]
+        ],
+        "height": 1,
+        "width": 2,
+        "text": "Test Text",
+        "color": "#918fe5",
+        "textColor": "#000000",
+        "textOutlineColor": "#ffffff",
+        "fontSize": 10,
+        "animateU": -0.5,
+        "outlineSize": 0.33,
+        "animateV": 0
       }
     ]
   },

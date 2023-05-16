@@ -49,7 +49,7 @@ const HIGHLIGHT_COLOR = 0x23A0FF
 
 export default function ExitIndicator (props) {
   // Destructure props
-  const { type, caption, shift, height, distance, direction, alignment, destination, ...rest } = props
+  const { type, caption, shift, elevation, distance, direction, alignment, destination, ...rest } = props
 
   // Setup to update global state
   const setExitDirection = useSetRecoilState(exitDirectionState)
@@ -95,7 +95,7 @@ export default function ExitIndicator (props) {
 
   // Pick the geometry and build the transform object
   const objInfo = OBJ_DATA()[type]
-  const transformData = new TransformData({ shift, height, distance, direction, alignment, rotation: objInfo.rotation })
+  const transformData = new TransformData({ shift, elevation, distance, direction, alignment, rotation: objInfo.rotation })
 
   // Load the geometry and clone our own instance
   const loadedObj = useLoader(OBJLoader, objInfo.filename)
@@ -158,7 +158,7 @@ ExitIndicator.propTypes = {
   type: PropTypes.oneOf(['arrow', 'teleport', 'door', 'stairsUp', 'stairsDown']),
   caption: PropTypes.string,
   shift: PropTypes.number,
-  height: PropTypes.number,
+  elevation: PropTypes.number,
   distance: PropTypes.number,
   direction: PropTypes.number,
   alignment: PropTypes.arrayOf(PropTypes.number),
@@ -169,7 +169,7 @@ ExitIndicator.defaultProps = {
   type: 'arrow',
   caption: '',
   shift: 0,
-  height: -2.5,
+  elevation: -2.5,
   distance: 5,
   direction: 0,
   alignment: [0, 0, 0],
