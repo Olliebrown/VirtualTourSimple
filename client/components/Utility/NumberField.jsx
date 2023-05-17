@@ -60,7 +60,7 @@ export default function NumberField (props) {
     <TextField
       inputProps={{
         inputMode: 'numeric',
-        pattern: '[+-]?[0-9]*(?:\\.[0-9]*)?'
+        pattern: '[\\-\\+]?[0-9]*(?:\\.[0-9]*)?'
       }}
       value={isBlank ? leadingChar : strValue}
       onChange={e => parseValueChange(e.target.value)}

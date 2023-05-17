@@ -5,19 +5,20 @@ import PropTypes from 'prop-types'
 
 import { useSpring, animated } from '@react-spring/three'
 import { Text, useTexture } from '@react-three/drei'
-import Transform, { TransformData } from '../Utility/Transform.jsx'
 import { useFrame } from '@react-three/fiber'
 import { RepeatWrapping } from 'three'
+
+import Transform, { TransformData } from '../Utility/Transform.jsx'
+import { FlowInfoDefaults, FlowInfoShape } from './FlowInfoShape.js'
 
 function isWholeNumber (value) {
   return Math.abs(parseFloat(value.toFixed(2)) % 1) < 0.01
 }
-export default function FlowArrow (props) {
+
+export default function FlowArrowLabel (props) {
   // Destructure props
-  const { longitude, latitude, width, height, radius, scale, alignment, text, fontSize, color, textColor, textOutlineColor, outlineSize, animateU, animateV, hidden, onClick, ...rest } = props
-  const transform = new TransformData({
-    longitude, latitude, width, height, radius, scale, alignment, isHotSpot: true
-  })
+  const { flowInfo, hidden, onClick, ...rest } = props
+  const transform = new TransformData({ ...flowInfo, isHotSpot: true })
 
   // Track hovering and enabled state
   const [hovering, setHovering] = React.useState(false)
@@ -33,22 +34,27 @@ export default function FlowArrow (props) {
 
   const [animate, setAnimate] = React.useState(false)
   React.useEffect(() => {
-    setAnimate((animateU !== 0 || animateV !== 0) && !hovering)
-  }, [animateU, animateV, hovering])
+    setAnimate(flowInfo.type === 'arrow' && (flowInfo.animateU !== 0 || flowInfo.animateV !== 0) && !hovering)
+  }, [flowInfo.animateU, flowInfo.animateV, flowInfo.type, hovering])
 
   // Load texture for the hotspot
-  const texture = useTexture(`${CONFIG().TEXTURE_IMAGE_PATH}/FlowArrowTexture.png`)
+  const texture = useTexture(`${CONFIG().TEXTURE_IMAGE_PATH}/Flow${flowInfo.type === 'arrow' ? 'Arrow' : 'Rectangle'}Texture.png`)
   texture.anisotropy = 16
   texture.wrapS = RepeatWrapping
   texture.wrapT = RepeatWrapping
+
+  React.useEffect(() => {
+    texture.repeat.x = flowInfo.repeatU ?? 1
+    texture.repeat.y = flowInfo.repeatV ?? 1
+  }, [flowInfo.repeatU, flowInfo.repeatV, texture])
 
   const materialRef = React.useRef()
   useFrame((state, delta) => {
     if (animate ||
       !isWholeNumber(materialRef.current.map.offset.x) ||
       !isWholeNumber(materialRef.current.map.offset.y)) {
-      materialRef.current.map.offset.x += animateU * delta
-      materialRef.current.map.offset.y += animateV * delta
+      materialRef.current.map.offset.x += (flowInfo?.animateU ?? 0) * delta
+      materialRef.current.map.offset.y += (flowInfo?.animateV ?? 0) * delta
     }
   })
 
@@ -65,74 +71,46 @@ export default function FlowArrow (props) {
           <animated.meshBasicMaterial
             ref={materialRef}
             opacity={1.0}
-            color={color}
+            color={flowInfo.color}
             map={texture}
             transparent
           />
         </animated.mesh>
-        {text !== '' &&
+        {flowInfo.text !== '' &&
           <animated.group scale={hoverSpring.scale}>
             <Text
               position={[-0.03, -0.02, 0.01]}
-              scale={[0.033 / width, 0.033 / height, 0.033]}
-              color={textColor}
-              fontSize={fontSize}
+              scale={[0.033 / flowInfo.width, 0.033 / flowInfo.height, 0.033]}
+              color={flowInfo.textColor}
+              fontSize={flowInfo.fontSize}
               lineHeight={1}
               letterSpacing={0.02}
               textAlign={'center'}
               anchorX="center"
               anchorY="middle"
-              outlineWidth={outlineSize}
-              outlineColor={textOutlineColor}
+              outlineWidth={flowInfo.outlineSize}
+              outlineColor={flowInfo.textOutlineColor}
             >
               <animated.meshBasicMaterial
                 attach="material"
                 opacity={hoverSpring.opacity}
                 transparent
               />
-              {text}
+              {flowInfo.text}
             </Text>
           </animated.group>}
       </Transform>
   )
 }
 
-FlowArrow.propTypes = {
-  longitude: PropTypes.number,
-  latitude: PropTypes.number,
-  width: PropTypes.number,
-  height: PropTypes.number,
-  radius: PropTypes.number,
-  scale: PropTypes.number,
-  alignment: PropTypes.arrayOf(PropTypes.number),
-  text: PropTypes.string,
-  fontSize: PropTypes.number,
-  color: PropTypes.string,
-  textColor: PropTypes.string,
-  textOutlineColor: PropTypes.string,
-  outlineSize: PropTypes.number,
-  animateU: PropTypes.number,
-  animateV: PropTypes.number,
+FlowArrowLabel.propTypes = {
+  flowInfo: PropTypes.shape(FlowInfoShape),
   hidden: PropTypes.bool,
   onClick: PropTypes.func
 }
 
-FlowArrow.defaultProps = {
-  longitude: 0,
-  latitude: 0,
-  width: 1,
-  height: 1,
-  radius: 5,
-  scale: 1,
-  alignment: [0, 0, 0],
-  text: '',
-  fontSize: 12,
-  color: '#ffffff',
-  textColor: '#000000',
-  textOutlineColor: '#ffffff',
-  outlineSize: 0.5,
-  animateU: 0,
-  animateV: 0,
+FlowArrowLabel.defaultProps = {
+  flowInfo: FlowInfoDefaults,
   hidden: false,
   onClick: null
 }

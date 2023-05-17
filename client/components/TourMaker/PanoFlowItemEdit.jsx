@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { Stack, TextField, IconButton, Collapse, Slider, Box, Tooltip } from '@mui/material'
+import { Stack, TextField, IconButton, Collapse, Slider, MenuItem, Box, Tooltip } from '@mui/material'
 import {
   Delete as DeleteIcon,
   Edit as EditIcon,
@@ -11,6 +11,8 @@ import {
 
 import NumberField from '../Utility/NumberField.jsx'
 import AlignmentEditor from './AlignmentEditor.jsx'
+
+import { FlowInfoDefaults, FlowInfoShape } from '../FlowIndicators/FlowInfoShape.js'
 
 export default function PanoFlowItemEdit (params) {
   const { flowItemInfo, onChange, onDelete, enableAlign, onAlign, enableEdit, onEdit, enableStyling, onStyling } = params
@@ -146,6 +148,17 @@ export default function PanoFlowItemEdit (params) {
                 onChange={newVal => updateFlowItem({ scale: newVal })}
                 variant='standard'
               />
+              <TextField
+                sx={{ width: '50%' }}
+                label='Type'
+                value={flowItemInfo?.type ?? ''}
+                onChange={e => updateFlowItem({ type: e.target.value })}
+                variant='standard'
+                select
+              >
+                <MenuItem value={'arrow'}>Arrow</MenuItem>
+                <MenuItem value={'label'}>Label</MenuItem>
+              </TextField>
             </Stack>
           </Stack>
         </Box>
@@ -199,19 +212,32 @@ export default function PanoFlowItemEdit (params) {
               />
 
               <NumberField
-                label='Horiz Scroll'
+                label='U Scroll'
                 value={flowItemInfo?.animateU ?? 0}
                 onChange={newVal => updateFlowItem({ animateU: newVal })}
                 variant='standard'
               />
 
               <NumberField
-                label='Vert Scroll'
+                label='V Scroll'
                 value={flowItemInfo?.animateV ?? 0}
                 onChange={newVal => updateFlowItem({ animateV: newVal })}
                 variant='standard'
               />
 
+              <NumberField
+                label='U Rep.'
+                value={flowItemInfo?.repeatU ?? 1}
+                onChange={newVal => updateFlowItem({ repeatU: newVal })}
+                variant='standard'
+              />
+
+              <NumberField
+                label='V Rep.'
+                value={flowItemInfo?.repeatV ?? 1}
+                onChange={newVal => updateFlowItem({ repeatV: newVal })}
+                variant='standard'
+              />
             </Stack>
           </Stack>
         </Box>
@@ -228,23 +254,7 @@ export default function PanoFlowItemEdit (params) {
 }
 
 PanoFlowItemEdit.propTypes = {
-  flowItemInfo: PropTypes.shape({
-    key: PropTypes.string.isRequired,
-    alignment: PropTypes.arrayOf(PropTypes.number),
-    longitude: PropTypes.number.isRequired,
-    latitude: PropTypes.number.isRequired,
-    radius: PropTypes.number,
-    width: PropTypes.number,
-    height: PropTypes.number,
-    scale: PropTypes.number,
-    color: PropTypes.string,
-    textColor: PropTypes.string,
-    text: PropTypes.string,
-    fontSize: PropTypes.number,
-    animateU: PropTypes.number,
-    animateV: PropTypes.number
-  }),
-
+  flowItemInfo: PropTypes.shape(FlowInfoShape),
   onChange: PropTypes.func,
   onDelete: PropTypes.func,
   onAlign: PropTypes.func,
@@ -254,7 +264,7 @@ PanoFlowItemEdit.propTypes = {
 }
 
 PanoFlowItemEdit.defaultProps = {
-  flowItemInfo: null,
+  flowItemInfo: FlowInfoDefaults,
   onChange: null,
   onDelete: null,
   onAlign: null,

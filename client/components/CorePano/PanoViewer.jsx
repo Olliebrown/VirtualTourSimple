@@ -82,10 +82,6 @@ export default function PanoViewer (props) {
   //   ))
   //   : currentPanoData?.hotspots
 
-  // Flow items filtering
-  const flowArrows = currentPanoData?.flowItems?.filter(item => item.type === 'arrow' || !item.type) ?? []
-  const flowLabels = currentPanoData?.flowItems?.filter(item => item.type === 'label') ?? []
-
   // Sphere rotation state
   const [xRotate, setXRotate] = useState(currentPanoData?.alignment?.[0] || 0)
   const [yRotate, setYRotate] = useState(currentPanoData?.alignment?.[1] || 0)
@@ -181,8 +177,7 @@ export default function PanoViewer (props) {
 
       {showFlow &&
         <PanoFlowOverlay
-          arrows={flowArrows}
-          labels={flowLabels}
+          items={currentPanoData?.flowItems}
           panoKey={currentPanoKey}
         />}
 
