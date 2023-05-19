@@ -5749,19 +5749,19 @@
         "priority": 0
       },
       {
-        "id": "2S05_WaterIn1",
-        "title": "Water In 1",
-        "longitude": 68.9,
-        "latitude": 7.1,
+        "id": "2S05_ButterflyValve",
+        "title": "Butterfly Valve",
+        "longitude": 102.6,
+        "latitude": 30.4,
         "radius": 8,
         "scale": 0.6,
         "type": "placard",
         "modal": true
       },
       {
-        "id": "2S05_CondenserWaterPump3",
-        "title": "Condenser Water Pump 3",
-        "longitude": 36.8,
+        "id": "2S05_CondenserWaterPump",
+        "title": "Condenser Water Pump",
+        "longitude": 36.6,
         "latitude": -15.4,
         "radius": 8,
         "scale": 0.6,
@@ -5769,40 +5769,40 @@
         "modal": true
       },
       {
-        "id": "2S05_CondenserWaterPump2",
-        "title": "Condenser Water Pump 2",
+        "id": "2S05_SuctionDiffuser",
+        "title": "Suction Diffuser",
+        "longitude": 55.3,
+        "latitude": -23.2,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "2S05_TripleDutyValve",
+        "title": "Triple Duty Valve",
         "longitude": 25.4,
-        "latitude": -7,
+        "latitude": -14.5,
         "radius": 8,
         "scale": 0.6,
         "type": "placard",
         "modal": true
       },
       {
-        "id": "2S05_WaterIn2",
-        "title": "Water In 2",
-        "longitude": 22.9,
-        "latitude": 6.7,
+        "id": "2S05_CondenserWaterSupply",
+        "title": "Condenser Water Supply",
+        "longitude": 23.6,
+        "latitude": 17.9,
         "radius": 8,
         "scale": 0.6,
         "type": "placard",
         "modal": true
       },
       {
-        "id": "2S05_WaterOut1",
-        "title": "Water Out 1",
+        "id": "2S05_CondenserWaterReturn",
+        "title": "Condenser Water Return",
         "longitude": 3,
-        "latitude": -9.5,
-        "radius": 8,
-        "scale": 0.6,
-        "type": "placard",
-        "modal": true
-      },
-      {
-        "id": "2S05_VariablePump",
-        "title": "Variable Pump Speed Controls",
-        "longitude": -20.7,
-        "latitude": 0.5,
+        "latitude": 0,
         "radius": 8,
         "scale": 0.6,
         "type": "placard",
@@ -5843,7 +5843,30 @@
         ]
       }
     ],
-    "key": "2S05_12"
+    "key": "2S05_12",
+    "flowItems": [
+      {
+        "key": "TripleDutyValveFlow",
+        "longitude": 27.3,
+        "latitude": -21.4,
+        "radius": 6,
+        "scale": 0.5,
+        "alignment": [
+          -23.7,
+          -3.6,
+          49.9
+        ],
+        "text": "To Chillers",
+        "color": "#6496e1",
+        "type": "arrow",
+        "width": -1,
+        "height": 1,
+        "animateU": -0.5,
+        "animateV": 0,
+        "repeatU": 1,
+        "fontSize": 12
+      }
+    ]
   },
   "2N05_11": {
     "label": "",
