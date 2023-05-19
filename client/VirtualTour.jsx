@@ -36,6 +36,7 @@ import VideoPlayerControls from './components/HotSpots/VideoPlayerControls.jsx'
 
 import { EMOTION_ROOT_ID, SHADOW_ROOT_ID } from './app.jsx'
 import LoadingProgressIndicator from './components/Utility/LoadingProgressIndicator.jsx'
+import FlowOverlayTitle from './components/HotSpots/FlowOverlayTitle.jsx'
 
 // Button to close the tour
 function CloseTour (params) {
@@ -143,6 +144,7 @@ export default function VirtualTour (props) {
               <LoadingProgressIndicator />
               <MiniMap />
               <RoomAudioPlayer />
+              <FlowOverlayTitle />
 
               {/* Editing interface */}
               {CONFIG().ENABLE_DATA_EDITING && <TourInfoEditor />}

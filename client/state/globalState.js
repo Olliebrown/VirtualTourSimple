@@ -36,6 +36,11 @@ export const panoMediaPlayingState = atom({
   default: false
 })
 
+export const flowOverlayActiveState = atom({
+  key: 'flowOverlayActive',
+  default: false
+})
+
 export const destroyMediaState = atom({
   key: 'destroyMedia',
   default: false

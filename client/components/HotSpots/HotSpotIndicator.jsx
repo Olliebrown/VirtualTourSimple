@@ -4,7 +4,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { nextPanoKeyState } from '../../state/fullTourState.js'
-import { hotspotHoverState } from '../../state/globalState.js'
+import { hotspotHoverState, panoMediaPlayingState, roomAudioState, flowOverlayActiveState } from '../../state/globalState.js'
 import { transitionStartedState } from '../../state/transitionState.js'
 import { useRecoilValue, useSetRecoilState } from 'recoil'
 
@@ -21,6 +21,11 @@ export default function HotSpotIndicator (props) {
   const nextPanoKey = useRecoilValue(nextPanoKeyState)
   const transitionStarted = useRecoilValue(transitionStartedState)
   const setHotspotHover = useSetRecoilState(hotspotHoverState)
+
+  // State that affects hotspot visibility
+  const flowOverlayActive = useRecoilValue(flowOverlayActiveState)
+  const panoMediaPlaying = useRecoilValue(panoMediaPlayingState)
+  const roomAudio = useRecoilValue(roomAudioState)
 
   // Track first render
   const [firstRender, setFirstRender] = React.useState(true)
@@ -62,26 +67,30 @@ export default function HotSpotIndicator (props) {
   // Load texture for the hotspot
   const texture = useTexture(`${CONFIG().TEXTURE_IMAGE_PATH}/${hotSpotBase.textureName()}`)
 
+  // Don't render if hidden or if any of these states are true
+  if (hidden || flowOverlayActive || panoMediaPlaying || roomAudio) {
+    return null
+  }
+
   // Pack in groups to position in the scene
   return (
-    hidden ||
-      <Transform
-        transform={hotSpotBase.transform}
-        onClick={onClick}
-        onPointerEnter={() => setHovering(true)}
-        onPointerLeave={() => setHovering(false)}
-        {...rest}
-      >
-        <animated.mesh scale={hoverSpring.scale} {...rest}>
-          <circleGeometry args={[1, 24]} />
-          <animated.meshBasicMaterial
-            opacity={fadeSpring.opacity.get() < 0.75 ? fadeSpring.opacity : hoverSpring.opacity}
-            color={0xFFFFFF}
-            map={texture}
-            transparent
-          />
-        </animated.mesh>
-      </Transform>
+    <Transform
+      transform={hotSpotBase.transform}
+      onClick={onClick}
+      onPointerEnter={() => setHovering(true)}
+      onPointerLeave={() => setHovering(false)}
+      {...rest}
+    >
+      <animated.mesh scale={hoverSpring.scale} {...rest}>
+        <circleGeometry args={[1, 24]} />
+        <animated.meshBasicMaterial
+          opacity={fadeSpring.opacity.get() < 0.75 ? fadeSpring.opacity : hoverSpring.opacity}
+          color={0xFFFFFF}
+          map={texture}
+          transparent
+        />
+      </animated.mesh>
+    </Transform>
   )
 }
 

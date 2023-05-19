@@ -49,7 +49,6 @@ export default function MediaHotspot (props) {
   return (
     <HotSpotIndicator
       hotSpotBase={hotSpotBase}
-      hidden={panoMediaPlaying || roomAudio}
       onClick={onClick}
     />
   )

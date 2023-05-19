@@ -7,7 +7,7 @@ import localDB, { INVERT_CONTROLS_DEFAULT, MOTION_CONTROLS_DEFAULT, ENABLE_PLACA
 import { useLiveQuery } from 'dexie-react-hooks'
 
 import { currentPanoKeyState, nextPanoKeyState, currentPanoDataState, enabledPanoRoomsState, enabledHotSpotsState } from '../../state/fullTourState.js'
-import { currentCameraYawState } from '../../state/globalState.js'
+import { currentCameraYawState, flowOverlayActiveState } from '../../state/globalState.js'
 
 import { useRecoilValue, useSetRecoilState } from 'recoil'
 
@@ -45,6 +45,8 @@ export default function PanoViewer (props) {
   // Update camera yaw in global state
   const setCurrentCameraYaw = useSetRecoilState(currentCameraYawState)
 
+  const flowOverlayActive = useRecoilValue(flowOverlayActiveState)
+
   // Create filtered arrays of exits and hotspots
   const enabledRooms = useRecoilValue(enabledPanoRoomsState)
   const filteredExits = enabledRooms.length > 0
@@ -59,17 +61,20 @@ export default function PanoViewer (props) {
           return [...filteredList, hotspot]
         }
         break
-      case 'placard':
-        if (enablePlacardHotspots) {
-          return [...filteredList, hotspot]
-        }
-        break
 
       case 'zoom':
         if (enableZoomHotspots) {
           return [...filteredList, hotspot]
         }
         break
+
+      case 'placard':
+        if (enablePlacardHotspots) {
+          return [...filteredList, hotspot]
+        }
+        break
+
+      default: return [...filteredList, hotspot]
     }
 
     return filteredList
@@ -175,7 +180,7 @@ export default function PanoViewer (props) {
           panoKey={currentPanoKey}
         />}
 
-      {showFlow &&
+      {showFlow && flowOverlayActive &&
         <PanoFlowOverlay
           items={currentPanoData?.flowItems}
           panoKey={currentPanoKey}
