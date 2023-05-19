@@ -174,17 +174,21 @@ export default function PanoViewer (props) {
       </React.Suspense>
 
       {showExits &&
-        <PanoExtras
-          exits={filteredExits}
-          hotSpots={filteredHotSpots}
-          panoKey={currentPanoKey}
-        />}
+        <React.Suspense fallback={null}>
+          <PanoExtras
+            exits={filteredExits}
+            hotSpots={filteredHotSpots}
+            panoKey={currentPanoKey}
+          />
+        </React.Suspense>}
 
       {showFlow && flowOverlayActive &&
-        <PanoFlowOverlay
-          items={currentPanoData?.flowItems}
-          panoKey={currentPanoKey}
-        />}
+        <React.Suspense fallback={null}>
+          <PanoFlowOverlay
+            items={currentPanoData?.flowItems}
+            panoKey={currentPanoKey}
+          />
+        </React.Suspense>}
 
       {CONFIG().ENABLE_ALIGNMENT_GRID && showGrid && <PanoGrid />}
     </>

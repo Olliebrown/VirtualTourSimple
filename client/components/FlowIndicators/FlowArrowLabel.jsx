@@ -59,9 +59,6 @@ export default function FlowArrowLabel (props) {
       !isWholeNumber(materialRef.current.map.offset.y)) {
       materialRef.current.map.offset.x += (flowInfo?.animateU ?? 0) * delta
       materialRef.current.map.offset.y += (flowInfo?.animateV ?? 0) * delta
-    } else {
-      materialRef.current.map.offset.x = 0
-      materialRef.current.map.offset.y = 0
     }
   })
 
