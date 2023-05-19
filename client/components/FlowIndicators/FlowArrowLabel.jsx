@@ -38,10 +38,14 @@ export default function FlowArrowLabel (props) {
   }, [flowInfo.animateU, flowInfo.animateV, flowInfo.type, hovering])
 
   // Load texture for the hotspot
-  const texture = useTexture(`${CONFIG().TEXTURE_IMAGE_PATH}/Flow${flowInfo.type === 'arrow' ? 'Arrow' : 'Rectangle'}Texture.png`)
-  texture.anisotropy = 16
-  texture.wrapS = RepeatWrapping
-  texture.wrapT = RepeatWrapping
+  const cachedTexture = useTexture(`${CONFIG().TEXTURE_IMAGE_PATH}/Flow${flowInfo.type === 'arrow' ? 'Arrow' : 'Rectangle'}Texture.png`)
+  const texture = React.useMemo(() => cachedTexture.clone(), [cachedTexture])
+
+  React.useEffect(() => {
+    texture.anisotropy = 16
+    texture.wrapS = RepeatWrapping
+    texture.wrapT = RepeatWrapping
+  }, [texture])
 
   React.useEffect(() => {
     texture.repeat.x = flowInfo.repeatU ?? 1
@@ -55,6 +59,9 @@ export default function FlowArrowLabel (props) {
       !isWholeNumber(materialRef.current.map.offset.y)) {
       materialRef.current.map.offset.x += (flowInfo?.animateU ?? 0) * delta
       materialRef.current.map.offset.y += (flowInfo?.animateV ?? 0) * delta
+    } else {
+      materialRef.current.map.offset.x = 0
+      materialRef.current.map.offset.y = 0
     }
   })
 
