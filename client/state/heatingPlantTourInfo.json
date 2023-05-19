@@ -76,6 +76,16 @@
         "scale": 1,
         "type": "zoom",
         "modal": true
+      },
+      {
+        "id": "1S01_TestFlow",
+        "title": "Show Flow",
+        "longitude": 0,
+        "latitude": 0,
+        "radius": 6,
+        "scale": 1,
+        "type": "flow",
+        "modal": true
       }
     ],
     "mapInfo": {
@@ -127,13 +137,13 @@
           0,
           0
         ],
-        "type": "label",
+        "type": "arrow",
         "height": 0.5,
         "text": "Mein Gott",
         "color": "#99ffad",
         "repeatV": 1,
-        "repeatU": 1,
-        "animateU": -1,
+        "repeatU": 3,
+        "animateU": 0,
         "width": 4,
         "fontSize": 12,
         "textColor": "#000000",

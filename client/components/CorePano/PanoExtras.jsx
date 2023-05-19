@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { panoMediaPlayingState } from '../../state/globalState.js'
+import { flowOverlayActiveState, panoMediaPlayingState } from '../../state/globalState.js'
 import { currentRoomPriorityState } from '../../state/fullTourState.js'
 import { useRecoilValue } from 'recoil'
 
@@ -10,12 +10,14 @@ import PlacardHotspot from '../HotSpots/PlacardHotSpot.jsx'
 import ZoomHotspot from '../HotSpots/ZoomHotSpot.jsx'
 import MediaHotspot from '../HotSpots/MediaHotSpot.jsx'
 import ExitIndicator from './ExitIndicator.jsx'
+import FlowHotspot from '../HotSpots/FlowHotSpot.jsx'
 
 export default function PanoExtras (props) {
   const { exits, hotSpots, panoKey } = props
 
   const currentRoomPriority = useRecoilValue(currentRoomPriorityState)
   const panoMediaPlaying = useRecoilValue(panoMediaPlayingState)
+  const flowOverlayActive = useRecoilValue(flowOverlayActiveState)
 
   // Enable exits and hotspots based on priority (must be equal to or higher than the current priority)
   const [activeExits, setActiveExits] = React.useState([])
@@ -42,14 +44,15 @@ export default function PanoExtras (props) {
       case 'placard': return (<PlacardHotspot key={key} {...info} />)
       case 'zoom': return (<ZoomHotspot key={key} {...info} />)
       case 'media': case 'audio': return (<MediaHotspot key={key} {...info} />)
+      case 'flow': return (<FlowHotspot key={key} {...info} />)
+      default: return null
     }
-    return null
   })
 
   return (
     <React.Fragment>
       {/* Add extra geometry objects */}
-      {!panoMediaPlaying && exitArrows}
+      {!panoMediaPlaying && !flowOverlayActive && exitArrows}
       {hotspots}
     </React.Fragment>
   )

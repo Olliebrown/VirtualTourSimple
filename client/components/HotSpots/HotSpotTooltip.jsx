@@ -50,6 +50,7 @@ export default function HotSpotTooltip (props) {
     case 'zoom': tooltipTitle = 'Zoom in on ' + tooltipTitle; break
     case 'media': tooltipTitle = 'Watch ' + tooltipTitle; break
     case 'audio': tooltipTitle = 'Listen to ' + tooltipTitle; break
+    case 'flow': tooltipTitle = 'Show flow for ' + tooltipTitle; break
     default: tooltipTitle = 'Bad Type'; break
   }
 
