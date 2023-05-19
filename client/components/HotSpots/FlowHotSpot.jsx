@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { flowOverlayActiveState, hotspotHoverState } from '../../state/globalState.js'
+import { flowOverlayActiveState } from '../../state/globalState.js'
 import { useSetRecoilState } from 'recoil'
 
 import HotSpotIndicator from './HotSpotIndicator.jsx'
@@ -13,13 +13,11 @@ export default function FlowHotspot (props) {
   )
 
   const setFlowOverlayActive = useSetRecoilState(flowOverlayActiveState)
-  const setHotspotHover = useSetRecoilState(hotspotHoverState)
 
   // Click callback function
   const onClick = React.useCallback(() => {
     setFlowOverlayActive(true)
-    setHotspotHover({ hovering: false })
-  }, [setFlowOverlayActive, setHotspotHover])
+  }, [setFlowOverlayActive])
 
   // Pack in groups to position in the scene
   return (

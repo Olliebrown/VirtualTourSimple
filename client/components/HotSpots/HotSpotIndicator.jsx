@@ -62,7 +62,11 @@ export default function HotSpotIndicator (props) {
   }) // test
 
   // If hidden, be sure to set hovering to false
-  React.useEffect(() => { if (hidden) { setHovering(false) } }, [hidden])
+  React.useEffect(() => {
+    if (hidden || flowOverlayActive || panoMediaPlaying || roomAudio) {
+      setHovering(false)
+    }
+  }, [flowOverlayActive, hidden, panoMediaPlaying, roomAudio])
 
   // Load texture for the hotspot
   const texture = useTexture(`${CONFIG().TEXTURE_IMAGE_PATH}/${hotSpotBase.textureName()}`)
