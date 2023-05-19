@@ -5817,6 +5817,16 @@
         "scale": 0.6,
         "type": "placard",
         "modal": true
+      },
+      {
+        "id": "2S05_Flow",
+        "title": "Second Floor Chiller Room",
+        "longitude": 0,
+        "latitude": 0,
+        "radius": 6,
+        "scale": 1,
+        "type": "flow",
+        "modal": true
       }
     ],
     "mapInfo": {
