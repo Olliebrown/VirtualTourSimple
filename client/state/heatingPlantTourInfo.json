@@ -5821,9 +5821,9 @@
       {
         "id": "2S05_Flow",
         "title": "Second Floor Chiller Room",
-        "longitude": 0,
-        "latitude": 0,
-        "radius": 6,
+        "longitude": 2.5,
+        "latitude": -16.9,
+        "radius": 8,
         "scale": 1,
         "type": "flow",
         "modal": true
@@ -5867,24 +5867,68 @@
     "flowItems": [
       {
         "key": "TripleDutyValveFlow",
-        "longitude": 27.3,
-        "latitude": -21.4,
+        "longitude": 26.1,
+        "latitude": -17.8,
         "radius": 6,
         "scale": 0.5,
         "alignment": [
-          -23.7,
-          -3.6,
-          49.9
+          10.7,
+          3.6,
+          67.7
         ],
         "text": "To Chillers",
         "color": "#6496e1",
         "type": "arrow",
-        "width": -1,
+        "width": -2.5,
         "height": 1,
         "animateU": -0.5,
         "animateV": 0,
         "repeatU": 1,
-        "fontSize": 12
+        "fontSize": 16,
+        "outlineSize": 1
+      },
+      {
+        "key": "CondenserWaterSupplyFlow",
+        "longitude": 23.4,
+        "latitude": 15,
+        "radius": 6,
+        "scale": 0.4,
+        "alignment": [
+          0,
+          0,
+          89.1
+        ],
+        "text": "From Cooling Towers",
+        "width": -6,
+        "type": "arrow",
+        "color": "#6496e1",
+        "animateU": -0.5,
+        "animateV": 0,
+        "fontSize": 20,
+        "height": 1,
+        "repeatU": 3,
+        "outlineSize": 1
+      },
+      {
+        "key": "CondenserWaterReturnFlow",
+        "longitude": 3,
+        "latitude": 0,
+        "radius": 6,
+        "scale": 0.5,
+        "alignment": [
+          0,
+          0,
+          90
+        ],
+        "text": "From Chillers, To Cooling Towers",
+        "color": "#e13232",
+        "type": "arrow",
+        "width": 12,
+        "repeatU": 6,
+        "animateU": -0.5,
+        "height": 1,
+        "fontSize": 25,
+        "outlineSize": 1
       }
     ]
   },
@@ -5915,28 +5959,8 @@
     },
     "hotspots": [
       {
-        "id": "2N05_BromineAndCutoffs",
-        "modal": true,
-        "title": "Chiller Bromine Treatment and Pump Cutoffs",
-        "type": "media",
-        "longitude": 156.8,
-        "latitude": -8,
-        "scale": 0.6,
-        "priority": 0
-      },
-      {
-        "id": "2S05_ChillerMainDisconnects",
-        "title": "Chiller Main Disconnects",
-        "longitude": 152,
-        "latitude": 2.4,
-        "radius": 8,
-        "scale": 0.6,
-        "type": "placard",
-        "modal": true
-      },
-      {
-        "id": "2S05_BromineFeeder1",
-        "title": "Bromine Feeder 1",
+        "id": "2S05_BromineFeeder",
+        "title": "Bromine Feeder",
         "longitude": -131,
         "latitude": -15.4,
         "radius": 8,
@@ -5945,19 +5969,39 @@
         "modal": true
       },
       {
-        "id": "2S05_CondenserWaterPump1",
-        "title": "Condenser Water Pump 1",
-        "longitude": -151.4,
-        "latitude": -16.9,
+        "id": "2S05_BromineFeeder",
+        "title": "Bromine Feeder",
+        "longitude": -178.8,
+        "latitude": -12,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "2S05_PumpMotor",
+        "title": "Pump Motor",
+        "longitude": -156.7,
+        "latitude": -16.6,
         "radius": 8,
         "scale": 0.6,
         "type": "placard",
         "modal": true
       },
       {
-        "id": "2S05_WaterIn1",
-        "title": "Water In  1",
-        "longitude": -142.6,
+        "id": "2S05_TripleDutyValve",
+        "title": "Triple Duty Valve",
+        "longitude": -111.6,
+        "latitude": -23.2,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "2S05_ServiceDisconnect",
+        "title": "Service Disconnect",
+        "longitude": -99.1,
         "latitude": 0,
         "radius": 8,
         "scale": 0.6,
@@ -5965,29 +6009,39 @@
         "modal": true
       },
       {
-        "id": "2S05_BromineFeeder2",
-        "title": "Bromine Feeder 2",
-        "longitude": -178.8,
-        "latitude": -12,
+        "id": "2S05_ButterflyValve",
+        "title": "Butterfly Valve",
+        "longitude": -153,
+        "latitude": 10.4,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "2N05_Flow",
+        "title": "Second Floor Chiller Room",
+        "longitude": -145.2,
+        "latitude": -28.1,
+        "radius": 8,
+        "scale": 1,
+        "type": "flow",
+        "modal": true
+      },
+      {
+        "id": "2S05_PumpMotorStarters",
+        "title": "Pump Motor Starters",
+        "longitude": 97.6,
+        "latitude": 0,
         "radius": 8,
         "scale": 0.6,
         "type": "placard",
         "modal": true
       },
       {
-        "id": "2S05_CondenserWaterPump2",
-        "title": "Condenser Water Pump 2",
-        "longitude": -171.3,
-        "latitude": -7,
-        "radius": 8,
-        "scale": 0.6,
-        "type": "placard",
-        "modal": true
-      },
-      {
-        "id": "2S05_WaterIn2",
-        "title": "Water In 2",
-        "longitude": 187.8,
+        "id": "2S05_ChillersServiceDisconnect",
+        "title": "Chillers Service Disconnect",
+        "longitude": 156.1,
         "latitude": 0,
         "radius": 8,
         "scale": 0.6,
@@ -6016,7 +6070,51 @@
         "shift": 0.5
       }
     ],
-    "key": "2N05_11"
+    "key": "2N05_11",
+    "flowItems": [
+      {
+        "key": "2N05_TripleDutyValveFlow",
+        "longitude": -109.2,
+        "latitude": -28.5,
+        "radius": 6,
+        "scale": 0.4,
+        "alignment": [
+          0,
+          0,
+          -64.1
+        ],
+        "text": "To Chillers",
+        "type": "arrow",
+        "width": 3,
+        "repeatU": 1.5,
+        "animateU": -0.5,
+        "color": "#6496e1",
+        "height": 1,
+        "fontSize": 20,
+        "outlineSize": 1
+      },
+      {
+        "key": "2N05_ButterflyValveFlow",
+        "longitude": -153.2,
+        "latitude": 14,
+        "radius": 6,
+        "scale": 0.5,
+        "alignment": [
+          0,
+          0,
+          -90
+        ],
+        "text": "From Cooling Towers",
+        "type": "arrow",
+        "width": 3,
+        "repeatU": 1.5,
+        "animateU": -0.5,
+        "color": "#6496e1",
+        "height": 1,
+        "fontSize": 12,
+        "outlineSize": 1
+      }
+    ]
   },
   "2S03_12": {
     "label": "",
