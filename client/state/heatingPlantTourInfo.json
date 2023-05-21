@@ -76,16 +76,6 @@
         "scale": 1,
         "type": "zoom",
         "modal": true
-      },
-      {
-        "id": "1S01_TestFlow",
-        "title": "Show Flow",
-        "longitude": 0,
-        "latitude": 0,
-        "radius": 6,
-        "scale": 1,
-        "type": "flow",
-        "modal": true
       }
     ],
     "mapInfo": {
@@ -125,32 +115,7 @@
       }
     ],
     "key": "1S01_22",
-    "flowItems": [
-      {
-        "key": "testFlow",
-        "longitude": 0,
-        "latitude": 0,
-        "radius": 6,
-        "scale": 1,
-        "alignment": [
-          0,
-          0,
-          0
-        ],
-        "type": "arrow",
-        "height": 0.5,
-        "text": "Mein Gott",
-        "color": "#99ffad",
-        "repeatV": 1,
-        "repeatU": 3,
-        "animateU": 0,
-        "width": 4,
-        "fontSize": 12,
-        "textColor": "#000000",
-        "textOutlineColor": "#ffffff",
-        "outlineSize": 0.5
-      }
-    ]
+    "flowItems": []
   },
   "1S01_10": {
     "label": "Boiler 1 Front",
@@ -1656,6 +1621,16 @@
         "scale": 0.6,
         "type": "placard",
         "modal": true
+      },
+      {
+        "id": "1S03_CombustionAirDuctFlow",
+        "title": "Combustion Air Duct Flow",
+        "longitude": -181.3,
+        "latitude": -3.2,
+        "radius": 8,
+        "scale": 1,
+        "type": "flow",
+        "modal": true
       }
     ],
     "mapInfo": {
@@ -1680,7 +1655,43 @@
         "shift": 1.1
       }
     ],
-    "key": "1S03_02"
+    "key": "1S03_02",
+    "flowItems": [
+      {
+        "key": "LeftFlow",
+        "longitude": -146.1,
+        "latitude": 5,
+        "radius": 6,
+        "scale": 0.5,
+        "alignment": [
+          0,
+          0,
+          90
+        ],
+        "type": "arrow",
+        "width": 6,
+        "repeatU": 3,
+        "color": "#6496e1",
+        "animateU": -0.5
+      },
+      {
+        "key": "RightFlow",
+        "longitude": 137,
+        "latitude": 4.7,
+        "radius": 6,
+        "scale": 0.5,
+        "alignment": [
+          0,
+          0,
+          90
+        ],
+        "width": 6,
+        "type": "arrow",
+        "color": "#6496e1",
+        "repeatU": 3,
+        "animateU": -0.5
+      }
+    ]
   },
   "1N02_11": {
     "label": "Boiler 2 Back",
@@ -1910,6 +1921,66 @@
         "latitude": -10,
         "scale": 0.4,
         "priority": 0
+      },
+      {
+        "id": "1W01_ResinTank",
+        "title": "Resin Tank",
+        "longitude": -34.4,
+        "latitude": -5.9,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1W01_BrineTank",
+        "title": "Brine Tank",
+        "longitude": -12,
+        "latitude": -14.5,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1W01_BrineTank",
+        "title": "Brine Tank",
+        "longitude": -56.8,
+        "latitude": -7,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1Boiler Water Testing StationW02_BoilerWaterTesting",
+        "title": "Boiler Water Testing Station",
+        "longitude": 161.1,
+        "latitude": 15.4,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1W02_ChemicalsBoilerWater",
+        "title": "Chemicals for Boiler Water Treatment",
+        "longitude": 105,
+        "latitude": -8.2,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1W01_SoftenerSalf",
+        "title": "Softener Salt",
+        "longitude": -104.1,
+        "latitude": -9.5,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
       }
     ],
     "mapInfo": {
@@ -1957,6 +2028,86 @@
         "latitude": -5,
         "scale": 0.4,
         "priority": 0
+      },
+      {
+        "id": "1W01_ResinTank",
+        "title": "Resin Tank",
+        "longitude": 54.6,
+        "latitude": -2.4,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1W01_BrineTank",
+        "title": "Brine Tank",
+        "longitude": 30.4,
+        "latitude": -13.2,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1W01_BrineTank",
+        "title": "Brine Tank",
+        "longitude": 65.2,
+        "latitude": -9.5,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1W01_ReverseOsmosis",
+        "title": "Reverse Osmosis Systems",
+        "longitude": -37,
+        "latitude": 0,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1W01_ResinTank",
+        "title": "Resin Tank",
+        "longitude": -14.5,
+        "latitude": 0,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1W01_SoftenerSalt",
+        "title": "Softener Salt",
+        "longitude": -136.5,
+        "latitude": -20.7,
+        "radius": 8,
+        "scale": 0.6,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1W02_ChemicalsBoilerWater",
+        "title": "Chemicals for Boiler Water Treatment",
+        "longitude": 97.6,
+        "latitude": -3.2,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "1W02_BoilerWaterTesting",
+        "title": "Boiler Water Testing Station",
+        "longitude": 112.9,
+        "latitude": 5.5,
+        "radius": 10,
+        "scale": 0.5,
+        "type": "placard",
+        "modal": true
       }
     ],
     "mapInfo": {
@@ -3033,6 +3184,16 @@
         "scale": 0.6,
         "type": "placard",
         "modal": true
+      },
+      {
+        "id": "LS05_BlowerFan4Flow",
+        "title": "Blower Fan #4",
+        "longitude": -95.4,
+        "latitude": 14.2,
+        "radius": 8,
+        "scale": 1,
+        "type": "flow",
+        "modal": true
       }
     ],
     "mapInfo": {
@@ -3065,7 +3226,51 @@
         "distance": 20
       }
     ],
-    "key": "LS05_12"
+    "key": "LS05_12",
+    "flowItems": [
+      {
+        "key": "ToBoiler4",
+        "longitude": -72.4,
+        "latitude": 9.5,
+        "radius": 6,
+        "scale": 0.5,
+        "alignment": [
+          0,
+          0,
+          90
+        ],
+        "text": "Air to Boiler 4",
+        "type": "arrow",
+        "width": 4,
+        "repeatU": 2,
+        "animateU": -0.5,
+        "outlineSize": 1,
+        "color": "#6496e1",
+        "height": 1,
+        "fontSize": 20
+      },
+      {
+        "key": "OutdoorAirIntake",
+        "longitude": -108.1,
+        "latitude": 13,
+        "radius": 6,
+        "scale": 0.5,
+        "alignment": [
+          0,
+          0,
+          27.3
+        ],
+        "text": "Outdoor Air Intake",
+        "type": "arrow",
+        "width": -12,
+        "height": 1.2,
+        "color": "#6496e1",
+        "outlineSize": 1,
+        "fontSize": 40,
+        "repeatU": 5,
+        "animateU": -0.5
+      }
+    ]
   },
   "LS05_10b": {
     "label": "",
@@ -3422,6 +3627,16 @@
         "scale": 0.5,
         "type": "placard",
         "modal": true
+      },
+      {
+        "id": "1S05_Flow",
+        "title": "Chillers",
+        "longitude": -91.6,
+        "latitude": -4.5,
+        "radius": 8,
+        "scale": 1,
+        "type": "flow",
+        "modal": true
       }
     ],
     "mapInfo": {
@@ -3467,7 +3682,93 @@
         "distance": 7.5
       }
     ],
-    "key": "1S05_00"
+    "key": "1S05_00",
+    "flowItems": [
+      {
+        "key": "LeavingChilledWaterFlow",
+        "longitude": -85,
+        "latitude": 8,
+        "radius": 12,
+        "scale": 1,
+        "alignment": [
+          0,
+          0,
+          90
+        ],
+        "type": "arrow",
+        "width": -3,
+        "height": 0.5,
+        "color": "#6496e1",
+        "outlineSize": 1,
+        "repeatU": 3,
+        "animateU": -0.5,
+        "text": "Leaving Chilled Water",
+        "fontSize": 12
+      },
+      {
+        "key": "ReturnChilledWaterFlow",
+        "longitude": -84.3,
+        "latitude": -9.5,
+        "radius": 12,
+        "scale": 1,
+        "alignment": [
+          0,
+          0,
+          90
+        ],
+        "type": "arrow",
+        "width": 2,
+        "height": 0.5,
+        "repeatU": 2,
+        "color": "#6496e1",
+        "animateU": -0.5,
+        "text": "Return Chilled Water",
+        "fontSize": 10,
+        "outlineSize": 1
+      },
+      {
+        "key": "ReturnCondenserWaterFlow",
+        "longitude": -89.2,
+        "latitude": 16.7,
+        "radius": 12,
+        "scale": 1,
+        "alignment": [
+          0,
+          0,
+          90
+        ],
+        "type": "arrow",
+        "width": -3,
+        "height": 0.5,
+        "repeatU": 3,
+        "animateU": -0.5,
+        "color": "#6496e1",
+        "text": "Return Condenser Water",
+        "outlineSize": 1,
+        "fontSize": 12
+      },
+      {
+        "key": "LeavingCondenserWaterFlow",
+        "longitude": -99,
+        "latitude": 17.3,
+        "radius": 12,
+        "scale": 1,
+        "alignment": [
+          0,
+          0,
+          -12
+        ],
+        "type": "arrow",
+        "height": 0.5,
+        "width": -2.5,
+        "animateU": -0.5,
+        "color": "#e13232",
+        "text": "Leaving Condenser Water",
+        "fontSize": 9,
+        "outlineSize": 1,
+        "repeatU": 2.5
+      }
+    ]
   },
   "1S05_11": {
     "label": "",
@@ -3594,6 +3895,16 @@
         "scale": 0.6,
         "type": "placard",
         "modal": true
+      },
+      {
+        "id": "1S05_Flow2",
+        "title": "Chillers",
+        "longitude": -92.9,
+        "latitude": -9.5,
+        "radius": 8,
+        "scale": 1,
+        "type": "flow",
+        "modal": true
       }
     ],
     "mapInfo": {
@@ -3625,7 +3936,72 @@
         "shift": -1.5
       }
     ],
-    "key": "1S05_11"
+    "key": "1S05_11",
+    "flowItems": [
+      {
+        "key": "LeavingChilledWaterFlow1",
+        "longitude": -79.6,
+        "latitude": 14,
+        "radius": 12,
+        "scale": 1,
+        "alignment": [
+          0,
+          0,
+          90
+        ],
+        "type": "arrow",
+        "width": -6,
+        "height": 1,
+        "repeatU": 3,
+        "text": "Leaving Chilled Water",
+        "fontSize": 20,
+        "outlineSize": 1,
+        "color": "#6496e1",
+        "animateU": -0.5
+      },
+      {
+        "key": "ReturnChilledWaterFlow1",
+        "longitude": -78.4,
+        "latitude": -17.8,
+        "radius": 12,
+        "scale": 1,
+        "alignment": [
+          0,
+          0,
+          90
+        ],
+        "text": "Return Chilled Water",
+        "type": "arrow",
+        "width": 4,
+        "color": "#6496e1",
+        "outlineSize": 1,
+        "height": 1,
+        "fontSize": 16,
+        "repeatU": 2,
+        "animateU": -0.5
+      },
+      {
+        "key": "ReturnCondenserWaterFlow1",
+        "longitude": -89.2,
+        "latitude": 56.5,
+        "radius": 12,
+        "scale": 1,
+        "alignment": [
+          0,
+          0,
+          90
+        ],
+        "text": "Return Condenser Water",
+        "type": "arrow",
+        "width": -6,
+        "height": 1,
+        "outlineSize": 1,
+        "fontSize": 20,
+        "animateU": -0.5,
+        "repeatU": 3,
+        "color": "#6496e1"
+      }
+    ]
   },
   "1N05_21": {
     "label": "",
@@ -3863,6 +4239,16 @@
         "scale": 0.5,
         "type": "placard",
         "modal": true
+      },
+      {
+        "id": "1N05_ChillersFlow",
+        "title": "Chillers",
+        "longitude": -90.4,
+        "latitude": 0,
+        "radius": 8,
+        "scale": 1,
+        "type": "flow",
+        "modal": true
       }
     ],
     "mapInfo": {
@@ -3901,7 +4287,92 @@
         "shift": -0.5
       }
     ],
-    "key": "1N05_10"
+    "key": "1N05_10",
+    "flowItems": [
+      {
+        "key": "LeavingCondenserWaterFlow2",
+        "longitude": -105.7,
+        "latitude": 32.1,
+        "radius": 18,
+        "scale": 1,
+        "alignment": [
+          0,
+          0,
+          -67.7
+        ],
+        "text": "Leaving Condenser Water",
+        "type": "arrow",
+        "width": -2,
+        "height": 1,
+        "animateU": -0.5,
+        "color": "#e13232",
+        "fontSize": 12,
+        "outlineSize": 1
+      },
+      {
+        "key": "ReturnCondenserWaterFlow2",
+        "longitude": -110.4,
+        "latitude": 14.3,
+        "radius": 16,
+        "scale": 1,
+        "alignment": [
+          0,
+          0,
+          81.9
+        ],
+        "text": "Return Condenser Water",
+        "color": "#6496e1",
+        "height": 1,
+        "type": "arrow",
+        "width": -4,
+        "fontSize": 14,
+        "outlineSize": 1,
+        "animateU": -0.5,
+        "repeatU": 2
+      },
+      {
+        "key": "LeavingChilledWaterFlow2",
+        "longitude": -81,
+        "latitude": 8,
+        "radius": 10,
+        "scale": 1,
+        "alignment": [
+          0,
+          0,
+          90
+        ],
+        "text": "Leaving Chilled Water",
+        "type": "arrow",
+        "width": -8,
+        "fontSize": 20,
+        "height": 1,
+        "outlineSize": 1,
+        "color": "#6496e1",
+        "repeatU": 4,
+        "animateU": -0.5
+      },
+      {
+        "key": "ReturnChilledWaterFlow2",
+        "longitude": -86.5,
+        "latitude": -12,
+        "radius": 20,
+        "scale": 1,
+        "alignment": [
+          0,
+          0,
+          90
+        ],
+        "text": "Return Chilled Water",
+        "type": "arrow",
+        "width": 3,
+        "height": 1,
+        "repeatU": 1.5,
+        "color": "#6496e1",
+        "fontSize": 16,
+        "outlineSize": 1,
+        "animateU": -0.5
+      }
+    ]
   },
   "1N05_11": {
     "label": "",
@@ -4000,6 +4471,16 @@
         "scale": 0.6,
         "type": "placard",
         "modal": true
+      },
+      {
+        "id": "1N05_ChillersFlow1",
+        "title": "Chillers",
+        "longitude": -94.1,
+        "latitude": -3.2,
+        "radius": 8,
+        "scale": 1,
+        "type": "flow",
+        "modal": true
       }
     ],
     "mapInfo": {
@@ -4031,7 +4512,93 @@
         ]
       }
     ],
-    "key": "1N05_11"
+    "key": "1N05_11",
+    "flowItems": [
+      {
+        "key": "LeavingCondenerWaterFlow3",
+        "longitude": -120.3,
+        "latitude": 45.1,
+        "radius": 12,
+        "scale": 1,
+        "alignment": [
+          0,
+          0,
+          -72.4
+        ],
+        "text": "Leaving Condenser Water",
+        "type": "arrow",
+        "width": -4,
+        "height": 1,
+        "outlineSize": 1,
+        "fontSize": 12,
+        "color": "#e13232",
+        "repeatU": 2,
+        "animateU": -0.5
+      },
+      {
+        "key": "ReturnCondenserWaterFlow3",
+        "longitude": -138.9,
+        "latitude": 21.4,
+        "radius": 12,
+        "scale": 1,
+        "alignment": [
+          0,
+          0,
+          60
+        ],
+        "text": "Return Condenser Water",
+        "type": "arrow",
+        "width": -7,
+        "repeatU": 3.5,
+        "outlineSize": 1,
+        "height": 1,
+        "color": "#6496e1",
+        "fontSize": 22,
+        "animateU": -0.5
+      },
+      {
+        "key": "LeavingChilledWaterFlow3",
+        "longitude": -49.3,
+        "latitude": 0,
+        "radius": 6,
+        "scale": 1,
+        "alignment": [
+          0,
+          0,
+          90
+        ],
+        "text": "Leaving Chilled Water",
+        "type": "arrow",
+        "width": -30,
+        "height": 3,
+        "repeatU": 5,
+        "color": "#6496e1",
+        "outlineSize": 1,
+        "fontSize": 15,
+        "animateU": -0.5
+      },
+      {
+        "key": "ReturnChilledWaterFlow3",
+        "longitude": -78.8,
+        "latitude": -16.9,
+        "radius": 10,
+        "scale": 1,
+        "alignment": [
+          0,
+          0,
+          90
+        ],
+        "text": "Return Chilled Water",
+        "type": "arrow",
+        "width": -4,
+        "color": "#6496e1",
+        "height": 1,
+        "fontSize": 14,
+        "outlineSize": 1,
+        "repeatU": 2,
+        "animateU": -0.5
+      }
+    ]
   },
   "1N05_01": {
     "label": "",
@@ -6600,6 +7167,16 @@
         "scale": 0.5,
         "type": "placard",
         "modal": true
+      },
+      {
+        "id": "LS02_BlowerFan2Flow",
+        "title": "Blower Fan #2",
+        "longitude": 96.4,
+        "latitude": 12.9,
+        "radius": 8,
+        "scale": 1,
+        "type": "flow",
+        "modal": true
       }
     ],
     "mapInfo": {
@@ -6632,7 +7209,30 @@
         "distance": 16
       }
     ],
-    "key": "LS02_01"
+    "key": "LS02_01",
+    "flowItems": [
+      {
+        "key": "ToBoiler2",
+        "longitude": 101,
+        "latitude": 13,
+        "radius": 6,
+        "scale": 0.5,
+        "alignment": [
+          0,
+          0,
+          90
+        ],
+        "text": "Air to Boiler 2",
+        "type": "arrow",
+        "width": 4,
+        "color": "#6496e1",
+        "fontSize": 22,
+        "height": 1,
+        "outlineSize": 1,
+        "animateU": -0.5,
+        "repeatU": 2
+      }
+    ]
   },
   "LS03_02": {
     "label": "",
@@ -6660,6 +7260,16 @@
         "radius": 8,
         "scale": 0.6,
         "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "LS03_BlowerFan3Flow",
+        "title": "Blower Fan #3",
+        "longitude": -66.5,
+        "latitude": 8.3,
+        "radius": 8,
+        "scale": 1,
+        "type": "flow",
         "modal": true
       }
     ],
@@ -6691,7 +7301,30 @@
         "shift": -1
       }
     ],
-    "key": "LS03_02"
+    "key": "LS03_02",
+    "flowItems": [
+      {
+        "key": "ToBoiler3",
+        "longitude": -68.9,
+        "latitude": 15.4,
+        "radius": 6,
+        "scale": 0.5,
+        "alignment": [
+          0,
+          0,
+          90
+        ],
+        "text": "Air to Boiler 3",
+        "type": "arrow",
+        "width": 6,
+        "height": 1,
+        "fontSize": 30,
+        "outlineSize": 1,
+        "color": "#6496e1",
+        "repeatU": 3,
+        "animateU": -0.5
+      }
+    ]
   },
   "LN01_10": {
     "label": "",
@@ -7053,6 +7686,16 @@
         "scale": 1,
         "type": "zoom",
         "modal": true
+      },
+      {
+        "id": "LIB_AHUFlow",
+        "title": "Air Handling Unit",
+        "longitude": 0.5,
+        "latitude": 10,
+        "radius": 8,
+        "scale": 1,
+        "type": "flow",
+        "modal": true
       }
     ],
     "mapInfo": {
@@ -7075,7 +7718,115 @@
         "height": -4,
         "distance": 6
       }
-    ]
+    ],
+    "flowItems": [
+      {
+        "key": "ChilledWaterReturnFlow",
+        "longitude": 35.4,
+        "latitude": 11.9,
+        "radius": 13,
+        "scale": 1,
+        "alignment": [
+          0,
+          0,
+          90
+        ],
+        "text": "Chilled Water Return",
+        "type": "arrow",
+        "width": 8,
+        "repeatU": 4,
+        "color": "#6496e1",
+        "height": 1,
+        "outlineSize": 1,
+        "fontSize": 24,
+        "animateU": -0.5
+      },
+      {
+        "key": "ChilledWaterSupplyFlow",
+        "longitude": 23.3,
+        "latitude": 0,
+        "radius": 20,
+        "scale": 1,
+        "alignment": [
+          0,
+          0,
+          90
+        ],
+        "text": "Chilled Water Supply",
+        "type": "arrow",
+        "width": -14,
+        "animateU": -0.5,
+        "repeatU": 7,
+        "color": "#6496e1",
+        "height": 1,
+        "fontSize": 30,
+        "outlineSize": 1
+      },
+      {
+        "key": "WarmAirReturnFlow",
+        "longitude": 67.7,
+        "latitude": 27.9,
+        "radius": 14,
+        "scale": 1,
+        "alignment": [
+          0,
+          0,
+          51.1
+        ],
+        "text": "Warm Air Return",
+        "type": "arrow",
+        "color": "#e13232",
+        "width": -3,
+        "repeatU": 1.5,
+        "height": 1,
+        "fontSize": 16,
+        "outlineSize": 1,
+        "animateU": -0.5
+      },
+      {
+        "key": "ColdAirSupplyFlow",
+        "longitude": -41.5,
+        "latitude": 15.4,
+        "radius": 12,
+        "scale": 1,
+        "alignment": [
+          0,
+          0,
+          -12
+        ],
+        "text": "Cold Air Supply",
+        "type": "arrow",
+        "color": "#6496e1",
+        "width": 8,
+        "repeatU": 4,
+        "outlineSize": 1,
+        "animateU": -0.5,
+        "height": 1,
+        "fontSize": 26
+      },
+      {
+        "key": "CondensateReturnFlow",
+        "longitude": -15.6,
+        "latitude": 0,
+        "radius": 20,
+        "scale": 1,
+        "alignment": [
+          0,
+          0,
+          91
+        ],
+        "text": "Condensate Return",
+        "type": "arrow",
+        "width": -12,
+        "color": "#e164e1",
+        "height": 1,
+        "outlineSize": 1,
+        "fontSize": 30,
+        "repeatU": 6,
+        "animateU": -0.5
+      }
+    ],
+    "key": "LIB_NW"
   },
   "LIB_NE": {
     "label": "Library AHU: North 2",
