@@ -5382,6 +5382,16 @@
         "scale": 0.6,
         "type": "placard",
         "modal": true
+      },
+      {
+        "id": "2S02_SteamFlow",
+        "title": "Steam",
+        "longitude": 115,
+        "latitude": 14.3,
+        "radius": 8,
+        "scale": 1,
+        "type": "flow",
+        "modal": true
       }
     ],
     "mapInfo": {
@@ -5432,7 +5442,72 @@
         ]
       }
     ],
-    "key": "2S02_12"
+    "key": "2S02_12",
+    "flowItems": [
+      {
+        "key": "SteamFlow",
+        "longitude": 115,
+        "latitude": 15,
+        "radius": 8,
+        "scale": 1,
+        "alignment": [
+          0,
+          0,
+          90
+        ],
+        "text": "Steam from Boiler 1",
+        "type": "arrow",
+        "width": -5,
+        "height": 1,
+        "outlineSize": 1,
+        "fontSize": 18,
+        "color": "#e13232",
+        "repeatU": 2.5,
+        "animateU": -0.5
+      },
+      {
+        "key": "Leaving Steam",
+        "longitude": -140.1,
+        "latitude": -15.4,
+        "radius": 20,
+        "scale": 1,
+        "alignment": [
+          0,
+          0,
+          -12
+        ],
+        "text": "Steam Leaving Plant via Main Header",
+        "type": "arrow",
+        "width": -25,
+        "repeatU": 12.5,
+        "color": "#e1323c",
+        "height": 1,
+        "outlineSize": 2,
+        "animateU": -0.5,
+        "fontSize": 40
+      },
+      {
+        "key": "MHFlow",
+        "longitude": 111.3,
+        "latitude": -26.9,
+        "radius": 12,
+        "scale": 1,
+        "alignment": [
+          0,
+          0,
+          51.1
+        ],
+        "text": "Main Header",
+        "type": "arrow",
+        "width": -6,
+        "color": "#e13232",
+        "outlineSize": 1.5,
+        "height": 1,
+        "fontSize": 30,
+        "animateU": -0.5,
+        "repeatU": 3
+      }
+    ]
   },
   "2S02_10": {
     "label": "",
@@ -5481,6 +5556,16 @@
         "scale": 0.5,
         "type": "placard",
         "modal": true
+      },
+      {
+        "id": "2S02_SteamFlowA",
+        "title": "Steam",
+        "longitude": 159.8,
+        "latitude": 0,
+        "radius": 8,
+        "scale": 1,
+        "type": "flow",
+        "modal": true
       }
     ],
     "mapInfo": {
@@ -5515,7 +5600,126 @@
         "distance": 9
       }
     ],
-    "key": "2S02_10"
+    "key": "2S02_10",
+    "flowItems": [
+      {
+        "key": "SteamFlowA",
+        "longitude": -178.1,
+        "latitude": 14.3,
+        "radius": 6,
+        "scale": 1,
+        "alignment": [
+          0,
+          0,
+          -15
+        ],
+        "text": "",
+        "type": "arrow",
+        "width": 5,
+        "height": 1,
+        "fontSize": 20,
+        "color": "#e13232",
+        "repeatU": 3,
+        "animateU": -0.5
+      },
+      {
+        "key": "SteamFlowB",
+        "longitude": -148.4,
+        "latitude": -15.4,
+        "radius": 6,
+        "scale": 1,
+        "alignment": [
+          0,
+          0,
+          90
+        ],
+        "color": "#e13232",
+        "type": "arrow",
+        "width": 6,
+        "repeatU": 3,
+        "animateU": -0.5
+      },
+      {
+        "key": "SteamFlowC",
+        "longitude": 159.8,
+        "latitude": -18,
+        "radius": 6,
+        "scale": 1,
+        "alignment": [
+          0,
+          0,
+          90
+        ],
+        "type": "arrow",
+        "width": -4,
+        "repeatU": 2,
+        "color": "#e13232",
+        "animateU": -0.5
+      },
+      {
+        "key": "SteamFlowD",
+        "longitude": 130,
+        "latitude": 0,
+        "radius": 6,
+        "scale": 1,
+        "alignment": [
+          0,
+          0,
+          90
+        ],
+        "text": "Steam from Boiler 2",
+        "type": "arrow",
+        "width": -8,
+        "color": "#e13232",
+        "repeatU": 3,
+        "outlineSize": 1,
+        "height": 1,
+        "fontSize": 20,
+        "animateU": -0.5
+      },
+      {
+        "key": "SteamFlowE",
+        "longitude": 108,
+        "latitude": 2,
+        "radius": 9,
+        "scale": 1,
+        "alignment": [
+          0,
+          0,
+          90
+        ],
+        "text": "Steam from Boiler 3",
+        "type": "arrow",
+        "width": -6,
+        "repeatU": 3,
+        "animateU": -0.5,
+        "outlineSize": 1,
+        "fontSize": 20,
+        "height": 1,
+        "color": "#e13232"
+      },
+      {
+        "key": "MHFlow1",
+        "longitude": 152.4,
+        "latitude": -50.6,
+        "radius": 12,
+        "scale": 1,
+        "alignment": [
+          0,
+          0,
+          21.7
+        ],
+        "text": "Main Header",
+        "height": 1,
+        "type": "arrow",
+        "width": -40,
+        "repeatU": 20,
+        "animateU": -0.5,
+        "color": "#e13232",
+        "outlineSize": 1.5,
+        "fontSize": 40
+      }
+    ]
   },
   "2S03_02": {
     "label": "",
@@ -5563,6 +5767,16 @@
         "radius": 10,
         "scale": 0.5,
         "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "2S03_SteamFlow",
+        "title": "Steam",
+        "longitude": 0,
+        "latitude": 16.7,
+        "radius": 8,
+        "scale": 1,
+        "type": "flow",
         "modal": true
       }
     ],
@@ -5620,7 +5834,51 @@
         ]
       }
     ],
-    "key": "2S03_02"
+    "key": "2S03_02",
+    "flowItems": [
+      {
+        "key": "Boiler3SteamFlow",
+        "longitude": 95,
+        "latitude": 52.5,
+        "radius": 6,
+        "scale": 1,
+        "alignment": [
+          0,
+          0,
+          3.6
+        ],
+        "type": "arrow",
+        "text": "Steam from Boiler 3",
+        "width": -15,
+        "color": "#e13232",
+        "height": 1,
+        "outlineSize": 1,
+        "fontSize": 30,
+        "repeatU": 7.5,
+        "animateU": -0.5
+      },
+      {
+        "key": "Boiler2SteamFlow",
+        "longitude": -87,
+        "latitude": 52.5,
+        "radius": 6,
+        "scale": 1,
+        "alignment": [
+          0,
+          0,
+          2
+        ],
+        "text": "Steam from Boiler 2",
+        "width": 15,
+        "type": "arrow",
+        "color": "#e13232",
+        "height": 1,
+        "outlineSize": 1,
+        "fontSize": 30,
+        "repeatU": 7.5,
+        "animateU": -0.5
+      }
+    ]
   },
   "2N03_22": {
     "label": "",
@@ -5648,6 +5906,16 @@
         "radius": 8,
         "scale": 0.6,
         "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "2N03_SteamFlow",
+        "title": "Steam",
+        "longitude": -180,
+        "latitude": 12,
+        "radius": 8,
+        "scale": 1,
+        "type": "flow",
         "modal": true
       }
     ],
@@ -5705,7 +5973,51 @@
         "distance": 18
       }
     ],
-    "key": "2N03_22"
+    "key": "2N03_22",
+    "flowItems": [
+      {
+        "key": "Boiler2SteamFlow1",
+        "longitude": -159.1,
+        "latitude": 24,
+        "radius": 12,
+        "scale": 1,
+        "alignment": [
+          0,
+          0,
+          -49.9
+        ],
+        "text": "Steam from Boiler 2",
+        "type": "arrow",
+        "width": 6,
+        "repeatU": 3,
+        "height": 1,
+        "fontSize": 22,
+        "outlineSize": 1,
+        "color": "#e13232",
+        "animateU": -0.5
+      },
+      {
+        "key": "Boiler3SteamFlow1",
+        "longitude": 162.7,
+        "latitude": 20.2,
+        "radius": 12,
+        "scale": 1,
+        "alignment": [
+          0,
+          0,
+          48
+        ],
+        "text": "Steam from Boiler 3",
+        "type": "arrow",
+        "width": -6,
+        "color": "#e13232",
+        "repeatU": 3,
+        "animateU": -0.5,
+        "outlineSize": 1,
+        "height": 1,
+        "fontSize": 22
+      }
+    ]
   },
   "2N03_21": {
     "label": "",
@@ -5962,6 +6274,16 @@
         "scale": 0.6,
         "type": "placard",
         "modal": true
+      },
+      {
+        "id": "2S03_FreshAirFlow",
+        "title": "Fresh Air and Steam",
+        "longitude": -104.5,
+        "latitude": 32.1,
+        "radius": 8,
+        "scale": 1,
+        "type": "flow",
+        "modal": true
       }
     ],
     "mapInfo": {
@@ -5997,7 +6319,93 @@
         "shift": 0
       }
     ],
-    "key": "2S03_10"
+    "key": "2S03_10",
+    "flowItems": [
+      {
+        "key": "FreshAirFlow",
+        "longitude": -81.9,
+        "latitude": 48.7,
+        "radius": 6,
+        "scale": 1,
+        "alignment": [
+          0,
+          0,
+          0
+        ],
+        "text": "Fresh Air",
+        "type": "arrow",
+        "width": -6,
+        "height": 1,
+        "repeatU": 3,
+        "outlineSize": 1,
+        "fontSize": 30,
+        "color": "#6496e1",
+        "animateU": -0.5
+      },
+      {
+        "key": "FreshAirFlow2",
+        "longitude": -5.9,
+        "latitude": 45.1,
+        "radius": 6,
+        "scale": 1,
+        "alignment": [
+          0,
+          0,
+          7
+        ],
+        "text": "Fresh Air",
+        "width": -6,
+        "type": "arrow",
+        "color": "#6496e1",
+        "height": 1,
+        "repeatU": 3,
+        "outlineSize": 1,
+        "fontSize": 30,
+        "animateU": -0.5
+      },
+      {
+        "key": "FreshAirFlow3",
+        "longitude": 31.6,
+        "latitude": -0.8,
+        "radius": 6,
+        "scale": 1,
+        "alignment": [
+          0,
+          0,
+          90
+        ],
+        "text": "Fresh Air",
+        "type": "arrow",
+        "width": -8,
+        "repeatU": 4,
+        "height": 1,
+        "fontSize": 30,
+        "outlineSize": 1,
+        "color": "#6496e1",
+        "animateU": -0.5
+      },
+      {
+        "key": "MH3",
+        "longitude": -155.1,
+        "latitude": -50.6,
+        "radius": 12,
+        "scale": 1,
+        "alignment": [
+          0,
+          0,
+          -19.4
+        ],
+        "text": "Main Header",
+        "type": "arrow",
+        "width": -40,
+        "color": "#e13232",
+        "repeatU": 20,
+        "height": 1,
+        "outlineSize": 1.5,
+        "fontSize": 40,
+        "animateU": -0.5
+      }
+    ]
   },
   "2S04_12": {
     "label": "",
@@ -6015,6 +6423,16 @@
         "radius": 8,
         "scale": 0.6,
         "type": "placard",
+        "modal": true
+      },
+      {
+        "id": "2S04_FreshAirFlow",
+        "title": "Fresh Air and Steam",
+        "longitude": -92.6,
+        "latitude": 9.5,
+        "radius": 8,
+        "scale": 1,
+        "type": "flow",
         "modal": true
       }
     ],
@@ -6042,7 +6460,72 @@
         "height": -4
       }
     ],
-    "key": "2S04_12"
+    "key": "2S04_12",
+    "flowItems": [
+      {
+        "key": "FreshAirFlow1",
+        "longitude": -90.2,
+        "latitude": 9.5,
+        "radius": 16,
+        "scale": 1,
+        "alignment": [
+          0,
+          0,
+          -7.1
+        ],
+        "text": "Fresh Air",
+        "type": "arrow",
+        "width": -6,
+        "repeatU": 3,
+        "outlineSize": 1.5,
+        "height": 1,
+        "fontSize": 40,
+        "color": "#6496e1",
+        "animateU": -0.5
+      },
+      {
+        "key": "MH4",
+        "longitude": -62.9,
+        "latitude": 41.6,
+        "radius": 6,
+        "scale": 1,
+        "alignment": [
+          0,
+          -12,
+          20.2
+        ],
+        "text": "Main Header",
+        "type": "arrow",
+        "width": 15,
+        "repeatU": 7.5,
+        "outlineSize": 1,
+        "height": 1,
+        "fontSize": 30,
+        "color": "#e13232",
+        "animateU": -0.5
+      },
+      {
+        "key": "MH5",
+        "longitude": -142.7,
+        "latitude": -4.5,
+        "radius": 6,
+        "scale": 1,
+        "alignment": [
+          0,
+          0,
+          90
+        ],
+        "text": "Main Header",
+        "type": "arrow",
+        "height": 1,
+        "width": -8,
+        "repeatU": 4,
+        "outlineSize": 1,
+        "fontSize": 30,
+        "animateU": -0.5,
+        "color": "#e13232"
+      }
+    ]
   },
   "2N04_22": {
     "label": "",
@@ -6091,7 +6574,8 @@
         ]
       }
     ],
-    "key": "2N04_22"
+    "key": "2N04_22",
+    "flowItems": []
   },
   "2N04_21": {
     "label": "",
@@ -6720,6 +7204,16 @@
         "scale": 0.6,
         "type": "placard",
         "modal": true
+      },
+      {
+        "id": "2S03_SteamFlow",
+        "title": "Steam",
+        "longitude": -115.3,
+        "latitude": -20.7,
+        "radius": 8,
+        "scale": 1,
+        "type": "flow",
+        "modal": true
       }
     ],
     "mapInfo": {
@@ -6759,7 +7253,72 @@
         "distance": 8
       }
     ],
-    "key": "2S03_12"
+    "key": "2S03_12",
+    "flowItems": [
+      {
+        "key": "Boiler2SteamFlowF",
+        "longitude": -108.1,
+        "latitude": 0,
+        "radius": 9,
+        "scale": 1,
+        "alignment": [
+          0,
+          0,
+          90
+        ],
+        "text": "Steam from Boiler 2",
+        "type": "arrow",
+        "width": -5,
+        "height": 1,
+        "repeatU": 2.5,
+        "fontSize": 20,
+        "outlineSize": 1,
+        "animateU": -0.5,
+        "color": "#e1323c"
+      },
+      {
+        "key": "Boiler3SteamFlowG",
+        "longitude": -127,
+        "latitude": 0,
+        "radius": 6,
+        "scale": 1,
+        "alignment": [
+          0,
+          0,
+          90
+        ],
+        "text": "Steam from Boiler 3",
+        "type": "arrow",
+        "width": -7,
+        "repeatU": 3.5,
+        "fontSize": 20,
+        "outlineSize": 1,
+        "height": 1,
+        "color": "#e13232",
+        "animateU": -0.5
+      },
+      {
+        "key": "MHFlow2",
+        "longitude": -178.8,
+        "latitude": -49.3,
+        "radius": 12,
+        "scale": 1,
+        "alignment": [
+          0,
+          0,
+          0
+        ],
+        "text": "Main Header",
+        "type": "arrow",
+        "width": -100,
+        "color": "#e13232",
+        "animateU": -0.5,
+        "repeatU": 50,
+        "outlineSize": 1.5,
+        "fontSize": 40,
+        "height": 1
+      }
+    ]
   },
   "LN03_01": {
     "label": "",
@@ -7760,7 +8319,7 @@
         "color": "#6496e1",
         "height": 1,
         "fontSize": 30,
-        "outlineSize": 1
+        "outlineSize": 1.5
       },
       {
         "key": "WarmAirReturnFlow",
@@ -7820,7 +8379,7 @@
         "width": -12,
         "color": "#e164e1",
         "height": 1,
-        "outlineSize": 1,
+        "outlineSize": 1.5,
         "fontSize": 30,
         "repeatU": 6,
         "animateU": -0.5
@@ -7945,6 +8504,16 @@
         "scale": 0.5,
         "type": "placard",
         "modal": true
+      },
+      {
+        "id": "LIB_AHUFlow1",
+        "title": "Air Handling Unit",
+        "longitude": 16.7,
+        "latitude": 4.2,
+        "radius": 8,
+        "scale": 1,
+        "type": "flow",
+        "modal": true
       }
     ],
     "mapInfo": {
@@ -8003,7 +8572,115 @@
         "distance": 5,
         "height": -3
       }
-    ]
+    ],
+    "flowItems": [
+      {
+        "key": "ColdWaterReturnFlow1",
+        "longitude": 32.5,
+        "latitude": 7,
+        "radius": 30,
+        "scale": 1,
+        "alignment": [
+          0,
+          0,
+          90
+        ],
+        "text": "Cold Water Return",
+        "type": "arrow",
+        "width": 10,
+        "repeatU": 5,
+        "outlineSize": 2,
+        "animateU": -0.5,
+        "height": 1,
+        "fontSize": 40,
+        "color": "#6496e1"
+      },
+      {
+        "key": "ColdWaterSupplyFlow1",
+        "longitude": 26.3,
+        "latitude": 0,
+        "radius": 40,
+        "scale": 1,
+        "alignment": [
+          0,
+          0,
+          90
+        ],
+        "text": "Cold Water Supply",
+        "type": "arrow",
+        "width": -14,
+        "height": 1,
+        "repeatU": 7,
+        "animateU": -0.5,
+        "fontSize": 50,
+        "outlineSize": 3,
+        "color": "#6496e1"
+      },
+      {
+        "key": "WarmAirReturnFlow1",
+        "longitude": 52,
+        "latitude": 18,
+        "radius": 25,
+        "scale": 1,
+        "alignment": [
+          0,
+          0,
+          21.4
+        ],
+        "text": "Warm Air Return",
+        "type": "arrow",
+        "width": -5,
+        "height": 1,
+        "color": "#e13232",
+        "outlineSize": 1.5,
+        "fontSize": 23,
+        "animateU": -0.5,
+        "repeatU": 2.5
+      },
+      {
+        "key": "CondensateWaterReturnFlow1",
+        "longitude": 4.7,
+        "latitude": 0,
+        "radius": 40,
+        "scale": 1,
+        "alignment": [
+          0,
+          0,
+          91
+        ],
+        "text": "Condensate Water Return",
+        "type": "arrow",
+        "width": -12,
+        "repeatU": 6,
+        "outlineSize": 2.5,
+        "fontSize": 40,
+        "color": "#e164e1",
+        "height": 1,
+        "animateU": -0.5
+      },
+      {
+        "key": "ColdAirSupplyFlow1",
+        "longitude": -23.2,
+        "latitude": 13,
+        "radius": 12,
+        "scale": 1,
+        "alignment": [
+          0,
+          0,
+          -5
+        ],
+        "text": "Cold Air Supply",
+        "type": "arrow",
+        "width": 10,
+        "height": 1,
+        "outlineSize": 1,
+        "fontSize": 30,
+        "repeatU": 5,
+        "animateU": -0.5,
+        "color": "#6496e1"
+      }
+    ],
+    "key": "LIB_NE"
   },
   "LIB_SE": {
     "label": "Library AHU: South",
@@ -8142,6 +8819,16 @@
         "scale": 1,
         "type": "zoom",
         "modal": true
+      },
+      {
+        "id": "LIB_AHUFlow2",
+        "title": "Air Handling Unit",
+        "longitude": -160,
+        "latitude": -10,
+        "radius": 8,
+        "scale": 1,
+        "type": "flow",
+        "modal": true
       }
     ],
     "mapInfo": {
@@ -8172,6 +8859,114 @@
           0
         ],
         "distance": 16
+      }
+    ],
+    "key": "LIB_SE",
+    "flowItems": [
+      {
+        "key": "ColdAirSupplyFlow2",
+        "longitude": -126,
+        "latitude": 15,
+        "radius": 12,
+        "scale": 1,
+        "alignment": [
+          0,
+          0,
+          18
+        ],
+        "text": "Cold Air Supply",
+        "type": "arrow",
+        "width": -5,
+        "height": 1,
+        "fontSize": 25,
+        "outlineSize": 1,
+        "color": "#6496e1",
+        "animateU": -0.5,
+        "repeatU": 2.5
+      },
+      {
+        "key": "CondensateReturnFlow2",
+        "longitude": -140.8,
+        "latitude": -3,
+        "radius": 30,
+        "scale": 1,
+        "alignment": [
+          0,
+          0,
+          87.9
+        ],
+        "text": "Condensate Return",
+        "type": "arrow",
+        "width": -25,
+        "height": 1,
+        "color": "#e164e1",
+        "repeatU": 12.5,
+        "fontSize": 60,
+        "outlineSize": 2.5,
+        "animateU": -0.5
+      },
+      {
+        "key": "ColdWaterSupplyFlow2",
+        "longitude": 174,
+        "latitude": 0,
+        "radius": 20,
+        "scale": 1,
+        "alignment": [
+          0,
+          0,
+          89
+        ],
+        "text": "Cold Water Supply",
+        "type": "arrow",
+        "width": -25,
+        "color": "#6496e1",
+        "outlineSize": 2,
+        "fontSize": 55,
+        "animateU": -0.5,
+        "repeatU": 12.5,
+        "height": 1
+      },
+      {
+        "key": "ColdWaterReturnFlow2",
+        "longitude": 156.3,
+        "latitude": 10,
+        "radius": 16,
+        "scale": 1,
+        "alignment": [
+          0,
+          0,
+          89
+        ],
+        "text": "Cold Water Return",
+        "type": "arrow",
+        "width": 12,
+        "height": 1,
+        "color": "#6496e1",
+        "repeatU": 6,
+        "outlineSize": 1.5,
+        "animateU": -0.5,
+        "fontSize": 40
+      },
+      {
+        "key": "WarmAirReturnFlow2",
+        "longitude": 94.1,
+        "latitude": 38,
+        "radius": 12,
+        "scale": 1,
+        "alignment": [
+          0,
+          0,
+          -83
+        ],
+        "text": "Warm Air Return",
+        "type": "arrow",
+        "width": 5,
+        "height": 1,
+        "color": "#e13232",
+        "fontSize": 23,
+        "outlineSize": 1,
+        "repeatU": 2.5,
+        "animateU": -0.5
       }
     ]
   },
