@@ -5,9 +5,9 @@ import { MathUtils } from 'three'
 
 // Object for storing Transformation data for R3F
 export class TransformData {
-  constructor ({ direction, longitude, latitude, shift, width, height, elevation, distance, radius, scale, rotation, alignment, isHotSpot }) {
+  constructor ({ longitude, latitude, shift, width, height, elevation, distance, radius, scale, rotation, alignment, isHotSpot }) {
     // Location information
-    this.longitude = longitude ?? direction ?? 0
+    this.longitude = longitude ?? 0
     this.latitude = latitude ?? 0
 
     this.shift = shift ?? 0

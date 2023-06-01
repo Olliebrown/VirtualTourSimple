@@ -29,9 +29,10 @@ export default function PanoExtras (props) {
 
   // Build the exit arrows
   const exitArrows = activeExits?.map((exit, i) => {
+    const cleanExit = { ...exit, elevation: exit.height, longitude: exit.direction, height: undefined, direction: undefined }
     return (
       <React.Suspense key={`${exit.key}-${i}`} fallback={null}>
-        <ExitIndicator {...exit} destination={exit.key} />
+        <ExitIndicator {...cleanExit} destination={exit.key} />
       </React.Suspense>
     )
   })
