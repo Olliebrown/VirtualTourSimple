@@ -49,7 +49,7 @@ const HIGHLIGHT_COLOR = 0x23A0FF
 
 export default function ExitIndicator (props) {
   // Destructure props
-  const { type, caption, shift, elevation, distance, direction, alignment, destination, ...rest } = props
+  const { type, caption, shift, elevation, distance, longitude, alignment, destination, ...rest } = props
 
   // Setup to update global state
   const setExitDirection = useSetRecoilState(exitDirectionState)
@@ -87,15 +87,15 @@ export default function ExitIndicator (props) {
   // Click callback function
   const onClick = React.useCallback(() => {
     if (enabled) {
-      setExitDirection(direction)
+      setExitDirection(longitude)
       setNextPanoKey(destination)
       setEnabled(false)
     }
-  }, [destination, direction, enabled, setExitDirection, setNextPanoKey])
+  }, [destination, longitude, enabled, setExitDirection, setNextPanoKey])
 
   // Pick the geometry and build the transform object
   const objInfo = OBJ_DATA()[type]
-  const transformData = new TransformData({ shift, elevation, distance, direction, alignment, rotation: objInfo.rotation })
+  const transformData = new TransformData({ shift, elevation, distance, longitude, alignment, rotation: objInfo.rotation })
 
   // Load the geometry and clone our own instance
   const loadedObj = useLoader(OBJLoader, objInfo.filename)
@@ -160,7 +160,7 @@ ExitIndicator.propTypes = {
   shift: PropTypes.number,
   elevation: PropTypes.number,
   distance: PropTypes.number,
-  direction: PropTypes.number,
+  longitude: PropTypes.number,
   alignment: PropTypes.arrayOf(PropTypes.number),
   destination: PropTypes.string
 }
@@ -171,7 +171,7 @@ ExitIndicator.defaultProps = {
   shift: 0,
   elevation: -2.5,
   distance: 5,
-  direction: 0,
+  longitude: 0,
   alignment: [0, 0, 0],
   destination: ''
 }
