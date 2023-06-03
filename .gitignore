@@ -8,6 +8,9 @@ public/panoMedia/audio/processing/**/*
 !public/panoMedia/audio/processing/youtubeify.sh
 !public/panoMedia/audio/processing/dummy.png
 
+# Photogrammetry files not meant for repo
+PhotogrammetryExperiment
+
 # Old or temporary files
 public/oldMedia
 public/panoMedia/audio/old
